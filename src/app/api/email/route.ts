@@ -26,7 +26,7 @@ export async function POST(req: NextRequest) {
           <div style="color:#6b7280;font-size:12px;margin-top:2px;">${p.university_name} · ${p.country}</div>
         </td>
         <td style="padding:12px 8px;text-align:center;">
-          <span style="background:${p.tier === "safe" ? "#d1fae5" : p.tier === "reach" ? "#fef3c7" : "#fee2e2"};color:${p.tier === "safe" ? "#065f46" : p.tier === "reach" ? "#92400e" : "#991b1b"};padding:3px 10px;border-radius:20px;font-size:12px;font-weight:600;">${getTierLabel(p.tier)}</span>
+          <span style="background:${p.tier === "safe" ? "#d1fae5" : p.tier === "reach" ? "#fef3c7" : "#fff7ed"};color:${p.tier === "safe" ? "#065f46" : p.tier === "reach" ? "#92400e" : "#c2410c"};padding:3px 10px;border-radius:20px;font-size:12px;font-weight:600;">${getTierLabel(p.tier)}</span>
         </td>
         <td style="padding:12px 8px;text-align:right;font-weight:700;color:#4f46e5;font-size:14px;">${p.match_score}%</td>
         <td style="padding:12px 8px;text-align:right;color:#6b7280;font-size:13px;">${formatCurrency(p.annual_tuition_usd + p.avg_living_cost_usd)}/yr</td>

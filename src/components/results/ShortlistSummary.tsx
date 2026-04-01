@@ -44,7 +44,7 @@ export default function ShortlistSummary({ programs, onRemove }: Props) {
                     ? "bg-emerald-50 text-emerald-600"
                     : p.tier === "reach"
                     ? "bg-amber-50 text-amber-600"
-                    : "bg-rose-50 text-rose-500"
+                    : "bg-orange-50 text-orange-500"
                 }`}
               >
                 {p.match_score}%

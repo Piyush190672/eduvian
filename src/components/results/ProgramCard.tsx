@@ -48,7 +48,7 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist 
       ? "text-emerald-600"
       : program.match_score >= 50
       ? "text-amber-600"
-      : "text-rose-500";
+      : "text-orange-500";
 
   return (
     <div className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden">
@@ -62,7 +62,7 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist 
                   ? "bg-emerald-50 text-emerald-600 border-2 border-emerald-200"
                   : program.match_score >= 50
                   ? "bg-amber-50 text-amber-600 border-2 border-amber-200"
-                  : "bg-rose-50 text-rose-500 border-2 border-rose-200"
+                  : "bg-orange-50 text-orange-500 border-2 border-orange-200"
               }`}
             >
               {program.match_score}

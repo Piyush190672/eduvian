@@ -104,7 +104,7 @@ function buildPDFHtml(profile: StudentProfile, programs: ScoredProgram[]): strin
   .tier-badge { padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; }
   .tier-safe { background: #d1fae5; color: #065f46; }
   .tier-reach { background: #fef3c7; color: #92400e; }
-  .tier-ambitious { background: #fee2e2; color: #991b1b; }
+  .tier-ambitious { background: #fff7ed; color: #c2410c; }
   .score { font-weight: 800; color: #4f46e5; font-size: 15px; }
   .center { text-align: center; }
   .right { text-align: right; }

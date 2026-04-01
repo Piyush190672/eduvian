@@ -236,7 +236,7 @@ export default function ResultsPage() {
           {[
             { tier: "safe", label: "Safe Match", count: safeCount, emoji: "✅", color: "bg-emerald-50 text-emerald-700 border-emerald-200" },
             { tier: "reach", label: "Reach", count: reachCount, emoji: "🎯", color: "bg-amber-50 text-amber-700 border-amber-200" },
-            { tier: "ambitious", label: "Ambitious", count: ambitiousCount, emoji: "🚀", color: "bg-rose-50 text-rose-700 border-rose-200" },
+            { tier: "ambitious", label: "Ambitious", count: ambitiousCount, emoji: "🚀", color: "bg-orange-50 text-orange-700 border-orange-200" },
           ].map((t) => (
             <button
               key={t.tier}
