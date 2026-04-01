@@ -1,0 +1,139 @@
+import { NextRequest, NextResponse } from "next/server";
+import type { ScoredProgram, StudentProfile } from "@/lib/types";
+import { formatCurrency, getTierLabel } from "@/lib/utils";
+
+export async function POST(req: NextRequest) {
+  try {
+    const body = await req.json();
+    const { token, profile, programs } = body as {
+      token: string;
+      profile?: StudentProfile;
+      programs?: ScoredProgram[];
+    };
+
+    const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
+    const resultsUrl = `${appUrl}/results/${token}`;
+
+    // Build email HTML
+    const topPrograms = (programs ?? []).slice(0, 8);
+
+    const programRows = topPrograms
+      .map(
+        (p) => `
+      <tr style="border-bottom:1px solid #f1f5f9;">
+        <td style="padding:12px 8px;">
+          <div style="font-weight:600;color:#1e1b4b;font-size:14px;">${p.program_name}</div>
+          <div style="color:#6b7280;font-size:12px;margin-top:2px;">${p.university_name} · ${p.country}</div>
+        </td>
+        <td style="padding:12px 8px;text-align:center;">
+          <span style="background:${p.tier === "safe" ? "#d1fae5" : p.tier === "moderate" ? "#fef3c7" : "#fee2e2"};color:${p.tier === "safe" ? "#065f46" : p.tier === "moderate" ? "#92400e" : "#991b1b"};padding:3px 10px;border-radius:20px;font-size:12px;font-weight:600;">${getTierLabel(p.tier)}</span>
+        </td>
+        <td style="padding:12px 8px;text-align:right;font-weight:700;color:#4f46e5;font-size:14px;">${p.match_score}%</td>
+        <td style="padding:12px 8px;text-align:right;color:#6b7280;font-size:13px;">${formatCurrency(p.annual_tuition_usd + p.avg_living_cost_usd)}/yr</td>
+      </tr>`
+      )
+      .join("");
+
+    const htmlBody = `
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
+<body style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f8fafc;margin:0;padding:20px;">
+  <div style="max-width:600px;margin:0 auto;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.08);">
+    <!-- Header -->
+    <div style="background:linear-gradient(135deg,#6366f1,#8b5cf6,#ec4899);padding:40px 32px;text-align:center;">
+      <div style="font-size:28px;font-weight:900;color:#fff;letter-spacing:-0.5px;">🌍 Eduvian</div>
+      <div style="color:#e0e7ff;margin-top:4px;font-size:13px;letter-spacing:0.3px;">Your Global Future, Simplified</div>
+      <div style="color:#e0e7ff;margin-top:8px;font-size:15px;">Your personalized shortlist is ready</div>
+    </div>
+
+    <!-- Greeting -->
+    <div style="padding:32px;">
+      <h2 style="color:#1e1b4b;font-size:22px;font-weight:800;margin:0 0 8px;">
+        Hey ${profile?.full_name?.split(" ")[0] ?? "there"}! 👋
+      </h2>
+      <p style="color:#6b7280;margin:0 0 24px;line-height:1.6;">
+        We matched your profile against hundreds of programs across 11 countries. Here are your top picks — sorted by how well they match <strong>you</strong>.
+      </p>
+
+      <!-- CTA button -->
+      <div style="text-align:center;margin:24px 0;">
+        <a href="${resultsUrl}" style="display:inline-block;background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#fff;text-decoration:none;padding:14px 32px;border-radius:12px;font-weight:700;font-size:16px;">
+          View Full Shortlist →
+        </a>
+        <div style="color:#9ca3af;font-size:12px;margin-top:8px;">Bookmark this email — your link is permanent</div>
+      </div>
+
+      <!-- Programs table -->
+      ${topPrograms.length > 0 ? `
+      <h3 style="color:#1e1b4b;font-size:16px;font-weight:700;margin:24px 0 12px;">Your Top Matches</h3>
+      <table style="width:100%;border-collapse:collapse;">
+        <thead>
+          <tr style="background:#f8fafc;">
+            <th style="padding:10px 8px;text-align:left;font-size:12px;color:#6b7280;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;">Program</th>
+            <th style="padding:10px 8px;text-align:center;font-size:12px;color:#6b7280;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;">Tier</th>
+            <th style="padding:10px 8px;text-align:right;font-size:12px;color:#6b7280;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;">Match</th>
+            <th style="padding:10px 8px;text-align:right;font-size:12px;color:#6b7280;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;">Cost/yr</th>
+          </tr>
+        </thead>
+        <tbody>${programRows}</tbody>
+      </table>
+      ` : ""}
+
+      <!-- Tips -->
+      <div style="background:#f0f4ff;border-radius:12px;padding:20px;margin-top:24px;">
+        <div style="font-weight:700;color:#4338ca;margin-bottom:8px;">💡 Next steps</div>
+        <ul style="color:#6b7280;margin:0;padding-left:20px;line-height:2;">
+          <li>Bookmark your Safe Match programs — apply to at least 3</li>
+          <li>Add 1–2 Reach programs to aim high</li>
+          <li>Check application deadlines — many are rolling</li>
+          <li>Use your magic link to revisit or update your shortlist anytime</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div style="background:#f8fafc;padding:20px 32px;text-align:center;border-top:1px solid #f1f5f9;">
+      <div style="color:#9ca3af;font-size:12px;">
+        © 2025 Eduvian · Your Global Future, Simplified<br>
+        <a href="${resultsUrl}" style="color:#6366f1;text-decoration:none;">View your shortlist</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>`;
+
+    // Try Resend if configured
+    const resendKey = process.env.RESEND_API_KEY;
+    const fromEmail = process.env.RESEND_FROM_EMAIL ?? "results@eduvian.com";
+
+    if (resendKey && profile?.email) {
+      const { Resend } = await import("resend");
+      const resend = new Resend(resendKey);
+
+      await resend.emails.send({
+        from: `Eduvian <${fromEmail}>`,
+        to: profile.email,
+        subject: `🎓 Your Eduvian shortlist is ready — ${topPrograms.length} program matches`,
+        html: htmlBody,
+      });
+
+      // Mark email sent in Supabase
+      try {
+        const { createServiceClient } = await import("@/lib/supabase");
+        const supabase = createServiceClient();
+        await supabase
+          .from("submissions")
+          .update({ email_sent: true })
+          .eq("token", token);
+      } catch {
+        // ignore
+      }
+    }
+
+    return NextResponse.json({ ok: true });
+  } catch (err) {
+    console.error("Email error:", err);
+    return NextResponse.json({ error: "Email failed" }, { status: 500 });
+  }
+}
