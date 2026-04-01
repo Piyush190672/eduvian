@@ -122,10 +122,12 @@ export async function POST(req: NextRequest) {
       try {
         const { createServiceClient } = await import("@/lib/supabase");
         const supabase = createServiceClient();
-        await supabase
-          .from("submissions")
-          .update({ email_sent: true })
-          .eq("token", token);
+        if (supabase) {
+          await supabase
+            .from("submissions")
+            .update({ email_sent: true })
+            .eq("token", token);
+        }
       } catch {
         // ignore
       }
