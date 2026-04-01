@@ -17,9 +17,9 @@ export function getTierColor(tier: string): string {
   switch (tier) {
     case "safe":
       return "text-emerald-600 bg-emerald-50 border-emerald-200";
-    case "moderate":
-      return "text-amber-600 bg-amber-50 border-amber-200";
     case "reach":
+      return "text-amber-600 bg-amber-50 border-amber-200";
+    case "ambitious":
       return "text-rose-600 bg-rose-50 border-rose-200";
     default:
       return "text-gray-600 bg-gray-50 border-gray-200";
@@ -30,10 +30,10 @@ export function getTierLabel(tier: string): string {
   switch (tier) {
     case "safe":
       return "Safe Match";
-    case "moderate":
-      return "Moderate Match";
     case "reach":
       return "Reach";
+    case "ambitious":
+      return "Ambitious";
     default:
       return tier;
   }

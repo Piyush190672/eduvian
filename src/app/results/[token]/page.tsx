@@ -166,8 +166,8 @@ export default function ResultsPage() {
   });
 
   const safeCount = allPrograms.filter((p) => p.tier === "safe").length;
-  const moderateCount = allPrograms.filter((p) => p.tier === "moderate").length;
   const reachCount = allPrograms.filter((p) => p.tier === "reach").length;
+  const ambitiousCount = allPrograms.filter((p) => p.tier === "ambitious").length;
   const shortlistedPrograms = allPrograms.filter((p) => shortlisted.has(p.id));
 
   const countries = [...new Set(allPrograms.map((p) => p.country))];
@@ -235,8 +235,8 @@ export default function ResultsPage() {
         <div className="flex flex-wrap gap-3 mb-6">
           {[
             { tier: "safe", label: "Safe Match", count: safeCount, emoji: "✅", color: "bg-emerald-50 text-emerald-700 border-emerald-200" },
-            { tier: "moderate", label: "Moderate", count: moderateCount, emoji: "🎯", color: "bg-amber-50 text-amber-700 border-amber-200" },
-            { tier: "reach", label: "Reach", count: reachCount, emoji: "🚀", color: "bg-rose-50 text-rose-700 border-rose-200" },
+            { tier: "reach", label: "Reach", count: reachCount, emoji: "🎯", color: "bg-amber-50 text-amber-700 border-amber-200" },
+            { tier: "ambitious", label: "Ambitious", count: ambitiousCount, emoji: "🚀", color: "bg-rose-50 text-rose-700 border-rose-200" },
           ].map((t) => (
             <button
               key={t.tier}

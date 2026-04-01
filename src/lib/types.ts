@@ -106,7 +106,7 @@ export interface Program {
 
 // ─── Recommendation Result ────────────────────────────────────────────────────
 
-export type ProgramTier = "safe" | "moderate" | "reach";
+export type ProgramTier = "safe" | "reach" | "ambitious";
 
 export interface ScoredProgram extends Program {
   match_score: number;

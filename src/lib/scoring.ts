@@ -246,9 +246,9 @@ export function scoreProgram(
   );
 
   let tier: ProgramTier;
-  if (match_score >= 75) tier = "safe";
-  else if (match_score >= 50) tier = "moderate";
-  else tier = "reach";
+  if (match_score >= 80) tier = "safe";
+  else if (match_score >= 50) tier = "reach";
+  else tier = "ambitious";
 
   return { ...program, match_score, tier, score_breakdown: breakdown };
 }
@@ -267,7 +267,7 @@ export function recommendPrograms(
   const scored = filtered
     .filter((p) => !isHardDisqualified(profile, p))
     .map((p) => scoreProgram(profile, p))
-    .filter((p) => p.match_score >= 30)
+    .filter((p) => p.match_score >= 25)
     .sort((a, b) => b.match_score - a.match_score);
 
   return scored;

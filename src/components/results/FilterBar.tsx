@@ -24,8 +24,8 @@ export default function FilterBar({ filters, countries, fields, onChange }: Prop
         >
           <option value="all">All Tiers</option>
           <option value="safe">✅ Safe Match</option>
-          <option value="moderate">🎯 Moderate</option>
-          <option value="reach">🚀 Reach</option>
+          <option value="reach">🎯 Reach</option>
+          <option value="ambitious">🚀 Ambitious</option>
         </select>
       </div>
 

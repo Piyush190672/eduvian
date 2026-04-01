@@ -42,7 +42,7 @@ export default function ShortlistSummary({ programs, onRemove }: Props) {
                 className={`text-xs font-bold px-2.5 py-1 rounded-full ${
                   p.tier === "safe"
                     ? "bg-emerald-50 text-emerald-600"
-                    : p.tier === "moderate"
+                    : p.tier === "reach"
                     ? "bg-amber-50 text-amber-600"
                     : "bg-rose-50 text-rose-500"
                 }`}

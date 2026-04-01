@@ -44,7 +44,7 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist 
   const tierLabel = getTierLabel(program.tier);
 
   const scoreColor =
-    program.match_score >= 75
+    program.match_score >= 80
       ? "text-emerald-600"
       : program.match_score >= 50
       ? "text-amber-600"
@@ -58,7 +58,7 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist 
           <div className="flex-shrink-0 flex flex-col items-center">
             <div
               className={`w-14 h-14 rounded-2xl flex items-center justify-center font-black text-lg ${
-                program.match_score >= 75
+                program.match_score >= 80
                   ? "bg-emerald-50 text-emerald-600 border-2 border-emerald-200"
                   : program.match_score >= 50
                   ? "bg-amber-50 text-amber-600 border-2 border-amber-200"
