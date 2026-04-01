@@ -322,7 +322,7 @@ export default function ResultsPage() {
             filters={filters}
             countries={countries}
             fields={fields}
-            onChange={(f) => setFilters((prev) => ({ ...prev, ...f }))}
+            onChange={(f) => setFilters((prev) => ({ ...prev, ...f } as typeof prev))}
           />
         )}
 

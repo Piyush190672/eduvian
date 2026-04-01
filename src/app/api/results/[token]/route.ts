@@ -15,12 +15,14 @@ export async function GET(
   try {
     const { createServiceClient } = await import("@/lib/supabase");
     const supabase = createServiceClient();
-    const { data, error } = await supabase
-      .from("submissions")
-      .select("*")
-      .eq("token", token)
-      .single();
-    if (!error && data) submission = data;
+    if (supabase) {
+      const { data, error } = await supabase
+        .from("submissions")
+        .select("*")
+        .eq("token", token)
+        .single();
+      if (!error && data) submission = data;
+    }
   } catch {
     // fall through
   }
@@ -45,8 +47,10 @@ export async function GET(
   try {
     const { createServiceClient } = await import("@/lib/supabase");
     const supabase = createServiceClient();
-    const { data } = await supabase.from("programs").select("*").eq("is_active", true);
-    if (data && data.length > 0) programs = data as Program[];
+    if (supabase) {
+      const { data } = await supabase.from("programs").select("*").eq("is_active", true);
+      if (data && data.length > 0) programs = data as Program[];
+    }
   } catch {
     // use static
   }
@@ -67,10 +71,12 @@ export async function PATCH(
   try {
     const { createServiceClient } = await import("@/lib/supabase");
     const supabase = createServiceClient();
-    await supabase
-      .from("submissions")
-      .update({ shortlisted_ids })
-      .eq("token", token);
+    if (supabase) {
+      await supabase
+        .from("submissions")
+        .update({ shortlisted_ids })
+        .eq("token", token);
+    }
   } catch {
     // fall through
   }

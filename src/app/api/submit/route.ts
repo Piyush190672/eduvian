@@ -28,11 +28,13 @@ export async function POST(req: NextRequest) {
     try {
       const { createServiceClient } = await import("@/lib/supabase");
       const supabase = createServiceClient();
-      const { data, error } = await supabase
-        .from("programs")
-        .select("*")
-        .eq("is_active", true);
-      if (!error && data && data.length > 0) programs = data as Program[];
+      if (supabase) {
+        const { data, error } = await supabase
+          .from("programs")
+          .select("*")
+          .eq("is_active", true);
+        if (!error && data && data.length > 0) programs = data as Program[];
+      }
     } catch {
       // Not configured — use static data
     }
@@ -48,14 +50,16 @@ export async function POST(req: NextRequest) {
     try {
       const { createServiceClient } = await import("@/lib/supabase");
       const supabase = createServiceClient();
-      const { error } = await supabase.from("submissions").insert({
-        id,
-        token,
-        profile,
-        shortlisted_ids: [],
-        email_sent: false,
-      });
-      if (!error) savedToDb = true;
+      if (supabase) {
+        const { error } = await supabase.from("submissions").insert({
+          id,
+          token,
+          profile,
+          shortlisted_ids: [],
+          email_sent: false,
+        });
+        if (!error) savedToDb = true;
+      }
     } catch {
       // Fall through to in-memory
     }
