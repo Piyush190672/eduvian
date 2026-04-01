@@ -9,12 +9,12 @@ import { BUDGET_VALUES, TARGET_COUNTRIES } from "./types";
 // ─── Weight configuration ─────────────────────────────────────────────────────
 
 const WEIGHTS = {
-  academic: 0.20,
-  english: 0.20,
+  academic: 0.35,
+  english: 0.15,
   budget: 0.15,
   country_rank: 0.15,
-  qs_ranking: 0.10,
-  intake: 0.10,
+  qs_ranking: 0.05,
+  intake: 0.05,
   work_experience: 0.05,
   std_test: 0.05,
 };
