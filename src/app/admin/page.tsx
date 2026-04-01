@@ -53,7 +53,7 @@ export default function AdminLogin() {
             </div>
             <div>
               <span className="font-bold text-2xl text-white">Eduvian</span>
-              <p className="text-xs text-indigo-300 leading-none">Your Global Future, Simplified</p>
+              <p className="text-sm font-bold text-indigo-300 leading-none">Your Global Future, Simplified</p>
             </div>
           </Link>
           <h1 className="text-2xl font-bold text-white">Admin Login</h1>

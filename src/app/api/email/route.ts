@@ -43,7 +43,7 @@ export async function POST(req: NextRequest) {
     <!-- Header -->
     <div style="background:linear-gradient(135deg,#6366f1,#8b5cf6,#ec4899);padding:40px 32px;text-align:center;">
       <div style="font-size:28px;font-weight:900;color:#fff;letter-spacing:-0.5px;">🌍 Eduvian</div>
-      <div style="color:#e0e7ff;margin-top:4px;font-size:13px;letter-spacing:0.3px;">Your Global Future, Simplified</div>
+      <div style="color:#e0e7ff;margin-top:4px;font-size:15px;font-weight:700;letter-spacing:0.3px;">Your Global Future, Simplified</div>
       <div style="color:#e0e7ff;margin-top:8px;font-size:15px;">Your personalized shortlist is ready</div>
     </div>
 

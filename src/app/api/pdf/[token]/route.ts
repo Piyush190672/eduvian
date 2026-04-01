@@ -115,7 +115,7 @@ function buildPDFHtml(profile: StudentProfile, programs: ScoredProgram[]): strin
 <body>
   <div class="header">
     <div class="brand">🌍 Eduvian</div>
-    <div style="font-size:11px;color:#6b7280;margin-top:2px;">Your Global Future, Simplified</div>
+    <div style="font-size:13px;font-weight:700;color:#6b7280;margin-top:2px;">Your Global Future, Simplified</div>
     <div class="student-info">
       <strong>${profile.full_name}</strong>
       ${profile.email} · Generated ${new Date().toLocaleDateString("en-US", { dateStyle: "long" })}

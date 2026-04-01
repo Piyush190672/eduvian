@@ -100,7 +100,7 @@ export default function LandingPage() {
           </div>
           <div>
             <span className="font-bold text-xl text-gray-900">Eduvian</span>
-            <p className="text-xs text-gray-400 leading-none">Your Global Future, Simplified</p>
+            <p className="text-sm font-bold text-gray-400 leading-none">Your Global Future, Simplified</p>
           </div>
         </Link>
         <div className="flex items-center gap-4">
