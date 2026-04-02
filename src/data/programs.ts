@@ -11,6 +11,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2025-12-15",
     min_gpa: 3.8, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
     min_gre: 327, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.eecs.mit.edu/academics-admissions/graduate-program/",
+    apply_url: "https://gradadmissions.mit.edu/apply",
   },
   {
     university_name: "Stanford University",
@@ -21,6 +22,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2025-11-30",
     min_gpa: 3.7, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
     min_gre: 325, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://cs.stanford.edu/academics/masters-degree",
+    apply_url: "https://gradadmissions.stanford.edu/apply",
   },
   {
     university_name: "Carnegie Mellon University",
@@ -31,6 +33,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2025-12-01",
     min_gpa: 3.5, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
     min_gre: 320, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.ml.cmu.edu/academics/",
+    apply_url: "https://admission.enrollment.cmu.edu/pages/academic-program-list",
   },
   {
     university_name: "University of California, Berkeley",
@@ -41,6 +44,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-03-15",
     min_gpa: 3.4, min_percentage: null, min_ielts: 7.0, min_toefl: 90, min_pte: null, min_duolingo: null,
     min_gre: 315, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://met.berkeley.edu/",
+    apply_url: "https://grad.berkeley.edu/admissions/apply/",
   },
   {
     university_name: "University of Texas at Austin",
@@ -51,6 +55,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "2026-01-15",
     min_gpa: 3.2, min_percentage: null, min_ielts: 6.5, min_toefl: 88, min_pte: 64, min_duolingo: null,
     min_gre: 310, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://cdso.utexas.edu/msds",
+    apply_url: "https://graduate.utexas.edu/admissions/how-apply",
   },
   {
     university_name: "Purdue University",
@@ -61,6 +66,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "2026-01-15",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 88, min_pte: 65, min_duolingo: 110,
     min_gre: 308, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.cs.purdue.edu/graduate/",
+    apply_url: "https://www.purdue.edu/gradschool/admissions/how-to-apply.html",
   },
   {
     university_name: "Arizona State University",
@@ -71,6 +77,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 2.75, min_percentage: 60, min_ielts: 6.0, min_toefl: 80, min_pte: 55, min_duolingo: 95,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://engineering.asu.edu/",
+    apply_url: "https://apply.asu.edu/apply/",
   },
   {
     university_name: "Northeastern University",
@@ -81,6 +88,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 88, min_pte: 58, min_duolingo: 105,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.khoury.northeastern.edu/",
+    apply_url: "https://apply.northeastern.edu/",
   },
   {
     university_name: "Columbia University",
@@ -91,6 +99,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2025-04-01",
     min_gpa: 3.5, min_percentage: null, min_ielts: 7.5, min_toefl: 109, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: 700, min_sat: null, work_exp_required_years: 3, program_url: "https://business.columbia.edu/mba",
+    apply_url: "https://apply.gsas.columbia.edu/apply/",
   },
   {
     university_name: "NYU Stern School of Business",
@@ -101,6 +110,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-03-01",
     min_gpa: 3.4, min_percentage: null, min_ielts: 7.0, min_toefl: 105, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: 680, min_sat: null, work_exp_required_years: 2, program_url: "https://www.stern.nyu.edu/programs-admissions/full-time-mba",
+    apply_url: "https://www.stern.nyu.edu/programs-admissions/full-time-mba/admissions/apply",
   },
   {
     university_name: "University of Illinois Urbana-Champaign",
@@ -111,6 +121,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-01-01",
     min_gpa: null, min_percentage: 85, min_ielts: 6.5, min_toefl: 79, min_pte: 58, min_duolingo: 105,
     min_gre: null, min_gmat: null, min_sat: 1450, work_exp_required_years: null, program_url: "https://cs.illinois.edu/academics/undergraduate-program",
+    apply_url: "https://apply.illinois.edu/",
   },
   {
     university_name: "Georgia Institute of Technology",
@@ -121,6 +132,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-01-07",
     min_gpa: null, min_percentage: 80, min_ielts: 6.5, min_toefl: 79, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: 1400, work_exp_required_years: null, program_url: "https://www.isye.gatech.edu/academics/undergraduate",
+    apply_url: "https://apply.gatech.edu/",
   },
   {
     university_name: "University of Michigan",
@@ -131,6 +143,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-02-01",
     min_gpa: null, min_percentage: 82, min_ielts: 6.5, min_toefl: 100, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: 1420, work_exp_required_years: null, program_url: "https://michiganross.umich.edu/undergraduate/bba",
+    apply_url: "https://apply.umich.edu/",
   },
 
   // ─── UK ───────────────────────────────────────────────────────────────────
@@ -143,6 +156,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-03-01",
     min_gpa: 3.7, min_percentage: 80, min_ielts: 7.5, min_toefl: 110, min_pte: 75, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.cs.ox.ac.uk/admissions/graduate/msc/",
+    apply_url: "https://www.ox.ac.uk/admissions/graduate/applying-to-oxford",
   },
   {
     university_name: "Imperial College London",
@@ -153,6 +167,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 3.5, min_percentage: 75, min_ielts: 7.0, min_toefl: 100, min_pte: 70, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.imperial.ac.uk/artificial-intelligence/",
+    apply_url: "https://www.imperial.ac.uk/study/apply/",
   },
   {
     university_name: "University College London",
@@ -163,6 +178,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 3.3, min_percentage: 70, min_ielts: 6.5, min_toefl: 96, min_pte: 68, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/data-science-msc",
+    apply_url: "https://www.ucl.ac.uk/prospective-students/graduate/applying",
   },
   {
     university_name: "University of Edinburgh",
@@ -173,6 +189,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 3.2, min_percentage: 70, min_ielts: 6.5, min_toefl: 92, min_pte: 65, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.ed.ac.uk/studying/postgraduate/degrees",
+    apply_url: "https://www.ed.ac.uk/studying/postgraduate/applying",
   },
   {
     university_name: "University of Manchester",
@@ -183,6 +200,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 60, min_ielts: 7.0, min_toefl: 100, min_pte: 70, min_duolingo: null,
     min_gre: null, min_gmat: 600, min_sat: null, work_exp_required_years: 3, program_url: "https://www.mbs.ac.uk/mba",
+    apply_url: "https://www.manchester.ac.uk/study/postgraduate/how-to-apply/",
   },
   {
     university_name: "University of Warwick",
@@ -193,6 +211,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 92, min_pte: 65, min_duolingo: null,
     min_gre: null, min_gmat: 600, min_sat: null, work_exp_required_years: 0, program_url: "https://warwick.ac.uk/fac/soc/wbs/masters/",
+    apply_url: "https://warwick.ac.uk/study/postgraduate/apply/",
   },
   {
     university_name: "King's College London",
@@ -203,6 +222,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-01-29",
     min_gpa: null, min_percentage: 75, min_ielts: 6.5, min_toefl: 92, min_pte: 65, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null, program_url: "https://www.kcl.ac.uk/study/undergraduate/courses",
+    apply_url: "https://www.kcl.ac.uk/study/postgraduate-taught/how-to-apply",
   },
   {
     university_name: "University of Bristol",
@@ -213,6 +233,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-01-29",
     min_gpa: null, min_percentage: 72, min_ielts: 6.5, min_toefl: 90, min_pte: 65, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null, program_url: "https://www.bris.ac.uk/study/undergraduate/",
+    apply_url: "https://www.bristol.ac.uk/study/postgraduate/apply/",
   },
   {
     university_name: "University of Leeds",
@@ -223,6 +244,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 2.8, min_percentage: 58, min_ielts: 6.0, min_toefl: 79, min_pte: 60, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://business.leeds.ac.uk/masters",
+    apply_url: "https://business.leeds.ac.uk/masters/apply",
   },
   {
     university_name: "University of Southampton",
@@ -233,6 +255,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 90, min_pte: 65, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.southampton.ac.uk/study/postgraduate",
+    apply_url: "https://www.southampton.ac.uk/study/postgraduate-taught/applying",
   },
 
   // ─── Australia ────────────────────────────────────────────────────────────
@@ -245,6 +268,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 79, min_pte: 58, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://study.unimelb.edu.au/find/courses/graduate/",
+    apply_url: "https://study.unimelb.edu.au/how-to-apply",
   },
   {
     university_name: "Australian National University",
@@ -255,6 +279,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 80, min_pte: 58, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://programsandcourses.anu.edu.au/program/MBUS",
+    apply_url: "https://www.anu.edu.au/study/apply",
   },
   {
     university_name: "University of Sydney",
@@ -265,6 +290,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 88, min_pte: 60, min_duolingo: null,
     min_gre: null, min_gmat: 550, min_sat: null, work_exp_required_years: 2, program_url: "https://www.sydney.edu.au/business/our-research/research-areas/business-analytics.html",
+    apply_url: "https://www.sydney.edu.au/study/how-to-apply.html",
   },
   {
     university_name: "Monash University",
@@ -275,6 +301,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 2.75, min_percentage: 60, min_ielts: 6.0, min_toefl: 79, min_pte: 58, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.monash.edu/science/courses/graduate/engineering",
+    apply_url: "https://www.monash.edu/study/how-to-apply",
   },
   {
     university_name: "RMIT University",
@@ -285,6 +312,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 2.5, min_percentage: 55, min_ielts: 6.0, min_toefl: 79, min_pte: 50, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study",
+    apply_url: "https://www.rmit.edu.au/study-with-us/applying-to-rmit",
   },
   {
     university_name: "Curtin University",
@@ -295,6 +323,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: null, min_percentage: 60, min_ielts: 6.0, min_toefl: 79, min_pte: 50, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null, program_url: "https://www.curtin.edu.au/study/offering/",
+    apply_url: "https://www.curtin.edu.au/study/apply/",
   },
   {
     university_name: "University of Queensland",
@@ -305,6 +334,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: null, min_percentage: 65, min_ielts: 6.5, min_toefl: 87, min_pte: 58, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null, program_url: "https://www.uq.edu.au/study/programs/",
+    apply_url: "https://www.uq.edu.au/study/apply",
   },
   {
     university_name: "University of Adelaide",
@@ -315,6 +345,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 88, min_pte: 58, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.adelaide.edu.au/programs-courses/",
+    apply_url: "https://www.adelaide.edu.au/study/applications/",
   },
 
   // ─── Canada ───────────────────────────────────────────────────────────────
@@ -327,6 +358,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-01-10",
     min_gpa: 3.3, min_percentage: 75, min_ielts: 6.5, min_toefl: 93, min_pte: 65, min_duolingo: 120,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://mscac.utoronto.ca/",
+    apply_url: "https://future.utoronto.ca/apply/",
   },
   {
     university_name: "University of British Columbia",
@@ -337,6 +369,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2025-12-15",
     min_gpa: 3.2, min_percentage: 72, min_ielts: 6.5, min_toefl: 90, min_pte: 65, min_duolingo: 110,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.cs.ubc.ca/graduate/",
+    apply_url: "https://www.grad.ubc.ca/prospective-students/applying-ubc",
   },
   {
     university_name: "McGill University",
@@ -347,6 +380,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 70, min_ielts: 6.5, min_toefl: 86, min_pte: 60, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.mcgill.ca/ece/graduate/",
+    apply_url: "https://www.mcgill.ca/applying/graduate",
   },
   {
     university_name: "University of Waterloo",
@@ -357,6 +391,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-01-31",
     min_gpa: 3.0, min_percentage: 72, min_ielts: 7.0, min_toefl: 90, min_pte: 65, min_duolingo: 120,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://uwaterloo.ca/graduate-studies-academic-calendar/",
+    apply_url: "https://uwaterloo.ca/graduate-studies-postdoctoral-affairs/future-students/how-apply",
   },
   {
     university_name: "Simon Fraser University",
@@ -367,6 +402,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 70, min_ielts: 6.5, min_toefl: 93, min_pte: 65, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.sfu.ca/computing/prospective-students/graduate-students.html",
+    apply_url: "https://www.sfu.ca/students/admission/apply.html",
   },
   {
     university_name: "York University",
@@ -377,6 +413,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: null, min_percentage: 65, min_ielts: 6.5, min_toefl: 86, min_pte: 58, min_duolingo: 110,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null, program_url: "https://schulich.yorku.ca/programs/bba/",
+    apply_url: "https://futurestudents.yorku.ca/apply",
   },
   {
     university_name: "Dalhousie University",
@@ -387,6 +424,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 68, min_ielts: 6.5, min_toefl: 90, min_pte: 65, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.dal.ca/academics/programs.html",
+    apply_url: "https://www.dal.ca/admissions/apply.html",
   },
 
   // ─── New Zealand ──────────────────────────────────────────────────────────
@@ -399,6 +437,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 90, min_pte: 58, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.auckland.ac.nz/en/study/study-options/find-a-study-option.html",
+    apply_url: "https://www.auckland.ac.nz/en/study/applications-and-admissions/apply.html",
   },
   {
     university_name: "Victoria University of Wellington",
@@ -409,6 +448,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 2.75, min_percentage: 60, min_ielts: 6.5, min_toefl: 90, min_pte: 58, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.wgtn.ac.nz/engineering",
+    apply_url: "https://www.wgtn.ac.nz/study/apply",
   },
   {
     university_name: "University of Otago",
@@ -419,6 +459,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 2.75, min_percentage: 60, min_ielts: 6.0, min_toefl: 80, min_pte: 55, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.otago.ac.nz/courses/",
+    apply_url: "https://www.otago.ac.nz/study/apply",
   },
 
   // ─── Ireland ──────────────────────────────────────────────────────────────
@@ -431,6 +472,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 88, min_pte: 65, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.tcd.ie/courses/postgraduate/",
+    apply_url: "https://www.tcd.ie/study/apply/",
   },
   {
     university_name: "University College Dublin",
@@ -441,6 +483,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 2.8, min_percentage: 60, min_ielts: 6.5, min_toefl: 88, min_pte: 58, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.ucd.ie/study/graduate/",
+    apply_url: "https://www.ucd.ie/study/apply/",
   },
   {
     university_name: "Dublin City University",
@@ -451,6 +494,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 2.5, min_percentage: 55, min_ielts: 6.0, min_toefl: 79, min_pte: 55, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.dcu.ie/postgraduate",
+    apply_url: "https://www.dcu.ie/apply",
   },
   {
     university_name: "National University of Ireland Galway",
@@ -461,6 +505,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: null, min_percentage: 60, min_ielts: 6.0, min_toefl: 79, min_pte: 55, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null, program_url: "https://www.universityofgalway.ie/courses/undergraduate-courses/",
+    apply_url: "https://www.universityofgalway.ie/apply/",
   },
 
   // ─── Germany ──────────────────────────────────────────────────────────────
@@ -473,6 +518,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "2026-01-15",
     min_gpa: 3.3, min_percentage: 70, min_ielts: 7.0, min_toefl: 95, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.tum.de/en/studies/degree-programs/",
+    apply_url: "https://www.tum.de/en/studies/application/",
   },
   {
     university_name: "RWTH Aachen University",
@@ -483,6 +529,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-02-28",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 88, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.rwth-aachen.de/cms/root/studium/Vor-dem-Studium/Studiengaenge/",
+    apply_url: "https://www.rwth-aachen.de/cms/root/studium/Vor-dem-Studium/Bewerbung/",
   },
   {
     university_name: "Heidelberg University",
@@ -493,6 +540,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-01-15",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 88, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.uni-heidelberg.de/en/study",
+    apply_url: "https://www.uni-heidelberg.de/en/study/application",
   },
   {
     university_name: "University of Munich (LMU)",
@@ -503,6 +551,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-01-31",
     min_gpa: 3.2, min_percentage: 68, min_ielts: 7.0, min_toefl: 95, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.lmu.de/en/study/all-degrees-and-programs/",
+    apply_url: "https://www.lmu.de/en/study/apply/",
   },
   {
     university_name: "Mannheim Business School",
@@ -513,6 +562,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 60, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: 620, min_sat: null, work_exp_required_years: 3, program_url: "https://www.mannheim-business-school.com/",
+    apply_url: "https://www.mannheim-business-school.com/en/programs/apply/",
   },
 
   // ─── France ───────────────────────────────────────────────────────────────
@@ -525,6 +575,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 3.3, min_percentage: 70, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: 680, min_sat: null, work_exp_required_years: 4, program_url: "https://www.hec.edu/en/mba-programs",
+    apply_url: "https://www.hec.edu/en/mba-programs/apply",
   },
   {
     university_name: "INSEAD",
@@ -535,6 +586,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 3.5, min_percentage: 75, min_ielts: 7.0, min_toefl: 105, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: 700, min_sat: null, work_exp_required_years: 5, program_url: "https://www.insead.edu/master-programmes/mba",
+    apply_url: "https://mba.insead.edu/admissions/apply",
   },
   {
     university_name: "Paris Sciences et Lettres University",
@@ -545,6 +597,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-03-01",
     min_gpa: 3.3, min_percentage: 70, min_ielts: 6.5, min_toefl: 90, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://psl.eu/en/education",
+    apply_url: "https://psl.eu/en/education",
   },
   {
     university_name: "ESSEC Business School",
@@ -555,6 +608,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 90, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: 600, min_sat: null, work_exp_required_years: 0, program_url: "https://www.essec.edu/en/programs/",
+    apply_url: "https://www.essec.edu/en/programs/apply/",
   },
 
   // ─── UAE ──────────────────────────────────────────────────────────────────
@@ -567,6 +621,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 70, min_ielts: 6.5, min_toefl: 90, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.ku.ac.ae/academics/graduate-programs",
+    apply_url: "https://www.ku.ac.ae/admissions/",
   },
   {
     university_name: "American University of Sharjah",
@@ -577,6 +632,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 70, min_ielts: 6.5, min_toefl: 88, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.aus.edu/graduate-programs",
+    apply_url: "https://www.aus.edu/apply",
   },
   {
     university_name: "University of Dubai",
@@ -587,6 +643,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 2.5, min_percentage: 55, min_ielts: 6.0, min_toefl: 80, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: 450, min_sat: null, work_exp_required_years: 2, program_url: "https://ud.ac.ae/",
+    apply_url: "https://ud.ac.ae/admissions/",
   },
   {
     university_name: "Heriot-Watt University Dubai",
@@ -597,6 +654,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: null, min_percentage: 60, min_ielts: 6.0, min_toefl: 79, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null, program_url: "https://www.hw.ac.uk/dubai/academics/programmes.htm",
+    apply_url: "https://www.hw.ac.uk/dubai/admissions.htm",
   },
 
   // ─── Singapore ────────────────────────────────────────────────────────────
@@ -609,6 +667,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 3.3, min_percentage: 75, min_ielts: 6.5, min_toefl: 85, min_pte: 59, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.comp.nus.edu.sg/programmes/pg/",
+    apply_url: "https://www.nus.edu.sg/registrar/academic-activities/prospective-students/applications/how-to-apply",
   },
   {
     university_name: "Nanyang Technological University",
@@ -619,6 +678,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 3.2, min_percentage: 72, min_ielts: 6.0, min_toefl: 80, min_pte: 58, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.ntu.edu.sg/academics/graduate-programmes",
+    apply_url: "https://www.ntu.edu.sg/education/graduate-programme/application",
   },
   {
     university_name: "Singapore Management University",
@@ -629,6 +689,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 100, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: 600, min_sat: null, work_exp_required_years: 3, program_url: "https://masters.smu.edu.sg/programme/mba",
+    apply_url: "https://masters.smu.edu.sg/apply",
   },
   {
     university_name: "INSEAD Asia Campus",
@@ -639,6 +700,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 3.5, min_percentage: 75, min_ielts: 7.0, min_toefl: 105, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: 700, min_sat: null, work_exp_required_years: 5, program_url: "https://www.insead.edu/master-programmes/mba",
+    apply_url: "https://mba.insead.edu/admissions/apply",
   },
 
   // ─── Malaysia ─────────────────────────────────────────────────────────────
@@ -651,6 +713,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 2.75, min_percentage: 60, min_ielts: 6.0, min_toefl: 79, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.um.edu.my/study/postgraduate",
+    apply_url: "https://www.um.edu.my/study/application-guide",
   },
   {
     university_name: "Monash University Malaysia",
@@ -661,6 +724,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 2.75, min_percentage: 55, min_ielts: 6.0, min_toefl: 79, min_pte: 50, min_duolingo: null,
     min_gre: null, min_gmat: 450, min_sat: null, work_exp_required_years: 2, program_url: "https://www.monash.edu.my/business-and-economics/mba",
+    apply_url: "https://www.monash.edu/study/how-to-apply",
   },
   {
     university_name: "Taylor's University",
@@ -671,6 +735,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: null, min_percentage: 55, min_ielts: 5.5, min_toefl: 69, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null, program_url: "https://university.taylors.edu.my/en/schools/school-of-computing.html",
+    apply_url: "https://university.taylors.edu.my/en/apply.html",
   },
   {
     university_name: "APU — Asia Pacific University",
@@ -681,6 +746,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: null, min_percentage: 50, min_ielts: 5.5, min_toefl: 60, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null, program_url: "https://www.apu.edu.my/programmes",
+    apply_url: "https://www.apu.edu.my/apply",
   },
   {
     university_name: "Universiti Teknologi Malaysia",
@@ -691,6 +757,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 2.75, min_percentage: 60, min_ielts: 6.0, min_toefl: 79, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.utm.my/graduate/",
+    apply_url: "https://graduate.utm.my/apply/",
   },
 
   // ─── Additional programs across various fields ────────────────────────────
@@ -703,6 +770,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-01-15",
     min_gpa: null, min_percentage: 80, min_ielts: 6.5, min_toefl: 100, min_pte: 65, min_duolingo: 120,
     min_gre: null, min_gmat: null, min_sat: 1350, work_exp_required_years: null, program_url: "https://web.cs.toronto.edu/undergraduate",
+    apply_url: "https://future.utoronto.ca/apply/",
   },
   {
     university_name: "University of Glasgow",
@@ -713,6 +781,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 90, min_pte: 65, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.gla.ac.uk/postgraduate/taught/",
+    apply_url: "https://www.gla.ac.uk/postgraduate/taught/apply/",
   },
   {
     university_name: "Newcastle University",
@@ -723,6 +792,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 92, min_pte: 65, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.ncl.ac.uk/postgraduate/degrees/",
+    apply_url: "https://www.ncl.ac.uk/postgraduate/how-to-apply/",
   },
   {
     university_name: "University of Sydney",
@@ -733,6 +803,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: null, min_percentage: 70, min_ielts: 6.5, min_toefl: 85, min_pte: 60, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null, program_url: "https://www.sydney.edu.au/engineering/study/undergraduate-courses/",
+    apply_url: "https://www.sydney.edu.au/study/how-to-apply.html",
   },
   {
     university_name: "Deakin University",
@@ -743,6 +814,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 2.5, min_percentage: 55, min_ielts: 6.0, min_toefl: 79, min_pte: 50, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.deakin.edu.au/courses/postgraduate",
+    apply_url: "https://www.deakin.edu.au/study/apply",
   },
   {
     university_name: "Toronto Metropolitan University",
@@ -753,6 +825,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 2.75, min_percentage: 65, min_ielts: 6.5, min_toefl: 88, min_pte: 65, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.torontomu.ca/graduate/programs/",
+    apply_url: "https://www.torontomu.ca/admissions/",
   },
   {
     university_name: "University of British Columbia",
@@ -763,6 +836,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-01-15",
     min_gpa: null, min_percentage: 80, min_ielts: 6.5, min_toefl: 92, min_pte: 65, min_duolingo: 120,
     min_gre: null, min_gmat: null, min_sat: 1350, work_exp_required_years: null, program_url: "https://www.cs.ubc.ca/students/undergrad",
+    apply_url: "https://www.grad.ubc.ca/prospective-students/applying-ubc",
   },
   {
     university_name: "Vrije Universiteit Amsterdam",
@@ -773,6 +847,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-04-01",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 90, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://vu.nl/en/education/master/computer-science",
+    apply_url: "https://www.vu.nl/en/education/more-about/how-to-apply-to-vu-amsterdam",
   },
   {
     university_name: "University of Auckland",
@@ -783,6 +858,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: null, min_percentage: 65, min_ielts: 6.0, min_toefl: 79, min_pte: 58, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null, program_url: "https://www.auckland.ac.nz/en/engineering/study.html",
+    apply_url: "https://www.auckland.ac.nz/en/study/applications-and-admissions/apply.html",
   },
   {
     university_name: "Griffith University",
@@ -793,6 +869,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 2.5, min_percentage: 55, min_ielts: 6.0, min_toefl: 79, min_pte: 50, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 2, program_url: "https://www.griffith.edu.au/study/business-government/mba",
+    apply_url: "https://www.griffith.edu.au/study/apply",
   },
   {
     university_name: "University of Strathclyde",
@@ -803,6 +880,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 90, min_pte: 65, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.strath.ac.uk/courses/postgraduatetaught/",
+    apply_url: "https://www.strath.ac.uk/courses/postgraduate/how-to-apply/",
   },
   {
     university_name: "University of Technology Sydney",
@@ -813,6 +891,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 2.75, min_percentage: 60, min_ielts: 6.5, min_toefl: 83, min_pte: 58, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.uts.edu.au/study/find-a-course",
+    apply_url: "https://www.uts.edu.au/study/how-apply",
   },
   {
     university_name: "Dublin Institute of Technology (TU Dublin)",
@@ -823,6 +902,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 2.5, min_percentage: 55, min_ielts: 6.0, min_toefl: 79, min_pte: 55, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.tudublin.ie/study/postgraduate/",
+    apply_url: "https://www.tudublin.ie/study/how-to-apply/",
   },
 
   // ─── USA — additional QS universities ────────────────────────────────────
@@ -835,6 +915,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-02-01",
     min_gpa: 3.9, min_percentage: null, min_ielts: 7.5, min_toefl: 110, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://hls.harvard.edu/jd/",
+    apply_url: "https://hls.harvard.edu/jd-program/application-process/",
   },
   {
     university_name: "Harvard University",
@@ -845,6 +926,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-01-07",
     min_gpa: 3.7, min_percentage: null, min_ielts: 7.5, min_toefl: 109, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: 730, min_sat: null, work_exp_required_years: 4, program_url: "https://www.hbs.edu/mba/",
+    apply_url: "https://www.hbs.edu/mba/admissions/application-process/Pages/default.aspx",
   },
   {
     university_name: "Harvard University",
@@ -855,6 +937,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-01-01",
     min_gpa: null, min_percentage: 95, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: 1550, work_exp_required_years: null, program_url: "https://www.seas.harvard.edu/computer-science/undergraduate",
+    apply_url: "https://apply.gse.harvard.edu/apply/",
   },
   {
     university_name: "California Institute of Technology",
@@ -865,6 +948,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-01-02",
     min_gpa: 3.8, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
     min_gre: 330, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.galcit.caltech.edu/academics",
+    apply_url: "https://www.admissions.caltech.edu/apply",
   },
   {
     university_name: "Yale University",
@@ -875,6 +959,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-02-15",
     min_gpa: 3.9, min_percentage: null, min_ielts: 7.5, min_toefl: 110, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://law.yale.edu/admissions/jd-admissions",
+    apply_url: "https://admissions.yale.edu/",
   },
   {
     university_name: "Yale University",
@@ -885,6 +970,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-01-02",
     min_gpa: null, min_percentage: 95, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: 1540, work_exp_required_years: null, program_url: "https://admissions.yale.edu/",
+    apply_url: "https://admissions.yale.edu/",
   },
   {
     university_name: "Princeton University",
@@ -895,6 +981,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-01-01",
     min_gpa: null, min_percentage: 95, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: 1560, work_exp_required_years: null, program_url: "https://www.cs.princeton.edu/academics/",
+    apply_url: "https://www.cs.princeton.edu/grad/admissions",
   },
   {
     university_name: "Princeton University",
@@ -905,6 +992,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2025-12-15",
     min_gpa: 3.7, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
     min_gre: 325, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://ece.princeton.edu/graduate",
+    apply_url: "https://www.cs.princeton.edu/grad/admissions",
   },
   {
     university_name: "Cornell University",
@@ -915,6 +1003,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-02-01",
     min_gpa: 3.3, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.cs.cornell.edu/masters",
+    apply_url: "https://www.cornell.edu/admissions/apply/",
   },
   {
     university_name: "Cornell University",
@@ -925,6 +1014,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-01-02",
     min_gpa: null, min_percentage: 88, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: 1450, work_exp_required_years: null, program_url: "https://sha.cornell.edu/admissions/",
+    apply_url: "https://www.cornell.edu/admissions/apply/",
   },
   {
     university_name: "University of Pennsylvania",
@@ -935,6 +1025,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-01-07",
     min_gpa: 3.6, min_percentage: null, min_ielts: 7.5, min_toefl: 110, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: 730, min_sat: null, work_exp_required_years: 4, program_url: "https://mba.wharton.upenn.edu/",
+    apply_url: "https://gradadm.seas.upenn.edu/",
   },
   {
     university_name: "University of Pennsylvania",
@@ -945,6 +1036,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-01-01",
     min_gpa: null, min_percentage: 93, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: 1530, work_exp_required_years: null, program_url: "https://www.seas.upenn.edu/undergraduate/",
+    apply_url: "https://gradadm.seas.upenn.edu/",
   },
   {
     university_name: "Northwestern University",
@@ -955,6 +1047,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-04-08",
     min_gpa: 3.5, min_percentage: null, min_ielts: 7.0, min_toefl: 107, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: 720, min_sat: null, work_exp_required_years: 4, program_url: "https://www.kellogg.northwestern.edu/programs/full-time-mba.aspx",
+    apply_url: "https://www.kellogg.northwestern.edu/programs/full-time-mba/admissions/apply.aspx",
   },
   {
     university_name: "UCLA",
@@ -965,6 +1058,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2025-12-15",
     min_gpa: 3.5, min_percentage: null, min_ielts: 7.0, min_toefl: 87, min_pte: null, min_duolingo: null,
     min_gre: 320, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.cs.ucla.edu/graduate-admission/",
+    apply_url: "https://grad.ucla.edu/admissions/",
   },
   {
     university_name: "UCLA",
@@ -975,6 +1069,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-11-30",
     min_gpa: null, min_percentage: 88, min_ielts: 7.0, min_toefl: 87, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: 1430, work_exp_required_years: null, program_url: "https://www.tft.ucla.edu/",
+    apply_url: "https://grad.ucla.edu/admissions/",
   },
   {
     university_name: "UC San Diego",
@@ -985,6 +1080,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2025-12-15",
     min_gpa: 3.3, min_percentage: null, min_ielts: 7.0, min_toefl: 85, min_pte: null, min_duolingo: null,
     min_gre: 315, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://cse.ucsd.edu/graduate",
+    apply_url: "https://grad.ucsd.edu/admissions/",
   },
   {
     university_name: "Duke University",
@@ -995,6 +1091,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-04-07",
     min_gpa: 3.4, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: 700, min_sat: null, work_exp_required_years: 4, program_url: "https://www.fuqua.duke.edu/programs/daytime-mba",
+    apply_url: "https://www.fuqua.duke.edu/programs/daytime-mba/admissions/how-to-apply",
   },
   {
     university_name: "Johns Hopkins University",
@@ -1005,6 +1102,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-01-15",
     min_gpa: 3.5, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
     min_gre: 320, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://engineering.jhu.edu/ams/graduate-studies/",
+    apply_url: "https://engineering.jhu.edu/admissions/graduate-admissions/",
   },
   {
     university_name: "University of Washington",
@@ -1015,6 +1113,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-02-15",
     min_gpa: 3.2, min_percentage: null, min_ielts: 7.0, min_toefl: 92, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://ischool.uw.edu/programs/msim",
+    apply_url: "https://grad.uw.edu/admissions/",
   },
   {
     university_name: "Boston University",
@@ -1025,6 +1124,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 7.0, min_toefl: 84, min_pte: null, min_duolingo: null,
     min_gre: 310, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.bu.edu/cs/masters/",
+    apply_url: "https://www.bu.edu/cs/masters/apply/",
   },
   {
     university_name: "University of Wisconsin-Madison",
@@ -1035,6 +1135,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-01-15",
     min_gpa: 3.2, min_percentage: null, min_ielts: 6.5, min_toefl: 92, min_pte: null, min_duolingo: null,
     min_gre: 310, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://datascience.wisc.edu/",
+    apply_url: "https://grad.wisc.edu/apply/",
   },
   {
     university_name: "University of Southern California",
@@ -1045,6 +1146,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 90, min_pte: null, min_duolingo: null,
     min_gre: 310, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.cs.usc.edu/academic-programs/masters/",
+    apply_url: "https://gradadm.usc.edu/",
   },
   {
     university_name: "Texas A&M University",
@@ -1055,6 +1157,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 80, min_pte: null, min_duolingo: null,
     min_gre: 308, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://engineering.tamu.edu/mechanical/",
+    apply_url: "https://engineering.tamu.edu/admissions/graduate.html",
   },
   {
     university_name: "Georgetown University",
@@ -1065,6 +1168,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-01-15",
     min_gpa: 3.4, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
     min_gre: 315, min_gmat: null, min_sat: null, work_exp_required_years: 2, program_url: "https://msfs.georgetown.edu/",
+    apply_url: "https://msfs.georgetown.edu/apply/",
   },
   {
     university_name: "Rice University",
@@ -1075,6 +1179,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-04-01",
     min_gpa: 3.3, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: 680, min_sat: null, work_exp_required_years: 3, program_url: "https://business.rice.edu/mba",
+    apply_url: "https://business.rice.edu/mba/apply",
   },
   {
     university_name: "Ohio State University",
@@ -1085,6 +1190,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-03-01",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 7.0, min_toefl: 79, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: 600, min_sat: null, work_exp_required_years: 0, program_url: "https://fisher.osu.edu/graduate/",
+    apply_url: "https://fisher.osu.edu/graduate/how-to-apply",
   },
   {
     university_name: "Penn State University",
@@ -1095,6 +1201,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 80, min_pte: null, min_duolingo: null,
     min_gre: 308, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.eecs.psu.edu/students/graduate/",
+    apply_url: "https://www.eecs.psu.edu/students/graduate/admission.aspx",
   },
 
   // ─── UK — additional QS universities ─────────────────────────────────────
@@ -1107,6 +1214,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-03-31",
     min_gpa: 3.8, min_percentage: 85, min_ielts: 7.5, min_toefl: 110, min_pte: 76, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.cl.cam.ac.uk/teaching/current/ACS/",
+    apply_url: "https://www.graduate.study.cam.ac.uk/applying",
   },
   {
     university_name: "University of Cambridge",
@@ -1117,6 +1225,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2025-10-15",
     min_gpa: null, min_percentage: 90, min_ielts: 7.5, min_toefl: 110, min_pte: 76, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null, program_url: "https://www.undergraduate.study.cam.ac.uk/",
+    apply_url: "https://www.graduate.study.cam.ac.uk/applying",
   },
   {
     university_name: "London School of Economics",
@@ -1127,6 +1236,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 3.5, min_percentage: 75, min_ielts: 7.0, min_toefl: 107, min_pte: 76, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.lse.ac.uk/study-at-lse/Graduate/degree-programmes-2026/MSc-Economics",
+    apply_url: "https://www.lse.ac.uk/study-at-lse/Graduate/applying-to-lse",
   },
   {
     university_name: "London School of Economics",
@@ -1137,6 +1247,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 3.5, min_percentage: 75, min_ielts: 7.5, min_toefl: 107, min_pte: 76, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.lse.ac.uk/study-at-lse/Graduate/degree-programmes-2026/LLM",
+    apply_url: "https://www.lse.ac.uk/study-at-lse/Graduate/applying-to-lse",
   },
   {
     university_name: "University of Birmingham",
@@ -1147,6 +1258,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 2.8, min_percentage: 60, min_ielts: 6.5, min_toefl: 88, min_pte: 65, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.birmingham.ac.uk/postgraduate/courses/taught/cs/",
+    apply_url: "https://www.birmingham.ac.uk/postgraduate/apply",
   },
   {
     university_name: "University of Nottingham",
@@ -1157,6 +1269,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 2.8, min_percentage: 60, min_ielts: 6.5, min_toefl: 88, min_pte: 65, min_duolingo: null,
     min_gre: null, min_gmat: 580, min_sat: null, work_exp_required_years: 0, program_url: "https://www.nottingham.ac.uk/pgstudy/",
+    apply_url: "https://www.nottingham.ac.uk/pgstudy/apply/",
   },
   {
     university_name: "University of Sheffield",
@@ -1167,6 +1280,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 2.8, min_percentage: 60, min_ielts: 6.5, min_toefl: 88, min_pte: 62, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.sheffield.ac.uk/postgraduate/taught/",
+    apply_url: "https://www.sheffield.ac.uk/postgraduate/apply",
   },
   {
     university_name: "Durham University",
@@ -1177,6 +1291,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 92, min_pte: 65, min_duolingo: null,
     min_gre: null, min_gmat: 600, min_sat: null, work_exp_required_years: 0, program_url: "https://www.durham.ac.uk/study/postgraduate/find-courses/",
+    apply_url: "https://www.durham.ac.uk/study/postgraduate/apply/",
   },
   {
     university_name: "University of Bath",
@@ -1187,6 +1302,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 2.8, min_percentage: 60, min_ielts: 6.5, min_toefl: 88, min_pte: 62, min_duolingo: null,
     min_gre: null, min_gmat: 580, min_sat: null, work_exp_required_years: 2, program_url: "https://www.bath.ac.uk/courses/postgraduate/",
+    apply_url: "https://www.bath.ac.uk/guides/applying-for-postgraduate-study/",
   },
   {
     university_name: "University of Exeter",
@@ -1197,6 +1313,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 2.8, min_percentage: 60, min_ielts: 6.5, min_toefl: 88, min_pte: 62, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.exeter.ac.uk/study/postgraduate/courses/",
+    apply_url: "https://www.exeter.ac.uk/postgraduate/apply/",
   },
   {
     university_name: "University of St Andrews",
@@ -1207,6 +1324,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 3.2, min_percentage: 68, min_ielts: 7.0, min_toefl: 100, min_pte: 68, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.st-andrews.ac.uk/subjects/international-relations/international-relations-mlit/",
+    apply_url: "https://www.st-andrews.ac.uk/study/apply/",
   },
   {
     university_name: "Queen Mary University of London",
@@ -1217,6 +1335,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 2.8, min_percentage: 60, min_ielts: 6.5, min_toefl: 92, min_pte: 65, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.qmul.ac.uk/postgraduate/taught/",
+    apply_url: "https://www.qmul.ac.uk/postgraduate/apply/",
   },
   {
     university_name: "University of Liverpool",
@@ -1227,6 +1346,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 2.8, min_percentage: 60, min_ielts: 6.5, min_toefl: 88, min_pte: 62, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.liverpool.ac.uk/study/postgraduate-taught/",
+    apply_url: "https://www.liverpool.ac.uk/study/postgraduate-taught/applying/",
   },
   {
     university_name: "Cardiff University",
@@ -1237,6 +1357,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 2.8, min_percentage: 58, min_ielts: 6.5, min_toefl: 88, min_pte: 62, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.cardiff.ac.uk/study/postgraduate/taught/",
+    apply_url: "https://www.cardiff.ac.uk/study/postgraduate/applying",
   },
   {
     university_name: "Loughborough University",
@@ -1247,6 +1368,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 2.8, min_percentage: 60, min_ielts: 6.5, min_toefl: 88, min_pte: 62, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.lboro.ac.uk/study/postgraduate/masters-degrees/",
+    apply_url: "https://www.lboro.ac.uk/study/postgraduate/apply/",
   },
   {
     university_name: "University of Surrey",
@@ -1257,6 +1379,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 2.5, min_percentage: 55, min_ielts: 6.5, min_toefl: 88, min_pte: 62, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.surrey.ac.uk/postgraduate/",
+    apply_url: "https://www.surrey.ac.uk/postgraduate/applying",
   },
   {
     university_name: "Heriot-Watt University",
@@ -1267,6 +1390,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 2.8, min_percentage: 60, min_ielts: 6.5, min_toefl: 88, min_pte: 62, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.hw.ac.uk/uk/study/postgraduate/",
+    apply_url: "https://www.hw.ac.uk/study/apply.htm",
   },
   {
     university_name: "University of York",
@@ -1277,6 +1401,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 2.8, min_percentage: 60, min_ielts: 6.5, min_toefl: 88, min_pte: 62, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.york.ac.uk/study/postgraduate/",
+    apply_url: "https://www.york.ac.uk/study/postgraduate/apply/",
   },
 
   // ─── Australia — additional QS universities ───────────────────────────────
@@ -1289,6 +1414,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 85, min_pte: 64, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.unsw.edu.au/engineering/study-with-us/postgraduate-coursework",
+    apply_url: "https://www.admissions.unsw.edu.au/",
   },
   {
     university_name: "University of New South Wales",
@@ -1299,6 +1425,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: null, min_percentage: 70, min_ielts: 6.5, min_toefl: 85, min_pte: 64, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null, program_url: "https://www.unsw.edu.au/business/study-with-us",
+    apply_url: "https://www.admissions.unsw.edu.au/",
   },
   {
     university_name: "University of Western Australia",
@@ -1309,6 +1436,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 2.75, min_percentage: 60, min_ielts: 6.5, min_toefl: 84, min_pte: 64, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.uwa.edu.au/study/courses-and-careers/postgraduate",
+    apply_url: "https://www.uwa.edu.au/study/courses/how-to-apply",
   },
   {
     university_name: "Macquarie University",
@@ -1319,6 +1447,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 2.75, min_percentage: 60, min_ielts: 6.5, min_toefl: 83, min_pte: 58, min_duolingo: null,
     min_gre: null, min_gmat: 550, min_sat: null, work_exp_required_years: 2, program_url: "https://www.mgsm.edu.au/mba/",
+    apply_url: "https://www.mgsm.edu.au/apply",
   },
   {
     university_name: "Swinburne University of Technology",
@@ -1329,6 +1458,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 2.5, min_percentage: 55, min_ielts: 6.0, min_toefl: 79, min_pte: 50, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.swinburne.edu.au/courses/postgraduate/",
+    apply_url: "https://www.swinburne.edu.au/study/apply/",
   },
   {
     university_name: "James Cook University",
@@ -1339,6 +1469,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 2.5, min_percentage: 55, min_ielts: 6.0, min_toefl: 79, min_pte: 50, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 2, program_url: "https://www.jcu.edu.au/courses-and-study/courses/master-of-business-administration",
+    apply_url: "https://www.jcu.edu.au/courses-and-study/how-to-apply",
   },
   {
     university_name: "La Trobe University",
@@ -1349,6 +1480,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 2.5, min_percentage: 55, min_ielts: 6.5, min_toefl: 79, min_pte: 58, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.latrobe.edu.au/courses/master-of-public-health",
+    apply_url: "https://www.latrobe.edu.au/study/apply",
   },
   {
     university_name: "University of Wollongong",
@@ -1359,6 +1491,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 2.75, min_percentage: 60, min_ielts: 6.0, min_toefl: 79, min_pte: 58, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.uow.edu.au/study/courses/",
+    apply_url: "https://www.uow.edu.au/study/applying/",
   },
   {
     university_name: "Flinders University",
@@ -1369,6 +1502,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 2.5, min_percentage: 55, min_ielts: 6.0, min_toefl: 79, min_pte: 50, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 2, program_url: "https://www.flinders.edu.au/study/courses/postgraduate/",
+    apply_url: "https://www.flinders.edu.au/study/apply",
   },
 
   // ─── Canada — additional QS universities ──────────────────────────────────
@@ -1381,6 +1515,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 70, min_ielts: 6.5, min_toefl: 90, min_pte: 65, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.ualberta.ca/computing-science/graduate-studies/",
+    apply_url: "https://www.ualberta.ca/admissions/graduate/",
   },
   {
     university_name: "McMaster University",
@@ -1391,6 +1526,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-03-01",
     min_gpa: 3.0, min_percentage: 70, min_ielts: 6.5, min_toefl: 92, min_pte: 65, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.eng.mcmaster.ca/graduate/",
+    apply_url: "https://registrar.mcmaster.ca/admissions/",
   },
   {
     university_name: "Queen's University",
@@ -1401,6 +1537,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 70, min_ielts: 7.0, min_toefl: 100, min_pte: 68, min_duolingo: null,
     min_gre: null, min_gmat: 650, min_sat: null, work_exp_required_years: 3, program_url: "https://smith.queensu.ca/grad_studies/mba/",
+    apply_url: "https://smith.queensu.ca/grad_studies/mba/apply/",
   },
   {
     university_name: "Western University",
@@ -1411,6 +1548,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 3.2, min_percentage: 72, min_ielts: 7.0, min_toefl: 100, min_pte: 68, min_duolingo: null,
     min_gre: null, min_gmat: 670, min_sat: null, work_exp_required_years: 3, program_url: "https://www.ivey.uwo.ca/mba/",
+    apply_url: "https://www.ivey.uwo.ca/mba/apply/",
   },
   {
     university_name: "University of Ottawa",
@@ -1421,6 +1559,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 70, min_ielts: 7.0, min_toefl: 93, min_pte: 68, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.uottawa.ca/faculty-law/graduate-studies",
+    apply_url: "https://www.uottawa.ca/graduate-studies/programs",
   },
   {
     university_name: "University of Calgary",
@@ -1431,6 +1570,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 70, min_ielts: 6.5, min_toefl: 86, min_pte: 60, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.ucalgary.ca/future-students/graduate/explore-programs",
+    apply_url: "https://www.ucalgary.ca/future-students/graduate",
   },
   {
     university_name: "University of Victoria",
@@ -1441,6 +1581,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 70, min_ielts: 6.5, min_toefl: 90, min_pte: 65, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.uvic.ca/graduate/programs/",
+    apply_url: "https://www.uvic.ca/admissions/",
   },
   {
     university_name: "Concordia University",
@@ -1451,6 +1592,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 2.75, min_percentage: 65, min_ielts: 6.5, min_toefl: 90, min_pte: 65, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.concordia.ca/ginacody/grad/programs.html",
+    apply_url: "https://www.concordia.ca/admissions/graduate.html",
   },
 
   // ─── New Zealand — additional QS universities ─────────────────────────────
@@ -1463,6 +1605,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 2.75, min_percentage: 60, min_ielts: 6.5, min_toefl: 90, min_pte: 58, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 2, program_url: "https://www.massey.ac.nz/study/qualifications-and-courses/postgraduate/",
+    apply_url: "https://www.massey.ac.nz/study/apply/",
   },
   {
     university_name: "University of Canterbury",
@@ -1473,6 +1616,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: null, min_percentage: 65, min_ielts: 6.0, min_toefl: 79, min_pte: 55, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null, program_url: "https://www.canterbury.ac.nz/study/courses-and-qualifications/qualifications/",
+    apply_url: "https://www.canterbury.ac.nz/study/applying-to-uc/",
   },
   {
     university_name: "AUT — Auckland University of Technology",
@@ -1483,6 +1627,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 2.75, min_percentage: 60, min_ielts: 6.0, min_toefl: 79, min_pte: 55, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 2, program_url: "https://www.aut.ac.nz/courses/postgraduate/",
+    apply_url: "https://www.aut.ac.nz/study-at-aut/apply-to-aut",
   },
   {
     university_name: "Waikato University",
@@ -1493,6 +1638,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 2.75, min_percentage: 60, min_ielts: 6.0, min_toefl: 79, min_pte: 55, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.waikato.ac.nz/study/qualifications/",
+    apply_url: "https://www.waikato.ac.nz/study/apply/",
   },
 
   // ─── Ireland — additional QS universities ─────────────────────────────────
@@ -1505,6 +1651,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 2.75, min_percentage: 60, min_ielts: 6.5, min_toefl: 90, min_pte: 62, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.ucc.ie/en/study/postgrad/",
+    apply_url: "https://www.ucc.ie/en/study/postgrad/how/",
   },
   {
     university_name: "University of Limerick",
@@ -1515,6 +1662,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 2.5, min_percentage: 55, min_ielts: 6.0, min_toefl: 79, min_pte: 55, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.ul.ie/gps/courses/",
+    apply_url: "https://www.ul.ie/gps/",
   },
   {
     university_name: "Maynooth University",
@@ -1525,6 +1673,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 2.5, min_percentage: 55, min_ielts: 6.0, min_toefl: 79, min_pte: 55, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.maynoothuniversity.ie/study-maynooth/postgraduate-studies/",
+    apply_url: "https://www.maynoothuniversity.ie/study-maynooth/postgraduate-studies/how-apply",
   },
 
   // ─── Germany — additional QS universities ─────────────────────────────────
@@ -1537,6 +1686,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "2026-01-15",
     min_gpa: 3.2, min_percentage: 68, min_ielts: 7.0, min_toefl: 95, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.kit.edu/kit/english/education.php",
+    apply_url: "https://www.kit.edu/kit/english/study-application.php",
   },
   {
     university_name: "TU Berlin",
@@ -1547,6 +1697,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "2026-01-31",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 88, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.tu.berlin/en/studying/courses-degree-programs/",
+    apply_url: "https://www.tu.berlin/en/studying/application-and-enrollment/",
   },
   {
     university_name: "Free University of Berlin",
@@ -1557,6 +1708,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-06-01",
     min_gpa: 3.2, min_percentage: 68, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.fu-berlin.de/en/studium/index.html",
+    apply_url: "https://www.fu-berlin.de/en/studium/bewerbung/",
   },
   {
     university_name: "University of Freiburg",
@@ -1567,6 +1719,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-03-01",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 90, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.uni-freiburg.de/en/academics",
+    apply_url: "https://www.uni-freiburg.de/en/academics/application",
   },
   {
     university_name: "University of Stuttgart",
@@ -1577,6 +1730,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-01-15",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 88, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.uni-stuttgart.de/en/study/",
+    apply_url: "https://www.uni-stuttgart.de/en/study/application/",
   },
   {
     university_name: "Goethe University Frankfurt",
@@ -1587,6 +1741,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-05-31",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 90, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.uni-frankfurt.de/en/studies",
+    apply_url: "https://www.uni-frankfurt.de/en/studies/application-enrollment/",
   },
   {
     university_name: "University of Hamburg",
@@ -1597,6 +1752,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-03-01",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 90, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.uni-hamburg.de/en/campuscenter/studienangebot.html",
+    apply_url: "https://www.uni-hamburg.de/en/studium/bewerbung.html",
   },
 
   // ─── France — additional QS universities ──────────────────────────────────
@@ -1609,6 +1765,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-04-01",
     min_gpa: 3.5, min_percentage: 78, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://programmes.polytechnique.edu/en/master/master-of-science-and-technology",
+    apply_url: "https://programmes.polytechnique.edu/en/master/apply",
   },
   {
     university_name: "Université Paris-Saclay",
@@ -1619,6 +1776,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-03-01",
     min_gpa: 3.2, min_percentage: 68, min_ielts: 6.5, min_toefl: 90, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.universite-paris-saclay.fr/en/education/master",
+    apply_url: "https://www.universite-paris-saclay.fr/en/admission",
   },
   {
     university_name: "Sciences Po",
@@ -1629,6 +1787,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-03-15",
     min_gpa: 3.3, min_percentage: 70, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.sciencespo.fr/en/study/masters/",
+    apply_url: "https://www.sciencespo.fr/admissions/en/",
   },
   {
     university_name: "Sorbonne University",
@@ -1639,6 +1798,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-04-01",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 90, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.sorbonne-universite.fr/en/education/international-students",
+    apply_url: "https://www.sorbonne-universite.fr/en/education/admission",
   },
   {
     university_name: "EDHEC Business School",
@@ -1649,6 +1809,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 90, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: 620, min_sat: null, work_exp_required_years: 0, program_url: "https://master.edhec.edu/msc-financial-markets",
+    apply_url: "https://master.edhec.edu/apply",
   },
 
   // ─── UAE — additional QS universities ────────────────────────────────────
@@ -1661,6 +1822,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 2.75, min_percentage: 60, min_ielts: 6.0, min_toefl: 80, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.adu.ac.ae/academics/graduate-programs/",
+    apply_url: "https://www.adu.ac.ae/admissions/",
   },
   {
     university_name: "Middlesex University Dubai",
@@ -1671,6 +1833,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 2.5, min_percentage: 55, min_ielts: 6.0, min_toefl: 79, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 2, program_url: "https://www.mdx.ac.ae/postgraduate",
+    apply_url: "https://www.mdx.ac.ae/study-with-us/how-to-apply",
   },
   {
     university_name: "SP Jain School of Global Management",
@@ -1681,6 +1844,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 60, min_ielts: 6.0, min_toefl: 79, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: 550, min_sat: null, work_exp_required_years: 2, program_url: "https://www.spjain.org/mba",
+    apply_url: "https://www.spjain.org/admissions",
   },
   {
     university_name: "BITS Pilani Dubai Campus",
@@ -1691,6 +1855,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: null, min_percentage: 65, min_ielts: 6.0, min_toefl: 79, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null, program_url: "https://www.bits-dubai.ac.ae/programmes/",
+    apply_url: "https://www.bits-dubai.ac.ae/apply",
   },
 
   // ─── Singapore — additional QS universities ───────────────────────────────
@@ -1703,6 +1868,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-03-15",
     min_gpa: null, min_percentage: 80, min_ielts: 6.5, min_toefl: 90, min_pte: 60, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null, program_url: "https://www.sutd.edu.sg/Education/Undergraduate-Programmes",
+    apply_url: "https://www.sutd.edu.sg/Admissions/",
   },
   {
     university_name: "Singapore University of Technology and Design",
@@ -1713,6 +1879,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 68, min_ielts: 6.5, min_toefl: 90, min_pte: 60, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.sutd.edu.sg/Education/Graduate-Programmes",
+    apply_url: "https://www.sutd.edu.sg/Admissions/",
   },
   {
     university_name: "ESSEC Business School Asia-Pacific",
@@ -1723,6 +1890,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 100, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: 600, min_sat: null, work_exp_required_years: 3, program_url: "https://www.essec.edu/en/asia/programmes/",
+    apply_url: "https://www.essec.edu/en/programs/apply/",
   },
   {
     university_name: "James Cook University Singapore",
@@ -1733,6 +1901,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: null, min_percentage: 60, min_ielts: 6.0, min_toefl: 79, min_pte: 58, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null, program_url: "https://www.jcu.edu.sg/courses/undergraduate/",
+    apply_url: "https://www.jcu.edu.au/courses-and-study/how-to-apply",
   },
 
   // ─── Malaysia — additional QS universities ────────────────────────────────
@@ -1745,6 +1914,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 2.75, min_percentage: 60, min_ielts: 6.0, min_toefl: 79, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.upm.edu.my/",
+    apply_url: "https://upm.edu.my/prospective_students",
   },
   {
     university_name: "Universiti Sains Malaysia",
@@ -1755,6 +1925,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 2.75, min_percentage: 60, min_ielts: 6.0, min_toefl: 79, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.usm.my/index.php/en/postgraduate",
+    apply_url: "https://www.usm.my/index.php/en/prospective-student",
   },
   {
     university_name: "Universiti Kebangsaan Malaysia",
@@ -1765,6 +1936,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 2.75, min_percentage: 60, min_ielts: 6.0, min_toefl: 79, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.ukm.my/graduate/",
+    apply_url: "https://www.ukm.my/graduate/how-to-apply/",
   },
   {
     university_name: "Sunway University",
@@ -1775,6 +1947,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: null, min_percentage: 55, min_ielts: 5.5, min_toefl: 69, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null, program_url: "https://university.sunway.edu.my/Undergraduate-Studies",
+    apply_url: "https://university.sunway.edu.my/Apply-Now",
   },
   {
     university_name: "Heriot-Watt University Malaysia",
@@ -1785,6 +1958,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: null, min_percentage: 60, min_ielts: 6.0, min_toefl: 79, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null, program_url: "https://www.hw.ac.uk/malaysia/programmes/",
+    apply_url: "https://www.hw.ac.uk/study/apply.htm",
   },
   {
     university_name: "Multimedia University",
@@ -1795,6 +1969,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: null, min_percentage: 50, min_ielts: 5.5, min_toefl: 60, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null, program_url: "https://www.mmu.edu.my/programmes/",
+    apply_url: "https://www.mmu.edu.my/apply/",
   },
   {
     university_name: "Universiti Teknologi PETRONAS",
@@ -1805,5 +1980,6 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: null, min_percentage: 60, min_ielts: 6.0, min_toefl: 79, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null, program_url: "https://www.utp.edu.my/Pages/Programmes.aspx",
+    apply_url: "https://www.utp.edu.my/Pages/Admission.aspx",
   },
 ];

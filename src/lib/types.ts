@@ -100,6 +100,7 @@ export interface Program {
   min_sat: number | null;
   work_exp_required_years: number | null;
   program_url: string;
+  apply_url: string;
   is_active: boolean;
   last_updated: string;
 }
