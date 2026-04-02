@@ -271,5 +271,10 @@ export function recommendPrograms(
     .filter((p) => p.match_score >= 25)
     .sort((a, b) => b.match_score - a.match_score);
 
-  return scored;
+  // Cap to best 5 safe + 10 reach + 5 ambitious (20 total)
+  const safe      = scored.filter((p) => p.tier === "safe").slice(0, 5);
+  const reach     = scored.filter((p) => p.tier === "reach").slice(0, 10);
+  const ambitious = scored.filter((p) => p.tier === "ambitious").slice(0, 5);
+
+  return [...safe, ...reach, ...ambitious];
 }
