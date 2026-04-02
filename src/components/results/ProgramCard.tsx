@@ -10,10 +10,7 @@ import {
   DollarSign,
   CalendarDays,
   Trophy,
-  ChevronDown,
-  ChevronUp,
 } from "lucide-react";
-import { useState } from "react";
 
 interface Props {
   program: ScoredProgram;
@@ -31,13 +28,11 @@ function ScoreBar({ label, value }: { label: string; value: number }) {
           style={{ width: `${Math.min(value, 100)}%` }}
         />
       </div>
-      <span className="text-xs text-gray-500 w-8 text-right">{Math.round(value)}</span>
     </div>
   );
 }
 
 export default function ProgramCard({ program, isShortlisted, onToggleShortlist }: Props) {
-  const [expanded, setExpanded] = useState(false);
   const totalCost = program.annual_tuition_usd + program.avg_living_cost_usd;
   const flag = getCountryFlag(program.country);
   const tierStyle = getTierColor(program.tier);
@@ -148,23 +143,18 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist 
 
         {/* Bottom action row */}
         <div className="flex items-center justify-between mt-4 pt-4 border-t border-gray-50">
-          <button
-            onClick={() => setExpanded((e) => !e)}
-            className="flex items-center gap-1 text-xs text-indigo-500 hover:text-indigo-700 font-medium transition-colors"
-          >
-            {expanded ? (
-              <>
-                <ChevronUp className="w-3.5 h-3.5" />
-                Hide score breakdown
-              </>
-            ) : (
-              <>
-                <ChevronDown className="w-3.5 h-3.5" />
-                View score breakdown
-              </>
-            )}
-          </button>
-          <div className="flex items-center gap-2">
+          {/* Match signal bars — no numbers shown */}
+          <div className="flex-1 mr-4 space-y-1.5">
+            <ScoreBar label="Academic" value={program.score_breakdown.academic} />
+            <ScoreBar label="English" value={program.score_breakdown.english} />
+            <ScoreBar label="Budget" value={program.score_breakdown.budget} />
+            <ScoreBar label="Country Pref." value={program.score_breakdown.country_rank} />
+            <ScoreBar label="QS Ranking" value={program.score_breakdown.qs_ranking} />
+            <ScoreBar label="Intake" value={program.score_breakdown.intake} />
+            <ScoreBar label="Work Exp." value={program.score_breakdown.work_experience} />
+            <ScoreBar label="Std. Test" value={program.score_breakdown.std_test} />
+          </div>
+          <div className="flex flex-col items-end gap-2 flex-shrink-0">
             <a
               href={program.program_url}
               target="_blank"
@@ -186,31 +176,6 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist 
           </div>
         </div>
       </div>
-
-      {/* Expandable score breakdown */}
-      {expanded && (
-        <div className="px-5 pb-5 bg-gray-50/50 border-t border-gray-100">
-          <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3 mt-4">
-            Match Score Breakdown
-          </p>
-          <div className="space-y-2">
-            <ScoreBar label="Academic" value={program.score_breakdown.academic} />
-            <ScoreBar label="English" value={program.score_breakdown.english} />
-            <ScoreBar label="Budget" value={program.score_breakdown.budget} />
-            <ScoreBar label="Country Pref." value={program.score_breakdown.country_rank} />
-            <ScoreBar label="QS Ranking" value={program.score_breakdown.qs_ranking} />
-            <ScoreBar label="Intake" value={program.score_breakdown.intake} />
-            <ScoreBar label="Work Exp." value={program.score_breakdown.work_experience} />
-            <ScoreBar label="Std. Test" value={program.score_breakdown.std_test} />
-          </div>
-          <div className="mt-3 flex items-center justify-between">
-            <span className="text-xs text-gray-400">Overall Match Score</span>
-            <span className={`text-base font-black ${scoreColor}`}>
-              {program.match_score}/100
-            </span>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
