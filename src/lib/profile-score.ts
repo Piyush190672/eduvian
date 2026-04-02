@@ -3,7 +3,7 @@ import type { StudentProfile } from "./types";
 // ─── Profile Category Types ───────────────────────────────────────────────────
 
 export type ProfileCategory =
-  | "Super Hot Profile"
+  | "SUPER HOT Profile"
   | "HOT Profile"
   | "Good Potential"
   | "Medium Potential"
@@ -101,7 +101,7 @@ export function scoreStudentProfile(profile: StudentProfile): ProfileScoreResult
 }
 
 function deriveCategory(pct: number): ProfileCategory {
-  if (pct >= 80) return "Super Hot Profile";
+  if (pct >= 80) return "SUPER HOT Profile";
   if (pct >= 70) return "HOT Profile";
   if (pct >= 60) return "Good Potential";
   if (pct >= 40) return "Medium Potential";
@@ -121,7 +121,7 @@ export interface CategoryStyle {
 
 export function getCategoryStyle(category: ProfileCategory): CategoryStyle {
   switch (category) {
-    case "Super Hot Profile":
+    case "SUPER HOT Profile":
       return {
         bg: "bg-rose-50",
         text: "text-rose-600",
@@ -175,7 +175,7 @@ export function getCategoryStyle(category: ProfileCategory): CategoryStyle {
 /** Inline HTML-safe category badge for emails / PDF */
 export function categoryBadgeHtml(category: ProfileCategory): string {
   const colors: Record<ProfileCategory, { bg: string; color: string }> = {
-    "Super Hot Profile":  { bg: "#fef2f2", color: "#dc2626" },
+    "SUPER HOT Profile":  { bg: "#fef2f2", color: "#dc2626" },
     "HOT Profile":        { bg: "#fff7ed", color: "#ea580c" },
     "Good Potential":     { bg: "#f0fdf4", color: "#16a34a" },
     "Medium Potential":   { bg: "#fffbeb", color: "#d97706" },
