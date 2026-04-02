@@ -224,11 +224,9 @@ export default function ResultsPage() {
             Hey {studentName}! 👋 Here&apos;s your shortlist
           </h1>
           <p className="text-gray-500 mt-1">
-            We found{" "}
-            <span className="text-indigo-600 font-semibold">
-              {allPrograms.length} programs
-            </span>{" "}
-            matched to your profile.
+            Here are the{" "}
+            <span className="text-indigo-600 font-semibold">TOP 20 options</span>{" "}
+            matching your profile.
           </p>
         </motion.div>
 
