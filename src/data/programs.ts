@@ -76,7 +76,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 17000, avg_living_cost_usd: 18000,
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 2.75, min_percentage: 60, min_ielts: 6.0, min_toefl: 80, min_pte: 55, min_duolingo: 95,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://engineering.asu.edu/",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://scai.engineering.asu.edu/graduate-program-software-engineering/",
     apply_url: "https://apply.asu.edu/apply/",
   },
   {
@@ -87,7 +87,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 27000, avg_living_cost_usd: 24000,
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 88, min_pte: 58, min_duolingo: 105,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.khoury.northeastern.edu/",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://graduate.northeastern.edu/programs/information-systems-ms/",
     apply_url: "https://apply.northeastern.edu/",
   },
   {
@@ -188,7 +188,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 33600, avg_living_cost_usd: 16000,
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 3.2, min_percentage: 70, min_ielts: 6.5, min_toefl: 92, min_pte: 65, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.ed.ac.uk/studying/postgraduate/degrees",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://informatics.ed.ac.uk/study-with-us/our-degrees/postgraduate-taught",
     apply_url: "https://www.ed.ac.uk/studying/postgraduate/applying",
   },
   {
@@ -199,8 +199,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 45360, avg_living_cost_usd: 15000,
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 60, min_ielts: 7.0, min_toefl: 100, min_pte: 70, min_duolingo: null,
-    min_gre: null, min_gmat: 600, min_sat: null, work_exp_required_years: 3, program_url: "https://www.mbs.ac.uk/mba",
-    apply_url: "https://www.manchester.ac.uk/study/postgraduate/how-to-apply/",
+    min_gre: null, min_gmat: 600, min_sat: null, work_exp_required_years: 3, program_url: "https://www.mbs.ac.uk/masters/mba",
+    apply_url: "https://www.mbs.ac.uk/masters/mba/apply",
   },
   {
     university_name: "University of Warwick",
@@ -210,7 +210,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 29520, avg_living_cost_usd: 14000,
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 92, min_pte: 65, min_duolingo: null,
-    min_gre: null, min_gmat: 600, min_sat: null, work_exp_required_years: 0, program_url: "https://warwick.ac.uk/fac/soc/wbs/masters/",
+    min_gre: null, min_gmat: 600, min_sat: null, work_exp_required_years: 0, program_url: "https://warwick.ac.uk/fac/soc/wbs/subjects/businessanalytics/msc-business-analytics/",
     apply_url: "https://warwick.ac.uk/study/postgraduate/apply/",
   },
   {
@@ -221,8 +221,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 28920, avg_living_cost_usd: 22000,
     intake_semesters: ["fall"], application_deadline: "2026-01-29",
     min_gpa: null, min_percentage: 75, min_ielts: 6.5, min_toefl: 92, min_pte: 65, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null, program_url: "https://www.kcl.ac.uk/study/undergraduate/courses",
-    apply_url: "https://www.kcl.ac.uk/study/postgraduate-taught/how-to-apply",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null, program_url: "https://www.kcl.ac.uk/study/undergraduate/courses/computer-science-bsc",
+    apply_url: "https://www.ucas.com/apply",
   },
   {
     university_name: "University of Bristol",
@@ -232,8 +232,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 27600, avg_living_cost_usd: 15000,
     intake_semesters: ["fall"], application_deadline: "2026-01-29",
     min_gpa: null, min_percentage: 72, min_ielts: 6.5, min_toefl: 90, min_pte: 65, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null, program_url: "https://www.bris.ac.uk/study/undergraduate/",
-    apply_url: "https://www.bristol.ac.uk/study/postgraduate/apply/",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null, program_url: "https://www.bristol.ac.uk/study/undergraduate/economics-bsc/",
+    apply_url: "https://www.ucas.com/apply",
   },
   {
     university_name: "University of Leeds",
@@ -254,8 +254,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 28800, avg_living_cost_usd: 14000,
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 90, min_pte: 65, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.southampton.ac.uk/study/postgraduate",
-    apply_url: "https://www.southampton.ac.uk/study/postgraduate-taught/applying",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.southampton.ac.uk/courses/cyber-security-masters-msc",
+    apply_url: "https://www.southampton.ac.uk/postgraduate/applying/index.page",
   },
 
   // ─── Australia ────────────────────────────────────────────────────────────
@@ -267,8 +267,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 33600, avg_living_cost_usd: 18000,
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 79, min_pte: 58, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://study.unimelb.edu.au/find/courses/graduate/",
-    apply_url: "https://study.unimelb.edu.au/how-to-apply",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://study.unimelb.edu.au/find/courses/graduate/master-of-data-science/",
+    apply_url: "https://study.unimelb.edu.au/find/courses/graduate/master-of-data-science/how-to-apply/",
   },
   {
     university_name: "Australian National University",
@@ -278,7 +278,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 31200, avg_living_cost_usd: 16000,
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 80, min_pte: 58, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://programsandcourses.anu.edu.au/program/MBUS",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://programsandcourses.anu.edu.au/program/7706xmcomp",
     apply_url: "https://www.anu.edu.au/study/apply",
   },
   {
@@ -289,7 +289,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 46000, avg_living_cost_usd: 20000,
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 88, min_pte: 60, min_duolingo: null,
-    min_gre: null, min_gmat: 550, min_sat: null, work_exp_required_years: 2, program_url: "https://www.sydney.edu.au/business/our-research/research-areas/business-analytics.html",
+    min_gre: null, min_gmat: 550, min_sat: null, work_exp_required_years: 2, program_url: "https://www.sydney.edu.au/business/study/mba.html",
     apply_url: "https://www.sydney.edu.au/study/how-to-apply.html",
   },
   {
@@ -300,7 +300,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 28000, avg_living_cost_usd: 18000,
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 2.75, min_percentage: 60, min_ielts: 6.0, min_toefl: 79, min_pte: 58, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.monash.edu/science/courses/graduate/engineering",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.monash.edu/study/courses/find-a-course/artificial-intelligence-c6007",
     apply_url: "https://www.monash.edu/study/how-to-apply",
   },
   {
@@ -311,8 +311,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 24000, avg_living_cost_usd: 18000,
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 2.5, min_percentage: 55, min_ielts: 6.0, min_toefl: 79, min_pte: 50, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study",
-    apply_url: "https://www.rmit.edu.au/study-with-us/applying-to-rmit",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/masters-by-coursework/master-of-information-technology-mc208",
+    apply_url: "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/masters-by-coursework/master-of-information-technology-mc208/apply-now",
   },
   {
     university_name: "Curtin University",
@@ -322,7 +322,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 21600, avg_living_cost_usd: 15000,
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: null, min_percentage: 60, min_ielts: 6.0, min_toefl: 79, min_pte: 50, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null, program_url: "https://www.curtin.edu.au/study/offering/",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null, program_url: "https://www.curtin.edu.au/study/offering/course-ug-bachelor-of-computing--b-comp/",
     apply_url: "https://www.curtin.edu.au/study/apply/",
   },
   {
@@ -333,8 +333,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 26400, avg_living_cost_usd: 16000,
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: null, min_percentage: 65, min_ielts: 6.5, min_toefl: 87, min_pte: 58, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null, program_url: "https://www.uq.edu.au/study/programs/",
-    apply_url: "https://www.uq.edu.au/study/apply",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null, program_url: "https://study.uq.edu.au/study-options/programs/bachelor-business-management-2171",
+    apply_url: "https://study.uq.edu.au/study-options/programs/bachelor-business-management-2171#how-to-apply",
   },
   {
     university_name: "University of Adelaide",
@@ -344,7 +344,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 27600, avg_living_cost_usd: 14000,
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 88, min_pte: 58, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.adelaide.edu.au/programs-courses/",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.adelaide.edu.au/degree-finder/mbib_mbibiom.html",
     apply_url: "https://www.adelaide.edu.au/study/applications/",
   },
 
@@ -390,7 +390,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 19200, avg_living_cost_usd: 14000,
     intake_semesters: ["fall"], application_deadline: "2026-01-31",
     min_gpa: 3.0, min_percentage: 72, min_ielts: 7.0, min_toefl: 90, min_pte: 65, min_duolingo: 120,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://uwaterloo.ca/graduate-studies-academic-calendar/",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://uwaterloo.ca/data-science/masters-data-science-and-artificial-intelligence-mdsai",
     apply_url: "https://uwaterloo.ca/graduate-studies-postdoctoral-affairs/future-students/how-apply",
   },
   {
@@ -423,7 +423,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 14000, avg_living_cost_usd: 12000,
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 68, min_ielts: 6.5, min_toefl: 90, min_pte: 65, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.dal.ca/academics/programs.html",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.dal.ca/study/programs/graduate-professional/applied-computer-science-macsc.html",
     apply_url: "https://www.dal.ca/admissions/apply.html",
   },
 
@@ -436,7 +436,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 22800, avg_living_cost_usd: 14000,
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 90, min_pte: 58, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.auckland.ac.nz/en/study/study-options/find-a-study-option.html",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.auckland.ac.nz/en/study/study-options/find-a-study-option/master-of-information-technology-minfotech.html",
     apply_url: "https://www.auckland.ac.nz/en/study/applications-and-admissions/apply.html",
   },
   {
@@ -447,7 +447,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 21000, avg_living_cost_usd: 13000,
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 2.75, min_percentage: 60, min_ielts: 6.5, min_toefl: 90, min_pte: 58, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.wgtn.ac.nz/engineering",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters",
     apply_url: "https://www.wgtn.ac.nz/study/apply",
   },
   {
@@ -458,7 +458,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 20000, avg_living_cost_usd: 12000,
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 2.75, min_percentage: 60, min_ielts: 6.0, min_toefl: 80, min_pte: 55, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.otago.ac.nz/courses/",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.otago.ac.nz/courses/qualifications/mb",
     apply_url: "https://www.otago.ac.nz/study/apply",
   },
 
@@ -471,7 +471,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 22800, avg_living_cost_usd: 16000,
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 88, min_pte: 65, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.tcd.ie/courses/postgraduate/",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.tcd.ie/scss/courses/postgraduate/computer-science/",
     apply_url: "https://www.tcd.ie/study/apply/",
   },
   {
@@ -482,7 +482,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 20400, avg_living_cost_usd: 16000,
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 2.8, min_percentage: 60, min_ielts: 6.5, min_toefl: 88, min_pte: 58, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.ucd.ie/study/graduate/",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.ucd.ie/business/programmes/masters/msc-business-analytics/",
     apply_url: "https://www.ucd.ie/study/apply/",
   },
   {
@@ -493,7 +493,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 14400, avg_living_cost_usd: 16000,
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 2.5, min_percentage: 55, min_ielts: 6.0, min_toefl: 79, min_pte: 55, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.dcu.ie/postgraduate",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.dcu.ie/courses/postgraduate/data-analytics",
     apply_url: "https://www.dcu.ie/apply",
   },
   {
@@ -517,7 +517,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 3000, avg_living_cost_usd: 12000,
     intake_semesters: ["fall", "spring"], application_deadline: "2026-01-15",
     min_gpa: 3.3, min_percentage: 70, min_ielts: 7.0, min_toefl: 95, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.tum.de/en/studies/degree-programs/",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.tum.de/en/studies/degree-programs/detail/informatics-master-of-science-msc",
     apply_url: "https://www.tum.de/en/studies/application/",
   },
   {
@@ -528,8 +528,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 1200, avg_living_cost_usd: 11000,
     intake_semesters: ["fall"], application_deadline: "2026-02-28",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 88, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.rwth-aachen.de/cms/root/studium/Vor-dem-Studium/Studiengaenge/",
-    apply_url: "https://www.rwth-aachen.de/cms/root/studium/Vor-dem-Studium/Bewerbung/",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.rwth-aachen.de/cms/root/studium/vor-dem-studium/studienangebot/lehreinheit/~bpqt/maschinenbau/",
+    apply_url: "https://www.rwth-aachen.de/cms/root/studium/vor-dem-studium/~eif/bewerbung/",
   },
   {
     university_name: "Heidelberg University",
@@ -539,7 +539,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 3600, avg_living_cost_usd: 11000,
     intake_semesters: ["fall"], application_deadline: "2026-01-15",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 88, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.uni-heidelberg.de/en/study",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.uni-heidelberg.de/en/study/all-subjects/molecular-biosciences-msc/molecular-biosciences",
     apply_url: "https://www.uni-heidelberg.de/en/study/application",
   },
   {
@@ -620,7 +620,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 14400, avg_living_cost_usd: 18000,
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 70, min_ielts: 6.5, min_toefl: 90, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.ku.ac.ae/academics/graduate-programs",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.ku.ac.ae/academics/graduate-programs/master-of-science-in-computer-science",
     apply_url: "https://www.ku.ac.ae/admissions/",
   },
   {
@@ -677,7 +677,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 28800, avg_living_cost_usd: 20000,
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 3.2, min_percentage: 72, min_ielts: 6.0, min_toefl: 80, min_pte: 58, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.ntu.edu.sg/academics/graduate-programmes",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.ntu.edu.sg/education/graduate-programme/master-of-science-in-artificial-intelligence",
     apply_url: "https://www.ntu.edu.sg/education/graduate-programme/application",
   },
   {
@@ -712,8 +712,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 5000, avg_living_cost_usd: 7000,
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 2.75, min_percentage: 60, min_ielts: 6.0, min_toefl: 79, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.um.edu.my/study/postgraduate",
-    apply_url: "https://www.um.edu.my/study/application-guide",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://fsktm.um.edu.my/master-of-computer-science-applied-computing-mixed-mode",
+    apply_url: "https://apply.um.edu.my/",
   },
   {
     university_name: "Monash University Malaysia",
@@ -780,7 +780,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 25800, avg_living_cost_usd: 15000,
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 90, min_pte: 65, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.gla.ac.uk/postgraduate/taught/",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.gla.ac.uk/postgraduate/taught/financialtechnology/",
     apply_url: "https://www.gla.ac.uk/postgraduate/taught/apply/",
   },
   {
@@ -791,8 +791,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 25200, avg_living_cost_usd: 14000,
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 92, min_pte: 65, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.ncl.ac.uk/postgraduate/degrees/",
-    apply_url: "https://www.ncl.ac.uk/postgraduate/how-to-apply/",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.ncl.ac.uk/postgraduate/degrees/5203f/",
+    apply_url: "https://www.ncl.ac.uk/postgraduate/apply/",
   },
   {
     university_name: "University of Sydney",
@@ -802,7 +802,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 34800, avg_living_cost_usd: 20000,
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: null, min_percentage: 70, min_ielts: 6.5, min_toefl: 85, min_pte: 60, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null, program_url: "https://www.sydney.edu.au/engineering/study/undergraduate-courses/",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null, program_url: "https://www.sydney.edu.au/courses/courses/uc/bachelor-of-advanced-computing.html",
     apply_url: "https://www.sydney.edu.au/study/how-to-apply.html",
   },
   {
@@ -813,7 +813,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 22800, avg_living_cost_usd: 18000,
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 2.5, min_percentage: 55, min_ielts: 6.0, min_toefl: 79, min_pte: 50, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.deakin.edu.au/courses/postgraduate",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.deakin.edu.au/course/master-cyber-security",
     apply_url: "https://www.deakin.edu.au/study/apply",
   },
   {
@@ -857,7 +857,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 28800, avg_living_cost_usd: 14000,
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: null, min_percentage: 65, min_ielts: 6.0, min_toefl: 79, min_pte: 58, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null, program_url: "https://www.auckland.ac.nz/en/engineering/study.html",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null, program_url: "https://www.auckland.ac.nz/en/study/study-options/find-a-study-option/software-engineering/undergraduate.html",
     apply_url: "https://www.auckland.ac.nz/en/study/applications-and-admissions/apply.html",
   },
   {
@@ -879,8 +879,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 23400, avg_living_cost_usd: 14000,
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 90, min_pte: 65, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.strath.ac.uk/courses/postgraduatetaught/",
-    apply_url: "https://www.strath.ac.uk/courses/postgraduate/how-to-apply/",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.strath.ac.uk/courses/postgraduatetaught/advancedcomputerscience/",
+    apply_url: "https://www.strath.ac.uk/studywithus/postgraduate/howtoapply/",
   },
   {
     university_name: "University of Technology Sydney",
@@ -890,7 +890,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 28800, avg_living_cost_usd: 20000,
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 2.75, min_percentage: 60, min_ielts: 6.5, min_toefl: 83, min_pte: 58, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.uts.edu.au/study/find-a-course",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.uts.edu.au/courses/master-of-data-science-and-innovation",
     apply_url: "https://www.uts.edu.au/study/how-apply",
   },
   {
@@ -901,7 +901,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 13200, avg_living_cost_usd: 16000,
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 2.5, min_percentage: 55, min_ielts: 6.0, min_toefl: 79, min_pte: 55, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.tudublin.ie/study/postgraduate/",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.tudublin.ie/study/postgraduate/courses/master-of-science-in-computing/",
     apply_url: "https://www.tudublin.ie/study/how-to-apply/",
   },
 
@@ -937,7 +937,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-01-01",
     min_gpa: null, min_percentage: 95, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: 1550, work_exp_required_years: null, program_url: "https://www.seas.harvard.edu/computer-science/undergraduate",
-    apply_url: "https://apply.gse.harvard.edu/apply/",
+    apply_url: "https://college.harvard.edu/admissions/application-process",
   },
   {
     university_name: "California Institute of Technology",
@@ -959,7 +959,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-02-15",
     min_gpa: 3.9, min_percentage: null, min_ielts: 7.5, min_toefl: 110, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://law.yale.edu/admissions/jd-admissions",
-    apply_url: "https://admissions.yale.edu/",
+    apply_url: "https://law.yale.edu/admissions/jd-admissions/applying-yale-law-school",
   },
   {
     university_name: "Yale University",
@@ -969,8 +969,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 62250, avg_living_cost_usd: 22000,
     intake_semesters: ["fall"], application_deadline: "2026-01-02",
     min_gpa: null, min_percentage: 95, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: 1540, work_exp_required_years: null, program_url: "https://admissions.yale.edu/",
-    apply_url: "https://admissions.yale.edu/",
+    min_gre: null, min_gmat: null, min_sat: 1540, work_exp_required_years: null, program_url: "https://economics.yale.edu/undergraduate",
+    apply_url: "https://admissions.yale.edu/apply",
   },
   {
     university_name: "Princeton University",
@@ -981,7 +981,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-01-01",
     min_gpa: null, min_percentage: 95, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: 1560, work_exp_required_years: null, program_url: "https://www.cs.princeton.edu/academics/",
-    apply_url: "https://www.cs.princeton.edu/grad/admissions",
+    apply_url: "https://admission.princeton.edu/apply",
   },
   {
     university_name: "Princeton University",
@@ -991,8 +991,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 59710, avg_living_cost_usd: 20000,
     intake_semesters: ["fall"], application_deadline: "2025-12-15",
     min_gpa: 3.7, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
-    min_gre: 325, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://ece.princeton.edu/graduate",
-    apply_url: "https://www.cs.princeton.edu/grad/admissions",
+    min_gre: 325, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://ece.princeton.edu/graduate/programs/master",
+    apply_url: "https://gradapply.princeton.edu/apply/",
   },
   {
     university_name: "Cornell University",
@@ -1003,7 +1003,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-02-01",
     min_gpa: 3.3, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.cs.cornell.edu/masters",
-    apply_url: "https://www.cornell.edu/admissions/apply/",
+    apply_url: "https://gradapply.cornell.edu/apply/",
   },
   {
     university_name: "Cornell University",
@@ -1014,7 +1014,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-01-02",
     min_gpa: null, min_percentage: 88, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: 1450, work_exp_required_years: null, program_url: "https://sha.cornell.edu/admissions/",
-    apply_url: "https://www.cornell.edu/admissions/apply/",
+    apply_url: "https://gradapply.cornell.edu/apply/",
   },
   {
     university_name: "University of Pennsylvania",
@@ -1035,8 +1035,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 63452, avg_living_cost_usd: 22000,
     intake_semesters: ["fall"], application_deadline: "2026-01-01",
     min_gpa: null, min_percentage: 93, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: 1530, work_exp_required_years: null, program_url: "https://www.seas.upenn.edu/undergraduate/",
-    apply_url: "https://gradadm.seas.upenn.edu/",
+    min_gre: null, min_gmat: null, min_sat: 1530, work_exp_required_years: null, program_url: "https://www.seas.upenn.edu/undergraduate/engineering-majors/computer-science/",
+    apply_url: "https://undergrad-admissions.upenn.edu/apply",
   },
   {
     university_name: "Northwestern University",
@@ -1047,7 +1047,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-04-08",
     min_gpa: 3.5, min_percentage: null, min_ielts: 7.0, min_toefl: 107, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: 720, min_sat: null, work_exp_required_years: 4, program_url: "https://www.kellogg.northwestern.edu/programs/full-time-mba.aspx",
-    apply_url: "https://www.kellogg.northwestern.edu/programs/full-time-mba/admissions/apply.aspx",
+    apply_url: "https://apply.kellogg.northwestern.edu/apply/",
   },
   {
     university_name: "UCLA",
@@ -1058,7 +1058,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2025-12-15",
     min_gpa: 3.5, min_percentage: null, min_ielts: 7.0, min_toefl: 87, min_pte: null, min_duolingo: null,
     min_gre: 320, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.cs.ucla.edu/graduate-admission/",
-    apply_url: "https://grad.ucla.edu/admissions/",
+    apply_url: "https://apply.grad.ucla.edu/apply/",
   },
   {
     university_name: "UCLA",
@@ -1068,8 +1068,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 43000, avg_living_cost_usd: 26000,
     intake_semesters: ["fall"], application_deadline: "2026-11-30",
     min_gpa: null, min_percentage: 88, min_ielts: 7.0, min_toefl: 87, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: 1430, work_exp_required_years: null, program_url: "https://www.tft.ucla.edu/",
-    apply_url: "https://grad.ucla.edu/admissions/",
+    min_gre: null, min_gmat: null, min_sat: 1430, work_exp_required_years: null, program_url: "https://www.tft.ucla.edu/programs/",
+    apply_url: "https://apply.grad.ucla.edu/apply/",
   },
   {
     university_name: "UC San Diego",
@@ -1080,7 +1080,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2025-12-15",
     min_gpa: 3.3, min_percentage: null, min_ielts: 7.0, min_toefl: 85, min_pte: null, min_duolingo: null,
     min_gre: 315, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://cse.ucsd.edu/graduate",
-    apply_url: "https://grad.ucsd.edu/admissions/",
+    apply_url: "https://apply.grad.ucsd.edu/apply/",
   },
   {
     university_name: "Duke University",
@@ -1101,8 +1101,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 60480, avg_living_cost_usd: 20000,
     intake_semesters: ["fall"], application_deadline: "2026-01-15",
     min_gpa: 3.5, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
-    min_gre: 320, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://engineering.jhu.edu/ams/graduate-studies/",
-    apply_url: "https://engineering.jhu.edu/admissions/graduate-admissions/",
+    min_gre: 320, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://engineering.jhu.edu/ams/graduate-studies/masters-programs/",
+    apply_url: "https://apply.jhu.edu/",
   },
   {
     university_name: "University of Washington",
@@ -1113,7 +1113,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-02-15",
     min_gpa: 3.2, min_percentage: null, min_ielts: 7.0, min_toefl: 92, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://ischool.uw.edu/programs/msim",
-    apply_url: "https://grad.uw.edu/admissions/",
+    apply_url: "https://apply.grad.uw.edu/portal/grad_app",
   },
   {
     university_name: "Boston University",
@@ -1135,7 +1135,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-01-15",
     min_gpa: 3.2, min_percentage: null, min_ielts: 6.5, min_toefl: 92, min_pte: null, min_duolingo: null,
     min_gre: 310, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://datascience.wisc.edu/",
-    apply_url: "https://grad.wisc.edu/apply/",
+    apply_url: "https://apply.grad.wisc.edu/apply/",
   },
   {
     university_name: "University of Southern California",
@@ -1156,8 +1156,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 22000, avg_living_cost_usd: 14000,
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 80, min_pte: null, min_duolingo: null,
-    min_gre: 308, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://engineering.tamu.edu/mechanical/",
-    apply_url: "https://engineering.tamu.edu/admissions/graduate.html",
+    min_gre: 308, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://engineering.tamu.edu/mechanical/academics/graduate/ms-me.html",
+    apply_url: "https://apply.tamu.edu/",
   },
   {
     university_name: "Georgetown University",
@@ -1189,8 +1189,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 27400, avg_living_cost_usd: 15000,
     intake_semesters: ["fall"], application_deadline: "2026-03-01",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 7.0, min_toefl: 79, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: 600, min_sat: null, work_exp_required_years: 0, program_url: "https://fisher.osu.edu/graduate/",
-    apply_url: "https://fisher.osu.edu/graduate/how-to-apply",
+    min_gre: null, min_gmat: 600, min_sat: null, work_exp_required_years: 0, program_url: "https://fisher.osu.edu/graduate/programs/ms-business-analytics",
+    apply_url: "https://fisher.osu.edu/graduate/ms-business-analytics/apply",
   },
   {
     university_name: "Penn State University",
@@ -1201,7 +1201,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 80, min_pte: null, min_duolingo: null,
     min_gre: 308, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.eecs.psu.edu/students/graduate/",
-    apply_url: "https://www.eecs.psu.edu/students/graduate/admission.aspx",
+    apply_url: "https://gradadmissions.psu.edu/apply/",
   },
 
   // ─── UK — additional QS universities ─────────────────────────────────────
@@ -1268,7 +1268,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 26400, avg_living_cost_usd: 13000,
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 2.8, min_percentage: 60, min_ielts: 6.5, min_toefl: 88, min_pte: 65, min_duolingo: null,
-    min_gre: null, min_gmat: 580, min_sat: null, work_exp_required_years: 0, program_url: "https://www.nottingham.ac.uk/pgstudy/",
+    min_gre: null, min_gmat: 580, min_sat: null, work_exp_required_years: 0, program_url: "https://www.nottingham.ac.uk/pgstudy/courses/business/finance-msc.aspx",
     apply_url: "https://www.nottingham.ac.uk/pgstudy/apply/",
   },
   {
@@ -1279,8 +1279,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 25800, avg_living_cost_usd: 12000,
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 2.8, min_percentage: 60, min_ielts: 6.5, min_toefl: 88, min_pte: 62, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.sheffield.ac.uk/postgraduate/taught/",
-    apply_url: "https://www.sheffield.ac.uk/postgraduate/apply",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.sheffield.ac.uk/postgraduate/taught/courses/2026/data-analytics-msc",
+    apply_url: "https://www.sheffield.ac.uk/postgraduate/taught/apply",
   },
   {
     university_name: "Durham University",
@@ -1290,7 +1290,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 28800, avg_living_cost_usd: 13000,
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 92, min_pte: 65, min_duolingo: null,
-    min_gre: null, min_gmat: 600, min_sat: null, work_exp_required_years: 0, program_url: "https://www.durham.ac.uk/study/postgraduate/find-courses/",
+    min_gre: null, min_gmat: 600, min_sat: null, work_exp_required_years: 0, program_url: "https://www.durham.ac.uk/study/postgraduate/finance-msc/",
     apply_url: "https://www.durham.ac.uk/study/postgraduate/apply/",
   },
   {
@@ -1301,7 +1301,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 25920, avg_living_cost_usd: 14000,
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 2.8, min_percentage: 60, min_ielts: 6.5, min_toefl: 88, min_pte: 62, min_duolingo: null,
-    min_gre: null, min_gmat: 580, min_sat: null, work_exp_required_years: 2, program_url: "https://www.bath.ac.uk/courses/postgraduate/",
+    min_gre: null, min_gmat: 580, min_sat: null, work_exp_required_years: 2, program_url: "https://www.bath.ac.uk/courses/postgraduate-2025/taught-postgraduate-courses/msc-business-administration/",
     apply_url: "https://www.bath.ac.uk/guides/applying-for-postgraduate-study/",
   },
   {
@@ -1312,7 +1312,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 24000, avg_living_cost_usd: 13000,
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 2.8, min_percentage: 60, min_ielts: 6.5, min_toefl: 88, min_pte: 62, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.exeter.ac.uk/study/postgraduate/courses/",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.exeter.ac.uk/study/postgraduate/courses/management/msc-business-analytics/",
     apply_url: "https://www.exeter.ac.uk/postgraduate/apply/",
   },
   {
@@ -1334,7 +1334,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 25200, avg_living_cost_usd: 22000,
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 2.8, min_percentage: 60, min_ielts: 6.5, min_toefl: 92, min_pte: 65, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.qmul.ac.uk/postgraduate/taught/",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.qmul.ac.uk/postgraduate/taught/coursefinder/courses/international-commercial-law-llm/",
     apply_url: "https://www.qmul.ac.uk/postgraduate/apply/",
   },
   {
@@ -1345,7 +1345,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 24000, avg_living_cost_usd: 13000,
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 2.8, min_percentage: 60, min_ielts: 6.5, min_toefl: 88, min_pte: 62, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.liverpool.ac.uk/study/postgraduate-taught/",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.liverpool.ac.uk/study/postgraduate-taught/taught/engineering-management-msc/",
     apply_url: "https://www.liverpool.ac.uk/study/postgraduate-taught/applying/",
   },
   {
@@ -1379,7 +1379,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 2.5, min_percentage: 55, min_ielts: 6.5, min_toefl: 88, min_pte: 62, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.surrey.ac.uk/postgraduate/",
-    apply_url: "https://www.surrey.ac.uk/postgraduate/applying",
+    apply_url: "https://www.surrey.ac.uk/postgraduate/how-to-apply",
   },
   {
     university_name: "Heriot-Watt University",
@@ -1400,8 +1400,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 24000, avg_living_cost_usd: 13000,
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 2.8, min_percentage: 60, min_ielts: 6.5, min_toefl: 88, min_pte: 62, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.york.ac.uk/study/postgraduate/",
-    apply_url: "https://www.york.ac.uk/study/postgraduate/apply/",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.york.ac.uk/study/postgraduate/courses/",
+    apply_url: "https://www.york.ac.uk/study/postgraduate/applying/",
   },
 
   // ─── Australia — additional QS universities ───────────────────────────────
@@ -1696,7 +1696,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 1500, avg_living_cost_usd: 13000,
     intake_semesters: ["fall", "spring"], application_deadline: "2026-01-31",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 88, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.tu.berlin/en/studying/courses-degree-programs/",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.tu.berlin/en/studying/study-programs/all-programs-offered/study-course/computer-science-m-sc/",
     apply_url: "https://www.tu.berlin/en/studying/application-and-enrollment/",
   },
   {
@@ -1718,8 +1718,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 1800, avg_living_cost_usd: 11000,
     intake_semesters: ["fall"], application_deadline: "2026-03-01",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 90, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.uni-freiburg.de/en/academics",
-    apply_url: "https://www.uni-freiburg.de/en/academics/application",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.uni-freiburg.de/en/prospective-students/bachelor-master-programs/master-programs/computer-science",
+    apply_url: "https://www.uni-freiburg.de/en/prospective-students/application",
   },
   {
     university_name: "University of Stuttgart",
@@ -1729,8 +1729,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 1500, avg_living_cost_usd: 11000,
     intake_semesters: ["fall"], application_deadline: "2026-01-15",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 88, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.uni-stuttgart.de/en/study/",
-    apply_url: "https://www.uni-stuttgart.de/en/study/application/",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.uni-stuttgart.de/en/study/degree-programs/",
+    apply_url: "https://www.uni-assist.de/",
   },
   {
     university_name: "Goethe University Frankfurt",
@@ -1740,8 +1740,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 2400, avg_living_cost_usd: 13000,
     intake_semesters: ["fall"], application_deadline: "2026-05-31",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 90, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.uni-frankfurt.de/en/studies",
-    apply_url: "https://www.uni-frankfurt.de/en/studies/application-enrollment/",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.goethe-university-frankfurt.de/en/educational-programmes/graduate-programmes/master/",
+    apply_url: "https://www.goethe-university-frankfurt.de/en/educational-programmes/graduate-programmes/applying",
   },
   {
     university_name: "University of Hamburg",
@@ -1751,7 +1751,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 1800, avg_living_cost_usd: 13000,
     intake_semesters: ["fall"], application_deadline: "2026-03-01",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 90, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.uni-hamburg.de/en/campuscenter/studienangebot.html",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.uni-hamburg.de/en/studium/studienangebot/master/intelligent-adaptive-systems.html",
     apply_url: "https://www.uni-hamburg.de/en/studium/bewerbung.html",
   },
 
@@ -1776,7 +1776,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-03-01",
     min_gpa: 3.2, min_percentage: 68, min_ielts: 6.5, min_toefl: 90, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.universite-paris-saclay.fr/en/education/master",
-    apply_url: "https://www.universite-paris-saclay.fr/en/admission",
+    apply_url: "https://www.universite-paris-saclay.fr/en/admissions",
   },
   {
     university_name: "Sciences Po",
@@ -1786,8 +1786,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 15000, avg_living_cost_usd: 20000,
     intake_semesters: ["fall"], application_deadline: "2026-03-15",
     min_gpa: 3.3, min_percentage: 70, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.sciencespo.fr/en/study/masters/",
-    apply_url: "https://www.sciencespo.fr/admissions/en/",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.sciencespo.fr/en/education/masters",
+    apply_url: "https://www.sciencespo.fr/en/education/masters/how-to-apply",
   },
   {
     university_name: "Sorbonne University",
@@ -1797,7 +1797,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 3600, avg_living_cost_usd: 18000,
     intake_semesters: ["fall"], application_deadline: "2026-04-01",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 90, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.sorbonne-universite.fr/en/education/international-students",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://sciences.sorbonne-universite.fr/formation-sciences/masters/mention-informatique-master",
     apply_url: "https://www.sorbonne-universite.fr/en/education/admission",
   },
   {
@@ -1809,7 +1809,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 90, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: 620, min_sat: null, work_exp_required_years: 0, program_url: "https://master.edhec.edu/msc-financial-markets",
-    apply_url: "https://master.edhec.edu/apply",
+    apply_url: "https://master.edhec.edu/msc-financial-markets/apply",
   },
 
   // ─── UAE — additional QS universities ────────────────────────────────────
