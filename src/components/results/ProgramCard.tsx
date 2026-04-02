@@ -170,7 +170,7 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist 
             rel="noopener noreferrer"
             className="flex items-center gap-1.5 px-4 py-1.5 rounded-xl bg-indigo-500 text-white text-xs font-semibold hover:bg-indigo-600 transition-colors"
           >
-            Apply / Learn more
+            View Program
             <ExternalLink className="w-3 h-3" />
           </a>
         </div>

@@ -254,7 +254,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 31200, avg_living_cost_usd: 16000,
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 80, min_pte: 58, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.anu.edu.au/study/find-a-course",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://programsandcourses.anu.edu.au/program/MBUS",
   },
   {
     university_name: "University of Sydney",
@@ -314,7 +314,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 27600, avg_living_cost_usd: 14000,
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 88, min_pte: 58, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.adelaide.edu.au/degree-finder/",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.adelaide.edu.au/programs-courses/",
   },
 
   // ─── Canada ───────────────────────────────────────────────────────────────
@@ -366,7 +366,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 14400, avg_living_cost_usd: 18000,
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 70, min_ielts: 6.5, min_toefl: 93, min_pte: 65, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.sfu.ca/computing/graduate.html",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.sfu.ca/computing/prospective-students/graduate-students.html",
   },
   {
     university_name: "York University",
@@ -408,7 +408,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 21000, avg_living_cost_usd: 13000,
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 2.75, min_percentage: 60, min_ielts: 6.5, min_toefl: 90, min_pte: 58, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.wgtn.ac.nz/engineering/graduate/research-degrees",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.wgtn.ac.nz/engineering",
   },
   {
     university_name: "University of Otago",
@@ -450,7 +450,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 14400, avg_living_cost_usd: 16000,
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: 2.5, min_percentage: 55, min_ielts: 6.0, min_toefl: 79, min_pte: 55, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.dcu.ie/courses/postgraduate",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.dcu.ie/postgraduate",
   },
   {
     university_name: "National University of Ireland Galway",
@@ -544,7 +544,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 4200, avg_living_cost_usd: 18000,
     intake_semesters: ["fall"], application_deadline: "2026-03-01",
     min_gpa: 3.3, min_percentage: 70, min_ielts: 6.5, min_toefl: 90, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://psl.eu/en/education/masters",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://psl.eu/en/education",
   },
   {
     university_name: "ESSEC Business School",
@@ -586,7 +586,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 16800, avg_living_cost_usd: 18000,
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 2.5, min_percentage: 55, min_ielts: 6.0, min_toefl: 80, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: 450, min_sat: null, work_exp_required_years: 2, program_url: "https://ud.ac.ae/degree-programs/",
+    min_gre: null, min_gmat: 450, min_sat: null, work_exp_required_years: 2, program_url: "https://ud.ac.ae/",
   },
   {
     university_name: "Heriot-Watt University Dubai",
@@ -596,7 +596,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 14400, avg_living_cost_usd: 16000,
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: null, min_percentage: 60, min_ielts: 6.0, min_toefl: 79, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null, program_url: "https://www.hw.ac.uk/dubai/programmes/",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null, program_url: "https://www.hw.ac.uk/dubai/academics/programmes.htm",
   },
 
   // ─── Singapore ────────────────────────────────────────────────────────────
@@ -650,7 +650,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 5000, avg_living_cost_usd: 7000,
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 2.75, min_percentage: 60, min_ielts: 6.0, min_toefl: 79, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.um.edu.my/programme/postgraduate",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.um.edu.my/study/postgraduate",
   },
   {
     university_name: "Monash University Malaysia",
@@ -670,7 +670,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 8400, avg_living_cost_usd: 7000,
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: null, min_percentage: 55, min_ielts: 5.5, min_toefl: 69, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null, program_url: "https://university.taylors.edu.my/en/programmes/school-of-computing.html",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null, program_url: "https://university.taylors.edu.my/en/schools/school-of-computing.html",
   },
   {
     university_name: "APU — Asia Pacific University",
@@ -680,7 +680,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 10800, avg_living_cost_usd: 7000,
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: null, min_percentage: 50, min_ielts: 5.5, min_toefl: 60, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null, program_url: "https://www.apu.edu.my/our-courses/undergraduate",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null, program_url: "https://www.apu.edu.my/programmes",
   },
   {
     university_name: "Universiti Teknologi Malaysia",
@@ -690,7 +690,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 6000, avg_living_cost_usd: 6000,
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 2.75, min_percentage: 60, min_ielts: 6.0, min_toefl: 79, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://utm.my/graduate/",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.utm.my/graduate/",
   },
 
   // ─── Additional programs across various fields ────────────────────────────
@@ -812,7 +812,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 28800, avg_living_cost_usd: 20000,
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 2.75, min_percentage: 60, min_ielts: 6.5, min_toefl: 83, min_pte: 58, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.uts.edu.au/study/find-a-course/",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.uts.edu.au/study/find-a-course",
   },
   {
     university_name: "Dublin Institute of Technology (TU Dublin)",
@@ -834,7 +834,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 68000, avg_living_cost_usd: 28000,
     intake_semesters: ["fall"], application_deadline: "2026-02-01",
     min_gpa: 3.9, min_percentage: null, min_ielts: 7.5, min_toefl: 110, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://hls.harvard.edu/jd-program/",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://hls.harvard.edu/jd/",
   },
   {
     university_name: "Harvard University",
@@ -894,7 +894,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 59710, avg_living_cost_usd: 20000,
     intake_semesters: ["fall"], application_deadline: "2026-01-01",
     min_gpa: null, min_percentage: 95, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: 1560, work_exp_required_years: null, program_url: "https://www.cs.princeton.edu/academics/ugradpgm",
+    min_gre: null, min_gmat: null, min_sat: 1560, work_exp_required_years: null, program_url: "https://www.cs.princeton.edu/academics/",
   },
   {
     university_name: "Princeton University",
@@ -924,7 +924,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 62456, avg_living_cost_usd: 18000,
     intake_semesters: ["fall"], application_deadline: "2026-01-02",
     min_gpa: null, min_percentage: 88, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: 1450, work_exp_required_years: null, program_url: "https://sha.cornell.edu/admissions/undergraduate/",
+    min_gre: null, min_gmat: null, min_sat: 1450, work_exp_required_years: null, program_url: "https://sha.cornell.edu/admissions/",
   },
   {
     university_name: "University of Pennsylvania",
@@ -1034,7 +1034,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 22000, avg_living_cost_usd: 16000,
     intake_semesters: ["fall"], application_deadline: "2026-01-15",
     min_gpa: 3.2, min_percentage: null, min_ielts: 6.5, min_toefl: 92, min_pte: null, min_duolingo: null,
-    min_gre: 310, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://datascience.wisc.edu/ms-in-data-science/",
+    min_gre: 310, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://datascience.wisc.edu/",
   },
   {
     university_name: "University of Southern California",
@@ -1054,7 +1054,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 22000, avg_living_cost_usd: 14000,
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 80, min_pte: null, min_duolingo: null,
-    min_gre: 308, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://engineering.tamu.edu/mechanical/academics/graduate/",
+    min_gre: 308, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://engineering.tamu.edu/mechanical/",
   },
   {
     university_name: "Georgetown University",
@@ -1084,7 +1084,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 27400, avg_living_cost_usd: 15000,
     intake_semesters: ["fall"], application_deadline: "2026-03-01",
     min_gpa: 3.0, min_percentage: 65, min_ielts: 7.0, min_toefl: 79, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: 600, min_sat: null, work_exp_required_years: 0, program_url: "https://fisher.osu.edu/graduate/programs/ms-business-analytics",
+    min_gre: null, min_gmat: 600, min_sat: null, work_exp_required_years: 0, program_url: "https://fisher.osu.edu/graduate/",
   },
   {
     university_name: "Penn State University",
