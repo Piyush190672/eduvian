@@ -257,11 +257,12 @@ export function recommendPrograms(
   profile: StudentProfile,
   programs: Program[]
 ): ScoredProgram[] {
-  // Only recommend programs matching degree level
+  // Only recommend programs matching degree level AND intended field of study
   const filtered = programs.filter(
     (p) =>
       p.is_active &&
-      (p.degree_level === profile.degree_level || p.degree_level === "both")
+      (p.degree_level === profile.degree_level || p.degree_level === "both") &&
+      p.field_of_study === profile.intended_field
   );
 
   const scored = filtered
