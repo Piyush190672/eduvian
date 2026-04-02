@@ -272,12 +272,12 @@ export default function LandingPage() {
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { label: "Academic Score", pct: "20%", color: "bg-indigo-400" },
-              { label: "English Proficiency", pct: "20%", color: "bg-purple-400" },
+              { label: "Academic Score", pct: "35%", color: "bg-indigo-400" },
+              { label: "English Proficiency", pct: "15%", color: "bg-purple-400" },
               { label: "Budget Fit", pct: "15%", color: "bg-pink-400" },
               { label: "Country Preference", pct: "15%", color: "bg-rose-400" },
-              { label: "QS University Rank", pct: "10%", color: "bg-amber-400" },
-              { label: "Intake Availability", pct: "10%", color: "bg-emerald-400" },
+              { label: "QS University Rank", pct: "5%", color: "bg-amber-400" },
+              { label: "Intake Availability", pct: "5%", color: "bg-emerald-400" },
               { label: "Work Experience", pct: "5%", color: "bg-cyan-400" },
               { label: "Standardized Tests", pct: "5%", color: "bg-blue-400" },
             ].map((s) => (
@@ -315,26 +315,26 @@ export default function LandingPage() {
             {[
               {
                 tier: "Safe Match",
-                range: "75–100",
+                range: "80–100",
                 emoji: "✅",
                 color: "border-emerald-200 bg-emerald-50",
                 textColor: "text-emerald-700",
                 desc: "Strong profile fit. High likelihood of admission. Apply with confidence.",
               },
               {
-                tier: "Moderate Match",
-                range: "50–74",
+                tier: "Reach",
+                range: "50–79",
                 emoji: "🎯",
                 color: "border-amber-200 bg-amber-50",
                 textColor: "text-amber-700",
                 desc: "Good fit with a few gaps. A well-crafted SOP can close the gap.",
               },
               {
-                tier: "Reach",
-                range: "30–49",
+                tier: "Ambitious",
+                range: "25–49",
                 emoji: "🚀",
-                color: "border-rose-200 bg-rose-50",
-                textColor: "text-rose-700",
+                color: "border-orange-200 bg-orange-50",
+                textColor: "text-orange-700",
                 desc: "Aspirational. Competitive profile but below typical admit range. Dream big.",
               },
             ].map((t) => (
