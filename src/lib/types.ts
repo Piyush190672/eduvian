@@ -133,6 +133,7 @@ export interface Submission {
   shortlisted_ids: string[];
   created_at: string;
   email_sent: boolean;
+  profile_category?: string; // computed from profile-score.ts
 }
 
 // ─── Countries ────────────────────────────────────────────────────────────────

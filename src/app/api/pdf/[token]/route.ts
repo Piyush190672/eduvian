@@ -4,6 +4,7 @@ import { PROGRAMS } from "@/data/programs";
 import { submissionStore } from "@/lib/store";
 import type { Program, StudentProfile, ScoredProgram } from "@/lib/types";
 import { getTierLabel, formatCurrency, getCountryFlag } from "@/lib/utils";
+import { scoreStudentProfile, categoryBadgeHtml } from "@/lib/profile-score";
 
 export async function GET(
   _req: NextRequest,
@@ -62,6 +63,18 @@ export async function GET(
 }
 
 function buildPDFHtml(profile: StudentProfile, programs: ScoredProgram[]): string {
+  const profileScore = scoreStudentProfile(profile);
+  const badgeHtml = categoryBadgeHtml(profileScore.category);
+
+  const criteriaRows = profileScore.criteria
+    .map(
+      (c) => `
+      <span style="display:inline-flex;align-items:center;gap:6px;background:${c.passed ? "#f0fdf4" : "#fef2f2"};border:1px solid ${c.passed ? "#bbf7d0" : "#fecaca"};border-radius:8px;padding:5px 10px;font-size:11px;color:${c.passed ? "#166534" : "#991b1b"};">
+        ${c.passed ? "✓" : "✗"} ${c.label}
+      </span>`
+    )
+    .join("");
+
   const rows = programs
     .map(
       (p) => `
@@ -85,20 +98,24 @@ function buildPDFHtml(profile: StudentProfile, programs: ScoredProgram[]): strin
 <html>
 <head>
 <meta charset="utf-8">
-<title>Eduvian Shortlist — ${profile.full_name}</title>
+<title>Eduvian Profile — ${profile.full_name}</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #1e1b4b; background: #fff; padding: 40px; }
-  .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; padding-bottom: 20px; border-bottom: 2px solid #e0e7ff; }
+  .header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 28px; padding-bottom: 20px; border-bottom: 2px solid #e0e7ff; }
   .brand { font-size: 24px; font-weight: 900; background: linear-gradient(135deg,#6366f1,#8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
   .student-info { font-size: 13px; color: #6b7280; text-align: right; }
   .student-info strong { color: #1e1b4b; display: block; font-size: 16px; }
-  h2 { font-size: 20px; font-weight: 800; margin-bottom: 16px; color: #1e1b4b; }
+  .profile-box { background: #f8fafc; border: 1.5px solid #e0e7ff; border-radius: 14px; padding: 20px 24px; margin-bottom: 28px; }
+  .profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; margin-top: 12px; font-size: 13px; color: #374151; }
+  .profile-grid span { color: #9ca3af; font-size: 11px; display: block; }
+  .criteria-wrap { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+  h2 { font-size: 18px; font-weight: 800; margin-bottom: 14px; color: #1e1b4b; }
+  h3 { font-size: 15px; font-weight: 700; color: #1e1b4b; margin-bottom: 10px; }
   table { width: 100%; border-collapse: collapse; font-size: 13px; }
   thead { background: #f0f4ff; }
   th { padding: 10px 12px; text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: #6b7280; font-weight: 700; }
   td { padding: 12px; border-bottom: 1px solid #f1f5f9; vertical-align: middle; }
-  tr:hover td { background: #fafafa; }
   .prog-name { font-weight: 700; color: #1e1b4b; }
   .uni-name { font-size: 12px; color: #6b7280; margin-top: 2px; }
   .tier-badge { padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; }
@@ -113,14 +130,41 @@ function buildPDFHtml(profile: StudentProfile, programs: ScoredProgram[]): strin
 </style>
 </head>
 <body>
+  <!-- Header -->
   <div class="header">
-    <div class="brand">🌍 Eduvian</div>
-    <div style="font-size:13px;font-weight:700;color:#6b7280;margin-top:2px;">Your Global Future, Simplified</div>
+    <div>
+      <div class="brand">🌍 Eduvian</div>
+      <div style="font-size:12px;font-weight:600;color:#9ca3af;margin-top:2px;">Your Global Future, Simplified</div>
+    </div>
     <div class="student-info">
       <strong>${profile.full_name}</strong>
-      ${profile.email} · Generated ${new Date().toLocaleDateString("en-US", { dateStyle: "long" })}
+      ${profile.email}${profile.phone ? ` · ${profile.phone}` : ""}
+      <div style="margin-top:2px;">Generated ${new Date().toLocaleDateString("en-US", { dateStyle: "long" })}</div>
     </div>
   </div>
+
+  <!-- Profile Summary Box -->
+  <div class="profile-box">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+      <h3 style="margin:0;">Student Profile</h3>
+      ${badgeHtml}
+    </div>
+    <div class="profile-grid">
+      <div><span>Degree Level</span>${profile.degree_level === "postgraduate" ? "Postgraduate" : "Undergraduate"}</div>
+      <div><span>Field of Study</span>${profile.intended_field}</div>
+      <div><span>Nationality</span>${profile.nationality}${profile.city ? ` · ${profile.city}` : ""}</div>
+      <div><span>Target Intake</span>${profile.target_intake_semester} ${profile.target_intake_year}</div>
+      <div><span>Academic Score</span>${profile.academic_score}${profile.academic_score_type === "gpa" ? " / 4.0 GPA" : "%"}</div>
+      <div><span>English Test</span>${profile.english_test !== "none" ? `${profile.english_test.toUpperCase()} ${profile.english_score_overall ?? ""}` : "Not taken"}</div>
+    </div>
+    <!-- Criteria checklist -->
+    <div style="margin-top:16px;border-top:1px solid #e0e7ff;padding-top:14px;">
+      <div style="font-size:12px;font-weight:700;color:#6b7280;margin-bottom:10px;text-transform:uppercase;letter-spacing:0.4px;">Profile Criteria Assessment</div>
+      <div class="criteria-wrap">${criteriaRows}</div>
+    </div>
+  </div>
+
+  <!-- Shortlist Table -->
   <h2>Your Shortlist (${programs.length} programs)</h2>
   <table>
     <thead>
@@ -135,6 +179,7 @@ function buildPDFHtml(profile: StudentProfile, programs: ScoredProgram[]): strin
     </thead>
     <tbody>${rows}</tbody>
   </table>
+
   <div class="footer">
     Generated by Eduvian · eduvian.com
   </div>

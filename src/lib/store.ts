@@ -13,6 +13,7 @@ export interface StoredSubmission {
   shortlisted_ids: string[];
   email_sent: boolean;
   created_at: string;
+  profile_category?: string;
 }
 
 // Singleton map that persists across hot-reloads in dev

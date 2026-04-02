@@ -15,10 +15,11 @@ import {
   BookmarkCheck,
   RefreshCw,
 } from "lucide-react";
-import type { ScoredProgram, ProgramTier } from "@/lib/types";
+import type { ScoredProgram, ProgramTier, StudentProfile } from "@/lib/types";
 import ProgramCard from "@/components/results/ProgramCard";
 import FilterBar from "@/components/results/FilterBar";
 import ShortlistSummary from "@/components/results/ShortlistSummary";
+import ProfileCard from "@/components/results/ProfileCard";
 
 interface ResultData {
   submission: {
@@ -173,8 +174,8 @@ export default function ResultsPage() {
   const countries = [...new Set(allPrograms.map((p) => p.country))];
   const fields = [...new Set(allPrograms.map((p) => p.field_of_study))];
 
-  const studentName = (data.submission.profile as { full_name?: string })
-    .full_name ?? "there";
+  const profile = data.submission.profile as unknown as StudentProfile;
+  const studentName = profile.full_name ?? "there";
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50/30">
@@ -230,6 +231,9 @@ export default function ResultsPage() {
             matched to your profile.
           </p>
         </motion.div>
+
+        {/* Profile summary card */}
+        <ProfileCard profile={profile} token={token} />
 
         {/* Tier summary badges */}
         <div className="flex flex-wrap gap-3 mb-6">

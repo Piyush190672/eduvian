@@ -3,6 +3,7 @@ import { recommendPrograms } from "@/lib/scoring";
 import { PROGRAMS } from "@/data/programs";
 import { submissionStore } from "@/lib/store";
 import type { Program, StudentProfile } from "@/lib/types";
+import { scoreStudentProfile } from "@/lib/profile-score";
 import { v4 as uuidv4 } from "uuid";
 
 export async function POST(req: NextRequest) {
@@ -42,6 +43,10 @@ export async function POST(req: NextRequest) {
     // Score programs
     const scored = recommendPrograms(profile, programs);
 
+    // Compute profile category
+    const profileResult = scoreStudentProfile(profile);
+    const profile_category = profileResult.category;
+
     const token = uuidv4();
     const id = uuidv4();
 
@@ -57,6 +62,7 @@ export async function POST(req: NextRequest) {
           profile,
           shortlisted_ids: [],
           email_sent: false,
+          profile_category,
         });
         if (!error) savedToDb = true;
       }
@@ -71,6 +77,7 @@ export async function POST(req: NextRequest) {
       profile,
       shortlisted_ids: [],
       email_sent: false,
+      profile_category,
       created_at: new Date().toISOString(),
     });
 

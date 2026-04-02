@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import type { ScoredProgram, StudentProfile } from "@/lib/types";
 import { formatCurrency, getTierLabel } from "@/lib/utils";
+import { scoreStudentProfile, getCategoryStyle, categoryBadgeHtml } from "@/lib/profile-score";
 
 export async function POST(req: NextRequest) {
   try {
@@ -16,6 +17,28 @@ export async function POST(req: NextRequest) {
 
     // Build email HTML
     const topPrograms = (programs ?? []).slice(0, 8);
+
+    // Profile score (always computed from profile data if available)
+    const profileScoreSection = profile ? (() => {
+      const ps = scoreStudentProfile(profile);
+      const style = getCategoryStyle(ps.category);
+      const badge = categoryBadgeHtml(ps.category);
+      const passed = ps.criteria.filter(c => c.passed);
+      const failed = ps.criteria.filter(c => !c.passed);
+      return `
+      <!-- Profile Score Section -->
+      <div style="background:#f8fafc;border:1.5px solid #e0e7ff;border-radius:14px;padding:20px 24px;margin-bottom:24px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:12px;">
+          <div style="font-weight:700;color:#1e1b4b;font-size:15px;">Your Profile Assessment</div>
+          ${badge}
+        </div>
+        <p style="color:#6b7280;font-size:13px;margin:0 0 14px;line-height:1.5;">${style.description}</p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;">
+          ${passed.map(c => `<span style="display:inline-block;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:4px 10px;font-size:11px;color:#166534;">✓ ${c.label}</span>`).join("")}
+          ${failed.map(c => `<span style="display:inline-block;background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:4px 10px;font-size:11px;color:#991b1b;">✗ ${c.label}</span>`).join("")}
+        </div>
+      </div>`;
+    })() : "";
 
     const programRows = topPrograms
       .map(
@@ -55,6 +78,8 @@ export async function POST(req: NextRequest) {
       <p style="color:#6b7280;margin:0 0 24px;line-height:1.6;">
         We matched your profile against hundreds of programs across 11 countries. Here are your top picks — sorted by how well they match <strong>you</strong>.
       </p>
+
+      ${profileScoreSection}
 
       <!-- CTA button -->
       <div style="text-align:center;margin:24px 0;">
