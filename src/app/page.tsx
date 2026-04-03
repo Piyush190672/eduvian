@@ -154,10 +154,23 @@ export default function LandingPage() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
           >
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-500/20 border border-indigo-400/30 text-indigo-300 text-sm font-semibold mb-6">
-              <Sparkles className="w-3.5 h-3.5" />
-              AI-Powered University Matching
-            </span>
+            <div className="mb-8">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
+                className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 shadow-lg shadow-indigo-500/40 mb-3"
+              >
+                <Sparkles className="w-5 h-5 text-white animate-pulse" />
+                <span className="text-white text-lg font-extrabold tracking-wide uppercase">
+                  AI-Powered University Matching
+                </span>
+                <Sparkles className="w-5 h-5 text-white animate-pulse" />
+              </motion.div>
+              <p className="text-indigo-300 text-sm font-medium pl-1">
+                The smartest way to find your perfect university abroad
+              </p>
+            </div>
             <h1 className="text-5xl md:text-6xl font-extrabold text-white leading-tight mb-6 tracking-tight">
               Your dream uni<br />
               <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
