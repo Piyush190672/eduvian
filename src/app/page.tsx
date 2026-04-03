@@ -54,7 +54,7 @@ const HOW_IT_WORKS = [
     step: "02",
     icon: Zap,
     title: "AI matches your profile",
-    desc: "Our engine scores hundreds of programs using 8 signals — GPA, language scores, budget, QS rankings and more.",
+    desc: "Our engine scores hundreds of programs using 10 signals — GPA, language scores, budget, backlogs, gap year, QS rankings and more.",
     color: "from-violet-500 to-fuchsia-500",
     bg: "bg-violet-50",
   },
