@@ -165,7 +165,7 @@ export default function LandingPage() {
               </span>
             </h1>
             <p className="text-lg text-slate-300 mb-8 leading-relaxed max-w-lg">
-              Fill in your profile once. Get a personalised TOP 20 shortlist of programs you can actually get into — across 11 countries, scored by how well they match <span className="text-white font-semibold">you</span>.
+              Fill in your profile once. Let our AI engine work the magic to give you a personalised TOP 20 shortlist of programs you can actually get into — across 11 countries, scored by how well they match <span className="text-white font-semibold">you</span>.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 items-start mb-10">
               <Link
