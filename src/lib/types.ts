@@ -121,6 +121,8 @@ export interface ScoredProgram extends Program {
     intake: number;
     work_experience: number;
     std_test: number;
+    backlogs: number;
+    gap_year: number;
   };
 }
 

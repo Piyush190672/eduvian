@@ -9,14 +9,16 @@ import { BUDGET_VALUES, TARGET_COUNTRIES } from "./types";
 // ─── Weight configuration ─────────────────────────────────────────────────────
 
 const WEIGHTS = {
-  academic: 0.35,
+  academic: 0.30,
   english: 0.15,
-  budget: 0.15,
-  country_rank: 0.15,
+  budget: 0.13,
+  country_rank: 0.12,
   qs_ranking: 0.05,
   intake: 0.05,
   work_experience: 0.05,
   std_test: 0.05,
+  backlogs: 0.06,
+  gap_year: 0.04,
 };
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
@@ -181,6 +183,18 @@ function scoreStdTest(profile: StudentProfile, program: Program): number {
   }
 }
 
+function scoreBacklogs(profile: StudentProfile): number {
+  if (!profile.backlogs) return 100;
+  const count = profile.backlog_count ?? 1;
+  if (count === 1) return 50;
+  if (count <= 3) return 25;
+  return 0;
+}
+
+function scoreGapYear(profile: StudentProfile): number {
+  return profile.academic_gap ? 50 : 100;
+}
+
 // ─── Hard disqualifiers ───────────────────────────────────────────────────────
 
 function isHardDisqualified(
@@ -232,6 +246,8 @@ export function scoreProgram(
     intake: scoreIntake(profile, program),
     work_experience: scoreWorkExp(profile, program),
     std_test: scoreStdTest(profile, program),
+    backlogs: scoreBacklogs(profile),
+    gap_year: scoreGapYear(profile),
   };
 
   const match_score = Math.round(
@@ -242,7 +258,9 @@ export function scoreProgram(
       breakdown.qs_ranking * WEIGHTS.qs_ranking +
       breakdown.intake * WEIGHTS.intake +
       breakdown.work_experience * WEIGHTS.work_experience +
-      breakdown.std_test * WEIGHTS.std_test
+      breakdown.std_test * WEIGHTS.std_test +
+      breakdown.backlogs * WEIGHTS.backlogs +
+      breakdown.gap_year * WEIGHTS.gap_year
   );
 
   let tier: ProgramTier;

@@ -153,6 +153,8 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist 
             <ScoreBar label="Intake" value={program.score_breakdown.intake} />
             <ScoreBar label="Work Exp." value={program.score_breakdown.work_experience} />
             <ScoreBar label="Std. Test" value={program.score_breakdown.std_test} />
+            <ScoreBar label="Backlogs" value={program.score_breakdown.backlogs} />
+            <ScoreBar label="Gap Year" value={program.score_breakdown.gap_year} />
           </div>
           <div className="flex flex-col items-end gap-2 flex-shrink-0">
             <a
