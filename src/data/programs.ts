@@ -1924,7 +1924,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 5200, avg_living_cost_usd: 6000,
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 2.75, min_percentage: 60, min_ielts: 6.0, min_toefl: 79, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.usm.my/index.php/en/postgraduate",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.usm.my/",
     apply_url: "https://www.usm.my/",
   },
   {
@@ -2039,7 +2039,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2025-10-15",
     min_gpa: 3.8, min_percentage: null, min_ielts: 7.5, min_toefl: 104, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://med.stanford.edu/md.html",
-    apply_url: "https://med.stanford.edu/md/applying.html",
+    apply_url: "https://med.stanford.edu/md/program-information/how-to-apply.html",
   },
   {
     university_name: "Stanford University",
@@ -2049,7 +2049,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 62484, avg_living_cost_usd: 30000,
     intake_semesters: ["fall"], application_deadline: "2026-02-01",
     min_gpa: 3.2, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 2, program_url: "https://med.stanford.edu/mph.html",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 2, program_url: "https://med.stanford.edu/",
     apply_url: "https://gradadmissions.stanford.edu/apply",
   },
   {
@@ -2071,7 +2071,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 46900, avg_living_cost_usd: 24000,
     intake_semesters: ["fall"], application_deadline: "2026-01-15",
     min_gpa: 3.0, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 2, program_url: "https://ysph.yale.edu/mph/",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 2, program_url: "https://ysph.yale.edu/education-training/degree-programs/master-of-public-health/",
     apply_url: "https://ysph.yale.edu/admissions/",
   },
   {
@@ -2082,8 +2082,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 65596, avg_living_cost_usd: 28000,
     intake_semesters: ["fall"], application_deadline: "2025-10-15",
     min_gpa: 3.8, min_percentage: null, min_ielts: 7.5, min_toefl: 104, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.vagelos.columbia.edu/education/md",
-    apply_url: "https://www.vagelos.columbia.edu/education/md/admissions",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.vagelos.columbia.edu/education/md-program",
+    apply_url: "https://www.vagelos.columbia.edu/education/md-program/admissions",
   },
   {
     university_name: "Columbia University",
@@ -2093,8 +2093,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 55000, avg_living_cost_usd: 28000,
     intake_semesters: ["fall", "spring"], application_deadline: "2026-02-01",
     min_gpa: 3.0, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 1, program_url: "https://www.publichealth.columbia.edu/academics/mph",
-    apply_url: "https://www.publichealth.columbia.edu/admissions",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 1, program_url: "https://www.publichealth.columbia.edu/academics/degrees/master-public-health",
+    apply_url: "https://www.publichealth.columbia.edu/become-student",
   },
   {
     university_name: "Cornell University",
@@ -2104,8 +2104,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 65000, avg_living_cost_usd: 25000,
     intake_semesters: ["fall"], application_deadline: "2025-10-15",
     min_gpa: 3.8, min_percentage: null, min_ielts: 7.5, min_toefl: 104, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://weill.cornell.edu/education/md-program",
-    apply_url: "https://weill.cornell.edu/admissions",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://weill.cornell.edu/education/programs/md-program",
+    apply_url: "https://weill.cornell.edu/education/programs/md-program/admissions",
   },
   {
     university_name: "University of Pennsylvania",
@@ -2137,8 +2137,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 64200, avg_living_cost_usd: 22000,
     intake_semesters: ["fall"], application_deadline: "2025-10-15",
     min_gpa: 3.7, min_percentage: null, min_ielts: 7.5, min_toefl: 104, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://medschool.duke.edu/education/md-program",
-    apply_url: "https://medschool.duke.edu/education/md-program/admissions",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://medschool.duke.edu/education/md",
+    apply_url: "https://medschool.duke.edu/education/md/admissions",
   },
   {
     university_name: "Duke University",
@@ -2148,8 +2148,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 42000, avg_living_cost_usd: 22000,
     intake_semesters: ["fall"], application_deadline: "2026-02-01",
     min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 90, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 2, program_url: "https://globalhealth.duke.edu/education/mph",
-    apply_url: "https://globalhealth.duke.edu/education/mph/apply",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 2, program_url: "https://globalhealth.duke.edu/education/mph-programs",
+    apply_url: "https://globalhealth.duke.edu/education/mph-programs/apply",
   },
   {
     university_name: "Northwestern University",
@@ -2159,8 +2159,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 67500, avg_living_cost_usd: 24000,
     intake_semesters: ["fall"], application_deadline: "2025-10-15",
     min_gpa: 3.7, min_percentage: null, min_ielts: 7.5, min_toefl: 104, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.feinberg.northwestern.edu/md-programs/",
-    apply_url: "https://www.feinberg.northwestern.edu/md-programs/admissions/",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.feinberg.northwestern.edu/education/programs/md/",
+    apply_url: "https://www.feinberg.northwestern.edu/education/programs/md/admissions/",
   },
   {
     university_name: "Georgetown University",
@@ -2170,8 +2170,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 63400, avg_living_cost_usd: 27000,
     intake_semesters: ["fall"], application_deadline: "2025-11-01",
     min_gpa: 3.6, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://som.georgetown.edu/md-program/",
-    apply_url: "https://som.georgetown.edu/md-program/admissions/",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://som.georgetown.edu/education/",
+    apply_url: "https://som.georgetown.edu/education/admissions/",
   },
   {
     university_name: "Georgetown University",
@@ -2214,8 +2214,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 63000, avg_living_cost_usd: 26000,
     intake_semesters: ["fall"], application_deadline: "2025-10-15",
     min_gpa: 3.6, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://medicine.uw.edu/education/md",
-    apply_url: "https://medicine.uw.edu/education/md/admissions",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://medicine.washington.edu/education",
+    apply_url: "https://medicine.washington.edu/education/admissions",
   },
   {
     university_name: "University of Washington",
@@ -2236,8 +2236,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 40000, avg_living_cost_usd: 28000,
     intake_semesters: ["fall"], application_deadline: "2025-10-15",
     min_gpa: 3.7, min_percentage: null, min_ielts: 7.5, min_toefl: 104, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://medschool.ucla.edu/education/md-program",
-    apply_url: "https://medschool.ucla.edu/education/md-program/apply",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://medschool.ucla.edu/education",
+    apply_url: "https://medschool.ucla.edu/education/apply",
   },
   {
     university_name: "UCLA",
@@ -2247,7 +2247,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 25000, avg_living_cost_usd: 28000,
     intake_semesters: ["fall"], application_deadline: "2026-02-01",
     min_gpa: 3.0, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 2, program_url: "https://ph.ucla.edu/academics/mph",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 2, program_url: "https://ph.ucla.edu/academics/degrees/master-of-public-health",
     apply_url: "https://ph.ucla.edu/admissions",
   },
   {
@@ -2258,8 +2258,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 40500, avg_living_cost_usd: 27000,
     intake_semesters: ["fall"], application_deadline: "2025-10-15",
     min_gpa: 3.7, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://medschool.ucsd.edu/education/md-program/",
-    apply_url: "https://medschool.ucsd.edu/education/md-program/apply",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://medschool.ucsd.edu/education/",
+    apply_url: "https://medschool.ucsd.edu/education/apply",
   },
   {
     university_name: "UC San Diego",
@@ -2269,8 +2269,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 22000, avg_living_cost_usd: 27000,
     intake_semesters: ["fall"], application_deadline: "2026-02-01",
     min_gpa: 3.0, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 2, program_url: "https://hsph.ucsd.edu/mph",
-    apply_url: "https://hsph.ucsd.edu/admissions",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 2, program_url: "https://healthpolicy.ucsd.edu/education/mph/",
+    apply_url: "https://healthpolicy.ucsd.edu/education/mph/",
   },
   {
     university_name: "Boston University",
@@ -2302,8 +2302,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 36000, avg_living_cost_usd: 23000,
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 90, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 1, program_url: "https://bouve.northeastern.edu/program/master-of-public-health/",
-    apply_url: "https://graduate.northeastern.edu/register/graduate-apply",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 1, program_url: "https://bouve.northeastern.edu/health-sciences/",
+    apply_url: "https://apply.northeastern.edu/",
   },
   {
     university_name: "Ohio State University",
@@ -2325,7 +2325,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-02-01",
     min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 80, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 1, program_url: "https://cph.osu.edu/mph",
-    apply_url: "https://cph.osu.edu/admissions",
+    apply_url: "https://cph.osu.edu/mph",
   },
   {
     university_name: "University of Wisconsin-Madison",
@@ -2346,8 +2346,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 19000, avg_living_cost_usd: 19000,
     intake_semesters: ["fall"], application_deadline: "2026-02-01",
     min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 92, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 2, program_url: "https://pophealth.wisc.edu/education/mph/",
-    apply_url: "https://pophealth.wisc.edu/education/mph/apply/",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 2, program_url: "https://pophealth.wisc.edu/degrees/mph/",
+    apply_url: "https://pophealth.wisc.edu/degrees/mph/apply/",
   },
   {
     university_name: "University of Southern California",
@@ -2390,8 +2390,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 18000, avg_living_cost_usd: 17000,
     intake_semesters: ["fall", "spring"], application_deadline: "2026-02-01",
     min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 80, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://sph.tamhsc.edu/academics/mph.html",
-    apply_url: "https://sph.tamhsc.edu/admissions/",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://sph.tamu.edu/academics/mph/",
+    apply_url: "https://sph.tamu.edu/admissions/",
   },
   {
     university_name: "University of Illinois Urbana-Champaign",
@@ -2414,7 +2414,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 64000, avg_living_cost_usd: 18000,
     intake_semesters: ["fall"], application_deadline: "2025-10-15",
     min_gpa: null, min_percentage: 90, min_ielts: 7.5, min_toefl: 110, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.cam.ac.uk/study/undergraduate/courses/medicine",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.undergraduate.study.cam.ac.uk/courses/medicine",
     apply_url: "https://www.cam.ac.uk/admissions",
   },
   {
@@ -2425,8 +2425,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 37000, avg_living_cost_usd: 18000,
     intake_semesters: ["fall"], application_deadline: "2026-03-31",
     min_gpa: null, min_percentage: 70, min_ielts: 7.5, min_toefl: 110, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 2, program_url: "https://www.phs.kcl.ac.uk/mph",
-    apply_url: "https://www.postgraduate.study.cam.ac.uk/application",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 2, program_url: "https://www.postgraduate.study.cam.ac.uk/courses/directory/phmhmpuph",
+    apply_url: "https://www.postgraduate.study.cam.ac.uk/application/applying-postgraduate-study",
   },
   {
     university_name: "University of Oxford",
@@ -2458,8 +2458,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 57000, avg_living_cost_usd: 22000,
     intake_semesters: ["fall"], application_deadline: "2025-10-15",
     min_gpa: null, min_percentage: 85, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.imperial.ac.uk/medicine/undergraduate-medicine/",
-    apply_url: "https://www.imperial.ac.uk/medicine/undergraduate-medicine/apply/",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.imperial.ac.uk/study/courses/undergraduate/medicine-mbbs/",
+    apply_url: "https://www.imperial.ac.uk/study/courses/undergraduate/medicine-mbbs/apply/",
   },
   {
     university_name: "Imperial College London",
@@ -2502,8 +2502,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 50000, avg_living_cost_usd: 22000,
     intake_semesters: ["fall"], application_deadline: "2025-10-15",
     min_gpa: null, min_percentage: 80, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.kcl.ac.uk/medicine",
-    apply_url: "https://www.kcl.ac.uk/apply",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.kcl.ac.uk/study/undergraduate/courses/medicine-mbbs-5-year-programme",
+    apply_url: "https://www.kcl.ac.uk/study/undergraduate/apply",
   },
   {
     university_name: "King's College London",
@@ -2513,8 +2513,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 28000, avg_living_cost_usd: 22000,
     intake_semesters: ["fall"], application_deadline: "2026-06-30",
     min_gpa: null, min_percentage: 65, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 1, program_url: "https://www.kcl.ac.uk/prospectus/graduate/public-health",
-    apply_url: "https://www.kcl.ac.uk/apply/graduate",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 1, program_url: "https://www.kcl.ac.uk/study/postgraduate/taught/public-health-msc",
+    apply_url: "https://www.kcl.ac.uk/study/undergraduate/apply/graduate",
   },
   {
     university_name: "University of Edinburgh",
@@ -2546,8 +2546,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 47000, avg_living_cost_usd: 15000,
     intake_semesters: ["fall"], application_deadline: "2025-10-15",
     min_gpa: null, min_percentage: 80, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.manchester.ac.uk/study/undergraduate/courses/2024/00530/mbchb-medicine/",
-    apply_url: "https://www.manchester.ac.uk/study/undergraduate/apply/",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.manchester.ac.uk/study/undergraduate/courses/2025/00530/mbchb-medicine/",
+    apply_url: "https://www.manchester.ac.uk/study/undergraduate/applying-to-manchester/",
   },
   {
     university_name: "University of Manchester",
@@ -2557,8 +2557,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 26000, avg_living_cost_usd: 15000,
     intake_semesters: ["fall"], application_deadline: "2026-06-30",
     min_gpa: null, min_percentage: 65, min_ielts: 6.5, min_toefl: 90, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 2, program_url: "https://www.manchester.ac.uk/study/masters/courses/list/01671/mph-public-health/",
-    apply_url: "https://www.manchester.ac.uk/study/masters/apply/",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 2, program_url: "https://www.manchester.ac.uk/study/masters/courses/list/09060/mph-public-health/",
+    apply_url: "https://www.manchester.ac.uk/study/masters/applying-to-manchester/",
   },
   {
     university_name: "University of Glasgow",
@@ -2569,7 +2569,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2025-10-15",
     min_gpa: null, min_percentage: 75, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.gla.ac.uk/undergraduate/degrees/medicine/",
-    apply_url: "https://www.gla.ac.uk/study/applyingtoglasgow/undergraduate/",
+    apply_url: "https://www.gla.ac.uk/study/applyingtoglasgow/undergraduate",
   },
   {
     university_name: "University of Glasgow",
@@ -2580,7 +2580,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-06-30",
     min_gpa: null, min_percentage: 65, min_ielts: 6.5, min_toefl: 90, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 1, program_url: "https://www.gla.ac.uk/postgraduate/taught/publichealth/",
-    apply_url: "https://www.gla.ac.uk/study/applyingtoglasgow/postgraduate/",
+    apply_url: "https://www.gla.ac.uk/study/applyingtoglasgow/postgraduate",
   },
   {
     university_name: "University of Birmingham",
@@ -2590,8 +2590,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 42000, avg_living_cost_usd: 14000,
     intake_semesters: ["fall"], application_deadline: "2025-10-15",
     min_gpa: null, min_percentage: 75, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.birmingham.ac.uk/undergraduate/courses/medicine/mbchb.aspx",
-    apply_url: "https://www.birmingham.ac.uk/apply",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.birmingham.ac.uk/schools/medical/courses/medicine/index.aspx",
+    apply_url: "https://www.birmingham.ac.uk/undergraduate/applying/",
   },
   {
     university_name: "University of Birmingham",
@@ -2601,8 +2601,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 24000, avg_living_cost_usd: 14000,
     intake_semesters: ["fall"], application_deadline: "2026-06-30",
     min_gpa: null, min_percentage: 60, min_ielts: 6.5, min_toefl: 88, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 1, program_url: "https://www.birmingham.ac.uk/postgraduate/courses/taught/mds/public-health.aspx",
-    apply_url: "https://www.birmingham.ac.uk/apply/postgraduate",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 1, program_url: "https://www.birmingham.ac.uk/schools/haps/courses/mph/index.aspx",
+    apply_url: "https://www.birmingham.ac.uk/undergraduate/applying//postgraduate",
   },
   {
     university_name: "University of Bristol",
@@ -2623,7 +2623,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 24000, avg_living_cost_usd: 15000,
     intake_semesters: ["fall"], application_deadline: "2026-06-30",
     min_gpa: null, min_percentage: 65, min_ielts: 6.5, min_toefl: 90, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 2, program_url: "https://www.bristol.ac.uk/study/postgraduate/public-health-msc/",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 2, program_url: "https://www.bristol.ac.uk/study/postgraduate/",
     apply_url: "https://www.bristol.ac.uk/study/postgraduate/apply/",
   },
   {
@@ -2645,8 +2645,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 41000, avg_living_cost_usd: 13000,
     intake_semesters: ["fall"], application_deadline: "2025-10-15",
     min_gpa: null, min_percentage: 75, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.nottingham.ac.uk/ugstudy/course/Medicine-BMBS",
-    apply_url: "https://www.nottingham.ac.uk/ugstudy/apply",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.nottingham.ac.uk/course/A100",
+    apply_url: "https://www.nottingham.ac.uk/ugstudy/how-to-apply/",
   },
   {
     university_name: "University of Leeds",
@@ -2656,8 +2656,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 41000, avg_living_cost_usd: 13000,
     intake_semesters: ["fall"], application_deadline: "2025-10-15",
     min_gpa: null, min_percentage: 75, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://courses.leeds.ac.uk/course/medicine-mbchb",
-    apply_url: "https://www.leeds.ac.uk/study/applying",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.leeds.ac.uk/course/medicine-mbchb",
+    apply_url: "https://www.leeds.ac.uk/applying-to-leeds",
   },
   {
     university_name: "Newcastle University",
@@ -2668,7 +2668,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2025-10-15",
     min_gpa: null, min_percentage: 75, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.ncl.ac.uk/undergraduate/degrees/a100/",
-    apply_url: "https://www.ncl.ac.uk/study/apply/",
+    apply_url: "https://www.ncl.ac.uk/undergraduate/apply/",
   },
   {
     university_name: "Queen Mary University of London",
@@ -2690,7 +2690,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2025-10-15",
     min_gpa: null, min_percentage: 75, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.southampton.ac.uk/courses/medicine-degree-mbbs",
-    apply_url: "https://www.southampton.ac.uk/apply",
+    apply_url: "https://www.southampton.ac.uk/undergraduate/applying-to-southampton/index.page",
   },
   {
     university_name: "University of Liverpool",
@@ -2700,8 +2700,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 38000, avg_living_cost_usd: 13000,
     intake_semesters: ["fall"], application_deadline: "2025-10-15",
     min_gpa: null, min_percentage: 70, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.liverpool.ac.uk/study/undergraduate/courses/medicine-mbchb/overview/",
-    apply_url: "https://www.liverpool.ac.uk/apply/",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.liverpool.ac.uk/courses/2025/medicine-mbchb",
+    apply_url: "https://www.liverpool.ac.uk/study/undergraduate/applying/",
   },
 
   // ── Australia ─────────────────────────────────────────────────────────────
@@ -2735,7 +2735,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 55000, avg_living_cost_usd: 21000,
     intake_semesters: ["fall"], application_deadline: "2025-09-30",
     min_gpa: null, min_percentage: 85, min_ielts: 7.0, min_toefl: 100, min_pte: 65, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.sydney.edu.au/courses/courses/uc/bachelor-of-medicine-and-bachelor-of-surgery.html",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.sydney.edu.au/courses/courses/pc/doctor-of-medicine.html",
     apply_url: "https://www.sydney.edu.au/study/how-to-apply.html",
   },
   {
@@ -2747,7 +2747,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: null, min_percentage: 65, min_ielts: 6.5, min_toefl: 88, min_pte: 58, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 2, program_url: "https://www.sydney.edu.au/courses/courses/pc/master-of-public-health.html",
-    apply_url: "https://www.sydney.edu.au/study/how-to-apply/postgraduate.html",
+    apply_url: "https://www.sydney.edu.au/study/how-to-apply.html",
   },
   {
     university_name: "University of Queensland",
@@ -2768,7 +2768,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 28000, avg_living_cost_usd: 18000,
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: null, min_percentage: 65, min_ielts: 6.5, min_toefl: 87, min_pte: 58, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 2, program_url: "https://study.uq.edu.au/study-options/programs/master-public-health-5750",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 2, program_url: "https://study.uq.edu.au/study-options/programs/master-of-public-health-5750",
     apply_url: "https://study.uq.edu.au/apply",
   },
   {
@@ -2801,8 +2801,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 56000, avg_living_cost_usd: 21000,
     intake_semesters: ["fall"], application_deadline: "2025-09-30",
     min_gpa: null, min_percentage: 85, min_ielts: 7.0, min_toefl: 100, min_pte: 65, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.unsw.edu.au/medicine/study-with-us/undergraduate-programs/medicine",
-    apply_url: "https://www.unsw.edu.au/study/undergraduate/how-to-apply",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.unsw.edu.au/medicine/",
+    apply_url: "https://www.unsw.edu.au/study/undergraduate/how-apply",
   },
   {
     university_name: "University of New South Wales",
@@ -2812,8 +2812,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 30000, avg_living_cost_usd: 21000,
     intake_semesters: ["fall", "spring"], application_deadline: "rolling",
     min_gpa: null, min_percentage: 65, min_ielts: 6.5, min_toefl: 90, min_pte: 58, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 2, program_url: "https://www.unsw.edu.au/medicine/study-with-us/postgraduate-programs/public-health",
-    apply_url: "https://www.unsw.edu.au/study/postgraduate/how-to-apply",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 2, program_url: "https://www.unsw.edu.au/medicine/",
+    apply_url: "https://www.unsw.edu.au/study/postgraduate/how-apply",
   },
   {
     university_name: "University of Adelaide",
@@ -2823,8 +2823,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 50000, avg_living_cost_usd: 16000,
     intake_semesters: ["fall"], application_deadline: "2025-09-30",
     min_gpa: null, min_percentage: 80, min_ielts: 7.0, min_toefl: 100, min_pte: 65, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.adelaide.edu.au/degree-finder/mbbs_mbachsurg.html",
-    apply_url: "https://www.adelaide.edu.au/apply",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.adelaide.edu.au/degree-finder/",
+    apply_url: "https://www.adelaide.edu.au/admissions/",
   },
   {
     university_name: "University of Western Australia",
@@ -2858,7 +2858,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 36000, avg_living_cost_usd: 18000,
     intake_semesters: ["fall"], application_deadline: "2025-10-01",
     min_gpa: 3.6, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://temertymedicine.utoronto.ca/md-program",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://temertymedicine.utoronto.ca/education",
     apply_url: "https://omsas.ca",
   },
   {
@@ -2902,8 +2902,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 30000, avg_living_cost_usd: 20000,
     intake_semesters: ["fall"], application_deadline: "2025-10-01",
     min_gpa: 3.5, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.med.ubc.ca/education/md-program/",
-    apply_url: "https://www.med.ubc.ca/education/md-program/admissions/",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://mdprogram.med.ubc.ca/",
+    apply_url: "https://mdprogram.med.ubc.ca/admissions/",
   },
   {
     university_name: "University of British Columbia",
@@ -2914,7 +2914,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2026-02-01",
     min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 90, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 2, program_url: "https://spph.ubc.ca/programs/mph/",
-    apply_url: "https://spph.ubc.ca/programs/mph/apply/",
+    apply_url: "https://spph.ubc.ca/programs/mph/",
   },
   {
     university_name: "McMaster University",
@@ -2957,8 +2957,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 25000, avg_living_cost_usd: 16000,
     intake_semesters: ["fall"], application_deadline: "2025-10-01",
     min_gpa: 3.2, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://cumming.ucalgary.ca/education/md/",
-    apply_url: "https://cumming.ucalgary.ca/education/md/admissions",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://cumming.ucalgary.ca/education/mdprogram",
+    apply_url: "https://cumming.ucalgary.ca/education/mdprogramadmissions",
   },
   {
     university_name: "Dalhousie University",
@@ -2969,7 +2969,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     intake_semesters: ["fall"], application_deadline: "2025-10-15",
     min_gpa: 3.3, min_percentage: null, min_ielts: 7.0, min_toefl: 90, min_pte: null, min_duolingo: null,
     min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://medicine.dal.ca/departments/core-units/admissions.html",
-    apply_url: "https://medicine.dal.ca/departments/core-units/admissions/how-to-apply.html",
+    apply_url: "https://medicine.dal.ca/departments/core-units/admissions.html",
   },
   {
     university_name: "University of Ottawa",
@@ -2990,8 +2990,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 28000, avg_living_cost_usd: 15000,
     intake_semesters: ["fall"], application_deadline: "2025-10-01",
     min_gpa: 3.3, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.schulich.uwo.ca/medicine_dentistry/about/medicine.html",
-    apply_url: "https://www.schulich.uwo.ca/medicine_dentistry/medicine/admissions.html",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.schulich.uwo.ca/medicine_dentistry/",
+    apply_url: "https://www.schulich.uwo.ca/medicine_dentistry/medicine/",
   },
   {
     university_name: "Queen's University",
@@ -3001,8 +3001,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 26000, avg_living_cost_usd: 15000,
     intake_semesters: ["fall"], application_deadline: "2025-10-01",
     min_gpa: 3.3, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://meds.queensu.ca/education/undergraduate",
-    apply_url: "https://meds.queensu.ca/education/undergraduate/applying-to-medicine",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://meds.queensu.ca/education",
+    apply_url: "https://meds.queensu.ca/education/applying-to-medicine",
   },
 
   // ── New Zealand ───────────────────────────────────────────────────────────
@@ -3060,7 +3060,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 68000, avg_living_cost_usd: 16000,
     intake_semesters: ["fall"], application_deadline: "2026-02-01",
     min_gpa: null, min_percentage: 80, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.tcd.ie/courses/undergraduate/medicine/",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.tcd.ie/medicine/",
     apply_url: "https://www.tcd.ie/admissions/",
   },
   {
@@ -3071,7 +3071,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 18000, avg_living_cost_usd: 16000,
     intake_semesters: ["fall"], application_deadline: "2026-06-30",
     min_gpa: null, min_percentage: 65, min_ielts: 6.5, min_toefl: 90, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 2, program_url: "https://www.tcd.ie/courses/postgraduate/public-health-mph/",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 2, program_url: "https://www.tcd.ie/medicine/postgraduate/mph/",
     apply_url: "https://www.tcd.ie/admissions/postgraduate/",
   },
   {
@@ -3115,7 +3115,7 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 58000, avg_living_cost_usd: 13000,
     intake_semesters: ["fall"], application_deadline: "2026-02-01",
     min_gpa: null, min_percentage: 75, min_ielts: 6.5, min_toefl: 90, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.nuigalway.ie/courses/undergraduate-courses/medicine.html",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.universityofgalway.ie/courses/undergraduate-courses/medicine.html",
     apply_url: "https://www.universityofgalway.ie/admissions/",
   },
 
@@ -3128,8 +3128,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 47000, avg_living_cost_usd: 18000,
     intake_semesters: ["fall"], application_deadline: "2026-03-15",
     min_gpa: null, min_percentage: 85, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://medicine.nus.edu.sg/education/undergraduate/mbbs/",
-    apply_url: "https://medicine.nus.edu.sg/education/undergraduate/admissions/",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://medicine.nus.edu.sg/education/",
+    apply_url: "https://medicine.nus.edu.sg/education/",
   },
   {
     university_name: "National University of Singapore",
@@ -3139,8 +3139,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 28000, avg_living_cost_usd: 18000,
     intake_semesters: ["fall"], application_deadline: "2026-03-15",
     min_gpa: null, min_percentage: 65, min_ielts: 6.5, min_toefl: 85, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 2, program_url: "https://medicine.nus.edu.sg/education/postgraduate/mph/",
-    apply_url: "https://medicine.nus.edu.sg/education/postgraduate/admissions/",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 2, program_url: "https://medicine.nus.edu.sg/",
+    apply_url: "https://medicine.nus.edu.sg/",
   },
   {
     university_name: "Nanyang Technological University",
@@ -3163,8 +3163,8 @@ export const PROGRAMS: Omit<Program, "id" | "is_active" | "last_updated">[] = [
     annual_tuition_usd: 16000, avg_living_cost_usd: 7000,
     intake_semesters: ["fall"], application_deadline: "rolling",
     min_gpa: null, min_percentage: 75, min_ielts: 6.5, min_toefl: 85, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://medicine.um.edu.my/undergraduate-programmes",
-    apply_url: "https://umpsa.um.edu.my/en/register",
+    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://medicine.um.edu.my/",
+    apply_url: "https://apply.um.edu.my/",
   },
   {
     university_name: "Universiti Malaya",
