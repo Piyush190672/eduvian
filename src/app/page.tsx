@@ -196,8 +196,8 @@ export default function LandingPage() {
             {/* Main student photo */}
             <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-indigo-900/50 border border-white/10">
               <img
-                src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=700&q=85"
-                alt="Students at university"
+                src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=700&q=85"
+                alt="Students at university campus"
                 className="w-full h-[480px] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
@@ -315,19 +315,19 @@ export default function LandingPage() {
             viewport={{ once: true }}
             className="relative"
           >
-            {/* Main large photo — GenZ students at university */}
+            {/* Main large photo — GenZ students in front of university building */}
             <div className="rounded-3xl overflow-hidden shadow-2xl">
               <img
-                src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=700&q=85"
-                alt="Students at university campus"
+                src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=700&q=85"
+                alt="Students in front of university building"
                 className="w-full h-[420px] object-cover"
               />
             </div>
             {/* Overlapping small photo */}
             <div className="absolute -bottom-8 -right-8 w-52 h-52 rounded-2xl overflow-hidden shadow-xl border-4 border-white">
               <img
-                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=300&q=85"
-                alt="Students studying together"
+                src="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=300&q=85"
+                alt="Students with university building"
                 className="w-full h-full object-cover"
               />
             </div>
