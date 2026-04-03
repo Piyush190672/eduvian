@@ -196,8 +196,8 @@ export default function LandingPage() {
             {/* Main student photo */}
             <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-indigo-900/50 border border-white/10">
               <img
-                src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=700&q=85"
-                alt="Students at university campus"
+                src="/hero-students.jpg"
+                alt="Group of university friends smiling at campus"
                 className="w-full h-[480px] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
@@ -318,8 +318,8 @@ export default function LandingPage() {
             {/* Main large photo — male and female students at university */}
             <div className="rounded-3xl overflow-hidden shadow-2xl">
               <img
-                src="https://images.unsplash.com/photo-1627556704302-624286467c65?w=700&q=85"
-                alt="Male and female students at university campus"
+                src="/hot-profile.jpg"
+                alt="Male and female students smiling with victory sign"
                 className="w-full h-[420px] object-cover"
               />
             </div>
