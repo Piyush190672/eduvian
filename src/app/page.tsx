@@ -466,24 +466,24 @@ export default function LandingPage() {
           </div>
           <div className="grid grid-cols-2 gap-3">
             {[
-              { label: "Academic Score", pct: "35%", color: "text-indigo-400", bg: "bg-indigo-500/10 border-indigo-500/20" },
-              { label: "English Proficiency", pct: "15%", color: "text-purple-400", bg: "bg-purple-500/10 border-purple-500/20" },
-              { label: "Budget Fit", pct: "15%", color: "text-pink-400", bg: "bg-pink-500/10 border-pink-500/20" },
-              { label: "Country Preference", pct: "15%", color: "text-rose-400", bg: "bg-rose-500/10 border-rose-500/20" },
-              { label: "QS University Rank", pct: "5%", color: "text-amber-400", bg: "bg-amber-500/10 border-amber-500/20" },
-              { label: "Intake Availability", pct: "5%", color: "text-emerald-400", bg: "bg-emerald-500/10 border-emerald-500/20" },
-              { label: "Work Experience", pct: "5%", color: "text-cyan-400", bg: "bg-cyan-500/10 border-cyan-500/20" },
-              { label: "Standardized Tests", pct: "5%", color: "text-blue-400", bg: "bg-blue-500/10 border-blue-500/20" },
+              { label: "Academic Score", icon: "🎓", bg: "bg-indigo-500/10 border-indigo-500/20" },
+              { label: "English Proficiency", icon: "🗣️", bg: "bg-purple-500/10 border-purple-500/20" },
+              { label: "Budget Fit", icon: "💰", bg: "bg-pink-500/10 border-pink-500/20" },
+              { label: "Country Preference", icon: "🌍", bg: "bg-rose-500/10 border-rose-500/20" },
+              { label: "QS University Rank", icon: "🏆", bg: "bg-amber-500/10 border-amber-500/20" },
+              { label: "Intake Availability", icon: "📅", bg: "bg-emerald-500/10 border-emerald-500/20" },
+              { label: "Work Experience", icon: "💼", bg: "bg-cyan-500/10 border-cyan-500/20" },
+              { label: "Standardized Tests", icon: "📝", bg: "bg-blue-500/10 border-blue-500/20" },
             ].map((s) => (
               <motion.div
                 key={s.label}
                 whileInView={{ opacity: 1, y: 0 }}
                 initial={{ opacity: 0, y: 10 }}
                 viewport={{ once: true }}
-                className={`p-4 rounded-2xl border ${s.bg} hover:scale-105 transition-transform`}
+                className={`p-4 rounded-2xl border ${s.bg} hover:scale-105 transition-transform flex items-center gap-3`}
               >
-                <div className={`text-2xl font-black ${s.color} mb-1`}>{s.pct}</div>
-                <div className="text-xs text-slate-400 leading-snug">{s.label}</div>
+                <span className="text-2xl">{s.icon}</span>
+                <div className="text-sm text-slate-300 font-medium leading-snug">{s.label}</div>
               </motion.div>
             ))}
           </div>
