@@ -450,11 +450,11 @@ export default function LandingPage() {
               <Sparkles className="w-3.5 h-3.5" /> The matching engine
             </span>
             <h2 className="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
-              8 signals.<br />
+              10 signals.<br />
               <span className="text-indigo-400">One perfect match.</span>
             </h2>
             <p className="text-slate-300 text-lg mb-10 leading-relaxed">
-              We don't just filter universities — we <em>score</em> every program against your specific profile using a weighted algorithm built from real admissions data.
+              We don't just filter universities — we <em>score</em> every program against your specific profile using 10 signals, including academic backlogs and gap year history, built from real admissions data.
             </p>
             <Link
               href="/profile"
@@ -474,6 +474,8 @@ export default function LandingPage() {
               { label: "Intake Availability", icon: "📅", bg: "bg-emerald-500/10 border-emerald-500/20" },
               { label: "Work Experience", icon: "💼", bg: "bg-cyan-500/10 border-cyan-500/20" },
               { label: "Standardized Tests", icon: "📝", bg: "bg-blue-500/10 border-blue-500/20" },
+              { label: "Academic Backlogs", icon: "⚠️", bg: "bg-orange-500/10 border-orange-500/20" },
+              { label: "Gap Year", icon: "🗓️", bg: "bg-violet-500/10 border-violet-500/20" },
             ].map((s) => (
               <motion.div
                 key={s.label}
