@@ -19,7 +19,7 @@ import { useRouter } from "next/navigation";
 function AdminShell({ children }: { children: React.ReactNode }) {
   const router = useRouter();
   const logout = () => {
-    sessionStorage.removeItem("eduvian_admin");
+    sessionStorage.removeItem("eduvianai_admin");
     router.push("/admin");
   };
   return (
@@ -30,7 +30,7 @@ function AdminShell({ children }: { children: React.ReactNode }) {
             <div className="w-8 h-8 rounded-xl bg-white/20 flex items-center justify-center">
               <Globe2 className="w-4 h-4" />
             </div>
-            <span className="font-bold text-lg">Eduvian</span>
+            <span className="font-bold text-lg">eduvianAI</span>
           </div>
           <span className="text-xs text-indigo-300 mt-1 block">Admin Panel</span>
         </div>

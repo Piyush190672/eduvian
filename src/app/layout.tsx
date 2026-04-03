@@ -10,7 +10,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Eduvian — Your Global Future, Simplified",
+  title: "eduvianAI — Your Global Future, Simplified",
   description:
     "AI-powered program recommendations for study abroad aspirants. Get matched with universities in USA, UK, Australia, Canada, and more.",
   keywords: [
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     "UK universities",
   ],
   openGraph: {
-    title: "Eduvian — Your Global Future, Simplified",
+    title: "eduvianAI — Your Global Future, Simplified",
     description:
       "Get personalized university program matches based on your academic profile, budget, and preferences.",
     type: "website",

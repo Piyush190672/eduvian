@@ -65,7 +65,7 @@ export async function POST(req: NextRequest) {
   <div style="max-width:600px;margin:0 auto;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.08);">
     <!-- Header -->
     <div style="background:linear-gradient(135deg,#6366f1,#8b5cf6,#ec4899);padding:40px 32px;text-align:center;">
-      <div style="font-size:28px;font-weight:900;color:#fff;letter-spacing:-0.5px;">🌍 Eduvian</div>
+      <div style="font-size:28px;font-weight:900;color:#fff;letter-spacing:-0.5px;">🌍 eduvianAI</div>
       <div style="color:#e0e7ff;margin-top:4px;font-size:15px;font-weight:700;letter-spacing:0.3px;">Your Global Future, Simplified</div>
       <div style="color:#e0e7ff;margin-top:8px;font-size:15px;">Your personalized shortlist is ready</div>
     </div>
@@ -120,7 +120,7 @@ export async function POST(req: NextRequest) {
     <!-- Footer -->
     <div style="background:#f8fafc;padding:20px 32px;text-align:center;border-top:1px solid #f1f5f9;">
       <div style="color:#9ca3af;font-size:12px;">
-        © 2025 Eduvian · Your Global Future, Simplified<br>
+        © 2025 eduvianAI · Your Global Future, Simplified<br>
         <a href="${resultsUrl}" style="color:#6366f1;text-decoration:none;">View your shortlist</a>
       </div>
     </div>
@@ -130,16 +130,16 @@ export async function POST(req: NextRequest) {
 
     // Try Resend if configured
     const resendKey = process.env.RESEND_API_KEY;
-    const fromEmail = process.env.RESEND_FROM_EMAIL ?? "results@eduvian.com";
+    const fromEmail = process.env.RESEND_FROM_EMAIL ?? "results@eduvianai.com";
 
     if (resendKey && profile?.email) {
       const { Resend } = await import("resend");
       const resend = new Resend(resendKey);
 
       await resend.emails.send({
-        from: `Eduvian <${fromEmail}>`,
+        from: `eduvianAI <${fromEmail}>`,
         to: profile.email,
-        subject: `🎓 Your Eduvian shortlist is ready — ${topPrograms.length} program matches`,
+        subject: `🎓 Your eduvianAI shortlist is ready — ${topPrograms.length} program matches`,
         html: htmlBody,
       });
 

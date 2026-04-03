@@ -187,7 +187,7 @@ export default function ResultsPage() {
             <Globe2 className="w-4 h-4 text-white" />
           </div>
           <div>
-            <span className="font-bold text-xl text-gray-900">Eduvian</span>
+            <span className="font-bold text-xl text-gray-900">eduvianAI</span>
             <p className="text-sm font-bold text-gray-400 leading-none">Your Global Future, Simplified</p>
           </div>
         </Link>

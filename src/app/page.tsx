@@ -73,7 +73,7 @@ const TESTIMONIALS = [
     name: "Priya Sharma",
     from: "Mumbai, India",
     dest: "MS CS @ University of Toronto",
-    text: "Eduvian gave me a shortlist that was actually realistic for my profile. Got into my first-choice safe match!",
+    text: "eduvianAI gave me a shortlist that was actually realistic for my profile. Got into my first-choice safe match!",
     score: "82% match",
     img: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&q=80",
   },
@@ -113,7 +113,7 @@ export default function LandingPage() {
             <Globe2 className="w-4.5 h-4.5 text-white" />
           </div>
           <div>
-            <span className="font-extrabold text-xl text-gray-900 tracking-tight">Eduvian</span>
+            <span className="font-extrabold text-xl text-gray-900 tracking-tight">eduvianAI</span>
             <p className="text-xs text-gray-400 leading-none font-medium">Your Global Future, Simplified</p>
           </div>
         </Link>
@@ -570,7 +570,7 @@ export default function LandingPage() {
               <span className="text-indigo-300">today</span>
             </h2>
             <p className="text-indigo-200 mb-10 text-xl leading-relaxed">
-              Join thousands of students who found their path abroad with Eduvian. Get your personalised shortlist — free, instant, emailed to you.
+              Join thousands of students who found their path abroad with eduvianAI. Get your personalised shortlist — free, instant, emailed to you.
             </p>
             <Link
               href="/profile"
@@ -591,7 +591,7 @@ export default function LandingPage() {
               <Globe2 className="w-4 h-4 text-white" />
             </div>
             <div>
-              <span className="font-extrabold text-gray-900">Eduvian</span>
+              <span className="font-extrabold text-gray-900">eduvianAI</span>
               <p className="text-xs text-gray-400 font-medium">Your Global Future, Simplified</p>
             </div>
           </div>
@@ -602,7 +602,7 @@ export default function LandingPage() {
             <Link href="/profile" className="hover:text-indigo-500 font-medium transition-colors">Get started</Link>
           </div>
           <div className="flex items-center gap-4 text-sm text-gray-400">
-            <p>© 2025 Eduvian. All rights reserved.</p>
+            <p>© 2025 eduvianAI. All rights reserved.</p>
             <Link href="/admin" className="text-gray-200 hover:text-gray-400 transition-colors text-xs">Admin</Link>
           </div>
         </div>

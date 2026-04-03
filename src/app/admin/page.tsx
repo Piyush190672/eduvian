@@ -32,11 +32,11 @@ export default function AdminLogin() {
       router.push("/admin/dashboard");
     } catch {
       // Dev fallback: allow demo credentials
-      if (email === "admin@eduvian.com" && password === "admin123") {
-        sessionStorage.setItem("eduvian_admin", "true");
+      if (email === "admin@eduvianai.com" && password === "admin123") {
+        sessionStorage.setItem("eduvianai_admin", "true");
         router.push("/admin/dashboard");
       } else {
-        setError("Invalid credentials. Try admin@eduvian.com / admin123 for demo.");
+        setError("Invalid credentials. Try admin@eduvianai.com / admin123 for demo.");
       }
     } finally {
       setLoading(false);
@@ -52,7 +52,7 @@ export default function AdminLogin() {
               <Globe2 className="w-5 h-5 text-white" />
             </div>
             <div>
-              <span className="font-bold text-2xl text-white">Eduvian</span>
+              <span className="font-bold text-2xl text-white">eduvianAI</span>
               <p className="text-sm font-bold text-indigo-300 leading-none">Your Global Future, Simplified</p>
             </div>
           </Link>
@@ -72,7 +72,7 @@ export default function AdminLogin() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="admin@eduvian.com"
+              placeholder="admin@eduvianai.com"
               required
               className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-indigo-300 focus:outline-none focus:ring-2 focus:ring-indigo-400 text-sm"
             />
@@ -111,7 +111,7 @@ export default function AdminLogin() {
           </button>
 
           <p className="text-indigo-300 text-xs text-center">
-            Demo: admin@eduvian.com / admin123
+            Demo: admin@eduvianai.com / admin123
           </p>
         </form>
       </div>
