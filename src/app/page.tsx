@@ -167,7 +167,7 @@ export default function LandingPage() {
                 </span>
                 <Sparkles className="w-5 h-5 text-white animate-pulse" />
               </motion.div>
-              <p className="text-indigo-300 text-sm font-medium pl-1">
+              <p className="text-indigo-300 text-sm font-medium pl-1 italic">
                 The smartest way to find your perfect university abroad
               </p>
             </div>
