@@ -315,11 +315,11 @@ export default function LandingPage() {
             viewport={{ once: true }}
             className="relative"
           >
-            {/* Main large photo — GenZ students in front of university building */}
+            {/* Main large photo — male and female students at university */}
             <div className="rounded-3xl overflow-hidden shadow-2xl">
               <img
-                src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=700&q=85"
-                alt="Students in front of university building"
+                src="https://images.unsplash.com/photo-1627556704302-624286467c65?w=700&q=85"
+                alt="Male and female students at university campus"
                 className="w-full h-[420px] object-cover"
               />
             </div>
