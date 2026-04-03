@@ -20,6 +20,7 @@ import StepAcademic from "@/components/form/StepAcademic";
 import StepTests from "@/components/form/StepTests";
 import StepPreferences from "@/components/form/StepPreferences";
 import Link from "next/link";
+import NavButtons from "@/components/ui/NavButtons";
 
 const STEPS = [
   { id: 1, label: "Personal", icon: User, desc: "About you" },
@@ -107,9 +108,12 @@ export default function ProfilePage() {
             <p className="text-sm font-bold text-gray-400 leading-none">Your Global Future, Simplified</p>
           </div>
         </Link>
-        <span className="text-sm text-gray-500">
-          Step {step} of {STEPS.length}
-        </span>
+        <div className="flex items-center gap-4">
+          <span className="text-sm text-gray-500">
+            Step {step} of {STEPS.length}
+          </span>
+          <NavButtons backHref="/" />
+        </div>
       </nav>
 
       <div className="pt-24 pb-16 px-4 max-w-2xl mx-auto">

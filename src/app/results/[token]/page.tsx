@@ -20,6 +20,7 @@ import ProgramCard from "@/components/results/ProgramCard";
 import FilterBar from "@/components/results/FilterBar";
 import ShortlistSummary from "@/components/results/ShortlistSummary";
 import ProfileCard from "@/components/results/ProfileCard";
+import NavButtons from "@/components/ui/NavButtons";
 
 interface ResultData {
   submission: {
@@ -191,6 +192,7 @@ export default function ResultsPage() {
           </div>
         </Link>
         <div className="flex items-center gap-2">
+          <NavButtons backHref="/profile" backLabel="Go Back" />
           <button
             onClick={sendEmail}
             disabled={sendingEmail}
