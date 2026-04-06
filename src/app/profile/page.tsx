@@ -50,17 +50,71 @@ const defaultProfile: Partial<StudentProfile> = {
   budget_range: "35k_50k",
 };
 
+function validateStep(step: number, profile: Partial<StudentProfile>): string[] {
+  const missing: string[] = [];
+
+  if (step === 1) {
+    if (!profile.full_name?.trim()) missing.push("Full Name");
+    if (!profile.email?.trim()) missing.push("Email Address");
+    if (!profile.phone?.trim()) missing.push("Phone / WhatsApp");
+    if (!profile.nationality?.trim()) missing.push("Nationality");
+    if (!profile.city?.trim()) missing.push("Current City");
+  }
+
+  if (step === 2) {
+    if (!profile.intended_field) missing.push("Intended Field of Study");
+    if (!profile.current_degree?.trim()) missing.push("Current / Completed Degree");
+    if (!profile.institution_name?.trim()) missing.push("Institution Name");
+    if (!profile.graduation_year) missing.push("Graduation Year");
+    if (profile.academic_score === undefined || isNaN(profile.academic_score)) {
+      missing.push("Academic Score");
+    }
+    // UG: at least 1 subject; PG: major stream selected
+    if (profile.degree_level === "undergraduate") {
+      const subjects = (profile.major_stream ?? "").split(",").map(s => s.trim()).filter(Boolean);
+      if (subjects.length === 0) missing.push("At least one Subject");
+    } else {
+      if (!profile.major_stream) missing.push("Major / Stream");
+    }
+  }
+
+  if (step === 3) {
+    if (profile.english_test && profile.english_test !== "none") {
+      if (!profile.english_score_overall && profile.english_score_overall !== 0) {
+        missing.push("English Proficiency Score");
+      }
+    }
+  }
+
+  if (step === 4) {
+    if (!profile.country_preferences || profile.country_preferences.length === 0) {
+      missing.push("At least one Country Preference");
+    }
+    if (!profile.budget_range) missing.push("Annual Budget");
+  }
+
+  return missing;
+}
+
 export default function ProfilePage() {
   const router = useRouter();
   const [step, setStep] = useState(1);
   const [profile, setProfile] = useState<Partial<StudentProfile>>(defaultProfile);
   const [submitting, setSubmitting] = useState(false);
+  const [errors, setErrors] = useState<string[]>([]);
 
   const updateProfile = (data: Partial<StudentProfile>) => {
     setProfile((prev) => ({ ...prev, ...data }));
+    if (errors.length > 0) setErrors([]);
   };
 
   const next = () => {
+    const missing = validateStep(step, profile);
+    if (missing.length > 0) {
+      setErrors(missing);
+      return;
+    }
+    setErrors([]);
     if (step < 4) setStep((s) => s + 1);
   };
 
@@ -69,6 +123,12 @@ export default function ProfilePage() {
   };
 
   const handleSubmit = async () => {
+    const missing = validateStep(4, profile);
+    if (missing.length > 0) {
+      setErrors(missing);
+      return;
+    }
+    setErrors([]);
     setSubmitting(true);
     try {
       const res = await fetch("/api/submit", {
@@ -186,6 +246,24 @@ export default function ProfilePage() {
             )}
           </motion.div>
         </AnimatePresence>
+
+        {/* Validation errors */}
+        {errors.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mt-4 p-4 rounded-2xl bg-rose-50 border border-rose-200"
+          >
+            <p className="text-sm font-semibold text-rose-700 mb-1.5">
+              Please fill in the following required fields:
+            </p>
+            <ul className="list-disc list-inside space-y-0.5">
+              {errors.map((e) => (
+                <li key={e} className="text-sm text-rose-600">{e}</li>
+              ))}
+            </ul>
+          </motion.div>
+        )}
 
         {/* Navigation */}
         <div className="flex justify-between items-center mt-6">
