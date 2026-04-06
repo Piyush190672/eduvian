@@ -262,8 +262,10 @@ export default function StepAcademic({ profile, onChange }: Props) {
           options={[
             { value: "percentage", label: "Percentage (%)" },
             { value: "gpa", label: "GPA (4.0)" },
-            { value: "ib", label: "IB Points (/45)" },
-            { value: "igcse", label: "IGCSE / A-Level" },
+            ...(!isGrad ? [
+              { value: "ib", label: "IB Points (/45)" },
+              { value: "igcse", label: "IGCSE / A-Level" },
+            ] : []),
           ]}
           value={profile.academic_score_type}
           onChange={(v) =>

@@ -281,12 +281,20 @@ export function recommendPrograms(
   profile: StudentProfile,
   programs: Program[]
 ): ScoredProgram[] {
-  // Only recommend programs matching degree level AND intended field of study
+  // Build set of allowed country names from preferences
+  const allowedCountries = new Set(
+    profile.country_preferences
+      .map((code) => TARGET_COUNTRIES.find((t) => t.code === code)?.name)
+      .filter(Boolean) as string[]
+  );
+
+  // Hard filters: active, degree level, field of study, country preference
   const filtered = programs.filter(
     (p) =>
       p.is_active &&
       (p.degree_level === profile.degree_level || p.degree_level === "both") &&
-      p.field_of_study === profile.intended_field
+      p.field_of_study === profile.intended_field &&
+      (allowedCountries.size === 0 || allowedCountries.has(p.country))
   );
 
   const scored = filtered
