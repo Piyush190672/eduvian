@@ -237,6 +237,7 @@ const FEATURES = [
 
 export default function LandingPage() {
   const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
+  const [selectedScholarship, setSelectedScholarship] = useState<string | null>(null);
 
   return (
     <div className="min-h-screen bg-white font-sans">
@@ -600,8 +601,8 @@ export default function LandingPage() {
 
       {/* ── Scholarships section ─────────────────────────────────── */}
       <section className="py-24 px-6 bg-gradient-to-br from-indigo-50 via-white to-purple-50">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-14">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-100 text-indigo-700 text-sm font-semibold mb-4">
               <Award className="w-3.5 h-3.5" />
               SCHOLARSHIPS
@@ -610,42 +611,65 @@ export default function LandingPage() {
               Fund your global education
             </h2>
             <p className="text-gray-500 mt-4 max-w-2xl mx-auto text-base leading-relaxed">
-              Thousands of scholarships are available for international students every year — many go unclaimed. From fully-funded government programmes to university merit awards, here's what's available in each destination.
+              Thousands of scholarships are available for international students every year — many go unclaimed. Select a destination to explore key scholarships available there.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {SCHOLARSHIPS.map((country) => (
-              <motion.div
-                key={country.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 hover:shadow-md transition-all"
+          {/* Country icon row */}
+          <div className="flex flex-wrap justify-center gap-3 mb-8">
+            {SCHOLARSHIPS.map((c) => (
+              <button
+                key={c.name}
+                onClick={() => setSelectedScholarship(selectedScholarship === c.name ? null : c.name)}
+                className={`flex items-center gap-2 px-4 py-2.5 rounded-2xl border text-sm font-semibold transition-all ${
+                  selectedScholarship === c.name
+                    ? "bg-indigo-500 text-white border-indigo-500 shadow-md"
+                    : "bg-white text-gray-700 border-gray-200 hover:border-indigo-300 hover:text-indigo-600"
+                }`}
               >
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="text-2xl">{country.flag}</span>
-                  <h3 className="font-bold text-gray-900 text-lg">{country.name}</h3>
-                </div>
-                <ul className="space-y-2.5">
-                  {country.scholarships.map((s) => (
-                    <li key={s.name} className="flex gap-2.5">
-                      <span className="mt-0.5 flex-shrink-0 w-4 h-4 rounded-full bg-indigo-100 flex items-center justify-center">
-                        <span className="w-1.5 h-1.5 rounded-full bg-indigo-500" />
-                      </span>
-                      <div>
-                        <span className="text-sm font-semibold text-gray-800">{s.name}</span>
-                        <span className="text-xs text-gray-500 ml-1.5">{s.coverage}</span>
-                        {s.note && <p className="text-xs text-gray-400 mt-0.5">{s.note}</p>}
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
+                <span className="text-lg">{c.flag}</span>
+                {c.name}
+              </button>
             ))}
           </div>
 
-          <p className="text-center text-sm text-gray-400 mt-10">
+          {/* Expanded scholarship panel */}
+          {SCHOLARSHIPS.filter(c => c.name === selectedScholarship).map(c => (
+            <motion.div
+              key={c.name}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.2 }}
+              className="bg-white rounded-2xl border border-indigo-100 shadow-md p-6"
+            >
+              <div className="flex items-center gap-3 mb-5">
+                <span className="text-3xl">{c.flag}</span>
+                <h3 className="font-extrabold text-gray-900 text-xl">{c.name} — Scholarships</h3>
+              </div>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {c.scholarships.map((s) => (
+                  <li key={s.name} className="flex gap-3 p-3 rounded-xl bg-indigo-50/60 border border-indigo-100">
+                    <span className="mt-1 flex-shrink-0 w-4 h-4 rounded-full bg-indigo-500 flex items-center justify-center">
+                      <span className="w-1.5 h-1.5 rounded-full bg-white" />
+                    </span>
+                    <div>
+                      <p className="text-sm font-bold text-gray-900">{s.name}</p>
+                      <p className="text-xs font-semibold text-indigo-600 mt-0.5">{s.coverage}</p>
+                      {s.note && <p className="text-xs text-gray-500 mt-0.5">{s.note}</p>}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
+
+          {!selectedScholarship && (
+            <p className="text-center text-sm text-gray-400">
+              Click a country above to see available scholarships.
+            </p>
+          )}
+
+          <p className="text-center text-xs text-gray-400 mt-6">
             Scholarship availability and amounts change annually. Always verify directly with the awarding body.
           </p>
         </div>
