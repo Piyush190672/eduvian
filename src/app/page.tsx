@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import {
@@ -19,6 +20,7 @@ import {
   FileText,
   Heart,
 } from "lucide-react";
+import CountryModal from "@/components/CountryModal";
 
 const COUNTRIES = [
   { flag: "🇺🇸", name: "USA", img: "https://images.unsplash.com/photo-1568515387631-8b650bbcdb90?w=400&q=80" },
@@ -35,9 +37,9 @@ const COUNTRIES = [
 ];
 
 const STATS = [
-  { icon: GraduationCap, value: "500+", label: "Programs Listed" },
+  { icon: GraduationCap, value: "445", label: "Programs Listed" },
   { icon: Globe2, value: "11", label: "Countries" },
-  { icon: Users, value: "10K+", label: "Students Matched" },
+  { icon: Users, value: "240+", label: "Universities" },
   { icon: Award, value: "98%", label: "Satisfaction Rate" },
 ];
 
@@ -99,10 +101,12 @@ const FEATURES = [
   { icon: CheckCircle2, text: "Free — no account needed" },
   { icon: CheckCircle2, text: "Takes only 3 minutes" },
   { icon: CheckCircle2, text: "Results emailed instantly" },
-  { icon: CheckCircle2, text: "176 real programs, 11 countries" },
+  { icon: CheckCircle2, text: "445 programs across 240+ universities, 11 countries" },
 ];
 
 export default function LandingPage() {
+  const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
+
   return (
     <div className="min-h-screen bg-white font-sans">
 
@@ -178,7 +182,7 @@ export default function LandingPage() {
               </span>
             </h1>
             <p className="text-lg text-slate-300 mb-8 leading-relaxed max-w-lg">
-              Fill in your profile once. Let our AI engine work the magic to give you a personalised TOP 20 shortlist of programs you can actually get into — across 11 countries, scored by how well they match <span className="text-white font-semibold">you</span>.
+              Fill in your profile once. Let our AI engine work the magic to give you a personalised TOP 20 shortlist of programs you can actually get into — across <span className="text-white font-semibold">445 programs</span>, <span className="text-white font-semibold">240+ universities</span> and <span className="text-white font-semibold">11 countries</span>, scored by how well they match <span className="text-white font-semibold">you</span>.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 items-start mb-10">
               <Link
@@ -232,15 +236,25 @@ export default function LandingPage() {
             <div className="absolute -top-4 -right-4 bg-white rounded-2xl shadow-xl px-4 py-3 flex items-center gap-2 border border-gray-100">
               <GraduationCap className="w-5 h-5 text-indigo-500" />
               <div>
-                <p className="font-extrabold text-gray-900 text-sm leading-none">500+</p>
+                <p className="font-extrabold text-gray-900 text-sm leading-none">445</p>
                 <p className="text-xs text-gray-400">Programs</p>
               </div>
             </div>
-            <div className="absolute -bottom-4 -left-4 bg-white rounded-2xl shadow-xl px-4 py-3 flex items-center gap-2 border border-gray-100">
-              <Globe2 className="w-5 h-5 text-purple-500" />
-              <div>
-                <p className="font-extrabold text-gray-900 text-sm leading-none">11</p>
-                <p className="text-xs text-gray-400">Countries</p>
+            <div className="absolute -bottom-4 -left-4 bg-white rounded-2xl shadow-xl px-4 py-3 flex items-center gap-3 border border-gray-100">
+              <div className="flex items-center gap-2">
+                <Globe2 className="w-5 h-5 text-purple-500" />
+                <div>
+                  <p className="font-extrabold text-gray-900 text-sm leading-none">11</p>
+                  <p className="text-xs text-gray-400">Countries</p>
+                </div>
+              </div>
+              <div className="w-px h-8 bg-gray-100" />
+              <div className="flex items-center gap-2">
+                <GraduationCap className="w-5 h-5 text-indigo-500" />
+                <div>
+                  <p className="font-extrabold text-gray-900 text-sm leading-none">240+</p>
+                  <p className="text-xs text-gray-400">Universities</p>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -410,6 +424,7 @@ export default function LandingPage() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.07 }}
+                onClick={() => setSelectedCountry(c.name)}
                 className="group relative rounded-2xl overflow-hidden aspect-[3/4] shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer"
               >
                 <img
@@ -433,6 +448,7 @@ export default function LandingPage() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.07 }}
+                onClick={() => setSelectedCountry(c.name)}
                 className="group relative rounded-2xl overflow-hidden aspect-[3/4] shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer"
               >
                 <img
@@ -620,6 +636,11 @@ export default function LandingPage() {
           </div>
         </div>
       </footer>
+
+      <CountryModal
+        countryName={selectedCountry}
+        onClose={() => setSelectedCountry(null)}
+      />
     </div>
   );
 }

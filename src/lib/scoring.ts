@@ -27,12 +27,18 @@ function clamp(value: number, min = 0, max = 100): number {
   return Math.min(max, Math.max(min, value));
 }
 
-/** Convert GPA (0–4.0) to percentage (0–100) */
+/** Convert any score type to percentage (0–100) for comparison */
 function toPercentage(profile: StudentProfile): number {
-  if (profile.academic_score_type === "percentage") {
-    return profile.academic_score;
+  switch (profile.academic_score_type) {
+    case "percentage":
+    case "igcse": // stored as percentage equivalent (A*=95, A=85, B=75, C=65, D=55, E=45)
+      return profile.academic_score;
+    case "ib":
+      return (profile.academic_score / 45) * 100;
+    case "gpa":
+    default:
+      return (profile.academic_score / 4.0) * 100;
   }
-  return (profile.academic_score / 4.0) * 100;
 }
 
 /** Convert program's min_gpa to percentage scale */

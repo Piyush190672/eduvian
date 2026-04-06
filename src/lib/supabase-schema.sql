@@ -27,6 +27,7 @@ CREATE TABLE IF NOT EXISTS programs (
   min_sat NUMERIC,
   work_exp_required_years INTEGER,
   program_url TEXT NOT NULL,
+  apply_url TEXT,
   is_active BOOLEAN DEFAULT true,
   last_updated TIMESTAMPTZ DEFAULT NOW()
 );

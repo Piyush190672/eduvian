@@ -167,7 +167,7 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist 
               <ExternalLink className="w-3 h-3" />
             </a>
             <a
-              href={program.apply_url}
+              href={program.apply_url ?? program.program_url}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 px-4 py-1.5 rounded-xl bg-indigo-500 text-white text-xs font-semibold hover:bg-indigo-600 transition-colors"

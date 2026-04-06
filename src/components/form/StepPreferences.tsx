@@ -1,6 +1,6 @@
 "use client";
 
-import { TARGET_COUNTRIES, FIELDS_OF_STUDY } from "@/lib/types";
+import { TARGET_COUNTRIES } from "@/lib/types";
 import type { StudentProfile, BudgetRange } from "@/lib/types";
 import { X, GripVertical, ChevronUp, ChevronDown } from "lucide-react";
 
@@ -204,19 +204,6 @@ export default function StepPreferences({ profile, onChange }: Props) {
         </div>
       </div>
 
-      {/* Intended field */}
-      <div>
-        <Label>Intended Field of Study *</Label>
-        <Select
-          value={profile.intended_field ?? ""}
-          onChange={(e) => onChange({ intended_field: e.target.value })}
-        >
-          <option value="">Select your field</option>
-          {FIELDS_OF_STUDY.map((f) => (
-            <option key={f} value={f}>{f}</option>
-          ))}
-        </Select>
-      </div>
     </div>
   );
 }

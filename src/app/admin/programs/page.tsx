@@ -136,7 +136,8 @@ export default function ProgramsPage() {
               <th className="text-right px-5 py-3 font-semibold text-gray-500 text-xs uppercase tracking-wide">Tuition/yr</th>
               <th className="text-center px-5 py-3 font-semibold text-gray-500 text-xs uppercase tracking-wide">QS</th>
               <th className="text-center px-5 py-3 font-semibold text-gray-500 text-xs uppercase tracking-wide">Min IELTS</th>
-              <th className="text-center px-5 py-3 font-semibold text-gray-500 text-xs uppercase tracking-wide">Link</th>
+              <th className="text-center px-5 py-3 font-semibold text-gray-500 text-xs uppercase tracking-wide">Program</th>
+              <th className="text-center px-5 py-3 font-semibold text-gray-500 text-xs uppercase tracking-wide">Apply</th>
             </tr>
           </thead>
           <tbody>
@@ -183,6 +184,20 @@ export default function ProgramsPage() {
                   >
                     <ExternalLink className="w-3.5 h-3.5" />
                   </a>
+                </td>
+                <td className="px-5 py-3 text-center">
+                  {p.apply_url ? (
+                    <a
+                      href={p.apply_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-emerald-500 hover:text-emerald-700 text-xs"
+                    >
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  ) : (
+                    <span className="text-red-400 text-xs font-medium">Missing</span>
+                  )}
                 </td>
               </tr>
             ))}
