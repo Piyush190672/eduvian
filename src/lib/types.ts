@@ -165,17 +165,15 @@ export const FIELDS_OF_STUDY = [
   "Biotechnology & Life Sciences",
   "Medicine & Public Health",
   "Law",
-  "Architecture & Design",
-  "Arts & Humanities",
-  "Social Sciences",
+  "Arts, Design & Architecture",
+  "Social Sciences & Humanities",
   "Economics & Finance",
   "Media & Communications",
-  "Education",
-  "Environmental Science",
-  "Psychology",
+  "Environmental & Sustainability Studies",
+  "Natural Sciences",
   "Nursing & Allied Health",
+  "Agriculture & Veterinary Sciences",
   "Hospitality & Tourism",
-  "Other",
 ] as const;
 
 export const BUDGET_LABELS: Record<BudgetRange, string> = {
