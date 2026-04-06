@@ -20,6 +20,137 @@ import {
   FileText,
   Heart,
 } from "lucide-react";
+
+const SCHOLARSHIPS: {
+  name: string;
+  flag: string;
+  scholarships: { name: string; coverage: string; note?: string }[];
+}[] = [
+  {
+    name: "USA",
+    flag: "🇺🇸",
+    scholarships: [
+      { name: "Fulbright Foreign Student Program", coverage: "Fully funded", note: "Tuition, living stipend, travel & health insurance" },
+      { name: "Hubert H. Humphrey Fellowship", coverage: "Fully funded", note: "Mid-career professionals; no degree awarded" },
+      { name: "University Merit Scholarships", coverage: "Partial – Full", note: "Presidential, Dean's & departmental awards at most universities" },
+      { name: "STEM OPT + RA/TA Funding", coverage: "Tuition waiver + stipend", note: "Common for PhD & MS STEM students" },
+      { name: "Aga Khan Foundation", coverage: "Partial", note: "For students from developing countries" },
+    ],
+  },
+  {
+    name: "UK",
+    flag: "🇬🇧",
+    scholarships: [
+      { name: "Chevening Scholarship", coverage: "Fully funded", note: "UK Govt — tuition, living, travel; 1-year Masters" },
+      { name: "Commonwealth Scholarship", coverage: "Fully funded", note: "For students from Commonwealth nations" },
+      { name: "GREAT Scholarship", coverage: "£10,000 min", note: "UK Govt + university partnership" },
+      { name: "Gates Cambridge Scholarship", coverage: "Fully funded", note: "For exceptional scholars at Cambridge" },
+      { name: "Rhodes Scholarship", coverage: "Fully funded", note: "For postgraduate study at Oxford; highly competitive" },
+      { name: "University Scholarships", coverage: "Partial – Full", note: "UCL, Imperial, Edinburgh, Manchester all offer merit awards" },
+    ],
+  },
+  {
+    name: "Australia",
+    flag: "🇦🇺",
+    scholarships: [
+      { name: "Australia Awards", coverage: "Fully funded", note: "Australian Govt; tuition, living, travel, health" },
+      { name: "Destination Australia", coverage: "AUD 15,000/yr", note: "For study in regional Australia" },
+      { name: "Research Training Program (RTP)", coverage: "Tuition waiver + stipend", note: "For PhD & research Masters students" },
+      { name: "Monash International Merit", coverage: "AUD 10,000–50,000", note: "Based on academic excellence" },
+      { name: "University of Sydney ISS", coverage: "25–50% tuition", note: "International Student Scholarship at USYD" },
+      { name: "Endeavour Scholarships", coverage: "Fully funded", note: "Govt-backed; for high-achieving international students" },
+    ],
+  },
+  {
+    name: "Canada",
+    flag: "🇨🇦",
+    scholarships: [
+      { name: "Vanier Canada Graduate Scholarship", coverage: "CAD 50,000/yr", note: "Doctoral students; world-class research" },
+      { name: "Banting Postdoctoral Fellowship", coverage: "CAD 70,000/yr", note: "For postdoctoral researchers" },
+      { name: "UBC International Major Entrance", coverage: "CAD 40,000+", note: "For top UG applicants to UBC" },
+      { name: "UofT International Scholar Award", coverage: "CAD 40,000+", note: "For high-achieving incoming UG students" },
+      { name: "Ontario Trillium Scholarship", coverage: "CAD 40,000/yr", note: "For international PhD students in Ontario" },
+      { name: "University Merit Awards", coverage: "Partial – Full", note: "Available at Waterloo, McGill, Alberta & most others" },
+    ],
+  },
+  {
+    name: "Germany",
+    flag: "🇩🇪",
+    scholarships: [
+      { name: "DAAD Scholarship", coverage: "€750–1,200/month", note: "Germany's largest scholarship org; many programmes" },
+      { name: "Deutschlandstipendium", coverage: "€300/month", note: "Co-funded by govt and private sponsors" },
+      { name: "Heinrich Böll Foundation", coverage: "€850/month + extras", note: "For socially and politically active students" },
+      { name: "Friedrich Ebert Foundation", coverage: "€850/month + extras", note: "Focus on social justice and democracy" },
+      { name: "Konrad Adenauer Foundation", coverage: "€850/month + extras", note: "For academically excellent students" },
+      { name: "Erasmus+ (exchange)", coverage: "€300–600/month", note: "For EU-programme students on exchange" },
+    ],
+  },
+  {
+    name: "Singapore",
+    flag: "🇸🇬",
+    scholarships: [
+      { name: "Singapore Government Scholarship (MOE)", coverage: "Fully funded", note: "Tuition + living allowance + bond required" },
+      { name: "ASEAN Undergraduate Scholarship", coverage: "Fully funded", note: "For ASEAN nationals; tuition + accommodation + allowance" },
+      { name: "NUS Research Scholarship", coverage: "Tuition waiver + SGD 2,000/month", note: "For PhD research students at NUS" },
+      { name: "NTU Research Scholarship", coverage: "Tuition waiver + SGD 2,000/month", note: "For PhD students at NTU" },
+      { name: "A*STAR Graduate Scholarship", coverage: "Fully funded", note: "For research-focused PhD students in science & tech" },
+    ],
+  },
+  {
+    name: "New Zealand",
+    flag: "🇳🇿",
+    scholarships: [
+      { name: "New Zealand Excellence Awards (NZEA)", coverage: "NZD 10,000", note: "For international students at NZ universities" },
+      { name: "New Zealand Aid Programme", coverage: "Fully funded", note: "For students from eligible developing countries" },
+      { name: "University of Auckland ISES", coverage: "NZD 10,000", note: "International Student Excellence Scholarship" },
+      { name: "Victoria University Merit Award", coverage: "NZD 5,000–10,000", note: "For high-achieving international students" },
+    ],
+  },
+  {
+    name: "Ireland",
+    flag: "🇮🇪",
+    scholarships: [
+      { name: "Govt of Ireland International Education", coverage: "Fully funded", note: "60 awards/yr; tuition + €10,000 stipend" },
+      { name: "IRC Government of Ireland Postgrad", coverage: "€16,000/yr + fees", note: "Irish Research Council; Masters & PhD" },
+      { name: "UCD Global Excellence Scholarship", coverage: "€3,000–10,000", note: "For top international applicants to UCD" },
+      { name: "TCD Provost's Scholarship", coverage: "Full fees", note: "For highest-ranked applicants to Trinity" },
+      { name: "Enterprise Ireland Innovation Voucher", coverage: "Funded projects", note: "For students working with Irish companies" },
+    ],
+  },
+  {
+    name: "France",
+    flag: "🇫🇷",
+    scholarships: [
+      { name: "Eiffel Excellence Scholarship", coverage: "€1,181/month + extras", note: "French Govt; Masters & PhD; highly competitive" },
+      { name: "Campus France Bilateral Scholarships", coverage: "Varies by country", note: "India-France bilateral awards" },
+      { name: "HEC Paris Merit Scholarship", coverage: "Up to €30,000", note: "For outstanding MBA & Masters candidates" },
+      { name: "Erasmus+ Scholarship", coverage: "€300–600/month", note: "For exchange students in EU programmes" },
+      { name: "Région Île-de-France Scholarships", coverage: "€10,000+", note: "Regional council grants for Paris-area students" },
+    ],
+  },
+  {
+    name: "UAE",
+    flag: "🇦🇪",
+    scholarships: [
+      { name: "NYU Abu Dhabi Scholarship", coverage: "Fully funded", note: "Tuition, housing, stipend; extremely competitive" },
+      { name: "Khalifa University Scholarship", coverage: "Full tuition + AED 1,500/month", note: "For top STEM students" },
+      { name: "AUS Merit Scholarship", coverage: "25–100% tuition", note: "American University of Sharjah" },
+      { name: "ADEC Scholarship (Abu Dhabi)", coverage: "Fully funded", note: "For select bilateral country agreements" },
+      { name: "Mubadala / ADNOC Sponsorships", coverage: "Fully funded", note: "Corporate-sponsored; bond required post-study" },
+    ],
+  },
+  {
+    name: "Malaysia",
+    flag: "🇲🇾",
+    scholarships: [
+      { name: "Malaysian Govt (MoHE) Scholarship", coverage: "Full tuition + living", note: "For select bilateral partner countries" },
+      { name: "Monash Malaysia VC Scholarship", coverage: "Full tuition", note: "For top applicants to Monash Malaysia" },
+      { name: "University of Nottingham Malaysia Merit", coverage: "25–50% tuition", note: "Academic excellence award" },
+      { name: "Petronas Education Scholarship", coverage: "Fully funded", note: "For STEM students; bond with Petronas required" },
+      { name: "MQA / PTPTN Education Loan", coverage: "Subsidised loan", note: "Available to international students at select programmes" },
+    ],
+  },
+];
 import CountryModal from "@/components/CountryModal";
 
 const COUNTRIES = [
@@ -464,6 +595,59 @@ export default function LandingPage() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── Scholarships section ─────────────────────────────────── */}
+      <section className="py-24 px-6 bg-gradient-to-br from-indigo-50 via-white to-purple-50">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-14">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-100 text-indigo-700 text-sm font-semibold mb-4">
+              <Award className="w-3.5 h-3.5" />
+              SCHOLARSHIPS
+            </span>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mt-1">
+              Fund your global education
+            </h2>
+            <p className="text-gray-500 mt-4 max-w-2xl mx-auto text-base leading-relaxed">
+              Thousands of scholarships are available for international students every year — many go unclaimed. From fully-funded government programmes to university merit awards, here's what's available in each destination.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {SCHOLARSHIPS.map((country) => (
+              <motion.div
+                key={country.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 hover:shadow-md transition-all"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-2xl">{country.flag}</span>
+                  <h3 className="font-bold text-gray-900 text-lg">{country.name}</h3>
+                </div>
+                <ul className="space-y-2.5">
+                  {country.scholarships.map((s) => (
+                    <li key={s.name} className="flex gap-2.5">
+                      <span className="mt-0.5 flex-shrink-0 w-4 h-4 rounded-full bg-indigo-100 flex items-center justify-center">
+                        <span className="w-1.5 h-1.5 rounded-full bg-indigo-500" />
+                      </span>
+                      <div>
+                        <span className="text-sm font-semibold text-gray-800">{s.name}</span>
+                        <span className="text-xs text-gray-500 ml-1.5">{s.coverage}</span>
+                        {s.note && <p className="text-xs text-gray-400 mt-0.5">{s.note}</p>}
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+
+          <p className="text-center text-sm text-gray-400 mt-10">
+            Scholarship availability and amounts change annually. Always verify directly with the awarding body.
+          </p>
         </div>
       </section>
 
