@@ -104,21 +104,14 @@ export default function ResultsPage() {
     }
   };
 
-  const downloadPDF = async () => {
+  const downloadPDF = () => {
     if (shortlisted.size === 0) {
       toast("Shortlist at least one program first!", { icon: "🔖" });
       return;
     }
     toast("Opening print view — use Save as PDF", { icon: "📄" });
-    try {
-      const res = await fetch(`/api/pdf/${token}?ids=${Array.from(shortlisted).join(",")}`);
-      if (!res.ok) throw new Error();
-      const blob = await res.blob();
-      const url = URL.createObjectURL(blob);
-      window.open(url, "_blank");
-    } catch {
-      toast.error("PDF generation failed. Try again.");
-    }
+    const ids = Array.from(shortlisted).join(",");
+    window.open(`/api/pdf/${token}?ids=${ids}`, "_blank");
   };
 
   if (loading) {

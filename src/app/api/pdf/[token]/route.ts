@@ -7,10 +7,14 @@ import { getTierLabel, formatCurrency, getCountryFlag } from "@/lib/utils";
 import { scoreStudentProfile, categoryBadgeHtml } from "@/lib/profile-score";
 
 export async function GET(
-  _req: NextRequest,
+  req: NextRequest,
   { params }: { params: { token: string } }
 ) {
   const { token } = params;
+
+  // Read shortlisted IDs from query param first (most up-to-date)
+  const idsParam = req.nextUrl.searchParams.get("ids");
+  const queryIds = idsParam ? idsParam.split(",").filter(Boolean) : [];
 
   // Try in-memory store first, fall back to Supabase
   let submission: { profile: StudentProfile; shortlisted_ids: string[] } | null =
@@ -38,7 +42,10 @@ export async function GET(
   }
 
   const profile = submission.profile as StudentProfile;
-  const shortlistedIds = submission.shortlisted_ids ?? [];
+
+  // Prefer query param IDs, fall back to stored, then top 20
+  const shortlistedIds =
+    queryIds.length > 0 ? queryIds : (submission.shortlisted_ids ?? []);
 
   const programs: Program[] = PROGRAMS.map((p, i) => ({
     ...p,
