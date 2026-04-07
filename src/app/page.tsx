@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import ChatWidget from "@/components/ChatWidget";
 import {
   Globe2,
   Sparkles,
@@ -849,6 +850,8 @@ export default function LandingPage() {
         countryName={selectedCountry}
         onClose={() => setSelectedCountry(null)}
       />
+
+      <ChatWidget />
     </div>
   );
 }
