@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import toast from "react-hot-toast";
@@ -102,6 +102,26 @@ export default function ProfilePage() {
   const [profile, setProfile] = useState<Partial<StudentProfile>>(defaultProfile);
   const [submitting, setSubmitting] = useState(false);
   const [errors, setErrors] = useState<string[]>([]);
+  const [studentName, setStudentName] = useState<string | null>(null);
+
+  // Pre-fill name, email, phone from saved student session
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem("eduvian_student");
+      if (raw) {
+        const s = JSON.parse(raw) as { name?: string; email?: string; phone?: string };
+        if (s.name || s.email || s.phone) {
+          setProfile((prev) => ({
+            ...prev,
+            ...(s.name && !prev.full_name ? { full_name: s.name } : {}),
+            ...(s.email && !prev.email ? { email: s.email } : {}),
+            ...(s.phone && !prev.phone ? { phone: s.phone } : {}),
+          }));
+          if (s.name) setStudentName(s.name.split(" ")[0]);
+        }
+      }
+    } catch { /* ignore */ }
+  }, []);
 
   const updateProfile = (data: Partial<StudentProfile>) => {
     setProfile((prev) => ({ ...prev, ...data }));
@@ -177,6 +197,22 @@ export default function ProfilePage() {
       </nav>
 
       <div className="pt-24 pb-16 px-4 max-w-2xl mx-auto">
+        {/* Welcome back banner */}
+        {studentName && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mb-6 flex items-center gap-3 px-5 py-3.5 rounded-2xl bg-indigo-50 border border-indigo-100"
+          >
+            <div className="w-8 h-8 rounded-xl bg-indigo-500 flex items-center justify-center flex-shrink-0">
+              <User className="w-4 h-4 text-white" />
+            </div>
+            <p className="text-sm text-indigo-700 font-medium">
+              👋 Hey <span className="font-bold">{studentName}</span>! Your name, email & phone are pre-filled below.
+            </p>
+          </motion.div>
+        )}
+
         {/* Progress bar */}
         <div className="mb-8">
           <div className="relative h-1.5 bg-gray-100 rounded-full overflow-hidden">

@@ -260,7 +260,7 @@ export default function LandingPage() {
           <a href="#testimonials" className="hover:text-indigo-600 transition-colors">Success Stories</a>
         </div>
         <Link
-          href="/profile"
+          href="/get-started"
           className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-bold hover:shadow-lg hover:shadow-indigo-200 transition-all duration-200 hover:-translate-y-0.5"
         >
           Get Started Free
@@ -319,7 +319,7 @@ export default function LandingPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 items-start mb-10">
               <Link
-                href="/profile"
+                href="/get-started"
                 className="group flex items-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-lg font-bold hover:shadow-2xl hover:shadow-indigo-500/40 transition-all duration-300 hover:-translate-y-1"
               >
                 Find my programs
@@ -455,7 +455,7 @@ export default function LandingPage() {
 
           <div className="mt-12 text-center">
             <Link
-              href="/profile"
+              href="/get-started"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-base font-bold hover:shadow-xl hover:shadow-indigo-200 transition-all hover:-translate-y-0.5"
             >
               Start now — it's free
@@ -528,7 +528,7 @@ export default function LandingPage() {
               ))}
             </div>
             <Link
-              href="/profile"
+              href="/get-started"
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl bg-gray-900 text-white font-bold hover:bg-indigo-600 transition-colors"
             >
               Get my profile rating
@@ -695,7 +695,7 @@ export default function LandingPage() {
               We don't just filter universities — we <em>score</em> every program against your specific profile using 10 signals, including academic backlogs and gap year history, built from real admissions data.
             </p>
             <Link
-              href="/profile"
+              href="/get-started"
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl bg-white text-indigo-700 font-bold hover:bg-indigo-50 transition-colors shadow-lg"
             >
               See my matches
@@ -811,7 +811,7 @@ export default function LandingPage() {
               Join thousands of students who found their path abroad with eduvianAI. Get your personalised shortlist — free, instant, emailed to you.
             </p>
             <Link
-              href="/profile"
+              href="/get-started"
               className="inline-flex items-center gap-3 px-10 py-5 rounded-2xl bg-white text-indigo-700 text-lg font-extrabold hover:bg-indigo-50 transition-all shadow-2xl hover:shadow-white/20 hover:-translate-y-1 duration-300"
             >
               Find my programs now
@@ -837,7 +837,7 @@ export default function LandingPage() {
             <a href="#how-it-works" className="hover:text-gray-600 transition-colors">How it works</a>
             <a href="#countries" className="hover:text-gray-600 transition-colors">Destinations</a>
             <a href="#testimonials" className="hover:text-gray-600 transition-colors">Stories</a>
-            <Link href="/profile" className="hover:text-indigo-500 font-medium transition-colors">Get started</Link>
+            <Link href="/get-started" className="hover:text-indigo-500 font-medium transition-colors">Get started</Link>
           </div>
           <div className="flex items-center gap-4 text-sm text-gray-400">
             <p>© 2025 eduvianAI. All rights reserved.</p>
