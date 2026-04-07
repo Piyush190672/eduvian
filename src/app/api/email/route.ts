@@ -1,24 +1,80 @@
 import { NextRequest, NextResponse } from "next/server";
-import type { ScoredProgram, StudentProfile } from "@/lib/types";
+import type { ScoredProgram, StudentProfile, Program } from "@/lib/types";
 import { formatCurrency, getTierLabel } from "@/lib/utils";
 import { scoreStudentProfile, getCategoryStyle, categoryBadgeHtml } from "@/lib/profile-score";
 
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { token, profile, programs } = body as {
+    const { token, shortlisted_ids } = body as {
       token: string;
-      profile?: StudentProfile;
-      programs?: ScoredProgram[];
+      shortlisted_ids?: string[];
     };
 
-    const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
+    // Look up submission from Supabase or in-memory store
+    let submission: { profile?: StudentProfile; [key: string]: unknown } | null = null;
+    try {
+      const { createServiceClient } = await import("@/lib/supabase");
+      const supabase = createServiceClient();
+      if (supabase) {
+        const { data, error } = await supabase
+          .from("submissions")
+          .select("*")
+          .eq("token", token)
+          .single();
+        if (!error && data) submission = data;
+      }
+    } catch { /* fall through */ }
+
+    if (!submission) {
+      const { submissionStore } = await import("@/lib/store");
+      const stored = submissionStore.get(token);
+      if (stored) submission = stored as unknown as { profile?: StudentProfile; [key: string]: unknown };
+    }
+
+    const profile = submission?.profile as StudentProfile | undefined;
+
+    // Generate scored programs
+    let allPrograms: ScoredProgram[] = [];
+    if (profile) {
+      try {
+        const { PROGRAMS } = await import("@/data/programs");
+        const { recommendPrograms } = await import("@/lib/scoring");
+
+        let rawPrograms: Program[] = (PROGRAMS as unknown[]).map((p, i) => ({
+          ...(p as object),
+          id: `prog_${i}`,
+          is_active: true,
+          last_updated: new Date().toISOString(),
+        })) as Program[];
+
+        try {
+          const { createServiceClient } = await import("@/lib/supabase");
+          const supabase = createServiceClient();
+          if (supabase) {
+            const { data } = await supabase.from("programs").select("*").eq("is_active", true);
+            if (data && data.length > 0) rawPrograms = data as Program[];
+          }
+        } catch { /* use static */ }
+
+        allPrograms = recommendPrograms(profile, rawPrograms);
+      } catch { /* ignore */ }
+    }
+
+    // Filter to shortlisted only, otherwise fall back to top 8
+    let programs: ScoredProgram[];
+    if (shortlisted_ids && shortlisted_ids.length > 0) {
+      const idSet = new Set(shortlisted_ids);
+      const filtered = allPrograms.filter((p) => idSet.has(p.id));
+      programs = filtered.length > 0 ? filtered : allPrograms.slice(0, 8);
+    } else {
+      programs = allPrograms.slice(0, 8);
+    }
+
+    const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "https://www.eduvianai.com";
     const resultsUrl = `${appUrl}/results/${token}`;
 
-    // Build email HTML
-    const topPrograms = (programs ?? []).slice(0, 8);
-
-    // Profile score (always computed from profile data if available)
+    // Profile score section
     const profileScoreSection = profile ? (() => {
       const ps = scoreStudentProfile(profile);
       const style = getCategoryStyle(ps.category);
@@ -26,7 +82,6 @@ export async function POST(req: NextRequest) {
       const passed = ps.criteria.filter(c => c.passed);
       const failed = ps.criteria.filter(c => !c.passed);
       return `
-      <!-- Profile Score Section -->
       <div style="background:#f8fafc;border:1.5px solid #e0e7ff;border-radius:14px;padding:20px 24px;margin-bottom:24px;">
         <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:12px;">
           <div style="font-weight:700;color:#1e1b4b;font-size:15px;">Your Profile Assessment</div>
@@ -40,7 +95,7 @@ export async function POST(req: NextRequest) {
       </div>`;
     })() : "";
 
-    const programRows = topPrograms
+    const programRows = programs
       .map(
         (p) => `
       <tr style="border-bottom:1px solid #f1f5f9;">
@@ -63,25 +118,22 @@ export async function POST(req: NextRequest) {
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
 <body style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f8fafc;margin:0;padding:20px;">
   <div style="max-width:600px;margin:0 auto;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.08);">
-    <!-- Header -->
     <div style="background:linear-gradient(135deg,#6366f1,#8b5cf6,#ec4899);padding:40px 32px;text-align:center;">
       <div style="font-size:28px;font-weight:900;color:#fff;letter-spacing:-0.5px;">🌍 eduvianAI</div>
       <div style="color:#e0e7ff;margin-top:4px;font-size:15px;font-weight:700;letter-spacing:0.3px;">Your Global Future, Simplified</div>
       <div style="color:#e0e7ff;margin-top:8px;font-size:15px;">Your personalized shortlist is ready</div>
     </div>
 
-    <!-- Greeting -->
     <div style="padding:32px;">
       <h2 style="color:#1e1b4b;font-size:22px;font-weight:800;margin:0 0 8px;">
         Hey ${profile?.full_name?.split(" ")[0] ?? "there"}! 👋
       </h2>
       <p style="color:#6b7280;margin:0 0 24px;line-height:1.6;">
-        We matched your profile against hundreds of programs across 11 countries. Here are your top picks — sorted by how well they match <strong>you</strong>.
+        Here ${programs.length === 1 ? "is" : "are"} your <strong>${programs.length} shortlisted program${programs.length === 1 ? "" : "s"}</strong> — ranked by how well they match <strong>you</strong>.
       </p>
 
       ${profileScoreSection}
 
-      <!-- CTA button -->
       <div style="text-align:center;margin:24px 0;">
         <a href="${resultsUrl}" style="display:inline-block;background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#fff;text-decoration:none;padding:14px 32px;border-radius:12px;font-weight:700;font-size:16px;">
           View Full Shortlist →
@@ -89,9 +141,8 @@ export async function POST(req: NextRequest) {
         <div style="color:#9ca3af;font-size:12px;margin-top:8px;">Bookmark this email — your link is permanent</div>
       </div>
 
-      <!-- Programs table -->
-      ${topPrograms.length > 0 ? `
-      <h3 style="color:#1e1b4b;font-size:16px;font-weight:700;margin:24px 0 12px;">Your Top Matches</h3>
+      ${programs.length > 0 ? `
+      <h3 style="color:#1e1b4b;font-size:16px;font-weight:700;margin:24px 0 12px;">Your Shortlisted Programs</h3>
       <table style="width:100%;border-collapse:collapse;">
         <thead>
           <tr style="background:#f8fafc;">
@@ -105,7 +156,6 @@ export async function POST(req: NextRequest) {
       </table>
       ` : ""}
 
-      <!-- Tips -->
       <div style="background:#f0f4ff;border-radius:12px;padding:20px;margin-top:24px;">
         <div style="font-weight:700;color:#4338ca;margin-bottom:8px;">💡 Next steps</div>
         <ul style="color:#6b7280;margin:0;padding-left:20px;line-height:2;">
@@ -117,7 +167,6 @@ export async function POST(req: NextRequest) {
       </div>
     </div>
 
-    <!-- Footer -->
     <div style="background:#f8fafc;padding:20px 32px;text-align:center;border-top:1px solid #f1f5f9;">
       <div style="color:#9ca3af;font-size:12px;">
         © 2025 eduvianAI · Your Global Future, Simplified<br>
@@ -128,35 +177,40 @@ export async function POST(req: NextRequest) {
 </body>
 </html>`;
 
-    // Try Resend if configured
+    // Send via Resend
     const resendKey = process.env.RESEND_API_KEY;
     const fromEmail = process.env.RESEND_FROM_EMAIL ?? "results@eduvianai.com";
 
-    if (resendKey && profile?.email) {
-      const { Resend } = await import("resend");
-      const resend = new Resend(resendKey);
-
-      await resend.emails.send({
-        from: `eduvianAI <${fromEmail}>`,
-        to: profile.email,
-        subject: `🎓 Your eduvianAI shortlist is ready — ${topPrograms.length} program matches`,
-        html: htmlBody,
-      });
-
-      // Mark email sent in Supabase
-      try {
-        const { createServiceClient } = await import("@/lib/supabase");
-        const supabase = createServiceClient();
-        if (supabase) {
-          await supabase
-            .from("submissions")
-            .update({ email_sent: true })
-            .eq("token", token);
-        }
-      } catch {
-        // ignore
-      }
+    if (!resendKey) {
+      console.warn("RESEND_API_KEY not configured");
+      return NextResponse.json({ ok: true, warning: "Email service not configured" });
     }
+
+    if (!profile?.email) {
+      return NextResponse.json({ error: "No recipient email found" }, { status: 400 });
+    }
+
+    const { Resend } = await import("resend");
+    const resend = new Resend(resendKey);
+
+    await resend.emails.send({
+      from: `eduvianAI <${fromEmail}>`,
+      to: profile.email,
+      subject: `🎓 Your eduvianAI shortlist — ${programs.length} program${programs.length === 1 ? "" : "s"} saved`,
+      html: htmlBody,
+    });
+
+    // Mark email sent in Supabase
+    try {
+      const { createServiceClient } = await import("@/lib/supabase");
+      const supabase = createServiceClient();
+      if (supabase) {
+        await supabase
+          .from("submissions")
+          .update({ email_sent: true })
+          .eq("token", token);
+      }
+    } catch { /* ignore */ }
 
     return NextResponse.json({ ok: true });
   } catch (err) {
