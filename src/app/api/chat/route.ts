@@ -8,19 +8,19 @@ ABOUT eduvianAI:
 eduvianAI is a study-abroad matching platform that helps students find the right university and program abroad. It uses a 10-signal AI matching engine (GPA/academic score, English proficiency, budget, country preference, QS ranking, intake timing, work experience, standardised tests, backlogs, gap year) to score and rank programs against a student's profile. Students get a personalised TOP 20 shortlist with Safe / Reach / Ambitious tiers.
 
 COUNTRIES WE COVER (11 total):
-1. USA — 953 programs across top universities
-2. UK — 1,857 programs (largest database)
-3. Australia — 823 programs
-4. Canada — 395 programs
-5. Germany — 309 programs
-6. Malaysia — 273 programs
-7. New Zealand — 205 programs
-8. France — 183 programs
-9. Ireland — 171 programs
+1. USA — 1,400+ programs across top universities
+2. UK — 1,900+ programs (largest database)
+3. Australia — 850+ programs
+4. Canada — 450+ programs
+5. Germany — 500+ programs
+6. Malaysia — 320+ programs
+7. New Zealand — 210+ programs
+8. France — 320+ programs
+9. Ireland — 180+ programs
 10. Singapore — 141 programs
-11. UAE — 124 programs
+11. UAE — 200+ programs
 
-TOTAL DATABASE: 5,400+ programs across 241 universities, 17 fields of study.
+TOTAL DATABASE: 6,500+ programs across 290+ universities, 17 fields of study.
 
 FIELDS OF STUDY ON THE PLATFORM (17):
 1. Computer Science & IT
@@ -41,40 +41,40 @@ FIELDS OF STUDY ON THE PLATFORM (17):
 16. Agriculture & Veterinary Sciences
 17. Hospitality & Tourism
 
-ALL 241 UNIVERSITIES IN OUR DATABASE:
+ALL 290+ UNIVERSITIES IN OUR DATABASE:
 
-USA (43 universities):
-Arizona State University, Boston University, California Institute of Technology, Carnegie Mellon University, Columbia University, Cornell University, Duke University, Georgetown University, Georgia Institute of Technology, Harvard University, Johns Hopkins University, Massachusetts Institute of Technology, Northeastern University, Northwestern University, NYU Stern School of Business, Ohio State University, Penn State University, Princeton University, Purdue University, Rice University, Stanford University, Texas A&M University, UC San Diego, UCLA, University of California Berkeley, University of Illinois Urbana-Champaign, University of Michigan, University of Pennsylvania, University of Southern California, University of Texas at Austin, University of Toronto (Canada border note), University of Washington, University of Wisconsin-Madison, Yale University
+USA (58 universities):
+Arizona State University, Boston University, California Institute of Technology, Carnegie Mellon University, Columbia University, Cornell University, Duke University, Emory University, Georgetown University, Georgia Institute of Technology, Harvard University, Johns Hopkins University, Massachusetts Institute of Technology, Michigan State University, Northeastern University, Northwestern University, NYU Stern School of Business, New York University, Ohio State University, Penn State University, Princeton University, Purdue University, Rice University, Stanford University, Texas A&M University, UC Davis, UC Irvine, UC San Diego, UC Santa Barbara, UCLA, University of California Berkeley, University of Chicago, University of Florida, University of Illinois Urbana-Champaign, University of Maryland, University of Michigan, University of Minnesota Twin Cities, University of North Carolina at Chapel Hill, University of Notre Dame, University of Pennsylvania, University of Pittsburgh, University of Southern California, University of Texas at Austin, University of Virginia, University of Washington, University of Wisconsin-Madison, Vanderbilt University, Yale University
 
-UK (77 universities):
-Anglia Ruskin University, Aston University, Bangor University, Bath Spa University, Birkbeck University of London, Birmingham City University, Bournemouth University, Brunel University London, Cardiff Metropolitan University, Cardiff University, City University of London, Coventry University, De Montfort University, Durham University, Edinburgh Napier University, Glasgow Caledonian University, Goldsmiths University of London, Heriot-Watt University, Imperial College London, Keele University, King's College London, Kingston University London, Lancaster University, Leeds Beckett University, London School of Economics, London South Bank University, Loughborough University, Manchester Metropolitan University, Middlesex University London, Newcastle University, Northumbria University, Nottingham Trent University, Oxford Brookes University, Queen Mary University of London, Queen's University Belfast, Robert Gordon University, Royal Holloway University of London, SOAS University of London, Sheffield Hallam University, Staffordshire University, Swansea University, Teesside University, Ulster University, University College London, University of Aberdeen, University of Bath, University of Birmingham, University of Brighton, University of Bristol, University of Cambridge, University of Central Lancashire, University of Chester, University of Dundee, University of East Anglia, University of Edinburgh, University of Essex, University of Exeter, University of Glasgow, University of Gloucestershire, University of Greenwich, University of Hertfordshire, University of Huddersfield, University of Hull, University of Kent, University of Leeds, University of Leicester, University of Lincoln, University of Liverpool, University of Manchester, University of Northampton, University of Nottingham, University of Oxford, University of Plymouth, University of Portsmouth, University of Reading, University of Salford, University of Sheffield, University of Southampton, University of St Andrews, University of Stirling, University of Strathclyde, University of Sunderland, University of Surrey, University of Warwick, University of Westminster, University of West of England, University of West of Scotland, University of Wolverhampton, University of Worcester, University of York
+UK (80 universities):
+Anglia Ruskin University, Aston University, Bangor University, Bath Spa University, Birkbeck University of London, Birmingham City University, Bournemouth University, Bradford University, Brunel University London, Cardiff Metropolitan University, Cardiff University, City University of London, Coventry University, Cranfield University, De Montfort University, Durham University, Edinburgh Napier University, Glasgow Caledonian University, Goldsmiths University of London, Heriot-Watt University, Imperial College London, Keele University, King's College London, Kingston University London, Lancaster University, Leeds Beckett University, London School of Economics, London South Bank University, Loughborough University, Manchester Metropolitan University, Middlesex University London, Newcastle University, Northumbria University, Nottingham Trent University, Oxford Brookes University, Queen Mary University of London, Queen's University Belfast, Robert Gordon University, Royal Holloway University of London, SOAS University of London, Sheffield Hallam University, Staffordshire University, Swansea University, Teesside University, Ulster University, University College London, University of Aberdeen, University of Bath, University of Birmingham, University of Brighton, University of Bristol, University of Cambridge, University of Central Lancashire, University of Chester, University of Dundee, University of East Anglia, University of Edinburgh, University of Essex, University of Exeter, University of Glasgow, University of Gloucestershire, University of Greenwich, University of Hertfordshire, University of Huddersfield, University of Hull, University of Kent, University of Leeds, University of Leicester, University of Lincoln, University of Liverpool, University of Manchester, University of Northampton, University of Nottingham, University of Oxford, University of Plymouth, University of Portsmouth, University of Reading, University of Salford, University of Sheffield, University of Southampton, University of St Andrews, University of Stirling, University of Strathclyde, University of Sunderland, University of Surrey, University of the Arts London, University of Warwick, University of Westminster, University of West of England, University of West of Scotland, University of Wolverhampton, University of Worcester, University of York
 
-Australia (28 universities):
-Australian Catholic University, Australian National University, Bond University, Charles Darwin University, Charles Sturt University, CQUniversity, Curtin University, Deakin University, Edith Cowan University, Federation University, Flinders University, Griffith University, James Cook University, La Trobe University, Macquarie University, Monash University, Murdoch University, RMIT University, Southern Cross University, Swinburne University of Technology, Torrens University Australia, University of Adelaide, University of Canberra, University of Melbourne, University of New South Wales, University of Newcastle, University of Queensland, University of South Australia, University of Sydney, University of Tasmania, University of Technology Sydney, University of Western Australia, University of Wollongong, Victoria University, Western Sydney University, University of the Sunshine Coast, University of the West of England (branch)
+Australia (37 universities):
+Australian Catholic University, Australian National University, Bond University, Charles Darwin University, Charles Sturt University, CQUniversity, Curtin University, Deakin University, Edith Cowan University, Federation University, Flinders University, Griffith University, James Cook University, La Trobe University, Macquarie University, Monash University, Murdoch University, RMIT University, Southern Cross University, Swinburne University of Technology, Torrens University Australia, University of Adelaide, University of Canberra, University of Melbourne, University of New South Wales, University of Newcastle, University of Queensland, University of South Australia, University of Sydney, University of Tasmania, University of Technology Sydney, University of Western Australia, University of Wollongong, Victoria University, Western Sydney University, University of the Sunshine Coast
 
-Canada (16 universities):
-Concordia University, Dalhousie University, McGill University, McMaster University, Queen's University, Simon Fraser University, Toronto Metropolitan University, University of Alberta, University of British Columbia, University of Calgary, University of Ottawa, University of Victoria, University of Waterloo, University of Western Ontario, Western University, York University
+Canada (21 universities):
+Carleton University, Concordia University, Dalhousie University, McGill University, McMaster University, Queen's University, Simon Fraser University, Toronto Metropolitan University, Université de Montréal, University of Alberta, University of British Columbia, University of Calgary, University of Manitoba, University of New Brunswick, University of Ottawa, University of Saskatchewan, University of Victoria, University of Waterloo, Western University, York University
 
-Germany (13 universities):
-Free University of Berlin, Goethe University Frankfurt, Heidelberg University, Karlsruhe Institute of Technology, Mannheim Business School, RWTH Aachen University, TU Berlin, Technical University of Munich, University of Freiburg, University of Hamburg, University of Munich (LMU), University of Stuttgart, Vrije Universiteit Amsterdam (Netherlands — listed for reference)
+Germany (21 universities):
+CentraleSupélec (Franco-German), Free University of Berlin, Goethe University Frankfurt, Heidelberg University, Humboldt University Berlin, Karlsruhe Institute of Technology, Leibniz University Hannover, Mannheim Business School, RWTH Aachen University, TU Berlin, TU Dresden, Technical University of Munich, University of Bonn, University of Cologne, University of Freiburg, University of Göttingen, University of Hamburg, University of Münster, University of Munich (LMU), University of Stuttgart, University of Tübingen
 
-France (7 universities):
-EDHEC Business School, ESSEC Business School, HEC Paris, INSEAD, Paris Sciences et Lettres University, Sciences Po, Sorbonne University, Université Paris-Saclay, École Polytechnique
+France (14 universities):
+Aix-Marseille University, CentraleSupélec, EDHEC Business School, ESSEC Business School, HEC Paris, INSEAD, Paris Sciences et Lettres University, Sciences Po, Sorbonne University, Université Grenoble Alpes, Université Paris Cité, Université Paris-Saclay, Université de Strasbourg, École Polytechnique
 
-Ireland (8 universities):
-Dublin City University, Dublin Institute of Technology (TU Dublin), Maynooth University, National University of Ireland Galway, Trinity College Dublin, University College Cork, University College Dublin, University of Limerick
+Ireland (9 universities):
+Dublin City University, Dublin Institute of Technology (TU Dublin), Maynooth University, National University of Ireland Galway, RCSI University of Medicine and Health Sciences, Trinity College Dublin, University College Cork, University College Dublin, University of Limerick
 
-New Zealand (8 universities):
-AUT — Auckland University of Technology, Massey University, University of Auckland, University of Canterbury, University of Otago, Victoria University of Wellington, Waikato University
+New Zealand (9 universities):
+AUT — Auckland University of Technology, Lincoln University New Zealand, Massey University, University of Auckland, University of Canterbury, University of Otago, Victoria University of Wellington, Waikato University
 
-Singapore (6 universities):
+Singapore (8 universities):
 ESSEC Business School Asia-Pacific, INSEAD Asia Campus, James Cook University Singapore, Nanyang Technological University, National University of Singapore, Singapore Management University, Singapore University of Technology and Design, SP Jain School of Global Management
 
-UAE (9 universities):
-Abu Dhabi University, American University of Sharjah, BITS Pilani Dubai Campus, Heriot-Watt University Dubai, Khalifa University, Middlesex University Dubai, University of Dubai, University of Wollongong Dubai
+UAE (13 universities):
+Abu Dhabi University, American University of Sharjah, BITS Pilani Dubai Campus, Heriot-Watt University Dubai, Khalifa University, Middlesex University Dubai, New York University Abu Dhabi, University of Birmingham Dubai, University of Dubai, University of Sharjah, University of Wollongong Dubai, Zayed University
 
-Malaysia (14 universities):
-APU — Asia Pacific University, Heriot-Watt University Malaysia, Monash University Malaysia, Multimedia University, Sunway University, Taylor's University, Universiti Kebangsaan Malaysia, Universiti Malaya, Universiti Putra Malaysia, Universiti Sains Malaysia, Universiti Teknologi Malaysia, Universiti Teknologi PETRONAS
+Malaysia (19 universities):
+APU — Asia Pacific University, Help University, Heriot-Watt University Malaysia, International Islamic University Malaysia, Monash University Malaysia, Multimedia University, Sunway University, Taylor's University, UCSI University, Universiti Kebangsaan Malaysia, Universiti Malaya, Universiti Malaysia Sabah, Universiti Putra Malaysia, Universiti Sains Malaysia, Universiti Teknologi Malaysia, Universiti Teknologi PETRONAS, Universiti Utara Malaysia
 
 SCHOLARSHIPS BY COUNTRY (on our platform):
 
