@@ -168,10 +168,10 @@ const COUNTRIES = [
 ];
 
 const STATS = [
-  { icon: GraduationCap, value: "445", label: "Programs Listed" },
+  { icon: GraduationCap, value: "5,400+", label: "Programs Listed" },
   { icon: Globe2, value: "11", label: "Countries" },
-  { icon: Users, value: "240+", label: "Universities" },
-  { icon: Award, value: "98%", label: "Satisfaction Rate" },
+  { icon: Users, value: "241", label: "Universities" },
+  { icon: Award, value: "17", label: "Fields of Study" },
 ];
 
 const HOW_IT_WORKS = [
@@ -187,7 +187,7 @@ const HOW_IT_WORKS = [
     step: "02",
     icon: Zap,
     title: "AI matches your profile",
-    desc: "Our engine scores hundreds of programs using 10 signals — GPA, language scores, budget, backlogs, gap year, QS rankings and more.",
+    desc: "Our engine scores 5,400+ programs using 10 signals — GPA, language scores, budget, backlogs, gap year, QS rankings and more.",
     color: "from-violet-500 to-fuchsia-500",
     bg: "bg-violet-50",
   },
@@ -232,7 +232,7 @@ const FEATURES = [
   { icon: CheckCircle2, text: "Free — no account needed" },
   { icon: CheckCircle2, text: "Takes only 3 minutes" },
   { icon: CheckCircle2, text: "Results emailed instantly" },
-  { icon: CheckCircle2, text: "445 programs across 240+ universities, 11 countries" },
+  { icon: CheckCircle2, text: "5,400+ programs across 241 universities, 11 countries" },
 ];
 
 export default function LandingPage() {
@@ -314,7 +314,7 @@ export default function LandingPage() {
               </span>
             </h1>
             <p className="text-lg text-slate-300 mb-8 leading-relaxed max-w-lg">
-              Fill in your profile once. Let our AI engine work the magic to give you a personalised TOP 20 shortlist of programs you can actually get into — across <span className="text-white font-semibold">445 programs</span>, <span className="text-white font-semibold">240+ universities</span> and <span className="text-white font-semibold">11 countries</span>, scored by how well they match <span className="text-white font-semibold">you</span>.
+              Fill in your profile once. Let our AI engine work the magic to give you a personalised TOP 20 shortlist of programs you can actually get into — across <span className="text-white font-semibold">5,400+ programs</span>, <span className="text-white font-semibold">241 universities</span> and <span className="text-white font-semibold">11 countries</span>, scored by how well they match <span className="text-white font-semibold">you</span>.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 items-start mb-10">
               <Link
@@ -368,7 +368,7 @@ export default function LandingPage() {
             <div className="absolute -top-4 -right-4 bg-white rounded-2xl shadow-xl px-4 py-3 flex items-center gap-2 border border-gray-100">
               <GraduationCap className="w-5 h-5 text-indigo-500" />
               <div>
-                <p className="font-extrabold text-gray-900 text-sm leading-none">445</p>
+                <p className="font-extrabold text-gray-900 text-sm leading-none">5,400+</p>
                 <p className="text-xs text-gray-400">Programs</p>
               </div>
             </div>
@@ -384,7 +384,7 @@ export default function LandingPage() {
               <div className="flex items-center gap-2">
                 <GraduationCap className="w-5 h-5 text-indigo-500" />
                 <div>
-                  <p className="font-extrabold text-gray-900 text-sm leading-none">240+</p>
+                  <p className="font-extrabold text-gray-900 text-sm leading-none">241</p>
                   <p className="text-xs text-gray-400">Universities</p>
                 </div>
               </div>
@@ -545,7 +545,7 @@ export default function LandingPage() {
               <MapPin className="w-3.5 h-3.5" /> Destinations
             </span>
             <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mt-1">
-              11 countries. Endless possibilities.
+              11 countries. 5,400+ programs. Endless possibilities.
             </h2>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
