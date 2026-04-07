@@ -190,15 +190,26 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "No recipient email found" }, { status: 400 });
     }
 
-    const { Resend } = await import("resend");
-    const resend = new Resend(resendKey);
-
-    await resend.emails.send({
-      from: `eduvianAI <${fromEmail}>`,
-      to: profile.email,
-      subject: `🎓 Your eduvianAI shortlist — ${programs.length} program${programs.length === 1 ? "" : "s"} saved`,
-      html: htmlBody,
+    // Use direct REST API call (more reliable than SDK for domain verification edge cases)
+    const sendRes = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${resendKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: `eduvianAI <${fromEmail}>`,
+        to: [profile.email],
+        subject: `🎓 Your eduvianAI shortlist — ${programs.length} program${programs.length === 1 ? "" : "s"} saved`,
+        html: htmlBody,
+      }),
     });
+
+    if (!sendRes.ok) {
+      const errData = await sendRes.json();
+      console.error("Resend error:", errData);
+      throw new Error(errData.message ?? "Email send failed");
+    }
 
     // Mark email sent in Supabase
     try {
