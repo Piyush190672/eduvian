@@ -84,15 +84,19 @@ export default function ResultsPage() {
   };
 
   const sendEmail = async () => {
+    if (shortlisted.size === 0) {
+      toast("Shortlist at least one program first!", { icon: "🔖" });
+      return;
+    }
     setSendingEmail(true);
     try {
       const res = await fetch(`/api/email`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ token }),
+        body: JSON.stringify({ token, shortlisted_ids: Array.from(shortlisted) }),
       });
       if (!res.ok) throw new Error("Failed to send");
-      toast.success("Shortlist sent to your email!");
+      toast.success(`Shortlisted ${shortlisted.size} program(s) sent to your email!`);
     } catch {
       toast.error("Failed to send email. Try again.");
     } finally {
@@ -101,9 +105,13 @@ export default function ResultsPage() {
   };
 
   const downloadPDF = async () => {
+    if (shortlisted.size === 0) {
+      toast("Shortlist at least one program first!", { icon: "🔖" });
+      return;
+    }
     toast("Opening print view — use Save as PDF", { icon: "📄" });
     try {
-      const res = await fetch(`/api/pdf/${token}`);
+      const res = await fetch(`/api/pdf/${token}?ids=${Array.from(shortlisted).join(",")}`);
       if (!res.ok) throw new Error();
       const blob = await res.blob();
       const url = URL.createObjectURL(blob);
@@ -203,14 +211,14 @@ export default function ResultsPage() {
             ) : (
               <Mail className="w-4 h-4" />
             )}
-            Email me
+            Email Shortlist{shortlisted.size > 0 ? ` (${shortlisted.size})` : ""}
           </button>
           <button
             onClick={downloadPDF}
             className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-medium hover:shadow-lg hover:shadow-indigo-200 transition-all"
           >
             <Download className="w-4 h-4" />
-            PDF
+            PDF Shortlist{shortlisted.size > 0 ? ` (${shortlisted.size})` : ""}
           </button>
         </div>
       </nav>
@@ -220,16 +228,46 @@ export default function ResultsPage() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-8"
+          className="mb-6"
         >
+          <p className="text-gray-400 text-sm font-medium mb-1">Hey {studentName} 👋</p>
           <h1 className="text-3xl font-extrabold text-gray-900">
-            Hey {studentName}! 👋 Here&apos;s your shortlist
+            Here are your TOP options matching your profile
           </h1>
           <p className="text-gray-500 mt-1">
-            Here are the{" "}
-            <span className="text-indigo-600 font-semibold">TOP 20 options</span>{" "}
-            matching your profile.
+            <span className="text-indigo-600 font-semibold">{allPrograms.length} programs</span> matched — ranked by how well they fit you. Shortlist the ones you like, then email or download as PDF.
           </p>
+        </motion.div>
+
+        {/* Shortlist composition tip */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className="mb-6 p-4 rounded-2xl bg-gradient-to-r from-indigo-50 to-purple-50 border border-indigo-100 flex flex-wrap items-center gap-3"
+        >
+          <span className="text-lg">💡</span>
+          <p className="text-sm text-gray-700 font-medium flex-1">
+            <span className="font-bold text-gray-900">Ideal shortlist mix:</span>{" "}
+            <span className="text-emerald-600 font-semibold">30% Safe</span> ·{" "}
+            <span className="text-amber-600 font-semibold">50% Reach</span> ·{" "}
+            <span className="text-orange-500 font-semibold">20% Ambitious</span>
+            <span className="text-gray-400 ml-2 font-normal">— maximises your chances of a strong outcome.</span>
+          </p>
+          {shortlisted.size > 0 && (() => {
+            const sl = allPrograms.filter(p => shortlisted.has(p.id));
+            const slSafe = sl.filter(p => p.tier === "safe").length;
+            const slReach = sl.filter(p => p.tier === "reach").length;
+            const slAmbitious = sl.filter(p => p.tier === "ambitious").length;
+            return (
+              <div className="flex items-center gap-2 text-xs text-gray-500 bg-white rounded-xl px-3 py-1.5 border border-gray-100">
+                <span>Your shortlist:</span>
+                <span className="text-emerald-600 font-semibold">{slSafe} Safe</span>
+                <span className="text-amber-600 font-semibold">{slReach} Reach</span>
+                <span className="text-orange-500 font-semibold">{slAmbitious} Ambitious</span>
+              </div>
+            );
+          })()}
         </motion.div>
 
         {/* Profile summary card */}

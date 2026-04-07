@@ -4,8 +4,8 @@ import type { ScoredProgram } from "@/lib/types";
 import { formatCurrency, getTierColor, getTierLabel, getCountryFlag } from "@/lib/utils";
 import {
   ExternalLink,
-  Bookmark,
   BookmarkCheck,
+  BookmarkPlus,
   Clock,
   DollarSign,
   CalendarDays,
@@ -84,17 +84,22 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist 
               </div>
               <button
                 onClick={onToggleShortlist}
-                className={`flex-shrink-0 p-2 rounded-xl transition-all ${
+                className={`flex-shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold border transition-all ${
                   isShortlisted
-                    ? "bg-indigo-50 text-indigo-500 hover:bg-rose-50 hover:text-rose-400"
-                    : "bg-gray-50 text-gray-400 hover:bg-indigo-50 hover:text-indigo-500"
+                    ? "bg-indigo-500 text-white border-indigo-500 hover:bg-rose-500 hover:border-rose-500"
+                    : "bg-white text-indigo-600 border-indigo-300 hover:bg-indigo-50"
                 }`}
-                title={isShortlisted ? "Remove bookmark" : "Bookmark this program"}
               >
                 {isShortlisted ? (
-                  <BookmarkCheck className="w-4 h-4" />
+                  <>
+                    <BookmarkCheck className="w-3.5 h-3.5" />
+                    Shortlisted
+                  </>
                 ) : (
-                  <Bookmark className="w-4 h-4" />
+                  <>
+                    <BookmarkPlus className="w-3.5 h-3.5" />
+                    Shortlist
+                  </>
                 )}
               </button>
             </div>
