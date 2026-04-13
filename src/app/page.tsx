@@ -370,27 +370,39 @@ export default function LandingPage() {
               </div>
             </div>
             {/* Floating stat badges */}
-            <div className="absolute -top-4 -right-4 bg-white rounded-2xl shadow-xl px-4 py-3 flex items-center gap-2 border border-gray-100">
-              <GraduationCap className="w-5 h-5 text-indigo-500" />
-              <div>
-                <p className="font-extrabold text-gray-900 text-sm leading-none">{DB_STATS.programsLabel}</p>
-                <p className="text-xs text-gray-400">Programs</p>
-              </div>
-            </div>
-            <div className="absolute -bottom-4 -left-4 bg-white rounded-2xl shadow-xl px-4 py-3 flex items-center gap-3 border border-gray-100">
+            {/* Top-right: Countries + Universities */}
+            <div className="absolute -top-4 -right-4 bg-white rounded-2xl shadow-xl px-4 py-3 flex items-center gap-3 border border-gray-100">
               <div className="flex items-center gap-2">
                 <Globe2 className="w-5 h-5 text-purple-500" />
                 <div>
-                  <p className="font-extrabold text-gray-900 text-sm leading-none">11</p>
+                  <p className="font-extrabold text-gray-900 text-sm leading-none">{DB_STATS.countriesLabel}</p>
                   <p className="text-xs text-gray-400">Countries</p>
+                </div>
+              </div>
+              <div className="w-px h-8 bg-gray-100" />
+              <div className="flex items-center gap-2">
+                <Users className="w-5 h-5 text-indigo-500" />
+                <div>
+                  <p className="font-extrabold text-gray-900 text-sm leading-none">{DB_STATS.universitiesLabel}</p>
+                  <p className="text-xs text-gray-400">Universities</p>
+                </div>
+              </div>
+            </div>
+            {/* Bottom-left: Fields of Study + Programs */}
+            <div className="absolute -bottom-4 -left-4 bg-white rounded-2xl shadow-xl px-4 py-3 flex items-center gap-3 border border-gray-100">
+              <div className="flex items-center gap-2">
+                <Award className="w-5 h-5 text-amber-500" />
+                <div>
+                  <p className="font-extrabold text-gray-900 text-sm leading-none">{DB_STATS.fieldsLabel}</p>
+                  <p className="text-xs text-gray-400">Fields of Study</p>
                 </div>
               </div>
               <div className="w-px h-8 bg-gray-100" />
               <div className="flex items-center gap-2">
                 <GraduationCap className="w-5 h-5 text-indigo-500" />
                 <div>
-                  <p className="font-extrabold text-gray-900 text-sm leading-none">{DB_STATS.universitiesLabel}</p>
-                  <p className="text-xs text-gray-400">Universities</p>
+                  <p className="font-extrabold text-gray-900 text-sm leading-none">{DB_STATS.programsLabel}</p>
+                  <p className="text-xs text-gray-400">Programs</p>
                 </div>
               </div>
             </div>
