@@ -247,19 +247,37 @@ function formatDuration(s: number) {
 }
 
 function parseFeedback(text: string, country: Country) {
-  const improveLabel = country === "australia" ? "What you could improve" : "Where you could improve";
-  const sampleLabel = country === "australia" ? "A good sample answer is" : "Here is a sample answer";
+  // Split the raw text into sections by looking for the known headings.
+  // Both AU and UK share "What you did well:" as the first heading.
+  // AU: "What you could improve:" / "A good sample answer is:"
+  // UK: "Where you could improve:" / "Here is a sample answer:"
+  // We match case-insensitively and tolerate extra spaces / missing colons.
 
-  const wellMatch = text.match(/What you did well:\s*([\s\S]*?)(?=\n\n|\n(?:What|Where)|$)/i);
-  const improveMatch = text.match(new RegExp(`${improveLabel}:\\s*([\\s\\S]*?)(?=\\n\\n|\\n(?:A good|Here is)|$)`, "i"));
-  const sampleMatch = text.match(new RegExp(`${sampleLabel}:?\\s*([\\s\\S]*)$`, "i"));
+  const WELL_RE    = /what you did well\s*:?\s*/i;
+  const IMPROVE_RE = /(?:what|where) you could improve\s*:?\s*/i;
+  const SAMPLE_RE  = /(?:a good sample answer is|here is a sample answer)\s*:?\s*/i;
 
-  return {
-    well: wellMatch ? wellMatch[1].trim() : "",
-    improve: improveMatch ? improveMatch[1].trim() : "",
-    sample: sampleMatch ? sampleMatch[1].trim() : "",
-    raw: text,
+  // Find the start index of each section heading in the text
+  const wellIdx    = text.search(WELL_RE);
+  const improveIdx = text.search(IMPROVE_RE);
+  const sampleIdx  = text.search(SAMPLE_RE);
+
+  // Helper: extract the content between two headings (or to end of string)
+  const between = (startRe: RegExp, startIdx: number, endIdx: number): string => {
+    if (startIdx < 0) return "";
+    const afterHeading = text.slice(startIdx).replace(startRe, "");
+    if (endIdx > startIdx) {
+      return afterHeading.slice(0, endIdx - startIdx - (text.slice(startIdx).match(startRe)?.[0].length ?? 0)).trim();
+    }
+    return afterHeading.trim();
   };
+
+  // Extract each section cleanly
+  const well    = between(WELL_RE,    wellIdx,    Math.min(...[improveIdx, sampleIdx].filter(i => i > wellIdx && i >= 0), text.length));
+  const improve = between(IMPROVE_RE, improveIdx, sampleIdx > improveIdx && sampleIdx >= 0 ? sampleIdx : text.length);
+  const sample  = sampleIdx >= 0 ? text.slice(sampleIdx).replace(SAMPLE_RE, "").trim() : "";
+
+  return { well, improve, sample, raw: text };
 }
 
 // ─── TTS hook ──────────────────────────────────────────────────────────────────
@@ -270,63 +288,87 @@ function parseFeedback(text: string, country: Country) {
 //   - Rate: 0.82 (noticeably slower than default 1.0)
 //   - Pitch: 1.05 (slightly warmer/higher for female naturalness)
 
-function pickFemaleVoice(): SpeechSynthesisVoice | null {
-  if (typeof window === "undefined" || !("speechSynthesis" in window)) return null;
-  const voices = window.speechSynthesis.getVoices();
+// ─── Female voice selection ───────────────────────────────────────────────────
+// Priority order: en-IN female → Google UK/US Female → known female names →
+// any female keyword → en-GB / en-AU fallback
 
-  // Priority 1: Indian English female (en-IN)
-  const inFemale = voices.find(
-    (v) => v.lang === "en-IN" && /female|woman/i.test(v.name)
-  ) ?? voices.find((v) => v.lang === "en-IN");
+function pickFemaleVoice(voices: SpeechSynthesisVoice[]): SpeechSynthesisVoice | null {
+  // 1. Indian English female
+  const inFemale =
+    voices.find((v) => v.lang === "en-IN" && /female|woman/i.test(v.name)) ??
+    voices.find((v) => v.lang === "en-IN");
 
-  // Priority 2: Known female voice names (cross-browser)
-  const knownFemale = voices.find(
+  // 2. Explicitly named female voices (cross-browser)
+  const namedFemale = voices.find(
     (v) =>
       v.lang.startsWith("en") &&
       (v.name === "Google UK English Female" ||
         v.name === "Google US English Female" ||
-        v.name.includes("Samantha") ||   // macOS
-        v.name.includes("Karen") ||      // macOS Australian
-        v.name.includes("Moira") ||      // macOS Irish
-        v.name.includes("Tessa") ||      // macOS South African
-        v.name.includes("Zira") ||       // Windows
-        v.name.includes("Hazel") ||      // Windows
+        v.name.includes("Samantha") ||  // macOS en-US
+        v.name.includes("Karen") ||     // macOS en-AU
+        v.name.includes("Moira") ||     // macOS en-IE
+        v.name.includes("Tessa") ||     // macOS en-ZA
+        v.name.includes("Zira") ||      // Windows
+        v.name.includes("Hazel") ||     // Windows
+        v.name.includes("Susan") ||     // Windows
         /female/i.test(v.name))
   );
 
-  // Priority 3: Any en-GB or en-AU voice (often female by default in Chrome)
-  const fallback = voices.find(
-    (v) => v.lang === "en-GB" || v.lang === "en-AU"
-  );
+  // 3. en-GB / en-AU (default Chrome voice on these locales is female)
+  const localeFallback =
+    voices.find((v) => v.lang === "en-GB") ??
+    voices.find((v) => v.lang === "en-AU");
 
-  return inFemale ?? knownFemale ?? fallback ?? null;
+  return inFemale ?? namedFemale ?? localeFallback ?? null;
+}
+
+// Pre-load voices as early as possible so they're ready when first speak() fires
+let _voicesCache: SpeechSynthesisVoice[] = [];
+if (typeof window !== "undefined" && "speechSynthesis" in window) {
+  const load = () => { _voicesCache = window.speechSynthesis.getVoices(); };
+  load();
+  window.speechSynthesis.addEventListener("voiceschanged", load);
 }
 
 function useTTS() {
+  // speak() — waits for voices to be available if needed, always uses female voice
   const speak = useCallback((text: string, onEnd?: () => void) => {
     if (typeof window === "undefined" || !("speechSynthesis" in window)) {
       onEnd?.();
       return;
     }
     window.speechSynthesis.cancel();
-    const utter = new SpeechSynthesisUtterance(text);
-    utter.rate = 0.82;   // slower pace per instructions
-    utter.pitch = 1.05;  // slightly warm/female
-    utter.volume = 1;
 
-    const applyVoice = () => {
-      const v = pickFemaleVoice();
+    const doSpeak = (voices: SpeechSynthesisVoice[]) => {
+      const utter = new SpeechSynthesisUtterance(text);
+      utter.rate = 0.82;   // slower pace per instructions
+      utter.pitch = 1.05;  // warm, slightly higher for female naturalness
+      utter.volume = 1;
+      const v = pickFemaleVoice(voices);
       if (v) utter.voice = v;
+      utter.onend = () => onEnd?.();
+      window.speechSynthesis.speak(utter);
     };
 
-    applyVoice();
-    // Chrome loads voices asynchronously — retry once voices are ready
-    if (window.speechSynthesis.getVoices().length === 0) {
-      window.speechSynthesis.addEventListener("voiceschanged", applyVoice, { once: true });
+    const voices = window.speechSynthesis.getVoices();
+    if (voices.length > 0) {
+      // Voices already loaded — use them immediately
+      _voicesCache = voices;
+      doSpeak(voices);
+    } else {
+      // Wait for voiceschanged (Chrome async pattern)
+      const handler = () => {
+        const v2 = window.speechSynthesis.getVoices();
+        _voicesCache = v2;
+        doSpeak(v2);
+      };
+      window.speechSynthesis.addEventListener("voiceschanged", handler, { once: true });
+      // Safety fallback: if voiceschanged never fires (some browsers), speak after 600ms
+      setTimeout(() => {
+        const v3 = window.speechSynthesis.getVoices();
+        if (v3.length > 0 && !_voicesCache.length) doSpeak(v3);
+      }, 600);
     }
-
-    utter.onend = () => onEnd?.();
-    window.speechSynthesis.speak(utter);
   }, []);
 
   const cancel = useCallback(() => {
@@ -536,6 +578,7 @@ function FeedbackPanel({
   onReAnswer,
   isLast,
   studentName,
+  muted,
 }: {
   feedbackText: string;
   loading: boolean;
@@ -544,11 +587,82 @@ function FeedbackPanel({
   onReAnswer: () => void;
   isLast: boolean;
   studentName: string;
+  muted: boolean;
 }) {
+  const { speak, cancel } = useTTS();
+  const [isSpeaking, setIsSpeaking] = useState(false);
+  const [countdown, setCountdown] = useState<number | null>(null);
+  const countdownRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const accentBg = country === "australia" ? "from-sky-500 to-blue-600" : "from-rose-500 to-red-600";
   const improveLabel = country === "australia" ? "What you could improve" : "Where you could improve";
   const sampleLabel = country === "australia" ? "A good sample answer is" : "Here is a sample answer";
   const parsed = feedbackText ? parseFeedback(feedbackText, country) : null;
+
+  // Build spoken version of feedback (plain sentences, strip bullet markers)
+  const buildSpokenFeedback = useCallback((p: ReturnType<typeof parseFeedback>) => {
+    const clean = (s: string) => s.replace(/^[-•*]\s*/gm, "").trim();
+    const parts: string[] = [];
+    if (p.well)    parts.push(`Here is what you did well. ${clean(p.well)}`);
+    if (p.improve) parts.push(`${improveLabel}. ${clean(p.improve)}`);
+    if (p.sample)  parts.push(`${sampleLabel}. ${clean(p.sample)}`);
+    return parts.join(". ") || clean(p.raw);
+  }, [improveLabel, sampleLabel]);
+
+  const startCountdown = useCallback((onDone: () => void) => {
+    setCountdown(3);
+    let n = 3;
+    countdownRef.current = setInterval(() => {
+      n -= 1;
+      setCountdown(n);
+      if (n <= 0) {
+        if (countdownRef.current) clearInterval(countdownRef.current);
+        setCountdown(null);
+        onDone();
+      }
+    }, 1000);
+  }, []);
+
+  // Auto-speak feedback when it arrives, then auto-advance to next question
+  useEffect(() => {
+    if (!feedbackText || loading) return;
+    const p = parseFeedback(feedbackText, country);
+    const text = buildSpokenFeedback(p);
+
+    if (muted) {
+      // Muted: just count down 3s then advance
+      startCountdown(onNext);
+      return () => { if (countdownRef.current) clearInterval(countdownRef.current); };
+    }
+
+    setIsSpeaking(true);
+    speak(text, () => {
+      setIsSpeaking(false);
+      // After speech ends, 3-second pause then auto-advance (as per instruction: "Pause for 3 seconds")
+      startCountdown(onNext);
+    });
+    return () => {
+      cancel();
+      if (countdownRef.current) clearInterval(countdownRef.current);
+    };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [feedbackText, loading]);
+
+  const handleReplay = () => {
+    if (!parsed) return;
+    if (countdownRef.current) { clearInterval(countdownRef.current); setCountdown(null); }
+    cancel();
+    setIsSpeaking(true);
+    speak(buildSpokenFeedback(parsed), () => {
+      setIsSpeaking(false);
+      startCountdown(onNext);
+    });
+  };
+
+  const handleStop = () => {
+    cancel();
+    setIsSpeaking(false);
+    if (countdownRef.current) { clearInterval(countdownRef.current); setCountdown(null); }
+  };
 
   return (
     <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className="space-y-4">
@@ -559,6 +673,46 @@ function FeedbackPanel({
         </div>
       ) : parsed ? (
         <>
+          {/* Voice playback controls */}
+          <div className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-gray-50 border border-gray-100">
+            {isSpeaking ? (
+              <>
+                <div className="flex items-center gap-[3px] h-5 flex-shrink-0">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <motion.div key={i} className="w-1 rounded-full bg-indigo-400"
+                      animate={{ scaleY: [0.3, 1, 0.3], transition: { duration: 0.7, repeat: Infinity, delay: i * 0.1 } }}
+                      style={{ height: "100%", originY: "center" }} />
+                  ))}
+                </div>
+                <p className="text-xs text-gray-500 flex-1">Reading feedback aloud…</p>
+                <button onClick={handleStop}
+                  className="flex items-center gap-1.5 text-xs font-semibold text-rose-500 hover:text-rose-700 flex-shrink-0">
+                  <VolumeX className="w-3.5 h-3.5" /> Stop
+                </button>
+              </>
+            ) : countdown !== null ? (
+              <>
+                <div className="w-6 h-6 rounded-full bg-indigo-100 flex items-center justify-center flex-shrink-0">
+                  <span className="text-xs font-black text-indigo-600">{countdown}</span>
+                </div>
+                <p className="text-xs text-gray-500 flex-1">Next question in {countdown}…</p>
+                <button onClick={handleStop}
+                  className="text-xs font-semibold text-gray-400 hover:text-gray-600 flex-shrink-0">
+                  Stay here
+                </button>
+              </>
+            ) : (
+              <>
+                <Volume2 className="w-4 h-4 text-gray-400 flex-shrink-0" />
+                <p className="text-xs text-gray-400 flex-1">Feedback read aloud</p>
+                <button onClick={handleReplay}
+                  className="flex items-center gap-1.5 text-xs font-semibold text-indigo-500 hover:text-indigo-700 flex-shrink-0">
+                  <RotateCcw className="w-3.5 h-3.5" /> Replay
+                </button>
+              </>
+            )}
+          </div>
+
           {/* What you did well */}
           {parsed.well && (
             <div className="rounded-2xl bg-emerald-50 border border-emerald-200 p-4">
@@ -606,13 +760,13 @@ function FeedbackPanel({
       )}
 
       <div className="flex flex-wrap gap-3 pt-2">
-        <motion.button whileHover={{ y: -1 }} onClick={onNext}
+        <motion.button whileHover={{ y: -1 }} onClick={() => { cancel(); setIsSpeaking(false); onNext(); }}
           className={`flex items-center gap-2 px-7 py-3 rounded-2xl bg-gradient-to-r ${accentBg} text-white font-bold shadow-lg`}>
           {isLast
             ? <><span>Finish session</span> <CheckCircle2 className="w-4 h-4" /></>
             : <><span>Next question</span> <ChevronRight className="w-4 h-4" /></>}
         </motion.button>
-        <button onClick={onReAnswer}
+        <button onClick={() => { cancel(); setIsSpeaking(false); onReAnswer(); }}
           className="flex items-center gap-2 px-5 py-3 rounded-2xl border border-gray-200 text-gray-500 text-sm font-semibold hover:bg-gray-50 transition-colors">
           <RotateCcw className="w-3.5 h-3.5" /> Re-answer
         </button>
@@ -1289,6 +1443,7 @@ function InterviewSession({
               onReAnswer={handleReAnswer}
               isLast={qIndex + 1 >= activeQuestions.length}
               studentName={studentName}
+              muted={muted}
             />
           </motion.div>
         )}
