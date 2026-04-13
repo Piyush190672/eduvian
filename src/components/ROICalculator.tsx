@@ -3,7 +3,8 @@
 import { useState, useMemo, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  TrendingUp, GraduationCap, MapPin, Sparkles, Info, ArrowRight, ChevronDown,
+  TrendingUp, GraduationCap, MapPin, Sparkles, Info, ArrowRight,
+  ChevronDown, Search, CheckCircle2, Zap, BookOpen, DollarSign,
 } from "lucide-react";
 import { CURATED_UNIVERSITIES, SALARY_LOOKUP } from "@/data/roi-data";
 import type { SalaryCountry, FieldOfStudy } from "@/data/roi-data";
@@ -27,31 +28,11 @@ interface ProgramEntry {
 
 const ALL_PROGRAMS = PROGRAMS as unknown as ProgramEntry[];
 
-const FIELDS_OF_STUDY: FieldOfStudy[] = [
-  "Computer Science & IT",
-  "Artificial Intelligence & Data Science",
-  "Business & Management",
-  "MBA",
-  "Economics & Finance",
-  "Engineering (Mechanical/Civil/Electrical)",
-  "Medicine & Public Health",
-  "Law",
-  "Nursing & Allied Health",
-  "Natural Sciences",
-  "Biotechnology & Life Sciences",
-  "Environmental & Sustainability Studies",
-  "Social Sciences & Humanities",
-  "Arts, Design & Architecture",
-  "Media & Communications",
-  "Agriculture & Veterinary Sciences",
-  "Hospitality & Tourism",
-];
-
 // ── helpers ───────────────────────────────────────────────────────────────────
 
 function fmtK(n: number) {
-  if (!isFinite(n)) return "—";
-  return n >= 1000 ? `$${(n / 1000).toFixed(0)}K` : `$${n.toFixed(0)}`;
+  if (!isFinite(n) || n === 0) return "—";
+  return n >= 1000 ? `$${(n / 1000).toFixed(0)}K` : `$${n}`;
 }
 
 function fmtYears(y: number) {
@@ -60,43 +41,57 @@ function fmtYears(y: number) {
 }
 
 function paybackColor(years: number) {
-  if (!isFinite(years) || years > 15) return { text: "text-rose-400", bg: "bg-rose-500/10", bar: "bg-rose-400" };
-  if (years > 8) return { text: "text-amber-400", bg: "bg-amber-500/10", bar: "bg-amber-400" };
-  return { text: "text-emerald-400", bg: "bg-emerald-500/10", bar: "bg-emerald-500" };
+  if (!isFinite(years) || years > 15) return { text: "text-rose-400", bg: "bg-rose-500/10", bar: "bg-rose-400", label: "Long payback" };
+  if (years > 8) return { text: "text-amber-400", bg: "bg-amber-500/10", bar: "bg-amber-400", label: "Moderate return" };
+  return { text: "text-emerald-400", bg: "bg-emerald-500/10", bar: "bg-emerald-500", label: "Excellent return ✓" };
 }
 
-// ── sub-components ────────────────────────────────────────────────────────────
+// Salary range hint for a given country + field
+function salaryHint(country: SalaryCountry, field: FieldOfStudy): string {
+  const s = SALARY_LOOKUP[country]?.[field];
+  if (!s) return "";
+  const low = Math.round(s * 0.85 / 1000);
+  const high = Math.round(s * 1.15 / 1000);
+  return `Typical range: $${low}K–$${high}K/yr in ${country}`;
+}
 
-function SelectField({
-  label, value, options, onChange, note,
-}: {
-  label: string;
-  value: string;
-  options: { label: string; value: string }[];
-  onChange: (v: string) => void;
-  note?: string;
-}) {
+// ── AutoTag — shown on auto-populated fields ──────────────────────────────────
+
+function AutoTag() {
   return (
-    <div>
-      <label className="block text-xs font-semibold text-slate-400 uppercase tracking-wide mb-1.5">
-        {label}
-        {note && <span className="ml-1.5 normal-case font-normal text-indigo-400">{note}</span>}
-      </label>
-      <div className="relative">
-        <select
-          value={value}
-          onChange={(e) => onChange(e.target.value)}
-          className="w-full appearance-none bg-white/10 border border-white/20 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 pr-9"
-          style={{ colorScheme: "dark" }}
-        >
-          {options.map((o) => (
-            <option key={o.value} value={o.value} className="bg-slate-800 text-white">
-              {o.label}
-            </option>
-          ))}
-        </select>
-        <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" />
+    <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 text-[10px] font-bold border border-indigo-500/30">
+      <Zap className="w-2.5 h-2.5" /> auto
+    </span>
+  );
+}
+
+// ── StepLabel ─────────────────────────────────────────────────────────────────
+
+function StepLabel({ n, label, done }: { n: number; label: string; done: boolean }) {
+  return (
+    <div className="flex items-center gap-2 mb-2">
+      <div className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-black flex-shrink-0 transition-colors ${done ? "bg-indigo-500 text-white" : "bg-white/10 text-slate-400"}`}>
+        {done ? <CheckCircle2 className="w-3 h-3" /> : n}
       </div>
+      <span className="text-xs font-semibold text-slate-400 uppercase tracking-wide">{label}</span>
+    </div>
+  );
+}
+
+// ── AutoFilledRow — read-only populated field ─────────────────────────────────
+
+function AutoFilledRow({
+  icon: Icon, label, value, sub,
+}: { icon: React.ComponentType<{ className?: string }>; label: string; value: string; sub?: string }) {
+  return (
+    <div className="flex items-center gap-3 px-3.5 py-2.5 bg-indigo-500/10 border border-indigo-500/20 rounded-xl">
+      <Icon className="w-4 h-4 text-indigo-400 flex-shrink-0" />
+      <div className="min-w-0 flex-1">
+        <p className="text-[10px] font-semibold text-indigo-300 uppercase tracking-wide leading-none mb-0.5">{label}</p>
+        <p className="text-sm font-semibold text-white truncate">{value}</p>
+        {sub && <p className="text-[10px] text-slate-500 leading-snug">{sub}</p>}
+      </div>
+      <AutoTag />
     </div>
   );
 }
@@ -104,17 +99,24 @@ function SelectField({
 // ── main component ────────────────────────────────────────────────────────────
 
 export default function ROICalculator() {
-  // Only user-typed field
-  const [uniQuery, setUniQuery] = useState("");
 
-  // Auto-matched university
+  // ── Step 1: University ───────────────────────────────────────────────────────
+  const [uniQuery, setUniQuery]     = useState("");
   const [matchedUni, setMatchedUni] = useState<typeof CURATED_UNIVERSITIES[number] | null>(null);
+  const [showSugg, setShowSugg]     = useState(false);
+  const uniRef = useRef<HTMLDivElement>(null);
 
-  // Program select (dropdown of matched uni's programs)
+  // ── Step 2: Field of Study ───────────────────────────────────────────────────
+  const [field, setField]         = useState<FieldOfStudy | "">("");
+  const [fieldOpen, setFieldOpen] = useState(false);
+  const fieldRef = useRef<HTMLDivElement>(null);
+
+  // ── Step 3: Program ──────────────────────────────────────────────────────────
   const [selectedProgram, setSelectedProgram] = useState<ProgramEntry | null>(null);
+  const [programOpen, setProgramOpen]         = useState(false);
+  const programRef = useRef<HTMLDivElement>(null);
 
-  // Auto-populated / selectable fields
-  const [field, setField]             = useState<FieldOfStudy>("Computer Science & IT");
+  // ── Auto-populated fields (user can adjust) ──────────────────────────────────
   const [city, setCity]               = useState("");
   const [tuition, setTuition]         = useState(0);
   const [living, setLiving]           = useState(0);
@@ -123,110 +125,102 @@ export default function ROICalculator() {
   const [salary, setSalary]           = useState(0);
   const [savingsRate, setSavingsRate] = useState(20);
 
-  // Suggestion dropdown for institution
-  const [showSuggestions, setShowSuggestions] = useState(false);
-  const uniRef = useRef<HTMLDivElement>(null);
-
-  // Close suggestions on outside click
+  // ── Close on outside click ───────────────────────────────────────────────────
   useEffect(() => {
-    const handler = (e: MouseEvent) => {
-      if (uniRef.current && !uniRef.current.contains(e.target as Node)) setShowSuggestions(false);
+    const h = (e: MouseEvent) => {
+      if (uniRef.current && !uniRef.current.contains(e.target as Node)) setShowSugg(false);
+      if (fieldRef.current && !fieldRef.current.contains(e.target as Node)) setFieldOpen(false);
+      if (programRef.current && !programRef.current.contains(e.target as Node)) setProgramOpen(false);
     };
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
+    document.addEventListener("mousedown", h);
+    return () => document.removeEventListener("mousedown", h);
   }, []);
 
-  // Filtered suggestions as user types
+  // ── Typeahead suggestions ────────────────────────────────────────────────────
   const suggestions = useMemo(() => {
     const q = uniQuery.toLowerCase().trim();
     if (q.length < 2) return [];
-    return CURATED_UNIVERSITIES.filter(
-      (u) => u.name.toLowerCase().includes(q) || u.country.toLowerCase().includes(q)
-    ).slice(0, 6);
+    return CURATED_UNIVERSITIES
+      .filter((u) => u.name.toLowerCase().includes(q) || u.country.toLowerCase().includes(q))
+      .slice(0, 7);
   }, [uniQuery]);
 
-  // Programs for matched uni
+  // ── All programs for selected university ─────────────────────────────────────
   const uniPrograms = useMemo(() => {
     if (!matchedUni) return [];
-    return ALL_PROGRAMS.filter((p) => p.university_name === matchedUni.name).slice(0, 40);
+    return ALL_PROGRAMS.filter((p) => p.university_name === matchedUni.name);
   }, [matchedUni]);
 
-  // When user selects a suggestion
+  // ── Fields available at this university ──────────────────────────────────────
+  const availableFields = useMemo<FieldOfStudy[]>(() => {
+    if (!matchedUni) return [];
+    const set = new Set(uniPrograms.map((p) => p.field_of_study as FieldOfStudy));
+    return Array.from(set).sort();
+  }, [matchedUni, uniPrograms]);
+
+  // ── Programs filtered by field ────────────────────────────────────────────────
+  const filteredPrograms = useMemo(() => {
+    if (!field) return uniPrograms;
+    return uniPrograms.filter((p) => p.field_of_study === field);
+  }, [uniPrograms, field]);
+
+  // ── Select university ────────────────────────────────────────────────────────
   function selectUniversity(u: typeof CURATED_UNIVERSITIES[number]) {
     setMatchedUni(u);
     setUniQuery(u.name);
-    setShowSuggestions(false);
+    setShowSugg(false);
+    setField("");
     setSelectedProgram(null);
-    // Auto-fill from first program or defaults
-    const progs = ALL_PROGRAMS.filter((p) => p.university_name === u.name);
-    if (progs.length > 0) {
-      const p = progs[0];
-      setCity(p.city || "");
-      const f = p.field_of_study as FieldOfStudy;
-      setField(FIELDS_OF_STUDY.includes(f) ? f : "Computer Science & IT");
-      setTuition(p.annual_tuition_usd);
-      setLiving(p.avg_living_cost_usd);
-      setDuration(p.duration_months);
-      setSalary(lookupSalary(u.country as SalaryCountry, FIELDS_OF_STUDY.includes(f) ? f : "Computer Science & IT"));
-    } else {
-      setSalary(lookupSalary(u.country as SalaryCountry, field));
-    }
+    setCity(""); setTuition(0); setLiving(0); setDuration(24); setSalary(0);
   }
 
-  // When user picks a program from dropdown
+  // ── Select field → filter programs, update salary estimate ──────────────────
+  function selectField(f: FieldOfStudy) {
+    setField(f);
+    setFieldOpen(false);
+    setSelectedProgram(null);
+    if (matchedUni) setSalary(lookupSalary(matchedUni.country as SalaryCountry, f));
+  }
+
+  // ── Select program → auto-fill everything ────────────────────────────────────
   function selectProgram(p: ProgramEntry) {
     setSelectedProgram(p);
-    setCity(p.city || city);
-    const f = p.field_of_study as FieldOfStudy;
-    const resolvedField = FIELDS_OF_STUDY.includes(f) ? f : field;
-    setField(resolvedField);
+    setProgramOpen(false);
+    setCity(p.city || "");
     setTuition(p.annual_tuition_usd);
     setLiving(p.avg_living_cost_usd);
     setDuration(p.duration_months);
-    if (matchedUni) setSalary(lookupSalary(matchedUni.country as SalaryCountry, resolvedField));
+    if (matchedUni) setSalary(lookupSalary(matchedUni.country as SalaryCountry, p.field_of_study as FieldOfStudy));
   }
 
-  // Recalculate salary when field changes
-  useEffect(() => {
-    if (!matchedUni) return;
-    setSalary(lookupSalary(matchedUni.country as SalaryCountry, field));
-  }, [field, matchedUni]);
-
-  const canCalculate = tuition > 0 || living > 0 || salary > 0;
+  // ── ROI calculation ───────────────────────────────────────────────────────────
+  const canCalculate = selectedProgram !== null && salary > 0;
 
   const results = useMemo(() => {
     if (!canCalculate) return null;
     return calculateROI({
-      university_name:     uniQuery,
+      university_name:     matchedUni?.name ?? "",
       country:             (matchedUni?.country as SalaryCountry) ?? "USA",
       city,
-      field_of_study:      field,
+      field_of_study:      (field || "Computer Science & IT") as FieldOfStudy,
       annual_tuition_usd:  tuition,
       avg_living_cost_usd: living,
-      duration_months:     durationMonths > 0 ? durationMonths : 24,
+      duration_months:     durationMonths,
       scholarship_usd:     scholarship,
       expected_salary_usd: salary,
       savings_rate_pct:    savingsRate,
     });
-  }, [uniQuery, matchedUni, city, field, tuition, living, durationMonths, scholarship, salary, savingsRate, canCalculate]);
+  }, [canCalculate, matchedUni, city, field, tuition, living, durationMonths, scholarship, salary, savingsRate]);
 
   const pb = results ? paybackColor(results.payback_years) : null;
-  const durationYears = (durationMonths > 0 ? durationMonths : 24) / 12;
+  const durationYears = durationMonths / 12;
 
-  const durationOptions = [12, 18, 24, 30, 36, 48, 60].map((m) => ({
-    value: String(m),
-    label: m % 12 === 0 ? `${m / 12} yr${m / 12 > 1 ? "s" : ""}` : `${m} months`,
-  }));
+  // ── progress ──────────────────────────────────────────────────────────────────
+  const step1Done = !!matchedUni;
+  const step2Done = !!field;
+  const step3Done = !!selectedProgram;
 
-  const scholarshipOptions = [
-    { value: "0",     label: "No scholarship" },
-    { value: "5000",  label: "$5,000" },
-    { value: "10000", label: "$10,000" },
-    { value: "15000", label: "$15,000" },
-    { value: "20000", label: "$20,000" },
-    { value: "30000", label: "$30,000" },
-    { value: "50000", label: "$50,000" },
-  ];
+  const scholarshipOptions = [0, 5000, 10000, 15000, 20000, 30000, 50000];
 
   return (
     <section id="roi-calculator" className="py-24 px-4 bg-gradient-to-br from-slate-900 via-indigo-950 to-purple-950 relative overflow-hidden">
@@ -235,235 +229,306 @@ export default function ROICalculator() {
 
       <div className="max-w-6xl mx-auto relative">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
           <span className="inline-flex items-center gap-1.5 text-indigo-400 font-bold text-sm uppercase tracking-widest mb-3">
             <Sparkles className="w-3.5 h-3.5" /> ROI Calculator
           </span>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight">
-            Is your degree worth it?
-          </h2>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight">Is your degree worth it?</h2>
           <p className="text-slate-400 mt-3 text-lg max-w-xl mx-auto">
-            Type your institution — costs and salary data auto-populate so you see your real return on investment instantly.
+            3 steps — university, field, program. Everything else fills itself.
           </p>
         </motion.div>
 
         <div className="grid lg:grid-cols-5 gap-6">
-          {/* ── Inputs ── */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="lg:col-span-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-6 space-y-5"
-          >
-            <h3 className="text-white font-bold text-base flex items-center gap-2">
-              <GraduationCap className="w-4 h-4 text-indigo-400" />
-              Program Details
-            </h3>
 
-            {/* Institution — only user-typed field */}
-            <div ref={uniRef} className="relative">
-              <label className="block text-xs font-semibold text-slate-400 uppercase tracking-wide mb-1.5">
-                Institution Name
-              </label>
-              <input
-                type="text"
-                value={uniQuery}
-                placeholder="e.g. University of Toronto"
-                onChange={(e) => {
-                  setUniQuery(e.target.value);
-                  setShowSuggestions(true);
-                  if (!e.target.value.trim()) {
-                    setMatchedUni(null);
-                    setSelectedProgram(null);
-                  }
-                }}
-                onFocus={() => { if (suggestions.length > 0) setShowSuggestions(true); }}
-                className="w-full bg-white/10 border border-white/20 rounded-xl px-3.5 py-2.5 text-white text-sm placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-              />
+          {/* ── Left: Guided input panel ── */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
+            className="lg:col-span-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-6 space-y-6"
+          >
+
+            {/* ── STEP 1: University ── */}
+            <div>
+              <StepLabel n={1} label="University" done={step1Done} />
+              <div ref={uniRef} className="relative">
+                <div className="relative">
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" />
+                  <input
+                    type="text"
+                    value={uniQuery}
+                    placeholder="Type to search universities…"
+                    onChange={(e) => {
+                      setUniQuery(e.target.value);
+                      setShowSugg(true);
+                      if (!e.target.value.trim()) { setMatchedUni(null); setField(""); setSelectedProgram(null); }
+                    }}
+                    onFocus={() => { if (uniQuery.length >= 2) setShowSugg(true); }}
+                    className="w-full bg-white/10 border border-white/20 rounded-xl pl-9 pr-3.5 py-2.5 text-white text-sm placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  />
+                </div>
+                {!matchedUni && !uniQuery && (
+                  <p className="text-[11px] text-slate-500 mt-1.5">e.g. "Toronto", "MIT", "Melbourne"</p>
+                )}
+                <AnimatePresence>
+                  {showSugg && suggestions.length > 0 && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -4 }} transition={{ duration: 0.12 }}
+                      className="absolute z-50 mt-1 w-full bg-slate-800 border border-white/10 rounded-xl shadow-2xl overflow-hidden"
+                    >
+                      {suggestions.map((u) => (
+                        <button key={u.name} onMouseDown={() => selectUniversity(u)}
+                          className="w-full flex items-center gap-3 px-4 py-2.5 hover:bg-white/10 transition-colors text-left"
+                        >
+                          <span className="text-lg flex-shrink-0">{u.flag}</span>
+                          <div className="min-w-0 flex-1">
+                            <p className="text-sm font-semibold text-white truncate">{u.name}</p>
+                            <p className="text-xs text-slate-400">{u.country}{u.qs_ranking ? ` · QS #${u.qs_ranking}` : " · Specialist"}</p>
+                          </div>
+                          {u.qs_ranking && u.qs_ranking <= 100 && (
+                            <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-bold flex-shrink-0">Top 100</span>
+                          )}
+                        </button>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* University info card once selected */}
               <AnimatePresence>
-                {showSuggestions && suggestions.length > 0 && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -4 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -4 }}
-                    transition={{ duration: 0.15 }}
-                    className="absolute z-50 mt-1 w-full bg-slate-800 border border-white/10 rounded-xl shadow-2xl overflow-hidden"
+                {matchedUni && (
+                  <motion.div initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
+                    className="mt-2 flex items-center gap-3 px-3.5 py-2.5 bg-white/5 border border-white/10 rounded-xl"
                   >
-                    {suggestions.map((u) => (
-                      <button
-                        key={u.name}
-                        onMouseDown={() => selectUniversity(u)}
-                        className="w-full flex items-center gap-2.5 px-4 py-2.5 hover:bg-white/10 transition-colors text-left"
-                      >
-                        <span className="text-base flex-shrink-0">{u.flag}</span>
-                        <div className="min-w-0">
-                          <p className="text-sm font-medium text-white truncate">{u.name}</p>
-                          <p className="text-xs text-slate-400">{u.country}{u.qs_ranking ? ` · QS #${u.qs_ranking}` : ""}</p>
-                        </div>
-                      </button>
-                    ))}
+                    <span className="text-2xl">{matchedUni.flag}</span>
+                    <div className="min-w-0">
+                      <p className="text-xs font-bold text-white truncate">{matchedUni.name}</p>
+                      <p className="text-[11px] text-slate-400">
+                        {matchedUni.country}{matchedUni.qs_ranking ? ` · QS Rank #${matchedUni.qs_ranking}` : ""}
+                        {uniPrograms.length > 0 ? ` · ${uniPrograms.length} programs` : ""}
+                      </p>
+                    </div>
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0 ml-auto" />
                   </motion.div>
                 )}
               </AnimatePresence>
             </div>
 
-            {/* Program dropdown (auto-populated once uni matched) */}
-            {uniPrograms.length > 0 && (
-              <SelectField
-                label="Program / Degree"
-                note="auto-populated"
-                value={selectedProgram?.program_name ?? ""}
-                options={[
-                  { value: "", label: "— Select a program —" },
-                  ...uniPrograms.map((p) => ({ value: p.program_name, label: p.program_name })),
-                ]}
-                onChange={(v) => {
-                  const p = uniPrograms.find((x) => x.program_name === v) ?? null;
-                  if (p) selectProgram(p);
-                  else setSelectedProgram(null);
-                }}
-              />
-            )}
+            {/* ── STEP 2: Field of Study ── */}
+            <AnimatePresence>
+              {step1Done && (
+                <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }}>
+                  <StepLabel n={2} label="Field of Study" done={step2Done} />
+                  <div ref={fieldRef} className="relative">
+                    <button
+                      onClick={() => setFieldOpen((o) => !o)}
+                      className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl border text-sm transition-colors text-left ${
+                        field ? "bg-white/10 border-white/20 text-white" : "bg-white/5 border-white/15 text-slate-400"
+                      } focus:outline-none focus:ring-2 focus:ring-indigo-500`}
+                    >
+                      <span className="flex items-center gap-2">
+                        <BookOpen className="w-3.5 h-3.5 text-indigo-400 flex-shrink-0" />
+                        {field || "Select your field of study…"}
+                      </span>
+                      <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform flex-shrink-0 ${fieldOpen ? "rotate-180" : ""}`} />
+                    </button>
+                    {!field && (
+                      <p className="text-[11px] text-slate-500 mt-1.5">
+                        {availableFields.length} fields available at {matchedUni?.name.split(" ")[0]}
+                      </p>
+                    )}
+                    <AnimatePresence>
+                      {fieldOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: -4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -4 }} transition={{ duration: 0.12 }}
+                          className="absolute z-40 mt-1 w-full bg-slate-800 border border-white/10 rounded-xl shadow-2xl overflow-hidden max-h-56 overflow-y-auto"
+                        >
+                          {availableFields.map((f) => {
+                            const count = uniPrograms.filter((p) => p.field_of_study === f).length;
+                            return (
+                              <button key={f} onMouseDown={() => selectField(f)}
+                                className={`w-full flex items-center justify-between px-4 py-2.5 hover:bg-white/10 transition-colors text-left ${field === f ? "bg-indigo-600/30" : ""}`}
+                              >
+                                <span className="text-sm text-white">{f}</span>
+                                <span className="text-xs text-slate-500 flex-shrink-0 ml-2">{count} program{count !== 1 ? "s" : ""}</span>
+                              </button>
+                            );
+                          })}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
 
-            {/* Field of study dropdown */}
-            <SelectField
-              label="Field of Study"
-              note={matchedUni ? "auto-populated" : undefined}
-              value={field}
-              options={FIELDS_OF_STUDY.map((f) => ({ value: f, label: f }))}
-              onChange={(v) => setField(v as FieldOfStudy)}
-            />
-
-            {/* City — auto-populated, read-only display */}
-            {city && (
-              <div className="flex items-center gap-2 px-3 py-2 bg-white/5 rounded-xl border border-white/10">
-                <MapPin className="w-3.5 h-3.5 text-indigo-400 flex-shrink-0" />
-                <span className="text-sm text-slate-300">{city}</span>
-                {matchedUni && <span className="text-xs text-slate-500 ml-auto">{matchedUni.flag} {matchedUni.country}</span>}
-              </div>
-            )}
-
-            {/* Tuition + Living — auto-populated number displays */}
-            <div className="grid grid-cols-2 gap-3">
-              <div>
-                <label className="block text-xs font-semibold text-slate-400 uppercase tracking-wide mb-1.5">
-                  Tuition / yr <span className="text-indigo-400 font-normal normal-case">(USD)</span>
-                </label>
-                <div className="relative">
-                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">$</span>
-                  <input type="number" value={tuition || ""} placeholder="0"
-                    onChange={(e) => setTuition(Number(e.target.value))}
-                    className="w-full bg-white/10 border border-white/20 rounded-xl pl-7 pr-3 py-2.5 text-white text-sm placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 [appearance:textfield]"
-                  />
-                </div>
-              </div>
-              <div>
-                <label className="block text-xs font-semibold text-slate-400 uppercase tracking-wide mb-1.5">
-                  Living / yr <span className="text-indigo-400 font-normal normal-case">(USD)</span>
-                </label>
-                <div className="relative">
-                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">$</span>
-                  <input type="number" value={living || ""} placeholder="0"
-                    onChange={(e) => setLiving(Number(e.target.value))}
-                    className="w-full bg-white/10 border border-white/20 rounded-xl pl-7 pr-3 py-2.5 text-white text-sm placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 [appearance:textfield]"
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Duration dropdown + Scholarship dropdown */}
-            <div className="grid grid-cols-2 gap-3">
-              <SelectField
-                label="Duration"
-                note={matchedUni ? "auto-populated" : undefined}
-                value={String(durationMonths)}
-                options={durationOptions}
-                onChange={(v) => setDuration(Number(v))}
-              />
-              <SelectField
-                label="Scholarship"
-                value={String(scholarship)}
-                options={scholarshipOptions}
-                onChange={(v) => setScholarship(Number(v))}
-              />
-            </div>
-
-            {/* Salary — auto-populated, editable */}
-            <div>
-              <label className="block text-xs font-semibold text-slate-400 uppercase tracking-wide mb-1.5">
-                Expected Starting Salary / yr{" "}
-                <span className="text-indigo-400 font-normal normal-case">
-                  {matchedUni ? "auto-estimated" : "(USD)"}
-                </span>
-              </label>
-              <div className="relative">
-                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">$</span>
-                <input type="number" value={salary || ""} placeholder="0"
-                  onChange={(e) => setSalary(Number(e.target.value))}
-                  className="w-full bg-white/10 border border-white/20 rounded-xl pl-7 pr-3 py-2.5 text-white text-sm placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 [appearance:textfield]"
-                />
-              </div>
-              {matchedUni && (
-                <p className="text-xs text-slate-500 mt-1">
-                  Based on median {field} salaries in {matchedUni.country}. Adjust as needed.
-                </p>
+                  {/* Salary range hint for chosen field */}
+                  {field && matchedUni && (
+                    <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-[11px] text-indigo-300/70 mt-1.5 flex items-center gap-1">
+                      <DollarSign className="w-3 h-3" />
+                      {salaryHint(matchedUni.country as SalaryCountry, field)}
+                    </motion.p>
+                  )}
+                </motion.div>
               )}
-            </div>
+            </AnimatePresence>
 
-            {/* Savings rate slider */}
-            <div>
-              <div className="flex items-center justify-between mb-1.5">
-                <label className="text-xs font-semibold text-slate-400 uppercase tracking-wide">Savings Rate</label>
-                <span className="text-sm font-bold text-indigo-400">{savingsRate}%</span>
-              </div>
-              <input type="range" min={5} max={50} step={5} value={savingsRate}
-                onChange={(e) => setSavingsRate(Number(e.target.value))}
-                className="w-full h-1.5 accent-indigo-500 cursor-pointer rounded-full"
-              />
-              <div className="flex justify-between text-xs text-slate-600 mt-1">
-                <span>5%</span><span>50%</span>
-              </div>
-            </div>
+            {/* ── STEP 3: Program ── */}
+            <AnimatePresence>
+              {step2Done && (
+                <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }}>
+                  <StepLabel n={3} label="Program / Degree" done={step3Done} />
+                  <div ref={programRef} className="relative">
+                    <button
+                      onClick={() => setProgramOpen((o) => !o)}
+                      className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl border text-sm transition-colors text-left ${
+                        selectedProgram ? "bg-white/10 border-white/20 text-white" : "bg-white/5 border-white/15 text-slate-400"
+                      } focus:outline-none focus:ring-2 focus:ring-indigo-500`}
+                    >
+                      <span className="flex items-center gap-2 min-w-0">
+                        <GraduationCap className="w-3.5 h-3.5 text-indigo-400 flex-shrink-0" />
+                        <span className="truncate">{selectedProgram?.program_name || "Select program…"}</span>
+                      </span>
+                      <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform flex-shrink-0 ml-2 ${programOpen ? "rotate-180" : ""}`} />
+                    </button>
+                    {!selectedProgram && (
+                      <p className="text-[11px] text-slate-500 mt-1.5">
+                        {filteredPrograms.length} {field} program{filteredPrograms.length !== 1 ? "s" : ""} available
+                      </p>
+                    )}
+                    <AnimatePresence>
+                      {programOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: -4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -4 }} transition={{ duration: 0.12 }}
+                          className="absolute z-40 mt-1 w-full bg-slate-800 border border-white/10 rounded-xl shadow-2xl overflow-hidden max-h-64 overflow-y-auto"
+                        >
+                          {filteredPrograms.map((p, i) => (
+                            <button key={i} onMouseDown={() => selectProgram(p)}
+                              className={`w-full flex flex-col px-4 py-3 hover:bg-white/10 transition-colors text-left border-b border-white/5 last:border-0 ${selectedProgram?.program_name === p.program_name ? "bg-indigo-600/30" : ""}`}
+                            >
+                              <span className="text-sm font-semibold text-white leading-tight">{p.program_name}</span>
+                              <span className="text-xs text-slate-400 mt-0.5">
+                                {p.degree_level} · {p.duration_months} mo · {fmtK(p.annual_tuition_usd)}/yr tuition
+                              </span>
+                            </button>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            {/* ── Auto-populated fields (shown once program selected) ── */}
+            <AnimatePresence>
+              {step3Done && selectedProgram && (
+                <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="space-y-2.5">
+                  <p className="text-xs font-semibold text-slate-400 uppercase tracking-wide flex items-center gap-1.5">
+                    <Zap className="w-3 h-3 text-indigo-400" /> Auto-filled from database
+                  </p>
+
+                  <div className="grid grid-cols-2 gap-2">
+                    <AutoFilledRow icon={MapPin} label="Location" value={city || matchedUni?.country || "—"} />
+                    <AutoFilledRow icon={GraduationCap} label="Duration" value={`${durationMonths} months`} sub={`${durationYears.toFixed(1)} academic years`} />
+                    <AutoFilledRow icon={DollarSign} label="Tuition / yr" value={formatCurrency(tuition)} sub="Annual fee" />
+                    <AutoFilledRow icon={DollarSign} label="Living / yr" value={formatCurrency(living)} sub="Avg cost of living" />
+                  </div>
+
+                  {/* Salary — editable */}
+                  <div>
+                    <div className="flex items-center justify-between mb-1.5">
+                      <label className="text-xs font-semibold text-slate-400 uppercase tracking-wide">Expected Salary / yr</label>
+                      <AutoTag />
+                    </div>
+                    <div className="relative">
+                      <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">$</span>
+                      <input type="number" value={salary || ""} placeholder="0"
+                        onChange={(e) => setSalary(Number(e.target.value))}
+                        className="w-full bg-white/10 border border-indigo-500/30 rounded-xl pl-7 pr-3 py-2.5 text-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 [appearance:textfield]"
+                      />
+                    </div>
+                    <p className="text-[11px] text-indigo-300/70 mt-1 flex items-center gap-1">
+                      <DollarSign className="w-3 h-3" />
+                      {field && matchedUni ? salaryHint(matchedUni.country as SalaryCountry, field as FieldOfStudy) : "Adjust to match your expectations"}
+                    </p>
+                  </div>
+
+                  {/* Scholarship */}
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-400 uppercase tracking-wide mb-1.5">Scholarship / Grant (USD)</label>
+                    <div className="flex flex-wrap gap-1.5">
+                      {scholarshipOptions.map((v) => (
+                        <button key={v} onClick={() => setScholarship(v)}
+                          className={`px-2.5 py-1 rounded-lg text-xs font-semibold transition-colors ${scholarship === v ? "bg-indigo-500 text-white" : "bg-white/10 text-slate-300 hover:bg-white/20"}`}
+                        >
+                          {v === 0 ? "None" : `$${v / 1000}K`}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Savings rate */}
+                  <div>
+                    <div className="flex items-center justify-between mb-1.5">
+                      <label className="text-xs font-semibold text-slate-400 uppercase tracking-wide">Savings Rate</label>
+                      <span className="text-sm font-bold text-indigo-400">{savingsRate}%</span>
+                    </div>
+                    <input type="range" min={5} max={50} step={5} value={savingsRate}
+                      onChange={(e) => setSavingsRate(Number(e.target.value))}
+                      className="w-full h-1.5 accent-indigo-500 cursor-pointer rounded-full"
+                    />
+                    <div className="flex justify-between text-[10px] text-slate-600 mt-0.5">
+                      <span>5% conservative</span><span>50% aggressive</span>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </motion.div>
 
-          {/* ── Results ── */}
+          {/* ── Right: Results ── */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
             className="lg:col-span-3 space-y-4"
           >
             {!results ? (
-              <div className="h-full flex flex-col items-center justify-center py-20 bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl text-center px-8">
-                <div className="w-16 h-16 rounded-2xl bg-indigo-500/20 border border-indigo-500/30 flex items-center justify-center mb-4">
+              <div className="h-full flex flex-col items-center justify-center py-16 bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl text-center px-8 min-h-[400px]">
+                <div className="w-16 h-16 rounded-2xl bg-indigo-500/20 border border-indigo-500/30 flex items-center justify-center mb-5">
                   <TrendingUp className="w-8 h-8 text-indigo-400" />
                 </div>
-                <p className="text-white font-bold text-lg mb-2">Type a university name to begin</p>
-                <p className="text-slate-400 text-sm max-w-xs">
-                  Start typing above — tuition, living costs and salary data will auto-populate for your selected program.
+                <p className="text-white font-bold text-lg mb-2">Your ROI appears here</p>
+                <p className="text-slate-400 text-sm max-w-xs mb-8">
+                  Complete the 3 steps on the left — university, field, and program — and we&apos;ll calculate your full financial picture.
                 </p>
+                {/* Progress indicator */}
+                <div className="flex items-center gap-3">
+                  {[
+                    { label: "University", done: step1Done },
+                    { label: "Field", done: step2Done },
+                    { label: "Program", done: step3Done },
+                  ].map((s, i) => (
+                    <div key={i} className="flex items-center gap-2">
+                      {i > 0 && <div className={`w-8 h-px ${s.done || (i === 1 && step1Done) ? "bg-indigo-500" : "bg-white/10"}`} />}
+                      <div className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-colors ${s.done ? "bg-indigo-500 text-white" : step1Done && i === 1 ? "bg-white/10 text-white" : step2Done && i === 2 ? "bg-white/10 text-white" : "bg-white/5 text-slate-500"}`}>
+                        {s.done ? <CheckCircle2 className="w-3 h-3" /> : <span className="w-3.5 h-3.5 rounded-full border border-current flex items-center justify-center text-[9px]">{i + 1}</span>}
+                        {s.label}
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             ) : (
               <AnimatePresence mode="wait">
                 <motion.div
-                  key={`${tuition}-${living}-${salary}-${savingsRate}-${durationMonths}`}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0 }}
+                  key={`${tuition}-${living}-${salary}-${savingsRate}-${durationMonths}-${scholarship}`}
+                  initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
                   className="space-y-4"
                 >
-                  {/* Program header */}
-                  <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl px-5 py-4 flex items-center gap-3">
+                  {/* Header */}
+                  <div className="bg-white/5 border border-white/10 rounded-2xl px-5 py-4 flex items-center gap-3">
                     <span className="text-2xl flex-shrink-0">{matchedUni?.flag ?? "🎓"}</span>
-                    <div className="min-w-0">
-                      <p className="font-bold text-white truncate">{uniQuery || "—"}</p>
+                    <div className="min-w-0 flex-1">
+                      <p className="font-bold text-white truncate">{matchedUni?.name}</p>
                       <p className="text-xs text-slate-400">
-                        {[selectedProgram?.program_name ?? field, city || matchedUni?.country].filter(Boolean).join(" · ")}
+                        {selectedProgram?.program_name} · {city || matchedUni?.country}
                         {matchedUni?.qs_ranking ? ` · QS #${matchedUni.qs_ranking}` : ""}
                       </p>
                     </div>
@@ -471,7 +536,7 @@ export default function ROICalculator() {
 
                   {/* Total investment + Payback */}
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-5">
+                    <div className="bg-white/5 border border-white/10 rounded-2xl p-5">
                       <p className="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-1">Total Investment</p>
                       <p className="text-3xl font-black text-white">{formatCurrency(results.total_investment_usd)}</p>
                       <div className="mt-3 space-y-1.5 text-xs text-slate-400">
@@ -480,81 +545,66 @@ export default function ROICalculator() {
                           <span className="text-white font-medium">{formatCurrency(results.total_tuition_usd)}</span>
                         </div>
                         <div className="flex justify-between">
-                          <span>Living</span>
+                          <span>Living costs</span>
                           <span className="text-white font-medium">{formatCurrency(results.total_living_usd)}</span>
                         </div>
                         {scholarship > 0 && (
-                          <div className="flex justify-between text-emerald-400">
-                            <span>Scholarship</span>
-                            <span className="font-medium">−{formatCurrency(scholarship)}</span>
+                          <div className="flex justify-between text-emerald-400 font-semibold">
+                            <span>Scholarship saving</span>
+                            <span>−{formatCurrency(scholarship)}</span>
                           </div>
                         )}
+                        <div className="flex justify-between border-t border-white/10 pt-1.5">
+                          <span className="font-semibold text-slate-300">Net cost</span>
+                          <span className="text-white font-bold">{formatCurrency(results.total_investment_usd)}</span>
+                        </div>
                       </div>
                     </div>
 
-                    <div className={`backdrop-blur-md border border-white/10 rounded-2xl p-5 ${pb!.bg}`}>
+                    <div className={`border border-white/10 rounded-2xl p-5 ${pb!.bg}`}>
                       <p className="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-1">Payback Period</p>
                       <p className={`text-3xl font-black ${pb!.text}`}>{fmtYears(results.payback_years)}</p>
-                      <p className="text-xs text-slate-400 mt-1">
-                        At {savingsRate}% savings on {fmtK(salary)}/yr salary
-                      </p>
+                      <p className="text-xs text-slate-400 mt-1">At {savingsRate}% savings on {fmtK(salary)}/yr</p>
                       <div className="mt-3 bg-white/10 rounded-full h-1.5 overflow-hidden">
-                        <div
-                          className={`h-full rounded-full transition-all duration-700 ${pb!.bar}`}
-                          style={{ width: `${Math.min(100, (results.payback_years / 20) * 100)}%` }}
-                        />
+                        <motion.div className={`h-full rounded-full ${pb!.bar}`} initial={{ width: 0 }}
+                          animate={{ width: `${Math.min(100, (results.payback_years / 20) * 100)}%` }} transition={{ duration: 0.8 }} />
                       </div>
-                      <p className="text-[10px] text-slate-500 mt-1">
-                        {results.payback_years <= 5 ? "✓ Excellent return" : results.payback_years <= 10 ? "Good return" : "Long payback — consider scholarships"}
-                      </p>
+                      <p className={`text-xs font-semibold mt-1.5 ${pb!.text}`}>{pb!.label}</p>
                     </div>
                   </div>
 
-                  {/* 4-up metrics */}
+                  {/* 4-up */}
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                    <div className="bg-white/5 border border-white/10 rounded-2xl p-4 text-center">
-                      <p className="text-xs text-slate-400 mb-1">10-Year ROI</p>
-                      <p className={`text-xl font-black ${results.ten_year_roi_pct >= 0 ? "text-emerald-400" : "text-rose-400"}`}>
-                        {results.ten_year_roi_pct > 0 ? "+" : ""}{Math.round(results.ten_year_roi_pct)}%
-                      </p>
-                    </div>
-                    <div className="bg-white/5 border border-white/10 rounded-2xl p-4 text-center">
-                      <p className="text-xs text-slate-400 mb-1">Monthly Budget</p>
-                      <p className="text-xl font-black text-white">{fmtK(results.monthly_budget_usd)}</p>
-                      <p className="text-[10px] text-slate-500">during study</p>
-                    </div>
-                    <div className="bg-white/5 border border-white/10 rounded-2xl p-4 text-center">
-                      <p className="text-xs text-slate-400 mb-1">Monthly Savings</p>
-                      <p className="text-xl font-black text-indigo-400">{fmtK(results.monthly_savings_usd)}</p>
-                      <p className="text-[10px] text-slate-500">post-graduation</p>
-                    </div>
-                    <div className="bg-white/5 border border-white/10 rounded-2xl p-4 text-center">
-                      <p className="text-xs text-slate-400 mb-1">10-yr Net Gain</p>
-                      <p className={`text-xl font-black ${results.net_earnings_10yr_usd >= 0 ? "text-emerald-400" : "text-rose-400"}`}>
-                        {results.net_earnings_10yr_usd >= 0 ? "+" : ""}{fmtK(results.net_earnings_10yr_usd)}
-                      </p>
-                    </div>
+                    {[
+                      { label: "10-Year ROI", value: `${results.ten_year_roi_pct > 0 ? "+" : ""}${Math.round(results.ten_year_roi_pct)}%`, color: results.ten_year_roi_pct >= 0 ? "text-emerald-400" : "text-rose-400" },
+                      { label: "Monthly Budget", value: fmtK(results.monthly_budget_usd), sub: "during study", color: "text-white" },
+                      { label: "Monthly Savings", value: fmtK(results.monthly_savings_usd), sub: "post-grad", color: "text-indigo-400" },
+                      { label: "10-yr Net Gain", value: `${results.net_earnings_10yr_usd >= 0 ? "+" : ""}${fmtK(results.net_earnings_10yr_usd)}`, color: results.net_earnings_10yr_usd >= 0 ? "text-emerald-400" : "text-rose-400" },
+                    ].map((m) => (
+                      <div key={m.label} className="bg-white/5 border border-white/10 rounded-2xl p-4 text-center">
+                        <p className="text-xs text-slate-400 mb-1">{m.label}</p>
+                        <p className={`text-xl font-black ${m.color}`}>{m.value}</p>
+                        {m.sub && <p className="text-[10px] text-slate-500">{m.sub}</p>}
+                      </div>
+                    ))}
                   </div>
 
-                  {/* Break-even */}
+                  {/* Break-even insight */}
                   <div className="bg-white/5 border border-white/10 rounded-2xl p-5">
                     <div className="flex items-start gap-3">
                       <Info className="w-4 h-4 text-indigo-400 flex-shrink-0 mt-0.5" />
                       <div className="flex-1">
                         <p className="text-sm font-semibold text-white mb-1">Break-even Salary</p>
                         <p className="text-xs text-slate-400 leading-relaxed">
-                          You need at least{" "}
-                          <span className="text-white font-bold">{formatCurrency(results.breakeven_salary_usd)}/yr</span>{" "}
-                          (at {savingsRate}% savings) to recover your investment in 5 years.{" "}
+                          You need at least <span className="text-white font-bold">{formatCurrency(results.breakeven_salary_usd)}/yr</span> (at {savingsRate}% savings) to recover your investment in 5 years.{" "}
                           {salary >= results.breakeven_salary_usd
-                            ? <span className="text-emerald-400 font-medium">✓ Your expected salary clears this.</span>
-                            : <span className="text-amber-400 font-medium">⚠ Below threshold — consider scholarships or higher-paying roles.</span>
-                          }
+                            ? <span className="text-emerald-400 font-semibold">✓ Your expected salary clears this.</span>
+                            : <span className="text-amber-400 font-semibold">⚠ Gap of {formatCurrency(results.breakeven_salary_usd - salary)}/yr — consider scholarships.</span>}
                         </p>
                       </div>
                       <div className="text-right flex-shrink-0">
                         <p className="text-lg font-black text-white">{formatCurrency(results.breakeven_salary_usd)}</p>
-                        <p className="text-[10px] text-slate-500">min salary needed</p>
+                        <p className="text-[10px] text-slate-500">min/yr needed</p>
                       </div>
                     </div>
                   </div>
@@ -563,12 +613,9 @@ export default function ROICalculator() {
                   <div className="bg-gradient-to-r from-indigo-600/30 to-purple-600/30 border border-indigo-500/30 rounded-2xl p-5 flex items-center justify-between gap-4">
                     <div>
                       <p className="font-bold text-white text-sm">Find programs that maximise your ROI</p>
-                      <p className="text-xs text-slate-400 mt-0.5">Our AI matching engine ranks 6,900+ programs by fit — not just prestige.</p>
+                      <p className="text-xs text-slate-400 mt-0.5">Our AI matching engine ranks 6,900+ programs by fit and financial return.</p>
                     </div>
-                    <a
-                      href="/get-started"
-                      className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-bold hover:shadow-lg hover:shadow-indigo-500/30 transition-all whitespace-nowrap flex-shrink-0"
-                    >
+                    <a href="/get-started" className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-bold hover:shadow-lg transition-all whitespace-nowrap flex-shrink-0">
                       Get My Matches <ArrowRight className="w-3.5 h-3.5" />
                     </a>
                   </div>
@@ -579,7 +626,7 @@ export default function ROICalculator() {
         </div>
 
         <p className="text-center text-xs text-slate-600 mt-8">
-          Salary estimates are median figures from publicly available surveys. Tuition and living costs auto-populate from eduvianAI&apos;s program database. All amounts in USD.
+          Salary estimates are median figures from publicly available graduate salary surveys. Tuition and living costs are from eduvianAI&apos;s verified program database. All amounts in USD.
         </p>
       </div>
     </section>
