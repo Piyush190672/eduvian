@@ -190,7 +190,7 @@ const HOW_IT_WORKS = [
     step: "02",
     icon: Zap,
     title: "AI matches your profile",
-    desc: "Our engine scores 6,900+ programs using 10 signals — GPA, language scores, budget, backlogs, gap year, QS rankings and more.",
+    desc: `Our engine scores ${DB_STATS.programsLabel} programs using 10 signals — GPA, language scores, budget, backlogs, gap year, QS rankings and more.`,
     color: "from-violet-500 to-fuchsia-500",
     bg: "bg-violet-50",
   },
@@ -373,7 +373,7 @@ export default function LandingPage() {
             <div className="absolute -top-4 -right-4 bg-white rounded-2xl shadow-xl px-4 py-3 flex items-center gap-2 border border-gray-100">
               <GraduationCap className="w-5 h-5 text-indigo-500" />
               <div>
-                <p className="font-extrabold text-gray-900 text-sm leading-none">6,900+</p>
+                <p className="font-extrabold text-gray-900 text-sm leading-none">{DB_STATS.programsLabel}</p>
                 <p className="text-xs text-gray-400">Programs</p>
               </div>
             </div>
@@ -529,7 +529,7 @@ export default function LandingPage() {
               <MapPin className="w-3.5 h-3.5" /> Destinations
             </span>
             <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mt-1">
-              11 countries. 6,900+ programs. Endless possibilities.
+              {DB_STATS.countriesLabel} countries. {DB_STATS.programsLabel} programs. Endless possibilities.
             </h2>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
