@@ -22,6 +22,7 @@ import {
   Heart,
   TrendingUp,
 } from "lucide-react";
+import { DB_STATS } from "@/data/db-stats";
 
 const SCHOLARSHIPS: {
   name: string;
@@ -170,10 +171,10 @@ const COUNTRIES = [
 ];
 
 const STATS = [
-  { icon: GraduationCap, value: "6,900+", label: "Programs Listed" },
-  { icon: Globe2, value: "11", label: "Countries" },
-  { icon: Users, value: "376+", label: "Universities" },
-  { icon: Award, value: "17", label: "Fields of Study" },
+  { icon: GraduationCap, value: DB_STATS.programsLabel, label: "Programs Listed" },
+  { icon: Globe2, value: DB_STATS.countriesLabel, label: "Countries" },
+  { icon: Users, value: DB_STATS.universitiesLabel, label: "Universities" },
+  { icon: Award, value: DB_STATS.fieldsLabel, label: "Fields of Study" },
 ];
 
 const HOW_IT_WORKS = [
@@ -234,7 +235,7 @@ const FEATURES = [
   { icon: CheckCircle2, text: "Free — no account needed" },
   { icon: CheckCircle2, text: "Takes only 3 minutes" },
   { icon: CheckCircle2, text: "Results emailed instantly" },
-  { icon: CheckCircle2, text: "6,900+ programs across 376+ universities, 11 countries" },
+  { icon: CheckCircle2, text: `${DB_STATS.programsLabel} programs across ${DB_STATS.universitiesLabel} universities, ${DB_STATS.countriesLabel} countries` },
 ];
 
 export default function LandingPage() {
@@ -318,7 +319,7 @@ export default function LandingPage() {
               </span>
             </h1>
             <p className="text-lg text-slate-300 mb-8 leading-relaxed max-w-lg">
-              Fill in your profile once. Let our AI engine work the magic to give you a personalised TOP 20 shortlist of programs you can actually get into — across <span className="text-white font-semibold">6,900+ programs</span>, <span className="text-white font-semibold">376+ universities</span> and <span className="text-white font-semibold">11 countries</span>, scored by how well they match <span className="text-white font-semibold">you</span>.
+              Fill in your profile once. Let our AI engine work the magic to give you a personalised TOP 20 shortlist of programs you can actually get into — across <span className="text-white font-semibold">{DB_STATS.programsLabel} programs</span>, <span className="text-white font-semibold">{DB_STATS.universitiesLabel} universities</span> and <span className="text-white font-semibold">{DB_STATS.countriesLabel} countries</span>, scored by how well they match <span className="text-white font-semibold">you</span>.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 items-start mb-10">
               <Link
@@ -388,7 +389,7 @@ export default function LandingPage() {
               <div className="flex items-center gap-2">
                 <GraduationCap className="w-5 h-5 text-indigo-500" />
                 <div>
-                  <p className="font-extrabold text-gray-900 text-sm leading-none">376+</p>
+                  <p className="font-extrabold text-gray-900 text-sm leading-none">{DB_STATS.universitiesLabel}</p>
                   <p className="text-xs text-gray-400">Universities</p>
                 </div>
               </div>
