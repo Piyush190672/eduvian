@@ -20,6 +20,7 @@ import {
   Zap,
   FileText,
   Heart,
+  TrendingUp,
 } from "lucide-react";
 
 const SCHOLARSHIPS: {
@@ -169,9 +170,9 @@ const COUNTRIES = [
 ];
 
 const STATS = [
-  { icon: GraduationCap, value: "6,500+", label: "Programs Listed" },
+  { icon: GraduationCap, value: "6,900+", label: "Programs Listed" },
   { icon: Globe2, value: "11", label: "Countries" },
-  { icon: Users, value: "290+", label: "Universities" },
+  { icon: Users, value: "348+", label: "Universities" },
   { icon: Award, value: "17", label: "Fields of Study" },
 ];
 
@@ -188,7 +189,7 @@ const HOW_IT_WORKS = [
     step: "02",
     icon: Zap,
     title: "AI matches your profile",
-    desc: "Our engine scores 6,500+ programs using 10 signals — GPA, language scores, budget, backlogs, gap year, QS rankings and more.",
+    desc: "Our engine scores 6,900+ programs using 10 signals — GPA, language scores, budget, backlogs, gap year, QS rankings and more.",
     color: "from-violet-500 to-fuchsia-500",
     bg: "bg-violet-50",
   },
@@ -233,7 +234,7 @@ const FEATURES = [
   { icon: CheckCircle2, text: "Free — no account needed" },
   { icon: CheckCircle2, text: "Takes only 3 minutes" },
   { icon: CheckCircle2, text: "Results emailed instantly" },
-  { icon: CheckCircle2, text: "6,500+ programs across 290+ universities, 11 countries" },
+  { icon: CheckCircle2, text: "6,900+ programs across 348+ universities, 11 countries" },
 ];
 
 export default function LandingPage() {
@@ -256,8 +257,10 @@ export default function LandingPage() {
         </Link>
         <div className="hidden md:flex items-center gap-6 text-sm font-medium text-gray-600">
           <a href="#how-it-works" className="hover:text-indigo-600 transition-colors">How it works</a>
+          <Link href="/roi-calculator" className="hover:text-indigo-600 transition-colors">ROI Calculator</Link>
+          <Link href="/parent-decision" className="hover:text-indigo-600 transition-colors">For Parents</Link>
           <a href="#countries" className="hover:text-indigo-600 transition-colors">Destinations</a>
-          <a href="#testimonials" className="hover:text-indigo-600 transition-colors">Success Stories</a>
+          <a href="#scholarships" className="hover:text-indigo-600 transition-colors">Scholarships</a>
         </div>
         <Link
           href="/get-started"
@@ -315,7 +318,7 @@ export default function LandingPage() {
               </span>
             </h1>
             <p className="text-lg text-slate-300 mb-8 leading-relaxed max-w-lg">
-              Fill in your profile once. Let our AI engine work the magic to give you a personalised TOP 20 shortlist of programs you can actually get into — across <span className="text-white font-semibold">6,500+ programs</span>, <span className="text-white font-semibold">290+ universities</span> and <span className="text-white font-semibold">11 countries</span>, scored by how well they match <span className="text-white font-semibold">you</span>.
+              Fill in your profile once. Let our AI engine work the magic to give you a personalised TOP 20 shortlist of programs you can actually get into — across <span className="text-white font-semibold">6,900+ programs</span>, <span className="text-white font-semibold">348+ universities</span> and <span className="text-white font-semibold">11 countries</span>, scored by how well they match <span className="text-white font-semibold">you</span>.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 items-start mb-10">
               <Link
@@ -369,7 +372,7 @@ export default function LandingPage() {
             <div className="absolute -top-4 -right-4 bg-white rounded-2xl shadow-xl px-4 py-3 flex items-center gap-2 border border-gray-100">
               <GraduationCap className="w-5 h-5 text-indigo-500" />
               <div>
-                <p className="font-extrabold text-gray-900 text-sm leading-none">6,500+</p>
+                <p className="font-extrabold text-gray-900 text-sm leading-none">6,900+</p>
                 <p className="text-xs text-gray-400">Programs</p>
               </div>
             </div>
@@ -385,7 +388,7 @@ export default function LandingPage() {
               <div className="flex items-center gap-2">
                 <GraduationCap className="w-5 h-5 text-indigo-500" />
                 <div>
-                  <p className="font-extrabold text-gray-900 text-sm leading-none">290+</p>
+                  <p className="font-extrabold text-gray-900 text-sm leading-none">348+</p>
                   <p className="text-xs text-gray-400">Universities</p>
                 </div>
               </div>
@@ -512,14 +515,14 @@ export default function LandingPage() {
               <span className="text-indigo-600">before you apply</span>
             </h2>
             <p className="text-gray-500 text-lg leading-relaxed mb-8">
-              We assess your profile across 10 criteria — from passport & visa history to test scores, budget, and research experience — and give you an honest profile rating so you know exactly where you stand.
+              We assess your profile across 12 criteria — from passport & visa history to test scores, budget, and research experience — and give you an honest profile rating so you know exactly where you stand.
             </p>
             <div className="space-y-3 mb-10">
               {[
                 "🔥 SUPER HOT Profile — top 20% of applicants",
                 "⭐ HOT Profile — strong across key criteria",
-                "💪 Good Potential — solid with room to grow",
-                "📊 Medium Potential — targeted prep recommended",
+                "💪 STRONG Profile — solid with room to grow",
+                "📊 Good Profile — targeted prep recommended",
               ].map((item) => (
                 <div key={item} className="flex items-center gap-3 text-sm text-gray-700 font-medium">
                   <CheckCircle2 className="w-4 h-4 text-indigo-500 flex-shrink-0" />
@@ -546,7 +549,7 @@ export default function LandingPage() {
               <MapPin className="w-3.5 h-3.5" /> Destinations
             </span>
             <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mt-1">
-              11 countries. 6,500+ programs. Endless possibilities.
+              11 countries. 6,900+ programs. Endless possibilities.
             </h2>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
@@ -600,10 +603,11 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ── Scholarships section ─────────────────────────────────── */}
-      <section className="py-24 px-6 bg-gradient-to-br from-indigo-50 via-white to-purple-50">
+      {/* ── Tools + Scholarships section ─────────────────────────── */}
+      <section id="scholarships" className="py-24 px-6 bg-gradient-to-br from-indigo-50 via-white to-purple-50">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
+          {/* Section heading */}
+          <div className="text-center mb-10">
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-100 text-indigo-700 text-sm font-semibold mb-4">
               <Award className="w-3.5 h-3.5" />
               SCHOLARSHIPS
@@ -614,6 +618,73 @@ export default function LandingPage() {
             <p className="text-gray-500 mt-4 max-w-2xl mx-auto text-base leading-relaxed">
               Thousands of scholarships are available for international students every year — many go unclaimed. Select a destination to explore key scholarships available there.
             </p>
+          </div>
+
+          {/* Tool cards row */}
+          <div className="grid sm:grid-cols-2 gap-5 mb-14">
+            {/* ROI Calculator card */}
+            <motion.div
+              id="roi-calculator"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="group relative bg-white rounded-3xl border border-indigo-100 shadow-sm hover:shadow-xl hover:shadow-indigo-100 transition-all duration-300 p-7 flex flex-col"
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-md shadow-indigo-200">
+                  <TrendingUp className="w-5 h-5 text-white" />
+                </div>
+                <span className="text-xs font-bold text-indigo-600 uppercase tracking-wider">ROI Calculator</span>
+              </div>
+              <h3 className="text-xl font-extrabold text-gray-900 mb-2">Will your degree pay off?</h3>
+              <p className="text-sm text-gray-500 leading-relaxed mb-5 flex-1">
+                Pick any university and program — we auto-fill tuition, costs and salary data so you instantly see your payback period, 10-year ROI and monthly savings potential.
+              </p>
+              <div className="flex flex-wrap gap-1.5 mb-6">
+                {["Payback Period", "10-Year ROI", "Monthly Savings", "Break-even Salary"].map((t) => (
+                  <span key={t} className="px-2.5 py-1 rounded-full bg-indigo-50 text-indigo-600 text-[11px] font-semibold">{t}</span>
+                ))}
+              </div>
+              <Link
+                href="/roi-calculator"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-bold w-fit hover:shadow-lg hover:shadow-indigo-200 hover:-translate-y-0.5 transition-all duration-200"
+              >
+                Open Calculator <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </motion.div>
+
+            {/* Parent Decision Tool card */}
+            <motion.div
+              id="parent-decision-tool"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="group relative bg-gradient-to-br from-purple-700 to-indigo-800 rounded-3xl shadow-sm hover:shadow-xl hover:shadow-purple-200 transition-all duration-300 p-7 flex flex-col"
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-11 h-11 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center border border-white/30">
+                  <Users className="w-5 h-5 text-white" />
+                </div>
+                <span className="text-xs font-bold text-purple-200 uppercase tracking-wider">For Parents</span>
+              </div>
+              <h3 className="text-xl font-extrabold text-white mb-2">Is studying abroad right for your child?</h3>
+              <p className="text-sm text-indigo-200 leading-relaxed mb-5 flex-1">
+                Get a data-driven verdict across 7 key factors — budget fit, job market, safety, post-study work rights, financial ROI and more. No guesswork.
+              </p>
+              <div className="flex flex-wrap gap-1.5 mb-6">
+                {["Budget Fit", "Safety", "PSW Rights", "Job Market", "Student Life"].map((t) => (
+                  <span key={t} className="px-2.5 py-1 rounded-full bg-white/15 text-white text-[11px] font-semibold border border-white/20">{t}</span>
+                ))}
+              </div>
+              <Link
+                href="/parent-decision"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white text-indigo-700 text-sm font-bold w-fit hover:shadow-lg hover:shadow-purple-400/30 hover:-translate-y-0.5 transition-all duration-200"
+              >
+                Open Tool <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </motion.div>
           </div>
 
           {/* Country icon row */}

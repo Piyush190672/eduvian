@@ -11,6 +11,7 @@ import {
   ChevronUp,
   CheckCircle2,
   XCircle,
+  MinusCircle,
   Download,
   Send,
   Loader2,
@@ -70,8 +71,9 @@ export default function ProfileCard({ profile, token }: Props) {
     }
   };
 
-  const passedCount = result.criteria.filter((c) => c.passed).length;
-  const failedCount = result.total - passedCount;
+  const passedCount = result.criteria.filter((c) => c.points === c.maxPoints).length;
+  const partialCount = result.criteria.filter((c) => c.partial).length;
+  const failedCount = result.criteria.filter((c) => c.points === 0).length;
 
   return (
     <div className={`rounded-2xl border-2 ${style.border} ${style.bg} overflow-hidden mb-6`}>
@@ -167,7 +169,13 @@ export default function ProfileCard({ profile, token }: Props) {
           Profile criteria
           <span className="flex items-center gap-1 text-xs font-normal text-gray-500">
             <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
-            {passedCount} passed
+            {passedCount} full
+            {partialCount > 0 && (
+              <>
+                <MinusCircle className="w-3.5 h-3.5 text-amber-400 ml-1" />
+                {partialCount} partial
+              </>
+            )}
             <XCircle className="w-3.5 h-3.5 text-rose-400 ml-1" />
             {failedCount} not met
           </span>
@@ -185,17 +193,26 @@ export default function ProfileCard({ profile, token }: Props) {
             <div
               key={i}
               className={`flex items-center gap-2.5 px-3 py-2.5 rounded-xl border text-xs font-medium transition-all ${
-                c.passed
+                c.points === c.maxPoints
                   ? "bg-white/70 border-emerald-100 text-gray-700"
+                  : c.partial
+                  ? "bg-amber-50/60 border-amber-100 text-gray-600"
                   : "bg-white/40 border-rose-100 text-gray-400"
               }`}
             >
-              {c.passed ? (
+              {c.points === c.maxPoints ? (
                 <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0" />
+              ) : c.partial ? (
+                <MinusCircle className="w-4 h-4 text-amber-400 flex-shrink-0" />
               ) : (
                 <XCircle className="w-4 h-4 text-rose-400 flex-shrink-0" />
               )}
-              {c.label}
+              <span className="flex-1">{c.label}</span>
+              {c.maxPoints > 1 && (
+                <span className="ml-auto text-[10px] font-semibold opacity-60">
+                  {c.points}/{c.maxPoints}
+                </span>
+              )}
             </div>
           ))}
         </div>

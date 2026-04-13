@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useState, useEffect, Suspense } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import toast from "react-hot-toast";
 import {
@@ -48,6 +48,10 @@ const defaultProfile: Partial<StudentProfile> = {
   target_intake_year: 2026,
   target_intake_semester: "fall",
   budget_range: "35k_50k",
+  qs_ranking_preference: "any",
+  post_study_work_visa: false,
+  canada_college_types: [],
+  scholarship_seeking: false,
 };
 
 function validateStep(step: number, profile: Partial<StudentProfile>): string[] {
@@ -96,16 +100,41 @@ function validateStep(step: number, profile: Partial<StudentProfile>): string[] 
   return missing;
 }
 
-export default function ProfilePage() {
+function ProfilePageInner() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const editToken = searchParams.get("token");
+
   const [step, setStep] = useState(1);
   const [profile, setProfile] = useState<Partial<StudentProfile>>(defaultProfile);
   const [submitting, setSubmitting] = useState(false);
   const [errors, setErrors] = useState<string[]>([]);
   const [studentName, setStudentName] = useState<string | null>(null);
+  const [isEditing, setIsEditing] = useState(false);
 
-  // Pre-fill name, email, phone from saved student session
+  // If token present, load the full existing profile from the submission
   useEffect(() => {
+    if (!editToken) return;
+    (async () => {
+      try {
+        const res = await fetch(`/api/results/${editToken}`);
+        if (!res.ok) return;
+        const data = await res.json();
+        const existingProfile = data?.submission?.profile as Partial<StudentProfile>;
+        if (existingProfile) {
+          setProfile({ ...defaultProfile, ...existingProfile });
+          setIsEditing(true);
+          if (existingProfile.full_name) {
+            setStudentName(existingProfile.full_name.split(" ")[0]);
+          }
+        }
+      } catch { /* ignore */ }
+    })();
+  }, [editToken]);
+
+  // Pre-fill name, email, phone from saved student session (only when not editing)
+  useEffect(() => {
+    if (editToken) return; // skip if editing existing submission
     try {
       const raw = localStorage.getItem("eduvian_student");
       if (raw) {
@@ -121,7 +150,7 @@ export default function ProfilePage() {
         }
       }
     } catch { /* ignore */ }
-  }, []);
+  }, [editToken]);
 
   const updateProfile = (data: Partial<StudentProfile>) => {
     setProfile((prev) => ({ ...prev, ...data }));
@@ -197,8 +226,24 @@ export default function ProfilePage() {
       </nav>
 
       <div className="pt-24 pb-16 px-4 max-w-2xl mx-auto">
+        {/* Editing mode banner */}
+        {isEditing && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mb-6 flex items-center gap-3 px-5 py-3.5 rounded-2xl bg-amber-50 border border-amber-200"
+          >
+            <div className="w-8 h-8 rounded-xl bg-amber-400 flex items-center justify-center flex-shrink-0">
+              <FileText className="w-4 h-4 text-white" />
+            </div>
+            <p className="text-sm text-amber-800 font-medium">
+              ✏️ Editing your profile — your previous answers are pre-filled. Change what you need and resubmit to get an updated shortlist.
+            </p>
+          </motion.div>
+        )}
+
         {/* Welcome back banner */}
-        {studentName && (
+        {studentName && !isEditing && (
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -329,11 +374,11 @@ export default function ProfilePage() {
               {submitting ? (
                 <>
                   <Loader2 className="w-4 h-4 animate-spin" />
-                  Generating shortlist...
+                  {isEditing ? "Recalculating..." : "Generating shortlist..."}
                 </>
               ) : (
                 <>
-                  Get my shortlist
+                  {isEditing ? "Update & Recalculate" : "Get my shortlist"}
                   <ChevronRight className="w-4 h-4" />
                 </>
               )}
@@ -342,5 +387,17 @@ export default function ProfilePage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function ProfilePage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="w-8 h-8 rounded-full border-4 border-indigo-500 border-t-transparent animate-spin" />
+      </div>
+    }>
+      <ProfilePageInner />
+    </Suspense>
   );
 }

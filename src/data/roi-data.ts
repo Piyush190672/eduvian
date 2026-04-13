@@ -1,0 +1,327 @@
+// ─── ROI Calculator Data ──────────────────────────────────────────────────────
+
+export type SalaryCountry =
+  | "USA" | "UK" | "Australia" | "Canada" | "Germany"
+  | "Singapore" | "New Zealand" | "Ireland" | "France" | "UAE" | "Malaysia";
+
+export type FieldOfStudy =
+  | "Computer Science & IT"
+  | "Artificial Intelligence & Data Science"
+  | "Business & Management"
+  | "MBA"
+  | "Economics & Finance"
+  | "Engineering (Mechanical/Civil/Electrical)"
+  | "Medicine & Public Health"
+  | "Law"
+  | "Nursing & Allied Health"
+  | "Natural Sciences"
+  | "Biotechnology & Life Sciences"
+  | "Environmental & Sustainability Studies"
+  | "Social Sciences & Humanities"
+  | "Arts, Design & Architecture"
+  | "Media & Communications"
+  | "Agriculture & Veterinary Sciences"
+  | "Hospitality & Tourism";
+
+// Average starting salaries (USD equivalent) for international grads, major cities.
+// Sources: LinkedIn Salary, NACE, Glassdoor, PayScale, Graduate Outcomes Survey 2023-25.
+export const SALARY_LOOKUP: Record<SalaryCountry, Record<FieldOfStudy, number>> = {
+  USA: {
+    "Computer Science & IT":                      115000,
+    "Artificial Intelligence & Data Science":     125000,
+    "Business & Management":                       72000,
+    "MBA":                                         115000,
+    "Economics & Finance":                          88000,
+    "Engineering (Mechanical/Civil/Electrical)":    82000,
+    "Medicine & Public Health":                     70000,
+    "Law":                                          80000,
+    "Nursing & Allied Health":                      68000,
+    "Natural Sciences":                             58000,
+    "Biotechnology & Life Sciences":                72000,
+    "Environmental & Sustainability Studies":       60000,
+    "Social Sciences & Humanities":                 50000,
+    "Arts, Design & Architecture":                  52000,
+    "Media & Communications":                       52000,
+    "Agriculture & Veterinary Sciences":            50000,
+    "Hospitality & Tourism":                        48000,
+  },
+  UK: {
+    "Computer Science & IT":                        55000,
+    "Artificial Intelligence & Data Science":       62000,
+    "Business & Management":                        42000,
+    "MBA":                                          68000,
+    "Economics & Finance":                          55000,
+    "Engineering (Mechanical/Civil/Electrical)":    44000,
+    "Medicine & Public Health":                     42000,
+    "Law":                                          48000,
+    "Nursing & Allied Health":                      36000,
+    "Natural Sciences":                             36000,
+    "Biotechnology & Life Sciences":                40000,
+    "Environmental & Sustainability Studies":       34000,
+    "Social Sciences & Humanities":                 32000,
+    "Arts, Design & Architecture":                  32000,
+    "Media & Communications":                       32000,
+    "Agriculture & Veterinary Sciences":            30000,
+    "Hospitality & Tourism":                        28000,
+  },
+  Australia: {
+    "Computer Science & IT":                        72000,
+    "Artificial Intelligence & Data Science":       80000,
+    "Business & Management":                        58000,
+    "MBA":                                          88000,
+    "Economics & Finance":                          66000,
+    "Engineering (Mechanical/Civil/Electrical)":    68000,
+    "Medicine & Public Health":                     60000,
+    "Law":                                          62000,
+    "Nursing & Allied Health":                      58000,
+    "Natural Sciences":                             52000,
+    "Biotechnology & Life Sciences":                56000,
+    "Environmental & Sustainability Studies":       52000,
+    "Social Sciences & Humanities":                 46000,
+    "Arts, Design & Architecture":                  46000,
+    "Media & Communications":                       46000,
+    "Agriculture & Veterinary Sciences":            48000,
+    "Hospitality & Tourism":                        42000,
+  },
+  Canada: {
+    "Computer Science & IT":                        72000,
+    "Artificial Intelligence & Data Science":       80000,
+    "Business & Management":                        55000,
+    "MBA":                                          82000,
+    "Economics & Finance":                          60000,
+    "Engineering (Mechanical/Civil/Electrical)":    62000,
+    "Medicine & Public Health":                     58000,
+    "Law":                                          58000,
+    "Nursing & Allied Health":                      54000,
+    "Natural Sciences":                             48000,
+    "Biotechnology & Life Sciences":                52000,
+    "Environmental & Sustainability Studies":       48000,
+    "Social Sciences & Humanities":                 42000,
+    "Arts, Design & Architecture":                  42000,
+    "Media & Communications":                       42000,
+    "Agriculture & Veterinary Sciences":            44000,
+    "Hospitality & Tourism":                        38000,
+  },
+  Germany: {
+    "Computer Science & IT":                        58000,
+    "Artificial Intelligence & Data Science":       65000,
+    "Business & Management":                        48000,
+    "MBA":                                          70000,
+    "Economics & Finance":                          54000,
+    "Engineering (Mechanical/Civil/Electrical)":    56000,
+    "Medicine & Public Health":                     52000,
+    "Law":                                          46000,
+    "Nursing & Allied Health":                      36000,
+    "Natural Sciences":                             44000,
+    "Biotechnology & Life Sciences":                48000,
+    "Environmental & Sustainability Studies":       42000,
+    "Social Sciences & Humanities":                 36000,
+    "Arts, Design & Architecture":                  36000,
+    "Media & Communications":                       36000,
+    "Agriculture & Veterinary Sciences":            38000,
+    "Hospitality & Tourism":                        30000,
+  },
+  Singapore: {
+    "Computer Science & IT":                        62000,
+    "Artificial Intelligence & Data Science":       72000,
+    "Business & Management":                        52000,
+    "MBA":                                          90000,
+    "Economics & Finance":                          60000,
+    "Engineering (Mechanical/Civil/Electrical)":    54000,
+    "Medicine & Public Health":                     52000,
+    "Law":                                          56000,
+    "Nursing & Allied Health":                      40000,
+    "Natural Sciences":                             44000,
+    "Biotechnology & Life Sciences":                50000,
+    "Environmental & Sustainability Studies":       42000,
+    "Social Sciences & Humanities":                 38000,
+    "Arts, Design & Architecture":                  38000,
+    "Media & Communications":                       38000,
+    "Agriculture & Veterinary Sciences":            36000,
+    "Hospitality & Tourism":                        36000,
+  },
+  "New Zealand": {
+    "Computer Science & IT":                        56000,
+    "Artificial Intelligence & Data Science":       62000,
+    "Business & Management":                        46000,
+    "MBA":                                          68000,
+    "Economics & Finance":                          50000,
+    "Engineering (Mechanical/Civil/Electrical)":    54000,
+    "Medicine & Public Health":                     52000,
+    "Law":                                          48000,
+    "Nursing & Allied Health":                      48000,
+    "Natural Sciences":                             42000,
+    "Biotechnology & Life Sciences":                46000,
+    "Environmental & Sustainability Studies":       42000,
+    "Social Sciences & Humanities":                 38000,
+    "Arts, Design & Architecture":                  36000,
+    "Media & Communications":                       36000,
+    "Agriculture & Veterinary Sciences":            40000,
+    "Hospitality & Tourism":                        32000,
+  },
+  Ireland: {
+    "Computer Science & IT":                        58000,
+    "Artificial Intelligence & Data Science":       66000,
+    "Business & Management":                        46000,
+    "MBA":                                          72000,
+    "Economics & Finance":                          52000,
+    "Engineering (Mechanical/Civil/Electrical)":    50000,
+    "Medicine & Public Health":                     50000,
+    "Law":                                          46000,
+    "Nursing & Allied Health":                      40000,
+    "Natural Sciences":                             40000,
+    "Biotechnology & Life Sciences":                48000,
+    "Environmental & Sustainability Studies":       38000,
+    "Social Sciences & Humanities":                 34000,
+    "Arts, Design & Architecture":                  34000,
+    "Media & Communications":                       34000,
+    "Agriculture & Veterinary Sciences":            36000,
+    "Hospitality & Tourism":                        30000,
+  },
+  France: {
+    "Computer Science & IT":                        50000,
+    "Artificial Intelligence & Data Science":       58000,
+    "Business & Management":                        44000,
+    "MBA":                                          72000,
+    "Economics & Finance":                          50000,
+    "Engineering (Mechanical/Civil/Electrical)":    48000,
+    "Medicine & Public Health":                     44000,
+    "Law":                                          40000,
+    "Nursing & Allied Health":                      32000,
+    "Natural Sciences":                             36000,
+    "Biotechnology & Life Sciences":                42000,
+    "Environmental & Sustainability Studies":       36000,
+    "Social Sciences & Humanities":                 32000,
+    "Arts, Design & Architecture":                  34000,
+    "Media & Communications":                       32000,
+    "Agriculture & Veterinary Sciences":            32000,
+    "Hospitality & Tourism":                        30000,
+  },
+  UAE: {
+    "Computer Science & IT":                        62000,
+    "Artificial Intelligence & Data Science":       72000,
+    "Business & Management":                        52000,
+    "MBA":                                          85000,
+    "Economics & Finance":                          64000,
+    "Engineering (Mechanical/Civil/Electrical)":    58000,
+    "Medicine & Public Health":                     60000,
+    "Law":                                          54000,
+    "Nursing & Allied Health":                      38000,
+    "Natural Sciences":                             40000,
+    "Biotechnology & Life Sciences":                44000,
+    "Environmental & Sustainability Studies":       40000,
+    "Social Sciences & Humanities":                 34000,
+    "Arts, Design & Architecture":                  38000,
+    "Media & Communications":                       36000,
+    "Agriculture & Veterinary Sciences":            32000,
+    "Hospitality & Tourism":                        34000,
+  },
+  Malaysia: {
+    "Computer Science & IT":                        18000,
+    "Artificial Intelligence & Data Science":       22000,
+    "Business & Management":                        14000,
+    "MBA":                                          22000,
+    "Economics & Finance":                          16000,
+    "Engineering (Mechanical/Civil/Electrical)":    16000,
+    "Medicine & Public Health":                     18000,
+    "Law":                                          14000,
+    "Nursing & Allied Health":                      12000,
+    "Natural Sciences":                             12000,
+    "Biotechnology & Life Sciences":                14000,
+    "Environmental & Sustainability Studies":       12000,
+    "Social Sciences & Humanities":                 11000,
+    "Arts, Design & Architecture":                  12000,
+    "Media & Communications":                       11000,
+    "Agriculture & Veterinary Sciences":            11000,
+    "Hospitality & Tourism":                        10000,
+  },
+};
+
+export interface UniversityOption {
+  name: string;
+  country: SalaryCountry;
+  qs_ranking: number | null;
+  flag: string;
+}
+
+const FLAGS: Record<SalaryCountry, string> = {
+  USA: "🇺🇸", UK: "🇬🇧", Australia: "🇦🇺", Canada: "🇨🇦",
+  Germany: "🇩🇪", Singapore: "🇸🇬", "New Zealand": "🇳🇿", Ireland: "🇮🇪",
+  France: "🇫🇷", UAE: "🇦🇪", Malaysia: "🇲🇾",
+};
+
+export const CURATED_UNIVERSITIES: UniversityOption[] = [
+  // USA
+  { name: "Massachusetts Institute of Technology",        country: "USA",          qs_ranking: 1,    flag: FLAGS["USA"] },
+  { name: "Stanford University",                          country: "USA",          qs_ranking: 5,    flag: FLAGS["USA"] },
+  { name: "Harvard University",                           country: "USA",          qs_ranking: 4,    flag: FLAGS["USA"] },
+  { name: "California Institute of Technology",           country: "USA",          qs_ranking: 6,    flag: FLAGS["USA"] },
+  { name: "University of California, Berkeley",           country: "USA",          qs_ranking: 10,   flag: FLAGS["USA"] },
+  { name: "Columbia University",                          country: "USA",          qs_ranking: 33,   flag: FLAGS["USA"] },
+  { name: "Cornell University",                           country: "USA",          qs_ranking: 13,   flag: FLAGS["USA"] },
+  { name: "Yale University",                              country: "USA",          qs_ranking: 16,   flag: FLAGS["USA"] },
+  { name: "Princeton University",                         country: "USA",          qs_ranking: 17,   flag: FLAGS["USA"] },
+  { name: "Northwestern University",                      country: "USA",          qs_ranking: 33,   flag: FLAGS["USA"] },
+  { name: "UCLA",                                         country: "USA",          qs_ranking: 29,   flag: FLAGS["USA"] },
+  { name: "Duke University",                              country: "USA",          qs_ranking: 60,   flag: FLAGS["USA"] },
+  { name: "Carnegie Mellon University",                   country: "USA",          qs_ranking: 52,   flag: FLAGS["USA"] },
+  { name: "Georgia Institute of Technology",              country: "USA",          qs_ranking: 97,   flag: FLAGS["USA"] },
+  { name: "Northeastern University",                      country: "USA",          qs_ranking: 344,  flag: FLAGS["USA"] },
+  { name: "Purdue University",                            country: "USA",          qs_ranking: 109,  flag: FLAGS["USA"] },
+  // UK
+  { name: "University of Oxford",                         country: "UK",           qs_ranking: 3,    flag: FLAGS["UK"] },
+  { name: "University of Cambridge",                      country: "UK",           qs_ranking: 2,    flag: FLAGS["UK"] },
+  { name: "Imperial College London",                      country: "UK",           qs_ranking: 8,    flag: FLAGS["UK"] },
+  { name: "University College London",                    country: "UK",           qs_ranking: 9,    flag: FLAGS["UK"] },
+  { name: "London School of Economics",                   country: "UK",           qs_ranking: 45,   flag: FLAGS["UK"] },
+  { name: "University of Edinburgh",                      country: "UK",           qs_ranking: 27,   flag: FLAGS["UK"] },
+  { name: "University of Manchester",                     country: "UK",           qs_ranking: 34,   flag: FLAGS["UK"] },
+  { name: "King's College London",                        country: "UK",           qs_ranking: 40,   flag: FLAGS["UK"] },
+  { name: "University of Warwick",                        country: "UK",           qs_ranking: 67,   flag: FLAGS["UK"] },
+  { name: "University of Bristol",                        country: "UK",           qs_ranking: 54,   flag: FLAGS["UK"] },
+  // Australia
+  { name: "University of Melbourne",                      country: "Australia",    qs_ranking: 13,   flag: FLAGS["Australia"] },
+  { name: "University of Sydney",                         country: "Australia",    qs_ranking: 18,   flag: FLAGS["Australia"] },
+  { name: "University of New South Wales",                country: "Australia",    qs_ranking: 19,   flag: FLAGS["Australia"] },
+  { name: "Australian National University",               country: "Australia",    qs_ranking: 30,   flag: FLAGS["Australia"] },
+  { name: "University of Queensland",                     country: "Australia",    qs_ranking: 43,   flag: FLAGS["Australia"] },
+  { name: "Monash University",                            country: "Australia",    qs_ranking: 57,   flag: FLAGS["Australia"] },
+  { name: "University of Adelaide",                       country: "Australia",    qs_ranking: 89,   flag: FLAGS["Australia"] },
+  { name: "RMIT University",                              country: "Australia",    qs_ranking: 188,  flag: FLAGS["Australia"] },
+  // Canada
+  { name: "University of Toronto",                        country: "Canada",       qs_ranking: 25,   flag: FLAGS["Canada"] },
+  { name: "University of British Columbia",               country: "Canada",       qs_ranking: 46,   flag: FLAGS["Canada"] },
+  { name: "McGill University",                            country: "Canada",       qs_ranking: 46,   flag: FLAGS["Canada"] },
+  { name: "University of Waterloo",                       country: "Canada",       qs_ranking: 112,  flag: FLAGS["Canada"] },
+  { name: "McMaster University",                          country: "Canada",       qs_ranking: 189,  flag: FLAGS["Canada"] },
+  { name: "University of Alberta",                        country: "Canada",       qs_ranking: 111,  flag: FLAGS["Canada"] },
+  // Germany
+  { name: "Technical University of Munich",               country: "Germany",      qs_ranking: 37,   flag: FLAGS["Germany"] },
+  { name: "RWTH Aachen University",                       country: "Germany",      qs_ranking: 106,  flag: FLAGS["Germany"] },
+  { name: "Heidelberg University",                        country: "Germany",      qs_ranking: 87,   flag: FLAGS["Germany"] },
+  { name: "Free University of Berlin",                    country: "Germany",      qs_ranking: 98,   flag: FLAGS["Germany"] },
+  // Singapore
+  { name: "National University of Singapore",             country: "Singapore",    qs_ranking: 8,    flag: FLAGS["Singapore"] },
+  { name: "Nanyang Technological University",             country: "Singapore",    qs_ranking: 26,   flag: FLAGS["Singapore"] },
+  { name: "Singapore Management University",              country: "Singapore",    qs_ranking: 511,  flag: FLAGS["Singapore"] },
+  // New Zealand
+  { name: "University of Auckland",                       country: "New Zealand",  qs_ranking: 68,   flag: FLAGS["New Zealand"] },
+  { name: "Victoria University of Wellington",            country: "New Zealand",  qs_ranking: 244,  flag: FLAGS["New Zealand"] },
+  { name: "University of Otago",                          country: "New Zealand",  qs_ranking: 206,  flag: FLAGS["New Zealand"] },
+  // Ireland
+  { name: "Trinity College Dublin",                       country: "Ireland",      qs_ranking: 81,   flag: FLAGS["Ireland"] },
+  { name: "University College Dublin",                    country: "Ireland",      qs_ranking: 181,  flag: FLAGS["Ireland"] },
+  { name: "Dublin City University",                       country: "Ireland",      qs_ranking: 531,  flag: FLAGS["Ireland"] },
+  // France
+  { name: "HEC Paris",                                    country: "France",       qs_ranking: null, flag: FLAGS["France"] },
+  { name: "INSEAD",                                       country: "France",       qs_ranking: null, flag: FLAGS["France"] },
+  { name: "Sorbonne University",                          country: "France",       qs_ranking: 231,  flag: FLAGS["France"] },
+  // UAE
+  { name: "Khalifa University",                           country: "UAE",          qs_ranking: 195,  flag: FLAGS["UAE"] },
+  { name: "American University of Sharjah",               country: "UAE",          qs_ranking: null, flag: FLAGS["UAE"] },
+  // Malaysia
+  { name: "Universiti Malaya",                            country: "Malaysia",     qs_ranking: 65,   flag: FLAGS["Malaysia"] },
+  { name: "Monash University Malaysia",                   country: "Malaysia",     qs_ranking: 57,   flag: FLAGS["Malaysia"] },
+];
+
+export const COUNTRY_FLAGS = FLAGS;

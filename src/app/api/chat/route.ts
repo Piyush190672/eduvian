@@ -20,7 +20,7 @@ COUNTRIES WE COVER (11 total):
 10. Singapore — 141 programs
 11. UAE — 200+ programs
 
-TOTAL DATABASE: 6,500+ programs across 290+ universities, 17 fields of study.
+TOTAL DATABASE: 6,900+ programs across 348+ universities, 17 fields of study.
 
 FIELDS OF STUDY ON THE PLATFORM (17):
 1. Computer Science & IT
@@ -41,7 +41,7 @@ FIELDS OF STUDY ON THE PLATFORM (17):
 16. Agriculture & Veterinary Sciences
 17. Hospitality & Tourism
 
-ALL 290+ UNIVERSITIES IN OUR DATABASE:
+ALL 348+ UNIVERSITIES IN OUR DATABASE:
 
 USA (58 universities):
 Arizona State University, Boston University, California Institute of Technology, Carnegie Mellon University, Columbia University, Cornell University, Duke University, Emory University, Georgetown University, Georgia Institute of Technology, Harvard University, Johns Hopkins University, Massachusetts Institute of Technology, Michigan State University, Northeastern University, Northwestern University, NYU Stern School of Business, New York University, Ohio State University, Penn State University, Princeton University, Purdue University, Rice University, Stanford University, Texas A&M University, UC Davis, UC Irvine, UC San Diego, UC Santa Barbara, UCLA, University of California Berkeley, University of Chicago, University of Florida, University of Illinois Urbana-Champaign, University of Maryland, University of Michigan, University of Minnesota Twin Cities, University of North Carolina at Chapel Hill, University of Notre Dame, University of Pennsylvania, University of Pittsburgh, University of Southern California, University of Texas at Austin, University of Virginia, University of Washington, University of Wisconsin-Madison, Vanderbilt University, Yale University
@@ -191,7 +191,7 @@ interface ChatMessage {
 
 export async function POST(req: NextRequest) {
   try {
-    const { messages } = await req.json() as { messages: ChatMessage[] };
+    const { messages, programsContext } = await req.json() as { messages: ChatMessage[]; programsContext?: string };
 
     const apiKey = process.env.ANTHROPIC_API_KEY;
     if (!apiKey) {
@@ -204,22 +204,49 @@ export async function POST(req: NextRequest) {
     const Anthropic = (await import("@anthropic-ai/sdk")).default;
     const client = new Anthropic({ apiKey });
 
-    const response = await client.messages.create({
-      model: "claude-haiku-4-5",
-      max_tokens: 600,
-      system: SYSTEM_PROMPT,
-      messages: messages.map((m) => ({
-        role: m.role,
-        content: m.content,
-      })),
-    });
+    const systemPrompt = programsContext
+      ? `${SYSTEM_PROMPT}\n\n${programsContext}\n\nIMPORTANT: The student is viewing their matched results page. Prioritise answering questions about their specific matched programs listed above. You have full details on each program — use them to give specific, helpful answers.`
+      : SYSTEM_PROMPT;
+
+    // Retry up to 3 times on 529 (overloaded) errors
+    let response;
+    for (let attempt = 1; attempt <= 3; attempt++) {
+      try {
+        response = await client.messages.create({
+          model: "claude-haiku-4-5",
+          max_tokens: 600,
+          system: systemPrompt,
+          messages: messages.map((m) => ({
+            role: m.role,
+            content: m.content,
+          })),
+        });
+        break; // success
+      } catch (apiErr: unknown) {
+        const status = (apiErr as { status?: number })?.status;
+        if (status === 529 && attempt < 3) {
+          await new Promise((r) => setTimeout(r, attempt * 1500)); // 1.5s, 3s
+          continue;
+        }
+        throw apiErr;
+      }
+    }
+
+    if (!response) throw new Error("No response after retries");
 
     const text =
       response.content[0].type === "text" ? response.content[0].text : "";
 
     return NextResponse.json({ message: text });
-  } catch (err) {
+  } catch (err: unknown) {
     console.error("Chat error:", err);
+    const status = (err as { status?: number })?.status;
+    if (status === 529) {
+      return NextResponse.json(
+        { error: "Our AI advisor is experiencing high demand right now. Please try again in a moment." },
+        { status: 503 }
+      );
+    }
     return NextResponse.json({ error: "Chat failed" }, { status: 500 });
   }
 }

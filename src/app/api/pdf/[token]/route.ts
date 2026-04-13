@@ -74,12 +74,16 @@ function buildPDFHtml(profile: StudentProfile, programs: ScoredProgram[]): strin
   const badgeHtml = categoryBadgeHtml(profileScore.category);
 
   const criteriaRows = profileScore.criteria
-    .map(
-      (c) => `
-      <span style="display:inline-flex;align-items:center;gap:6px;background:${c.passed ? "#f0fdf4" : "#fef2f2"};border:1px solid ${c.passed ? "#bbf7d0" : "#fecaca"};border-radius:8px;padding:5px 10px;font-size:11px;color:${c.passed ? "#166534" : "#991b1b"};">
-        ${c.passed ? "✓" : "✗"} ${c.label}
-      </span>`
-    )
+    .map((c) => {
+      const full = c.points === c.maxPoints;
+      const partial = c.partial;
+      const bg    = full ? "#f0fdf4" : partial ? "#fffbeb" : "#fef2f2";
+      const bdr   = full ? "#bbf7d0" : partial ? "#fde68a" : "#fecaca";
+      const color = full ? "#166534" : partial ? "#92400e" : "#991b1b";
+      const icon  = full ? "✓" : partial ? "~" : "✗";
+      const pts   = c.maxPoints > 1 ? ` (${c.points}/${c.maxPoints})` : "";
+      return `<span style="display:inline-flex;align-items:center;gap:6px;background:${bg};border:1px solid ${bdr};border-radius:8px;padding:5px 10px;font-size:11px;color:${color};">${icon} ${c.label}${pts}</span>`;
+    })
     .join("");
 
   const rows = programs

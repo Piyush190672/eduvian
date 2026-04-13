@@ -64,15 +64,23 @@ export interface StudentProfile {
 
   // Step 4 — Preferences
   country_preferences: string[]; // ordered array, up to 10 countries
+  country_region_preferences?: Record<string, string[]>; // countryCode → region codes (empty = entire country)
   target_intake_year: number;
   target_intake_semester: "fall" | "spring" | "summer" | "winter";
   budget_range: BudgetRange;
   intended_field: string;
+  // Hard-filter preferences
+  qs_ranking_preference?: "top_50" | "top_100" | "top_200" | "top_500" | "any";
+  post_study_work_visa?: boolean;
+  // Canada-specific college program types (shown only when Canada is selected)
+  canada_college_types?: ("diploma" | "pg_diploma")[];
+  // Scoring preference
+  scholarship_seeking?: boolean;
 }
 
 // ─── Program ──────────────────────────────────────────────────────────────────
 
-export type ProgramLevel = "undergraduate" | "postgraduate" | "both";
+export type ProgramLevel = "undergraduate" | "postgraduate" | "both" | "diploma" | "pg_diploma";
 
 export interface Program {
   id: string;
@@ -116,8 +124,7 @@ export interface ScoredProgram extends Program {
     academic: number;
     english: number;
     budget: number;
-    country_rank: number;
-    qs_ranking: number;
+    scholarship: number;
     intake: number;
     work_experience: number;
     std_test: number;
@@ -175,6 +182,96 @@ export const FIELDS_OF_STUDY = [
   "Agriculture & Veterinary Sciences",
   "Hospitality & Tourism",
 ] as const;
+
+// ─── Country Regions ──────────────────────────────────────────────────────────
+// Used for sub-country filtering in preferences and matching.
+// `match` = state codes (US) or city keywords (all other countries).
+// An empty `match` array means "entire country" — no city filter applied.
+
+export type CountryRegion = { code: string; label: string; match: string[] };
+
+export const COUNTRY_REGIONS: Record<string, CountryRegion[]> = {
+  US: [
+    { code: "east_coast",  label: "East Coast",            match: ["MA","CT","RI","NY","NJ","PA","DE","MD","DC","VA","NC","SC","GA","FL","NH","VT","ME"] },
+    { code: "west_coast",  label: "West Coast",            match: ["CA","WA","OR"] },
+    { code: "midwest",     label: "Midwest",               match: ["IL","IN","OH","MI","WI","MN","IA","MO","ND","SD","NE","KS"] },
+    { code: "south",       label: "South",                 match: ["TX","OK","AR","LA","MS","AL","TN","KY","WV"] },
+    { code: "southwest",   label: "Mountain / Southwest",  match: ["AZ","NM","CO","UT","NV"] },
+    { code: "entire",      label: "Entire USA",            match: [] },
+  ],
+  GB: [
+    { code: "london",           label: "London",                       match: ["London"] },
+    { code: "scotland",         label: "Scotland",                     match: ["Edinburgh","Glasgow","St Andrews","Aberdeen","Dundee","Stirling","Inverness"] },
+    { code: "north_england",    label: "North England",                match: ["Manchester","Leeds","Sheffield","Newcastle","Liverpool","Lancaster","York","Sunderland","Hull","Bradford","Huddersfield","Middlesbrough","Durham"] },
+    { code: "midlands",         label: "Midlands",                     match: ["Birmingham","Nottingham","Leicester","Coventry","Loughborough","Keele","Lincoln","Wolverhampton","Worcester","Stoke","Northampton","Chester","Derby"] },
+    { code: "south_england",    label: "South England (excl. London)", match: ["Bristol","Bath","Southampton","Exeter","Reading","Oxford","Cambridge","Canterbury","Brighton","Portsmouth","Plymouth","Bournemouth","Gloucester","Guildford","Egham","Surrey","Norwich","Colchester"] },
+    { code: "wales",            label: "Wales",                        match: ["Cardiff","Swansea","Bangor","Newport"] },
+    { code: "northern_ireland", label: "Northern Ireland",             match: ["Belfast","Coleraine","Derry","Jordanstown"] },
+    { code: "entire",           label: "Entire UK",                    match: [] },
+  ],
+  AU: [
+    { code: "nsw",         label: "NSW (Sydney)",           match: ["Sydney","Wollongong","Newcastle","Lismore","Bathurst","Armidale","Penrith"] },
+    { code: "victoria",    label: "Victoria (Melbourne)",   match: ["Melbourne","Geelong","Ballarat","Bendigo","Bundoora","Burwood"] },
+    { code: "queensland",  label: "Queensland (Brisbane)",  match: ["Brisbane","Gold Coast","Townsville","Cairns","Rockhampton","Toowoomba","Sunshine Coast"] },
+    { code: "wa",          label: "Western Australia",      match: ["Perth","Fremantle","Murdoch","Joondalup"] },
+    { code: "sa",          label: "South Australia",        match: ["Adelaide","Whyalla","Mount Gambier","Bedford Park"] },
+    { code: "act",         label: "ACT (Canberra)",         match: ["Canberra","Bruce"] },
+    { code: "nt_tasmania", label: "NT & Tasmania",          match: ["Darwin","Hobart","Launceston","Casuarina"] },
+    { code: "entire",      label: "Entire Australia",       match: [] },
+  ],
+  CA: [
+    { code: "ontario",   label: "Ontario (Toronto / Ottawa)",       match: ["Toronto","Ottawa","Waterloo","Hamilton","Kingston","London, ON","Windsor","Guelph","Oshawa","Thunder Bay"] },
+    { code: "quebec",    label: "Québec (Montréal)",                match: ["Montreal","Montréal","Quebec City","Québec","Sherbrooke","Laval"] },
+    { code: "bc",        label: "British Columbia (Vancouver)",     match: ["Vancouver","Victoria","Burnaby","Surrey","Kelowna","Abbotsford"] },
+    { code: "alberta",   label: "Alberta (Calgary / Edmonton)",     match: ["Calgary","Edmonton","Lethbridge","Red Deer"] },
+    { code: "maritimes", label: "Prairies & Maritimes",             match: ["Halifax","Fredericton","Saskatoon","Regina","Winnipeg","Moncton","Saint John","Sackville"] },
+    { code: "entire",    label: "Entire Canada",                    match: [] },
+  ],
+  NZ: [
+    { code: "auckland",      label: "Auckland",                          match: ["Auckland"] },
+    { code: "wellington",    label: "Wellington",                        match: ["Wellington"] },
+    { code: "christchurch",  label: "Canterbury (Christchurch)",         match: ["Christchurch","Lincoln"] },
+    { code: "dunedin",       label: "Otago (Dunedin)",                   match: ["Dunedin"] },
+    { code: "other_nz",      label: "Other (Hamilton / Palmerston Nth)", match: ["Hamilton","Palmerston North","Tauranga","Nelson"] },
+    { code: "entire",        label: "Entire New Zealand",                match: [] },
+  ],
+  IE: [
+    { code: "dublin",          label: "Dublin",          match: ["Dublin"] },
+    { code: "cork",            label: "Cork",            match: ["Cork"] },
+    { code: "galway_limerick", label: "Galway / Limerick", match: ["Galway","Limerick"] },
+    { code: "entire",          label: "Entire Ireland",  match: [] },
+  ],
+  DE: [
+    { code: "bavaria",   label: "Bavaria (Munich / Nuremberg)",       match: ["Munich","Nuremberg","Augsburg","Regensburg","Passau"] },
+    { code: "berlin",    label: "Berlin",                             match: ["Berlin"] },
+    { code: "nrw",       label: "NRW (Cologne / Aachen / Münster)",   match: ["Cologne","Aachen","Münster","Dortmund","Düsseldorf","Bochum","Essen","Bielefeld","Wuppertal"] },
+    { code: "bw",        label: "Baden-Württemberg (Stuttgart / Heidelberg)", match: ["Stuttgart","Heidelberg","Karlsruhe","Freiburg","Tübingen","Konstanz","Mannheim","Ulm"] },
+    { code: "other_de",  label: "Other Germany",                      match: ["Hamburg","Frankfurt","Hannover","Göttingen","Dresden","Leipzig","Bremen","Kiel","Rostock","Halle","Kassel"] },
+    { code: "entire",    label: "Entire Germany",                     match: [] },
+  ],
+  FR: [
+    { code: "paris",     label: "Paris & Île-de-France",              match: ["Paris","Fontainebleau","Cergy","Saclay","Palaiseau","Gif-sur-Yvette","Versailles"] },
+    { code: "south_fr",  label: "South France (Marseille / Nice)",    match: ["Marseille","Montpellier","Nice","Aix-en-Provence","Toulon"] },
+    { code: "other_fr",  label: "Other France",                       match: ["Lyon","Grenoble","Strasbourg","Bordeaux","Toulouse","Lille","Nantes","Rennes","Clermont-Ferrand"] },
+    { code: "entire",    label: "Entire France",                      match: [] },
+  ],
+  AE: [
+    { code: "dubai",     label: "Dubai",      match: ["Dubai"] },
+    { code: "abu_dhabi", label: "Abu Dhabi",  match: ["Abu Dhabi"] },
+    { code: "sharjah",   label: "Sharjah",    match: ["Sharjah"] },
+    { code: "entire",    label: "Entire UAE", match: [] },
+  ],
+  SG: [
+    { code: "entire", label: "Singapore", match: [] },
+  ],
+  MY: [
+    { code: "kl",       label: "KL / Selangor",  match: ["Kuala Lumpur","Subang Jaya","Petaling Jaya","Shah Alam","Cyberjaya","Putrajaya","Klang"] },
+    { code: "penang",   label: "Penang",          match: ["Penang","George Town","Bayan Lepas"] },
+    { code: "johor",    label: "Johor",           match: ["Johor Bahru","Skudai","Johor"] },
+    { code: "other_my", label: "Other Malaysia",  match: ["Kota Kinabalu","Kuching","Ipoh","Kota Bharu","Kedah","Terengganu","Perak"] },
+    { code: "entire",   label: "Entire Malaysia", match: [] },
+  ],
+};
 
 export const BUDGET_LABELS: Record<BudgetRange, string> = {
   under_20k: "Under $20,000/yr",

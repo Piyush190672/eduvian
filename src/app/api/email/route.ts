@@ -79,8 +79,16 @@ export async function POST(req: NextRequest) {
       const ps = scoreStudentProfile(profile);
       const style = getCategoryStyle(ps.category);
       const badge = categoryBadgeHtml(ps.category);
-      const passed = ps.criteria.filter(c => c.passed);
-      const failed = ps.criteria.filter(c => !c.passed);
+      const renderCriteria = (c: typeof ps.criteria[number]) => {
+        const full    = c.points === c.maxPoints;
+        const partial = c.partial;
+        const bg    = full ? "#f0fdf4" : partial ? "#fffbeb" : "#fef2f2";
+        const bdr   = full ? "#bbf7d0" : partial ? "#fde68a" : "#fecaca";
+        const color = full ? "#166534" : partial ? "#92400e" : "#991b1b";
+        const icon  = full ? "✓" : partial ? "~" : "✗";
+        const pts   = c.maxPoints > 1 ? ` (${c.points}/${c.maxPoints})` : "";
+        return `<span style="display:inline-block;background:${bg};border:1px solid ${bdr};border-radius:8px;padding:4px 10px;font-size:11px;color:${color};">${icon} ${c.label}${pts}</span>`;
+      };
       return `
       <div style="background:#f8fafc;border:1.5px solid #e0e7ff;border-radius:14px;padding:20px 24px;margin-bottom:24px;">
         <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:12px;">
@@ -89,8 +97,7 @@ export async function POST(req: NextRequest) {
         </div>
         <p style="color:#6b7280;font-size:13px;margin:0 0 14px;line-height:1.5;">${style.description}</p>
         <div style="display:flex;flex-wrap:wrap;gap:6px;">
-          ${passed.map(c => `<span style="display:inline-block;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:4px 10px;font-size:11px;color:#166534;">✓ ${c.label}</span>`).join("")}
-          ${failed.map(c => `<span style="display:inline-block;background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:4px 10px;font-size:11px;color:#991b1b;">✗ ${c.label}</span>`).join("")}
+          ${ps.criteria.map(renderCriteria).join("")}
         </div>
       </div>`;
     })() : "";
@@ -104,7 +111,7 @@ export async function POST(req: NextRequest) {
           <div style="color:#6b7280;font-size:12px;margin-top:2px;">${p.university_name} · ${p.country}</div>
         </td>
         <td style="padding:12px 8px;text-align:center;">
-          <span style="background:${p.tier === "safe" ? "#d1fae5" : p.tier === "reach" ? "#fef3c7" : "#fff7ed"};color:${p.tier === "safe" ? "#065f46" : p.tier === "reach" ? "#92400e" : "#c2410c"};padding:3px 10px;border-radius:20px;font-size:12px;font-weight:600;">${getTierLabel(p.tier)}</span>
+          <span style="background:${p.tier === "safe" ? "#d1fae5" : p.tier === "reach" ? "#fef3c7" : "#fff1f2"};color:${p.tier === "safe" ? "#065f46" : p.tier === "reach" ? "#92400e" : "#be123c"};padding:3px 10px;border-radius:20px;font-size:12px;font-weight:600;">${getTierLabel(p.tier)}</span>
         </td>
         <td style="padding:12px 8px;text-align:right;font-weight:700;color:#4f46e5;font-size:14px;">${p.match_score}%</td>
         <td style="padding:12px 8px;text-align:right;color:#6b7280;font-size:13px;">${formatCurrency(p.annual_tuition_usd + p.avg_living_cost_usd)}/yr</td>
@@ -182,8 +189,8 @@ export async function POST(req: NextRequest) {
     const fromEmail = process.env.RESEND_FROM_EMAIL ?? "results@eduvianai.com";
 
     if (!resendKey) {
-      console.warn("RESEND_API_KEY not configured");
-      return NextResponse.json({ ok: true, warning: "Email service not configured" });
+      console.error("RESEND_API_KEY not configured — email cannot be sent");
+      return NextResponse.json({ error: "Email service not configured" }, { status: 500 });
     }
 
     if (!profile?.email) {

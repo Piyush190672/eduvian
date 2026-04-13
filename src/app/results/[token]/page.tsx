@@ -9,18 +9,20 @@ import {
   Globe2,
   Download,
   Mail,
-  Filter,
   SlidersHorizontal,
   Loader2,
-  BookmarkCheck,
   RefreshCw,
+  Filter,
+  ShieldCheck,
 } from "lucide-react";
 import type { ScoredProgram, ProgramTier, StudentProfile } from "@/lib/types";
+import { TARGET_COUNTRIES } from "@/lib/types";
 import ProgramCard from "@/components/results/ProgramCard";
-import FilterBar from "@/components/results/FilterBar";
 import ShortlistSummary from "@/components/results/ShortlistSummary";
 import ProfileCard from "@/components/results/ProfileCard";
 import NavButtons from "@/components/ui/NavButtons";
+import CheckMatchPanel from "@/components/results/CheckMatchPanel";
+import ChatWidget from "@/components/ChatWidget";
 
 interface ResultData {
   submission: {
@@ -32,6 +34,39 @@ interface ResultData {
   programs: ScoredProgram[];
 }
 
+const TIER_CONFIG = [
+  {
+    tier: "safe" as ProgramTier,
+    emoji: "✅",
+    label: "Safe Match",
+    description: "Programs where your profile comfortably meets requirements",
+    bg: "bg-emerald-50",
+    border: "border-emerald-200",
+    text: "text-emerald-700",
+    headerBg: "bg-emerald-500",
+  },
+  {
+    tier: "reach" as ProgramTier,
+    emoji: "🎯",
+    label: "Reach",
+    description: "Strong possibilities — your profile is competitive but not guaranteed",
+    bg: "bg-amber-50",
+    border: "border-amber-200",
+    text: "text-amber-700",
+    headerBg: "bg-amber-500",
+  },
+  {
+    tier: "ambitious" as ProgramTier,
+    emoji: "🚀",
+    label: "Ambitious",
+    description: "Stretch goals — high selectivity, but worth applying with a strong essay",
+    bg: "bg-rose-50",
+    border: "border-rose-200",
+    text: "text-rose-700",
+    headerBg: "bg-rose-500",
+  },
+];
+
 export default function ResultsPage() {
   const params = useParams();
   const token = params.token as string;
@@ -40,12 +75,7 @@ export default function ResultsPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [shortlisted, setShortlisted] = useState<Set<string>>(new Set());
-  const [filters, setFilters] = useState({
-    tier: "all" as "all" | ProgramTier,
-    country: "all",
-    field: "all",
-    sort: "match_score",
-  });
+  const [filters, setFilters] = useState({ country: "all", field: "all", sort: "match_score" });
   const [showFilters, setShowFilters] = useState(false);
   const [sendingEmail, setSendingEmail] = useState(false);
 
@@ -63,19 +93,12 @@ export default function ResultsPage() {
     }
   }, [token]);
 
-  useEffect(() => {
-    fetchResults();
-  }, [fetchResults]);
+  useEffect(() => { fetchResults(); }, [fetchResults]);
 
   const toggleShortlist = async (programId: string) => {
     const next = new Set(shortlisted);
-    if (next.has(programId)) {
-      next.delete(programId);
-    } else {
-      next.add(programId);
-    }
+    if (next.has(programId)) next.delete(programId); else next.add(programId);
     setShortlisted(next);
-
     await fetch(`/api/results/${token}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
@@ -84,10 +107,7 @@ export default function ResultsPage() {
   };
 
   const sendEmail = async () => {
-    if (shortlisted.size === 0) {
-      toast("Shortlist at least one program first!", { icon: "🔖" });
-      return;
-    }
+    if (shortlisted.size === 0) { toast("Shortlist at least one program first!", { icon: "🔖" }); return; }
     setSendingEmail(true);
     try {
       const res = await fetch(`/api/email`, {
@@ -95,89 +115,89 @@ export default function ResultsPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ token, shortlisted_ids: Array.from(shortlisted) }),
       });
-      if (!res.ok) throw new Error("Failed to send");
+      if (!res.ok) throw new Error();
       toast.success(`Shortlisted ${shortlisted.size} program(s) sent to your email!`);
-    } catch {
-      toast.error("Failed to send email. Try again.");
-    } finally {
-      setSendingEmail(false);
-    }
+    } catch { toast.error("Failed to send email. Try again."); }
+    finally { setSendingEmail(false); }
   };
 
   const downloadPDF = () => {
-    if (shortlisted.size === 0) {
-      toast("Shortlist at least one program first!", { icon: "🔖" });
-      return;
-    }
+    if (shortlisted.size === 0) { toast("Shortlist at least one program first!", { icon: "🔖" }); return; }
     toast("Opening print view — use Save as PDF", { icon: "📄" });
-    const ids = Array.from(shortlisted).join(",");
-    window.open(`/api/pdf/${token}?ids=${ids}`, "_blank");
+    window.open(`/api/pdf/${token}?ids=${Array.from(shortlisted).join(",")}`, "_blank");
   };
 
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <Loader2 className="w-12 h-12 animate-spin text-indigo-500 mx-auto mb-4" />
-          <p className="text-gray-500">Building your personalized shortlist...</p>
-        </div>
+  if (loading) return (
+    <div className="min-h-screen flex items-center justify-center">
+      <div className="text-center">
+        <Loader2 className="w-12 h-12 animate-spin text-indigo-500 mx-auto mb-4" />
+        <p className="text-gray-500">Building your personalised shortlist...</p>
       </div>
-    );
-  }
+    </div>
+  );
 
-  if (error || !data) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <p className="text-gray-500 mb-4">{error}</p>
-          <Link
-            href="/profile"
-            className="px-6 py-2.5 rounded-xl bg-indigo-500 text-white font-medium hover:bg-indigo-600 transition-colors"
-          >
-            Start over
-          </Link>
-        </div>
+  if (error || !data) return (
+    <div className="min-h-screen flex items-center justify-center">
+      <div className="text-center">
+        <p className="text-gray-500 mb-4">{error}</p>
+        <Link href="/profile" className="px-6 py-2.5 rounded-xl bg-indigo-500 text-white font-medium hover:bg-indigo-600 transition-colors">
+          Start over
+        </Link>
       </div>
-    );
-  }
+    </div>
+  );
 
   const allPrograms = data.programs;
-
-  // Filter & sort
-  let filtered = allPrograms.filter((p) => {
-    if (filters.tier !== "all" && p.tier !== filters.tier) return false;
-    if (filters.country !== "all" && p.country !== filters.country) return false;
-    if (filters.field !== "all" && p.field_of_study !== filters.field) return false;
-    return true;
-  });
-
-  filtered = [...filtered].sort((a, b) => {
-    switch (filters.sort) {
-      case "match_score":
-        return b.match_score - a.match_score;
-      case "tuition":
-        return a.annual_tuition_usd - b.annual_tuition_usd;
-      case "qs_ranking":
-        return (a.qs_ranking ?? 9999) - (b.qs_ranking ?? 9999);
-      case "deadline":
-        if (!a.application_deadline) return 1;
-        if (!b.application_deadline) return -1;
-        return a.application_deadline.localeCompare(b.application_deadline);
-      default:
-        return b.match_score - a.match_score;
-    }
-  });
-
-  const safeCount = allPrograms.filter((p) => p.tier === "safe").length;
-  const reachCount = allPrograms.filter((p) => p.tier === "reach").length;
-  const ambitiousCount = allPrograms.filter((p) => p.tier === "ambitious").length;
-  const shortlistedPrograms = allPrograms.filter((p) => shortlisted.has(p.id));
-
-  const countries = [...new Set(allPrograms.map((p) => p.country))];
-  const fields = [...new Set(allPrograms.map((p) => p.field_of_study))];
-
   const profile = data.submission.profile as unknown as StudentProfile;
   const studentName = profile.full_name ?? "there";
+
+  // Apply country / field filters then sort
+  const applyFilters = (programs: ScoredProgram[]) => {
+    let out = programs.filter((p) => {
+      if (filters.country !== "all" && p.country !== filters.country) return false;
+      if (filters.field !== "all" && p.field_of_study !== filters.field) return false;
+      return true;
+    });
+    out = [...out].sort((a, b) => {
+      switch (filters.sort) {
+        case "tuition":     return a.annual_tuition_usd - b.annual_tuition_usd;
+        case "qs_ranking":  return (a.qs_ranking ?? 9999) - (b.qs_ranking ?? 9999);
+        case "deadline":
+          if (!a.application_deadline) return 1;
+          if (!b.application_deadline) return -1;
+          return a.application_deadline.localeCompare(b.application_deadline);
+        default:            return b.match_score - a.match_score;
+      }
+    });
+    return out;
+  };
+
+  const safePrograms      = applyFilters(allPrograms.filter((p) => p.tier === "safe"));
+  const reachPrograms     = applyFilters(allPrograms.filter((p) => p.tier === "reach"));
+  const ambitiousPrograms = applyFilters(allPrograms.filter((p) => p.tier === "ambitious"));
+
+  const countries = [...new Set(allPrograms.map((p) => p.country))];
+  const fields    = [...new Set(allPrograms.map((p) => p.field_of_study))];
+  const shortlistedPrograms = allPrograms.filter((p) => shortlisted.has(p.id));
+
+  // ── Build hard-filter chips ───────────────────────────────────────────────
+  const hardFilterChips: { label: string; icon: string }[] = [];
+
+  if (profile.country_preferences?.length) {
+    profile.country_preferences.forEach((code) => {
+      const c = TARGET_COUNTRIES.find((t) => t.code === code);
+      if (c) hardFilterChips.push({ label: c.name, icon: c.flag });
+    });
+  }
+  if (profile.qs_ranking_preference && profile.qs_ranking_preference !== "any") {
+    const labels: Record<string, string> = { top_50: "QS Top 50", top_100: "QS Top 100", top_200: "QS Top 200", top_500: "QS Top 500" };
+    hardFilterChips.push({ label: labels[profile.qs_ranking_preference] ?? "", icon: "🏆" });
+  }
+  if (profile.post_study_work_visa) {
+    hardFilterChips.push({ label: "Post-Study Work Visa", icon: "✈️" });
+  }
+
+  const tierPrograms = { safe: safePrograms, reach: reachPrograms, ambitious: ambitiousPrograms };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50/30">
@@ -193,17 +213,13 @@ export default function ResultsPage() {
           </div>
         </Link>
         <div className="flex items-center gap-2">
-          <NavButtons backHref="/profile" backLabel="Go Back" />
+          <NavButtons backHref={`/profile?token=${token}`} backLabel="Modify Profile" />
           <button
             onClick={sendEmail}
             disabled={sendingEmail}
             className="flex items-center gap-1.5 px-4 py-2 rounded-xl border border-gray-200 text-sm font-medium text-gray-600 hover:bg-gray-50 disabled:opacity-50 transition-all"
           >
-            {sendingEmail ? (
-              <Loader2 className="w-4 h-4 animate-spin" />
-            ) : (
-              <Mail className="w-4 h-4" />
-            )}
+            {sendingEmail ? <Loader2 className="w-4 h-4 animate-spin" /> : <Mail className="w-4 h-4" />}
             Email Shortlist{shortlisted.size > 0 ? ` (${shortlisted.size})` : ""}
           </button>
           <button
@@ -218,130 +234,70 @@ export default function ResultsPage() {
 
       <div className="pt-24 pb-16 px-4 max-w-5xl mx-auto">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="mb-6"
-        >
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-6">
           <p className="text-gray-400 text-sm font-medium mb-1">Hey {studentName} 👋</p>
-          <h1 className="text-3xl font-extrabold text-gray-900">
-            Here are your TOP options matching your profile
-          </h1>
+          <h1 className="text-3xl font-extrabold text-gray-900">Your TOP 20 matches as per your profile</h1>
           <p className="text-gray-500 mt-1">
-            <span className="text-indigo-600 font-semibold">{allPrograms.length} programs</span> matched — ranked by how well they fit you. Shortlist the ones you like, then email or download as PDF.
+            <span className="text-emerald-600 font-semibold">{safePrograms.length} Safe</span>{" · "}
+            <span className="text-amber-600 font-semibold">{reachPrograms.length} Reach</span>{" · "}
+            <span className="text-rose-600 font-semibold">{ambitiousPrograms.length} Ambitious</span>
+            {" — shortlist the ones you like, then email or download as PDF."}
           </p>
         </motion.div>
 
-        {/* Shortlist composition tip */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          className="mb-6 p-4 rounded-2xl bg-gradient-to-r from-indigo-50 to-purple-50 border border-indigo-100 flex flex-wrap items-center gap-3"
-        >
-          <span className="text-lg">💡</span>
-          <p className="text-sm text-gray-700 font-medium flex-1">
-            <span className="font-bold text-gray-900">Ideal shortlist mix:</span>{" "}
-            <span className="text-emerald-600 font-semibold">30% Safe</span> ·{" "}
-            <span className="text-amber-600 font-semibold">50% Reach</span> ·{" "}
-            <span className="text-orange-500 font-semibold">20% Ambitious</span>
-            <span className="text-gray-400 ml-2 font-normal">— maximises your chances of a strong outcome.</span>
-          </p>
-          {shortlisted.size > 0 && (() => {
-            const sl = allPrograms.filter(p => shortlisted.has(p.id));
-            const slSafe = sl.filter(p => p.tier === "safe").length;
-            const slReach = sl.filter(p => p.tier === "reach").length;
-            const slAmbitious = sl.filter(p => p.tier === "ambitious").length;
-            return (
-              <div className="flex items-center gap-2 text-xs text-gray-500 bg-white rounded-xl px-3 py-1.5 border border-gray-100">
-                <span>Your shortlist:</span>
-                <span className="text-emerald-600 font-semibold">{slSafe} Safe</span>
-                <span className="text-amber-600 font-semibold">{slReach} Reach</span>
-                <span className="text-orange-500 font-semibold">{slAmbitious} Ambitious</span>
-              </div>
-            );
-          })()}
-        </motion.div>
+        {/* Hard filters applied */}
+        {hardFilterChips.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.05 }}
+            className="mb-5 p-3.5 rounded-2xl bg-indigo-50 border border-indigo-100 flex flex-wrap items-center gap-2"
+          >
+            <ShieldCheck className="w-4 h-4 text-indigo-500 flex-shrink-0" />
+            <span className="text-xs font-semibold text-indigo-600 mr-1">Hard filters applied:</span>
+            {hardFilterChips.map((chip, i) => (
+              <span key={i} className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white border border-indigo-200 text-xs font-medium text-indigo-700">
+                {chip.icon} {chip.label}
+              </span>
+            ))}
+          </motion.div>
+        )}
 
         {/* Profile summary card */}
         <ProfileCard profile={profile} token={token} />
 
-        {/* Tier summary badges */}
-        <div className="flex flex-wrap gap-3 mb-6">
-          {[
-            { tier: "safe", label: "Safe Match", count: safeCount, emoji: "✅", color: "bg-emerald-50 text-emerald-700 border-emerald-200" },
-            { tier: "reach", label: "Reach", count: reachCount, emoji: "🎯", color: "bg-amber-50 text-amber-700 border-amber-200" },
-            { tier: "ambitious", label: "Ambitious", count: ambitiousCount, emoji: "🚀", color: "bg-orange-50 text-orange-700 border-orange-200" },
-          ].map((t) => (
-            <button
-              key={t.tier}
-              onClick={() =>
-                setFilters((f) => ({
-                  ...f,
-                  tier: f.tier === t.tier ? "all" : (t.tier as ProgramTier),
-                }))
-              }
-              className={`flex items-center gap-2 px-4 py-2 rounded-xl border text-sm font-medium transition-all ${t.color} ${
-                filters.tier === t.tier ? "ring-2 ring-offset-1 ring-indigo-300" : ""
-              }`}
-            >
-              {t.emoji} {t.count} {t.label}
-            </button>
-          ))}
-          {shortlisted.size > 0 && (
-            <button
-              onClick={() =>
-                setFilters((f) => ({
-                  ...f,
-                  tier: "all",
-                  country: "all",
-                  field: "all",
-                }))
-              }
-              className="flex items-center gap-2 px-4 py-2 rounded-xl border border-indigo-200 bg-indigo-50 text-indigo-700 text-sm font-medium"
-            >
-              <BookmarkCheck className="w-4 h-4" />
-              {shortlisted.size} Bookmarked
-            </button>
-          )}
-        </div>
+        {/* Shortlist summary */}
+        {shortlisted.size > 0 && (
+          <ShortlistSummary programs={shortlistedPrograms} onRemove={toggleShortlist} />
+        )}
 
         {/* Filter bar */}
         <div className="flex items-center gap-3 mb-6">
           <button
             onClick={() => setShowFilters((s) => !s)}
             className={`flex items-center gap-2 px-4 py-2 rounded-xl border text-sm font-medium transition-all ${
-              showFilters
-                ? "bg-indigo-50 border-indigo-200 text-indigo-700"
-                : "bg-white border-gray-200 text-gray-600 hover:border-indigo-200"
+              showFilters ? "bg-indigo-50 border-indigo-200 text-indigo-700" : "bg-white border-gray-200 text-gray-600 hover:border-indigo-200"
             }`}
           >
             <SlidersHorizontal className="w-4 h-4" />
-            Filters
-            {(filters.tier !== "all" || filters.country !== "all" || filters.field !== "all") && (
+            Refine
+            {(filters.country !== "all" || filters.field !== "all") && (
               <span className="w-2 h-2 rounded-full bg-indigo-500 ml-1" />
             )}
           </button>
-          <span className="text-sm text-gray-400">
-            {filtered.length} of {allPrograms.length} programs
-          </span>
-          {(filters.tier !== "all" || filters.country !== "all" || filters.field !== "all") && (
+          {(filters.country !== "all" || filters.field !== "all") && (
             <button
-              onClick={() =>
-                setFilters({ tier: "all", country: "all", field: "all", sort: filters.sort })
-              }
+              onClick={() => setFilters({ country: "all", field: "all", sort: filters.sort })}
               className="flex items-center gap-1 text-xs text-rose-400 hover:text-rose-600"
             >
               <RefreshCw className="w-3 h-3" />
-              Clear filters
+              Clear
             </button>
           )}
           <div className="ml-auto">
             <select
               value={filters.sort}
-              onChange={(e) =>
-                setFilters((f) => ({ ...f, sort: e.target.value }))
-              }
+              onChange={(e) => setFilters((f) => ({ ...f, sort: e.target.value }))}
               className="px-3 py-1.5 rounded-xl border border-gray-200 text-sm text-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-300 bg-white"
             >
               <option value="match_score">Sort: Best Match</option>
@@ -353,65 +309,106 @@ export default function ResultsPage() {
         </div>
 
         {showFilters && (
-          <FilterBar
-            filters={filters}
-            countries={countries}
-            fields={fields}
-            onChange={(f) => setFilters((prev) => ({ ...prev, ...f } as typeof prev))}
-          />
-        )}
-
-        {/* Shortlist summary */}
-        {shortlisted.size > 0 && (
-          <ShortlistSummary
-            programs={shortlistedPrograms}
-            onRemove={toggleShortlist}
-          />
-        )}
-
-        {/* Program cards */}
-        {filtered.length === 0 ? (
-          <div className="text-center py-16">
-            <Filter className="w-12 h-12 text-gray-200 mx-auto mb-4" />
-            <p className="text-gray-400">No programs match these filters.</p>
-            <button
-              onClick={() =>
-                setFilters({ tier: "all", country: "all", field: "all", sort: "match_score" })
-              }
-              className="mt-4 text-indigo-500 text-sm hover:underline"
-            >
-              Clear all filters
-            </button>
-          </div>
-        ) : (
-          <div className="space-y-4">
-            {filtered.map((program, i) => (
-              <motion.div
-                key={program.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.04 }}
+          <div className="mb-6 p-4 rounded-2xl border border-gray-100 bg-white grid grid-cols-2 gap-3">
+            <div>
+              <label className="block text-xs font-medium text-gray-500 mb-1">Country</label>
+              <select
+                value={filters.country}
+                onChange={(e) => setFilters((f) => ({ ...f, country: e.target.value }))}
+                className="w-full px-3 py-2 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300 bg-white"
               >
-                <ProgramCard
-                  program={program}
-                  isShortlisted={shortlisted.has(program.id)}
-                  onToggleShortlist={() => toggleShortlist(program.id)}
-                />
-              </motion.div>
-            ))}
+                <option value="all">All Countries</option>
+                {countries.map((c) => <option key={c} value={c}>{c}</option>)}
+              </select>
+            </div>
+            <div>
+              <label className="block text-xs font-medium text-gray-500 mb-1">Field</label>
+              <select
+                value={filters.field}
+                onChange={(e) => setFilters((f) => ({ ...f, field: e.target.value }))}
+                className="w-full px-3 py-2 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300 bg-white"
+              >
+                <option value="all">All Fields</option>
+                {fields.map((f) => <option key={f} value={f}>{f}</option>)}
+              </select>
+            </div>
           </div>
         )}
 
-        <div className="mt-12 text-center">
+        {/* ── Tier-grouped program sections ─────────────────────────────────── */}
+        {TIER_CONFIG.map((tc, sectionIdx) => {
+          const programs = tierPrograms[tc.tier];
+          return (
+            <motion.section
+              key={tc.tier}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: sectionIdx * 0.08 }}
+              className="mb-10"
+            >
+              {/* Section header */}
+              <div className={`flex items-center gap-3 px-4 py-3 rounded-2xl ${tc.bg} border ${tc.border} mb-4`}>
+                <span className="text-xl">{tc.emoji}</span>
+                <div className="flex-1">
+                  <span className={`font-extrabold text-base ${tc.text}`}>
+                    {tc.label}
+                    <span className="ml-2 font-normal text-sm opacity-70">({programs.length} programs)</span>
+                  </span>
+                  <p className="text-xs text-gray-500 mt-0.5">{tc.description}</p>
+                </div>
+              </div>
+
+              {programs.length === 0 ? (
+                <div className="text-center py-10 rounded-2xl border border-dashed border-gray-200">
+                  <Filter className="w-8 h-8 text-gray-200 mx-auto mb-2" />
+                  <p className="text-sm text-gray-400">No {tc.label.toLowerCase()} matches for the current filters.</p>
+                  {(filters.country !== "all" || filters.field !== "all") && (
+                    <button
+                      onClick={() => setFilters({ country: "all", field: "all", sort: filters.sort })}
+                      className="mt-2 text-xs text-indigo-500 hover:underline"
+                    >
+                      Clear filters
+                    </button>
+                  )}
+                </div>
+              ) : (
+                <div className="space-y-4">
+                  {programs.map((program, i) => (
+                    <motion.div
+                      key={program.id}
+                      initial={{ opacity: 0, y: 12 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: sectionIdx * 0.06 + i * 0.03 }}
+                    >
+                      <ProgramCard
+                        program={program}
+                        isShortlisted={shortlisted.has(program.id)}
+                        onToggleShortlist={() => toggleShortlist(program.id)}
+                      />
+                    </motion.div>
+                  ))}
+                </div>
+              )}
+            </motion.section>
+          );
+        })}
+
+        {/* Check any program match score */}
+        <CheckMatchPanel token={token} />
+
+        <div className="mt-8 text-center">
           <Link
             href="/profile"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl border border-gray-200 text-sm font-medium text-gray-600 hover:bg-gray-50 transition-all"
           >
             <RefreshCw className="w-4 h-4" />
-            Update my profile & re-run
+            Update my profile &amp; re-run
           </Link>
         </div>
       </div>
+
+      {/* AISA chat — context-aware with matched programs */}
+      <ChatWidget programs={allPrograms} studentName={studentName} />
     </div>
   );
 }

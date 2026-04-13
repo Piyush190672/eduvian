@@ -18,15 +18,79 @@ interface Props {
   onToggleShortlist: () => void;
 }
 
-function ScoreBar({ label, value }: { label: string; value: number }) {
+type SignalStatus = "strong" | "partial" | "gap";
+
+function getStatus(value: number): SignalStatus {
+  if (value >= 75) return "strong";
+  if (value >= 40) return "partial";
+  return "gap";
+}
+
+const STATUS_STYLE: Record<SignalStatus, { bg: string; text: string; dot: string; icon: string }> = {
+  strong:  { bg: "bg-emerald-50", text: "text-emerald-700", dot: "bg-emerald-500", icon: "✓" },
+  partial: { bg: "bg-amber-50",   text: "text-amber-700",   dot: "bg-amber-400",   icon: "~" },
+  gap:     { bg: "bg-rose-50",    text: "text-rose-600",    dot: "bg-rose-400",    icon: "✗" },
+};
+
+// Human-readable verdict per signal and score
+function getVerdict(signal: string, value: number, isPG: boolean): string {
+  const s = getStatus(value);
+  switch (signal) {
+    case "academic":
+      return s === "strong" ? "Above requirement" : s === "partial" ? "Meets minimum" : "Below requirement";
+    case "budget":
+      return s === "strong" ? "Well within budget" : s === "partial" ? "Slightly over budget" : "Over budget";
+    case "std_test":
+      if (value === 60 || value === 70) return "No test submitted";
+      return s === "strong" ? "Score qualifies" : s === "partial" ? "Close to requirement" : "Below requirement";
+    case "english":
+      if (value === 70 || value === 80) return "No test or not required";
+      return s === "strong" ? "Meets requirement" : s === "partial" ? "Slightly below" : "Below requirement";
+    case "scholarship":
+      return s === "strong" ? "High scholarship availability" : s === "partial" ? "Some scholarships available" : "Limited scholarships";
+    case "intake":
+      return value === 100 ? "Intake available" : "Intake not offered";
+    case "backlogs":
+      return value === 100 ? "No backlogs" : value === 50 ? "1 backlog" : value === 25 ? "2–3 backlogs" : "4+ backlogs";
+    case "gap_year":
+      return value === 100 ? "No gap year" : "Gap year noted";
+    case "work_experience":
+      return s === "strong" ? "Meets work exp. req." : s === "partial" ? "Close to requirement" : "Below work exp. req.";
+    default:
+      return s === "strong" ? "Good" : s === "partial" ? "Partial" : "Needs attention";
+  }
+}
+
+const SIGNAL_LABELS: Record<string, string> = {
+  academic:        "Academics",
+  budget:          "Budget",
+  std_test:        "Std. Test",
+  english:         "English",
+  scholarship:     "Scholarships",
+  intake:          "Intake",
+  backlogs:        "Backlogs",
+  gap_year:        "Gap Year",
+  work_experience: "Work Exp.",
+};
+
+interface SignalChipProps {
+  signal: string;
+  value: number;
+  isPG: boolean;
+}
+
+function SignalChip({ signal, value, isPG }: SignalChipProps) {
+  const status = getStatus(value);
+  const style = STATUS_STYLE[status];
+  const verdict = getVerdict(signal, value, isPG);
   return (
-    <div className="flex items-center gap-2">
-      <span className="text-xs text-gray-400 w-28 flex-shrink-0">{label}</span>
-      <div className="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden">
-        <div
-          className="h-full bg-gradient-to-r from-indigo-400 to-purple-400 rounded-full transition-all"
-          style={{ width: `${Math.min(value, 100)}%` }}
-        />
+    <div className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl border ${style.bg} ${
+      status === "strong" ? "border-emerald-100" : status === "partial" ? "border-amber-100" : "border-rose-100"
+    }`}>
+      <span className={`text-xs font-bold ${style.text}`}>{style.icon}</span>
+      <div>
+        <span className={`text-xs font-semibold ${style.text}`}>{SIGNAL_LABELS[signal]}</span>
+        <p className="text-xs text-gray-500 leading-none mt-0.5">{verdict}</p>
       </div>
     </div>
   );
@@ -37,13 +101,26 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist 
   const flag = getCountryFlag(program.country);
   const tierStyle = getTierColor(program.tier);
   const tierLabel = getTierLabel(program.tier);
+  const isPG = program.degree_level === "postgraduate";
 
-  const scoreColor =
-    program.match_score >= 80
-      ? "text-emerald-600"
-      : program.match_score >= 50
-      ? "text-amber-600"
-      : "text-orange-500";
+  const bd = program.score_breakdown;
+
+  // Signals to display (work_exp only if PG and has a value)
+  const signals: { key: keyof typeof bd }[] = [
+    { key: "academic"        },
+    { key: "budget"          },
+    { key: "std_test"        },
+    { key: "english"         },
+    { key: "scholarship"     },
+    { key: "intake"          },
+    { key: "backlogs"        },
+    { key: "gap_year"        },
+    ...(bd.work_experience > 0 ? [{ key: "work_experience" as keyof typeof bd }] : []),
+  ];
+
+  // Count weak signals for the summary pill
+  const weakCount = signals.filter((s) => getStatus(bd[s.key] as number) === "gap").length;
+  const partialCount = signals.filter((s) => getStatus(bd[s.key] as number) === "partial").length;
 
   return (
     <div className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden">
@@ -57,7 +134,7 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist 
                   ? "bg-emerald-50 text-emerald-600 border-2 border-emerald-200"
                   : program.match_score >= 50
                   ? "bg-amber-50 text-amber-600 border-2 border-amber-200"
-                  : "bg-orange-50 text-orange-500 border-2 border-orange-200"
+                  : "bg-rose-50 text-rose-600 border-2 border-rose-200"
               }`}
             >
               {program.match_score}
@@ -67,41 +144,19 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist 
 
           {/* Main info */}
           <div className="flex-1 min-w-0">
-            <div className="flex items-start justify-between gap-2 mb-1">
-              <div>
-                <h3 className="font-bold text-gray-900 text-base leading-tight">
-                  {program.program_name}
-                </h3>
-                <p className="text-sm text-gray-500 mt-0.5">
-                  {flag} {program.university_name}
-                  {program.qs_ranking && (
-                    <span className="ml-2 inline-flex items-center gap-1 text-xs text-amber-600">
-                      <Trophy className="w-3 h-3" />
-                      QS #{program.qs_ranking}
-                    </span>
-                  )}
-                </p>
-              </div>
-              <button
-                onClick={onToggleShortlist}
-                className={`flex-shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold border transition-all ${
-                  isShortlisted
-                    ? "bg-indigo-500 text-white border-indigo-500 hover:bg-rose-500 hover:border-rose-500"
-                    : "bg-white text-indigo-600 border-indigo-300 hover:bg-indigo-50"
-                }`}
-              >
-                {isShortlisted ? (
-                  <>
-                    <BookmarkCheck className="w-3.5 h-3.5" />
-                    Shortlisted
-                  </>
-                ) : (
-                  <>
-                    <BookmarkPlus className="w-3.5 h-3.5" />
-                    Shortlist
-                  </>
+            <div className="mb-1">
+              <h3 className="font-bold text-gray-900 text-base leading-tight">
+                {program.program_name}
+              </h3>
+              <p className="text-sm text-gray-500 mt-0.5">
+                {flag} {program.university_name}
+                {program.qs_ranking && (
+                  <span className="ml-2 inline-flex items-center gap-1 text-xs text-amber-600">
+                    <Trophy className="w-3 h-3" />
+                    QS #{program.qs_ranking}
+                  </span>
                 )}
-              </button>
+              </p>
             </div>
 
             {/* Tags row */}
@@ -146,39 +201,74 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist 
           </div>
         </div>
 
-        {/* Bottom action row */}
-        <div className="flex items-center justify-between mt-4 pt-4 border-t border-gray-50">
-          {/* Match signal bars — no numbers shown */}
-          <div className="flex-1 mr-4 space-y-1.5">
-            <ScoreBar label="Academic" value={program.score_breakdown.academic} />
-            <ScoreBar label="English" value={program.score_breakdown.english} />
-            <ScoreBar label="Budget" value={program.score_breakdown.budget} />
-            <ScoreBar label="Country Pref." value={program.score_breakdown.country_rank} />
-            <ScoreBar label="QS Ranking" value={program.score_breakdown.qs_ranking} />
-            <ScoreBar label="Intake" value={program.score_breakdown.intake} />
-            <ScoreBar label="Work Exp." value={program.score_breakdown.work_experience} />
-            <ScoreBar label="Std. Test" value={program.score_breakdown.std_test} />
-            <ScoreBar label="Backlogs" value={program.score_breakdown.backlogs} />
-            <ScoreBar label="Gap Year" value={program.score_breakdown.gap_year} />
+        {/* Score breakdown — always visible */}
+        <div className="mt-4 pt-4 border-t border-gray-100">
+          <div className="flex items-center justify-between mb-2.5">
+            <span className="text-xs font-bold text-gray-500 uppercase tracking-wide">Why this score?</span>
+            <span className="flex items-center gap-1.5">
+              {weakCount > 0 && (
+                <span className="px-2 py-0.5 rounded-full bg-rose-100 text-rose-600 text-[10px] font-bold">
+                  {weakCount} gap{weakCount > 1 ? "s" : ""}
+                </span>
+              )}
+              {partialCount > 0 && (
+                <span className="px-2 py-0.5 rounded-full bg-amber-100 text-amber-600 text-[10px] font-bold">
+                  {partialCount} partial
+                </span>
+              )}
+              {weakCount === 0 && partialCount === 0 && (
+                <span className="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 text-[10px] font-bold">
+                  All signals strong ✓
+                </span>
+              )}
+            </span>
           </div>
-          <div className="flex flex-col items-end gap-2 flex-shrink-0">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 mb-4">
+            {signals.map((s) => (
+              <SignalChip
+                key={s.key}
+                signal={s.key}
+                value={bd[s.key] as number}
+                isPG={isPG}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Action buttons */}
+        <div>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={onToggleShortlist}
+              className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold border-2 transition-all flex-1 justify-center ${
+                isShortlisted
+                  ? "bg-indigo-500 text-white border-indigo-500 hover:bg-rose-500 hover:border-rose-500"
+                  : "bg-white text-indigo-600 border-indigo-400 hover:bg-indigo-50 hover:border-indigo-500"
+              }`}
+            >
+              {isShortlisted ? (
+                <><BookmarkCheck className="w-4 h-4" />Shortlisted</>
+              ) : (
+                <><BookmarkPlus className="w-4 h-4" />+ Shortlist</>
+              )}
+            </button>
             <a
               href={program.program_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1 px-3 py-1.5 rounded-xl border border-indigo-200 text-indigo-500 text-xs font-semibold hover:bg-indigo-50 transition-colors"
+              className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl border border-gray-200 text-gray-600 text-sm font-semibold hover:bg-gray-50 hover:border-gray-300 transition-colors whitespace-nowrap"
             >
-              View Program
-              <ExternalLink className="w-3 h-3" />
+              Program Details
+              <ExternalLink className="w-3.5 h-3.5" />
             </a>
             <a
               href={program.apply_url ?? program.program_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-4 py-1.5 rounded-xl bg-indigo-500 text-white text-xs font-semibold hover:bg-indigo-600 transition-colors"
+              className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-bold hover:shadow-lg hover:shadow-indigo-200 hover:-translate-y-0.5 transition-all whitespace-nowrap"
             >
               Apply Now
-              <ExternalLink className="w-3 h-3" />
+              <ExternalLink className="w-3.5 h-3.5" />
             </a>
           </div>
         </div>

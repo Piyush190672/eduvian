@@ -20,7 +20,7 @@ export function getTierColor(tier: string): string {
     case "reach":
       return "text-amber-600 bg-amber-50 border-amber-200";
     case "ambitious":
-      return "text-orange-600 bg-orange-50 border-orange-200";
+      return "text-rose-700 bg-rose-50 border-rose-200";
     default:
       return "text-gray-600 bg-gray-50 border-gray-200";
   }
