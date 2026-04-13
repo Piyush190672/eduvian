@@ -1,0 +1,84 @@
+import { NextRequest, NextResponse } from "next/server";
+
+export async function POST(req: NextRequest) {
+  try {
+    const { question, objective, transcript, country, studentName } =
+      await req.json() as {
+        question: string;
+        objective: string;
+        transcript: string;
+        country: "australia" | "uk";
+        studentName: string;
+      };
+
+    const apiKey = process.env.ANTHROPIC_API_KEY;
+    if (!apiKey) {
+      return NextResponse.json({ error: "Service not configured" }, { status: 503 });
+    }
+
+    const isAU = country === "australia";
+
+    // Format differs slightly between AU and UK per their instruction windows
+    const improveLabel = isAU ? "What you could improve" : "Where you could improve";
+    const sampleLabel = isAU ? "A good sample answer is" : "Here is a sample answer";
+
+    const systemPrompt = `You are an expert international student visa interview coach with a warm, encouraging and friendly personality.
+Your tone must always be: supportive, energetic, positive, and motivating — like a trusted mentor who genuinely wants the student to succeed.
+Always address the student by their first name: ${studentName}.
+Never be harsh or discouraging. Frame all improvement points as growth opportunities.
+The sample answer must be energetic, confident, complete, under 200 words, and deliverable in under 40 seconds.`;
+
+    const userPrompt = `Interview context: ${isAU ? "Australian GS student visa interview" : "UK student visa interview"}
+
+Category objective: ${objective}
+
+Question asked: "${question}"
+
+Student's answer: "${transcript || "(no answer given — student did not speak)"}"
+
+Please evaluate this answer and respond in EXACTLY this format with no extra text:
+
+What you did well:
+- [point 1]
+- [point 2]
+
+${improveLabel}:
+- [point 1]
+- [point 2]
+
+${sampleLabel}: [write a complete, confident sample answer under 200 words, energetic tone, covering all key points the interviewer wants to hear for this specific question]`;
+
+    const Anthropic = (await import("@anthropic-ai/sdk")).default;
+    const client = new Anthropic({ apiKey });
+
+    let response;
+    for (let attempt = 1; attempt <= 3; attempt++) {
+      try {
+        response = await client.messages.create({
+          model: "claude-haiku-4-5",
+          max_tokens: 600,
+          system: systemPrompt,
+          messages: [{ role: "user", content: userPrompt }],
+        });
+        break;
+      } catch (apiErr: unknown) {
+        const status = (apiErr as { status?: number })?.status;
+        if (status === 529 && attempt < 3) {
+          await new Promise((r) => setTimeout(r, attempt * 1500));
+          continue;
+        }
+        throw apiErr;
+      }
+    }
+
+    if (!response) throw new Error("No response after retries");
+
+    const text =
+      response.content[0].type === "text" ? response.content[0].text : "";
+
+    return NextResponse.json({ feedback: text });
+  } catch (err) {
+    console.error("Interview feedback error:", err);
+    return NextResponse.json({ error: "Feedback generation failed" }, { status: 500 });
+  }
+}
