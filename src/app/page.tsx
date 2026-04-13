@@ -922,7 +922,6 @@ export default function LandingPage() {
           </div>
           <div className="flex items-center gap-4 text-sm text-gray-400">
             <p>© 2025 eduvianAI. All rights reserved.</p>
-            <Link href="/admin" className="text-gray-200 hover:text-gray-400 transition-colors text-xs">Admin</Link>
           </div>
         </div>
       </footer>

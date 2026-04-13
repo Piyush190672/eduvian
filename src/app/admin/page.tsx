@@ -17,7 +17,6 @@ export default function AdminLogin() {
     setLoading(true);
     setError("");
 
-    // Demo: accept any credentials in dev, or real Supabase auth in prod
     try {
       const { createClient } = await import("@supabase/supabase-js");
       const supabase = createClient(
@@ -31,13 +30,7 @@ export default function AdminLogin() {
       if (authError) throw authError;
       router.push("/admin/dashboard");
     } catch {
-      // Dev fallback: allow demo credentials
-      if (email === "admin@eduvianai.com" && password === "admin123") {
-        sessionStorage.setItem("eduvianai_admin", "true");
-        router.push("/admin/dashboard");
-      } else {
-        setError("Invalid credentials. Try admin@eduvianai.com / admin123 for demo.");
-      }
+      setError("Invalid credentials.");
     } finally {
       setLoading(false);
     }
@@ -72,7 +65,7 @@ export default function AdminLogin() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="admin@eduvianai.com"
+              placeholder="Email address"
               required
               className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-indigo-300 focus:outline-none focus:ring-2 focus:ring-indigo-400 text-sm"
             />
@@ -110,9 +103,6 @@ export default function AdminLogin() {
             Sign In
           </button>
 
-          <p className="text-indigo-300 text-xs text-center">
-            Demo: admin@eduvianai.com / admin123
-          </p>
         </form>
       </div>
     </div>
