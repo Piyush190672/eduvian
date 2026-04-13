@@ -235,7 +235,7 @@ const FEATURES = [
   { icon: CheckCircle2, text: "Free — no account needed" },
   { icon: CheckCircle2, text: "Takes only 3 minutes" },
   { icon: CheckCircle2, text: "Results emailed instantly" },
-  { icon: CheckCircle2, text: `${DB_STATS.programsLabel} programs across ${DB_STATS.universitiesLabel} universities, ${DB_STATS.countriesLabel} countries` },
+  { icon: CheckCircle2, text: `${DB_STATS.countriesLabel} countries · ${DB_STATS.universitiesLabel} universities · ${DB_STATS.fieldsLabel} fields · ${DB_STATS.programsLabel} programs` },
 ];
 
 export default function LandingPage() {
@@ -318,7 +318,7 @@ export default function LandingPage() {
               </span>
             </h1>
             <p className="text-lg text-slate-300 mb-8 leading-relaxed max-w-lg">
-              Fill in your profile once. Let our AI engine work the magic to give you a personalised TOP 20 shortlist of programs you can actually get into — across <span className="text-white font-semibold">{DB_STATS.programsLabel} programs</span>, <span className="text-white font-semibold">{DB_STATS.universitiesLabel} universities</span> and <span className="text-white font-semibold">{DB_STATS.countriesLabel} countries</span>, scored by how well they match <span className="text-white font-semibold">you</span>.
+              Fill in your profile once. Let our AI engine work the magic to give you a personalised TOP 20 shortlist of programs you can actually get into — across <span className="text-white font-semibold">{DB_STATS.countriesLabel} countries</span>, <span className="text-white font-semibold">{DB_STATS.universitiesLabel} universities</span>, <span className="text-white font-semibold">{DB_STATS.fieldsLabel} fields of study</span> and <span className="text-white font-semibold">{DB_STATS.programsLabel} programs</span>, scored by how well they match <span className="text-white font-semibold">you</span>.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 items-start mb-10">
               <Link
@@ -368,40 +368,37 @@ export default function LandingPage() {
                 </span>
               </div>
             </div>
-            {/* Floating stat badges */}
-            {/* Top-right: Countries + Universities */}
-            <div className="absolute -top-4 -right-4 bg-white rounded-2xl shadow-xl px-4 py-3 flex items-center gap-3 border border-gray-100">
+            {/* Floating stat strip — Countries → Universities → Fields → Programs */}
+            <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 w-[calc(100%+2rem)] bg-white rounded-2xl shadow-xl px-4 py-3 flex items-center justify-around border border-gray-100">
               <div className="flex items-center gap-2">
-                <Globe2 className="w-5 h-5 text-purple-500" />
+                <Globe2 className="w-4 h-4 text-purple-500 flex-shrink-0" />
                 <div>
                   <p className="font-extrabold text-gray-900 text-sm leading-none">{DB_STATS.countriesLabel}</p>
-                  <p className="text-xs text-gray-400">Countries</p>
+                  <p className="text-[10px] text-gray-400">Countries</p>
                 </div>
               </div>
-              <div className="w-px h-8 bg-gray-100" />
+              <div className="w-px h-7 bg-gray-100" />
               <div className="flex items-center gap-2">
-                <Users className="w-5 h-5 text-indigo-500" />
+                <Users className="w-4 h-4 text-indigo-500 flex-shrink-0" />
                 <div>
                   <p className="font-extrabold text-gray-900 text-sm leading-none">{DB_STATS.universitiesLabel}</p>
-                  <p className="text-xs text-gray-400">Universities</p>
+                  <p className="text-[10px] text-gray-400">Universities</p>
                 </div>
               </div>
-            </div>
-            {/* Bottom-left: Fields of Study + Programs */}
-            <div className="absolute -bottom-4 -left-4 bg-white rounded-2xl shadow-xl px-4 py-3 flex items-center gap-3 border border-gray-100">
+              <div className="w-px h-7 bg-gray-100" />
               <div className="flex items-center gap-2">
-                <Award className="w-5 h-5 text-amber-500" />
+                <Award className="w-4 h-4 text-amber-500 flex-shrink-0" />
                 <div>
                   <p className="font-extrabold text-gray-900 text-sm leading-none">{DB_STATS.fieldsLabel}</p>
-                  <p className="text-xs text-gray-400">Fields of Study</p>
+                  <p className="text-[10px] text-gray-400">Fields of Study</p>
                 </div>
               </div>
-              <div className="w-px h-8 bg-gray-100" />
+              <div className="w-px h-7 bg-gray-100" />
               <div className="flex items-center gap-2">
-                <GraduationCap className="w-5 h-5 text-indigo-500" />
+                <GraduationCap className="w-4 h-4 text-emerald-500 flex-shrink-0" />
                 <div>
                   <p className="font-extrabold text-gray-900 text-sm leading-none">{DB_STATS.programsLabel}</p>
-                  <p className="text-xs text-gray-400">Programs</p>
+                  <p className="text-[10px] text-gray-400">Programs</p>
                 </div>
               </div>
             </div>
