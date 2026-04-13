@@ -398,27 +398,6 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ── Stats strip ──────────────────────────────────────────── */}
-      <section className="py-14 px-6 bg-white border-b border-gray-100">
-        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
-          {STATS.map((s, i) => (
-            <motion.div
-              key={s.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="flex flex-col items-center text-center"
-            >
-              <div className="w-14 h-14 rounded-2xl bg-indigo-50 flex items-center justify-center mb-3 border border-indigo-100">
-                <s.icon className="w-7 h-7 text-indigo-500" />
-              </div>
-              <div className="text-3xl font-black text-gray-900">{s.value}</div>
-              <div className="text-sm text-gray-500 mt-1 font-medium">{s.label}</div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
 
       {/* ── How it works ─────────────────────────────────────────── */}
       <section id="how-it-works" className="py-24 px-6 bg-gray-50">

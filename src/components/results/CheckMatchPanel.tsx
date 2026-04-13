@@ -225,45 +225,41 @@ export default function CheckMatchPanel({ token }: Props) {
                       </div>
                     </div>
 
-                    {/* Score breakdown */}
+                    {/* Score signals */}
                     {breakdown && (
                       <div>
                         <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">
-                          Score Breakdown
+                          Match Signals
                         </p>
-                        <div className="space-y-2.5">
+                        <div className="grid grid-cols-2 gap-2">
                           {(
                             [
-                              ["Academic",          breakdown.academic,        40],
-                              ["Budget",            breakdown.budget,           20],
-                              ["Standard Test",     breakdown.std_test,         10],
-                              ["English",           breakdown.english,           5],
-                              ["Scholarships",      breakdown.scholarship,       5],
-                              ["Intake Match",      breakdown.intake,            5],
-                              ["Backlogs",          breakdown.backlogs,          5],
-                              ["Gap Year",          breakdown.gap_year,          5],
+                              ["Academic",          breakdown.academic       ],
+                              ["Budget",            breakdown.budget         ],
+                              ["Standard Test",     breakdown.std_test       ],
+                              ["English",           breakdown.english        ],
+                              ["Scholarships",      breakdown.scholarship    ],
+                              ["Intake Match",      breakdown.intake         ],
+                              ["Backlogs",          breakdown.backlogs       ],
+                              ["Gap Year",          breakdown.gap_year       ],
                               ...(breakdown.work_experience > 0
-                                ? [["Work Experience", breakdown.work_experience, 5] as [string, number, number]]
+                                ? [["Work Experience", breakdown.work_experience] as [string, number]]
                                 : []),
-                            ] as [string, number, number][]
-                          ).map(([label, raw, weight]) => {
-                            const contribution = Math.round((raw / 100) * weight);
+                            ] as [string, number][]
+                          ).map(([label, raw]) => {
+                            const isStrong  = raw >= 80;
+                            const isAverage = raw >= 60 && raw < 80;
+                            const dot   = isStrong ? "bg-emerald-500" : isAverage ? "bg-amber-400" : "bg-rose-400";
+                            const text  = isStrong ? "text-emerald-600" : isAverage ? "text-amber-600" : "text-rose-500";
+                            const badge = isStrong ? "bg-emerald-50 border-emerald-200" : isAverage ? "bg-amber-50 border-amber-200" : "bg-rose-50 border-rose-200";
+                            const matchLabel = isStrong ? "Strong" : isAverage ? "Average" : "Weak";
                             return (
-                              <div key={label}>
-                                <div className="flex items-center justify-between text-xs mb-1">
-                                  <span className="text-gray-600 font-medium">{label}</span>
-                                  <span className="text-gray-400">
-                                    {contribution}/{weight} pts
-                                  </span>
-                                </div>
-                                <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
-                                  <motion.div
-                                    initial={{ width: 0 }}
-                                    animate={{ width: `${raw}%` }}
-                                    transition={{ duration: 0.5, ease: "easeOut" }}
-                                    className={`h-full rounded-full ${SCORE_BAR(raw)}`}
-                                  />
-                                </div>
+                              <div key={label} className={`flex items-center justify-between px-3 py-2 rounded-xl border ${badge}`}>
+                                <span className="text-xs text-gray-600 font-medium truncate pr-1">{label}</span>
+                                <span className={`flex items-center gap-1.5 text-[11px] font-bold flex-shrink-0 ${text}`}>
+                                  <span className={`w-2 h-2 rounded-full ${dot}`} />
+                                  {matchLabel}
+                                </span>
                               </div>
                             );
                           })}

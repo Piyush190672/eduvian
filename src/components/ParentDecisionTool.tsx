@@ -105,19 +105,21 @@ function RatingBadge({ rating }: { rating: QualityLevel }) {
   );
 }
 
-function ScoreBar({ label, score, max, color }: { label: string; score: number; max: number; color: string }) {
+function ScoreBar({ label, score, max }: { label: string; score: number; max: number; color?: string }) {
+  const pct = score / max;
+  const isStrong  = pct >= 0.8;
+  const isAverage = pct >= 0.55;
+  const dot   = isStrong ? "bg-emerald-500" : isAverage ? "bg-amber-400" : "bg-rose-400";
+  const text  = isStrong ? "text-emerald-600" : isAverage ? "text-amber-600" : "text-rose-500";
+  const badge = isStrong ? "bg-emerald-50 border-emerald-200" : isAverage ? "bg-amber-50 border-amber-200" : "bg-rose-50 border-rose-200";
+  const matchLabel = isStrong ? "Strong" : isAverage ? "Average" : "Weak";
   return (
-    <div>
-      <div className="flex justify-between items-center mb-1">
-        <span className="text-xs text-gray-600 font-medium">{label}</span>
-        <span className="text-xs font-bold text-gray-700">{score}/{max}</span>
-      </div>
-      <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
-        <motion.div className={`h-full rounded-full ${color}`}
-          initial={{ width: 0 }} animate={{ width: `${(score / max) * 100}%` }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-        />
-      </div>
+    <div className={`flex items-center justify-between px-3 py-2 rounded-xl border ${badge}`}>
+      <span className="text-xs text-gray-600 font-medium truncate pr-1">{label}</span>
+      <span className={`flex items-center gap-1.5 text-[11px] font-bold flex-shrink-0 ${text}`}>
+        <span className={`w-2 h-2 rounded-full ${dot}`} />
+        {matchLabel}
+      </span>
     </div>
   );
 }
@@ -485,9 +487,7 @@ export default function ParentDecisionTool() {
                         { label: "Safety",          score: result.safety_score,        max: 10 },
                         { label: "Student Life",    score: result.student_life_score,  max: 10 },
                       ].map(({ label, score, max }) => (
-                        <ScoreBar key={label} label={label} score={score} max={max}
-                          color={score / max >= 0.8 ? "bg-emerald-500" : score / max >= 0.55 ? "bg-amber-400" : "bg-rose-400"}
-                        />
+                        <ScoreBar key={label} label={label} score={score} max={max} />
                       ))}
                     </div>
                   </div>
