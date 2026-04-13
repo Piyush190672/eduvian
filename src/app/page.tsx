@@ -811,6 +811,128 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* ── Interview Prep section ───────────────────────────────── */}
+      <section id="interview-prep" className="py-24 px-6 bg-white">
+        <div className="max-w-5xl mx-auto">
+
+          {/* Heading */}
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-100 text-emerald-700 text-sm font-semibold mb-4">
+              <Sparkles className="w-3.5 h-3.5" /> AI INTERVIEW COACH
+            </span>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mt-1">
+              Ace your university interview
+            </h2>
+            <p className="text-gray-500 mt-4 max-w-2xl mx-auto text-base leading-relaxed">
+              Practice with an AI coach trained on real university interview formats — get asked the questions admissions panels actually use, receive instant feedback, and walk in confident.
+            </p>
+          </motion.div>
+
+          {/* GPT cards */}
+          <div className="grid sm:grid-cols-2 gap-6 mb-12">
+
+            {/* Australia GPT */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}
+              className="group relative bg-gradient-to-br from-sky-50 to-blue-50 border border-sky-200 rounded-3xl p-7 flex flex-col hover:shadow-xl hover:shadow-sky-100 transition-all duration-300"
+            >
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-sky-400 to-blue-600 flex items-center justify-center shadow-md shadow-sky-200 text-2xl flex-shrink-0">
+                  🇦🇺
+                </div>
+                <div>
+                  <p className="text-[11px] font-bold text-sky-600 uppercase tracking-wider">Australia</p>
+                  <h3 className="text-lg font-extrabold text-gray-900 leading-tight">University Interview Coach</h3>
+                </div>
+              </div>
+              <p className="text-sm text-gray-500 leading-relaxed mb-4 flex-1">
+                Practice with questions tailored to Australian university admissions — covering motivation, course fit, future goals, and critical thinking challenges used by Group of Eight universities.
+              </p>
+              <div className="flex flex-wrap gap-1.5 mb-6">
+                {["Motivation questions", "Course fit", "Group of Eight style", "Instant feedback"].map((t) => (
+                  <span key={t} className="px-2.5 py-1 rounded-full bg-sky-100 text-sky-700 text-[11px] font-semibold">{t}</span>
+                ))}
+              </div>
+              <div className="flex flex-wrap gap-2">
+                <a
+                  href="https://chatgpt.com/g/g-69bba58ea0648191b84b705d76d8986c-australia-gs-interview-prep-tool"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-sky-500 to-blue-600 text-white text-sm font-bold hover:shadow-lg hover:shadow-sky-200 hover:-translate-y-0.5 transition-all duration-200"
+                >
+                  Text Practice <ArrowRight className="w-3.5 h-3.5" />
+                </a>
+                <Link
+                  href="/interview-prep?country=australia"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border-2 border-sky-300 text-sky-700 bg-sky-50 text-sm font-bold hover:bg-sky-100 hover:-translate-y-0.5 transition-all duration-200"
+                >
+                  🎙️ Voice Practice
+                </Link>
+              </div>
+            </motion.div>
+
+            {/* UK GPT */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.12 }}
+              className="group relative bg-gradient-to-br from-rose-50 to-red-50 border border-rose-200 rounded-3xl p-7 flex flex-col hover:shadow-xl hover:shadow-rose-100 transition-all duration-300"
+            >
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-rose-500 to-red-600 flex items-center justify-center shadow-md shadow-rose-200 text-2xl flex-shrink-0">
+                  🇬🇧
+                </div>
+                <div>
+                  <p className="text-[11px] font-bold text-rose-600 uppercase tracking-wider">United Kingdom</p>
+                  <h3 className="text-lg font-extrabold text-gray-900 leading-tight">University Interview Coach</h3>
+                </div>
+              </div>
+              <p className="text-sm text-gray-500 leading-relaxed mb-4 flex-1">
+                Prepare for the toughest UK admissions interviews — Oxford, Cambridge, LSE, Imperial and beyond. Face subject-knowledge probes, Oxbridge-style tutorials, and personal statement deep-dives.
+              </p>
+              <div className="flex flex-wrap gap-1.5 mb-6">
+                {["Oxbridge tutorials", "Subject deep-dives", "Personal statement", "Russell Group"].map((t) => (
+                  <span key={t} className="px-2.5 py-1 rounded-full bg-rose-100 text-rose-700 text-[11px] font-semibold">{t}</span>
+                ))}
+              </div>
+              <div className="flex flex-wrap gap-2">
+                <a
+                  href="https://chatgpt.com/g/g-69bba1dde7f0819197fd97c43bca3da5-uk-credibility-interview-prep-tool"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-rose-500 to-red-600 text-white text-sm font-bold hover:shadow-lg hover:shadow-rose-200 hover:-translate-y-0.5 transition-all duration-200"
+                >
+                  Text Practice <ArrowRight className="w-3.5 h-3.5" />
+                </a>
+                <Link
+                  href="/interview-prep?country=uk"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border-2 border-rose-300 text-rose-700 bg-rose-50 text-sm font-bold hover:bg-rose-100 hover:-translate-y-0.5 transition-all duration-200"
+                >
+                  🎙️ Voice Practice
+                </Link>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Bottom trust strip */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-6 py-6 px-8 rounded-2xl bg-gray-50 border border-gray-100"
+          >
+            {[
+              { icon: "🎯", text: "Real admissions-style questions" },
+              { icon: "💬", text: "Instant answer feedback" },
+              { icon: "🔁", text: "Practice as many times as you like" },
+              { icon: "🆓", text: "Completely free to use" },
+            ].map((item) => (
+              <div key={item.text} className="flex items-center gap-2 text-sm text-gray-600 font-medium">
+                <span className="text-lg">{item.icon}</span>
+                {item.text}
+              </div>
+            ))}
+          </motion.div>
+
+        </div>
+      </section>
+
       {/* ── Testimonials ─────────────────────────────────────────── */}
       <section id="testimonials" className="py-24 px-6 bg-white">
         <div className="max-w-6xl mx-auto">
