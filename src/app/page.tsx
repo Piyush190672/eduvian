@@ -258,8 +258,7 @@ export default function LandingPage() {
         </Link>
         <div className="hidden md:flex items-center gap-6 text-sm font-medium text-gray-600">
           <a href="#how-it-works" className="hover:text-indigo-600 transition-colors">How it works</a>
-          <Link href="/roi-calculator" className="hover:text-indigo-600 transition-colors">ROI Calculator</Link>
-          <Link href="/parent-decision" className="hover:text-indigo-600 transition-colors">For Parents</Link>
+          <a href="#tools" className="hover:text-indigo-600 transition-colors">Planning Tools</a>
           <a href="#countries" className="hover:text-indigo-600 transition-colors">Destinations</a>
           <a href="#scholarships" className="hover:text-indigo-600 transition-colors">Scholarships</a>
         </div>
@@ -595,7 +594,96 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ── Tools + Scholarships section ─────────────────────────── */}
+      {/* ── Decision Tools section ───────────────────────────────── */}
+      <section id="tools" className="py-24 px-6 bg-gradient-to-br from-slate-900 via-indigo-950 to-purple-950 relative overflow-hidden">
+        {/* decorative blobs */}
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-5xl mx-auto relative">
+          {/* Heading */}
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-500/20 text-indigo-300 text-sm font-semibold mb-4 border border-indigo-500/30">
+              <Sparkles className="w-3.5 h-3.5" /> SMART PLANNING TOOLS
+            </span>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-white mt-1">
+              Make smarter study-abroad decisions
+            </h2>
+            <p className="text-slate-400 mt-4 max-w-2xl mx-auto text-base leading-relaxed">
+              Before you commit thousands of dollars and years of your life — run the numbers. Our free tools give you a clear financial and qualitative picture in under a minute.
+            </p>
+          </motion.div>
+
+          {/* Tool cards */}
+          <div className="grid sm:grid-cols-2 gap-6">
+            {/* ROI Calculator card */}
+            <motion.div
+              id="roi-calculator"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="group relative bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl hover:border-indigo-400/40 hover:bg-white/8 transition-all duration-300 p-7 flex flex-col"
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg shadow-indigo-500/30">
+                  <TrendingUp className="w-5 h-5 text-white" />
+                </div>
+                <span className="text-xs font-bold text-indigo-400 uppercase tracking-wider">ROI Calculator</span>
+              </div>
+              <h3 className="text-xl font-extrabold text-white mb-2">Will your degree pay off?</h3>
+              <p className="text-sm text-slate-400 leading-relaxed mb-5 flex-1">
+                Pick any university and program — we auto-fill tuition, living costs and salary data so you instantly see your payback period, 10-year ROI and break-even salary.
+              </p>
+              <div className="flex flex-wrap gap-1.5 mb-6">
+                {["Payback Period", "10-Year ROI", "Monthly Savings", "Break-even Salary"].map((t) => (
+                  <span key={t} className="px-2.5 py-1 rounded-full bg-indigo-500/15 text-indigo-300 text-[11px] font-semibold border border-indigo-500/25">{t}</span>
+                ))}
+              </div>
+              <Link
+                href="/roi-calculator"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-bold w-fit hover:shadow-lg hover:shadow-indigo-500/30 hover:-translate-y-0.5 transition-all duration-200"
+              >
+                Open Calculator <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </motion.div>
+
+            {/* Parent Decision Tool card */}
+            <motion.div
+              id="parent-decision-tool"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.12 }}
+              className="group relative bg-gradient-to-br from-purple-600/30 to-indigo-700/30 backdrop-blur-md border border-purple-400/20 rounded-3xl hover:border-purple-400/50 transition-all duration-300 p-7 flex flex-col"
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-11 h-11 rounded-2xl bg-purple-500/30 border border-purple-400/30 flex items-center justify-center">
+                  <Users className="w-5 h-5 text-purple-200" />
+                </div>
+                <span className="text-xs font-bold text-purple-300 uppercase tracking-wider">For Parents</span>
+              </div>
+              <h3 className="text-xl font-extrabold text-white mb-2">Is studying abroad right for your child?</h3>
+              <p className="text-sm text-slate-400 leading-relaxed mb-5 flex-1">
+                Get a data-driven verdict across 7 key factors — budget fit, job market, safety, post-study work rights, financial ROI and more. No guesswork, just clarity.
+              </p>
+              <div className="flex flex-wrap gap-1.5 mb-6">
+                {["Budget Fit", "Safety", "PSW Rights", "Job Market", "Student Life"].map((t) => (
+                  <span key={t} className="px-2.5 py-1 rounded-full bg-purple-500/20 text-purple-200 text-[11px] font-semibold border border-purple-400/25">{t}</span>
+                ))}
+              </div>
+              <Link
+                href="/parent-decision"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white text-indigo-700 text-sm font-bold w-fit hover:shadow-lg hover:shadow-purple-400/30 hover:-translate-y-0.5 transition-all duration-200"
+              >
+                Open Tool <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Scholarships section ──────────────────────────────────── */}
       <section id="scholarships" className="py-24 px-6 bg-gradient-to-br from-indigo-50 via-white to-purple-50">
         <div className="max-w-5xl mx-auto">
           {/* Section heading */}
@@ -610,73 +698,6 @@ export default function LandingPage() {
             <p className="text-gray-500 mt-4 max-w-2xl mx-auto text-base leading-relaxed">
               Thousands of scholarships are available for international students every year — many go unclaimed. Select a destination to explore key scholarships available there.
             </p>
-          </div>
-
-          {/* Tool cards row */}
-          <div className="grid sm:grid-cols-2 gap-5 mb-14">
-            {/* ROI Calculator card */}
-            <motion.div
-              id="roi-calculator"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="group relative bg-white rounded-3xl border border-indigo-100 shadow-sm hover:shadow-xl hover:shadow-indigo-100 transition-all duration-300 p-7 flex flex-col"
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-md shadow-indigo-200">
-                  <TrendingUp className="w-5 h-5 text-white" />
-                </div>
-                <span className="text-xs font-bold text-indigo-600 uppercase tracking-wider">ROI Calculator</span>
-              </div>
-              <h3 className="text-xl font-extrabold text-gray-900 mb-2">Will your degree pay off?</h3>
-              <p className="text-sm text-gray-500 leading-relaxed mb-5 flex-1">
-                Pick any university and program — we auto-fill tuition, costs and salary data so you instantly see your payback period, 10-year ROI and monthly savings potential.
-              </p>
-              <div className="flex flex-wrap gap-1.5 mb-6">
-                {["Payback Period", "10-Year ROI", "Monthly Savings", "Break-even Salary"].map((t) => (
-                  <span key={t} className="px-2.5 py-1 rounded-full bg-indigo-50 text-indigo-600 text-[11px] font-semibold">{t}</span>
-                ))}
-              </div>
-              <Link
-                href="/roi-calculator"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-bold w-fit hover:shadow-lg hover:shadow-indigo-200 hover:-translate-y-0.5 transition-all duration-200"
-              >
-                Open Calculator <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            </motion.div>
-
-            {/* Parent Decision Tool card */}
-            <motion.div
-              id="parent-decision-tool"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="group relative bg-gradient-to-br from-purple-700 to-indigo-800 rounded-3xl shadow-sm hover:shadow-xl hover:shadow-purple-200 transition-all duration-300 p-7 flex flex-col"
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-11 h-11 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center border border-white/30">
-                  <Users className="w-5 h-5 text-white" />
-                </div>
-                <span className="text-xs font-bold text-purple-200 uppercase tracking-wider">For Parents</span>
-              </div>
-              <h3 className="text-xl font-extrabold text-white mb-2">Is studying abroad right for your child?</h3>
-              <p className="text-sm text-indigo-200 leading-relaxed mb-5 flex-1">
-                Get a data-driven verdict across 7 key factors — budget fit, job market, safety, post-study work rights, financial ROI and more. No guesswork.
-              </p>
-              <div className="flex flex-wrap gap-1.5 mb-6">
-                {["Budget Fit", "Safety", "PSW Rights", "Job Market", "Student Life"].map((t) => (
-                  <span key={t} className="px-2.5 py-1 rounded-full bg-white/15 text-white text-[11px] font-semibold border border-white/20">{t}</span>
-                ))}
-              </div>
-              <Link
-                href="/parent-decision"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white text-indigo-700 text-sm font-bold w-fit hover:shadow-lg hover:shadow-purple-400/30 hover:-translate-y-0.5 transition-all duration-200"
-              >
-                Open Tool <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            </motion.div>
           </div>
 
           {/* Country icon row */}
