@@ -846,10 +846,10 @@ export default function LandingPage() {
                 </div>
               </div>
               <p className="text-sm text-gray-500 leading-relaxed mb-4 flex-1">
-                Practice with questions tailored to Australian university admissions — covering motivation, course fit, future goals, and critical thinking challenges used by Group of Eight universities.
+                Practice the 19 approved GS visa interview questions — covering program rationale, career outcome, why Australia, university choice, and return intent across 5 categories.
               </p>
               <div className="flex flex-wrap gap-1.5 mb-6">
-                {["Motivation questions", "Course fit", "Group of Eight style", "Instant feedback"].map((t) => (
+                {["5 categories", "19 questions", "GS visa style", "Instant feedback"].map((t) => (
                   <span key={t} className="px-2.5 py-1 rounded-full bg-sky-100 text-sky-700 text-[11px] font-semibold">{t}</span>
                 ))}
               </div>
@@ -886,10 +886,10 @@ export default function LandingPage() {
                 </div>
               </div>
               <p className="text-sm text-gray-500 leading-relaxed mb-4 flex-1">
-                Prepare for the toughest UK admissions interviews — Oxford, Cambridge, LSE, Imperial and beyond. Face subject-knowledge probes, Oxbridge-style tutorials, and personal statement deep-dives.
+                Practice the 14 approved UK student visa interview questions — covering why the UK, course rationale, funding, academic background, university knowledge, and visa rules.
               </p>
               <div className="flex flex-wrap gap-1.5 mb-6">
-                {["Oxbridge tutorials", "Subject deep-dives", "Personal statement", "Russell Group"].map((t) => (
+                {["5 categories", "14 questions", "Visa interview style", "Instant feedback"].map((t) => (
                   <span key={t} className="px-2.5 py-1 rounded-full bg-rose-100 text-rose-700 text-[11px] font-semibold">{t}</span>
                 ))}
               </div>
