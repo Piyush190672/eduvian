@@ -655,8 +655,11 @@ function InterviewSession({
 
   const [muted, setMuted] = useState(false);
   const [sttSupported, setSttSupported] = useState(true);
+  const [nameListening, setNameListening] = useState(false);
+  const [yesListening, setYesListening] = useState(false);
 
   const recogRef = useRef<SpeechRecognitionShim | null>(null);
+  const nameRecogRef = useRef<SpeechRecognitionShim | null>(null);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const elapsedRef = useRef(0);
   const nameInputRef = useRef<HTMLInputElement>(null);
@@ -677,6 +680,36 @@ function InterviewSession({
       cancel();
     };
   }, [cancel]);
+
+  // ── AUTO-SPEAK: greet and ask for name when session starts ───────────────────
+  useEffect(() => {
+    if (phase !== "name") return;
+    const greeting = country === "australia"
+      ? "Hello, I am here to help you prepare for your GS interview. Please tell me your name."
+      : "Hello! I am here to help you prepare for your UK university interview. May I know your name please.";
+    // Small delay so the page has rendered before speaking
+    const t = setTimeout(() => speak(greeting), 400);
+    return () => clearTimeout(t);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [phase]);   // intentionally only re-run when phase changes to "name"
+
+  // ── AUTO-SPEAK: UK "are you ready — say YES" ─────────────────────────────────
+  useEffect(() => {
+    if (phase !== "uk_confirm" || !studentName) return;
+    const msg = `Hello ${studentName}! I am here to help you prepare for your UK university interview. If you are ready for the interview, please say YES.`;
+    const t = setTimeout(() => speak(msg), 300);
+    return () => clearTimeout(t);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [phase]);
+
+  // ── AUTO-SPEAK: AU category menu ─────────────────────────────────────────────
+  useEffect(() => {
+    if (phase !== "category" || !studentName) return;
+    const msg = `${studentName}, which category of questions would you like to practice? The categories are: 1. About the Program. 2. Career Outcome. 3. Why Australia. 4. About the University. 5. Other Important Questions.`;
+    const t = setTimeout(() => speak(msg), 300);
+    return () => clearTimeout(t);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [phase]);
 
   // ── Speak question ──────────────────────────────────────────────────────────
   const speakQuestion = useCallback((text: string) => {
@@ -724,6 +757,32 @@ function InterviewSession({
     if (phase !== "listening") stopListening();
   }, [phase, startListening, stopListening]);
 
+  // ── One-shot STT for name / YES inputs ───────────────────────────────────────
+  const listenOnce = useCallback((
+    onResult: (text: string) => void,
+    onStateChange: (active: boolean) => void,
+  ) => {
+    if (!sttSupported || typeof window === "undefined") return;
+    cancel(); // stop TTS before listening
+    if (nameRecogRef.current) { try { nameRecogRef.current.abort(); } catch { /* ignore */ } }
+    const win = window as typeof window & { SpeechRecognition?: SpeechRecognitionCtor; webkitSpeechRecognition?: SpeechRecognitionCtor };
+    const Ctor = win.SpeechRecognition || win.webkitSpeechRecognition;
+    if (!Ctor) return;
+    const recog = new Ctor();
+    recog.continuous = false;
+    recog.interimResults = false;
+    recog.lang = "en-US";
+    onStateChange(true);
+    recog.onresult = (event: SpeechRecognitionEventShim) => {
+      const text = event.results[0]?.[0]?.transcript?.trim() ?? "";
+      if (text) onResult(text);
+    };
+    recog.onerror = () => onStateChange(false);
+    recog.onend = () => onStateChange(false);
+    nameRecogRef.current = recog;
+    recog.start();
+  }, [sttSupported, cancel]);
+
   // ── Fetch AI feedback ───────────────────────────────────────────────────────
   const fetchFeedback = useCallback(async (question: string, objective: string, t: string) => {
     setFeedbackLoading(true);
@@ -744,19 +803,13 @@ function InterviewSession({
   }, [country, studentName]);
 
   // ── Name submission ─────────────────────────────────────────────────────────
+  // NOTE: no speak() here — the auto-speak useEffects above fire when phase changes
   const handleNameSubmit = () => {
     const name = nameInput.trim();
     if (!name) return;
+    cancel(); // stop any current speech before transitioning
     setStudentName(name);
-    if (country === "uk") {
-      const greeting = `Hello ${name}! I am here to help you prepare for your UK university interview. If you are ready for the interview, please say YES.`;
-      speak(greeting, () => {});
-      setPhase("uk_confirm");
-    } else {
-      const greeting = `Hello ${name}! I am here to help you prepare for your GS interview. Which category of questions would you like to practice? The categories are: About the Program, Career Outcome, Why Australia, About the University, and Other Important Questions.`;
-      speak(greeting, () => {});
-      setPhase("category");
-    }
+    setPhase(country === "uk" ? "uk_confirm" : "category");
   };
 
   // ── UK YES confirmation ─────────────────────────────────────────────────────
@@ -770,10 +823,10 @@ function InterviewSession({
 
   // ── AU category selection ───────────────────────────────────────────────────
   const handleCategorySelect = (cat: QuestionCategory) => {
-    const qs = cat.questions.map((q) => {
-      const obj = cat.objective;
-      return { question: q, category: cat.label, objective: obj };
-    });
+    cancel(); // stop the category-menu TTS before starting question TTS
+    const qs = cat.questions.map((q) => ({
+      question: q, category: cat.label, objective: cat.objective,
+    }));
     setActiveQuestions(qs);
     setSessionLabel(cat.label);
     setQIndex(0);
@@ -782,6 +835,7 @@ function InterviewSession({
   };
 
   const handlePracticeAll = () => {
+    cancel();
     setActiveQuestions(AU_ALL_QUESTIONS);
     setSessionLabel("All Categories · 19 Questions");
     setQIndex(0);
@@ -868,8 +922,8 @@ function InterviewSession({
 
   // ── Name collection ─────────────────────────────────────────────────────────
   if (phase === "name") {
-    const greeting = country === "australia"
-      ? "Hello! I am here to help you prepare for your GS interview. Please tell me your name."
+    const coachText = country === "australia"
+      ? "Hello, I am here to help you prepare for your GS interview. Please tell me your name."
       : "Hello! I am here to help you prepare for your UK university interview. May I know your name please.";
     return (
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-md mx-auto text-center">
@@ -884,19 +938,39 @@ function InterviewSession({
         </div>
 
         <div className="bg-white rounded-3xl border border-gray-100 shadow-sm p-8 mb-6">
-          <div className="w-14 h-14 rounded-2xl bg-indigo-100 flex items-center justify-center mx-auto mb-5">
-            <User className="w-7 h-7 text-indigo-600" />
+          {/* Coach speech bubble */}
+          <div className="flex items-start gap-3 bg-indigo-50 border border-indigo-100 rounded-2xl px-4 py-4 mb-6 text-left">
+            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <Volume2 className="w-3.5 h-3.5 text-white" />
+            </div>
+            <p className="text-sm font-medium text-indigo-900 leading-relaxed">{coachText}</p>
           </div>
-          <p className="text-base font-semibold text-gray-800 mb-1">{greeting}</p>
-          <p className="text-sm text-gray-400 mb-6">Your coach will address you by name throughout the session.</p>
+
+          {/* Speak name button */}
+          {sttSupported && (
+            <button
+              onClick={() => listenOnce(
+                (text) => setNameInput(text.replace(/\.$/, "").trim()),
+                setNameListening
+              )}
+              className={`w-full flex items-center justify-center gap-2 py-3 rounded-xl border-2 mb-3 text-sm font-semibold transition-all ${
+                nameListening
+                  ? "border-rose-400 bg-rose-50 text-rose-600 animate-pulse"
+                  : "border-gray-200 text-gray-500 hover:border-indigo-300 hover:text-indigo-600"
+              }`}
+            >
+              <Mic className="w-4 h-4" />
+              {nameListening ? "Listening… speak your name" : "Speak your name"}
+            </button>
+          )}
+
           <input
             ref={nameInputRef}
             type="text"
             value={nameInput}
             onChange={(e) => setNameInput(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && nameInput.trim() && handleNameSubmit()}
-            placeholder="Enter your first name"
-            autoFocus
+            placeholder="Or type your name here"
             className="w-full px-4 py-3 rounded-xl border border-gray-200 text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300 mb-4"
           />
           <motion.button
@@ -905,7 +979,7 @@ function InterviewSession({
             disabled={!nameInput.trim()}
             className={`w-full py-3.5 rounded-2xl bg-gradient-to-r ${accentBg} text-white font-bold text-sm disabled:opacity-40 transition-opacity`}
           >
-            Let&apos;s Begin
+            Continue
           </motion.button>
         </div>
         <button onClick={onReset} className="flex items-center gap-2 text-sm text-gray-400 hover:text-gray-600 mx-auto">
@@ -917,6 +991,7 @@ function InterviewSession({
 
   // ── UK: "say YES to begin" ──────────────────────────────────────────────────
   if (phase === "uk_confirm") {
+    const coachPrompt = `Hello ${studentName}! I am here to help you prepare for your UK university interview. If you are ready for the interview, please say YES.`;
     return (
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-md mx-auto text-center">
         <div className="flex items-center justify-center gap-3 mb-8">
@@ -927,19 +1002,42 @@ function InterviewSession({
           </div>
         </div>
         <div className="bg-white rounded-3xl border border-gray-100 shadow-sm p-8 mb-6">
-          <p className="text-lg font-bold text-gray-900 mb-2">
-            Hello, {studentName}! 👋
-          </p>
-          <p className="text-base text-gray-600 mb-6">
-            Are you ready for the interview? Type <strong>YES</strong> below or click the button to begin.
-          </p>
+          {/* Coach speech bubble */}
+          <div className="flex items-start gap-3 bg-rose-50 border border-rose-100 rounded-2xl px-4 py-4 mb-6 text-left">
+            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-rose-500 to-red-600 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <Volume2 className="w-3.5 h-3.5 text-white" />
+            </div>
+            <p className="text-sm font-medium text-rose-900 leading-relaxed">{coachPrompt}</p>
+          </div>
+
+          {/* Speak YES */}
+          {sttSupported && (
+            <button
+              onClick={() => listenOnce(
+                (text) => {
+                  if (/yes/i.test(text)) handleUkConfirm();
+                  else setUkConfirmInput(text);
+                },
+                setYesListening
+              )}
+              className={`w-full flex items-center justify-center gap-2 py-3 rounded-xl border-2 mb-3 text-sm font-semibold transition-all ${
+                yesListening
+                  ? "border-rose-400 bg-rose-50 text-rose-600 animate-pulse"
+                  : "border-gray-200 text-gray-500 hover:border-rose-300 hover:text-rose-600"
+              }`}
+            >
+              <Mic className="w-4 h-4" />
+              {yesListening ? "Listening… say YES" : "Say YES to begin"}
+            </button>
+          )}
+
           <input
             type="text"
             value={ukConfirmInput}
             onChange={(e) => setUkConfirmInput(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && handleUkConfirm()}
-            placeholder='Type YES to begin'
-            autoFocus
+            placeholder='Or type YES here'
+            autoFocus={!sttSupported}
             className="w-full px-4 py-3 rounded-xl border border-gray-200 text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-rose-300 mb-4 text-center tracking-widest font-bold uppercase"
           />
           <motion.button
@@ -950,7 +1048,7 @@ function InterviewSession({
             YES — Begin the Interview
           </motion.button>
         </div>
-        <button onClick={() => setPhase("name")} className="flex items-center gap-2 text-sm text-gray-400 hover:text-gray-600 mx-auto">
+        <button onClick={() => { cancel(); setPhase("name"); }} className="flex items-center gap-2 text-sm text-gray-400 hover:text-gray-600 mx-auto">
           <ArrowLeft className="w-3.5 h-3.5" /> Back
         </button>
       </motion.div>
@@ -964,7 +1062,7 @@ function InterviewSession({
         studentName={studentName}
         onSelect={handleCategorySelect}
         onPracticeAll={handlePracticeAll}
-        onBack={() => setPhase("name")}
+        onBack={() => { cancel(); setPhase("name"); }}
       />
     );
   }
