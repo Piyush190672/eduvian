@@ -1,4 +1,5 @@
 // ─── ROI Calculator Data ──────────────────────────────────────────────────────
+import { PROGRAMS } from "./programs";
 
 export type SalaryCountry =
   | "USA" | "UK" | "Australia" | "Canada" | "Germany"
@@ -250,106 +251,38 @@ const FLAGS: Record<SalaryCountry, string> = {
   France: "🇫🇷", UAE: "🇦🇪", Malaysia: "🇲🇾",
 };
 
-export const CURATED_UNIVERSITIES: UniversityOption[] = [
-  // USA
-  { name: "Massachusetts Institute of Technology",        country: "USA",          qs_ranking: 1,    flag: FLAGS["USA"] },
-  { name: "Stanford University",                          country: "USA",          qs_ranking: 5,    flag: FLAGS["USA"] },
-  { name: "Harvard University",                           country: "USA",          qs_ranking: 4,    flag: FLAGS["USA"] },
-  { name: "California Institute of Technology",           country: "USA",          qs_ranking: 6,    flag: FLAGS["USA"] },
-  { name: "University of California, Berkeley",           country: "USA",          qs_ranking: 10,   flag: FLAGS["USA"] },
-  { name: "Columbia University",                          country: "USA",          qs_ranking: 33,   flag: FLAGS["USA"] },
-  { name: "Cornell University",                           country: "USA",          qs_ranking: 13,   flag: FLAGS["USA"] },
-  { name: "Yale University",                              country: "USA",          qs_ranking: 16,   flag: FLAGS["USA"] },
-  { name: "Princeton University",                         country: "USA",          qs_ranking: 17,   flag: FLAGS["USA"] },
-  { name: "Northwestern University",                      country: "USA",          qs_ranking: 33,   flag: FLAGS["USA"] },
-  { name: "UCLA",                                         country: "USA",          qs_ranking: 29,   flag: FLAGS["USA"] },
-  { name: "Duke University",                              country: "USA",          qs_ranking: 60,   flag: FLAGS["USA"] },
-  { name: "Carnegie Mellon University",                   country: "USA",          qs_ranking: 52,   flag: FLAGS["USA"] },
-  { name: "Georgia Institute of Technology",              country: "USA",          qs_ranking: 97,   flag: FLAGS["USA"] },
-  { name: "Northeastern University",                      country: "USA",          qs_ranking: 344,  flag: FLAGS["USA"] },
-  { name: "Purdue University",                            country: "USA",          qs_ranking: 109,  flag: FLAGS["USA"] },
-  { name: "Florida State University",                     country: "USA",          qs_ranking: 651,  flag: FLAGS["USA"] },
-  { name: "Clemson University",                           country: "USA",          qs_ranking: 601,  flag: FLAGS["USA"] },
-  { name: "University of Houston",                        country: "USA",          qs_ranking: 521,  flag: FLAGS["USA"] },
-  { name: "Oregon State University",                      country: "USA",          qs_ranking: 511,  flag: FLAGS["USA"] },
-  { name: "University of Iowa",                           country: "USA",          qs_ranking: 511,  flag: FLAGS["USA"] },
-  { name: "Syracuse University",                          country: "USA",          qs_ranking: 651,  flag: FLAGS["USA"] },
-  { name: "Tulane University",                            country: "USA",          qs_ranking: 601,  flag: FLAGS["USA"] },
-  { name: "Drexel University",                            country: "USA",          qs_ranking: 651,  flag: FLAGS["USA"] },
-  { name: "Illinois Institute of Technology",             country: "USA",          qs_ranking: 601,  flag: FLAGS["USA"] },
-  { name: "Stevens Institute of Technology",              country: "USA",          qs_ranking: 651,  flag: FLAGS["USA"] },
-  { name: "Rochester Institute of Technology",            country: "USA",          qs_ranking: null, flag: FLAGS["USA"] },
-  { name: "George Mason University",                      country: "USA",          qs_ranking: 651,  flag: FLAGS["USA"] },
-  { name: "Rensselaer Polytechnic Institute",             country: "USA",          qs_ranking: 491,  flag: FLAGS["USA"] },
-  { name: "Lehigh University",                            country: "USA",          qs_ranking: 601,  flag: FLAGS["USA"] },
-  { name: "Texas Tech University",                        country: "USA",          qs_ranking: 601,  flag: FLAGS["USA"] },
-  { name: "Temple University",                            country: "USA",          qs_ranking: 651,  flag: FLAGS["USA"] },
-  { name: "University of Oregon",                         country: "USA",          qs_ranking: 601,  flag: FLAGS["USA"] },
-  { name: "Wake Forest University",                       country: "USA",          qs_ranking: 651,  flag: FLAGS["USA"] },
-  { name: "University of Vermont",                        country: "USA",          qs_ranking: 701,  flag: FLAGS["USA"] },
-  { name: "University of Alabama",                        country: "USA",          qs_ranking: 801,  flag: FLAGS["USA"] },
-  // UK
-  { name: "University of Oxford",                         country: "UK",           qs_ranking: 3,    flag: FLAGS["UK"] },
-  { name: "University of Cambridge",                      country: "UK",           qs_ranking: 2,    flag: FLAGS["UK"] },
-  { name: "Imperial College London",                      country: "UK",           qs_ranking: 8,    flag: FLAGS["UK"] },
-  { name: "University College London",                    country: "UK",           qs_ranking: 9,    flag: FLAGS["UK"] },
-  { name: "London School of Economics",                   country: "UK",           qs_ranking: 45,   flag: FLAGS["UK"] },
-  { name: "University of Edinburgh",                      country: "UK",           qs_ranking: 27,   flag: FLAGS["UK"] },
-  { name: "University of Manchester",                     country: "UK",           qs_ranking: 34,   flag: FLAGS["UK"] },
-  { name: "King's College London",                        country: "UK",           qs_ranking: 40,   flag: FLAGS["UK"] },
-  { name: "University of Warwick",                        country: "UK",           qs_ranking: 67,   flag: FLAGS["UK"] },
-  { name: "University of Bristol",                        country: "UK",           qs_ranking: 54,   flag: FLAGS["UK"] },
-  // Australia
-  { name: "University of Melbourne",                      country: "Australia",    qs_ranking: 13,   flag: FLAGS["Australia"] },
-  { name: "University of Sydney",                         country: "Australia",    qs_ranking: 18,   flag: FLAGS["Australia"] },
-  { name: "University of New South Wales",                country: "Australia",    qs_ranking: 19,   flag: FLAGS["Australia"] },
-  { name: "Australian National University",               country: "Australia",    qs_ranking: 30,   flag: FLAGS["Australia"] },
-  { name: "University of Queensland",                     country: "Australia",    qs_ranking: 43,   flag: FLAGS["Australia"] },
-  { name: "Monash University",                            country: "Australia",    qs_ranking: 57,   flag: FLAGS["Australia"] },
-  { name: "University of Adelaide",                       country: "Australia",    qs_ranking: 89,   flag: FLAGS["Australia"] },
-  { name: "RMIT University",                              country: "Australia",    qs_ranking: 188,  flag: FLAGS["Australia"] },
-  // Canada
-  { name: "University of Toronto",                        country: "Canada",       qs_ranking: 25,   flag: FLAGS["Canada"] },
-  { name: "University of British Columbia",               country: "Canada",       qs_ranking: 46,   flag: FLAGS["Canada"] },
-  { name: "McGill University",                            country: "Canada",       qs_ranking: 46,   flag: FLAGS["Canada"] },
-  { name: "University of Waterloo",                       country: "Canada",       qs_ranking: 112,  flag: FLAGS["Canada"] },
-  { name: "McMaster University",                          country: "Canada",       qs_ranking: 189,  flag: FLAGS["Canada"] },
-  { name: "University of Alberta",                        country: "Canada",       qs_ranking: 111,  flag: FLAGS["Canada"] },
-  { name: "University of Guelph",                         country: "Canada",       qs_ranking: 451,  flag: FLAGS["Canada"] },
-  { name: "Université Laval",                             country: "Canada",       qs_ranking: 451,  flag: FLAGS["Canada"] },
-  { name: "Université de Sherbrooke",                     country: "Canada",       qs_ranking: 601,  flag: FLAGS["Canada"] },
-  { name: "Wilfrid Laurier University",                   country: "Canada",       qs_ranking: 801,  flag: FLAGS["Canada"] },
-  { name: "Brock University",                             country: "Canada",       qs_ranking: 801,  flag: FLAGS["Canada"] },
-  { name: "Memorial University of Newfoundland",          country: "Canada",       qs_ranking: 801,  flag: FLAGS["Canada"] },
-  { name: "University of Windsor",                        country: "Canada",       qs_ranking: 801,  flag: FLAGS["Canada"] },
-  { name: "University of Regina",                         country: "Canada",       qs_ranking: 801,  flag: FLAGS["Canada"] },
-  // Germany
-  { name: "Technical University of Munich",               country: "Germany",      qs_ranking: 37,   flag: FLAGS["Germany"] },
-  { name: "RWTH Aachen University",                       country: "Germany",      qs_ranking: 106,  flag: FLAGS["Germany"] },
-  { name: "Heidelberg University",                        country: "Germany",      qs_ranking: 87,   flag: FLAGS["Germany"] },
-  { name: "Free University of Berlin",                    country: "Germany",      qs_ranking: 98,   flag: FLAGS["Germany"] },
-  // Singapore
-  { name: "National University of Singapore",             country: "Singapore",    qs_ranking: 8,    flag: FLAGS["Singapore"] },
-  { name: "Nanyang Technological University",             country: "Singapore",    qs_ranking: 26,   flag: FLAGS["Singapore"] },
-  { name: "Singapore Management University",              country: "Singapore",    qs_ranking: 511,  flag: FLAGS["Singapore"] },
-  // New Zealand
-  { name: "University of Auckland",                       country: "New Zealand",  qs_ranking: 68,   flag: FLAGS["New Zealand"] },
-  { name: "Victoria University of Wellington",            country: "New Zealand",  qs_ranking: 244,  flag: FLAGS["New Zealand"] },
-  { name: "University of Otago",                          country: "New Zealand",  qs_ranking: 206,  flag: FLAGS["New Zealand"] },
-  // Ireland
-  { name: "Trinity College Dublin",                       country: "Ireland",      qs_ranking: 81,   flag: FLAGS["Ireland"] },
-  { name: "University College Dublin",                    country: "Ireland",      qs_ranking: 181,  flag: FLAGS["Ireland"] },
-  { name: "Dublin City University",                       country: "Ireland",      qs_ranking: 531,  flag: FLAGS["Ireland"] },
-  // France
-  { name: "HEC Paris",                                    country: "France",       qs_ranking: null, flag: FLAGS["France"] },
-  { name: "INSEAD",                                       country: "France",       qs_ranking: null, flag: FLAGS["France"] },
-  { name: "Sorbonne University",                          country: "France",       qs_ranking: 231,  flag: FLAGS["France"] },
-  // UAE
-  { name: "Khalifa University",                           country: "UAE",          qs_ranking: 195,  flag: FLAGS["UAE"] },
-  { name: "American University of Sharjah",               country: "UAE",          qs_ranking: null, flag: FLAGS["UAE"] },
-  // Malaysia
-  { name: "Universiti Malaya",                            country: "Malaysia",     qs_ranking: 65,   flag: FLAGS["Malaysia"] },
-  { name: "Monash University Malaysia",                   country: "Malaysia",     qs_ranking: 57,   flag: FLAGS["Malaysia"] },
-];
+// ── Dynamically build CURATED_UNIVERSITIES from the live PROGRAMS database ──
+// This means every university added to programs.ts automatically appears in
+// the typeahead for both the ROI Calculator and Parent Decision Tool.
+
+const _seen = new Map<string, UniversityOption>();
+
+for (const p of PROGRAMS) {
+  if (!p || !p.university_name) continue;
+  const country = p.country as SalaryCountry;
+  if (!FLAGS[country]) continue; // skip unknown/unsupported countries
+  const key = p.university_name;
+  if (!_seen.has(key)) {
+    _seen.set(key, {
+      name: p.university_name,
+      country,
+      qs_ranking: p.qs_ranking ?? null,
+      flag: FLAGS[country],
+    });
+  } else if (!_seen.get(key)!.qs_ranking && p.qs_ranking) {
+    // upgrade to a non-null QS ranking if we find one
+    _seen.get(key)!.qs_ranking = p.qs_ranking;
+  }
+}
+
+export const CURATED_UNIVERSITIES: UniversityOption[] = [..._seen.values()].sort(
+  (a, b) => {
+    // ranked universities first (ascending), unranked last, then alpha
+    if (a.qs_ranking && b.qs_ranking) return a.qs_ranking - b.qs_ranking;
+    if (a.qs_ranking) return -1;
+    if (b.qs_ranking) return 1;
+    return a.name.localeCompare(b.name);
+  }
+);
 
 export const COUNTRY_FLAGS = FLAGS;
