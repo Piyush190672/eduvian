@@ -456,6 +456,60 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* ── AI matching dark section ─────────────────────────────── */}
+      <section className="relative py-24 px-6 bg-gradient-to-br from-slate-900 via-indigo-950 to-purple-950 overflow-hidden text-white">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500/15 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-indigo-500/15 rounded-full blur-3xl" />
+        </div>
+        <div className="relative max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+          <div>
+            <span className="inline-flex items-center gap-1.5 text-indigo-300 font-bold text-sm uppercase tracking-widest mb-5">
+              <Sparkles className="w-3.5 h-3.5" /> The matching engine
+            </span>
+            <h2 className="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
+              10 signals.<br />
+              <span className="text-indigo-400">One perfect match.</span>
+            </h2>
+            <p className="text-slate-300 text-lg mb-10 leading-relaxed">
+              We don't just filter universities — we <em>score</em> every program against your specific profile using 10 signals, including academic backlogs and gap year history, built from real admissions data.
+            </p>
+            <Link
+              href="/get-started"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl bg-white text-indigo-700 font-bold hover:bg-indigo-50 transition-colors shadow-lg"
+            >
+              See my matches
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+          <div className="grid grid-cols-2 gap-3">
+            {[
+              { label: "Academic Score", icon: "🎓", bg: "bg-indigo-500/10 border-indigo-500/20" },
+              { label: "English Proficiency", icon: "🗣️", bg: "bg-purple-500/10 border-purple-500/20" },
+              { label: "Budget Fit", icon: "💰", bg: "bg-pink-500/10 border-pink-500/20" },
+              { label: "Country Preference", icon: "🌍", bg: "bg-rose-500/10 border-rose-500/20" },
+              { label: "QS University Rank", icon: "🏆", bg: "bg-amber-500/10 border-amber-500/20" },
+              { label: "Intake Availability", icon: "📅", bg: "bg-emerald-500/10 border-emerald-500/20" },
+              { label: "Work Experience", icon: "💼", bg: "bg-cyan-500/10 border-cyan-500/20" },
+              { label: "Standardized Tests", icon: "📝", bg: "bg-blue-500/10 border-blue-500/20" },
+              { label: "Academic Backlogs", icon: "⚠️", bg: "bg-orange-500/10 border-orange-500/20" },
+              { label: "Gap Year", icon: "🗓️", bg: "bg-violet-500/10 border-violet-500/20" },
+            ].map((s) => (
+              <motion.div
+                key={s.label}
+                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 10 }}
+                viewport={{ once: true }}
+                className={`p-4 rounded-2xl border ${s.bg} hover:scale-105 transition-transform flex items-center gap-3`}
+              >
+                <span className="text-2xl">{s.icon}</span>
+                <div className="text-sm text-slate-300 font-medium leading-snug">{s.label}</div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── Student photo band ───────────────────────────────────── */}
       <section className="relative py-24 px-6 overflow-hidden">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
@@ -754,60 +808,6 @@ export default function LandingPage() {
           <p className="text-center text-xs text-gray-400 mt-6">
             Scholarship availability and amounts change annually. Always verify directly with the awarding body.
           </p>
-        </div>
-      </section>
-
-      {/* ── AI matching dark section ─────────────────────────────── */}
-      <section className="relative py-24 px-6 bg-gradient-to-br from-slate-900 via-indigo-950 to-purple-950 overflow-hidden text-white">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500/15 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-80 h-80 bg-indigo-500/15 rounded-full blur-3xl" />
-        </div>
-        <div className="relative max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-          <div>
-            <span className="inline-flex items-center gap-1.5 text-indigo-300 font-bold text-sm uppercase tracking-widest mb-5">
-              <Sparkles className="w-3.5 h-3.5" /> The matching engine
-            </span>
-            <h2 className="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
-              10 signals.<br />
-              <span className="text-indigo-400">One perfect match.</span>
-            </h2>
-            <p className="text-slate-300 text-lg mb-10 leading-relaxed">
-              We don't just filter universities — we <em>score</em> every program against your specific profile using 10 signals, including academic backlogs and gap year history, built from real admissions data.
-            </p>
-            <Link
-              href="/get-started"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl bg-white text-indigo-700 font-bold hover:bg-indigo-50 transition-colors shadow-lg"
-            >
-              See my matches
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-          <div className="grid grid-cols-2 gap-3">
-            {[
-              { label: "Academic Score", icon: "🎓", bg: "bg-indigo-500/10 border-indigo-500/20" },
-              { label: "English Proficiency", icon: "🗣️", bg: "bg-purple-500/10 border-purple-500/20" },
-              { label: "Budget Fit", icon: "💰", bg: "bg-pink-500/10 border-pink-500/20" },
-              { label: "Country Preference", icon: "🌍", bg: "bg-rose-500/10 border-rose-500/20" },
-              { label: "QS University Rank", icon: "🏆", bg: "bg-amber-500/10 border-amber-500/20" },
-              { label: "Intake Availability", icon: "📅", bg: "bg-emerald-500/10 border-emerald-500/20" },
-              { label: "Work Experience", icon: "💼", bg: "bg-cyan-500/10 border-cyan-500/20" },
-              { label: "Standardized Tests", icon: "📝", bg: "bg-blue-500/10 border-blue-500/20" },
-              { label: "Academic Backlogs", icon: "⚠️", bg: "bg-orange-500/10 border-orange-500/20" },
-              { label: "Gap Year", icon: "🗓️", bg: "bg-violet-500/10 border-violet-500/20" },
-            ].map((s) => (
-              <motion.div
-                key={s.label}
-                whileInView={{ opacity: 1, y: 0 }}
-                initial={{ opacity: 0, y: 10 }}
-                viewport={{ once: true }}
-                className={`p-4 rounded-2xl border ${s.bg} hover:scale-105 transition-transform flex items-center gap-3`}
-              >
-                <span className="text-2xl">{s.icon}</span>
-                <div className="text-sm text-slate-300 font-medium leading-snug">{s.label}</div>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 
