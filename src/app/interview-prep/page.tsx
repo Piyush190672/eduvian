@@ -281,45 +281,58 @@ function parseFeedback(text: string, country: Country) {
 }
 
 // ─── TTS hook ──────────────────────────────────────────────────────────────────
-// Voice spec from instruction windows:
-//   - Female voice
-//   - Slower pace (warm, encouraging, friendly — AU / UK)
-//   - Best available: prefer Indian English female, then any female English
-//   - Rate: 0.82 (noticeably slower than default 1.0)
-//   - Pitch: 1.05 (slightly warmer/higher for female naturalness)
+// ─── Voice selection ──────────────────────────────────────────────────────────
+// AU coach  → en-AU female (Karen on macOS, Google Australian Female on Chrome)
+// UK coach  → en-GB female (Google UK English Female, Daniel/Serena on macOS)
+// Fallback  → any female English voice, then any English voice
+//
+// Priority per accent:
+//   Australia: Google Australian Female → Karen (macOS) → any en-AU → any female en
+//   UK:        Google UK English Female → Serena (macOS) → Hazel/Zira (Win) → any en-GB → any female en
 
-// ─── Female voice selection ───────────────────────────────────────────────────
-// Priority order: en-IN female → Google UK/US Female → known female names →
-// any female keyword → en-GB / en-AU fallback
-
-function pickFemaleVoice(voices: SpeechSynthesisVoice[]): SpeechSynthesisVoice | null {
-  // 1. Indian English female
-  const inFemale =
-    voices.find((v) => v.lang === "en-IN" && /female|woman/i.test(v.name)) ??
-    voices.find((v) => v.lang === "en-IN");
-
-  // 2. Explicitly named female voices (cross-browser)
-  const namedFemale = voices.find(
-    (v) =>
+function pickVoice(voices: SpeechSynthesisVoice[], country: "australia" | "uk"): SpeechSynthesisVoice | null {
+  if (country === "australia") {
+    // 1. Explicitly named Australian female voices
+    const auNamed = voices.find((v) =>
+      v.name === "Google Australian Female" ||
+      v.name.includes("Karen") ||       // macOS en-AU female
+      v.name.includes("Catherine") ||   // some macOS variants
+      (v.lang === "en-AU" && /female/i.test(v.name))
+    );
+    // 2. Any en-AU voice (Chrome default on en-AU is female)
+    const auLocale = voices.find((v) => v.lang === "en-AU");
+    // 3. Any female English voice as last resort
+    const anyFemale = voices.find((v) =>
       v.lang.startsWith("en") &&
-      (v.name === "Google UK English Female" ||
-        v.name === "Google US English Female" ||
-        v.name.includes("Samantha") ||  // macOS en-US
-        v.name.includes("Karen") ||     // macOS en-AU
-        v.name.includes("Moira") ||     // macOS en-IE
-        v.name.includes("Tessa") ||     // macOS en-ZA
-        v.name.includes("Zira") ||      // Windows
-        v.name.includes("Hazel") ||     // Windows
-        v.name.includes("Susan") ||     // Windows
+      (v.name === "Google US English Female" ||
+        v.name.includes("Samantha") ||
+        v.name.includes("Tessa") ||
+        v.name.includes("Moira") ||
         /female/i.test(v.name))
-  );
-
-  // 3. en-GB / en-AU (default Chrome voice on these locales is female)
-  const localeFallback =
-    voices.find((v) => v.lang === "en-GB") ??
-    voices.find((v) => v.lang === "en-AU");
-
-  return inFemale ?? namedFemale ?? localeFallback ?? null;
+    );
+    return auNamed ?? auLocale ?? anyFemale ?? null;
+  } else {
+    // UK
+    // 1. Explicitly named UK female voices
+    const ukNamed = voices.find((v) =>
+      v.name === "Google UK English Female" ||
+      v.name.includes("Serena") ||      // macOS en-GB female
+      v.name.includes("Hazel") ||       // Windows en-GB female
+      v.name.includes("Zira") ||        // Windows female
+      (v.lang === "en-GB" && /female/i.test(v.name))
+    );
+    // 2. Any en-GB voice (Chrome default on en-GB is female)
+    const ukLocale = voices.find((v) => v.lang === "en-GB");
+    // 3. Any female English voice as last resort
+    const anyFemale = voices.find((v) =>
+      v.lang.startsWith("en") &&
+      (v.name === "Google Australian Female" ||
+        v.name.includes("Karen") ||
+        v.name.includes("Samantha") ||
+        /female/i.test(v.name))
+    );
+    return ukNamed ?? ukLocale ?? anyFemale ?? null;
+  }
 }
 
 // Pre-load voices as early as possible so they're ready when first speak() fires
@@ -330,8 +343,8 @@ if (typeof window !== "undefined" && "speechSynthesis" in window) {
   window.speechSynthesis.addEventListener("voiceschanged", load);
 }
 
-function useTTS() {
-  // speak() — waits for voices to be available if needed, always uses female voice
+function useTTS(country: "australia" | "uk") {
+  // speak() — waits for voices to be available, picks correct accent + female voice
   const speak = useCallback((text: string, onEnd?: () => void) => {
     if (typeof window === "undefined" || !("speechSynthesis" in window)) {
       onEnd?.();
@@ -342,9 +355,9 @@ function useTTS() {
     const doSpeak = (voices: SpeechSynthesisVoice[]) => {
       const utter = new SpeechSynthesisUtterance(text);
       utter.rate = 1.0;    // normal speed
-      utter.pitch = 1.05;  // warm, slightly higher for female naturalness
+      utter.pitch = 1.05;  // slightly higher for female naturalness
       utter.volume = 1;
-      const v = pickFemaleVoice(voices);
+      const v = pickVoice(voices, country);
       if (v) utter.voice = v;
       utter.onend = () => onEnd?.();
       window.speechSynthesis.speak(utter);
@@ -352,11 +365,9 @@ function useTTS() {
 
     const voices = window.speechSynthesis.getVoices();
     if (voices.length > 0) {
-      // Voices already loaded — use them immediately
       _voicesCache = voices;
       doSpeak(voices);
     } else {
-      // Wait for voiceschanged (Chrome async pattern)
       const handler = () => {
         const v2 = window.speechSynthesis.getVoices();
         _voicesCache = v2;
@@ -369,7 +380,7 @@ function useTTS() {
         if (v3.length > 0 && !_voicesCache.length) doSpeak(v3);
       }, 600);
     }
-  }, []);
+  }, [country]);
 
   const cancel = useCallback(() => {
     if (typeof window !== "undefined" && "speechSynthesis" in window) {
@@ -589,7 +600,7 @@ function FeedbackPanel({
   studentName: string;
   muted: boolean;
 }) {
-  const { speak, cancel } = useTTS();
+  const { speak, cancel } = useTTS(country);
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [countdown, setCountdown] = useState<number | null>(null);
   const countdownRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -784,7 +795,7 @@ function InterviewSession({
   country: Country;
   onReset: () => void;
 }) {
-  const { speak, cancel } = useTTS();
+  const { speak, cancel } = useTTS(country);
   const accentBg = country === "australia" ? "from-sky-500 to-blue-600" : "from-rose-500 to-red-600";
   const accentText = country === "australia" ? "text-sky-600" : "text-rose-600";
   const flag = country === "australia" ? "🇦🇺" : "🇬🇧";
