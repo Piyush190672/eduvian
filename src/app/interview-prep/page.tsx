@@ -341,7 +341,7 @@ function useTTS() {
 
     const doSpeak = (voices: SpeechSynthesisVoice[]) => {
       const utter = new SpeechSynthesisUtterance(text);
-      utter.rate = 0.82;   // slower pace per instructions
+      utter.rate = 1.0;    // normal speed
       utter.pitch = 1.05;  // warm, slightly higher for female naturalness
       utter.volume = 1;
       const v = pickFemaleVoice(voices);
@@ -453,7 +453,7 @@ function CountrySelect({ onSelect }: { onSelect: (c: Country) => void }) {
             19 approved questions across 5 categories — Program, Career Outcome, Why Australia, University, and Return Intent.
           </p>
           <div className="flex flex-wrap gap-1.5">
-            {["5 categories", "19 questions", "GS visa style", "AI feedback"].map((t) => (
+            {["5 categories", "19 questions", "Genuine Student style", "AI feedback"].map((t) => (
               <span key={t} className="px-2.5 py-1 rounded-full bg-sky-100 text-sky-700 text-[11px] font-semibold">{t}</span>
             ))}
           </div>
@@ -469,14 +469,14 @@ function CountrySelect({ onSelect }: { onSelect: (c: Country) => void }) {
             <span className="text-4xl">🇬🇧</span>
             <div>
               <p className="text-[11px] font-bold text-rose-600 uppercase tracking-wider">United Kingdom</p>
-              <h3 className="text-xl font-extrabold text-gray-900">Visa Interview Prep</h3>
+              <h3 className="text-xl font-extrabold text-gray-900">UK Credibility Interview Prep</h3>
             </div>
           </div>
           <p className="text-sm text-gray-500 leading-relaxed">
             14 approved questions in exact sequence — Study Motivation, Career, Academic Background, University, and Visa Logistics.
           </p>
           <div className="flex flex-wrap gap-1.5">
-            {["Fixed sequence", "14 questions", "Visa interview style", "AI feedback"].map((t) => (
+            {["Fixed sequence", "14 questions", "UK credibility style", "AI feedback"].map((t) => (
               <span key={t} className="px-2.5 py-1 rounded-full bg-rose-100 text-rose-700 text-[11px] font-semibold">{t}</span>
             ))}
           </div>
@@ -518,7 +518,7 @@ function CategoryPicker({
       <div className="flex items-center gap-3 mb-8">
         <span className="text-4xl">🇦🇺</span>
         <div>
-          <p className="text-xs font-bold text-sky-600 uppercase tracking-wider">Australia · GS Interview</p>
+          <p className="text-xs font-bold text-sky-600 uppercase tracking-wider">Australia · Genuine Student Interview</p>
           <h2 className="text-2xl font-extrabold text-gray-900">
             Which category would you like to practice, {studentName}?
           </h2>
@@ -1086,7 +1086,7 @@ function InterviewSession({
           <div className="text-left">
             <p className={`text-xs font-bold uppercase tracking-wider ${accentText}`}>{countryLabel}</p>
             <h2 className="text-2xl font-extrabold text-gray-900">
-              {country === "australia" ? "GS Interview Prep" : "Visa Interview Prep"}
+              {country === "australia" ? "Genuine Student Interview Prep" : "UK Credibility Interview Prep"}
             </h2>
           </div>
         </div>
@@ -1152,7 +1152,7 @@ function InterviewSession({
           <span className="text-5xl">🇬🇧</span>
           <div className="text-left">
             <p className="text-xs font-bold text-rose-600 uppercase tracking-wider">United Kingdom</p>
-            <h2 className="text-2xl font-extrabold text-gray-900">Visa Interview Prep</h2>
+            <h2 className="text-2xl font-extrabold text-gray-900">UK Credibility Interview Prep</h2>
           </div>
         </div>
         <div className="bg-white rounded-3xl border border-gray-100 shadow-sm p-8 mb-6">
