@@ -407,178 +407,262 @@ export default function LandingPage() {
       </section>
 
 
-      {/* ── How it works ─────────────────────────────────────────── */}
-      <section id="how-it-works" className="py-24 px-6 bg-gray-50">
+      {/* ══════════════════════════════════════════════════════════
+           MERGED: Know Your Profile · Matching Engine · Shortlist
+          ══════════════════════════════════════════════════════════ */}
+      <section id="how-it-works" className="py-28 px-6 bg-white overflow-hidden">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="inline-flex items-center gap-1.5 text-indigo-600 font-bold text-sm uppercase tracking-widest mb-3">
+
+          {/* Section header */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }} className="text-center mb-20"
+          >
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-100 text-indigo-700 text-sm font-bold uppercase tracking-widest mb-5">
               <Zap className="w-3.5 h-3.5" /> How it works
             </span>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mt-1">
-              Three steps to your shortlist
+            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mt-1 leading-tight">
+              From your profile<br className="hidden sm:block" /> to your perfect shortlist
             </h2>
-            <p className="text-gray-500 mt-4 text-lg max-w-xl mx-auto">
-              No counsellor needed. Just fill in your details and let our engine do the work.
+            <p className="text-gray-400 mt-4 text-lg max-w-xl mx-auto">
+              Three steps. No counsellor needed. Results in under 2 minutes.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {HOW_IT_WORKS.map((item, i) => (
-              <motion.div
-                key={item.step}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.15 }}
-                className="relative bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 hover:-translate-y-1 overflow-hidden"
-              >
-                <span className="absolute top-5 right-6 text-6xl font-black text-gray-50 leading-none select-none">
-                  {item.step}
-                </span>
-                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center mb-6 shadow-lg`}>
-                  <item.icon className="w-7 h-7 text-white" />
-                </div>
-                <h3 className="text-xl font-extrabold text-gray-900 mb-3">{item.title}</h3>
-                <p className="text-gray-500 leading-relaxed">{item.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-
-          <div className="mt-12 text-center">
-            <Link
-              href="/get-started"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-base font-bold hover:shadow-xl hover:shadow-indigo-200 transition-all hover:-translate-y-0.5"
+          {/* ── STEP 1: Know your profile ── */}
+          <div className="grid md:grid-cols-2 gap-12 items-center mb-24">
+            {/* Left: photo collage */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }} className="relative"
             >
-              Start now — it's free
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
+              <div className="rounded-3xl overflow-hidden shadow-2xl">
+                <img src="/hot-profile.jpg" alt="Students at university"
+                  className="w-full h-[400px] object-cover" />
+              </div>
+              <div className="absolute -bottom-8 -right-8 w-48 h-48 rounded-2xl overflow-hidden shadow-xl border-4 border-white">
+                <img src="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=300&q=85"
+                  alt="University campus" className="w-full h-full object-cover" />
+              </div>
+              <div className="absolute top-6 -left-4 bg-white rounded-2xl shadow-xl px-4 py-3 border border-gray-100">
+                <p className="text-[10px] text-gray-400 font-semibold uppercase tracking-wider mb-0.5">Profile Rating</p>
+                <p className="text-base font-black text-rose-500">🔥 SUPER HOT Profile</p>
+              </div>
+              {/* Step pill */}
+              <div className="absolute -top-5 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-gradient-to-r from-indigo-500 to-violet-500 text-white text-xs font-black px-5 py-2 rounded-full shadow-lg shadow-indigo-200">
+                <span className="w-5 h-5 rounded-full bg-white/30 flex items-center justify-center text-[11px] font-black">1</span>
+                KNOW YOUR PROFILE
+              </div>
+            </motion.div>
 
-      {/* ── AI matching dark section ─────────────────────────────── */}
-      <section className="relative py-24 px-6 bg-gradient-to-br from-slate-900 via-indigo-950 to-purple-950 overflow-hidden text-white">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500/15 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-80 h-80 bg-indigo-500/15 rounded-full blur-3xl" />
-        </div>
-        <div className="relative max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-          <div>
-            <span className="inline-flex items-center gap-1.5 text-indigo-300 font-bold text-sm uppercase tracking-widest mb-5">
-              <Sparkles className="w-3.5 h-3.5" /> The matching engine
-            </span>
-            <h2 className="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
-              10 signals.<br />
-              <span className="text-indigo-400">One perfect match.</span>
-            </h2>
-            <p className="text-slate-300 text-lg mb-10 leading-relaxed">
-              We don't just filter universities — we <em>score</em> every program against your specific profile using 10 signals, including academic backlogs and gap year history, built from real admissions data.
-            </p>
-            <Link
-              href="/get-started"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl bg-white text-indigo-700 font-bold hover:bg-indigo-50 transition-colors shadow-lg"
+            {/* Right: copy */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
             >
-              See my matches
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 text-indigo-600 text-xs font-bold uppercase tracking-wider mb-4">
+                <BookOpen className="w-3.5 h-3.5" /> Step 1
+              </div>
+              <h3 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 leading-tight">
+                Tell us about yourself —<br />
+                <span className="text-indigo-600">we'll rate your profile</span>
+              </h3>
+              <p className="text-gray-500 text-base leading-relaxed mb-7">
+                Share your academic scores, English results, budget, destinations, and background in our quick 4-step form. We assess your profile across 12 criteria and give you an honest rating.
+              </p>
+              <div className="grid grid-cols-2 gap-2.5 mb-8">
+                {[
+                  { emoji: "🔥", label: "SUPER HOT", sub: "Top 20% of applicants" },
+                  { emoji: "⭐", label: "HOT",        sub: "Strong across key signals" },
+                  { emoji: "💪", label: "STRONG",     sub: "Solid with room to grow" },
+                  { emoji: "📊", label: "GOOD",       sub: "Targeted prep recommended" },
+                ].map((r) => (
+                  <div key={r.label} className="flex items-center gap-3 bg-gray-50 border border-gray-100 rounded-2xl px-4 py-3">
+                    <span className="text-xl">{r.emoji}</span>
+                    <div>
+                      <p className="text-xs font-black text-gray-900">{r.label} Profile</p>
+                      <p className="text-[11px] text-gray-400 leading-tight">{r.sub}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <Link href="/get-started"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gray-900 text-white text-sm font-bold hover:bg-indigo-600 transition-colors">
+                Get my profile rating <ChevronRight className="w-4 h-4" />
+              </Link>
+            </motion.div>
           </div>
-          <div className="grid grid-cols-2 gap-3">
-            {[
-              { label: "Academic Score", icon: "🎓", bg: "bg-indigo-500/10 border-indigo-500/20" },
-              { label: "English Proficiency", icon: "🗣️", bg: "bg-purple-500/10 border-purple-500/20" },
-              { label: "Budget Fit", icon: "💰", bg: "bg-pink-500/10 border-pink-500/20" },
-              { label: "Country Preference", icon: "🌍", bg: "bg-rose-500/10 border-rose-500/20" },
-              { label: "QS University Rank", icon: "🏆", bg: "bg-amber-500/10 border-amber-500/20" },
-              { label: "Intake Availability", icon: "📅", bg: "bg-emerald-500/10 border-emerald-500/20" },
-              { label: "Work Experience", icon: "💼", bg: "bg-cyan-500/10 border-cyan-500/20" },
-              { label: "Standardized Tests", icon: "📝", bg: "bg-blue-500/10 border-blue-500/20" },
-              { label: "Academic Backlogs", icon: "⚠️", bg: "bg-orange-500/10 border-orange-500/20" },
-              { label: "Gap Year", icon: "🗓️", bg: "bg-violet-500/10 border-violet-500/20" },
-            ].map((s) => (
-              <motion.div
-                key={s.label}
-                whileInView={{ opacity: 1, y: 0 }}
-                initial={{ opacity: 0, y: 10 }}
-                viewport={{ once: true }}
-                className={`p-4 rounded-2xl border ${s.bg} hover:scale-105 transition-transform flex items-center gap-3`}
-              >
-                <span className="text-2xl">{s.icon}</span>
-                <div className="text-sm text-slate-300 font-medium leading-snug">{s.label}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* ── Student photo band ───────────────────────────────────── */}
-      <section className="relative py-24 px-6 overflow-hidden">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-          {/* Photos collage */}
+          {/* ── STEP 2: Matching Engine ── dark band */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="relative"
+            className="relative rounded-3xl bg-gradient-to-br from-slate-900 via-indigo-950 to-purple-950 text-white overflow-hidden mb-24 p-10 md:p-14"
           >
-            {/* Main large photo — male and female students at university */}
-            <div className="rounded-3xl overflow-hidden shadow-2xl">
-              <img
-                src="/hot-profile.jpg"
-                alt="Male and female students smiling with victory sign"
-                className="w-full h-[420px] object-cover"
-              />
+            {/* Blobs */}
+            <div className="absolute top-0 right-0 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl pointer-events-none" />
+
+            {/* Step pill */}
+            <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white text-xs font-black px-5 py-2 rounded-full mb-8">
+              <span className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-[11px] font-black">2</span>
+              AI MATCHES YOUR PROFILE
             </div>
-            {/* Overlapping small photo */}
-            <div className="absolute -bottom-8 -right-8 w-52 h-52 rounded-2xl overflow-hidden shadow-xl border-4 border-white">
-              <img
-                src="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=300&q=85"
-                alt="Students with university building"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            {/* Profile score badge */}
-            <div className="absolute top-6 -left-6 bg-white rounded-2xl shadow-xl px-5 py-4 border border-gray-100">
-              <p className="text-xs text-gray-400 font-medium mb-1">Profile Rating</p>
-              <p className="text-lg font-black text-rose-500">🔥 SUPER HOT Profile</p>
+
+            <div className="relative grid md:grid-cols-2 gap-12 items-center">
+              {/* Left: copy */}
+              <div>
+                <span className="inline-flex items-center gap-1.5 text-indigo-300 text-xs font-bold uppercase tracking-widest mb-4">
+                  <Sparkles className="w-3.5 h-3.5" /> The matching engine
+                </span>
+                <h3 className="text-3xl md:text-4xl font-extrabold mb-5 leading-tight">
+                  10 signals.<br />
+                  <span className="text-indigo-400">One perfect match.</span>
+                </h3>
+                <p className="text-slate-300 text-base leading-relaxed mb-8">
+                  We don't just filter universities — we <em>score</em> every program against your exact profile using 10 weighted signals, including backlogs and gap year history built from real admissions data.
+                </p>
+                <Link href="/get-started"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white text-indigo-700 text-sm font-bold hover:bg-indigo-50 transition-colors shadow-lg">
+                  See my matches <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+
+              {/* Right: signal grid */}
+              <div className="grid grid-cols-2 gap-2.5">
+                {[
+                  { label: "Academic Score",     icon: "🎓", bg: "bg-indigo-500/10 border-indigo-500/20" },
+                  { label: "English Proficiency",icon: "🗣️", bg: "bg-purple-500/10 border-purple-500/20" },
+                  { label: "Budget Fit",          icon: "💰", bg: "bg-pink-500/10 border-pink-500/20" },
+                  { label: "Country Preference",  icon: "🌍", bg: "bg-rose-500/10 border-rose-500/20" },
+                  { label: "QS University Rank",  icon: "🏆", bg: "bg-amber-500/10 border-amber-500/20" },
+                  { label: "Intake Availability", icon: "📅", bg: "bg-emerald-500/10 border-emerald-500/20" },
+                  { label: "Work Experience",     icon: "💼", bg: "bg-cyan-500/10 border-cyan-500/20" },
+                  { label: "Standardized Tests",  icon: "📝", bg: "bg-blue-500/10 border-blue-500/20" },
+                  { label: "Academic Backlogs",   icon: "⚠️", bg: "bg-orange-500/10 border-orange-500/20" },
+                  { label: "Gap Year",            icon: "🗓️", bg: "bg-violet-500/10 border-violet-500/20" },
+                ].map((s, i) => (
+                  <motion.div key={s.label}
+                    initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }} transition={{ delay: i * 0.05 }}
+                    className={`p-3.5 rounded-2xl border ${s.bg} flex items-center gap-3 hover:scale-105 transition-transform`}
+                  >
+                    <span className="text-xl">{s.icon}</span>
+                    <span className="text-xs text-slate-300 font-semibold leading-snug">{s.label}</span>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </motion.div>
 
-          {/* Right — text */}
+          {/* ── STEP 3: Your TOP 20 Shortlist ── */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <span className="inline-flex items-center gap-1.5 text-indigo-600 font-bold text-sm uppercase tracking-widest mb-4">
-              <Heart className="w-3.5 h-3.5" /> Built for ambitious students
-            </span>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
-              Know your profile<br />
-              <span className="text-indigo-600">before you apply</span>
-            </h2>
-            <p className="text-gray-500 text-lg leading-relaxed mb-8">
-              We assess your profile across 12 criteria — from passport & visa history to test scores, budget, and research experience — and give you an honest profile rating so you know exactly where you stand.
-            </p>
-            <div className="space-y-3 mb-10">
+            {/* Step pill */}
+            <div className="flex justify-center mb-10">
+              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-fuchsia-500 to-rose-500 text-white text-xs font-black px-5 py-2 rounded-full shadow-lg shadow-fuchsia-200">
+                <span className="w-5 h-5 rounded-full bg-white/30 flex items-center justify-center text-[11px] font-black">3</span>
+                YOUR TOP 20 SHORTLIST
+              </div>
+            </div>
+
+            <div className="text-center mb-12">
+              <h3 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight">
+                Your personalised shortlist —
+                <span className="bg-gradient-to-r from-fuchsia-600 to-rose-500 bg-clip-text text-transparent"> ranked, tiered & emailed</span>
+              </h3>
+              <p className="text-gray-400 mt-4 text-base max-w-xl mx-auto">
+                Every match is scored, tiered into Safe · Reach · Ambitious, and sent straight to your inbox — with a PDF you can share with your family or counsellor.
+              </p>
+            </div>
+
+            {/* Three tier cards */}
+            <div className="grid md:grid-cols-3 gap-5 mb-10">
               {[
-                "🔥 SUPER HOT Profile — top 20% of applicants",
-                "⭐ HOT Profile — strong across key criteria",
-                "💪 STRONG Profile — solid with room to grow",
-                "📊 Good Profile — targeted prep recommended",
-              ].map((item) => (
-                <div key={item} className="flex items-center gap-3 text-sm text-gray-700 font-medium">
-                  <CheckCircle2 className="w-4 h-4 text-indigo-500 flex-shrink-0" />
-                  {item}
+                {
+                  tier: "Safe",
+                  emoji: "✅",
+                  score: "75–100",
+                  color: "from-emerald-50 to-green-50",
+                  border: "border-emerald-200",
+                  badge: "bg-emerald-500",
+                  text: "text-emerald-700",
+                  desc: "Programs where your profile comfortably meets or exceeds requirements.",
+                  pct: "30%",
+                  pctColor: "bg-emerald-400",
+                },
+                {
+                  tier: "Reach",
+                  emoji: "🎯",
+                  score: "50–74",
+                  color: "from-amber-50 to-yellow-50",
+                  border: "border-amber-200",
+                  badge: "bg-amber-500",
+                  text: "text-amber-700",
+                  desc: "Programs where your profile is close to the admitted student average.",
+                  pct: "50%",
+                  pctColor: "bg-amber-400",
+                },
+                {
+                  tier: "Ambitious",
+                  emoji: "🚀",
+                  score: "< 50",
+                  color: "from-rose-50 to-red-50",
+                  border: "border-rose-200",
+                  badge: "bg-rose-500",
+                  text: "text-rose-700",
+                  desc: "Highly competitive programs — worth applying to with a strong SOP.",
+                  pct: "20%",
+                  pctColor: "bg-rose-400",
+                },
+              ].map((t, i) => (
+                <motion.div key={t.tier}
+                  initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }} transition={{ delay: i * 0.1 }}
+                  className={`relative bg-gradient-to-br ${t.color} border ${t.border} rounded-3xl p-7 flex flex-col gap-4`}
+                >
+                  {/* Recommended mix badge */}
+                  <span className={`absolute top-5 right-5 text-[10px] font-black px-2.5 py-1 rounded-full text-white ${t.badge}`}>
+                    {t.pct} of list
+                  </span>
+                  <div className="text-3xl">{t.emoji}</div>
+                  <div>
+                    <p className={`text-xs font-black uppercase tracking-widest ${t.text} mb-1`}>{t.tier} match</p>
+                    <p className="text-2xl font-black text-gray-900">{t.score}<span className="text-sm font-semibold text-gray-400 ml-1">score</span></p>
+                  </div>
+                  <p className="text-sm text-gray-500 leading-relaxed flex-1">{t.desc}</p>
+                  {/* Mini score bar */}
+                  <div className="h-1.5 bg-white/60 rounded-full overflow-hidden">
+                    <div className={`h-full rounded-full ${t.pctColor}`} style={{ width: t.score.startsWith("75") ? "88%" : t.score.startsWith("50") ? "62%" : "35%" }} />
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Bottom features strip */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 py-6 px-8 rounded-2xl bg-gray-50 border border-gray-100 mb-10">
+              {[
+                { icon: "⚡", text: "Results in under 2 minutes" },
+                { icon: "📧", text: "Emailed instantly to you" },
+                { icon: "📄", text: "Shareable PDF shortlist" },
+                { icon: "🆓", text: "100% free, always" },
+              ].map((f) => (
+                <div key={f.text} className="flex items-center gap-2 text-sm text-gray-600 font-medium">
+                  <span className="text-lg">{f.icon}</span>{f.text}
                 </div>
               ))}
             </div>
-            <Link
-              href="/get-started"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl bg-gray-900 text-white font-bold hover:bg-indigo-600 transition-colors"
-            >
-              Get my profile rating
-              <ChevronRight className="w-4 h-4" />
-            </Link>
+
+            <div className="text-center">
+              <Link href="/get-started"
+                className="inline-flex items-center gap-2 px-10 py-4 rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-base font-bold hover:shadow-xl hover:shadow-indigo-200 transition-all hover:-translate-y-0.5 shadow-lg">
+                Get my TOP 20 shortlist — free
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+            </div>
+
           </motion.div>
         </div>
       </section>
