@@ -345,8 +345,9 @@ if (typeof window !== "undefined" && "speechSynthesis" in window) {
 }
 
 function useTTS(country: "australia" | "uk") {
-  // speak() — waits for voices to be available, picks correct accent + female voice
-  const speak = useCallback((text: string, onEnd?: () => void) => {
+  // speakSegments() — speaks an array of text segments with a pause between each.
+  // This creates natural breathing room between feedback sections.
+  const speakSegments = useCallback((segments: string[], onEnd?: () => void) => {
     if (typeof window === "undefined" || !("speechSynthesis" in window)) {
       onEnd?.();
       return;
@@ -354,14 +355,27 @@ function useTTS(country: "australia" | "uk") {
     window.speechSynthesis.cancel();
 
     const doSpeak = (voices: SpeechSynthesisVoice[]) => {
-      const utter = new SpeechSynthesisUtterance(text);
-      utter.rate = 1.0;    // normal speed
-      utter.pitch = 1.05;  // slightly higher for female naturalness
-      utter.volume = 1;
-      const v = pickVoice(voices, country);
-      if (v) utter.voice = v;
-      utter.onend = () => onEnd?.();
-      window.speechSynthesis.speak(utter);
+      const voice = pickVoice(voices, country);
+      let i = 0;
+
+      const speakNext = () => {
+        if (i >= segments.length) { onEnd?.(); return; }
+        const seg = segments[i++];
+        if (!seg.trim()) { speakNext(); return; }
+
+        const utter = new SpeechSynthesisUtterance(seg);
+        utter.rate  = 1.0;    // natural speed
+        utter.pitch = 1.12;   // warmer, more energetic female tone
+        utter.volume = 1;
+        if (voice) utter.voice = voice;
+        utter.onend = () => {
+          // 650ms natural pause between segments — like a breath between thoughts
+          setTimeout(speakNext, 650);
+        };
+        window.speechSynthesis.speak(utter);
+      };
+
+      speakNext();
     };
 
     const voices = window.speechSynthesis.getVoices();
@@ -375,7 +389,6 @@ function useTTS(country: "australia" | "uk") {
         doSpeak(v2);
       };
       window.speechSynthesis.addEventListener("voiceschanged", handler, { once: true });
-      // Safety fallback: if voiceschanged never fires (some browsers), speak after 600ms
       setTimeout(() => {
         const v3 = window.speechSynthesis.getVoices();
         if (v3.length > 0 && !_voicesCache.length) doSpeak(v3);
@@ -383,13 +396,18 @@ function useTTS(country: "australia" | "uk") {
     }
   }, [country]);
 
+  // speak() — convenience wrapper for a single text string
+  const speak = useCallback((text: string, onEnd?: () => void) => {
+    speakSegments([text], onEnd);
+  }, [speakSegments]);
+
   const cancel = useCallback(() => {
     if (typeof window !== "undefined" && "speechSynthesis" in window) {
       window.speechSynthesis.cancel();
     }
   }, []);
 
-  return { speak, cancel };
+  return { speak, speakSegments, cancel };
 }
 
 // ─── Waveform ──────────────────────────────────────────────────────────────────
@@ -601,7 +619,7 @@ function FeedbackPanel({
   studentName: string;
   muted: boolean;
 }) {
-  const { speak, cancel } = useTTS(country);
+  const { speak, speakSegments, cancel } = useTTS(country);
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [countdown, setCountdown] = useState<number | null>(null);
   const countdownRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -610,15 +628,17 @@ function FeedbackPanel({
   const sampleLabel = country === "australia" ? "A good sample answer is" : "Here is a sample answer";
   const parsed = feedbackText ? parseFeedback(feedbackText, country) : null;
 
-  // Build spoken version of feedback (plain sentences, strip bullet markers)
-  const buildSpokenFeedback = useCallback((p: ReturnType<typeof parseFeedback>) => {
-    const clean = (s: string) => s.replace(/^[-•*]\s*/gm, "").trim();
-    const parts: string[] = [];
-    if (p.well)    parts.push(`Here is what you did well. ${clean(p.well)}`);
-    if (p.improve) parts.push(`${improveLabel}. ${clean(p.improve)}`);
-    if (p.sample)  parts.push(`${sampleLabel}. ${clean(p.sample)}`);
-    return parts.join(". ") || clean(p.raw);
-  }, [improveLabel, sampleLabel]);
+  // Build segments array — each section is its own utterance so there's a natural
+  // pause and breath between "what you did well", "improve", and "sample answer"
+  const buildSpokenSegments = useCallback((p: ReturnType<typeof parseFeedback>): string[] => {
+    const clean = (s: string) => s.replace(/^[-•*]\s*/gm, " ").replace(/\n/g, ". ").replace(/\s+/g, " ").trim();
+    const segments: string[] = [];
+    if (p.well)    segments.push(`Okay ${studentName}! Here is what you did really well. ${clean(p.well)}`);
+    if (p.improve) segments.push(`Now, ${improveLabel}. ${clean(p.improve)}`);
+    if (p.sample)  segments.push(`Alright! ${sampleLabel}. ${clean(p.sample)}`);
+    if (!segments.length && p.raw) segments.push(clean(p.raw));
+    return segments;
+  }, [studentName, improveLabel, sampleLabel]);
 
   const startCountdown = useCallback((onDone: () => void) => {
     setCountdown(3);
@@ -634,22 +654,20 @@ function FeedbackPanel({
     }, 1000);
   }, []);
 
-  // Auto-speak feedback when it arrives, then auto-advance to next question
+  // Auto-speak feedback when it arrives using segments (pause between each section),
+  // then auto-advance to next question after 3s
   useEffect(() => {
     if (!feedbackText || loading) return;
     const p = parseFeedback(feedbackText, country);
-    const text = buildSpokenFeedback(p);
 
     if (muted) {
-      // Muted: just count down 3s then advance
       startCountdown(onNext);
       return () => { if (countdownRef.current) clearInterval(countdownRef.current); };
     }
 
     setIsSpeaking(true);
-    speak(text, () => {
+    speakSegments(buildSpokenSegments(p), () => {
       setIsSpeaking(false);
-      // After speech ends, 3-second pause then auto-advance (as per instruction: "Pause for 3 seconds")
       startCountdown(onNext);
     });
     return () => {
@@ -664,7 +682,7 @@ function FeedbackPanel({
     if (countdownRef.current) { clearInterval(countdownRef.current); setCountdown(null); }
     cancel();
     setIsSpeaking(true);
-    speak(buildSpokenFeedback(parsed), () => {
+    speakSegments(buildSpokenSegments(parsed), () => {
       setIsSpeaking(false);
       startCountdown(onNext);
     });
@@ -851,8 +869,8 @@ function InterviewSession({
   useEffect(() => {
     if (phase !== "name") return;
     const greeting = country === "australia"
-      ? "Hello, I am here to help you prepare for your GS interview. Please tell me your name."
-      : "Hello! I am here to help you prepare for your UK university interview. May I know your name please.";
+      ? "Hello there! Welcome to your Genuine Student interview practice! I am so excited to help you prepare. To get us started, could you please tell me your name?"
+      : "Hello! Welcome! I am absolutely delighted to help you prepare for your UK credibility interview today. Could you please tell me your name?";
     // Small delay so the page has rendered before speaking
     const t = setTimeout(() => speak(greeting), 400);
     return () => clearTimeout(t);
@@ -862,7 +880,7 @@ function InterviewSession({
   // ── AUTO-SPEAK: UK "are you ready — say YES" ─────────────────────────────────
   useEffect(() => {
     if (phase !== "uk_confirm" || !studentName) return;
-    const msg = `Hello ${studentName}! I am here to help you prepare for your UK university interview. If you are ready for the interview, please say YES.`;
+    const msg = `Wonderful, ${studentName}! It is so great to meet you! I am here to help you absolutely nail your UK credibility interview. When you are ready to begin, just say YES and we will get started!`;
     const t = setTimeout(() => speak(msg), 300);
     return () => clearTimeout(t);
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -871,7 +889,7 @@ function InterviewSession({
   // ── AUTO-SPEAK: AU category menu ─────────────────────────────────────────────
   useEffect(() => {
     if (phase !== "category" || !studentName) return;
-    const msg = `${studentName}, which category of questions would you like to practice? The categories are: 1. About the Program. 2. Career Outcome. 3. Why Australia. 4. About the University. 5. Other Important Questions.`;
+    const msg = `Fantastic, ${studentName}! You are going to do brilliantly today! Now, which category of questions would you like to practice? We have five great options. Number one, About the Program. Number two, Career Outcome. Number three, Why Australia. Number four, About the University. And number five, Other Important Questions. Which one shall we start with?`;
     const t = setTimeout(() => speak(msg), 300);
     return () => clearTimeout(t);
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -1020,11 +1038,66 @@ function InterviewSession({
     speakQuestion(AU_ALL_QUESTIONS[0].question);
   };
 
+  // ── Auto-submit: 3s silence detector ────────────────────────────────────────
+  // When the user stops speaking for 3 seconds, automatically stop & get feedback
+  const silenceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const lastTranscriptRef = useRef<string>("");
+
+  useEffect(() => {
+    if (phase !== "listening") {
+      if (silenceTimerRef.current) { clearTimeout(silenceTimerRef.current); silenceTimerRef.current = null; }
+      return;
+    }
+    // Only start the silence timer once the user has actually said something
+    if (!transcript.trim()) return;
+    if (transcript === lastTranscriptRef.current) return; // no change, timer already running
+    lastTranscriptRef.current = transcript;
+
+    if (silenceTimerRef.current) clearTimeout(silenceTimerRef.current);
+    silenceTimerRef.current = setTimeout(() => {
+      // Still in listening phase and transcript hasn't changed → auto-submit
+      if (phase === "listening" && transcript.trim()) {
+        stopListening();
+        setPhase("feedback");
+        const q = activeQuestions[qIndex];
+        // Need to fetch feedback — call via the ref captured below
+        autoSubmitRef.current?.();
+      }
+    }, 3000);
+
+    return () => { if (silenceTimerRef.current) clearTimeout(silenceTimerRef.current); };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [transcript, phase]);
+
+  // Auto-submit ref so the timeout closure can call fetchFeedback with latest values
+  const autoSubmitRef = useRef<(() => void) | null>(null);
+  useEffect(() => {
+    autoSubmitRef.current = () => {
+      const q = activeQuestions[qIndex];
+      if (q) fetchFeedback(q.question, q.objective, transcript);
+    };
+  });
+
   // ── Stop & review ───────────────────────────────────────────────────────────
   const handleStopAndReview = () => {
+    if (silenceTimerRef.current) { clearTimeout(silenceTimerRef.current); silenceTimerRef.current = null; }
     stopListening();
     setPhase("review");
   };
+
+  // ── Auto-advance from review → feedback after 3s ────────────────────────────
+  useEffect(() => {
+    if (phase !== "review") return;
+    const t = setTimeout(() => {
+      const q = activeQuestions[qIndex];
+      if (q && phase === "review") {
+        setPhase("feedback");
+        fetchFeedback(q.question, q.objective, transcript);
+      }
+    }, 3000);
+    return () => clearTimeout(t);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [phase]);
 
   // ── Submit answer → get feedback ────────────────────────────────────────────
   const handleSubmitAnswer = () => {
@@ -1100,8 +1173,8 @@ function InterviewSession({
   // ── Name collection ─────────────────────────────────────────────────────────
   if (phase === "name") {
     const coachText = country === "australia"
-      ? "Hello, I am here to help you prepare for your GS interview. Please tell me your name."
-      : "Hello! I am here to help you prepare for your UK university interview. May I know your name please.";
+      ? "Hello there! Welcome to your Genuine Student interview practice! I am so excited to help you prepare. To get us started, could you please tell me your name?"
+      : "Hello! Welcome! I am absolutely delighted to help you prepare for your UK credibility interview today. Could you please tell me your name?";
     return (
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-md mx-auto text-center">
         <div className="flex items-center justify-center gap-3 mb-8">
@@ -1168,7 +1241,7 @@ function InterviewSession({
 
   // ── UK: "say YES to begin" ──────────────────────────────────────────────────
   if (phase === "uk_confirm") {
-    const coachPrompt = `Hello ${studentName}! I am here to help you prepare for your UK university interview. If you are ready for the interview, please say YES.`;
+    const coachPrompt = `Wonderful, ${studentName}! It is so great to meet you! I am here to help you absolutely nail your UK credibility interview. When you are ready to begin, just say YES and we will get started!`;
     return (
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-md mx-auto text-center">
         <div className="flex items-center justify-center gap-3 mb-8">
