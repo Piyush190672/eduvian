@@ -250,7 +250,10 @@ export default function StepAcademic({ profile, onChange }: Props) {
           }
         >
           <option value="">Select year</option>
-          {Array.from({ length: 8 }, (_, i) => 2019 + i).map((y) => (
+          {Array.from(
+            { length: new Date().getFullYear() + 2 - 2019 + 1 },
+            (_, i) => 2019 + i
+          ).map((y) => (
             <option key={y} value={y}>{y}</option>
           ))}
         </Select>
