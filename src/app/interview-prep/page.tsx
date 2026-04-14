@@ -905,6 +905,9 @@ function InterviewSession({
   }, [speak, muted]);
 
   // ── STT ─────────────────────────────────────────────────────────────────────
+  // Silence detection: we only start the 3-second countdown AFTER we receive
+  // a FINAL result (not interim). This prevents triggering mid-sentence when
+  // the browser briefly pauses between words.
   const startListening = useCallback(() => {
     if (!sttSupported || typeof window === "undefined") return;
     const win = window as typeof window & { SpeechRecognition?: SpeechRecognitionCtor; webkitSpeechRecognition?: SpeechRecognitionCtor };
@@ -915,17 +918,51 @@ function InterviewSession({
     recog.interimResults = true;
     recog.lang = "en-US";
     let final = "";
+    let silenceTimer: ReturnType<typeof setTimeout> | null = null;
+
+    const clearSilence = () => {
+      if (silenceTimer) { clearTimeout(silenceTimer); silenceTimer = null; }
+    };
+
+    const armSilenceTimer = (currentFinal: string) => {
+      clearSilence();
+      // Only arm if we have at least a few words — prevents triggering on single words
+      if (currentFinal.trim().split(/\s+/).length < 3) return;
+      silenceTimer = setTimeout(() => {
+        // User has been silent for 3s after their last final result → auto-submit
+        if (recogRef.current) {
+          try { recogRef.current.stop(); } catch { /* ignore */ }
+        }
+        autoSubmitRef.current?.();
+      }, 3000);
+    };
+
     recog.onresult = (event: SpeechRecognitionEventShim) => {
       let interim = "";
+      let gotFinal = false;
       for (let i = event.resultIndex; i < event.results.length; i++) {
         const r = event.results[i];
-        if (r.isFinal) final += r[0].transcript + " ";
-        else interim += r[0].transcript;
+        if (r.isFinal) {
+          final += r[0].transcript + " ";
+          gotFinal = true;
+        } else {
+          interim += r[0].transcript;
+        }
       }
       setTranscript(final + interim);
+      if (gotFinal) {
+        // Reset the silence countdown every time a new final chunk arrives
+        armSilenceTimer(final);
+      }
+      // While interim results are coming in, cancel any pending silence timer
+      // so we don't fire mid-sentence
+      if (interim) clearSilence();
     };
-    recog.onerror = () => { /* silently handle */ };
-    recog.onend = () => setTranscript(final.trim());
+    recog.onerror = () => { clearSilence(); };
+    recog.onend = () => {
+      clearSilence();
+      setTranscript(final.trim());
+    };
     recogRef.current = recog;
     recog.start();
     elapsedRef.current = 0;
@@ -1052,49 +1089,23 @@ function InterviewSession({
     speakQuestion(AU_ALL_QUESTIONS[0].question);
   };
 
-  // ── Auto-submit: 3s silence detector ────────────────────────────────────────
-  // When the user stops speaking for 3 seconds, automatically stop & get feedback
-  const silenceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const lastTranscriptRef = useRef<string>("");
-
-  useEffect(() => {
-    if (phase !== "listening") {
-      if (silenceTimerRef.current) { clearTimeout(silenceTimerRef.current); silenceTimerRef.current = null; }
-      return;
-    }
-    // Only start the silence timer once the user has actually said something
-    if (!transcript.trim()) return;
-    if (transcript === lastTranscriptRef.current) return; // no change, timer already running
-    lastTranscriptRef.current = transcript;
-
-    if (silenceTimerRef.current) clearTimeout(silenceTimerRef.current);
-    silenceTimerRef.current = setTimeout(() => {
-      // Still in listening phase and transcript hasn't changed → auto-submit
-      if (phase === "listening" && transcript.trim()) {
-        stopListening();
-        setPhase("feedback");
-        const q = activeQuestions[qIndex];
-        // Need to fetch feedback — call via the ref captured below
-        autoSubmitRef.current?.();
-      }
-    }, 3000);
-
-    return () => { if (silenceTimerRef.current) clearTimeout(silenceTimerRef.current); };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [transcript, phase]);
-
-  // Auto-submit ref so the timeout closure can call fetchFeedback with latest values
+  // Auto-submit ref — always holds the latest fetchFeedback call so the silence
+  // timer inside startListening() can fire it with the most current values
   const autoSubmitRef = useRef<(() => void) | null>(null);
   useEffect(() => {
     autoSubmitRef.current = () => {
+      if (phase !== "listening") return;
       const q = activeQuestions[qIndex];
-      if (q) fetchFeedback(q.question, q.objective, transcript);
+      if (q && transcript.trim()) {
+        stopListening();
+        setPhase("feedback");
+        fetchFeedback(q.question, q.objective, transcript);
+      }
     };
   });
 
   // ── Stop & review ───────────────────────────────────────────────────────────
   const handleStopAndReview = () => {
-    if (silenceTimerRef.current) { clearTimeout(silenceTimerRef.current); silenceTimerRef.current = null; }
     stopListening();
     setPhase("review");
   };
