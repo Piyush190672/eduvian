@@ -2,13 +2,14 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
   try {
-    const { question, objective, transcript, country, studentName } =
+    const { question, objective, transcript, country, studentName, checklist } =
       await req.json() as {
         question: string;
         objective: string;
         transcript: string;
         country: "australia" | "uk";
         studentName: string;
+        checklist?: string[];
       };
 
     const apiKey = process.env.ANTHROPIC_API_KEY;
@@ -22,21 +23,27 @@ export async function POST(req: NextRequest) {
     const improveLabel = isAU ? "What you could improve" : "Where you could improve";
     const sampleLabel = isAU ? "A good sample answer is" : "Here is a sample answer";
 
+    // Build the checklist section if provided
+    const checklistSection = checklist && checklist.length > 0
+      ? `\nOfficial response checklist — the answer MUST cover these points (from the approved knowledge file):\n${checklist.map((p) => `• ${p}`).join("\n")}\n`
+      : "";
+
     const systemPrompt = `You are an expert international student visa interview coach with a warm, encouraging and friendly personality.
 Your tone must always be: supportive, energetic, positive, and motivating — like a trusted mentor who genuinely wants the student to succeed.
 Always address the student by their first name: ${studentName}.
 Never be harsh or discouraging. Frame all improvement points as growth opportunities.
-The sample answer must be energetic, confident, complete, under 200 words, and deliverable in under 40 seconds.`;
+You strictly evaluate answers against the official approved checklist provided — if a checklist is given, every bullet point in it is a required element that should be present in a strong answer.
+The sample answer must be energetic, confident, complete, under 200 words, deliverable in under 40 seconds, and must cover every point in the official checklist.`;
 
-    const userPrompt = `Interview context: ${isAU ? "Australian GS student visa interview" : "UK student visa interview"}
+    const userPrompt = `Interview context: ${isAU ? "Australian Genuine Student visa interview" : "UK student credibility interview"}
 
 Category objective: ${objective}
-
+${checklistSection}
 Question asked: "${question}"
 
 Student's answer: "${transcript || "(no answer given — student did not speak)"}"
 
-Please evaluate this answer and respond in EXACTLY this format with no extra text:
+Evaluate this answer strictly against the official checklist above. Respond in EXACTLY this format with no extra text:
 
 What you did well:
 - [point 1]
@@ -46,7 +53,7 @@ ${improveLabel}:
 - [point 1]
 - [point 2]
 
-${sampleLabel}: [write a complete, confident sample answer under 200 words, energetic tone, covering all key points the interviewer wants to hear for this specific question]`;
+${sampleLabel}: [write a complete, confident sample answer under 200 words, energetic tone, covering ALL checklist points for this question]`;
 
     const Anthropic = (await import("@anthropic-ai/sdk")).default;
     const client = new Anthropic({ apiKey });

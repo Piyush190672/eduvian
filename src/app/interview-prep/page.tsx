@@ -27,6 +27,7 @@ interface SpeechRecognitionCtor { new(): SpeechRecognitionShim; }
 import { useState, useEffect, useRef, useCallback, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import { AU_GUIDELINES, UK_GUIDELINES } from "@/data/interview-guidelines";
 import {
   Mic, Volume2, VolumeX, ChevronRight, RotateCcw, CheckCircle2,
   ArrowLeft, Globe2, Sparkles, Trophy, Clock, MessageSquare,
@@ -952,11 +953,22 @@ function InterviewSession({
   const fetchFeedback = useCallback(async (question: string, objective: string, t: string) => {
     setFeedbackLoading(true);
     setFeedbackText("");
+
+    // Look up the official checklist for this question from the knowledge files
+    let checklist: string[] | undefined;
+    if (country === "uk") {
+      checklist = UK_GUIDELINES[question];
+    } else {
+      // For AU, find which category this question belongs to and use its checklist
+      const cat = AU_CATEGORIES.find((c) => c.questions.includes(question));
+      if (cat) checklist = AU_GUIDELINES[cat.id];
+    }
+
     try {
       const res = await fetch("/api/interview-feedback", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ question, objective, transcript: t, country, studentName }),
+        body: JSON.stringify({ question, objective, transcript: t, country, studentName, checklist }),
       });
       const data = await res.json() as { feedback?: string; error?: string };
       setFeedbackText(data.feedback ?? "");
