@@ -782,7 +782,7 @@ export default function LandingPage() {
           {/* Heading */}
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-500/20 text-indigo-300 text-sm font-semibold mb-4 border border-indigo-500/30">
-              <Sparkles className="w-3.5 h-3.5" /> SMART PLANNING TOOLS
+              <Sparkles className="w-3.5 h-3.5" /> SMART DECISION MAKING TOOLS
             </span>
             <h2 className="text-4xl md:text-5xl font-extrabold text-white mt-1">
               Make smarter study-abroad decisions
