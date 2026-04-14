@@ -181,16 +181,16 @@ const HOW_IT_WORKS = [
   {
     step: "01",
     icon: BookOpen,
-    title: "Tell us about yourself",
-    desc: "Share your academic scores, English test results, budget, and dream destinations in our quick 4-step form.",
+    title: "Know Your Profile",
+    desc: "Share your academic scores, English results, budget, and dream destinations. We rate your profile across 12 criteria instantly.",
     color: "from-indigo-500 to-violet-500",
     bg: "bg-indigo-50",
   },
   {
     step: "02",
     icon: Zap,
-    title: "AI matches your profile",
-    desc: `Our engine scores ${DB_STATS.programsLabel} programs using 10 signals — GPA, language scores, budget, backlogs, gap year, QS rankings and more.`,
+    title: "Matching Engine scores your fit",
+    desc: `Our AI engine scores ${DB_STATS.programsLabel} programs using 10 weighted signals — GPA, language scores, budget, backlogs, gap year, QS rankings and more.`,
     color: "from-violet-500 to-fuchsia-500",
     bg: "bg-violet-50",
   },
@@ -408,7 +408,7 @@ export default function LandingPage() {
 
 
       {/* ══════════════════════════════════════════════════════════
-           MERGED: Know Your Profile · Matching Engine · Shortlist
+           HOW IT WORKS: 3 merged steps
           ══════════════════════════════════════════════════════════ */}
       <section id="how-it-works" className="py-28 px-6 bg-white overflow-hidden">
         <div className="max-w-6xl mx-auto">
@@ -416,7 +416,7 @@ export default function LandingPage() {
           {/* Section header */}
           <motion.div
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }} className="text-center mb-20"
+            viewport={{ once: true }} className="text-center mb-24"
           >
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-100 text-indigo-700 text-sm font-bold uppercase tracking-widest mb-5">
               <Zap className="w-3.5 h-3.5" /> How it works
@@ -427,29 +427,43 @@ export default function LandingPage() {
             <p className="text-gray-400 mt-4 text-lg max-w-xl mx-auto">
               Three steps. No counsellor needed. Results in under 2 minutes.
             </p>
+            {/* Step connector dots */}
+            <div className="flex items-center justify-center gap-3 mt-8">
+              {["KNOW YOUR PROFILE", "MATCHING ENGINE", "TOP 20 SHORTLIST"].map((label, i) => (
+                <div key={label} className="flex items-center gap-3">
+                  <div className="flex items-center gap-2">
+                    <div className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-black text-white ${i === 0 ? "bg-indigo-500" : i === 1 ? "bg-violet-600" : "bg-fuchsia-500"}`}>{i + 1}</div>
+                    <span className="text-[11px] font-bold text-gray-400 uppercase tracking-widest hidden sm:block">{label}</span>
+                  </div>
+                  {i < 2 && <div className="w-8 h-px bg-gray-200" />}
+                </div>
+              ))}
+            </div>
           </motion.div>
 
-          {/* ── STEP 1: Know your profile ── */}
-          <div className="grid md:grid-cols-2 gap-12 items-center mb-24">
-            {/* Left: photo collage */}
+          {/* ── STEP 1: Know Your Profile ── */}
+          <div className="grid md:grid-cols-2 gap-14 items-center mb-28">
+            {/* Left: visual */}
             <motion.div
               initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }} className="relative"
             >
               <div className="rounded-3xl overflow-hidden shadow-2xl">
-                <img src="/hot-profile.jpg" alt="Students at university"
-                  className="w-full h-[400px] object-cover" />
+                <img src="/hot-profile.jpg" alt="Student profile"
+                  className="w-full h-[420px] object-cover" />
               </div>
-              <div className="absolute -bottom-8 -right-8 w-48 h-48 rounded-2xl overflow-hidden shadow-xl border-4 border-white">
+              {/* Corner campus image */}
+              <div className="absolute -bottom-8 -right-6 w-44 h-44 rounded-2xl overflow-hidden shadow-xl border-4 border-white">
                 <img src="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=300&q=85"
                   alt="University campus" className="w-full h-full object-cover" />
               </div>
+              {/* Floating rating badge */}
               <div className="absolute top-6 -left-4 bg-white rounded-2xl shadow-xl px-4 py-3 border border-gray-100">
                 <p className="text-[10px] text-gray-400 font-semibold uppercase tracking-wider mb-0.5">Profile Rating</p>
                 <p className="text-base font-black text-rose-500">🔥 SUPER HOT Profile</p>
               </div>
               {/* Step pill */}
-              <div className="absolute -top-5 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-gradient-to-r from-indigo-500 to-violet-500 text-white text-xs font-black px-5 py-2 rounded-full shadow-lg shadow-indigo-200">
+              <div className="absolute -top-5 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-gradient-to-r from-indigo-500 to-violet-500 text-white text-xs font-black px-5 py-2 rounded-full shadow-lg shadow-indigo-200 whitespace-nowrap">
                 <span className="w-5 h-5 rounded-full bg-white/30 flex items-center justify-center text-[11px] font-black">1</span>
                 KNOW YOUR PROFILE
               </div>
@@ -461,23 +475,23 @@ export default function LandingPage() {
               viewport={{ once: true }}
             >
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 text-indigo-600 text-xs font-bold uppercase tracking-wider mb-4">
-                <BookOpen className="w-3.5 h-3.5" /> Step 1
+                <BookOpen className="w-3.5 h-3.5" /> Step 1 of 3
               </div>
               <h3 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 leading-tight">
-                Tell us about yourself —<br />
-                <span className="text-indigo-600">we'll rate your profile</span>
+                Know Your Profile —<br />
+                <span className="text-indigo-600">we rate every signal</span>
               </h3>
               <p className="text-gray-500 text-base leading-relaxed mb-7">
-                Share your academic scores, English results, budget, destinations, and background in our quick 4-step form. We assess your profile across 12 criteria and give you an honest rating.
+                Fill in your academic scores, English results, budget, preferred destinations, work experience, backlogs, and gap year history. We evaluate 12 signals and assign you an honest profile rating.
               </p>
               <div className="grid grid-cols-2 gap-2.5 mb-8">
                 {[
-                  { emoji: "🔥", label: "SUPER HOT", sub: "Top 20% of applicants" },
-                  { emoji: "⭐", label: "HOT",        sub: "Strong across key signals" },
-                  { emoji: "💪", label: "STRONG",     sub: "Solid with room to grow" },
-                  { emoji: "📊", label: "GOOD",       sub: "Targeted prep recommended" },
+                  { emoji: "🔥", label: "SUPER HOT", sub: "Top 20% of applicants", ring: "ring-rose-200 bg-rose-50" },
+                  { emoji: "⭐", label: "HOT",        sub: "Strong across key signals", ring: "ring-amber-200 bg-amber-50" },
+                  { emoji: "💪", label: "STRONG",     sub: "Solid with room to grow",   ring: "ring-indigo-200 bg-indigo-50" },
+                  { emoji: "📊", label: "GOOD",       sub: "Targeted prep recommended", ring: "ring-gray-200 bg-gray-50" },
                 ].map((r) => (
-                  <div key={r.label} className="flex items-center gap-3 bg-gray-50 border border-gray-100 rounded-2xl px-4 py-3">
+                  <div key={r.label} className={`flex items-center gap-3 ring-1 ${r.ring} rounded-2xl px-4 py-3`}>
                     <span className="text-xl">{r.emoji}</span>
                     <div>
                       <p className="text-xs font-black text-gray-900">{r.label} Profile</p>
@@ -488,64 +502,78 @@ export default function LandingPage() {
               </div>
               <Link href="/get-started"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gray-900 text-white text-sm font-bold hover:bg-indigo-600 transition-colors">
-                Get my profile rating <ChevronRight className="w-4 h-4" />
+                Know your profile now <ChevronRight className="w-4 h-4" />
               </Link>
             </motion.div>
           </div>
 
-          {/* ── STEP 2: Matching Engine ── dark band */}
+          {/* ── STEP 2: Matching Engine ── */}
           <motion.div
             initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="relative rounded-3xl bg-gradient-to-br from-slate-900 via-indigo-950 to-purple-950 text-white overflow-hidden mb-24 p-10 md:p-14"
+            className="relative rounded-3xl bg-gradient-to-br from-slate-900 via-indigo-950 to-purple-950 text-white overflow-hidden mb-28 p-10 md:p-14"
           >
             {/* Blobs */}
-            <div className="absolute top-0 right-0 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute top-0 right-0 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl pointer-events-none" />
 
             {/* Step pill */}
             <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white text-xs font-black px-5 py-2 rounded-full mb-8">
               <span className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-[11px] font-black">2</span>
-              AI MATCHES YOUR PROFILE
+              THE MATCHING ENGINE — AI SCORES YOUR FIT
             </div>
 
             <div className="relative grid md:grid-cols-2 gap-12 items-center">
               {/* Left: copy */}
               <div>
-                <span className="inline-flex items-center gap-1.5 text-indigo-300 text-xs font-bold uppercase tracking-widest mb-4">
-                  <Sparkles className="w-3.5 h-3.5" /> The matching engine
-                </span>
+                <div className="flex items-center gap-2 mb-4">
+                  <Sparkles className="w-4 h-4 text-indigo-300" />
+                  <span className="text-indigo-300 text-xs font-bold uppercase tracking-widest">Powered by AI · {DB_STATS.programsLabel} programs scored</span>
+                </div>
                 <h3 className="text-3xl md:text-4xl font-extrabold mb-5 leading-tight">
-                  10 signals.<br />
+                  10 weighted signals.<br />
                   <span className="text-indigo-400">One perfect match.</span>
                 </h3>
-                <p className="text-slate-300 text-base leading-relaxed mb-8">
-                  We don't just filter universities — we <em>score</em> every program against your exact profile using 10 weighted signals, including backlogs and gap year history built from real admissions data.
+                <p className="text-slate-300 text-base leading-relaxed mb-6">
+                  Our Matching Engine doesn't just filter — it <em>scores</em> every program against your exact profile. Backlogs, gap year history, QS rank, intake windows — every nuance is weighted and counted.
                 </p>
+                {/* Mini stat row */}
+                <div className="flex flex-wrap gap-4 mb-8">
+                  {[
+                    { val: DB_STATS.programsLabel, label: "programs scored" },
+                    { val: "10", label: "match signals" },
+                    { val: "<2 min", label: "results" },
+                  ].map((s) => (
+                    <div key={s.label} className="text-center">
+                      <p className="text-2xl font-black text-white">{s.val}</p>
+                      <p className="text-[11px] text-slate-400 uppercase tracking-wider">{s.label}</p>
+                    </div>
+                  ))}
+                </div>
                 <Link href="/get-started"
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white text-indigo-700 text-sm font-bold hover:bg-indigo-50 transition-colors shadow-lg">
-                  See my matches <ArrowRight className="w-4 h-4" />
+                  Run the matching engine <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
 
               {/* Right: signal grid */}
               <div className="grid grid-cols-2 gap-2.5">
                 {[
-                  { label: "Academic Score",     icon: "🎓", bg: "bg-indigo-500/10 border-indigo-500/20" },
-                  { label: "English Proficiency",icon: "🗣️", bg: "bg-purple-500/10 border-purple-500/20" },
-                  { label: "Budget Fit",          icon: "💰", bg: "bg-pink-500/10 border-pink-500/20" },
-                  { label: "Country Preference",  icon: "🌍", bg: "bg-rose-500/10 border-rose-500/20" },
-                  { label: "QS University Rank",  icon: "🏆", bg: "bg-amber-500/10 border-amber-500/20" },
-                  { label: "Intake Availability", icon: "📅", bg: "bg-emerald-500/10 border-emerald-500/20" },
-                  { label: "Work Experience",     icon: "💼", bg: "bg-cyan-500/10 border-cyan-500/20" },
-                  { label: "Standardized Tests",  icon: "📝", bg: "bg-blue-500/10 border-blue-500/20" },
-                  { label: "Academic Backlogs",   icon: "⚠️", bg: "bg-orange-500/10 border-orange-500/20" },
-                  { label: "Gap Year",            icon: "🗓️", bg: "bg-violet-500/10 border-violet-500/20" },
+                  { label: "Academic Score",      icon: "🎓", bg: "bg-indigo-500/10 border-indigo-500/20" },
+                  { label: "English Proficiency", icon: "🗣️", bg: "bg-purple-500/10 border-purple-500/20" },
+                  { label: "Budget Fit",           icon: "💰", bg: "bg-pink-500/10 border-pink-500/20" },
+                  { label: "Country Preference",   icon: "🌍", bg: "bg-rose-500/10 border-rose-500/20" },
+                  { label: "QS University Rank",   icon: "🏆", bg: "bg-amber-500/10 border-amber-500/20" },
+                  { label: "Intake Availability",  icon: "📅", bg: "bg-emerald-500/10 border-emerald-500/20" },
+                  { label: "Work Experience",      icon: "💼", bg: "bg-cyan-500/10 border-cyan-500/20" },
+                  { label: "Standardized Tests",   icon: "📝", bg: "bg-blue-500/10 border-blue-500/20" },
+                  { label: "Academic Backlogs",    icon: "⚠️", bg: "bg-orange-500/10 border-orange-500/20" },
+                  { label: "Gap Year",             icon: "🗓️", bg: "bg-violet-500/10 border-violet-500/20" },
                 ].map((s, i) => (
                   <motion.div key={s.label}
                     initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }} transition={{ delay: i * 0.05 }}
-                    className={`p-3.5 rounded-2xl border ${s.bg} flex items-center gap-3 hover:scale-105 transition-transform`}
+                    viewport={{ once: true }} transition={{ delay: i * 0.04 }}
+                    className={`p-3.5 rounded-2xl border ${s.bg} flex items-center gap-3 hover:scale-105 transition-transform cursor-default`}
                   >
                     <span className="text-xl">{s.icon}</span>
                     <span className="text-xs text-slate-300 font-semibold leading-snug">{s.label}</span>
@@ -559,111 +587,126 @@ export default function LandingPage() {
           <motion.div
             initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            className="relative rounded-3xl bg-gradient-to-br from-fuchsia-50 via-white to-rose-50 border border-fuchsia-100 overflow-hidden p-10 md:p-14"
           >
+            {/* Decorative blobs */}
+            <div className="absolute -top-16 -right-16 w-64 h-64 bg-fuchsia-200/30 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-16 -left-16 w-64 h-64 bg-rose-200/30 rounded-full blur-3xl pointer-events-none" />
+
             {/* Step pill */}
-            <div className="flex justify-center mb-10">
-              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-fuchsia-500 to-rose-500 text-white text-xs font-black px-5 py-2 rounded-full shadow-lg shadow-fuchsia-200">
-                <span className="w-5 h-5 rounded-full bg-white/30 flex items-center justify-center text-[11px] font-black">3</span>
-                YOUR TOP 20 SHORTLIST
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-fuchsia-500 to-rose-500 text-white text-xs font-black px-5 py-2 rounded-full shadow-lg shadow-fuchsia-200 mb-8">
+              <span className="w-5 h-5 rounded-full bg-white/30 flex items-center justify-center text-[11px] font-black">3</span>
+              YOUR TOP 20 SHORTLIST — RANKED, TIERED & EMAILED
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-14 items-center">
+              {/* Left: copy + tier cards */}
+              <div>
+                <h3 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 leading-tight">
+                  Get your TOP 20 —<br />
+                  <span className="bg-gradient-to-r from-fuchsia-600 to-rose-500 bg-clip-text text-transparent">personalised, ranked & delivered</span>
+                </h3>
+                <p className="text-gray-500 text-base leading-relaxed mb-8">
+                  Every match is scored and tiered into <strong>Safe</strong>, <strong>Reach</strong>, and <strong>Ambitious</strong> buckets. Results land in your inbox as a beautiful, shareable PDF — in under 2 minutes.
+                </p>
+
+                {/* Feature pills */}
+                <div className="flex flex-wrap gap-2.5 mb-9">
+                  {[
+                    { icon: "⚡", text: "Results in < 2 minutes" },
+                    { icon: "📧", text: "Emailed to you instantly" },
+                    { icon: "📄", text: "Shareable PDF" },
+                    { icon: "🆓", text: "100% free" },
+                  ].map((f) => (
+                    <div key={f.text} className="flex items-center gap-2 bg-white border border-gray-200 rounded-full px-4 py-2 text-sm text-gray-700 font-semibold shadow-sm">
+                      <span>{f.icon}</span>{f.text}
+                    </div>
+                  ))}
+                </div>
+
+                <Link href="/get-started"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-fuchsia-500 to-rose-500 text-white text-base font-bold hover:shadow-xl hover:shadow-fuchsia-200 transition-all hover:-translate-y-0.5 shadow-lg">
+                  Get my TOP 20 shortlist — free
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+              </div>
+
+              {/* Right: mock shortlist preview */}
+              <div className="relative">
+                {/* Card stack background */}
+                <div className="absolute inset-x-4 -bottom-3 h-full rounded-3xl bg-fuchsia-100/60 border border-fuchsia-200" />
+                <div className="absolute inset-x-2 -bottom-1.5 h-full rounded-3xl bg-rose-100/40 border border-rose-100" />
+
+                <div className="relative bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden">
+                  {/* Card header */}
+                  <div className="bg-gradient-to-r from-fuchsia-500 to-rose-500 px-6 py-4 flex items-center justify-between">
+                    <div>
+                      <p className="text-white font-black text-sm">Your Shortlist</p>
+                      <p className="text-fuchsia-200 text-[11px]">Top 20 matched programs</p>
+                    </div>
+                    <div className="bg-white/20 rounded-xl px-3 py-1.5 text-white text-xs font-bold">20 matches</div>
+                  </div>
+
+                  {/* Mock program rows */}
+                  <div className="divide-y divide-gray-50">
+                    {[
+                      { rank: 1, prog: "MSc Data Science", uni: "University of Toronto", country: "🇨🇦", score: 92, tier: "Safe", tc: "text-emerald-600", bc: "bg-emerald-100" },
+                      { rank: 2, prog: "MSc Artificial Intelligence", uni: "University of Edinburgh", country: "🇬🇧", score: 87, tier: "Safe", tc: "text-emerald-600", bc: "bg-emerald-100" },
+                      { rank: 3, prog: "Master of CS", uni: "Monash University", country: "🇦🇺", score: 74, tier: "Reach", tc: "text-amber-600", bc: "bg-amber-100" },
+                      { rank: 4, prog: "MSc Machine Learning", uni: "Imperial College London", country: "🇬🇧", score: 61, tier: "Reach", tc: "text-amber-600", bc: "bg-amber-100" },
+                      { rank: 5, prog: "MS Computer Science", uni: "Carnegie Mellon University", country: "🇺🇸", score: 44, tier: "Ambitious", tc: "text-rose-600", bc: "bg-rose-100" },
+                    ].map((p) => (
+                      <div key={p.rank} className="flex items-center gap-3 px-5 py-3.5 hover:bg-gray-50 transition-colors">
+                        <span className="text-[11px] font-black text-gray-300 w-4">{p.rank}</span>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-xs font-bold text-gray-900 truncate">{p.prog}</p>
+                          <p className="text-[11px] text-gray-400 truncate">{p.country} {p.uni}</p>
+                        </div>
+                        <div className="flex items-center gap-2 flex-shrink-0">
+                          <span className={`text-sm font-black ${p.tc}`}>{p.score}%</span>
+                          <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${p.bc} ${p.tc}`}>{p.tier}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Footer */}
+                  <div className="px-5 py-3 bg-gray-50 border-t border-gray-100 flex items-center justify-between">
+                    <span className="text-xs text-gray-400">+15 more programs</span>
+                    <span className="text-xs font-bold text-fuchsia-500">📧 Emailed to you</span>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div className="text-center mb-12">
-              <h3 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight">
-                Your personalised shortlist —
-                <span className="bg-gradient-to-r from-fuchsia-600 to-rose-500 bg-clip-text text-transparent"> ranked, tiered & emailed</span>
-              </h3>
-              <p className="text-gray-400 mt-4 text-base max-w-xl mx-auto">
-                Every match is scored, tiered into Safe · Reach · Ambitious, and sent straight to your inbox — with a PDF you can share with your family or counsellor.
-              </p>
-            </div>
-
-            {/* Three tier cards */}
-            <div className="grid md:grid-cols-3 gap-5 mb-10">
+            {/* Tier legend strip */}
+            <div className="grid sm:grid-cols-3 gap-4 mt-10">
               {[
-                {
-                  tier: "Safe",
-                  emoji: "✅",
-                  score: "75–100",
-                  color: "from-emerald-50 to-green-50",
-                  border: "border-emerald-200",
-                  badge: "bg-emerald-500",
-                  text: "text-emerald-700",
-                  desc: "Programs where your profile comfortably meets or exceeds requirements.",
-                  pct: "30%",
-                  pctColor: "bg-emerald-400",
-                },
-                {
-                  tier: "Reach",
-                  emoji: "🎯",
-                  score: "50–74",
-                  color: "from-amber-50 to-yellow-50",
-                  border: "border-amber-200",
-                  badge: "bg-amber-500",
-                  text: "text-amber-700",
-                  desc: "Programs where your profile is close to the admitted student average.",
-                  pct: "50%",
-                  pctColor: "bg-amber-400",
-                },
-                {
-                  tier: "Ambitious",
-                  emoji: "🚀",
-                  score: "< 50",
-                  color: "from-rose-50 to-red-50",
-                  border: "border-rose-200",
-                  badge: "bg-rose-500",
-                  text: "text-rose-700",
-                  desc: "Highly competitive programs — worth applying to with a strong SOP.",
-                  pct: "20%",
-                  pctColor: "bg-rose-400",
-                },
+                { tier: "✅ Safe",       score: "75–100", desc: "Your profile comfortably meets requirements",       bar: "w-[88%]", bg: "from-emerald-50 to-green-50", border: "border-emerald-200", barC: "bg-emerald-400", text: "text-emerald-700", pct: "~30% of list" },
+                { tier: "🎯 Reach",      score: "50–74",  desc: "Close to the admitted student average",             bar: "w-[62%]", bg: "from-amber-50 to-yellow-50", border: "border-amber-200",   barC: "bg-amber-400",   text: "text-amber-700",   pct: "~50% of list" },
+                { tier: "🚀 Ambitious",  score: "< 50",   desc: "Highly competitive — worth a strong application",  bar: "w-[35%]", bg: "from-rose-50 to-red-50",     border: "border-rose-200",    barC: "bg-rose-400",    text: "text-rose-700",    pct: "~20% of list" },
               ].map((t, i) => (
                 <motion.div key={t.tier}
-                  initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-                  className={`relative bg-gradient-to-br ${t.color} border ${t.border} rounded-3xl p-7 flex flex-col gap-4`}
+                  className={`bg-gradient-to-br ${t.bg} border ${t.border} rounded-2xl p-5 flex flex-col gap-3`}
                 >
-                  {/* Recommended mix badge */}
-                  <span className={`absolute top-5 right-5 text-[10px] font-black px-2.5 py-1 rounded-full text-white ${t.badge}`}>
-                    {t.pct} of list
-                  </span>
-                  <div className="text-3xl">{t.emoji}</div>
-                  <div>
-                    <p className={`text-xs font-black uppercase tracking-widest ${t.text} mb-1`}>{t.tier} match</p>
-                    <p className="text-2xl font-black text-gray-900">{t.score}<span className="text-sm font-semibold text-gray-400 ml-1">score</span></p>
+                  <div className="flex items-start justify-between">
+                    <div>
+                      <p className={`text-sm font-extrabold ${t.text}`}>{t.tier}</p>
+                      <p className="text-xl font-black text-gray-900 mt-0.5">{t.score} <span className="text-xs font-semibold text-gray-400">score</span></p>
+                    </div>
+                    <span className={`text-[10px] font-black px-2 py-1 rounded-full text-white ${t.barC}`}>{t.pct}</span>
                   </div>
-                  <p className="text-sm text-gray-500 leading-relaxed flex-1">{t.desc}</p>
-                  {/* Mini score bar */}
-                  <div className="h-1.5 bg-white/60 rounded-full overflow-hidden">
-                    <div className={`h-full rounded-full ${t.pctColor}`} style={{ width: t.score.startsWith("75") ? "88%" : t.score.startsWith("50") ? "62%" : "35%" }} />
+                  <p className="text-xs text-gray-500 leading-relaxed">{t.desc}</p>
+                  <div className="h-1.5 bg-white/70 rounded-full overflow-hidden">
+                    <div className={`h-full rounded-full ${t.barC} ${t.bar}`} />
                   </div>
                 </motion.div>
               ))}
             </div>
-
-            {/* Bottom features strip */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 py-6 px-8 rounded-2xl bg-gray-50 border border-gray-100 mb-10">
-              {[
-                { icon: "⚡", text: "Results in under 2 minutes" },
-                { icon: "📧", text: "Emailed instantly to you" },
-                { icon: "📄", text: "Shareable PDF shortlist" },
-                { icon: "🆓", text: "100% free, always" },
-              ].map((f) => (
-                <div key={f.text} className="flex items-center gap-2 text-sm text-gray-600 font-medium">
-                  <span className="text-lg">{f.icon}</span>{f.text}
-                </div>
-              ))}
-            </div>
-
-            <div className="text-center">
-              <Link href="/get-started"
-                className="inline-flex items-center gap-2 px-10 py-4 rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-base font-bold hover:shadow-xl hover:shadow-indigo-200 transition-all hover:-translate-y-0.5 shadow-lg">
-                Get my TOP 20 shortlist — free
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-            </div>
-
           </motion.div>
+
         </div>
       </section>
 
