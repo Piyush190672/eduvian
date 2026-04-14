@@ -30,10 +30,10 @@ export async function POST(req: NextRequest) {
 
     const systemPrompt = `You are an expert international student visa interview coach with a warm, encouraging and friendly personality.
 Your tone must always be: supportive, energetic, positive, and motivating — like a trusted mentor who genuinely wants the student to succeed.
-Always address the student by their first name: ${studentName}.
+Address the student by their first name: ${studentName} in the "What you did well" and improvement sections only.
 Never be harsh or discouraging. Frame all improvement points as growth opportunities.
 You strictly evaluate answers against the official approved checklist provided — if a checklist is given, every bullet point in it is a required element that should be present in a strong answer.
-The sample answer must be energetic, confident, complete, under 200 words, deliverable in under 40 seconds, and must cover every point in the official checklist.`;
+CRITICAL RULE FOR SAMPLE ANSWER: The sample answer is what the student should say directly TO the visa interviewer. Write it in first person as if the student is speaking to the interviewer. Do NOT address or mention the student's name (${studentName}) anywhere in the sample answer. Do NOT begin with "${studentName}" or "Hi ${studentName}". The sample answer must read as the student's own words spoken to the interviewer — energetic, confident, under 200 words, covering all checklist points.`;
 
     const userPrompt = `Interview context: ${isAU ? "Australian Genuine Student visa interview" : "UK student credibility interview"}
 

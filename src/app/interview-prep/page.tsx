@@ -629,16 +629,18 @@ function FeedbackPanel({
   const parsed = feedbackText ? parseFeedback(feedbackText, country) : null;
 
   // Build segments array — each section is its own utterance so there's a natural
-  // pause and breath between "what you did well", "improve", and "sample answer"
+  // pause and breath between "what you did well", "improve", and "sample answer".
+  // IMPORTANT: the sample answer is spoken as if FROM the student TO the interviewer —
+  // it must NOT be addressed to the student (no "studentName" in that segment).
   const buildSpokenSegments = useCallback((p: ReturnType<typeof parseFeedback>): string[] => {
     const clean = (s: string) => s.replace(/^[-•*]\s*/gm, " ").replace(/\n/g, ". ").replace(/\s+/g, " ").trim();
     const segments: string[] = [];
-    if (p.well)    segments.push(`Okay ${studentName}! Here is what you did really well. ${clean(p.well)}`);
-    if (p.improve) segments.push(`Now, ${improveLabel}. ${clean(p.improve)}`);
-    if (p.sample)  segments.push(`Alright! ${sampleLabel}. ${clean(p.sample)}`);
+    if (p.well)    segments.push(`Great effort! Here is what you did really well. ${clean(p.well)}`);
+    if (p.improve) segments.push(`Now, here is what you could work on. ${clean(p.improve)}`);
+    if (p.sample)  segments.push(`And here is how a strong answer to the interviewer would sound. ${clean(p.sample)}`);
     if (!segments.length && p.raw) segments.push(clean(p.raw));
     return segments;
-  }, [studentName, improveLabel, sampleLabel]);
+  }, []);
 
   const startCountdown = useCallback((onDone: () => void) => {
     setCountdown(3);
@@ -942,6 +944,8 @@ function InterviewSession({
   }, [phase, startListening, stopListening]);
 
   // ── One-shot STT for name / YES inputs ───────────────────────────────────────
+  // Uses interimResults so the first recognisable word is caught immediately —
+  // once a final result arrives we stop recognition and fire onResult right away.
   const listenOnce = useCallback((
     onResult: (text: string) => void,
     onStateChange: (active: boolean) => void,
@@ -954,15 +958,25 @@ function InterviewSession({
     if (!Ctor) return;
     const recog = new Ctor();
     recog.continuous = false;
-    recog.interimResults = false;
-    recog.lang = "en-US";
+    recog.interimResults = true; // catch interim so we get the word as soon as spoken
+    recog.lang = "en-IN"; // Indian English — better for Indian names
     onStateChange(true);
+    let fired = false;
     recog.onresult = (event: SpeechRecognitionEventShim) => {
-      const text = event.results[0]?.[0]?.transcript?.trim() ?? "";
-      if (text) onResult(text);
+      for (let i = event.resultIndex; i < event.results.length; i++) {
+        const r = event.results[i];
+        const text = r[0]?.transcript?.trim().replace(/\.$/, "") ?? "";
+        if (text && r.isFinal && !fired) {
+          fired = true;
+          try { recog.stop(); } catch { /* ignore */ }
+          onStateChange(false);
+          onResult(text);
+          return;
+        }
+      }
     };
-    recog.onerror = () => onStateChange(false);
-    recog.onend = () => onStateChange(false);
+    recog.onerror = () => { onStateChange(false); };
+    recog.onend = () => { onStateChange(false); };
     nameRecogRef.current = recog;
     recog.start();
   }, [sttSupported, cancel]);
@@ -1196,11 +1210,20 @@ function InterviewSession({
             <p className="text-sm font-medium text-indigo-900 leading-relaxed">{coachText}</p>
           </div>
 
-          {/* Speak name button */}
+          {/* Speak name — auto-advances immediately on detection */}
           {sttSupported && (
             <button
               onClick={() => listenOnce(
-                (text) => setNameInput(text.replace(/\.$/, "").trim()),
+                (text) => {
+                  const name = text.replace(/\.$/, "").trim();
+                  setNameInput(name);
+                  // Auto-submit immediately — no button click needed
+                  if (name) {
+                    cancel();
+                    setStudentName(name);
+                    setPhase(country === "uk" ? "uk_confirm" : "category");
+                  }
+                },
                 setNameListening
               )}
               className={`w-full flex items-center justify-center gap-2 py-3 rounded-xl border-2 mb-3 text-sm font-semibold transition-all ${
