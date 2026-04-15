@@ -968,53 +968,31 @@ export default function LandingPage() {
               {DB_STATS.countriesLabel} countries. {DB_STATS.programsLabel} programs. Endless possibilities.
             </h2>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
-            {COUNTRIES.slice(0, 6).map((c, i) => (
-              <motion.div
-                key={c.name}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.07 }}
-                onClick={() => setSelectedCountry(c.name)}
-                className="group relative rounded-2xl overflow-hidden aspect-[3/4] shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer"
-              >
-                <img
-                  src={c.img}
-                  alt={c.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-3">
-                  <p className="text-xl mb-0.5">{c.flag}</p>
-                  <p className="text-white font-bold text-sm">{c.name}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 mt-4">
-            {COUNTRIES.slice(6).map((c, i) => (
-              <motion.div
-                key={c.name}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.07 }}
-                onClick={() => setSelectedCountry(c.name)}
-                className="group relative rounded-2xl overflow-hidden aspect-[3/4] shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer"
-              >
-                <img
-                  src={c.img}
-                  alt={c.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-3">
-                  <p className="text-xl mb-0.5">{c.flag}</p>
-                  <p className="text-white font-bold text-sm">{c.name}</p>
-                </div>
-              </motion.div>
-            ))}
+          <div className="overflow-x-auto -mx-2 px-2">
+            <div className="grid grid-cols-6 gap-4 min-w-[540px]">
+              {COUNTRIES.map((c, i) => (
+                <motion.div
+                  key={c.name}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.07 }}
+                  onClick={() => setSelectedCountry(c.name)}
+                  className="group relative rounded-2xl overflow-hidden aspect-[3/4] shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+                >
+                  <img
+                    src={c.img}
+                    alt={c.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-3">
+                    <p className="text-xl mb-0.5">{c.flag}</p>
+                    <p className="text-white font-bold text-sm">{c.name}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
