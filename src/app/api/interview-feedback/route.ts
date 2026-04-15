@@ -63,14 +63,14 @@ ${sampleLabel}: [write a complete, confident sample answer under 200 words, ener
       try {
         response = await client.messages.create({
           model: "claude-haiku-4-5",
-          max_tokens: 600,
+          max_tokens: 900,
           system: systemPrompt,
           messages: [{ role: "user", content: userPrompt }],
         });
         break;
       } catch (apiErr: unknown) {
         const status = (apiErr as { status?: number })?.status;
-        if (status === 529 && attempt < 3) {
+        if ((status === 529 || status === 500) && attempt < 3) {
           await new Promise((r) => setTimeout(r, attempt * 1500));
           continue;
         }

@@ -11,6 +11,7 @@ import {
   CalendarDays,
   Trophy,
 } from "lucide-react";
+import InlineProgramROI from "./InlineProgramROI";
 
 interface Props {
   program: ScoredProgram;
@@ -271,6 +272,9 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist 
               <ExternalLink className="w-3.5 h-3.5" />
             </a>
           </div>
+
+          {/* Inline ROI Calculator — pre-populated from this matched program */}
+          <InlineProgramROI program={program} />
         </div>
       </div>
     </div>

@@ -531,33 +531,83 @@ function CountrySelect({ onSelect }: { onSelect: (c: Country) => void }) {
 
 // ─── AU Category picker ────────────────────────────────────────────────────────
 
+const VOICE_HINTS = ["all", "one", "two", "three", "four", "five"];
+
 function CategoryPicker({
   studentName,
   onSelect,
   onPracticeAll,
   onBack,
+  listenOnce,
+  sttSupported,
 }: {
   studentName: string;
   onSelect: (cat: QuestionCategory) => void;
   onPracticeAll: () => void;
   onBack: () => void;
+  listenOnce: (onResult: (text: string) => void, onStateChange: (active: boolean) => void) => void;
+  sttSupported: boolean;
 }) {
+  const [catListening, setCatListening] = useState(false);
+  const [statusMsg, setStatusMsg] = useState<{ type: "warn" | "err"; text: string } | null>(null);
   const totalQ = AU_CATEGORIES.reduce((s, c) => s + c.questions.length, 0);
+
+  const handleVoiceSelect = () => {
+    if (!sttSupported) {
+      setStatusMsg({ type: "err", text: "Voice not supported on this browser. Use Chrome or Edge, or tap a category below." });
+      return;
+    }
+    setStatusMsg(null);
+    listenOnce((text) => {
+      const t = text.toLowerCase();
+      if (/\ball\b|practice.?all/i.test(t))          { onPracticeAll(); return; }
+      if (/\bone\b|\b1\b|program/i.test(t))           { onSelect(AU_CATEGORIES[0]); return; }
+      if (/\btwo\b|\b2\b|career/i.test(t))            { onSelect(AU_CATEGORIES[1]); return; }
+      if (/\bthree\b|\b3\b|australia|why/i.test(t))   { onSelect(AU_CATEGORIES[2]); return; }
+      if (/\bfour\b|\b4\b|universit/i.test(t))        { onSelect(AU_CATEGORIES[3]); return; }
+      if (/\bfive\b|\b5\b|other|important/i.test(t))  { onSelect(AU_CATEGORIES[4]); return; }
+      setStatusMsg({ type: "warn", text: "Didn't catch that — try again or tap a category below." });
+    }, (active) => { setCatListening(active); if (active) setStatusMsg(null); });
+  };
+
   return (
     <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="max-w-xl mx-auto">
-      <div className="flex items-center gap-3 mb-8">
+      <div className="flex items-center gap-3 mb-6">
         <span className="text-4xl">🇦🇺</span>
         <div>
           <p className="text-xs font-bold text-sky-600 uppercase tracking-wider">Australia · Genuine Student Interview</p>
           <h2 className="text-2xl font-extrabold text-gray-900">
-            Which category would you like to practice, {studentName}?
+            Which category, {studentName}?
           </h2>
           <p className="text-sm text-gray-400 mt-1">{AU_CATEGORIES.length} categories · {totalQ} questions total</p>
         </div>
       </div>
 
+      {/* Voice select bar — always visible */}
+      <div className="mb-4">
+        <button
+          onClick={handleVoiceSelect}
+          className={`w-full flex items-center justify-center gap-2.5 py-3 rounded-2xl border-2 text-sm font-semibold transition-all ${
+            catListening
+              ? "border-rose-400 bg-rose-50 text-rose-600 animate-pulse"
+              : "border-sky-300 bg-sky-50 text-sky-700 hover:border-sky-500 hover:bg-sky-100"
+          }`}
+        >
+          <Mic className="w-4 h-4" />
+          {catListening ? "Listening… say a number or category name" : "🎙️ Say your category"}
+        </button>
+        {statusMsg && (
+          <p className={`text-xs text-center mt-1.5 ${statusMsg.type === "err" ? "text-red-500" : "text-amber-600"}`}>
+            {statusMsg.text}
+          </p>
+        )}
+        <p className="text-[11px] text-gray-400 text-center mt-1.5">
+          Say: &quot;All&quot; · &quot;One&quot; (Program) · &quot;Two&quot; (Career) · &quot;Three&quot; (Australia) · &quot;Four&quot; (University) · &quot;Five&quot; (Other)
+        </p>
+      </div>
+
       <motion.button whileHover={{ y: -2 }} onClick={onPracticeAll}
-        className="w-full mb-4 flex items-center gap-4 p-4 rounded-2xl bg-gradient-to-r from-sky-500 to-blue-600 text-white shadow-lg hover:shadow-xl transition-all">
+        className="w-full mb-3 flex items-center gap-4 p-4 rounded-2xl bg-gradient-to-r from-sky-500 to-blue-600 text-white shadow-lg hover:shadow-xl transition-all">
         <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0">
           <ListChecks className="w-5 h-5" />
         </div>
@@ -565,7 +615,10 @@ function CategoryPicker({
           <p className="font-bold text-sm">Practice All Categories</p>
           <p className="text-xs text-white/70 mt-0.5">{totalQ} questions · full mock interview</p>
         </div>
-        <ChevronRight className="w-4 h-4 opacity-70" />
+        <div className="flex items-center gap-2">
+          <span className="text-[10px] bg-white/20 px-2 py-0.5 rounded-full font-bold">say &quot;All&quot;</span>
+          <ChevronRight className="w-4 h-4 opacity-70" />
+        </div>
       </motion.button>
 
       <div className="space-y-2">
@@ -575,14 +628,17 @@ function CategoryPicker({
             transition={{ delay: i * 0.05 }} whileHover={{ x: 4 }}
             onClick={() => onSelect(cat)}
             className="w-full flex items-center gap-4 p-4 rounded-2xl bg-white border-2 border-sky-200 hover:border-sky-500 transition-all text-left">
-            <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 bg-sky-100 text-sky-700">
-              {cat.icon}
+            <div className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0 bg-sky-100 text-sky-700 text-xs font-black">
+              {i + 1}
             </div>
             <div className="flex-1 min-w-0">
               <p className="font-bold text-gray-900 text-sm">{cat.label}</p>
               <p className="text-xs text-gray-400 mt-0.5 truncate">{cat.objective}</p>
             </div>
             <div className="flex items-center gap-2 flex-shrink-0">
+              <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-sky-50 text-sky-500 border border-sky-200">
+                say &quot;{VOICE_HINTS[i + 1]}&quot;
+              </span>
               <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-sky-100 text-sky-700">
                 {cat.questions.length}Q
               </span>
@@ -602,19 +658,23 @@ function CategoryPicker({
 
 function FeedbackPanel({
   feedbackText,
+  feedbackError,
   loading,
   country,
   onNext,
   onReAnswer,
+  onRetry,
   isLast,
   studentName,
   muted,
 }: {
   feedbackText: string;
+  feedbackError: boolean;
   loading: boolean;
   country: Country;
   onNext: () => void;
   onReAnswer: () => void;
+  onRetry: () => void;
   isLast: boolean;
   studentName: string;
   muted: boolean;
@@ -785,6 +845,16 @@ function FeedbackPanel({
             </div>
           )}
         </>
+      ) : feedbackError ? (
+        <div className="rounded-2xl bg-red-50 border border-red-200 p-5 flex flex-col items-center gap-3 text-center">
+          <AlertCircle className="w-6 h-6 text-red-400" />
+          <p className="text-sm font-semibold text-red-700">Feedback generation failed</p>
+          <p className="text-xs text-red-500">There was a problem generating your feedback. Please try again.</p>
+          <button onClick={onRetry}
+            className="flex items-center gap-2 px-5 py-2 rounded-xl bg-red-100 hover:bg-red-200 text-red-700 text-sm font-semibold transition-colors">
+            <RotateCcw className="w-3.5 h-3.5" /> Retry feedback
+          </button>
+        </div>
       ) : (
         <div className="rounded-2xl bg-gray-50 border border-gray-100 p-4 text-sm text-gray-400 italic">
           No feedback available.
@@ -812,9 +882,11 @@ function FeedbackPanel({
 function InterviewSession({
   country,
   onReset,
+  mode = "voice",
 }: {
   country: Country;
   onReset: () => void;
+  mode?: "voice" | "text";
 }) {
   const { speak, cancel } = useTTS(country);
   const accentBg = country === "australia" ? "from-sky-500 to-blue-600" : "from-rose-500 to-red-600";
@@ -838,6 +910,7 @@ function InterviewSession({
   const [elapsed, setElapsed] = useState(0);
   const [feedbackText, setFeedbackText] = useState("");
   const [feedbackLoading, setFeedbackLoading] = useState(false);
+  const [feedbackError, setFeedbackError] = useState(false);
 
   const [muted, setMuted] = useState(false);
   const [sttSupported, setSttSupported] = useState(true);
@@ -849,6 +922,8 @@ function InterviewSession({
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const elapsedRef = useRef(0);
   const nameInputRef = useRef<HTMLInputElement>(null);
+  // transcriptRef mirrors the transcript state but is always current (avoids stale closures)
+  const transcriptRef = useRef<string>("");
 
   // ── Check STT support ───────────────────────────────────────────────────────
   useEffect(() => {
@@ -869,19 +944,18 @@ function InterviewSession({
 
   // ── AUTO-SPEAK: greet and ask for name when session starts ───────────────────
   useEffect(() => {
-    if (phase !== "name") return;
+    if (phase !== "name" || mode === "text") return;
     const greeting = country === "australia"
       ? "Hello there! Welcome to your Genuine Student interview practice! I am so excited to help you prepare. To get us started, could you please tell me your name?"
       : "Hello! Welcome! I am absolutely delighted to help you prepare for your UK credibility interview today. Could you please tell me your name?";
-    // Small delay so the page has rendered before speaking
     const t = setTimeout(() => speak(greeting), 400);
     return () => clearTimeout(t);
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [phase]);   // intentionally only re-run when phase changes to "name"
+  }, [phase]);
 
   // ── AUTO-SPEAK: UK "are you ready — say YES" ─────────────────────────────────
   useEffect(() => {
-    if (phase !== "uk_confirm" || !studentName) return;
+    if (phase !== "uk_confirm" || !studentName || mode === "text") return;
     const msg = `Wonderful, ${studentName}! It is so great to meet you! I am here to help you absolutely nail your UK credibility interview. When you are ready to begin, just say YES and we will get started!`;
     const t = setTimeout(() => speak(msg), 300);
     return () => clearTimeout(t);
@@ -890,7 +964,7 @@ function InterviewSession({
 
   // ── AUTO-SPEAK: AU category menu ─────────────────────────────────────────────
   useEffect(() => {
-    if (phase !== "category" || !studentName) return;
+    if (phase !== "category" || !studentName || mode === "text") return;
     const msg = `Fantastic, ${studentName}! You are going to do brilliantly today! Now, which category of questions would you like to practice? We have five great options. Number one, About the Program. Number two, Career Outcome. Number three, Why Australia. Number four, About the University. And number five, Other Important Questions. Which one shall we start with?`;
     const t = setTimeout(() => speak(msg), 300);
     return () => clearTimeout(t);
@@ -899,10 +973,10 @@ function InterviewSession({
 
   // ── Speak question ──────────────────────────────────────────────────────────
   const speakQuestion = useCallback((text: string) => {
-    if (muted) { setPhase("listening"); return; }
+    if (mode === "text" || muted) { setPhase("listening"); return; }
     setPhase("speaking");
     speak(text, () => setPhase("listening"));
-  }, [speak, muted]);
+  }, [speak, muted, mode]);
 
   // ── STT ─────────────────────────────────────────────────────────────────────
   // Silence detection: we only start the 3-second countdown AFTER we receive
@@ -949,6 +1023,7 @@ function InterviewSession({
           interim += r[0].transcript;
         }
       }
+      transcriptRef.current = final + interim;
       setTranscript(final + interim);
       if (gotFinal) {
         // Reset the silence countdown every time a new final chunk arrives
@@ -961,6 +1036,7 @@ function InterviewSession({
     recog.onerror = () => { clearSilence(); };
     recog.onend = () => {
       clearSilence();
+      transcriptRef.current = final.trim();
       setTranscript(final.trim());
     };
     recogRef.current = recog;
@@ -976,9 +1052,10 @@ function InterviewSession({
   }, []);
 
   useEffect(() => {
+    if (mode === "text") return; // text mode: no STT
     if (phase === "listening") { setTranscript(""); startListening(); }
     if (phase !== "listening") stopListening();
-  }, [phase, startListening, stopListening]);
+  }, [phase, mode, startListening, stopListening]);
 
   // ── One-shot STT for name / YES inputs ───────────────────────────────────────
   // Uses interimResults so the first recognisable word is caught immediately —
@@ -999,21 +1076,49 @@ function InterviewSession({
     recog.lang = "en-IN"; // Indian English — better for Indian names
     onStateChange(true);
     let fired = false;
+    let lastInterim = "";
+
+    // Safety timeout: if no final arrives in 8s, use whatever interim we have
+    const safetyTimer = setTimeout(() => {
+      if (!fired && lastInterim.trim()) {
+        fired = true;
+        try { recog.stop(); } catch { /* ignore */ }
+        onStateChange(false);
+        onResult(lastInterim.trim());
+      } else if (!fired) {
+        try { recog.stop(); } catch { /* ignore */ }
+        onStateChange(false);
+      }
+    }, 8000);
+
     recog.onresult = (event: SpeechRecognitionEventShim) => {
       for (let i = event.resultIndex; i < event.results.length; i++) {
         const r = event.results[i];
         const text = r[0]?.transcript?.trim().replace(/\.$/, "") ?? "";
-        if (text && r.isFinal && !fired) {
+        if (!text) continue;
+        if (r.isFinal && !fired) {
+          clearTimeout(safetyTimer);
           fired = true;
           try { recog.stop(); } catch { /* ignore */ }
           onStateChange(false);
           onResult(text);
           return;
+        } else if (!r.isFinal) {
+          // Keep track of the latest interim result
+          lastInterim = text;
         }
       }
     };
-    recog.onerror = () => { onStateChange(false); };
-    recog.onend = () => { onStateChange(false); };
+    recog.onerror = () => { clearTimeout(safetyTimer); onStateChange(false); };
+    recog.onend = () => {
+      clearTimeout(safetyTimer);
+      onStateChange(false);
+      // Fallback: if recognition ended without a final result but we have interim text, use it
+      if (!fired && lastInterim.trim()) {
+        fired = true;
+        onResult(lastInterim.trim());
+      }
+    };
     nameRecogRef.current = recog;
     recog.start();
   }, [sttSupported, cancel]);
@@ -1022,6 +1127,7 @@ function InterviewSession({
   const fetchFeedback = useCallback(async (question: string, objective: string, t: string) => {
     setFeedbackLoading(true);
     setFeedbackText("");
+    setFeedbackError(false);
 
     // Look up the official checklist for this question from the knowledge files
     let checklist: string[] | undefined;
@@ -1039,10 +1145,18 @@ function InterviewSession({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question, objective, transcript: t, country, studentName, checklist }),
       });
+      if (!res.ok) {
+        setFeedbackError(true);
+        return;
+      }
       const data = await res.json() as { feedback?: string; error?: string };
-      setFeedbackText(data.feedback ?? "");
+      if (data.error || !data.feedback) {
+        setFeedbackError(true);
+      } else {
+        setFeedbackText(data.feedback);
+      }
     } catch {
-      setFeedbackText("");
+      setFeedbackError(true);
     } finally {
       setFeedbackLoading(false);
     }
@@ -1096,10 +1210,13 @@ function InterviewSession({
     autoSubmitRef.current = () => {
       if (phase !== "listening") return;
       const q = activeQuestions[qIndex];
-      if (q && transcript.trim()) {
+      // Use transcriptRef.current so the silence-timer callback always
+      // sees the most current accumulated text (avoids stale closure)
+      const currentTranscript = transcriptRef.current;
+      if (q && currentTranscript.trim()) {
         stopListening();
         setPhase("feedback");
-        fetchFeedback(q.question, q.objective, transcript);
+        fetchFeedback(q.question, q.objective, currentTranscript);
       }
     };
   });
@@ -1110,14 +1227,17 @@ function InterviewSession({
     setPhase("review");
   };
 
-  // ── Auto-advance from review → feedback after 3s ────────────────────────────
+  // ── Auto-advance from review → feedback after 3s (voice mode only) ────────────
   useEffect(() => {
-    if (phase !== "review") return;
+    if (phase !== "review" || mode === "text") return;
     const t = setTimeout(() => {
       const q = activeQuestions[qIndex];
       if (q && phase === "review") {
+        // Use transcriptRef.current — avoids stale closure since transcript state
+        // may not have updated yet when phase changes to "review" (recog.onend is async)
+        const captured = transcriptRef.current;
         setPhase("feedback");
-        fetchFeedback(q.question, q.objective, transcript);
+        fetchFeedback(q.question, q.objective, captured);
       }
     }, 3000);
     return () => clearTimeout(t);
@@ -1143,7 +1263,9 @@ function InterviewSession({
     const updated = [...answers, newAnswer];
     setAnswers(updated);
     setTranscript("");
+    transcriptRef.current = "";
     setFeedbackText("");
+    setFeedbackError(false);
     elapsedRef.current = 0;
     setElapsed(0);
 
@@ -1159,7 +1281,9 @@ function InterviewSession({
   // ── Re-answer ───────────────────────────────────────────────────────────────
   const handleReAnswer = () => {
     setTranscript("");
+    transcriptRef.current = "";
     setFeedbackText("");
+    setFeedbackError(false);
     elapsedRef.current = 0;
     setElapsed(0);
     speakQuestion(activeQuestions[qIndex].question);
@@ -1176,7 +1300,9 @@ function InterviewSession({
     const updated = [...answers, newAnswer];
     setAnswers(updated);
     setTranscript("");
+    transcriptRef.current = "";
     setFeedbackText("");
+    setFeedbackError(false);
     elapsedRef.current = 0;
     setElapsed(0);
     const next = qIndex + 1;
@@ -1347,6 +1473,8 @@ function InterviewSession({
         onSelect={handleCategorySelect}
         onPracticeAll={handlePracticeAll}
         onBack={() => { cancel(); setPhase("name"); }}
+        listenOnce={listenOnce}
+        sttSupported={sttSupported}
       />
     );
   }
@@ -1465,13 +1593,19 @@ function InterviewSession({
           <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">
             {flag} {sessionLabel} · Q{qIndex + 1}/{activeQuestions.length}
           </span>
-          <button
-            onClick={() => { if (!muted) cancel(); setMuted((m) => !m); }}
-            className="flex items-center gap-1.5 text-xs text-gray-400 hover:text-gray-600 transition-colors"
-          >
-            {muted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5" />}
-            {muted ? "Unmute" : "Mute"}
-          </button>
+          {mode === "text" ? (
+            <span className="flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-full bg-indigo-50 text-indigo-600 border border-indigo-200">
+              <MessageSquare className="w-3 h-3" /> Text Mode
+            </span>
+          ) : (
+            <button
+              onClick={() => { if (!muted) cancel(); setMuted((m) => !m); }}
+              className="flex items-center gap-1.5 text-xs text-gray-400 hover:text-gray-600 transition-colors"
+            >
+              {muted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5" />}
+              {muted ? "Unmute" : "Mute"}
+            </button>
+          )}
         </div>
         <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
           <motion.div
@@ -1495,71 +1629,103 @@ function InterviewSession({
             <span className={`text-[11px] font-bold uppercase tracking-widest ${accentText}`}>
               {studentName} · Question {qIndex + 1}
             </span>
-            {phase === "speaking" && (
+            {phase === "speaking" && mode !== "text" && (
               <span className="flex items-center gap-1.5 text-[11px] text-gray-400">
                 <Volume2 className="w-3 h-3 animate-pulse" /> Reading aloud…
               </span>
             )}
           </div>
           <p className="text-base font-semibold text-gray-900 leading-relaxed">{currentQ.question}</p>
+          {/* Objective shown in text mode so the student understands what the question tests */}
+          {mode === "text" && (
+            <p className="mt-3 text-xs text-gray-400 italic leading-relaxed border-t border-gray-100 pt-3">
+              💡 {currentQ.objective}
+            </p>
+          )}
         </motion.div>
       </AnimatePresence>
 
-      {/* Voice state */}
-      <div className="flex flex-col items-center gap-4 mb-6">
-        {phase === "speaking" && (
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex flex-col items-center gap-3">
-            <Waveform active={true} color={country === "australia" ? "bg-sky-400" : "bg-rose-400"} />
-            <p className="text-sm text-gray-400">Listening to question…</p>
-          </motion.div>
-        )}
-        {(phase === "listening" || phase === "review") && (
-          <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} className="flex flex-col items-center gap-3">
-            <MicPulse listening={phase === "listening"} />
-            {phase === "listening" && (
-              <div className="flex items-center gap-2 text-sm text-gray-500">
-                <span className="w-2 h-2 rounded-full bg-rose-500 animate-pulse" />
-                Listening · {formatDuration(elapsed)}
-              </div>
-            )}
-          </motion.div>
-        )}
-      </div>
-
-      {/* Live transcript (listening + review phases) */}
-      <AnimatePresence>
-        {(phase === "listening" || phase === "review") && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }} className="mb-5"
-          >
-            <div className="bg-gray-50 border border-gray-100 rounded-2xl p-4 min-h-[80px]">
-              <div className="flex items-center gap-2 mb-2">
-                <MessageSquare className="w-3.5 h-3.5 text-gray-400" />
-                <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">
-                  {phase === "listening" ? "Live transcript" : "Your answer"}
-                </span>
-              </div>
-              {transcript ? (
-                <p className="text-sm text-gray-700 leading-relaxed">{transcript}</p>
-              ) : (
-                <p className="text-sm text-gray-400 italic">
-                  {phase === "listening"
-                    ? sttSupported ? "Speak now — your words will appear here…" : "Type your answer below"
-                    : "No speech detected."}
-                </p>
+      {/* ── VOICE MODE: waveform + mic pulse ── */}
+      {mode === "voice" && (
+        <div className="flex flex-col items-center gap-4 mb-6">
+          {phase === "speaking" && (
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex flex-col items-center gap-3">
+              <Waveform active={true} color={country === "australia" ? "bg-sky-400" : "bg-rose-400"} />
+              <p className="text-sm text-gray-400">Listening to question…</p>
+            </motion.div>
+          )}
+          {(phase === "listening" || phase === "review") && (
+            <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} className="flex flex-col items-center gap-3">
+              <MicPulse listening={phase === "listening"} />
+              {phase === "listening" && (
+                <div className="flex items-center gap-2 text-sm text-gray-500">
+                  <span className="w-2 h-2 rounded-full bg-rose-500 animate-pulse" />
+                  Listening · {formatDuration(elapsed)}
+                </div>
               )}
-            </div>
-            {!sttSupported && phase === "listening" && (
-              <textarea
-                className="mt-3 w-full border border-gray-200 rounded-2xl px-4 py-3 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-300 resize-none"
-                rows={3} placeholder="Type your answer here…"
-                value={transcript} onChange={(e) => setTranscript(e.target.value)}
-              />
-            )}
-          </motion.div>
-        )}
-      </AnimatePresence>
+            </motion.div>
+          )}
+        </div>
+      )}
+
+      {/* ── VOICE MODE: live transcript box ── */}
+      {mode === "voice" && (
+        <AnimatePresence>
+          {(phase === "listening" || phase === "review") && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }} className="mb-5"
+            >
+              <div className="bg-gray-50 border border-gray-100 rounded-2xl p-4 min-h-[80px]">
+                <div className="flex items-center gap-2 mb-2">
+                  <MessageSquare className="w-3.5 h-3.5 text-gray-400" />
+                  <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">
+                    {phase === "listening" ? "Live transcript" : "Your answer"}
+                  </span>
+                </div>
+                {transcript ? (
+                  <p className="text-sm text-gray-700 leading-relaxed">{transcript}</p>
+                ) : (
+                  <p className="text-sm text-gray-400 italic">
+                    {phase === "listening"
+                      ? sttSupported ? "Speak now — your words will appear here…" : "Type your answer below"
+                      : "No speech detected."}
+                  </p>
+                )}
+              </div>
+              {!sttSupported && phase === "listening" && (
+                <textarea
+                  className="mt-3 w-full border border-gray-200 rounded-2xl px-4 py-3 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-300 resize-none"
+                  rows={3} placeholder="Type your answer here…"
+                  value={transcript} onChange={(e) => setTranscript(e.target.value)}
+                />
+              )}
+            </motion.div>
+          )}
+        </AnimatePresence>
+      )}
+
+      {/* ── TEXT MODE: answer textarea ── */}
+      {mode === "text" && phase === "listening" && (
+        <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="mb-5">
+          <label className="flex items-center gap-2 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">
+            <MessageSquare className="w-3.5 h-3.5" /> Your Answer
+          </label>
+          <textarea
+            autoFocus
+            className={`w-full border-2 rounded-2xl px-5 py-4 text-sm text-gray-800 leading-relaxed focus:outline-none focus:ring-2 resize-none transition-colors ${
+              country === "australia"
+                ? "border-sky-200 focus:border-sky-400 focus:ring-sky-100"
+                : "border-rose-200 focus:border-rose-400 focus:ring-rose-100"
+            }`}
+            rows={7}
+            placeholder="Type your answer here. Be specific — mention your course, university, career goals, and any research you have done…"
+            value={transcript}
+            onChange={(e) => { setTranscript(e.target.value); transcriptRef.current = e.target.value; }}
+          />
+          <p className="text-[11px] text-gray-400 mt-1.5 text-right">{transcript.trim().split(/\s+/).filter(Boolean).length} words</p>
+        </motion.div>
+      )}
 
       {/* Feedback panel */}
       <AnimatePresence>
@@ -1567,13 +1733,18 @@ function InterviewSession({
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="mb-5">
             <FeedbackPanel
               feedbackText={feedbackText}
+              feedbackError={feedbackError}
               loading={feedbackLoading}
               country={country}
               onNext={handleNext}
               onReAnswer={handleReAnswer}
+              onRetry={() => {
+                const q = activeQuestions[qIndex];
+                if (q) fetchFeedback(q.question, q.objective, transcriptRef.current);
+              }}
               isLast={qIndex + 1 >= activeQuestions.length}
               studentName={studentName}
-              muted={muted}
+              muted={mode === "text" ? true : muted}
             />
           </motion.div>
         )}
@@ -1581,13 +1752,14 @@ function InterviewSession({
 
       {/* Action buttons */}
       <div className="flex flex-wrap gap-3 justify-center">
-        {phase === "speaking" && (
+        {/* Voice mode buttons */}
+        {mode === "voice" && phase === "speaking" && (
           <button onClick={() => { cancel(); setPhase("listening"); }}
             className="px-5 py-2.5 rounded-xl border border-gray-200 text-gray-600 text-sm font-semibold hover:bg-gray-50 transition-colors">
             Skip reading →
           </button>
         )}
-        {phase === "listening" && (
+        {mode === "voice" && phase === "listening" && (
           <>
             <motion.button whileHover={{ y: -1 }} onClick={handleStopAndReview}
               className={`flex items-center gap-2 px-7 py-3 rounded-2xl bg-gradient-to-r ${accentBg} text-white font-bold shadow-lg`}>
@@ -1599,7 +1771,7 @@ function InterviewSession({
             </button>
           </>
         )}
-        {phase === "review" && (
+        {mode === "voice" && phase === "review" && (
           <>
             <motion.button whileHover={{ y: -1 }} onClick={handleSubmitAnswer}
               className={`flex items-center gap-2 px-7 py-3 rounded-2xl bg-gradient-to-r ${accentBg} text-white font-bold shadow-lg`}>
@@ -1608,6 +1780,29 @@ function InterviewSession({
             <button onClick={() => { setTranscript(""); elapsedRef.current = 0; setElapsed(0); speakQuestion(currentQ.question); }}
               className="flex items-center gap-2 px-5 py-3 rounded-2xl border border-gray-200 text-gray-500 text-sm font-semibold hover:bg-gray-50 transition-colors">
               <RotateCcw className="w-3.5 h-3.5" /> Re-answer
+            </button>
+          </>
+        )}
+        {/* Text mode buttons */}
+        {mode === "text" && phase === "listening" && (
+          <>
+            <motion.button
+              whileHover={{ y: -1 }}
+              onClick={() => {
+                if (!transcript.trim()) return;
+                const q = activeQuestions[qIndex];
+                transcriptRef.current = transcript;
+                setPhase("feedback");
+                fetchFeedback(q.question, q.objective, transcript);
+              }}
+              disabled={!transcript.trim()}
+              className={`flex items-center gap-2 px-7 py-3 rounded-2xl bg-gradient-to-r ${accentBg} text-white font-bold shadow-lg disabled:opacity-40 disabled:cursor-not-allowed transition-opacity`}
+            >
+              <Sparkles className="w-4 h-4" /> Get AI Feedback
+            </motion.button>
+            <button onClick={handleSkip}
+              className="px-5 py-3 rounded-2xl border border-gray-200 text-gray-500 text-sm font-semibold hover:bg-gray-50 transition-colors">
+              Skip question
             </button>
           </>
         )}
@@ -1621,6 +1816,8 @@ function InterviewSession({
 function InterviewPrepInner() {
   const searchParams = useSearchParams();
   const initial = searchParams.get("country") as Country | null;
+  const modeParam = searchParams.get("mode");
+  const mode: "voice" | "text" = modeParam === "text" ? "text" : "voice";
   const [country, setCountry] = useState<Country | null>(
     initial === "australia" || initial === "uk" ? initial : null
   );
@@ -1649,7 +1846,7 @@ function InterviewPrepInner() {
             </motion.div>
           ) : (
             <motion.div key={country} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-              <InterviewSession country={country} onReset={() => setCountry(null)} />
+              <InterviewSession country={country} onReset={() => setCountry(null)} mode={mode} />
             </motion.div>
           )}
         </AnimatePresence>

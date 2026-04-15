@@ -31,8 +31,8 @@ import {
 function AdminShell({ children }: { children: React.ReactNode }) {
   const router = useRouter();
 
-  const logout = () => {
-    sessionStorage.removeItem("eduvianai_admin");
+  const logout = async () => {
+    await fetch("/api/admin/session", { method: "DELETE" });
     router.push("/admin");
   };
 

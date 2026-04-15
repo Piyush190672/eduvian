@@ -28,6 +28,8 @@ export default function AdminLogin() {
         password,
       });
       if (authError) throw authError;
+      // Set httpOnly session cookie so middleware can protect admin routes
+      await fetch("/api/admin/session", { method: "POST" });
       router.push("/admin/dashboard");
     } catch {
       setError("Invalid credentials.");

@@ -249,6 +249,29 @@ export const COUNTRY_PROFILES: Record<string, CountryProfile> = {
     jobMarket:
       "Thriving, tax-free job market with no income tax — salaries are highly attractive. Key sectors: finance and banking (DIFC), real estate, hospitality (Emaar, Jumeirah), logistics (DP World), aviation (Emirates, Etihad), and energy (ADNOC). Strong demand for business, engineering, IT, and hospitality graduates. Employment visa sponsored by employer; no independent work visa post-study. UAE Golden Visa available for outstanding graduates and talented professionals. Average graduate salary: AED 8,000–15,000/month ($2,200–$4,100 USD) — tax-free. Limited PR pathway but long-term residency via Golden Visa is accessible.",
   },
+  Netherlands: {
+    name: "Netherlands",
+    flag: "🇳🇱",
+    img: "https://images.unsplash.com/photo-1534351590666-13e3e96b5017?w=800&q=80",
+    ecosystem:
+      "The Netherlands is one of Europe's most international higher-education destinations, with over 2,100 English-taught degree programs — the highest number outside the UK. Dutch universities combine research excellence with a practical, project-based learning culture. The country sits at the heart of Europe's logistics, tech, and agri-food industries, giving students outstanding industry access.",
+    institutions:
+      "University of Amsterdam (UvA, QS #55) and Vrije Universiteit Amsterdam (VU, QS #219) are the flagship research universities. TU Delft, Eindhoven (TU/e), and Wageningen (WUR) are world-class in engineering and life sciences. Leiden, Utrecht, and Groningen round out the research-intensive universities. Universities of Applied Sciences (HBO) offer more vocational, industry-oriented bachelor's and master's degrees.",
+    admission:
+      "Apply directly to universities via Studielink (Dutch portal) or university websites. Requirements: bachelor's degree, IELTS 6.5+ (some programs require 7.0), and a motivation letter. No GRE/GMAT required for most programs. Application deadlines: February 1 (April 1 for non-EEA) for September intake. Some programs have limited seats — apply early.",
+    quality:
+      "13 Dutch universities rank in the QS World Top 500, with UvA in the top 60. The Netherlands pioneered Problem-Based Learning (PBL). Strong research output in water management, agriculture, AI, and social sciences. Degrees are internationally accredited by NVAO.",
+    cost:
+      "Tuition: €8,000–€20,000/yr for non-EU international students (varies by university and program). Living costs: €10,000–€14,000/yr in Amsterdam; €8,000–€11,000/yr in smaller cities like Groningen or Maastricht. Total: €18,000–€34,000/yr — more affordable than UK for comparable quality.",
+    scholarships:
+      "Holland Scholarship (€5,000 one-time, government-backed), Orange Knowledge Programme (fully funded for select nationalities), university merit awards (VU Amsterdam Fellowship, UvA Excellence Scholarship), and Erasmus+ grants. Many Dutch universities offer early-bird discounts of €1,000–€3,000.",
+    safety:
+      "Consistently ranked among the world's safest countries. Excellent public transport, bike-friendly cities, and high quality of life. Universal healthcare available to registered residents — student insurance required. OSHC equivalent policies are widely available at low cost.",
+    studentLife:
+      "Highly international and English-friendly — over 35% of students in major cities are international. Amsterdam, Rotterdam, and Eindhoven offer vibrant cultural scenes. Cycling culture is universal. Students can work 16 hrs/week during study. Large, welcoming Indian student community especially in Amsterdam and Eindhoven.",
+    jobMarket:
+      "The Netherlands is Europe's gateway — home to Shell, Philips, ASML, Booking.com, Heineken, Unilever, and ING. Amsterdam hosts the EMEA HQs of Uber, Netflix, and TomTom. Strong demand in tech, engineering, finance, logistics, and agri-food. The Orientation Year Permit (Zoekjaar) allows 12 months post-graduation to search for work — eligible graduates can transition to a Highly Skilled Migrant permit. Average starting salary: €35,000–€50,000/yr. Dutch language skills help for permanent roles but many companies operate fully in English.",
+  },
   Malaysia: {
     name: "Malaysia",
     flag: "🇲🇾",

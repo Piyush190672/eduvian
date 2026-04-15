@@ -119,7 +119,13 @@ export default function GetStartedPage() {
       const data = await res.json();
       if (data.ok) {
         saveStudentLocally({ name: data.student.name, email: data.student.email, phone: data.student.phone, id: data.student.id });
-        router.push("/profile");
+        // If they have a previous submission, take them straight to their results
+        if (data.token) {
+          router.push(`/results/${data.token}`);
+        } else {
+          // Account exists but no submission yet — let them fill the profile form
+          router.push("/profile");
+        }
       } else {
         setError(data.error ?? "No account found. Please create a profile.");
       }
