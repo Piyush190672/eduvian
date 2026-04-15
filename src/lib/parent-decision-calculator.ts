@@ -1,5 +1,6 @@
 import type { SalaryCountry } from "@/data/roi-data";
 import { SALARY_LOOKUP } from "@/data/roi-data";
+import { getRankingPremium } from "@/lib/roi-calculator";
 import { PSW_RIGHTS, JOB_MARKET, SAFETY_RATINGS, STUDENT_LIFE } from "@/data/parent-decision-data";
 import type { FieldOfStudy } from "@/data/roi-data";
 
@@ -67,10 +68,11 @@ export function calculateParentDecision(inputs: ParentDecisionInputs): ParentDec
   const total_cost_usd = total_tuition_usd + total_living_usd;
   const net_cost_usd = Math.max(0, total_cost_usd - inputs.scholarship_usd);
 
-  const expected_salary_usd =
+  const base_salary_usd =
     SALARY_LOOKUP[inputs.country]?.[inputs.field_of_study] ??
     SALARY_LOOKUP[inputs.country]?.["Computer Science & IT"] ??
     50000;
+  const expected_salary_usd = Math.round(base_salary_usd * getRankingPremium(inputs.qs_ranking));
 
   const savings_per_year_usd = expected_salary_usd * SAVINGS_RATE;
   const payback_years = savings_per_year_usd > 0 ? net_cost_usd / savings_per_year_usd : Infinity;

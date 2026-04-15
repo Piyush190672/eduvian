@@ -179,7 +179,7 @@ export default function ROICalculator() {
     setField(f);
     setFieldOpen(false);
     setSelectedProgram(null);
-    if (matchedUni) setSalary(lookupSalary(matchedUni.country as SalaryCountry, f));
+    if (matchedUni) setSalary(lookupSalary(matchedUni.country as SalaryCountry, f, matchedUni.qs_ranking));
   }
 
   // ── Select program → auto-fill everything ────────────────────────────────────
@@ -190,7 +190,7 @@ export default function ROICalculator() {
     setTuition(p.annual_tuition_usd);
     setLiving(p.avg_living_cost_usd);
     setDuration(p.duration_months);
-    if (matchedUni) setSalary(lookupSalary(matchedUni.country as SalaryCountry, p.field_of_study as FieldOfStudy));
+    if (matchedUni) setSalary(lookupSalary(matchedUni.country as SalaryCountry, p.field_of_study as FieldOfStudy, matchedUni.qs_ranking));
   }
 
   // ── ROI calculation ───────────────────────────────────────────────────────────
