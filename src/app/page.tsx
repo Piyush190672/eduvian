@@ -711,7 +711,7 @@ export default function LandingPage() {
             <p className="text-blue-600 font-semibold text-sm uppercase tracking-widest mb-3">Where are you right now?</p>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900">Pick your stage — we'll take it from there</h2>
           </motion.div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-4">
             {[
               {
                 stage: "A",
@@ -766,6 +766,20 @@ export default function LandingPage() {
                 accent: "text-amber-600",
                 icon: "📊",
               },
+              {
+                stage: "E",
+                label: "APPLY FOR VISA",
+                title: "Accepted — now the visa",
+                desc: "F-1, UK, SDS, AUS 500, Germany D & 7 more. Official checklists, financial-proof rules, risk flags, direct apply links.",
+                cta: "Open Visa Coach",
+                href: "/visa-coach",
+                gradient: "from-sky-600 via-cyan-500 to-teal-400",
+                glow: "shadow-cyan-500/40",
+                accent: "text-sky-600",
+                icon: "🛂",
+                secondaryHref: "/application-tracker",
+                secondaryCta: "Track applications →",
+              },
             ].map((s, i) => (
               <motion.div
                 key={s.stage}
@@ -816,81 +830,6 @@ export default function LandingPage() {
             ))}
           </div>
 
-          {/* ── Stage 5 · APPLY — Visa (separate, post-acceptance step) ── */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="relative mt-12 rounded-3xl overflow-hidden bg-gradient-to-br from-sky-600 via-cyan-600 to-teal-500 shadow-[0_20px_60px_rgba(14,165,233,0.25)]"
-          >
-            {/* Decorative blobs */}
-            <div className="absolute -top-20 -right-20 w-72 h-72 bg-white/10 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-teal-300/20 rounded-full blur-3xl pointer-events-none" />
-
-            <div className="relative p-8 sm:p-12 md:p-14">
-              <div className="grid md:grid-cols-5 gap-8 items-center">
-                {/* Left: copy */}
-                <div className="md:col-span-3">
-                  <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 text-white text-[11px] font-black uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">
-                    <span className="w-5 h-5 rounded-full bg-white text-sky-700 flex items-center justify-center text-[11px] font-black">5</span>
-                    Stage 5 · APPLY — After your offer
-                  </div>
-                  <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
-                    Accepted? Now get the visa right <span className="italic">the first time</span>.
-                  </h2>
-                  <p className="text-white/90 text-base sm:text-lg leading-relaxed mb-6 max-w-2xl">
-                    F-1, UK Student, Canada SDS, AUS 500, Germany D-visa, and 7 more destinations.
-                    Official checklists, financial-proof rules, risk flags, and direct links to the
-                    government portals — every figure verified against official sources.
-                  </p>
-                  <div className="flex flex-wrap items-center gap-3">
-                    <Link
-                      href="/visa-coach"
-                      className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white text-sky-700 text-sm font-bold hover:bg-sky-50 transition-colors shadow-lg"
-                    >
-                      <span>🛂</span>
-                      Open Visa Coach
-                      <ChevronRight className="w-4 h-4" />
-                    </Link>
-                    <Link
-                      href="/application-tracker"
-                      className="inline-flex items-center gap-2 px-5 py-3 rounded-xl border-2 border-white/40 text-white text-sm font-bold hover:bg-white/10 transition-colors"
-                    >
-                      <span>🗂️</span>
-                      Track applications
-                    </Link>
-                  </div>
-                </div>
-
-                {/* Right: feature chips */}
-                <div className="md:col-span-2 grid grid-cols-2 gap-2.5">
-                  {[
-                    { flag: "🇺🇸", label: "F-1 / USA" },
-                    { flag: "🇬🇧", label: "UK Student" },
-                    { flag: "🇨🇦", label: "Canada SDS" },
-                    { flag: "🇦🇺", label: "AUS 500" },
-                    { flag: "🇩🇪", label: "Germany D" },
-                    { flag: "🇮🇪", label: "Ireland D" },
-                    { flag: "🇳🇱", label: "Netherlands" },
-                    { flag: "🇫🇷", label: "France VLS-TS" },
-                    { flag: "🇳🇿", label: "New Zealand" },
-                    { flag: "🇸🇬", label: "Singapore STP" },
-                    { flag: "🇲🇾", label: "Malaysia" },
-                    { flag: "🇦🇪", label: "UAE" },
-                  ].map((c) => (
-                    <div
-                      key={c.label}
-                      className="flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/20 rounded-xl px-3 py-2 text-white text-[11px] font-semibold"
-                    >
-                      <span className="text-base">{c.flag}</span>
-                      <span className="truncate">{c.label}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </motion.div>
         </div>
       </section>
 
