@@ -1514,7 +1514,7 @@ export default function LandingPage() {
                 </div>
                 <h3 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 leading-tight">
                   Accepted. Now the visa.<br />
-                  <span className="bg-gradient-to-r from-sky-600 to-cyan-500 bg-clip-text text-transparent">No surprises, no rejections.</span>
+                  <span className="bg-gradient-to-r from-sky-600 to-cyan-500 bg-clip-text text-transparent">No surprises, minimize rejection chances.</span>
                 </h3>
                 <p className="text-gray-500 text-base leading-relaxed mb-6">
                   Most students panic at this stage. Financial proof amounts change mid-year, deadlines are country-specific, and one missed form means a lost intake. Our Visa Coach and Application Tracker keep you on rails — from checklist to countdown to apply-portal click.
@@ -1561,7 +1561,7 @@ export default function LandingPage() {
                     <p className="text-sm text-gray-500 leading-relaxed mb-3">F-1, UK Student, SDS, AUS 500, Germany D-visa and 7 more. Fees, financial proof, checklists, risk flags — every figure linked to the official government page.</p>
                     <div className="flex items-center gap-2 p-3 rounded-xl bg-sky-50 border border-sky-100 mb-4">
                       <span className="text-xs font-bold text-sky-700">Outcome:</span>
-                      <span className="text-xs text-sky-600">A filed-on-time, rejection-proof application</span>
+                      <span className="text-xs text-sky-600">A filed-on-time application with minimized rejection chances</span>
                     </div>
                     <span className="inline-flex items-center gap-1 text-sm font-bold text-sky-600 group-hover:gap-2 transition-all">Open Visa Coach <ArrowRight className="w-4 h-4" /></span>
                   </div>
