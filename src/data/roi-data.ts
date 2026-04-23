@@ -29,167 +29,163 @@ export type FieldOfStudy =
 // All figures represent the MEDIAN starting salary for a Masters/postgraduate
 // graduate at a mid-ranked (approx. QS 301-500) university in that country.
 // A QS ranking premium (getRankingPremium in roi-calculator.ts) is multiplied
-// on top: +35% QS≤10 (Oxford/Cambridge) down to +0% QS>500 (post-92/lower).
+// on top. University-specific overrides (UNIVERSITY_SALARY_OVERRIDES below)
+// take precedence for named elite institutions.
 //
-// Exchange rates applied (Apr 2025):
+// Exchange rates applied (Apr 2025 — refreshed from XE.com):
 //   GBP×1.27 | AUD×0.65 | CAD×0.73 | EUR×1.08 |
 //   SGD×0.74 | NZD×0.60 | AED×0.27 | MYR×0.22
 //
 // Sources by country:
-//  USA        — NACE Summer 2024 Salary Survey (naceweb.org); BLS OES May 2024
-//  UK         — HESA Graduate Outcomes 2022/23 PGT subject medians
-//               (luminate.prospects.ac.uk); ISE Recruitment Survey 2024;
-//               NHS Band 5 pay scale 2024/25; High Fliers Graduate Market 2024
-//  Australia  — QILT Graduate Outcomes Survey 2024 (qilt.edu.au);
-//               ACS IT Salary Survey 2024; Engineers Australia 2024
-//  Canada     — Canada Job Bank 2024 NOC wages (jobbank.gc.ca);
-//               Glassdoor Canada; Workopolis Salary Guide 2024
+//  USA        — NACE Spring 2024 Salary Survey; BLS OES May 2024; GMAC
+//               Corporate Recruiters Survey 2024; NALP JD employment 2023
+//  UK         — HESA Graduate Outcomes 2022/23 (luminate.prospects.ac.uk);
+//               ISE Recruitment Survey 2024; NHS Band 5 2024/25;
+//               High Fliers Graduate Market 2024
+//  Australia  — QILT Graduate Outcomes Survey 2024; ACS IT Salary Survey 2024;
+//               Engineers Australia Remuneration Survey 2024
+//  Canada     — Canada Job Bank 2024 NOC wages; Glassdoor Canada 2024;
+//               Workopolis Salary Guide 2024
 //  Germany    — Stepstone Gehaltsreport 2024; Bundesagentur Entgeltatlas 2024
-//  Singapore  — MOE/MOM Joint Graduate Employment Survey 2023 (moe.gov.sg)
+//  Singapore  — MOE/MOM GES 2023 (moe.gov.sg); base calibrated to mid-tier SG
+//               institutions (NUS/NTU overridden separately)
 //  New Zealand— MBIE Occupation Outlook 2024; MECA pay rates 2024
-//  Ireland    — HEA Graduate Outcomes Earnings Analysis 2022 (hea.ie);
-//               GradIreland 2024 sector data
+//  Ireland    — HEA Graduate Outcomes Earnings 2022; GradIreland 2024
 //  France     — APEC; Céreq Enquête Génération 2024; Glassdoor France 2024
 //  UAE        — Bayt.com MENA Salary Survey 2024; GulfTalent 2024
 //  Malaysia   — DOSM Graduate Statistics 2024; Jobstreet Malaysia 2024
 //
 export const SALARY_LOOKUP: Record<SalaryCountry, Record<FieldOfStudy, number>> = {
-  // ── USA ── NACE Summer 2024 Salary Survey; BLS OES May 2024 (bls.gov)
-  // All figures represent median starting salary for fresh Masters/postgrad
-  // graduates at a mid-ranked (~QS 301-500) US institution. A ranking
-  // premium is applied on top via getRankingPremium() in roi-calculator.ts.
+  // ── USA ── NACE Spring 2024 Salary Survey; BLS OES May 2024 (bls.gov)
+  // Base = median starting salary for fresh MS/postgrad graduates at a
+  // mid-ranked (~QS 301-500) US institution. Ranking premium applied on top.
+  // Elite university-specific values are in UNIVERSITY_SALARY_OVERRIDES below.
   USA: {
-    "Computer Science & IT":                       85000,  // NACE 2024 CS median; BLS 15-1252
-    "Artificial Intelligence & Data Science":      92000,  // NACE ML/AI avg; Glassdoor entry DS $88-96K
-    "Business & Management":                       66000,  // NACE Business median $62-70K
-    "MBA":                                         77600,  // GMAC Corporate Recruiters 2024 mid-tier MBA
-    "Economics & Finance":                         70000,  // BLS Financial Analysts 13-2051 entry
-    "Engineering (Mechanical/Civil/Electrical)":   80500,  // NACE Eng. avg; BLS 17-2141/17-2051/17-2071
-    "Medicine & Public Health":                    63600,  // AAMC MPH/DrPH entry; BLS 29-1221
-    "Law":                                         77000,  // NALP JD class 2023 median (excl Big Law)
-    "Nursing & Allied Health":                     66000,  // BLS RN 29-1141 entry-level new grad
-    "Natural Sciences":                            69700,  // BLS Life/Physical Scientists 19-xxxx entry
-    "Biotechnology & Life Sciences":               65000,  // BLS Biochemists 19-1021 / Biotech entry
-    "Environmental & Sustainability Studies":      63000,  // BLS Environmental Scientists 19-2041
-    "Social Sciences & Humanities":                55000,  // BLS Social Scientists; research roles
-    "Arts, Design & Architecture":                 48000,  // BLS Architects 17-1011; Designers 27-1021
-    "Media & Communications":                      62200,  // BLS PR/Media 27-3031 entry
-    "Agriculture & Veterinary Sciences":           63100,  // BLS Ag Scientists 19-1011; Vet $67K entry
-    "Hospitality & Tourism":                       50000,  // BLS Food Svc Managers 11-9051 entry
+    "Computer Science & IT":                       92000,  // NACE 2024 CS master's median ~$90-95K; BLS 15-1252
+    "Artificial Intelligence & Data Science":      98000,  // NACE ML/AI grad; Glassdoor DS master's $95-102K
+    "Business & Management":                       68000,  // NACE Business master's median $64-72K
+    "MBA":                                         90000,  // GMAC 2024: AACSB mid-tier MBA median base ~$88-95K
+    "Economics & Finance":                         76000,  // BLS Financial Analysts 13-2051; CFA entry $72-80K
+    "Engineering (Mechanical/Civil/Electrical)":   88000,  // NACE Spring 2024: Eng. MS average ~$86-92K
+    "Medicine & Public Health":                    66000,  // AAMC MPH/DrPH entry; BLS 29-1221
+    "Law":                                         82000,  // NALP JD class 2023 overall employed median
+    "Nursing & Allied Health":                     72000,  // BLS RN 29-1141; new grad market 2024 $68-76K
+    "Natural Sciences":                            72000,  // BLS Life/Physical Scientists 19-xxxx; MS premium
+    "Biotechnology & Life Sciences":               70000,  // BLS Biochemists 19-1021; Biotech MS entry $68-74K
+    "Environmental & Sustainability Studies":      66000,  // BLS Environmental Scientists 19-2041; growing field
+    "Social Sciences & Humanities":                58000,  // BLS Social Scientists; policy/research roles
+    "Arts, Design & Architecture":                 52000,  // BLS Architects 17-1011; Designers 27-1021
+    "Media & Communications":                      65000,  // BLS PR/Media 27-3031; digital media premium
+    "Agriculture & Veterinary Sciences":           66000,  // BLS Ag Scientists 19-1011; Vet $70K entry
+    "Hospitality & Tourism":                       54000,  // BLS Food Svc Managers 11-9051; hotel management
   },
-  // UK figures are in USD (GBP × 1.27 per notes above).
-  // Base figures reflect MEDIAN starting salary for Masters / PGT graduates
-  // at a mid-tier (QS 301-500) UK university — i.e. the "no-premium" baseline.
-  // A QS ranking premium is applied on top via getRankingPremium() in
-  // roi-calculator.ts so that Oxford/Imperial numbers are appropriately higher
-  // than a post-92 institution in the same field.
-  //
-  // Sources: HESA Graduate Outcomes 2022/23 (PGT subject medians via
-  //   luminate.prospects.ac.uk); Glassdoor UK graduate role benchmarks;
-  //   ISE Student Recruitment Survey 2024; NHS Band 5 pay scale 2024/25;
-  //   High Fliers Graduate Market Report 2024.
+  // UK figures in USD (GBP × 1.27). Base = mid-tier (QS 301-500) UK PGT
+  // graduate. Elite university overrides in UNIVERSITY_SALARY_OVERRIDES.
+  // Sources: HESA Graduate Outcomes 2022/23; ISE Student Recruitment 2024;
+  //   NHS Band 5 2024/25; High Fliers Graduate Market 2024.
   UK: {
-    "Computer Science & IT":                       47000,  // £37 K — HESA CS / Glassdoor Grad SE median
-    "Artificial Intelligence & Data Science":      49300,  // £38.8K — Glassdoor Grad Data Scientist + MSc premium
-    "Business & Management":                       40600,  // £32 K — MSc Business / Management baseline
-    "MBA":                                         73700,  // £58 K — Warwick/Imperial/Cranfield MBA median; High Fliers
-    "Economics & Finance":                         50800,  // £40 K — MSc Finance median; ISE Finance & Prof Services
-    "Engineering (Mechanical/Civil/Electrical)":   44500,  // £35 K — HESA Eng. first-degree + PGT premium
-    "Medicine & Public Health":                    46800,  // £36.8K — blended MPH (£34 K) / NHS FY1 (£43.9 K)
-    "Law":                                         44500,  // £35 K — blended LLM; City TC skew handled by ranking premium
-    "Nursing & Allied Health":                     40700,  // £32 K — NHS Band 5 starting salary 2024/25 exact
-    "Natural Sciences":                            36800,  // £29 K — HESA physical/natural sciences median
-    "Biotechnology & Life Sciences":               38100,  // £30 K — biomed/biotech MSc entry
-    "Environmental & Sustainability Studies":      35600,  // £28 K — HESA environmental/geography banding
-    "Social Sciences & Humanities":                37000,  // £29.1K — HESA social sciences median
-    "Arts, Design & Architecture":                 33000,  // £26 K — HESA design/architecture; fine arts lower
-    "Media & Communications":                      34300,  // £27 K — HESA media / comms median
-    "Agriculture & Veterinary Sciences":           34300,  // £27 K — agriculture/food sector entry
-    "Hospitality & Tourism":                       33000,  // £26 K — hospitality entry level
+    "Computer Science & IT":                       50000,  // £39.4K — HESA CS / Glassdoor Grad SE; revised up
+    "Artificial Intelligence & Data Science":      53000,  // £41.7K — Glassdoor Grad DS + MSc AI premium
+    "Business & Management":                       42000,  // £33.1K — MSc Business / Management baseline
+    "MBA":                                         82000,  // £64.6K — Warwick/Manchester/Bath MBA median 2024
+    "Economics & Finance":                         52000,  // £40.9K — MSc Finance; ISE Finance & Prof Services
+    "Engineering (Mechanical/Civil/Electrical)":   46000,  // £36.2K — HESA Eng. PGT; Glassdoor grad eng.
+    "Medicine & Public Health":                    48000,  // £37.8K — blended MPH/NHS FY1 (£43.9K) adjusted
+    "Law":                                         47000,  // £37.0K — blended LLM; City TC via ranking premium
+    "Nursing & Allied Health":                     40700,  // £32.0K — NHS Band 5 2024/25 exact
+    "Natural Sciences":                            38000,  // £29.9K — HESA physical/natural sciences median
+    "Biotechnology & Life Sciences":               40000,  // £31.5K — biomed/biotech MSc entry
+    "Environmental & Sustainability Studies":      37000,  // £29.1K — HESA environmental/geography
+    "Social Sciences & Humanities":                38000,  // £29.9K — HESA social sciences median
+    "Arts, Design & Architecture":                 34000,  // £26.8K — HESA design/architecture
+    "Media & Communications":                      36000,  // £28.3K — HESA media/comms median
+    "Agriculture & Veterinary Sciences":           35000,  // £27.6K — agriculture/food sector entry
+    "Hospitality & Tourism":                       34000,  // £26.8K — hospitality entry level
   },
-  // ── Australia ── QILT Graduate Outcomes Survey 2024 (qilt.edu.au); ACS IT Salary Survey 2024
+  // ── Australia ── QILT Graduate Outcomes Survey 2024; ACS IT Salary Survey 2024
   // AUD × 0.65. Base = mid-ranked Australian university PGT graduate.
   Australia: {
-    "Computer Science & IT":                       48750,  // ACS 2024: CS grad ~AUD 75K entry median
-    "Artificial Intelligence & Data Science":      55250,  // QILT PGT: DS/AI AUD 85K; SEEK entry range
-    "Business & Management":                       45000,  // QILT PGT Business ~AUD 69K
-    "MBA":                                         78000,  // Top AU MBA (Melb, AGSM) ~AUD 120K
-    "Economics & Finance":                         47450,  // Finance analyst entry AUD 73K
-    "Engineering (Mechanical/Civil/Electrical)":   55250,  // Engineers Australia 2024: new grad AUD 85K median
-    "Medicine & Public Health":                    55300,  // QILT Health: MPH/PH AUD 85K
-    "Law":                                         49400,  // Legal grad AUD 76K; varies city/firm
-    "Nursing & Allied Health":                     46200,  // ANMF RN Band 2 base ~AUD 71K
-    "Natural Sciences":                            44900,  // QILT Science PGT ~AUD 69K
-    "Biotechnology & Life Sciences":               46800,  // Pharma/biotech entry AUD 72K
-    "Environmental & Sustainability Studies":      46800,  // QILT Environment ~AUD 72K
-    "Social Sciences & Humanities":                45700,  // QILT Social Sci ~AUD 70K
-    "Arts, Design & Architecture":                 39000,  // Creative arts entry AUD 60K
-    "Media & Communications":                      41600,  // Media entry AUD 64K
-    "Agriculture & Veterinary Sciences":           46200,  // Ag/Vet entry AUD 71K
-    "Hospitality & Tourism":                       42300,  // Hospitality mgt AUD 65K
+    "Computer Science & IT":                       52000,  // ACS 2024: CS grad AUD 80K; SEEK mid-range
+    "Artificial Intelligence & Data Science":      58000,  // QILT PGT DS/AI AUD 89K; SEEK AI roles
+    "Business & Management":                       47000,  // QILT PGT Business AUD 72K
+    "MBA":                                         80000,  // Top AU MBA (Melb, AGSM, MGSM) AUD 123K median
+    "Economics & Finance":                         49000,  // Finance analyst entry AUD 75K
+    "Engineering (Mechanical/Civil/Electrical)":   57000,  // Engineers Australia 2024: grad AUD 88K median
+    "Medicine & Public Health":                    57000,  // QILT Health: MPH/PH AUD 88K
+    "Law":                                         51000,  // Legal grad AUD 78K; varies city/firm
+    "Nursing & Allied Health":                     47000,  // ANMF RN Band 2 base AUD 72K
+    "Natural Sciences":                            46000,  // QILT Science PGT AUD 71K
+    "Biotechnology & Life Sciences":               48000,  // Pharma/biotech entry AUD 74K
+    "Environmental & Sustainability Studies":      48000,  // QILT Environment AUD 74K
+    "Social Sciences & Humanities":                46000,  // QILT Social Sci AUD 71K
+    "Arts, Design & Architecture":                 41000,  // Creative arts entry AUD 63K
+    "Media & Communications":                      43000,  // Media entry AUD 66K
+    "Agriculture & Veterinary Sciences":           47000,  // Ag/Vet entry AUD 72K
+    "Hospitality & Tourism":                       44000,  // Hospitality mgt AUD 68K
   },
-  // ── Canada ── Canada Job Bank 2023-24 NOC wages (jobbank.gc.ca); Glassdoor Canada
+  // ── Canada ── Canada Job Bank 2024 NOC wages; Glassdoor Canada 2024
   // CAD × 0.73. Base = mid-ranked Canadian university PGT graduate.
   Canada: {
-    "Computer Science & IT":                       53100,  // Glassdoor Canada new grad dev CAD 72-78K
-    "Artificial Intelligence & Data Science":      58400,  // AI/ML Canada entry CAD 80K; hot market
-    "Business & Management":                       38000,  // Business admin entry CAD 52K
-    "MBA":                                         58400,  // Canadian MBA (Ivey/Rotman/Schulich) avg CAD 80K
-    "Economics & Finance":                         41800,  // Finance analyst NOC 11101 CAD 57K
-    "Engineering (Mechanical/Civil/Electrical)":   48600,  // Engineers Canada: new grad CAD 66-72K
-    "Medicine & Public Health":                    50100,  // Public Health Canada: CAD 68-75K
-    "Law":                                         45900,  // Articling associate CAD 63K avg
-    "Nursing & Allied Health":                     45600,  // RN Canada entry CAD 62-68K
-    "Natural Sciences":                            39500,  // Natural sciences NOC 21xxx entry CAD 54K
-    "Biotechnology & Life Sciences":               43800,  // Pharma/biotech Canada entry CAD 60K
-    "Environmental & Sustainability Studies":      39500,  // Environmental CAD 54K
-    "Social Sciences & Humanities":                36400,  // Social worker/researcher CAD 50K
-    "Arts, Design & Architecture":                 33400,  // Creative roles CAD 46K
-    "Media & Communications":                      34900,  // Media/comms CAD 48K
-    "Agriculture & Veterinary Sciences":           36400,  // Ag/Vet Canada CAD 50K
-    "Hospitality & Tourism":                       33400,  // Hospitality mgt CAD 46K
+    "Computer Science & IT":                       62000,  // Glassdoor Canada new grad dev CAD 85K; revised up
+    "Artificial Intelligence & Data Science":      67000,  // AI/ML Canada CAD 92K; strong talent demand
+    "Business & Management":                       40000,  // Business admin entry CAD 55K
+    "MBA":                                         73000,  // Rotman/Ivey/Schulich MBA median CAD 100K = $73K
+    "Economics & Finance":                         44000,  // Finance analyst NOC 11101 CAD 60K
+    "Engineering (Mechanical/Civil/Electrical)":   54000,  // Engineers Canada: new grad CAD 74K
+    "Medicine & Public Health":                    52000,  // Public Health Canada: CAD 71K
+    "Law":                                         48000,  // Articling associate CAD 66K avg
+    "Nursing & Allied Health":                     47000,  // RN Canada entry CAD 64K
+    "Natural Sciences":                            41000,  // Natural sciences NOC 21xxx entry CAD 56K
+    "Biotechnology & Life Sciences":               45000,  // Pharma/biotech Canada CAD 62K
+    "Environmental & Sustainability Studies":      41000,  // Environmental CAD 56K
+    "Social Sciences & Humanities":                38000,  // Social worker/researcher CAD 52K
+    "Arts, Design & Architecture":                 35000,  // Creative roles CAD 48K
+    "Media & Communications":                      36000,  // Media/comms CAD 49K
+    "Agriculture & Veterinary Sciences":           38000,  // Ag/Vet Canada CAD 52K
+    "Hospitality & Tourism":                       35000,  // Hospitality mgt CAD 48K
   },
   // ── Germany ── Stepstone Gehaltsreport 2024; Bundesagentur für Arbeit Entgeltatlas
   // EUR × 1.08. Base = mid-ranked German/European university PGT graduate.
   Germany: {
-    "Computer Science & IT":                       52300,  // Stepstone 2024: IT entry EUR 44-52K; Informatiker median
-    "Artificial Intelligence & Data Science":      55100,  // AI/ML Germany entry EUR 48-56K; hot market
-    "Business & Management":                       44800,  // BWL/Management entry EUR 40-48K
-    "MBA":                                         64800,  // German MBA (Mannheim, WHU, ESMT) EUR 55-70K avg
-    "Economics & Finance":                         44800,  // Finance/Economics entry EUR 41-50K
-    "Engineering (Mechanical/Civil/Electrical)":   51800,  // Engineering entry EUR 46-52K; Stepstone Ingenieur
-    "Medicine & Public Health":                    59400,  // Resident doctor (Assistenzarzt) EUR 52-60K
-    "Law":                                         51800,  // Rechtsanwalt entry EUR 44-52K; Referendar lower
-    "Nursing & Allied Health":                     37800,  // Krankenschwester entry EUR 28-38K
-    "Natural Sciences":                            43600,  // Natural sciences PhD/MSc entry EUR 38-44K
-    "Biotechnology & Life Sciences":               47200,  // Pharma/biotech Germany EUR 42-50K
-    "Environmental & Sustainability Studies":      44300,  // Environmental eng/science EUR 38-46K
-    "Social Sciences & Humanities":                40900,  // Social sci/Sozialwiss EUR 34-44K
-    "Arts, Design & Architecture":                 36800,  // Design/Architektur entry EUR 32-38K
-    "Media & Communications":                      37400,  // Media/Komm EUR 30-40K
-    "Agriculture & Veterinary Sciences":           38200,  // Agrar/Vet EUR 32-40K
-    "Hospitality & Tourism":                       36700,  // Hospitality entry EUR 30-38K
+    "Computer Science & IT":                       57000,  // Stepstone 2024: IT/Informatiker median EUR 53K = $57K
+    "Artificial Intelligence & Data Science":      61000,  // AI/ML Germany EUR 56K; hot market $61K
+    "Business & Management":                       46000,  // BWL/Management entry EUR 43K
+    "MBA":                                         68000,  // German MBA (Mannheim/WHU/ESMT) EUR 63K avg = $68K
+    "Economics & Finance":                         46000,  // Finance/Economics entry EUR 43K
+    "Engineering (Mechanical/Civil/Electrical)":   55000,  // Engineering entry EUR 51K; Stepstone Ingenieur
+    "Medicine & Public Health":                    62000,  // Assistenzarzt entry EUR 57K = $62K
+    "Law":                                         54000,  // Rechtsanwalt entry EUR 50K
+    "Nursing & Allied Health":                     39000,  // Krankenschwester entry EUR 36K
+    "Natural Sciences":                            46000,  // Natural sciences MSc entry EUR 43K
+    "Biotechnology & Life Sciences":               50000,  // Pharma/biotech Germany EUR 46K
+    "Environmental & Sustainability Studies":      46000,  // Environmental eng/science EUR 43K
+    "Social Sciences & Humanities":                42000,  // Social sci/Sozialwiss EUR 39K
+    "Arts, Design & Architecture":                 38000,  // Design/Architektur entry EUR 35K
+    "Media & Communications":                      39000,  // Media/Komm EUR 36K
+    "Agriculture & Veterinary Sciences":           40000,  // Agrar/Vet EUR 37K
+    "Hospitality & Tourism":                       38000,  // Hospitality entry EUR 35K
   },
-  // ── Singapore ── MOE/MOM Joint Graduate Employment Survey 2023 (moe.gov.sg)
-  // SGD × 0.74. NUS/NTU/SMU fresh grad median monthly gross used as baseline.
+  // ── Singapore ── MOE/MOM Graduate Employment Survey 2023 (moe.gov.sg)
+  // SGD × 0.74. Base calibrated to mid-tier SG institution (NOT NUS/NTU/SMU
+  // level — those are handled via UNIVERSITY_SALARY_OVERRIDES for accuracy).
   Singapore: {
-    "Computer Science & IT":                       48800,  // MOE 2023: CS/IT SGD 5,500/month = $66K; mid-tier lower
-    "Artificial Intelligence & Data Science":      50300,  // AI/DS SGD 5,700/month; demand premium
-    "Business & Management":                       39960,  // MOE Business median SGD 4,500/month = $54K
-    "MBA":                                         48800,  // NUS/NTU MBA SGD 60-90K; mid-tier ~SGD 66K
-    "Economics & Finance":                         39960,  // MOE Economics SGD 4,500/month
-    "Engineering (Mechanical/Civil/Electrical)":   40000,  // MOE Engineering SGD 4,500-5,000/month
-    "Medicine & Public Health":                    40400,  // MOE Medicine/Nursing entry
-    "Law":                                         62200,  // Singapore law associate SGD 7,000+/month
-    "Nursing & Allied Health":                     37000,  // MOE Nursing SGD 4,200/month baseline
-    "Natural Sciences":                            35500,  // MOE Science SGD 4,000/month
-    "Biotechnology & Life Sciences":               35500,  // MOE Life Sciences SGD 4,000/month
-    "Environmental & Sustainability Studies":      35500,  // Environmental roles SGD 4,000/month
-    "Social Sciences & Humanities":                35700,  // MOE Arts/SS SGD 4,050/month
-    "Arts, Design & Architecture":                 33200,  // Design/Architecture entry
-    "Media & Communications":                      33200,  // Media entry
-    "Agriculture & Veterinary Sciences":           35500,  // Agri-food/vet entry
-    "Hospitality & Tourism":                       31100,  // Hospitality entry SGD 3,500/month
+    "Computer Science & IT":                       44000,  // Mid-tier SG tech entry SGD 5,000/month × 12 × 0.74
+    "Artificial Intelligence & Data Science":      48000,  // AI/DS mid-tier SG SGD 5,400/month
+    "Business & Management":                       37000,  // Business mid-tier SG SGD 4,200/month
+    "MBA":                                         55000,  // Mid-tier SG MBA SGD 6,200/month
+    "Economics & Finance":                         38000,  // Economics entry SGD 4,300/month
+    "Engineering (Mechanical/Civil/Electrical)":   38000,  // Engineering entry SGD 4,300/month
+    "Medicine & Public Health":                    40000,  // Public health officer SG entry
+    "Law":                                         62000,  // Singapore law associate SGD 7,000+/month
+    "Nursing & Allied Health":                     35000,  // MOE Nursing SGD 4,000/month
+    "Natural Sciences":                            34000,  // MOE Science SGD 3,800/month
+    "Biotechnology & Life Sciences":               34000,  // MOE Life Sciences SGD 3,800/month
+    "Environmental & Sustainability Studies":      34000,  // Environmental roles SGD 3,800/month
+    "Social Sciences & Humanities":                34000,  // MOE Arts/SS SGD 3,850/month
+    "Arts, Design & Architecture":                 31000,  // Design/Architecture entry
+    "Media & Communications":                      31000,  // Media entry
+    "Agriculture & Veterinary Sciences":           33000,  // Agri-food/vet entry
+    "Hospitality & Tourism":                       30000,  // Hospitality entry SGD 3,400/month
   },
   // ── New Zealand ── MBIE Occupation Outlook 2024 (occupationoutlook.mbie.govt.nz)
   // NZD × 0.60. Base = mid-ranked NZ university PGT graduate.
@@ -296,6 +292,204 @@ export const SALARY_LOOKUP: Record<SalaryCountry, Record<FieldOfStudy, number>> 
     "Media & Communications":                       7400,  // Media/Comms entry MYR 2,500-3,500/month
     "Agriculture & Veterinary Sciences":            6600,  // Ag/Vet Malaysia MYR 2,200-3,200/month
     "Hospitality & Tourism":                        6600,  // Hospitality entry MYR 2,200-3,200/month
+  },
+};
+
+// ─── University-specific salary overrides ────────────────────────────────────
+//
+// These override the base-salary × ranking-premium formula for named elite
+// institutions where employment report data is available. Values represent
+// MEDIAN starting base salary (USD) for the stated field.
+//
+// Sources:
+//  MBA schools   — school-published Employment Reports 2024 (median base)
+//  Law schools   — NALP school-level data 2023; BigLaw market rate $225K/year
+//  CS/Eng/AI     — Levels.fyi, LinkedIn Salary Insights, school career reports
+//  Australia     — MGSM, AGSM, UMelb published employment outcomes 2024
+//  Canada        — Rotman, Ivey, Schulich graduate employment reports 2024
+//  Europe        — FT MBA Rankings & school salary disclosures 2024
+//
+export const UNIVERSITY_SALARY_OVERRIDES: Partial<Record<string, Partial<Record<FieldOfStudy, number>>>> = {
+
+  // ── USA: Ivy League & elite research universities ─────────────────────────
+  "Harvard University": {
+    "MBA":                                       175000,  // HBS Employment Report 2024: median base $175K
+    "Law":                                       215000,  // HLS 2023: ~54% BigLaw placement; weighted median
+    "Computer Science & IT":                     148000,  // SEAS/EECS undergrad → FAANG; Levels.fyi $145-152K
+  },
+  "Stanford University": {
+    "MBA":                                       182000,  // GSB 2024 Employment Report: median base $177K + signing
+    "Artificial Intelligence & Data Science":    162000,  // Stanford AI MS → FAANG/OpenAI/Google DeepMind
+    "Computer Science & IT":                     158000,  // Stanford CS → top-tier tech; Levels.fyi
+  },
+  "Massachusetts Institute of Technology": {
+    "Computer Science & IT":                     158000,  // MIT EECS MS → FAANG; Levels.fyi median base
+    "Artificial Intelligence & Data Science":    162000,  // MIT AI/ML → AI labs; OpenAI/Google/Meta
+    "Engineering (Mechanical/Civil/Electrical)": 115000,  // MIT AeroAstro/Mech Eng → defense/aerospace
+    "Natural Sciences":                           96000,  // MIT hard sciences MS/PhD → biotech/research/finance
+  },
+  "Carnegie Mellon University": {
+    "Artificial Intelligence & Data Science":    148000,  // CMU ML MSc → AI companies; median base ~$145-152K
+    "Computer Science & IT":                     145000,  // CMU MSCS/MCSD → top-tier tech
+  },
+  "University of Pennsylvania": {
+    "MBA":                                       175000,  // Wharton 2024 Employment Report: median base $175K
+    "Computer Science & IT":                     152000,  // Penn SEAS CS UG → FAANG; Levels.fyi
+  },
+  "Northwestern University": {
+    "MBA":                                       168000,  // Kellogg 2024: median base $165K; consulting/finance
+  },
+  "Columbia University": {
+    "MBA":                                       160000,  // CBS 2024: median base $160K; IB/consulting
+  },
+  "NYU Stern School of Business": {
+    "MBA":                                       152000,  // Stern 2024: median base $150K; NYC finance
+  },
+  "Duke University": {
+    "MBA":                                       152000,  // Fuqua 2024: median base ~$150-155K
+  },
+  "Rice University": {
+    "MBA":                                       142000,  // Jones School 2024: median ~$140-145K; energy/finance
+  },
+  "Cornell University": {
+    "Computer Science & IT":                     148000,  // Cornell MEng CS → Google/Amazon/Meta
+    "Hospitality & Tourism":                      76000,  // Cornell SHA: Marriott/Hilton corporate $72-82K
+  },
+  "Yale University": {
+    "Law":                                       228000,  // YLS 2023: ~70% large firms BigLaw; weighted median
+    "Economics & Finance":                       125000,  // Yale Econ BA → finance/consulting
+  },
+  "Princeton University": {
+    "Computer Science & IT":                     152000,  // Princeton BSE CS → FAANG; Levels.fyi
+    "Engineering (Mechanical/Civil/Electrical)": 118000,  // Princeton EE → finance/defense/tech
+  },
+  "Johns Hopkins University": {
+    "Natural Sciences":                           86000,  // JHU Applied Math/Stats → finance/healthcare analytics
+    "Medicine & Public Health":                   84000,  // JHU MPH → healthcare/CDC/NIH $80-90K
+  },
+  "Georgetown University": {
+    "Social Sciences & Humanities":              84000,   // Georgetown MSFS → State Dept/consulting/think tanks
+  },
+  "Georgia Institute of Technology": {
+    "Engineering (Mechanical/Civil/Electrical)": 96000,   // Georgia Tech Ind/Mech Eng → top manufacturers
+  },
+  "University of Illinois Urbana-Champaign": {
+    "Computer Science & IT":                     135000,  // UIUC CS UG → FAANG; strong tech placement
+  },
+  "University of California, Berkeley": {
+    "Engineering (Mechanical/Civil/Electrical)": 112000,  // Berkeley MEng EECS → top-tier tech/semiconductor
+    "Computer Science & IT":                     148000,  // Berkeley CS → FAANG
+  },
+  "UCLA": {
+    "Computer Science & IT":                     148000,  // UCLA MSCS → Netflix/Snap/Amazon/LA tech
+    "Media & Communications":                     74000,  // UCLA Film/TV → entertainment industry
+  },
+  "UC San Diego": {
+    "Computer Science & IT":                     142000,  // UCSD MSCS → Qualcomm/biotech/FAANG
+  },
+  "California Institute of Technology": {
+    "Engineering (Mechanical/Civil/Electrical)": 125000,  // Caltech AeroAstro/Mech → JPL/SpaceX/Boeing
+  },
+
+  // ── UK: Russell Group & specialist schools ───────────────────────────────
+  "University of Oxford": {
+    "Computer Science & IT":                      92000,  // Oxford MSc CS → London tech/finance; £72K
+    "MBA":                                        105000,  // Oxford Saïd MBA 2024: median £83K = $105K
+  },
+  "University of Cambridge": {
+    "Computer Science & IT":                      93000,  // Cambridge MPhil ACS → ARM/DeepMind/McKinsey; £73K
+    "Natural Sciences":                            80000,  // Cambridge NatSci → pharma/finance/research; £63K
+  },
+  "London School of Economics": {
+    "Economics & Finance":                         90000,  // LSE MSc Finance/Econ → City; £71K median 2024
+    "Law":                                         94000,  // LSE LLM → Magic Circle/US firms; £74K
+  },
+  "Imperial College London": {
+    "Artificial Intelligence & Data Science":      96000,  // Imperial MSc AI → London tech/finance; £76K
+    "Engineering (Mechanical/Civil/Electrical)":   80000,  // Imperial Eng → top engineering firms; £63K
+  },
+  "University College London": {
+    "Artificial Intelligence & Data Science":      90000,  // UCL MSc DS → London tech; £71K
+    "Computer Science & IT":                       86000,  // UCL CS → London tech; £68K
+  },
+
+  // ── France: Grande École programs ────────────────────────────────────────
+  "HEC Paris": {
+    "MBA":                                        126000,  // HEC Paris MBA 2024: median EUR 117K = $126K
+    "Business & Management":                       86000,  // HEC Grande École MSc Mgmt → consulting; EUR 80K
+  },
+  "INSEAD": {
+    "MBA":                                        132000,  // INSEAD MBA 2024: median EUR 122K = $132K
+  },
+
+  // ── Singapore: Top institutions (base is calibrated below NUS/NTU level) ─
+  "National University of Singapore": {
+    "Computer Science & IT":                      58000,  // NUS CS MSc: SGD 6,700/month = $59K; MOE GES 2023
+    "Artificial Intelligence & Data Science":      62000,  // NUS AI/CS MSc: SGD 7,000-7,500/month
+    "Economics & Finance":                         52000,  // NUS Finance/Econ: SGD 5,800/month
+    "Business & Management":                       50000,  // NUS Business: SGD 5,600/month
+    "MBA":                                         72000,  // NUS MBA: SGD 8,200+/month → $73K
+    "Engineering (Mechanical/Civil/Electrical)":   50000,  // NUS Eng: SGD 5,600/month
+  },
+  "Nanyang Technological University": {
+    "Artificial Intelligence & Data Science":      62000,  // NTU MSc AI: SGD 7,200-8,000/month
+    "Computer Science & IT":                       58000,  // NTU CS: SGD 6,500-7,000/month
+    "Engineering (Mechanical/Civil/Electrical)":   50000,  // NTU Eng: SGD 5,600/month
+    "Business & Management":                       49000,  // NTU Business: SGD 5,500/month
+  },
+  "Singapore Management University": {
+    "MBA":                                         68000,  // SMU MBA: SGD 7,700/month → $68K
+  },
+  "INSEAD Asia Campus": {
+    "MBA":                                        132000,  // Same INSEAD accreditation; EUR 122K median
+  },
+
+  // ── Germany: Research-intensive universities ──────────────────────────────
+  "Technical University of Munich": {
+    "Computer Science & IT":                       72000,  // TUM Informatics → Munich/Berlin tech; EUR 67K = $72K
+    "Artificial Intelligence & Data Science":      76000,  // TUM AI/ML → SAP/BMW/Siemens AI; EUR 70K = $76K
+    "Engineering (Mechanical/Civil/Electrical)":   64000,  // TUM Mech/Aero Eng → BMW/Siemens; EUR 59K = $64K
+  },
+
+  // ── Australia: Group of Eight ────────────────────────────────────────────
+  "University of Melbourne": {
+    "Artificial Intelligence & Data Science":      70000,  // UMelb Data Science Masters: AUD 108K = $70K
+    "Computer Science & IT":                       66000,  // UMelb CS Masters: AUD 102K = $66K
+  },
+  "University of Sydney": {
+    "MBA":                                         84000,  // USyd MBA 2024: AUD 129K median = $84K
+    "Computer Science & IT":                       66000,  // USyd Advanced Computing: AUD 102K = $66K
+  },
+  "University of New South Wales": {
+    "Engineering (Mechanical/Civil/Electrical)":   67000,  // UNSW Eng: AUD 103K = $67K
+    "Business & Management":                       62000,  // UNSW Business: AUD 95K = $62K
+  },
+  "University of Queensland": {
+    "Business & Management":                       58000,  // UQ Business: AUD 89K = $58K
+  },
+  "Monash University": {
+    "Artificial Intelligence & Data Science":      62000,  // Monash AI Eng: AUD 95K = $62K
+    "Engineering (Mechanical/Civil/Electrical)":   60000,  // Monash Eng: AUD 92K = $60K
+  },
+
+  // ── Canada: Top institutions ──────────────────────────────────────────────
+  "University of Toronto": {
+    "Computer Science & IT":                       76000,  // UofT MScAC → tech/FAANG Canada; CAD 104K = $76K
+    "Artificial Intelligence & Data Science":      80000,  // UofT AI → Vector Institute; CAD 110K = $80K
+  },
+  "University of British Columbia": {
+    "Computer Science & IT":                       72000,  // UBC CS MSc → Vancouver/Seattle; CAD 99K = $72K
+    "Artificial Intelligence & Data Science":      76000,  // UBC AI/ML → tech sector; CAD 104K = $76K
+  },
+  "McGill University": {
+    "Engineering (Mechanical/Civil/Electrical)":   66000,  // McGill Eng → Montreal aerospace/pharma; CAD 90K = $66K
+    "Natural Sciences":                            55000,  // McGill Science → pharma/research; CAD 75K = $55K
+  },
+
+  // ── Ireland: Tech hub institutions ───────────────────────────────────────
+  "Trinity College Dublin": {
+    "Computer Science & IT":                       58000,  // TCD CS → Dublin tech firms (Google/Meta/Amazon); EUR 54K
+    "Artificial Intelligence & Data Science":      60000,  // TCD AI → MNCs in Dublin; EUR 56K
   },
 };
 

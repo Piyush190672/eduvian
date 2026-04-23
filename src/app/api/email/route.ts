@@ -126,7 +126,8 @@ export async function POST(req: NextRequest) {
 <body style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f8fafc;margin:0;padding:20px;">
   <div style="max-width:600px;margin:0 auto;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.08);">
     <div style="background:linear-gradient(135deg,#6366f1,#8b5cf6,#ec4899);padding:40px 32px;text-align:center;">
-      <div style="font-size:28px;font-weight:900;color:#fff;letter-spacing:-0.5px;">🌍 eduvianAI</div>
+      <img src="${appUrl}/logo.svg" width="52" height="52" alt="eduvianAI" style="display:block;margin:0 auto 12px;border:0;outline:none;" />
+      <div style="font-size:28px;font-weight:900;color:#fff;letter-spacing:-0.5px;">eduvianAI</div>
       <div style="color:#e0e7ff;margin-top:4px;font-size:15px;font-weight:700;letter-spacing:0.3px;">Your Global Future, Simplified</div>
       <div style="color:#e0e7ff;margin-top:8px;font-size:15px;">Your personalized shortlist is ready</div>
     </div>

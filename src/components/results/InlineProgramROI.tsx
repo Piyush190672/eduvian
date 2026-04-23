@@ -124,7 +124,7 @@ export default function InlineProgramROI({ program }: Props) {
 
   const country = toSalaryCountry(program.country);
   const field   = toSalaryField(program.field_of_study);
-  const defaultSalary = lookupSalary(country, field);
+  const defaultSalary = lookupSalary(country, field, program.qs_ranking, program.university_name);
 
   const [scholarship, setScholarship]   = useState(0);
   const [savingsRate,  setSavingsRate]   = useState(20);

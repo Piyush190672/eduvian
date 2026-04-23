@@ -5,8 +5,19 @@ import { submissionStore } from "@/lib/store";
 import type { Program, StudentProfile } from "@/lib/types";
 import { scoreStudentProfile } from "@/lib/profile-score";
 import { v4 as uuidv4 } from "uuid";
+import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 
 export async function POST(req: NextRequest) {
+  // Rate limit: 5 submissions per IP per hour
+  const ip = getClientIp(req.headers);
+  const rl = checkRateLimit(`submit:${ip}`, 5, 3600);
+  if (!rl.ok) {
+    return NextResponse.json(
+      { error: "Too many requests. Please try again later." },
+      { status: 429, headers: { "Retry-After": String(rl.retryAfter) } }
+    );
+  }
+
   try {
     const { profile } = (await req.json()) as { profile: StudentProfile };
 
@@ -15,6 +26,11 @@ export async function POST(req: NextRequest) {
         { error: "Missing required fields (email, full_name)" },
         { status: 400 }
       );
+    }
+
+    // Basic field-length guards
+    if (profile.full_name.length > 120 || profile.email.length > 255) {
+      return NextResponse.json({ error: "Invalid input" }, { status: 400 });
     }
 
     // Build program list with stable IDs
@@ -46,6 +62,7 @@ export async function POST(req: NextRequest) {
     // Compute profile category
     const profileResult = scoreStudentProfile(profile);
     const profile_category = profileResult.category;
+    const total_matched = scored.length;
 
     const token = uuidv4();
     const id = uuidv4();
@@ -63,6 +80,7 @@ export async function POST(req: NextRequest) {
           shortlisted_ids: [],
           email_sent: false,
           profile_category,
+          total_matched,
         });
         if (!error) savedToDb = true;
       }
@@ -78,6 +96,7 @@ export async function POST(req: NextRequest) {
       shortlisted_ids: [],
       email_sent: false,
       profile_category,
+      total_matched,
       created_at: new Date().toISOString(),
     });
 
@@ -101,9 +120,7 @@ export async function POST(req: NextRequest) {
     });
   } catch (err) {
     console.error("Submit error:", err);
-    return NextResponse.json(
-      { error: "Internal server error" },
-      { status: 500 }
-    );
+    // Never leak internal details to the client
+    return NextResponse.json({ error: "Something went wrong" }, { status: 500 });
   }
 }

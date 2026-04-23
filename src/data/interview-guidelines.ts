@@ -50,6 +50,93 @@ export const AU_GUIDELINES: Record<string, string[]> = {
   ],
 };
 
+// USA: guidelines are per SECTION (all questions in a section share the same checklist)
+export const USA_GUIDELINES: Record<string, string[]> = {
+  "Why United States of America": [
+    "Clear and genuine reason why USA over India or other countries",
+    "Confirm the course is not equally available or accessible in India",
+    "Demonstrate knowledge of USA's academic excellence and research environment",
+    "Non-immigrant intent — clear plan to return home after studies",
+    "Awareness that the F-1 visa is a temporary student visa",
+  ],
+  "About Institute / University / College": [
+    "Full name and location (city and state) of the university",
+    "University ranking, reputation, and course-specific strengths",
+    "Specific reasons for choosing this university over others applied to",
+    "Total number of universities applied to (both admits and rejects mentioned)",
+    "Names of at least one or two faculty members in the relevant department",
+    "Scholarship details if applicable — amount, type, and awarding body",
+  ],
+  "About Your Course": [
+    "Exact course name and degree level (MS, MBA, BS, etc.)",
+    "Relevance of the course to previous academic background or work experience",
+    "Key modules, subjects, or specialisations within the programme",
+    "Duration of the course stated confidently",
+    "Course commencement date",
+    "Total cost per year including tuition and estimated living expenses",
+    "Confirmed or planned accommodation arrangement in the US",
+    "Post-graduation scope and job market relevance of the course",
+  ],
+  "Your Academic Background": [
+    "Name of the last institution studied at stated confidently",
+    "Degree title, specialisation, and percentage or CGPA",
+    "Key subjects studied and their connection to the proposed course",
+    "Clear academic progression logic from previous studies to current application",
+  ],
+  "Current Job / Business": [
+    "Current employer name and job title stated clearly if working",
+    "Reason for leaving the current job to pursue higher studies",
+    "How existing work experience directly supports the proposed course",
+    "Confirmation that work experience is documented (experience letter available)",
+  ],
+  "TOEFL / IELTS / GRE / GMAT / SAT": [
+    "Exact test scores stated confidently",
+    "Awareness of the minimum score requirement at the chosen university",
+    "If scores are lower than average, a compensating strength is mentioned",
+    "Tests taken within their valid period",
+  ],
+  "About Your Family": [
+    "Father's and/or mother's occupation clearly stated",
+    "Number of siblings and their education or occupation mentioned",
+    "Overall family educational background",
+    "Family support for the student's decision to study abroad confirmed",
+  ],
+  "Sponsor and Financial Detail": [
+    "Clear identification of the primary sponsor (father, self, education loan)",
+    "Sponsor's annual income or total assets stated confidently",
+    "Sufficient combined funds to cover full course tuition and living expenses",
+    "Total cost awareness for the entire course duration",
+    "Education loan details if applicable — bank name, amount, and approval status",
+    "Bank balance or liquid savings available for immediate expenses",
+    "Number of financial dependents of the sponsor mentioned",
+  ],
+  "Future Plans (Career Prospects)": [
+    "Explicit and confident plan to return to home country after completing studies",
+    "Specific job roles, industries, or companies targeted back home",
+    "Expected salary or remuneration range stated confidently",
+    "Clear explanation of how the US degree adds career value in the home country",
+    "Non-immigrant intent reinforced — no plan to settle permanently in the US",
+    "Strong home-country ties demonstrated (family, property, job prospects)",
+  ],
+  "Relatives in US": [
+    "Honest and confident disclosure of relatives or acquaintances in the US",
+    "If relatives exist, assurance that primary focus remains on studies",
+    "Demonstration that family ties and career are anchored in the home country",
+  ],
+  "Visa or Refusal": [
+    "Confident, structured statement of purpose and intent to study",
+    "Strong ties to home country highlighted (family, career, assets)",
+    "Non-immigrant intent demonstrated clearly and positively",
+    "If previously refused a visa, honest explanation of what has changed since",
+    "Preparation and research evident — the student knows exactly why they deserve the visa",
+  ],
+  "Miscellaneous": [
+    "Any prior travel history mentioned honestly and confidently",
+    "Clear plan to return home during summers or semester breaks if asked",
+    "Productive and purposeful use of off-periods described (study, family, internship)",
+  ],
+};
+
 // UK: guidelines are per QUESTION (each question has its own checklist)
 export const UK_GUIDELINES: Record<string, string[]> = {
   "Why do you want to study in the UK?": [

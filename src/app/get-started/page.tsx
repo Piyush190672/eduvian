@@ -19,6 +19,7 @@ import {
   Shield,
   ChevronLeft,
 } from "lucide-react";
+import { EduvianLogoMark } from "@/components/EduvianLogo";
 
 type Mode = "choose" | "register" | "login";
 
@@ -146,10 +147,8 @@ export default function GetStartedPage() {
       {/* Nav */}
       <nav className="flex items-center justify-between px-6 py-4">
         <Link href="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-md">
-            <GraduationCap className="w-4 h-4 text-white" />
-          </div>
-          <span className="font-extrabold text-white text-lg">eduvianAI</span>
+          <EduvianLogoMark size={32} />
+          <span className="font-display font-bold text-lg text-white tracking-tight">eduvian<span className="text-indigo-300">AI</span></span>
         </Link>
         <Link href="/" className="text-slate-400 hover:text-white text-sm transition-colors">
           ← Back to home

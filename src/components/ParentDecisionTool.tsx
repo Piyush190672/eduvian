@@ -6,6 +6,7 @@ import {
   Search, ChevronDown, ShieldCheck, TrendingUp, Globe2,
   GraduationCap, MapPin, Users, Star, Briefcase, Heart,
   CheckCircle2, AlertTriangle, XCircle, DollarSign, ArrowRight, Zap,
+  FileDown, Mail, Send, X,
 } from "lucide-react";
 import { CURATED_UNIVERSITIES } from "@/data/roi-data";
 import type { SalaryCountry, FieldOfStudy } from "@/data/roi-data";
@@ -235,6 +236,97 @@ export default function ParentDecisionTool() {
 
   const step1Done = !!selectedUni;
   const step2Done = !!selectedProgram;
+
+  // ── Export state ─────────────────────────────────────────────────────────────
+  const [pdfLoading, setPdfLoading]       = useState(false);
+  const [showEmailForm, setShowEmailForm]   = useState(false);
+  const [emailInput, setEmailInput]       = useState("");
+  const [emailLoading, setEmailLoading]   = useState(false);
+  const [emailSent, setEmailSent]         = useState(false);
+  const [emailError, setEmailError]       = useState<string | null>(null);
+
+  function buildExportData() {
+    return {
+      university_name:     selectedUni!.name,
+      flag:                selectedUni!.flag ?? "🎓",
+      country:             selectedUni!.country,
+      city,
+      program_name:        selectedProgram!.program_name,
+      degree_level:        selectedProgram!.degree_level,
+      field:               field.toString(),
+      qs_ranking:          selectedUni!.qs_ranking ?? undefined,
+      duration_months:     durationMonths,
+      scholarship_usd:     scholarship,
+      budget_usd:          budgetUsd,
+      annual_tuition_usd:  annualTuition,
+      avg_living_cost_usd: livingCost,
+      total_pct:               result!.total_pct,
+      recommendation:          result!.recommendation,
+      recommendation_color:    result!.recommendation_color,
+      recommendation_icon:     result!.recommendation_icon,
+      budget_fit_score:        result!.budget_fit_score,
+      ranking_score:           result!.ranking_score,
+      psw_score:               result!.psw_score,
+      job_market_score:        result!.job_market_score,
+      financial_roi_score:     result!.financial_roi_score,
+      safety_score:            result!.safety_score,
+      student_life_score:      result!.student_life_score,
+      total_tuition_usd:       result!.total_tuition_usd,
+      total_living_usd:        result!.total_living_usd,
+      total_cost_usd:          result!.total_cost_usd,
+      net_cost_usd:            result!.net_cost_usd,
+      expected_salary_usd:     result!.expected_salary_usd,
+      payback_years:           result!.payback_years,
+      roi_positive:            result!.roi_positive,
+      psw_available:           result!.psw_available,
+      psw_duration:            result!.psw_duration,
+      psw_note:                result!.psw_note,
+      job_market_rating:       result!.job_market_rating,
+      job_market_detail:       result!.job_market_detail,
+      safety_rating:           result!.safety_rating,
+      safety_detail:           result!.safety_detail,
+      student_life_rating:     result!.student_life_rating,
+      student_life_detail:     result!.student_life_detail,
+    };
+  }
+
+  function handleDownloadPDF() {
+    if (!result) return;
+    const win = window.open("", "_blank");
+    if (!win) return;
+    setPdfLoading(true);
+    fetch("/api/pdf/tools", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ type: "parent", data: buildExportData() }),
+    })
+      .then((r) => r.text())
+      .then((html) => { win.document.write(html); win.document.close(); })
+      .catch(() => { win.close(); })
+      .finally(() => setPdfLoading(false));
+  }
+
+  async function handleSendEmail(e: React.FormEvent) {
+    e.preventDefault();
+    if (!result || !emailInput.trim()) return;
+    setEmailLoading(true);
+    setEmailError(null);
+    try {
+      const res = await fetch("/api/email/tools", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ type: "parent", email: emailInput.trim(), data: buildExportData() }),
+      });
+      const json = await res.json() as { ok?: boolean; error?: string };
+      if (!res.ok || json.error) throw new Error(json.error ?? "Failed to send");
+      setEmailSent(true);
+      setTimeout(() => { setEmailSent(false); setShowEmailForm(false); setEmailInput(""); }, 3000);
+    } catch (err: unknown) {
+      setEmailError(err instanceof Error ? err.message : "Failed to send email");
+    } finally {
+      setEmailLoading(false);
+    }
+  }
 
   return (
     <section id="parent-decision-tool" className="py-24 px-6 bg-gradient-to-br from-slate-50 via-white to-purple-50/40">
@@ -564,6 +656,64 @@ export default function ParentDecisionTool() {
                         sub={result.student_life_detail}
                       />
                     </div>
+                  </div>
+
+                  {/* ── Export bar ── */}
+                  <div className="bg-gray-50 border border-gray-100 rounded-2xl p-4">
+                    <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-3 flex items-center gap-1.5">
+                      <FileDown className="w-3.5 h-3.5 text-purple-500" /> Save or Share Results
+                    </p>
+                    <div className="flex flex-wrap gap-2.5">
+                      {/* PDF button */}
+                      <button
+                        onClick={handleDownloadPDF}
+                        disabled={pdfLoading}
+                        className="flex items-center gap-2 px-4 py-2 rounded-xl bg-purple-50 border border-purple-200 text-purple-700 text-sm font-semibold hover:bg-purple-100 transition-all disabled:opacity-50"
+                      >
+                        {pdfLoading
+                          ? <><span className="w-3.5 h-3.5 border-2 border-purple-400/40 border-t-purple-500 rounded-full animate-spin" /> Generating…</>
+                          : <><FileDown className="w-3.5 h-3.5" /> Download PDF</>}
+                      </button>
+
+                      {/* Email button */}
+                      {!showEmailForm ? (
+                        <button
+                          onClick={() => { setShowEmailForm(true); setEmailSent(false); setEmailError(null); }}
+                          className="flex items-center gap-2 px-4 py-2 rounded-xl bg-indigo-50 border border-indigo-200 text-indigo-700 text-sm font-semibold hover:bg-indigo-100 transition-all"
+                        >
+                          <Mail className="w-3.5 h-3.5" /> Email Results
+                        </button>
+                      ) : emailSent ? (
+                        <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-700 text-sm font-semibold">
+                          <CheckCircle2 className="w-3.5 h-3.5" /> Sent!
+                        </div>
+                      ) : (
+                        <form onSubmit={handleSendEmail} className="flex items-center gap-2 flex-1 min-w-0">
+                          <input
+                            type="email"
+                            value={emailInput}
+                            onChange={(e) => setEmailInput(e.target.value)}
+                            placeholder="your@email.com"
+                            required
+                            autoFocus
+                            className="flex-1 min-w-0 border border-gray-200 rounded-xl px-3 py-2 text-gray-800 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                          />
+                          <button type="submit" disabled={emailLoading}
+                            className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-indigo-500 text-white text-sm font-semibold hover:bg-indigo-600 transition-all disabled:opacity-50 flex-shrink-0"
+                          >
+                            {emailLoading
+                              ? <span className="w-3.5 h-3.5 border-2 border-white/40 border-t-white rounded-full animate-spin" />
+                              : <Send className="w-3.5 h-3.5" />}
+                          </button>
+                          <button type="button" onClick={() => { setShowEmailForm(false); setEmailError(null); }}
+                            className="p-2 rounded-xl text-gray-400 hover:text-gray-600 hover:bg-gray-100 transition-all flex-shrink-0"
+                          >
+                            <X className="w-3.5 h-3.5" />
+                          </button>
+                        </form>
+                      )}
+                    </div>
+                    {emailError && <p className="mt-2 text-xs text-rose-500">{emailError}</p>}
                   </div>
 
                   {/* CTA */}

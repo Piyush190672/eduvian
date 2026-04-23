@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   TrendingUp, GraduationCap, MapPin, Sparkles, Info, ArrowRight,
   ChevronDown, Search, CheckCircle2, Zap, BookOpen, DollarSign,
+  FileDown, Mail, Send, X,
 } from "lucide-react";
 import { CURATED_UNIVERSITIES, SALARY_LOOKUP } from "@/data/roi-data";
 import type { SalaryCountry, FieldOfStudy } from "@/data/roi-data";
@@ -179,7 +180,7 @@ export default function ROICalculator() {
     setField(f);
     setFieldOpen(false);
     setSelectedProgram(null);
-    if (matchedUni) setSalary(lookupSalary(matchedUni.country as SalaryCountry, f, matchedUni.qs_ranking));
+    if (matchedUni) setSalary(lookupSalary(matchedUni.country as SalaryCountry, f, matchedUni.qs_ranking, matchedUni.name));
   }
 
   // ── Select program → auto-fill everything ────────────────────────────────────
@@ -190,7 +191,7 @@ export default function ROICalculator() {
     setTuition(p.annual_tuition_usd);
     setLiving(p.avg_living_cost_usd);
     setDuration(p.duration_months);
-    if (matchedUni) setSalary(lookupSalary(matchedUni.country as SalaryCountry, p.field_of_study as FieldOfStudy, matchedUni.qs_ranking));
+    if (matchedUni) setSalary(lookupSalary(matchedUni.country as SalaryCountry, p.field_of_study as FieldOfStudy, matchedUni.qs_ranking, matchedUni.name));
   }
 
   // ── ROI calculation ───────────────────────────────────────────────────────────
@@ -214,6 +215,80 @@ export default function ROICalculator() {
 
   const pb = results ? paybackColor(results.payback_years) : null;
   const durationYears = durationMonths / 12;
+
+  // ── Export state ─────────────────────────────────────────────────────────────
+  const [pdfLoading, setPdfLoading]     = useState(false);
+  const [showEmailForm, setShowEmailForm] = useState(false);
+  const [emailInput, setEmailInput]     = useState("");
+  const [emailLoading, setEmailLoading] = useState(false);
+  const [emailSent, setEmailSent]       = useState(false);
+  const [emailError, setEmailError]     = useState<string | null>(null);
+
+  function buildExportData() {
+    return {
+      university_name:     matchedUni?.name ?? "",
+      flag:                matchedUni?.flag ?? "🎓",
+      country:             matchedUni?.country ?? "",
+      city,
+      program_name:        selectedProgram?.program_name ?? "",
+      degree_level:        selectedProgram?.degree_level ?? "",
+      field:               (field || "").toString(),
+      qs_ranking:          matchedUni?.qs_ranking,
+      duration_months:     durationMonths,
+      scholarship_usd:     scholarship,
+      savings_rate_pct:    savingsRate,
+      expected_salary_usd: salary,
+      annual_tuition_usd:  tuition,
+      avg_living_cost_usd: living,
+      total_tuition_usd:       results!.total_tuition_usd,
+      total_living_usd:        results!.total_living_usd,
+      total_investment_usd:    results!.total_investment_usd,
+      monthly_budget_usd:      results!.monthly_budget_usd,
+      monthly_savings_usd:     results!.monthly_savings_usd,
+      payback_years:           results!.payback_years,
+      ten_year_roi_pct:        results!.ten_year_roi_pct,
+      breakeven_salary_usd:    results!.breakeven_salary_usd,
+      net_earnings_10yr_usd:   results!.net_earnings_10yr_usd,
+    };
+  }
+
+  function handleDownloadPDF() {
+    if (!results) return;
+    const win = window.open("", "_blank");
+    if (!win) return;
+    setPdfLoading(true);
+    fetch("/api/pdf/tools", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ type: "roi", data: buildExportData() }),
+    })
+      .then((r) => r.text())
+      .then((html) => { win.document.write(html); win.document.close(); })
+      .catch(() => { win.close(); })
+      .finally(() => setPdfLoading(false));
+  }
+
+  async function handleSendEmail(e: React.FormEvent) {
+    e.preventDefault();
+    if (!results || !emailInput.trim()) return;
+    setEmailLoading(true);
+    setEmailError(null);
+    try {
+      const res = await fetch("/api/email/tools", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ type: "roi", email: emailInput.trim(), data: buildExportData() }),
+      });
+      const json = await res.json() as { ok?: boolean; error?: string };
+      if (!res.ok || json.error) throw new Error(json.error ?? "Failed to send");
+      setEmailSent(true);
+      setTimeout(() => { setEmailSent(false); setShowEmailForm(false); setEmailInput(""); }, 3000);
+    } catch (err: unknown) {
+      setEmailError(err instanceof Error ? err.message : "Failed to send email");
+    } finally {
+      setEmailLoading(false);
+    }
+  }
 
   // ── progress ──────────────────────────────────────────────────────────────────
   const step1Done = !!matchedUni;
@@ -609,6 +684,64 @@ export default function ROICalculator() {
                     </div>
                   </div>
 
+                  {/* ── Export bar ── */}
+                  <div className="bg-white/5 border border-white/10 rounded-2xl p-4">
+                    <p className="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-3 flex items-center gap-1.5">
+                      <FileDown className="w-3.5 h-3.5 text-indigo-400" /> Save or Share Results
+                    </p>
+                    <div className="flex flex-wrap gap-2.5">
+                      {/* PDF button */}
+                      <button
+                        onClick={handleDownloadPDF}
+                        disabled={pdfLoading}
+                        className="flex items-center gap-2 px-4 py-2 rounded-xl bg-indigo-500/20 border border-indigo-500/30 text-indigo-300 text-sm font-semibold hover:bg-indigo-500/30 transition-all disabled:opacity-50"
+                      >
+                        {pdfLoading
+                          ? <><span className="w-3.5 h-3.5 border-2 border-indigo-400/40 border-t-indigo-400 rounded-full animate-spin" /> Generating…</>
+                          : <><FileDown className="w-3.5 h-3.5" /> Download PDF</>}
+                      </button>
+
+                      {/* Email button */}
+                      {!showEmailForm ? (
+                        <button
+                          onClick={() => { setShowEmailForm(true); setEmailSent(false); setEmailError(null); }}
+                          className="flex items-center gap-2 px-4 py-2 rounded-xl bg-violet-500/20 border border-violet-500/30 text-violet-300 text-sm font-semibold hover:bg-violet-500/30 transition-all"
+                        >
+                          <Mail className="w-3.5 h-3.5" /> Email Results
+                        </button>
+                      ) : emailSent ? (
+                        <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-500/20 border border-emerald-500/30 text-emerald-300 text-sm font-semibold">
+                          <CheckCircle2 className="w-3.5 h-3.5" /> Sent!
+                        </div>
+                      ) : (
+                        <form onSubmit={handleSendEmail} className="flex items-center gap-2 flex-1 min-w-0">
+                          <input
+                            type="email"
+                            value={emailInput}
+                            onChange={(e) => setEmailInput(e.target.value)}
+                            placeholder="your@email.com"
+                            required
+                            autoFocus
+                            className="flex-1 min-w-0 bg-white/10 border border-white/20 rounded-xl px-3 py-2 text-white text-sm placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500"
+                          />
+                          <button type="submit" disabled={emailLoading}
+                            className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-violet-500 text-white text-sm font-semibold hover:bg-violet-600 transition-all disabled:opacity-50 flex-shrink-0"
+                          >
+                            {emailLoading
+                              ? <span className="w-3.5 h-3.5 border-2 border-white/40 border-t-white rounded-full animate-spin" />
+                              : <Send className="w-3.5 h-3.5" />}
+                          </button>
+                          <button type="button" onClick={() => { setShowEmailForm(false); setEmailError(null); }}
+                            className="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-white/10 transition-all flex-shrink-0"
+                          >
+                            <X className="w-3.5 h-3.5" />
+                          </button>
+                        </form>
+                      )}
+                    </div>
+                    {emailError && <p className="mt-2 text-xs text-rose-400">{emailError}</p>}
+                  </div>
+
                   {/* CTA */}
                   <div className="bg-gradient-to-r from-indigo-600/30 to-purple-600/30 border border-indigo-500/30 rounded-2xl p-5 flex items-center justify-between gap-4">
                     <div>
@@ -617,6 +750,26 @@ export default function ROICalculator() {
                     </div>
                     <a href="/get-started" className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-bold hover:shadow-lg transition-all whitespace-nowrap flex-shrink-0">
                       Get My Matches <ArrowRight className="w-3.5 h-3.5" />
+                    </a>
+                  </div>
+
+                  {/* Visa Coach deep-link with pre-filled budget + country */}
+                  <div className="bg-gradient-to-r from-sky-600/20 to-cyan-600/20 border border-cyan-500/30 rounded-2xl p-5 flex items-center justify-between gap-4 mt-3">
+                    <div>
+                      <p className="font-bold text-white text-sm">🛂 Check your visa readiness</p>
+                      <p className="text-xs text-slate-400 mt-0.5">
+                        Open the Visa Coach pre-filled with your{matchedUni?.country ? ` ${matchedUni.country}` : ""} checklist
+                        {results ? ` and your $${Math.round((results.total_investment_usd || 0) / Math.max(1, durationYears)).toLocaleString()} / year funding pool` : ""}.
+                      </p>
+                    </div>
+                    <a
+                      href={`/visa-coach?${[
+                        matchedUni?.country ? `country=${encodeURIComponent(matchedUni.country)}` : "",
+                        results ? `funding=${Math.round((results.total_investment_usd || 0) / Math.max(1, durationYears))}` : "",
+                      ].filter(Boolean).join("&")}`}
+                      className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-sky-500 to-cyan-500 text-white text-sm font-bold hover:shadow-lg transition-all whitespace-nowrap flex-shrink-0"
+                    >
+                      Open Visa Coach <ArrowRight className="w-3.5 h-3.5" />
                     </a>
                   </div>
                 </motion.div>

@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { createSessionToken } from "@/lib/session";
 
 const COOKIE_NAME = "eduvianai_admin_session";
 const COOKIE_OPTS = {
@@ -10,8 +11,9 @@ const COOKIE_OPTS = {
 
 // POST — called after successful Supabase auth to set the session cookie
 export async function POST() {
+  const token = createSessionToken();
   const res = NextResponse.json({ ok: true });
-  res.cookies.set(COOKIE_NAME, "1", { ...COOKIE_OPTS, maxAge: 60 * 60 * 8 }); // 8 h
+  res.cookies.set(COOKIE_NAME, token, { ...COOKIE_OPTS, maxAge: 60 * 60 * 8 }); // 8 h
   return res;
 }
 

@@ -1,0 +1,73 @@
+"use client";
+
+import Link from "next/link";
+import { ArrowLeft, LayoutDashboard } from "lucide-react";
+import { EduvianLogoMark } from "@/components/EduvianLogo";
+import ApplicationTracker from "@/components/ApplicationTracker";
+import AuthGate from "@/components/AuthGate";
+
+export default function ApplicationTrackerPage() {
+  return (
+    <AuthGate stage={3} toolName="Application Tracker" source="application-tracker">
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50/50">
+        {/* Nav */}
+        <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-white/80 backdrop-blur-md border-b border-white/30 print-hidden">
+          <Link href="/" className="flex items-center gap-2">
+            <EduvianLogoMark size={32} />
+            <div>
+              <span className="font-display font-bold text-xl text-gray-900 tracking-tight">
+                eduvian<span className="text-indigo-500">AI</span>
+              </span>
+              <p className="text-xs font-medium text-gray-400 leading-none">
+                Your Global Future, Simplified
+              </p>
+            </div>
+          </Link>
+          <Link
+            href="/"
+            className="flex items-center gap-2 px-4 py-2 rounded-xl border border-gray-200 text-gray-600 text-sm font-medium hover:bg-gray-50 transition-colors"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Back to Home
+          </Link>
+        </nav>
+
+        <main className="pt-28 pb-20 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            {/* Header */}
+            <div className="text-center mb-10 print-hidden">
+              <div className="inline-flex items-center gap-2 bg-indigo-50 border border-indigo-200 text-indigo-700 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">
+                <LayoutDashboard className="w-3.5 h-3.5" />
+                Application Tracker & Smart Deadlines
+              </div>
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight leading-tight">
+                Every application,
+                <br />
+                <span className="bg-gradient-to-r from-indigo-600 via-violet-600 to-pink-600 bg-clip-text text-transparent">
+                  one Kanban board.
+                </span>
+              </h1>
+              <p className="mt-5 text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                Shortlisted → In Progress → Submitted → Decision. Per-program
+                checklists, deadline countdowns, and document-version history —
+                so you never miss a date or lose a draft.
+              </p>
+            </div>
+
+            {/* Print-only title */}
+            <div className="hidden print:block mb-6">
+              <h1 className="text-2xl font-bold">
+                eduvianAI — Application Tracker
+              </h1>
+              <p className="text-sm text-gray-600">
+                Printed {new Date().toLocaleString()}
+              </p>
+            </div>
+
+            <ApplicationTracker />
+          </div>
+        </main>
+      </div>
+    </AuthGate>
+  );
+}

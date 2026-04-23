@@ -6,7 +6,6 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import toast from "react-hot-toast";
 import {
-  Globe2,
   Download,
   Mail,
   SlidersHorizontal,
@@ -14,7 +13,10 @@ import {
   RefreshCw,
   Filter,
   ShieldCheck,
+  X,
+  BarChart2,
 } from "lucide-react";
+import { EduvianLogoMark } from "@/components/EduvianLogo";
 import type { ScoredProgram, ProgramTier, StudentProfile } from "@/lib/types";
 import { TARGET_COUNTRIES } from "@/lib/types";
 import ProgramCard from "@/components/results/ProgramCard";
@@ -23,6 +25,7 @@ import ProfileCard from "@/components/results/ProfileCard";
 import NavButtons from "@/components/ui/NavButtons";
 import CheckMatchPanel from "@/components/results/CheckMatchPanel";
 import ChatWidget from "@/components/ChatWidget";
+import ComparePanel from "@/components/results/ComparePanel";
 
 interface ResultData {
   submission: {
@@ -75,6 +78,8 @@ export default function ResultsPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [shortlisted, setShortlisted] = useState<Set<string>>(new Set());
+  const [compareSet, setCompareSet] = useState<Set<string>>(new Set());
+  const [showCompare, setShowCompare] = useState(false);
   const [filters, setFilters] = useState({ country: "all", field: "all", sort: "match_score" });
   const [showFilters, setShowFilters] = useState(false);
   const [sendingEmail, setSendingEmail] = useState(false);
@@ -94,6 +99,20 @@ export default function ResultsPage() {
   }, [token]);
 
   useEffect(() => { fetchResults(); }, [fetchResults]);
+
+  function toggleCompare(programId: string) {
+    setCompareSet((prev) => {
+      const next = new Set(prev);
+      if (next.has(programId)) {
+        next.delete(programId);
+      } else if (next.size < 5) {
+        next.add(programId);
+      } else {
+        toast.error("Max 5 programs can be compared at once");
+      }
+      return next;
+    });
+  }
 
   const toggleShortlist = async (programId: string) => {
     const next = new Set(shortlisted);
@@ -204,11 +223,9 @@ export default function ResultsPage() {
       {/* Nav */}
       <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 glass border-b border-white/30">
         <Link href="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
-            <Globe2 className="w-4 h-4 text-white" />
-          </div>
+          <EduvianLogoMark size={32} />
           <div>
-            <span className="font-bold text-xl text-gray-900">eduvianAI</span>
+            <span className="font-display font-bold text-xl text-gray-900 tracking-tight">eduvian<span className="text-indigo-500">AI</span></span>
             <p className="text-sm font-bold text-gray-400 leading-none">Your Global Future, Simplified</p>
           </div>
         </Link>
@@ -232,7 +249,7 @@ export default function ResultsPage() {
         </div>
       </nav>
 
-      <div className="pt-24 pb-16 px-4 max-w-5xl mx-auto">
+      <div className={`pt-24 px-4 max-w-5xl mx-auto ${compareSet.size > 0 ? "pb-24" : "pb-16"}`}>
         {/* Header */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-6">
           <p className="text-gray-400 text-sm font-medium mb-1">Hey {studentName} 👋</p>
@@ -384,6 +401,9 @@ export default function ResultsPage() {
                         program={program}
                         isShortlisted={shortlisted.has(program.id)}
                         onToggleShortlist={() => toggleShortlist(program.id)}
+                        isInCompare={compareSet.has(program.id)}
+                        onToggleCompare={() => toggleCompare(program.id)}
+                        compareDisabled={!compareSet.has(program.id) && compareSet.size >= 5}
                       />
                     </motion.div>
                   ))}
@@ -409,6 +429,67 @@ export default function ResultsPage() {
 
       {/* AISA chat — context-aware with matched programs */}
       <ChatWidget programs={allPrograms} studentName={studentName} />
+
+      {/* ── Compare sticky bar ──────────────────────────────────────────── */}
+      {compareSet.size > 0 && (() => {
+        const comparePrograms = allPrograms.filter((p) => compareSet.has(p.id));
+        const slots = 5;
+        const remaining = slots - comparePrograms.length;
+        return (
+          <div className="fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-gray-200 shadow-lg px-4 py-3">
+            <div className="max-w-5xl mx-auto flex items-center gap-3 flex-wrap">
+              {/* Selected chips */}
+              {comparePrograms.map((p) => (
+                <div key={p.id} className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-violet-50 border border-violet-200 text-sm font-medium text-violet-700">
+                  <span className="max-w-[120px] truncate">{p.program_name}</span>
+                  <button onClick={() => toggleCompare(p.id)} className="text-violet-400 hover:text-violet-600 transition-colors">
+                    <X className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              ))}
+              {/* Empty slot chips */}
+              {Array.from({ length: remaining }).map((_, i) => (
+                <div key={`slot-${i}`} className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border-2 border-dashed border-gray-200 text-sm text-gray-400">
+                  + Add more
+                </div>
+              ))}
+              {/* Actions */}
+              <div className="ml-auto flex items-center gap-2">
+                <button
+                  onClick={() => setCompareSet(new Set())}
+                  className="px-3 py-2 rounded-xl border border-gray-200 text-sm text-gray-500 hover:bg-gray-50 transition-all"
+                >
+                  Clear all
+                </button>
+                <button
+                  onClick={() => { if (comparePrograms.length >= 2) setShowCompare(true); }}
+                  disabled={comparePrograms.length < 2}
+                  className="flex items-center gap-2 px-5 py-2 rounded-xl bg-gradient-to-r from-violet-500 to-purple-600 text-white text-sm font-bold hover:shadow-lg hover:shadow-violet-200 hover:-translate-y-0.5 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                >
+                  <BarChart2 className="w-4 h-4" />
+                  Compare {comparePrograms.length} Programs
+                </button>
+              </div>
+            </div>
+          </div>
+        );
+      })()}
+
+      {/* ── Compare panel modal ─────────────────────────────────────────── */}
+      {showCompare && (() => {
+        const comparePrograms = allPrograms.filter((p) => compareSet.has(p.id));
+        if (comparePrograms.length < 2) return null;
+        return (
+          <ComparePanel
+            programs={comparePrograms}
+            onClose={() => setShowCompare(false)}
+            onRemove={(id) => {
+              toggleCompare(id);
+              if (compareSet.size <= 2) setShowCompare(false);
+            }}
+          />
+        );
+      })()}
     </div>
   );
 }

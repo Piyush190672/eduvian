@@ -10,6 +10,7 @@ import {
   DollarSign,
   CalendarDays,
   Trophy,
+  BarChart2,
 } from "lucide-react";
 import InlineProgramROI from "./InlineProgramROI";
 
@@ -17,6 +18,9 @@ interface Props {
   program: ScoredProgram;
   isShortlisted: boolean;
   onToggleShortlist: () => void;
+  isInCompare?: boolean;
+  onToggleCompare?: () => void;
+  compareDisabled?: boolean;
 }
 
 type SignalStatus = "strong" | "partial" | "gap";
@@ -97,12 +101,45 @@ function SignalChip({ signal, value, isPG }: SignalChipProps) {
   );
 }
 
-export default function ProgramCard({ program, isShortlisted, onToggleShortlist }: Props) {
+// Returns display info for application deadline:
+// - future date  → { label: "Apply by May 1, 2026", urgent: true/false, past: false }
+// - rolling      → { label: "Rolling admissions", urgent: false, past: false }
+// - past date    → { label: "Application process not started", urgent: false, past: true }
+// - null/missing → null
+function getDeadlineInfo(deadline: string | null | undefined): {
+  label: string;
+  urgent: boolean;
+  past: boolean;
+} | null {
+  if (!deadline) return null;
+  if (deadline === "rolling") return { label: "Rolling admissions", urgent: false, past: false };
+
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const dl = new Date(deadline);
+  dl.setHours(0, 0, 0, 0);
+
+  if (dl < today) {
+    return { label: "Application process not started", urgent: false, past: true };
+  }
+
+  const msLeft = dl.getTime() - today.getTime();
+  const daysLeft = Math.ceil(msLeft / (1000 * 60 * 60 * 24));
+  const formatted = dl.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+  return {
+    label: `Apply by ${formatted}`,
+    urgent: daysLeft <= 30,
+    past: false,
+  };
+}
+
+export default function ProgramCard({ program, isShortlisted, onToggleShortlist, isInCompare, onToggleCompare, compareDisabled }: Props) {
   const totalCost = program.annual_tuition_usd + program.avg_living_cost_usd;
   const flag = getCountryFlag(program.country);
   const tierStyle = getTierColor(program.tier);
   const tierLabel = getTierLabel(program.tier);
   const isPG = program.degree_level === "postgraduate";
+  const deadlineInfo = getDeadlineInfo(program.application_deadline);
 
   const bd = program.score_breakdown;
 
@@ -187,15 +224,21 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist 
               <span className="text-gray-400 text-xs">
                 Tuition: {formatCurrency(program.annual_tuition_usd)} + Living: {formatCurrency(program.avg_living_cost_usd)}
               </span>
-              {program.application_deadline && (
-                <span className="flex items-center gap-1 text-gray-500 text-xs">
-                  <CalendarDays className="w-3 h-3" />
-                  Deadline:{" "}
-                  <span className="font-medium">
-                    {program.application_deadline === "rolling"
-                      ? "Rolling"
-                      : new Date(program.application_deadline).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
+              {deadlineInfo && (
+                <span className={`flex items-center gap-1 text-xs ${
+                  deadlineInfo.past    ? "text-gray-400"  :
+                  deadlineInfo.urgent  ? "text-rose-500"  :
+                                         "text-gray-500"
+                }`}>
+                  <CalendarDays className="w-3 h-3 flex-shrink-0" />
+                  <span className={deadlineInfo.past ? "italic" : deadlineInfo.urgent ? "font-semibold" : "font-medium"}>
+                    {deadlineInfo.label}
                   </span>
+                  {deadlineInfo.urgent && (
+                    <span className="ml-1 px-1.5 py-0.5 rounded bg-rose-100 text-rose-600 font-bold text-[10px]">
+                      Closing soon
+                    </span>
+                  )}
                 </span>
               )}
             </div>
@@ -253,6 +296,22 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist 
                 <><BookmarkPlus className="w-4 h-4" />+ Shortlist</>
               )}
             </button>
+            {onToggleCompare && (
+              <button
+                onClick={compareDisabled ? undefined : onToggleCompare}
+                disabled={compareDisabled}
+                className={`flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-sm font-bold border-2 transition-all whitespace-nowrap ${
+                  isInCompare
+                    ? "bg-violet-500 text-white border-violet-500 hover:bg-violet-600"
+                    : compareDisabled
+                    ? "bg-white text-gray-400 border-gray-200 opacity-40 cursor-not-allowed"
+                    : "bg-white text-violet-600 border-violet-300 hover:bg-violet-50 hover:border-violet-400"
+                }`}
+              >
+                <BarChart2 className="w-4 h-4" />
+                {isInCompare ? "✓ Comparing" : compareDisabled ? "Max 5" : "+ Compare"}
+              </button>
+            )}
             <a
               href={program.program_url}
               target="_blank"

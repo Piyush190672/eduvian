@@ -99,7 +99,15 @@ function buildPDFHtml(profile: StudentProfile, programs: ScoredProgram[]): strin
       </td>
       <td class="center score">${p.match_score}%</td>
       <td class="right">${formatCurrency(p.annual_tuition_usd + p.avg_living_cost_usd)}/yr</td>
-      <td class="right">${p.application_deadline === "rolling" ? "Rolling" : p.application_deadline ?? "—"}</td>
+      <td class="right">${(() => {
+        const dl = p.application_deadline;
+        if (!dl) return "—";
+        if (dl === "rolling") return "Rolling";
+        const today = new Date(); today.setHours(0,0,0,0);
+        const d = new Date(dl); d.setHours(0,0,0,0);
+        if (d < today) return "App. process not started";
+        return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+      })()}</td>
       <td class="center">${p.qs_ranking ? `#${p.qs_ranking}` : "—"}</td>
     </tr>`
     )

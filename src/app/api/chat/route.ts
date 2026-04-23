@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { DB_STATS, universitiesByCountry } from "@/data/db-stats";
 
+export const maxDuration = 60;
+
 // ── Build university list dynamically ────────────────────────────────────────
 const uniListSection = Object.entries(universitiesByCountry)
   .sort((a, b) => b[1].length - a[1].length)
@@ -246,13 +248,14 @@ Data-driven tool for parents evaluating whether to send their child abroad.
 - Great for family conversations before committing to study abroad
 
 AI INTERVIEW COACH:
-Helps students prepare for university visa interviews.
+Helps students prepare for university and visa interviews across three countries.
 - Australia Genuine Student (GS) Interview Coach: 19 questions across 5 categories (program rationale, career outcome, why Australia, university choice, return intent)
 - UK Credibility Interview Coach: 14 questions across 5 categories (why UK, course rationale, funding, academic background, visa rules)
-- Voice mode (speak your answer, get spoken feedback) and Text mode (type, get written feedback)
-- Real-time AI feedback: what you did well, where to improve, model answer
+- USA F-1 Visa Interview Coach: 60+ questions across 12 sections (why USA, university, course, academic background, job/business, test scores, family, sponsor/finance, future plans, relatives in US, visa/refusal, miscellaneous). Male American voice. Covers both section practice and full mock interview (12 key questions across all mandatory sections).
+- Voice mode (speak your answer, get spoken feedback) and Text mode (type, get written feedback) — available for all three countries
+- Real-time AI feedback: what you did well, where to improve, sample answer
 - 100% free — available at eduvianAI.com/interview-prep
-- Text practice also available via custom GPT models (Australia and UK)
+- Direct links: /interview-prep?country=australia, /interview-prep?country=uk, /interview-prep?country=usa
 
 GENERAL STUDY ABROAD GUIDANCE:
 

@@ -5,7 +5,6 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import toast from "react-hot-toast";
 import {
-  Globe2,
   User,
   BookOpen,
   FileText,
@@ -21,6 +20,7 @@ import StepTests from "@/components/form/StepTests";
 import StepPreferences from "@/components/form/StepPreferences";
 import Link from "next/link";
 import NavButtons from "@/components/ui/NavButtons";
+import { EduvianLogoMark } from "@/components/EduvianLogo";
 
 const STEPS = [
   { id: 1, label: "Personal", icon: User, desc: "About you" },
@@ -209,11 +209,9 @@ function ProfilePageInner() {
       {/* Nav */}
       <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 glass border-b border-white/30">
         <Link href="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
-            <Globe2 className="w-4 h-4 text-white" />
-          </div>
+          <EduvianLogoMark size={32} />
           <div>
-            <span className="font-bold text-xl text-gray-900">eduvianAI</span>
+            <span className="font-display font-bold text-xl text-gray-900 tracking-tight">eduvian<span className="text-indigo-500">AI</span></span>
             <p className="text-sm font-bold text-gray-400 leading-none">Your Global Future, Simplified</p>
           </div>
         </Link>

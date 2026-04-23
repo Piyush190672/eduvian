@@ -14,6 +14,7 @@ export interface StoredSubmission {
   email_sent: boolean;
   created_at: string;
   profile_category?: string;
+  total_matched?: number;
 }
 
 // Singleton map that persists across hot-reloads in dev

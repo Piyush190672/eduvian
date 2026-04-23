@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Globe2, Lock, Loader2 } from "lucide-react";
+import { Lock, Loader2 } from "lucide-react";
+import { EduvianLogoMark } from "@/components/EduvianLogo";
 import Link from "next/link";
 
 export default function AdminLogin() {
@@ -21,7 +22,7 @@ export default function AdminLogin() {
       const { createClient } = await import("@supabase/supabase-js");
       const supabase = createClient(
         process.env.NEXT_PUBLIC_SUPABASE_URL!,
-        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+        process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!
       );
       const { error: authError } = await supabase.auth.signInWithPassword({
         email,
@@ -31,8 +32,9 @@ export default function AdminLogin() {
       // Set httpOnly session cookie so middleware can protect admin routes
       await fetch("/api/admin/session", { method: "POST" });
       router.push("/admin/dashboard");
-    } catch {
-      setError("Invalid credentials.");
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : "Invalid credentials.";
+      setError(msg);
     } finally {
       setLoading(false);
     }
@@ -43,11 +45,9 @@ export default function AdminLogin() {
       <div className="w-full max-w-sm">
         <div className="text-center mb-8">
           <Link href="/" className="inline-flex items-center gap-2 mb-6">
-            <div className="w-10 h-10 rounded-2xl bg-white/20 flex items-center justify-center">
-              <Globe2 className="w-5 h-5 text-white" />
-            </div>
+            <EduvianLogoMark size={40} />
             <div>
-              <span className="font-bold text-2xl text-white">eduvianAI</span>
+              <span className="font-display font-bold text-2xl text-white tracking-tight">eduvian<span className="text-indigo-300">AI</span></span>
               <p className="text-sm font-bold text-indigo-300 leading-none">Your Global Future, Simplified</p>
             </div>
           </Link>
@@ -57,6 +57,7 @@ export default function AdminLogin() {
 
         <form
           onSubmit={handleLogin}
+          autoComplete="off"
           className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-8 space-y-4"
         >
           <div>
@@ -69,6 +70,7 @@ export default function AdminLogin() {
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Email address"
               required
+              autoComplete="off"
               className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-indigo-300 focus:outline-none focus:ring-2 focus:ring-indigo-400 text-sm"
             />
           </div>
@@ -82,6 +84,7 @@ export default function AdminLogin() {
               onChange={(e) => setPassword(e.target.value)}
               placeholder="••••••••"
               required
+              autoComplete="new-password"
               className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-indigo-300 focus:outline-none focus:ring-2 focus:ring-indigo-400 text-sm"
             />
           </div>

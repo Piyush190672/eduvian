@@ -27,18 +27,20 @@ interface SpeechRecognitionCtor { new(): SpeechRecognitionShim; }
 import { useState, useEffect, useRef, useCallback, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { AU_GUIDELINES, UK_GUIDELINES } from "@/data/interview-guidelines";
+import { AU_GUIDELINES, UK_GUIDELINES, USA_GUIDELINES } from "@/data/interview-guidelines";
 import {
   Mic, Volume2, VolumeX, ChevronRight, RotateCcw, CheckCircle2,
   ArrowLeft, Globe2, Sparkles, Trophy, Clock, MessageSquare,
   BookOpen, Briefcase, MapPin, Building2, HelpCircle, ListChecks,
-  ThumbsUp, AlertCircle, Loader2, User,
+  ThumbsUp, AlertCircle, Loader2, User, DollarSign, Users, Shield,
 } from "lucide-react";
 import Link from "next/link";
+import AuthGate from "@/components/AuthGate";
+import { EduvianLogoMark } from "@/components/EduvianLogo";
 
 // ─── Types ─────────────────────────────────────────────────────────────────────
 
-type Country = "australia" | "uk";
+type Country = "australia" | "uk" | "usa";
 
 // Phases:
 // name        → collect student name (both)
@@ -50,7 +52,7 @@ type Country = "australia" | "uk";
 // feedback    → AI-generated feedback displayed
 // complete    → end of session summary
 type Phase =
-  | "name" | "uk_confirm" | "category"
+  | "name" | "uk_confirm" | "category" | "usa_section"
   | "speaking" | "listening" | "review" | "feedback" | "complete";
 
 interface QuestionCategory {
@@ -240,6 +242,188 @@ const UK_CATEGORIES: QuestionCategory[] = [
   },
 ];
 
+// ─── USA — 12 sections, 60+ approved questions (F-1 visa consular interview) ──
+
+const USA_SECTIONS: QuestionCategory[] = [
+  {
+    id: "usa_why",
+    label: "Why United States of America",
+    objective: "Assess whether studying in the USA is a genuine choice and establish non-immigrant intent.",
+    icon: <MapPin className="w-4 h-4" />,
+    questions: [
+      "Why do you wish to study in USA and not in India?",
+      "Why did you select US for higher studies? Isn't this course offered by any university or colleges in India?",
+      "What is the purpose of your trip?",
+      "Have you ever been to US?",
+    ],
+  },
+  {
+    id: "usa_university",
+    label: "About Institute / University / College",
+    objective: "Verify the student's knowledge of the chosen institution and why it was selected.",
+    icon: <Building2 className="w-4 h-4" />,
+    questions: [
+      "Which US University are you planning to go to?",
+      "Can you tell me some details about your university?",
+      "Why have you chosen this specific university?",
+      "Can you tell me the location of the university/college?",
+      "Why did you choose this institute and how did you find about it?",
+      "How many US universities did you apply for? (Both admits and rejects)",
+      "Can you mention the names of some professors?",
+      "Did you receive any scholarships?",
+    ],
+  },
+  {
+    id: "usa_course",
+    label: "About Your Course",
+    objective: "Assess course knowledge, relevance to prior studies, duration, and cost awareness.",
+    icon: <BookOpen className="w-4 h-4" />,
+    questions: [
+      "What course are you going for?",
+      "Why did you select this course? Is it relevant to your previous studies?",
+      "Why are you taking this course?",
+      "What is the course structure & contents?",
+      "Why don't you do this course in your country?",
+      "How long will your studies last?",
+      "What is the scope of your course?",
+      "What do you plan to study at the university?",
+      "What benefit will this course bring to you?",
+      "What is the course commencement date?",
+      "What will be the total cost per year?",
+      "Where will you stay in US?",
+    ],
+  },
+  {
+    id: "usa_academic",
+    label: "Your Academic Background",
+    objective: "Evaluate academic history, grades, subjects, and how they lead to the proposed course.",
+    icon: <User className="w-4 h-4" />,
+    questions: [
+      "Where did you do your last course of study?",
+      "What is your specialization?",
+      "What is your High School, Degree or Master's percentage or grade?",
+      "What are your subjects in last course of study (High School, Degree or Master's)?",
+    ],
+  },
+  {
+    id: "usa_job",
+    label: "Current Job / Business",
+    objective: "Understand current employment and why the student is leaving to study abroad.",
+    icon: <Briefcase className="w-4 h-4" />,
+    questions: [
+      "Show your Experience Certificate. (if applicable)",
+      "Why are you leaving your current job to study?",
+    ],
+  },
+  {
+    id: "usa_tests",
+    label: "TOEFL / IELTS / GRE / GMAT / SAT",
+    objective: "Verify English proficiency and standardised test scores are sufficient for the programme.",
+    icon: <ListChecks className="w-4 h-4" />,
+    questions: [
+      "Could you please show me your TOEFL/IELTS scorecard?",
+      "Why are your TOEFL/IELTS scores low?",
+    ],
+  },
+  {
+    id: "usa_family",
+    label: "About Your Family",
+    objective: "Understand family background and establish home-country ties.",
+    icon: <Users className="w-4 h-4" />,
+    questions: [
+      "What does your father do?",
+      "How many brothers and sisters do you have?",
+      "What is your father's annual income?",
+      "Do you have a brother, sister, or any other relative already at this university?",
+      "Where did your brother/parents complete their studies?",
+    ],
+  },
+  {
+    id: "usa_finance",
+    label: "Sponsor and Financial Detail",
+    objective: "Verify that sufficient, legitimate funding is available for the full duration of study.",
+    icon: <DollarSign className="w-4 h-4" />,
+    questions: [
+      "Have you got any loans?",
+      "What are the sources of income of your sponsor?",
+      "What proof do you have that your sponsor can support your studies?",
+      "Who is paying for your education and what is his/her income?",
+      "Who is sponsoring you?",
+      "Could you please show me the passbook or bank statements?",
+      "How many people are dependents of your sponsor?",
+      "Why is he sponsoring you? (if not father)",
+      "How much money is available for your stay in US?",
+      "How will you finance your education funds for the full duration?",
+    ],
+  },
+  {
+    id: "usa_future",
+    label: "Future Plans (Career Prospects)",
+    objective: "Establish return intent, career roadmap, and non-immigrant intent after graduation.",
+    icon: <Sparkles className="w-4 h-4" />,
+    questions: [
+      "What are your plans after completing your studies?",
+      "Have you researched your career prospects?",
+      "What will you do after completing your degree?",
+      "What will you do after coming back home?",
+      "How much money can you earn after your completion of studies?",
+      "Do you intend to work in US during or after completion of your studies?",
+      "How can you prove that you will come back after finishing your studies?",
+    ],
+  },
+  {
+    id: "usa_relatives",
+    label: "Relatives in US",
+    objective: "Check for US-based relatives and ensure home-country ties remain primary.",
+    icon: <Globe2 className="w-4 h-4" />,
+    questions: [
+      "Do you have any relatives in the US?",
+      "Do you know anyone (in USA) in your University?",
+    ],
+  },
+  {
+    id: "usa_visa",
+    label: "Visa or Refusal",
+    objective: "Test the student's ability to make a compelling case for the visa and handle rejection.",
+    icon: <Shield className="w-4 h-4" />,
+    questions: [
+      "Why should I grant you a U.S. Visa?",
+      "What will you do if your US Visa is rejected?",
+    ],
+  },
+  {
+    id: "usa_misc",
+    label: "Miscellaneous",
+    objective: "Cover travel history, semester breaks, and overall preparedness for life in the US.",
+    icon: <HelpCircle className="w-4 h-4" />,
+    questions: [
+      "Have you ever visited any other country?",
+      "Will you come back home during summers?",
+      "What will you do during the off period/semester?",
+    ],
+  },
+];
+
+// USA Full Mock — 12 representative questions, one per mandatory/key section
+const USA_FULL_MOCK: { question: string; category: string; objective: string }[] = [
+  { question: "Why do you wish to study in USA and not in India?", category: "Why United States of America", objective: "Assess whether studying in the USA is a genuine choice and establish non-immigrant intent." },
+  { question: "Which US University are you planning to go to?", category: "About Institute / University / College", objective: "Verify the student's knowledge of the chosen institution and why it was selected." },
+  { question: "Why have you chosen this specific university?", category: "About Institute / University / College", objective: "Verify the student's knowledge of the chosen institution and why it was selected." },
+  { question: "What course are you going for?", category: "About Your Course", objective: "Assess course knowledge, relevance to prior studies, duration, and cost awareness." },
+  { question: "What is the course structure & contents?", category: "About Your Course", objective: "Assess course knowledge, relevance to prior studies, duration, and cost awareness." },
+  { question: "What will be the total cost per year?", category: "About Your Course", objective: "Assess course knowledge, relevance to prior studies, duration, and cost awareness." },
+  { question: "Where did you do your last course of study?", category: "Your Academic Background", objective: "Evaluate academic history, grades, subjects, and how they lead to the proposed course." },
+  { question: "What is your High School, Degree or Master's percentage or grade?", category: "Your Academic Background", objective: "Evaluate academic history, grades, subjects, and how they lead to the proposed course." },
+  { question: "Who is sponsoring you?", category: "Sponsor and Financial Detail", objective: "Verify that sufficient, legitimate funding is available for the full duration of study." },
+  { question: "How will you finance your education funds for the full duration?", category: "Sponsor and Financial Detail", objective: "Verify that sufficient, legitimate funding is available for the full duration of study." },
+  { question: "What are your plans after completing your studies?", category: "Future Plans (Career Prospects)", objective: "Establish return intent, career roadmap, and non-immigrant intent after graduation." },
+  { question: "Why should I grant you a U.S. Visa?", category: "Visa or Refusal", objective: "Test the student's ability to make a compelling case for the visa and handle rejection." },
+];
+
+const USA_ALL_QUESTIONS = USA_SECTIONS.flatMap((s) =>
+  s.questions.map((q) => ({ question: q, category: s.label, objective: s.objective }))
+);
+
 // ─── Helpers ───────────────────────────────────────────────────────────────────
 
 function formatDuration(s: number) {
@@ -256,7 +440,7 @@ function parseFeedback(text: string, country: Country) {
 
   const WELL_RE    = /what you did well\s*:?\s*/i;
   const IMPROVE_RE = /(?:what|where) you could improve\s*:?\s*/i;
-  const SAMPLE_RE  = /(?:a good sample answer is|here is a sample answer)\s*:?\s*/i;
+  const SAMPLE_RE  = /(?:a good sample answer (?:is|could be)|here is a sample answer)\s*:?\s*/i;
 
   // Find the start index of each section heading in the text
   const wellIdx    = text.search(WELL_RE);
@@ -291,7 +475,27 @@ function parseFeedback(text: string, country: Country) {
 //   Australia: Google Australian Female → Karen (macOS) → any en-AU → any female en
 //   UK:        Google UK English Female → Serena (macOS) → Hazel/Zira (Win) → any en-GB → any female en
 
-function pickVoice(voices: SpeechSynthesisVoice[], country: "australia" | "uk"): SpeechSynthesisVoice | null {
+function pickVoice(voices: SpeechSynthesisVoice[], country: Country): SpeechSynthesisVoice | null {
+  if (country === "usa") {
+    // USA coach → en-US MALE voice
+    // Priority: Google US English Male (Chrome) → Reed (newer macOS) → Aaron (newer macOS)
+    //           → Nathan (newer macOS) → Tom (macOS) → Alex (macOS, older)
+    //           → any en-US with "male" in name → any en-US non-female → any en-US
+    const usMaleNamed = voices.find((v) =>
+      v.name === "Google US English Male" ||
+      v.name === "Reed"   ||      // newer macOS en-US male
+      v.name === "Aaron"  ||      // newer macOS en-US male
+      v.name === "Nathan" ||      // newer macOS en-US male
+      v.name === "Tom"    ||      // macOS en-US male
+      v.name === "Alex"   ||      // macOS en-US male (older but decent)
+      (v.lang === "en-US" && /male/i.test(v.name))
+    );
+    // Any en-US voice as fallback (prefer non-female if possible)
+    const usLocale = voices.find((v) => v.lang === "en-US" && !/female/i.test(v.name));
+    const usAny    = voices.find((v) => v.lang === "en-US");
+    return usMaleNamed ?? usLocale ?? usAny ?? null;
+  }
+
   if (country === "australia") {
     // 1. Explicitly named Australian female voices
     const auNamed = voices.find((v) =>
@@ -344,7 +548,7 @@ if (typeof window !== "undefined" && "speechSynthesis" in window) {
   window.speechSynthesis.addEventListener("voiceschanged", load);
 }
 
-function useTTS(country: "australia" | "uk") {
+function useTTS(country: Country) {
   // speakSegments() — speaks an array of text segments with a pause between each.
   // This creates natural breathing room between feedback sections.
   const speakSegments = useCallback((segments: string[], onEnd?: () => void) => {
@@ -364,8 +568,8 @@ function useTTS(country: "australia" | "uk") {
         if (!seg.trim()) { speakNext(); return; }
 
         const utter = new SpeechSynthesisUtterance(seg);
-        utter.rate  = 1.0;    // natural speed
-        utter.pitch = 1.12;   // warmer, more energetic female tone
+        utter.rate  = country === "usa" ? 1.05 : 1.0;  // slightly brisker for US = more energy
+        utter.pitch = country === "usa" ? 1.0  : 1.12; // natural pitch for US (was 0.9 = dull)
         utter.volume = 1;
         if (voice) utter.voice = voice;
         utter.onend = () => {
@@ -468,7 +672,7 @@ function CountrySelect({ onSelect }: { onSelect: (c: Country) => void }) {
       <p className="text-gray-500 text-base leading-relaxed mb-12 max-w-xl mx-auto">
         The AI reads each question aloud. You speak your answer. Get instant AI feedback on every response — exactly as your approved GPT coaches do.
       </p>
-      <div className="grid sm:grid-cols-2 gap-5 text-left">
+      <div className="grid sm:grid-cols-3 gap-5 text-left">
         <motion.button whileHover={{ y: -4, boxShadow: "0 20px 40px rgba(14,165,233,0.15)" }}
           onClick={() => onSelect("australia")}
           className="group bg-gradient-to-br from-sky-50 to-blue-50 border-2 border-sky-200 rounded-3xl p-7 flex flex-col gap-4 hover:border-sky-400 transition-all duration-200">
@@ -511,6 +715,29 @@ function CountrySelect({ onSelect }: { onSelect: (c: Country) => void }) {
             ))}
           </div>
           <span className="inline-flex items-center gap-2 text-rose-600 font-bold text-sm group-hover:gap-3 transition-all">
+            Start session <ChevronRight className="w-4 h-4" />
+          </span>
+        </motion.button>
+
+        <motion.button whileHover={{ y: -4, boxShadow: "0 20px 40px rgba(59,130,246,0.2)" }}
+          onClick={() => onSelect("usa")}
+          className="group bg-gradient-to-br from-blue-50 to-red-50 border-2 border-blue-200 rounded-3xl p-7 flex flex-col gap-4 hover:border-blue-500 transition-all duration-200">
+          <div className="flex items-center gap-3">
+            <span className="text-4xl">🇺🇸</span>
+            <div>
+              <p className="text-[11px] font-bold text-blue-700 uppercase tracking-wider">United States</p>
+              <h3 className="text-xl font-extrabold text-gray-900">F-1 Visa Interview Prep</h3>
+            </div>
+          </div>
+          <p className="text-sm text-gray-500 leading-relaxed">
+            60+ approved questions across 12 sections — Why USA, University, Course, Finance, Future Plans, and more.
+          </p>
+          <div className="flex flex-wrap gap-1.5">
+            {["12 sections", "60+ questions", "Male US voice", "AI feedback"].map((t) => (
+              <span key={t} className="px-2.5 py-1 rounded-full bg-blue-100 text-blue-700 text-[11px] font-semibold">{t}</span>
+            ))}
+          </div>
+          <span className="inline-flex items-center gap-2 text-blue-700 font-bold text-sm group-hover:gap-3 transition-all">
             Start session <ChevronRight className="w-4 h-4" />
           </span>
         </motion.button>
@@ -654,6 +881,86 @@ function CategoryPicker({
   );
 }
 
+// ─── USA Section picker ────────────────────────────────────────────────────────
+
+function USASectionPicker({
+  studentName,
+  onSelect,
+  onFullMock,
+  onBack,
+}: {
+  studentName: string;
+  onSelect: (section: QuestionCategory) => void;
+  onFullMock: () => void;
+  onBack: () => void;
+}) {
+  const totalQ = USA_ALL_QUESTIONS.length;
+  const mandatorySections = ["usa_why", "usa_university", "usa_course", "usa_academic", "usa_finance", "usa_future"];
+
+  return (
+    <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="max-w-xl mx-auto">
+      <div className="flex items-center gap-3 mb-6">
+        <span className="text-4xl">🇺🇸</span>
+        <div>
+          <p className="text-xs font-bold text-blue-700 uppercase tracking-wider">USA · F-1 Visa Interview</p>
+          <h2 className="text-2xl font-extrabold text-gray-900">
+            Which section, {studentName}?
+          </h2>
+          <p className="text-sm text-gray-400 mt-1">{USA_SECTIONS.length} sections · {totalQ} questions total</p>
+        </div>
+      </div>
+
+      {/* Full Mock button */}
+      <motion.button whileHover={{ y: -2 }} onClick={onFullMock}
+        className="w-full mb-3 flex items-center gap-4 p-4 rounded-2xl bg-gradient-to-r from-blue-600 to-red-600 text-white shadow-lg hover:shadow-xl transition-all">
+        <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0">
+          <ListChecks className="w-5 h-5" />
+        </div>
+        <div className="text-left flex-1">
+          <p className="font-bold text-sm">Full Mock Interview</p>
+          <p className="text-xs text-white/70 mt-0.5">12 questions · covers all mandatory sections</p>
+        </div>
+        <ChevronRight className="w-4 h-4 opacity-70" />
+      </motion.button>
+
+      <div className="space-y-2 max-h-[420px] overflow-y-auto pr-1">
+        {USA_SECTIONS.map((section, i) => {
+          const isMandatory = mandatorySections.includes(section.id);
+          return (
+            <motion.button key={section.id}
+              initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: i * 0.04 }} whileHover={{ x: 4 }}
+              onClick={() => onSelect(section)}
+              className="w-full flex items-center gap-4 p-4 rounded-2xl bg-white border-2 border-blue-100 hover:border-blue-400 transition-all text-left">
+              <div className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0 bg-blue-50 text-blue-700 text-xs font-black">
+                {i + 1}
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 mb-0.5">
+                  <p className="font-bold text-gray-900 text-sm">{section.label}</p>
+                  {isMandatory && (
+                    <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-full bg-red-50 text-red-600 border border-red-200 uppercase tracking-wider">Mandatory</span>
+                  )}
+                </div>
+                <p className="text-xs text-gray-400 truncate">{section.objective}</p>
+              </div>
+              <div className="flex items-center gap-2 flex-shrink-0">
+                <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-blue-50 text-blue-700">
+                  {section.questions.length}Q
+                </span>
+                <ChevronRight className="w-3.5 h-3.5 text-gray-400" />
+              </div>
+            </motion.button>
+          );
+        })}
+      </div>
+      <button onClick={onBack} className="mt-6 flex items-center gap-2 text-sm text-gray-400 hover:text-gray-600 mx-auto">
+        <ArrowLeft className="w-3.5 h-3.5" /> Back
+      </button>
+    </motion.div>
+  );
+}
+
 // ─── Feedback display ──────────────────────────────────────────────────────────
 
 function FeedbackPanel({
@@ -683,9 +990,9 @@ function FeedbackPanel({
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [countdown, setCountdown] = useState<number | null>(null);
   const countdownRef = useRef<ReturnType<typeof setInterval> | null>(null);
-  const accentBg = country === "australia" ? "from-sky-500 to-blue-600" : "from-rose-500 to-red-600";
+  const accentBg = country === "australia" ? "from-sky-500 to-blue-600" : country === "usa" ? "from-blue-600 to-red-600" : "from-rose-500 to-red-600";
   const improveLabel = country === "australia" ? "What you could improve" : "Where you could improve";
-  const sampleLabel = country === "australia" ? "A good sample answer is" : "Here is a sample answer";
+  const sampleLabel = country === "australia" ? "A good sample answer is" : country === "usa" ? "A Good sample answer could be" : "Here is a sample answer";
   const parsed = feedbackText ? parseFeedback(feedbackText, country) : null;
 
   // Build segments array — each section is its own utterance so there's a natural
@@ -889,10 +1196,10 @@ function InterviewSession({
   mode?: "voice" | "text";
 }) {
   const { speak, cancel } = useTTS(country);
-  const accentBg = country === "australia" ? "from-sky-500 to-blue-600" : "from-rose-500 to-red-600";
-  const accentText = country === "australia" ? "text-sky-600" : "text-rose-600";
-  const flag = country === "australia" ? "🇦🇺" : "🇬🇧";
-  const countryLabel = country === "australia" ? "Australia" : "United Kingdom";
+  const accentBg = country === "australia" ? "from-sky-500 to-blue-600" : country === "usa" ? "from-blue-600 to-red-600" : "from-rose-500 to-red-600";
+  const accentText = country === "australia" ? "text-sky-600" : country === "usa" ? "text-blue-700" : "text-rose-600";
+  const flag = country === "australia" ? "🇦🇺" : country === "usa" ? "🇺🇸" : "🇬🇧";
+  const countryLabel = country === "australia" ? "Australia" : country === "usa" ? "United States" : "United Kingdom";
 
   // ── State ──────────────────────────────────────────────────────────────────
   const [phase, setPhase] = useState<Phase>("name");
@@ -947,6 +1254,8 @@ function InterviewSession({
     if (phase !== "name" || mode === "text") return;
     const greeting = country === "australia"
       ? "Hello there! Welcome to your Genuine Student interview practice! I am so excited to help you prepare. To get us started, could you please tell me your name?"
+      : country === "usa"
+      ? "Hello! Welcome to your US F-1 visa interview practice! I am here to help you get ready for your consulate appointment. Let us start — could you please tell me your name?"
       : "Hello! Welcome! I am absolutely delighted to help you prepare for your UK credibility interview today. Could you please tell me your name?";
     const t = setTimeout(() => speak(greeting), 400);
     return () => clearTimeout(t);
@@ -957,6 +1266,15 @@ function InterviewSession({
   useEffect(() => {
     if (phase !== "uk_confirm" || !studentName || mode === "text") return;
     const msg = `Wonderful, ${studentName}! It is so great to meet you! I am here to help you absolutely nail your UK credibility interview. When you are ready to begin, just say YES and we will get started!`;
+    const t = setTimeout(() => speak(msg), 300);
+    return () => clearTimeout(t);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [phase]);
+
+  // ── AUTO-SPEAK: USA section menu ─────────────────────────────────────────────
+  useEffect(() => {
+    if (phase !== "usa_section" || !studentName || mode === "text") return;
+    const msg = `Great to meet you, ${studentName}! I am your US visa interview coach. You can practice by section, or go straight into a Full Mock Interview that covers all the key areas the visa officer will ask about. Which would you like?`;
     const t = setTimeout(() => speak(msg), 300);
     return () => clearTimeout(t);
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -1057,12 +1375,24 @@ function InterviewSession({
     if (phase !== "listening") stopListening();
   }, [phase, mode, startListening, stopListening]);
 
+  // ── Extract name from natural speech ─────────────────────────────────────────
+  // Strips intro phrases so "My name is Piyush Kumar" → "Piyush Kumar"
+  const extractName = useCallback((raw: string): string => {
+    return raw
+      .replace(/\.$/, "")
+      .replace(/^(my name is|i am|i'm|call me|it's|its|this is|hi i'm|hello i'm|hi my name is|hello my name is|hi|hello)\s+/i, "")
+      .trim();
+  }, []);
+
   // ── One-shot STT for name / YES inputs ───────────────────────────────────────
-  // Uses interimResults so the first recognisable word is caught immediately —
-  // once a final result arrives we stop recognition and fire onResult right away.
+  // Uses interimResults + stable-interim timer so name is caught as soon as spoken,
+  // even if the "final" event is slow or never fires on some browsers/devices.
+  // nameMode=true: disables interim results, enables maxAlternatives=3, and tries
+  // all alternatives to find a non-empty transcript — ideal for short name utterances.
   const listenOnce = useCallback((
     onResult: (text: string) => void,
     onStateChange: (active: boolean) => void,
+    nameMode = false,
   ) => {
     if (!sttSupported || typeof window === "undefined") return;
     cancel(); // stop TTS before listening
@@ -1070,50 +1400,81 @@ function InterviewSession({
     const win = window as typeof window & { SpeechRecognition?: SpeechRecognitionCtor; webkitSpeechRecognition?: SpeechRecognitionCtor };
     const Ctor = win.SpeechRecognition || win.webkitSpeechRecognition;
     if (!Ctor) return;
-    const recog = new Ctor();
+    const recog = new Ctor() as SpeechRecognitionShim & { maxAlternatives?: number };
     recog.continuous = false;
-    recog.interimResults = true; // catch interim so we get the word as soon as spoken
-    recog.lang = "en-IN"; // Indian English — better for Indian names
+    // In nameMode we disable interim results to avoid partial-result noise, and
+    // rely on the final result only. For category/YES we keep interim results so
+    // the stable-interim timer can fire quickly.
+    recog.interimResults = !nameMode;
+    if (nameMode) recog.maxAlternatives = 3;
+    // Use en-US for best recognition accuracy; Indian names are well supported
+    recog.lang = "en-US";
     onStateChange(true);
     let fired = false;
     let lastInterim = "";
+    let stableTimer: ReturnType<typeof setTimeout> | null = null;
 
-    // Safety timeout: if no final arrives in 8s, use whatever interim we have
+    const fireResult = (text: string) => {
+      if (fired) return;
+      fired = true;
+      if (stableTimer) clearTimeout(stableTimer);
+      clearTimeout(safetyTimer);
+      try { recog.stop(); } catch { /* ignore */ }
+      onStateChange(false);
+      onResult(text);
+    };
+
+    // Safety timeout: 6s max — use whatever we have
     const safetyTimer = setTimeout(() => {
-      if (!fired && lastInterim.trim()) {
-        fired = true;
-        try { recog.stop(); } catch { /* ignore */ }
-        onStateChange(false);
-        onResult(lastInterim.trim());
-      } else if (!fired) {
-        try { recog.stop(); } catch { /* ignore */ }
-        onStateChange(false);
-      }
-    }, 8000);
+      if (!fired) fireResult(lastInterim.trim() || "");
+    }, 6000);
 
     recog.onresult = (event: SpeechRecognitionEventShim) => {
       for (let i = event.resultIndex; i < event.results.length; i++) {
         const r = event.results[i];
-        const text = r[0]?.transcript?.trim().replace(/\.$/, "") ?? "";
-        if (!text) continue;
-        if (r.isFinal && !fired) {
-          clearTimeout(safetyTimer);
-          fired = true;
-          try { recog.stop(); } catch { /* ignore */ }
-          onStateChange(false);
-          onResult(text);
+
+        if (r.isFinal) {
+          // In nameMode: try each alternative in order until we find a non-empty one.
+          // This helps when the primary transcript is empty or very short.
+          let best = "";
+          if (nameMode) {
+            for (let a = 0; a < r.length; a++) {
+              const alt = r[a]?.transcript?.trim().replace(/\.$/, "") ?? "";
+              if (alt.length >= 1) { best = alt; break; }
+            }
+          } else {
+            best = r[0]?.transcript?.trim().replace(/\.$/, "") ?? "";
+          }
+          if (!best && !nameMode) continue; // non-name mode: skip empty finals
+          // Final result — fire immediately (accept even low-confidence for names)
+          fireResult(best);
           return;
-        } else if (!r.isFinal) {
-          // Keep track of the latest interim result
+        } else {
+          // Interim result (nameMode=false only, since interimResults=false in nameMode)
+          const text = r[0]?.transcript?.trim().replace(/\.$/, "") ?? "";
+          if (!text) continue;
+          // Interim result — update latest and reset stable timer
           lastInterim = text;
+          if (stableTimer) clearTimeout(stableTimer);
+          // If interim hasn't changed in 1.2s, treat it as stable and accept it
+          stableTimer = setTimeout(() => {
+            if (!fired && lastInterim.trim().length >= 2) {
+              fireResult(lastInterim.trim());
+            }
+          }, 1200);
         }
       }
     };
-    recog.onerror = () => { clearTimeout(safetyTimer); onStateChange(false); };
-    recog.onend = () => {
+    recog.onerror = () => {
+      if (stableTimer) clearTimeout(stableTimer);
       clearTimeout(safetyTimer);
       onStateChange(false);
-      // Fallback: if recognition ended without a final result but we have interim text, use it
+    };
+    recog.onend = () => {
+      if (stableTimer) clearTimeout(stableTimer);
+      clearTimeout(safetyTimer);
+      onStateChange(false);
+      // Fallback: if recognition ended without firing, use interim
       if (!fired && lastInterim.trim()) {
         fired = true;
         onResult(lastInterim.trim());
@@ -1133,6 +1494,10 @@ function InterviewSession({
     let checklist: string[] | undefined;
     if (country === "uk") {
       checklist = UK_GUIDELINES[question];
+    } else if (country === "usa") {
+      // For USA, find which section this question belongs to and use section checklist
+      const section = USA_SECTIONS.find((s) => s.questions.includes(question));
+      if (section) checklist = USA_GUIDELINES[section.label];
     } else {
       // For AU, find which category this question belongs to and use its checklist
       const cat = AU_CATEGORIES.find((c) => c.questions.includes(question));
@@ -1165,11 +1530,12 @@ function InterviewSession({
   // ── Name submission ─────────────────────────────────────────────────────────
   // NOTE: no speak() here — the auto-speak useEffects above fire when phase changes
   const handleNameSubmit = () => {
-    const name = nameInput.trim();
+    const name = extractName(nameInput.trim());
     if (!name) return;
     cancel(); // stop any current speech before transitioning
     setStudentName(name);
-    setPhase(country === "uk" ? "uk_confirm" : "category");
+    setNameInput(name); // update field to show the cleaned name
+    setPhase(country === "uk" ? "uk_confirm" : country === "usa" ? "usa_section" : "category");
   };
 
   // ── UK YES confirmation ─────────────────────────────────────────────────────
@@ -1201,6 +1567,28 @@ function InterviewSession({
     setQIndex(0);
     setAnswers([]);
     speakQuestion(AU_ALL_QUESTIONS[0].question);
+  };
+
+  // ── USA section / full mock selection ───────────────────────────────────────
+  const handleSectionSelect = (section: QuestionCategory) => {
+    cancel();
+    const qs = section.questions.map((q) => ({
+      question: q, category: section.label, objective: section.objective,
+    }));
+    setActiveQuestions(qs);
+    setSessionLabel(section.label);
+    setQIndex(0);
+    setAnswers([]);
+    speakQuestion(qs[0].question);
+  };
+
+  const handleFullMockUSA = () => {
+    cancel();
+    setActiveQuestions(USA_FULL_MOCK);
+    setSessionLabel("Full Mock Interview · 12 Questions");
+    setQIndex(0);
+    setAnswers([]);
+    speakQuestion(USA_FULL_MOCK[0].question);
   };
 
   // Auto-submit ref — always holds the latest fetchFeedback call so the silence
@@ -1325,6 +1713,8 @@ function InterviewSession({
   if (phase === "name") {
     const coachText = country === "australia"
       ? "Hello there! Welcome to your Genuine Student interview practice! I am so excited to help you prepare. To get us started, could you please tell me your name?"
+      : country === "usa"
+      ? "Hello! Welcome to your US F-1 visa interview practice! I am here to help you get ready for your consulate appointment. Let us start — could you please tell me your name?"
       : "Hello! Welcome! I am absolutely delighted to help you prepare for your UK credibility interview today. Could you please tell me your name?";
     return (
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-md mx-auto text-center">
@@ -1333,7 +1723,7 @@ function InterviewSession({
           <div className="text-left">
             <p className={`text-xs font-bold uppercase tracking-wider ${accentText}`}>{countryLabel}</p>
             <h2 className="text-2xl font-extrabold text-gray-900">
-              {country === "australia" ? "Genuine Student Interview Prep" : "UK Credibility Interview Prep"}
+              {country === "australia" ? "Genuine Student Interview Prep" : country === "usa" ? "US F-1 Visa Interview Prep" : "UK Credibility Interview Prep"}
             </h2>
           </div>
         </div>
@@ -1350,19 +1740,33 @@ function InterviewSession({
           {/* Speak name — auto-advances immediately on detection */}
           {sttSupported && (
             <button
-              onClick={() => listenOnce(
-                (text) => {
-                  const name = text.replace(/\.$/, "").trim();
-                  setNameInput(name);
-                  // Auto-submit immediately — no button click needed
-                  if (name) {
-                    cancel();
-                    setStudentName(name);
-                    setPhase(country === "uk" ? "uk_confirm" : "category");
-                  }
-                },
-                setNameListening
-              )}
+              onClick={() => {
+                // nameMode=true: interimResults off, maxAlternatives=3, tries all alts
+                const tryListenName = (isRetry: boolean) => {
+                  listenOnce(
+                    (text) => {
+                      const name = extractName(text);
+                      // If name is too short (< 2 chars) and this isn't already a retry,
+                      // speak a gentle prompt and listen once more
+                      if (name.length < 2 && !isRetry) {
+                        speak(
+                          "I didn't catch that — could you say your name again?",
+                          () => tryListenName(true),
+                        );
+                        return;
+                      }
+                      if (!name) return;
+                      setNameInput(name);
+                      cancel();
+                      setStudentName(name);
+                      setPhase(country === "uk" ? "uk_confirm" : country === "usa" ? "usa_section" : "category");
+                    },
+                    setNameListening,
+                    true, // nameMode
+                  );
+                };
+                tryListenName(false);
+              }}
               className={`w-full flex items-center justify-center gap-2 py-3 rounded-xl border-2 mb-3 text-sm font-semibold transition-all ${
                 nameListening
                   ? "border-rose-400 bg-rose-50 text-rose-600 animate-pulse"
@@ -1462,6 +1866,18 @@ function InterviewSession({
           <ArrowLeft className="w-3.5 h-3.5" /> Back
         </button>
       </motion.div>
+    );
+  }
+
+  // ── USA: Section picker ─────────────────────────────────────────────────────
+  if (phase === "usa_section") {
+    return (
+      <USASectionPicker
+        studentName={studentName}
+        onSelect={handleSectionSelect}
+        onFullMock={handleFullMockUSA}
+        onBack={() => { cancel(); setPhase("name"); }}
+      />
     );
   }
 
@@ -1565,7 +1981,7 @@ function InterviewSession({
             onClick={() => {
               setAnswers([]); setQIndex(0); setTranscript(""); setFeedbackText("");
               elapsedRef.current = 0; setElapsed(0);
-              setPhase(country === "uk" ? "uk_confirm" : "category");
+              setPhase(country === "uk" ? "uk_confirm" : country === "usa" ? "usa_section" : "category");
             }}
             className={`flex-1 flex items-center justify-center gap-2 py-3.5 rounded-2xl bg-gradient-to-r ${accentBg} text-white font-bold`}
           >
@@ -1650,7 +2066,7 @@ function InterviewSession({
         <div className="flex flex-col items-center gap-4 mb-6">
           {phase === "speaking" && (
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex flex-col items-center gap-3">
-              <Waveform active={true} color={country === "australia" ? "bg-sky-400" : "bg-rose-400"} />
+              <Waveform active={true} color={country === "australia" ? "bg-sky-400" : country === "usa" ? "bg-blue-500" : "bg-rose-400"} />
               <p className="text-sm text-gray-400">Listening to question…</p>
             </motion.div>
           )}
@@ -1716,6 +2132,8 @@ function InterviewSession({
             className={`w-full border-2 rounded-2xl px-5 py-4 text-sm text-gray-800 leading-relaxed focus:outline-none focus:ring-2 resize-none transition-colors ${
               country === "australia"
                 ? "border-sky-200 focus:border-sky-400 focus:ring-sky-100"
+                : country === "usa"
+                ? "border-blue-200 focus:border-blue-400 focus:ring-blue-100"
                 : "border-rose-200 focus:border-rose-400 focus:ring-rose-100"
             }`}
             rows={7}
@@ -1819,7 +2237,7 @@ function InterviewPrepInner() {
   const modeParam = searchParams.get("mode");
   const mode: "voice" | "text" = modeParam === "text" ? "text" : "voice";
   const [country, setCountry] = useState<Country | null>(
-    initial === "australia" || initial === "uk" ? initial : null
+    initial === "australia" || initial === "uk" || initial === "usa" ? initial : null
   );
 
   return (
@@ -1827,10 +2245,8 @@ function InterviewPrepInner() {
       <header className="border-b border-gray-100 bg-white/80 backdrop-blur-sm sticky top-0 z-40">
         <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
-              <Globe2 className="w-4 h-4 text-white" />
-            </div>
-            <span className="font-extrabold text-gray-900 text-sm">eduvianAI</span>
+            <EduvianLogoMark size={32} />
+            <span className="font-display font-bold text-sm text-gray-900 tracking-tight">eduvian<span className="text-indigo-500">AI</span></span>
           </Link>
           <Link href="/#interview-prep" className="text-xs font-semibold text-gray-500 hover:text-gray-700 flex items-center gap-1.5 transition-colors">
             <ArrowLeft className="w-3.5 h-3.5" /> Back to home
@@ -1861,12 +2277,14 @@ function InterviewPrepInner() {
 
 export default function InterviewPrepPage() {
   return (
-    <Suspense fallback={
-      <div className="min-h-screen flex items-center justify-center bg-slate-50">
-        <div className="w-8 h-8 border-4 border-indigo-200 border-t-indigo-500 rounded-full animate-spin" />
-      </div>
-    }>
-      <InterviewPrepInner />
-    </Suspense>
+    <AuthGate stage={3} toolName="AI Interview Coach" source="interview-prep">
+      <Suspense fallback={
+        <div className="min-h-screen flex items-center justify-center bg-slate-50">
+          <div className="w-8 h-8 border-4 border-indigo-200 border-t-indigo-500 rounded-full animate-spin" />
+        </div>
+      }>
+        <InterviewPrepInner />
+      </Suspense>
+    </AuthGate>
   );
 }

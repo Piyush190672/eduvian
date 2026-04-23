@@ -50,6 +50,9 @@ const config: Config = {
           "4": "hsl(var(--chart-4))",
           "5": "hsl(var(--chart-5))",
         },
+        /** Design-brief exact values */
+        navy: "#0B0F1A",
+        surface: "#F7F9FC",
         brand: {
           50: "#f0f4ff",
           100: "#e0eaff",
@@ -82,7 +85,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
-        display: ["var(--font-plus-jakarta)", "system-ui", "sans-serif"],
+        display: ["var(--font-space-grotesk)", "system-ui", "sans-serif"],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

@@ -1,14 +1,43 @@
 import { NextRequest, NextResponse } from "next/server";
+import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
+
+/** Escape HTML special chars to prevent injection into email templates / PDFs */
+function sanitize(value: string, maxLen = 255): string {
+  return value
+    .slice(0, maxLen)
+    .replace(/[<>"'`]/g, "");
+}
+
+/** Basic email format check */
+function isValidEmail(email: string): boolean {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email) && email.length <= 255;
+}
 
 export async function POST(req: NextRequest) {
+  // Rate limit: 10 auth attempts per IP per 15 minutes
+  const ip = getClientIp(req.headers);
+  const rl = checkRateLimit(`auth:${ip}`, 10, 900);
+  if (!rl.ok) {
+    return NextResponse.json(
+      { error: "Too many attempts. Please try again later." },
+      { status: 429, headers: { "Retry-After": String(rl.retryAfter) } }
+    );
+  }
+
   try {
     const body = await req.json();
-    const { action, name, email, phone } = body as {
+    const { action, name, email, phone, source, source_stage } = body as {
       action: "register" | "login";
       name?: string;
       email: string;
       phone?: string;
+      source?: string;
+      source_stage?: number;
     };
+
+    if (!email || !isValidEmail(email)) {
+      return NextResponse.json({ error: "Invalid email address" }, { status: 400 });
+    }
 
     const normalizedEmail = email.toLowerCase().trim();
 
@@ -88,27 +117,47 @@ export async function POST(req: NextRequest) {
     }
 
     // ── Register ────────────────────────────────────────────────────────────
+    if (!name?.trim()) {
+      return NextResponse.json({ error: "Name is required" }, { status: 400 });
+    }
+
     const student = {
-      name: name!.trim(),
-      email: normalizedEmail,
-      phone: phone?.trim() ?? "",
-      created_at: new Date().toISOString(),
+      name:         sanitize(name.trim(), 100),
+      email:        normalizedEmail,
+      phone:        sanitize(phone?.trim() ?? "", 30),
+      source:       source ?? null,
+      source_stage: source_stage ?? null,
+      created_at:   new Date().toISOString(),
+    };
+
+    /** Fire welcome email asynchronously — never blocks the registration response */
+    const sendWelcomeEmail = () => {
+      const baseUrl = process.env.NEXT_PUBLIC_APP_URL ?? "https://www.eduvianai.com";
+      fetch(`${baseUrl}/api/email/welcome`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: student.name, email: student.email }),
+      }).catch((e) => console.error("Welcome email dispatch failed:", e));
     };
 
     if (supabase) {
-      const { data, error } = await supabase
-        .from("students")
-        .upsert({ ...student }, { onConflict: "email" })
-        .select()
-        .single();
+      let upsertResult = await supabase.from("students").upsert({ ...student }, { onConflict: "email" }).select().single();
+      if (upsertResult.error) {
+        // Retry without optional columns (in case schema hasn't been migrated yet)
+        const { source: _s, source_stage: _ss, ...coreStudent } = student;
+        upsertResult = await supabase.from("students").upsert(coreStudent, { onConflict: "email" }).select().single();
+      }
 
+      const { data, error } = upsertResult;
       if (!error && data) {
+        sendWelcomeEmail(); // fire-and-forget
         return NextResponse.json({ ok: true, student: data, isNew: true });
       }
       console.error("Supabase upsert error during register:", error);
     }
 
     // Fallback: return data without DB persistence
+    sendWelcomeEmail(); // fire-and-forget
     return NextResponse.json({
       ok: true,
       student: { ...student, id: `guest_${Date.now()}` },

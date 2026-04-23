@@ -39,9 +39,15 @@ CREATE TABLE IF NOT EXISTS submissions (
   profile JSONB NOT NULL,
   shortlisted_ids TEXT[] DEFAULT '{}',
   email_sent BOOLEAN DEFAULT false,
+  profile_category TEXT,
+  total_matched INTEGER DEFAULT 0,
   created_at TIMESTAMPTZ DEFAULT NOW(),
   updated_at TIMESTAMPTZ DEFAULT NOW()
 );
+
+-- Migration: run these if the submissions table already exists
+-- ALTER TABLE submissions ADD COLUMN IF NOT EXISTS profile_category TEXT;
+-- ALTER TABLE submissions ADD COLUMN IF NOT EXISTS total_matched INTEGER DEFAULT 0;
 
 -- Indexes
 CREATE INDEX IF NOT EXISTS idx_submissions_token ON submissions(token);
@@ -63,3 +69,26 @@ CREATE POLICY "programs_service_write" ON programs FOR ALL USING (auth.role() = 
 CREATE POLICY "submissions_public_insert" ON submissions FOR INSERT WITH CHECK (true);
 CREATE POLICY "submissions_token_read" ON submissions FOR SELECT USING (true);
 CREATE POLICY "submissions_service_all" ON submissions FOR ALL USING (auth.role() = 'service_role');
+
+-- ─── Students table ───────────────────────────────────────────────────────────
+CREATE TABLE IF NOT EXISTS students (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  name TEXT NOT NULL,
+  email TEXT UNIQUE NOT NULL,
+  phone TEXT DEFAULT '',
+  source TEXT,
+  source_stage INTEGER,
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS idx_students_email ON students(email);
+CREATE INDEX IF NOT EXISTS idx_students_created ON students(created_at);
+
+ALTER TABLE students ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "students_public_insert" ON students FOR INSERT WITH CHECK (true);
+CREATE POLICY "students_service_all"   ON students FOR ALL   USING (auth.role() = 'service_role');
+
+-- Migration: add source tracking to existing students table
+-- Run this if the students table already exists without these columns:
+-- ALTER TABLE students ADD COLUMN IF NOT EXISTS source TEXT;
+-- ALTER TABLE students ADD COLUMN IF NOT EXISTS source_stage INTEGER;

@@ -1,5 +1,5 @@
 import type { SalaryCountry, FieldOfStudy } from "@/data/roi-data";
-import { SALARY_LOOKUP } from "@/data/roi-data";
+import { SALARY_LOOKUP, UNIVERSITY_SALARY_OVERRIDES } from "@/data/roi-data";
 
 export interface ROIInputs {
   university_name: string;
@@ -30,37 +30,58 @@ export interface ROIOutputs {
 /**
  * University ranking premium multiplier.
  *
- * An Oxford graduate commands materially higher starting pay than a graduate
- * of a mid-ranked or post-92 institution — supported by HESA LEO (Longitudinal
- * Education Outcomes) provider-level data and the Russell Group Employability
- * Report 2024.
+ * Calibrated to real employer-reported salary differentials between ranking
+ * tiers. Note: elite institutions with published employment report data are
+ * handled by UNIVERSITY_SALARY_OVERRIDES — these premiums apply to the
+ * broader long-tail of ranked universities.
  *
  * Tier thresholds (QS World University Rankings):
- *   ≤ 10  → +35%  (Oxford, Cambridge, MIT, Stanford, Imperial ≈ top-10)
- *   ≤ 50  → +25%  (UCL, LSE, Edinburgh, Manchester top-50)
- *   ≤ 100 → +15%  (Warwick, Birmingham, Bristol, Leeds, Sheffield)
- *   ≤ 200 → +8%   (Exeter, Aberdeen, Cardiff, Leicester, Surrey)
- *   ≤ 500 → +3%   (De Montfort, Hertfordshire, Coventry, Lincoln zone)
- *   > 500 / unranked → 0%  (base figure with no premium)
+ *   ≤ 10  → +60%  (MIT, Stanford, Oxford, Cambridge, Imperial, ETH, NUS)
+ *   ≤ 25  → +45%  (Harvard #4, Cornell #13, Penn #12, Yale #16, Princeton #17)
+ *   ≤ 50  → +32%  (UCL, Columbia, Edinburgh, LSE, Melbourne, UBC, ANU)
+ *   ≤ 100 → +20%  (Warwick, Bristol, Manchester, Georgia Tech, Purdue)
+ *   ≤ 200 → +10%  (Exeter, Bath, Newcastle, Texas A&M, USC)
+ *   ≤ 500 → +4%   (mid-tier ranked: slight premium over the base)
+ *   > 500 → −5%   (below-base: lower-ranked institutions earn slightly less)
  *
- * Sources: HESA LEO provider-level data 2022-23; Russell Group Graduate
- * Outcomes 2024; Glassdoor employer-school analysis.
+ * Sources: HESA LEO provider-level data 2022/23; Russell Group Graduate
+ * Outcomes 2024; Glassdoor employer-school survey; NACE 2024 school tier
+ * analysis; LinkedIn Salary Insights 2024.
  */
 export function getRankingPremium(qs_ranking: number | null | undefined): number {
   if (!qs_ranking) return 1.00;
-  if (qs_ranking <= 10)  return 1.35;
-  if (qs_ranking <= 50)  return 1.25;
-  if (qs_ranking <= 100) return 1.15;
-  if (qs_ranking <= 200) return 1.08;
-  if (qs_ranking <= 500) return 1.03;
-  return 1.00;
+  if (qs_ranking <= 10)  return 1.60;
+  if (qs_ranking <= 25)  return 1.45;
+  if (qs_ranking <= 50)  return 1.32;
+  if (qs_ranking <= 100) return 1.20;
+  if (qs_ranking <= 200) return 1.10;
+  if (qs_ranking <= 500) return 1.04;
+  return 0.95;
 }
 
+/**
+ * Look up expected starting salary for a given university/country/field.
+ *
+ * Priority order:
+ *  1. UNIVERSITY_SALARY_OVERRIDES[university_name][field]  — most accurate
+ *  2. SALARY_LOOKUP[country][field] × getRankingPremium(qs_ranking)  — formula
+ *
+ * The university_name parameter should be passed whenever available to unlock
+ * the institution-specific values sourced from published employment reports.
+ */
 export function lookupSalary(
   country: SalaryCountry,
   field: FieldOfStudy,
   qs_ranking?: number | null,
+  university_name?: string,
 ): number {
+  // 1. Check institution-specific override first
+  if (university_name) {
+    const override = UNIVERSITY_SALARY_OVERRIDES[university_name]?.[field];
+    if (override) return override;
+  }
+
+  // 2. Fall back to base salary × ranking premium
   const base =
     SALARY_LOOKUP[country]?.[field] ??
     SALARY_LOOKUP[country]?.["Computer Science & IT"] ??

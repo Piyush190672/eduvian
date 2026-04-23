@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import ChatWidget from "@/components/ChatWidget";
 import {
   Globe2,
@@ -25,7 +25,10 @@ import {
   Mic,
   Brain,
   Lock,
+  BarChart2,
+  Menu,
 } from "lucide-react";
+import HowItWorksModal from "@/components/HowItWorksModal";
 import { DB_STATS } from "@/data/db-stats";
 
 const SCHOLARSHIPS: {
@@ -209,32 +212,6 @@ const HOW_IT_WORKS = [
   },
 ];
 
-const TESTIMONIALS = [
-  {
-    name: "Priya Sharma",
-    from: "Mumbai, India",
-    dest: "MS CS @ University of Toronto",
-    text: "eduvianAI gave me a shortlist that was actually realistic for my profile. Got into my first-choice safe match!",
-    score: "82% match",
-    img: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&q=80",
-  },
-  {
-    name: "Arjun Mehta",
-    from: "Bangalore, India",
-    dest: "MBA @ University of Manchester",
-    text: "The tiered system was a game changer. I knew exactly which programs I had a strong shot at.",
-    score: "76% match",
-    img: "https://images.unsplash.com/photo-1556157382-97eda2f9e2bf?w=100&q=80",
-  },
-  {
-    name: "Fatima Al-Hassan",
-    from: "Dubai, UAE",
-    dest: "MSc Data Science @ UCL",
-    text: "Got my results instantly and the email link let me share the shortlist with my parents. Really well designed.",
-    score: "79% match",
-    img: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=100&q=80",
-  },
-];
 
 const FEATURES = [
   { icon: CheckCircle2, text: "Free — no account needed" },
@@ -244,323 +221,767 @@ const FEATURES = [
 ];
 
 export default function LandingPage() {
+  const [activeDemo, setActiveDemo] = useState(0);
   const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
   const [selectedScholarship, setSelectedScholarship] = useState<string | null>(null);
   const [aboutOpen, setAboutOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [videoOpen, setVideoOpen] = useState(false);
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-white font-sans">
+    <div className="min-h-screen bg-white font-sans overflow-x-hidden">
 
       {/* ── Nav ──────────────────────────────────────────────────── */}
-      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-0 bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 border-b border-white/10 shadow-lg shadow-black/20">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-navy border-b border-white/10 shadow-lg shadow-black/20">
+        <div className="flex items-center justify-between px-4 md:px-8 py-0">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 py-4 flex-shrink-0">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-400 to-purple-500 flex items-center justify-center shadow-lg shadow-indigo-500/40">
-            <Globe2 className="w-4.5 h-4.5 text-white" />
-          </div>
+        <Link href="/" className="flex items-center gap-2.5 py-3.5 flex-shrink-0">
+          {/* Custom logomark: orbit ring around an "e" */}
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="36" height="36" rx="10" fill="url(#logoGrad)"/>
+            {/* Orbit ring */}
+            <ellipse cx="18" cy="18" rx="11" ry="6" stroke="white" strokeWidth="1.2" strokeOpacity="0.4" fill="none" transform="rotate(-30 18 18)"/>
+            {/* Bold "e" letterform */}
+            <text x="18" y="23" textAnchor="middle" fill="white" fontFamily="system-ui,sans-serif" fontSize="16" fontWeight="800" letterSpacing="-1">e</text>
+            {/* Accent dot — top right of orbit */}
+            <circle cx="26.5" cy="11.5" r="2" fill="white" fillOpacity="0.9"/>
+            <defs>
+              <linearGradient id="logoGrad" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+                <stop stopColor="#6366F1"/>
+                <stop offset="1" stopColor="#A855F7"/>
+              </linearGradient>
+            </defs>
+          </svg>
           <div>
-            <span className="font-extrabold text-base text-white tracking-tight">eduvianAI</span>
-            <p className="text-[10px] text-indigo-300 leading-none font-medium">Your Global Future, Simplified</p>
+            <span className="font-display font-bold text-base text-white tracking-tight">eduvian<span className="text-indigo-300">AI</span></span>
+            <p className="text-[10px] text-slate-400 leading-none font-medium">Study abroad, made intelligent</p>
           </div>
         </Link>
 
         {/* Nav links — pill style on dark background */}
         <div className="hidden lg:flex items-center h-full">
-          {[
-            { label: "How it works",    href: "#how-it-works" },
-            { label: "Decision Making Tools",  href: "#tools" },
-            { label: "Interview Coach", href: "#interview-prep" },
-            { label: "Destinations",    href: "#countries" },
-            { label: "Scholarships",    href: "#scholarships" },
-            { label: "Success Stories", href: "#testimonials" },
-          ].map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="relative h-full flex items-center px-4 text-xs font-semibold text-slate-300 hover:text-white transition-colors whitespace-nowrap group"
-            >
-              {item.label}
-              <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-indigo-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-center rounded-t-full" />
-            </a>
-          ))}
+          {/* How it works */}
+          <button
+            onClick={() => setVideoOpen(true)}
+            className="relative h-full flex items-center px-4 text-xs font-semibold text-blue-400 hover:text-white transition-colors whitespace-nowrap group"
+          >
+            ▶ See how it works
+            <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-indigo-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-center rounded-t-full" />
+          </button>
+
+          {/* About Us */}
           <button
             onClick={() => setAboutOpen(true)}
-            className="relative h-full flex items-center px-4 text-xs font-semibold text-slate-300 hover:text-white transition-colors whitespace-nowrap group"
+            className="relative h-full flex items-center px-4 text-xs font-semibold text-gray-400 hover:text-white transition-colors whitespace-nowrap group"
           >
             About Us
             <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-indigo-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-center rounded-t-full" />
           </button>
+
+          {/* Tools — single consolidated dropdown */}
+          <div
+            className="relative h-full flex items-center"
+            onMouseEnter={() => setOpenDropdown("tools")}
+            onMouseLeave={() => setOpenDropdown(null)}
+          >
+            <button className="relative h-full flex items-center px-4 text-xs font-semibold text-gray-400 hover:text-white transition-colors whitespace-nowrap group">
+              Tools
+              <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-indigo-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-center rounded-t-full" />
+            </button>
+            {openDropdown === "tools" && (
+              <div className="absolute top-full left-0 mt-0 bg-slate-900 border border-white/10 rounded-2xl shadow-2xl p-3 min-w-[280px] z-50">
+                <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest px-4 pt-1 pb-2">Match &amp; Apply</p>
+                <Link href="/get-started" className="flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition-colors">
+                  <span className="text-lg">🎯</span>
+                  <div><span className="text-white font-semibold text-sm block">University Matching</span><span className="text-indigo-300 text-xs">AI shortlist in 2 minutes</span></div>
+                </Link>
+                <Link href="/sop-assistant" className="flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition-colors">
+                  <span className="text-lg">✍️</span>
+                  <div><span className="text-white font-semibold text-sm block">SOP Assistant</span><span className="text-indigo-300 text-xs">Write a cliché-free SOP</span></div>
+                </Link>
+                <Link href="/application-check" className="flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition-colors">
+                  <span className="text-lg">📋</span>
+                  <div><span className="text-white font-semibold text-sm block">Application Check</span><span className="text-indigo-300 text-xs">Score, risk flags &amp; fix list</span></div>
+                </Link>
+                <Link href="/application-check?tab=cv" className="flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition-colors">
+                  <span className="text-lg">📄</span>
+                  <div><span className="text-white font-semibold text-sm block">CV Assessment &amp; Builder</span><span className="text-indigo-300 text-xs">Score &amp; rebuild your CV in minutes</span></div>
+                </Link>
+                <div className="h-px bg-white/5 my-1" />
+                <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest px-4 pt-1 pb-2">Practice &amp; Decide</p>
+                <Link href="/interview-prep" className="flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition-colors">
+                  <span className="text-lg">🎤</span>
+                  <div><span className="text-white font-semibold text-sm block">Interview Prep</span><span className="text-indigo-300 text-xs">AU · UK · USA voice coach</span></div>
+                </Link>
+                <Link href="/english-test-lab" className="flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition-colors">
+                  <span className="text-lg">🧪</span>
+                  <div><span className="text-white font-semibold text-sm block">English Test Lab</span><span className="text-indigo-300 text-xs">IELTS · PTE · DET · TOEFL mocks</span></div>
+                </Link>
+                <Link href="/roi-calculator" className="flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition-colors">
+                  <span className="text-lg">📊</span>
+                  <div><span className="text-white font-semibold text-sm block">ROI Calculator</span><span className="text-indigo-300 text-xs">Payback period &amp; 10-yr ROI</span></div>
+                </Link>
+                <Link href="/parent-decision" className="flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition-colors">
+                  <span className="text-lg">👨‍👩‍👧</span>
+                  <div><span className="text-white font-semibold text-sm block">Parent Decision Tool</span><span className="text-indigo-300 text-xs">Data-driven family verdict</span></div>
+                </Link>
+                <div className="h-px bg-white/5 my-1" />
+                <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest px-4 pt-1 pb-2">Apply for Visa</p>
+                <Link href="/visa-coach" className="flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition-colors">
+                  <span className="text-lg">🛂</span>
+                  <div><span className="text-white font-semibold text-sm block">Visa Coach</span><span className="text-indigo-300 text-xs">Checklists · risks · apply direct</span></div>
+                </Link>
+                <div className="h-px bg-white/5 my-1" />
+                <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest px-4 pt-1 pb-2">Track &amp; Manage</p>
+                <Link href="/application-tracker" className="flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition-colors">
+                  <span className="text-lg">🗂️</span>
+                  <div><span className="text-white font-semibold text-sm block">Application Tracker</span><span className="text-indigo-300 text-xs">Kanban · deadlines · doc versions</span></div>
+                </Link>
+              </div>
+            )}
+          </div>
+
+          {/* Destinations */}
+          <a
+            href="#countries"
+            className="relative h-full flex items-center px-4 text-xs font-semibold text-gray-400 hover:text-white transition-colors whitespace-nowrap group"
+          >
+            Destinations
+            <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-indigo-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-center rounded-t-full" />
+          </a>
+
+          {/* Scholarships */}
+          <a
+            href="#scholarships"
+            className="relative h-full flex items-center px-4 text-xs font-semibold text-gray-400 hover:text-white transition-colors whitespace-nowrap group"
+          >
+            Scholarships
+            <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-indigo-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-center rounded-t-full" />
+          </a>
+
+          {/* Why EduvianAI */}
+          <a
+            href="#outputs"
+            className="relative h-full flex items-center px-4 text-xs font-semibold text-gray-400 hover:text-white transition-colors whitespace-nowrap group"
+          >
+            Why EduvianAI
+            <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-indigo-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-center rounded-t-full" />
+          </a>
         </div>
 
-        {/* Admin + CTA */}
-        <div className="flex items-center gap-3 flex-shrink-0">
-          <Link
-            href="/admin"
-            className="flex items-center gap-1.5 px-3 py-1.5 my-3 rounded-lg border border-white/15 text-slate-400 text-xs font-semibold hover:border-white/30 hover:text-white transition-all duration-200"
-          >
-            <Lock className="w-3 h-3" />
-            Admin
-          </Link>
+        {/* CTA + Mobile hamburger */}
+        <div className="flex items-center gap-2 flex-shrink-0">
           <Link
             href="/get-started"
-            className="flex items-center gap-2 px-5 py-2.5 my-3 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-bold hover:shadow-lg hover:shadow-indigo-500/40 transition-all duration-200 hover:-translate-y-0.5"
+            className="flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 my-3 rounded-xl bg-blue-500 hover:bg-blue-600 text-white text-xs sm:text-sm font-bold transition-colors"
           >
-            Get Started Free
+            <span className="hidden sm:inline">Get Started Free</span>
+            <span className="sm:hidden">Start Free</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </Link>
+          {/* Hamburger — mobile only */}
+          <button
+            className="lg:hidden w-9 h-9 flex items-center justify-center rounded-xl bg-white/10 hover:bg-white/20 transition-colors"
+            onClick={() => setMobileNavOpen(v => !v)}
+            aria-label="Toggle menu"
+          >
+            {mobileNavOpen
+              ? <X className="w-4.5 h-4.5 text-white" />
+              : <Menu className="w-4.5 h-4.5 text-white" />}
+          </button>
         </div>
+        </div>{/* end flex row */}
+
+        {/* ── Mobile nav drawer ── */}
+        {mobileNavOpen && (
+          <div className="lg:hidden border-t border-white/10 bg-slate-900 px-4 pb-5 pt-3 space-y-1">
+            <button
+              onClick={() => { setVideoOpen(true); setMobileNavOpen(false); }}
+              className="flex items-center gap-3 w-full px-4 py-3 rounded-xl text-sm font-semibold text-indigo-300 hover:bg-white/10 transition-colors text-left"
+            >
+              <span className="text-base">▶</span> See how it works
+            </button>
+            <div className="px-4 pt-2 pb-1">
+              <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Match &amp; Apply</p>
+            </div>
+            {[
+              { emoji: "🎯", label: "University Matching", href: "/get-started", sub: "AI shortlist in 2 minutes" },
+              { emoji: "✍️", label: "SOP Assistant", href: "/sop-assistant", sub: "Cliché-free SOP" },
+              { emoji: "📋", label: "Application Check", href: "/application-check", sub: "Score &amp; fix list" },
+              { emoji: "📄", label: "CV Assessment", href: "/application-check?tab=cv", sub: "Rebuild in minutes" },
+            ].map(item => (
+              <Link key={item.href} href={item.href} onClick={() => setMobileNavOpen(false)}
+                className="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm text-white hover:bg-white/10 transition-colors">
+                <span className="text-lg flex-shrink-0">{item.emoji}</span>
+                <div><p className="font-semibold leading-none mb-0.5">{item.label}</p>
+                  <p className="text-[11px] text-indigo-300">{item.sub}</p></div>
+              </Link>
+            ))}
+            <div className="px-4 pt-2 pb-1">
+              <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Practice &amp; Decide</p>
+            </div>
+            {[
+              { emoji: "🎤", label: "Interview Prep", href: "/interview-prep", sub: "AU · UK · USA voice coach" },
+              { emoji: "🧪", label: "English Test Lab", href: "/english-test-lab", sub: "IELTS · PTE · DET · TOEFL" },
+              { emoji: "📊", label: "ROI Calculator", href: "/roi-calculator", sub: "10-yr payback period" },
+              { emoji: "👨‍👩‍👧", label: "Parent Decision Tool", href: "/parent-decision", sub: "Data-driven family verdict" },
+              { emoji: "🛂", label: "Visa Coach", href: "/visa-coach", sub: "F-1 · UK · SDS · AUS 500 · DE" },
+              { emoji: "🗂️", label: "Application Tracker", href: "/application-tracker", sub: "Kanban · deadlines · doc versions" },
+            ].map(item => (
+              <Link key={item.href} href={item.href} onClick={() => setMobileNavOpen(false)}
+                className="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm text-white hover:bg-white/10 transition-colors">
+                <span className="text-lg flex-shrink-0">{item.emoji}</span>
+                <div><p className="font-semibold leading-none mb-0.5">{item.label}</p>
+                  <p className="text-[11px] text-indigo-300">{item.sub}</p></div>
+              </Link>
+            ))}
+            <div className="h-px bg-white/5 my-2" />
+            {[
+              { label: "Destinations", href: "#countries" },
+              { label: "Scholarships", href: "#scholarships" },
+              { label: "Why EduvianAI", href: "#outputs" },
+            ].map(item => (
+              <a key={item.label} href={item.href} onClick={() => setMobileNavOpen(false)}
+                className="flex items-center px-4 py-3 rounded-xl text-sm font-semibold text-slate-300 hover:bg-white/10 hover:text-white transition-colors">
+                {item.label}
+              </a>
+            ))}
+            <button
+              onClick={() => { setAboutOpen(true); setMobileNavOpen(false); }}
+              className="flex items-center w-full px-4 py-3 rounded-xl text-sm font-semibold text-slate-300 hover:bg-white/10 hover:text-white transition-colors">
+              About Us
+            </button>
+          </div>
+        )}
       </nav>
 
       {/* ── Hero ─────────────────────────────────────────────────── */}
-      <section className="relative pt-20 min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-slate-900 via-indigo-950 to-purple-950">
-        {/* Background image */}
-        <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1562774053-701939374585?w=1600&q=80"
-            alt="University campus"
-            className="w-full h-full object-cover opacity-20"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-indigo-950/80 to-transparent" />
-        </div>
+      <section className="relative pt-16 min-h-screen flex items-center overflow-hidden bg-navy">
+        {/* Subtle gradient glow — not flashy, just alive */}
+        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-violet-600/10 rounded-full blur-[100px] pointer-events-none" />
 
-        {/* Glow blobs */}
-        <div className="absolute top-32 left-1/3 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-20 right-1/4 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl pointer-events-none" />
+        <div className="relative max-w-[1200px] mx-auto px-4 sm:px-6 py-10 sm:py-24 w-full min-w-0">
+          <div className="grid md:grid-cols-5 gap-12 lg:gap-16 items-center min-w-0">
 
-        <div className="relative max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-12 items-center w-full">
-          {/* Left — text */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7 }}
-          >
-            <div className="mb-8">
+            {/* ── Left: 60% ── */}
+            <motion.div
+              initial={{ opacity: 0, x: -24 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.65 }}
+              className="md:col-span-3 min-w-0"
+            >
+              {/* Stage badge */}
               <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
+                initial={{ opacity: 0, scale: 0.92 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5 }}
-                className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 shadow-lg shadow-indigo-500/40 mb-3"
+                transition={{ duration: 0.4 }}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/8 border border-white/15 mb-6 backdrop-blur-sm"
               >
-                <Sparkles className="w-5 h-5 text-white animate-pulse" />
-                <span className="text-white text-lg font-extrabold tracking-wide uppercase">
-                  AI-Powered University Matching
+                <Sparkles className="w-3.5 h-3.5 text-blue-400" />
+                <span className="text-xs font-semibold tracking-widest uppercase bg-gradient-to-r from-blue-300 via-violet-300 to-blue-300 bg-clip-text text-transparent">
+                  Match · Check · Practice · Decide
                 </span>
-                <Sparkles className="w-5 h-5 text-white animate-pulse" />
               </motion.div>
-              <p className="text-indigo-300 text-sm font-medium pl-1 italic">
-                The smartest way to find your perfect university abroad
+
+              {/* H1 */}
+              <h1 className="font-display text-[2.1rem] sm:text-5xl md:text-6xl font-bold text-white leading-[1.1] tracking-tight mb-5">
+                Your study abroad<br />
+                journey,{" "}
+                <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">
+                  de-risked.
+                </span>
+              </h1>
+
+              {/* Subheadline */}
+              <p className="text-base sm:text-lg text-gray-400 mb-8 leading-relaxed max-w-lg">
+                Find the right programs, strengthen your application, prepare for English tests and interviews, and decide with confidence—using AI built for real outcomes.
               </p>
-            </div>
-            <h1 className="text-5xl md:text-6xl font-extrabold text-white leading-tight mb-6 tracking-tight">
-              Your dream uni<br />
-              <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-                is closer than<br />you think
-              </span>
-            </h1>
-            <p className="text-lg text-slate-300 mb-8 leading-relaxed max-w-lg">
-              Fill in your profile once. Let our AI engine work the magic to give you a personalised TOP 20 shortlist of programs you can actually get into — across <span className="text-white font-semibold">{DB_STATS.countriesLabel} countries</span>, <span className="text-white font-semibold">{DB_STATS.universitiesLabel} universities</span>, <span className="text-white font-semibold">{DB_STATS.fieldsLabel} fields of study</span> and <span className="text-white font-semibold">{DB_STATS.programsLabel} programs</span>, scored by how well they match <span className="text-white font-semibold">you</span>.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 items-start mb-10">
-              <Link
-                href="/get-started"
-                className="group flex items-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-lg font-bold hover:shadow-2xl hover:shadow-indigo-500/40 transition-all duration-300 hover:-translate-y-1"
-              >
-                Find my programs
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <div className="flex flex-col gap-1.5 justify-center">
-                {FEATURES.map((f) => (
-                  <span key={f.text} className="flex items-center gap-2 text-sm text-slate-400">
-                    <CheckCircle2 className="w-4 h-4 text-indigo-400 flex-shrink-0" />
-                    {f.text}
-                  </span>
+
+              {/* CTA row */}
+              <div className="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center mb-10">
+                <Link
+                  href="/get-started"
+                  className="group inline-flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-600 text-white rounded-xl px-6 py-3.5 font-bold text-base transition-colors"
+                >
+                  Find my programs
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                </Link>
+                <Link
+                  href="/application-check"
+                  className="inline-flex items-center justify-center gap-2 border border-white/25 text-white/80 hover:border-white/50 hover:text-white rounded-xl px-6 py-3.5 font-bold text-base transition-colors"
+                >
+                  Check my application
+                  <FileText className="w-4 h-4" />
+                </Link>
+              </div>
+
+              {/* Trust strip */}
+              <div className="grid grid-cols-4 sm:flex sm:flex-wrap sm:items-center gap-x-6 gap-y-3 pt-5 border-t border-white/10">
+                {[
+                  { val: DB_STATS.universitiesLabel, label: "Universities" },
+                  { val: DB_STATS.programsLabel, label: "Programs" },
+                  { val: DB_STATS.countriesLabel, label: "Countries" },
+                  { val: DB_STATS.fieldsLabel, label: "Fields" },
+                ].map((s) => (
+                  <div key={s.label}>
+                    <p className="text-base sm:text-xl font-bold text-white leading-none">{s.val}</p>
+                    <p className="text-[10px] sm:text-xs text-gray-500 mt-0.5">{s.label}</p>
+                  </div>
                 ))}
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
 
-          {/* Right — photo card */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="relative hidden md:block"
-          >
-            {/* Main student photo */}
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-indigo-900/50 border border-white/10">
-              <img
-                src="/hero-students.jpg"
-                alt="Group of university friends smiling at campus"
-                className="w-full h-[480px] object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
-              {/* Floating match card */}
-              <div className="absolute bottom-6 left-6 right-6 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-400 to-purple-500 flex items-center justify-center font-black text-white text-lg flex-shrink-0">
-                  87
+            {/* ── Right: 40% desktop / horizontal scroll on mobile ── */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.65, delay: 0.15 }}
+              className="md:col-span-2 min-w-0 w-full"
+            >
+
+              {/* ── MOBILE: horizontal snap-scroll strip ─────────────── */}
+              {/* Follows headline → sub → CTA in the stacking order      */}
+              <div className="md:hidden -mx-4 px-4 overflow-x-auto flex gap-3 pb-4 snap-x snap-mandatory scrollbar-none min-w-0 max-w-[100vw]">
+
+                {/* Card M1 — Shortlist */}
+                <div className="flex-shrink-0 w-[272px] snap-start bg-white rounded-2xl p-4 shadow-[0_12px_40px_rgba(0,0,0,0.28)]">
+                  <div className="flex items-center justify-between mb-3">
+                    <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">AI Shortlist · 90s</p>
+                    <span className="text-[8px] font-bold px-1.5 py-0.5 rounded-full bg-blue-50 text-blue-600 border border-blue-100">20 matches</span>
+                  </div>
+                  <div className="space-y-2">
+                    {[
+                      { flag: "🇺🇸", uni: "Carnegie Mellon", score: 69, tier: "Ambitious", tc: "text-red-600", bg: "bg-red-50 border-red-200" },
+                      { flag: "🏴󠁧󠁢󠁳󠁣󠁴󠁿", uni: "Univ. of Edinburgh", score: 78, tier: "Reach", tc: "text-amber-700", bg: "bg-amber-50 border-amber-200" },
+                      { flag: "🇬🇧", uni: "Univ. of Leeds", score: 88, tier: "Safe", tc: "text-emerald-700", bg: "bg-emerald-50 border-emerald-200" },
+                    ].map((r) => (
+                      <div key={r.uni} className="flex items-center gap-2 py-1 border-b border-gray-50 last:border-0">
+                        <span className="text-sm flex-shrink-0">{r.flag}</span>
+                        <p className="text-[11px] font-bold text-gray-900 flex-1 truncate">{r.uni}</p>
+                        <div className="flex items-center gap-1 flex-shrink-0">
+                          <span className="text-[10px] font-bold text-gray-600">{r.score}%</span>
+                          <span className={`text-[8px] font-bold px-1.5 py-0.5 rounded-full border ${r.bg} ${r.tc}`}>{r.tier}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="text-[9px] text-gray-400 mt-2 pt-2 border-t border-gray-50">3 of 20 · Safe, Reach &amp; Ambitious</p>
                 </div>
-                <div className="flex-1 min-w-0">
-                  <p className="text-white font-bold text-sm truncate">MSc Computer Science</p>
-                  <p className="text-slate-300 text-xs">University of Toronto · 🇨🇦</p>
+
+                {/* Card M2 — App Score */}
+                <div className="flex-shrink-0 w-[200px] snap-start bg-white rounded-2xl p-4 shadow-[0_12px_40px_rgba(0,0,0,0.22)]">
+                  <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-3">Application Score</p>
+                  {[
+                    { label: "Before", pct: 61, color: "bg-rose-400" },
+                    { label: "After AI", pct: 84, color: "bg-blue-500" },
+                  ].map((b) => (
+                    <div key={b.label} className="mb-2.5">
+                      <div className="flex justify-between items-center mb-1">
+                        <span className="text-[9px] text-gray-500">{b.label}</span>
+                        <span className="text-[10px] font-bold text-gray-700">{b.pct}%</span>
+                      </div>
+                      <div className="h-1.5 rounded-full bg-gray-100 overflow-hidden">
+                        <div className={`h-full rounded-full ${b.color}`} style={{ width: `${b.pct}%` }} />
+                      </div>
+                    </div>
+                  ))}
+                  <div className="mt-3 pt-2 border-t border-gray-50">
+                    <p className="text-[10px] font-bold text-blue-600">+23 pts strength gain</p>
+                    <p className="text-[8px] text-gray-400 mt-0.5">Top-15% application quality</p>
+                  </div>
                 </div>
-                <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-400/20 text-emerald-300 border border-emerald-400/30 flex-shrink-0">
-                  Safe Match ✅
-                </span>
+
+                {/* Card M3 — ROI */}
+                <div className="flex-shrink-0 w-[200px] snap-start bg-white rounded-2xl p-4 shadow-[0_12px_40px_rgba(0,0,0,0.22)]">
+                  <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-3">ROI · Payback Period</p>
+                  {[
+                    { label: "UCL London", yrs: "3.2 yrs", pct: 32, color: "bg-emerald-500", best: true },
+                    { label: "Melbourne", yrs: "5.8 yrs", pct: 58, color: "bg-rose-400", best: false },
+                    { label: "Edinburgh", yrs: "4.8 yrs", pct: 48, color: "bg-amber-400", best: false },
+                  ].map((b) => (
+                    <div key={b.label} className="mb-2">
+                      <div className="flex justify-between items-center mb-0.5">
+                        <span className={`text-[9px] ${b.best ? "font-bold text-gray-900" : "text-gray-400"}`}>{b.label}</span>
+                        <span className={`text-[9px] font-bold ${b.best ? "text-emerald-600" : "text-gray-400"}`}>{b.yrs}</span>
+                      </div>
+                      <div className="h-1.5 rounded-full bg-gray-100 overflow-hidden">
+                        <div className={`h-full rounded-full ${b.color}`} style={{ width: `${b.pct}%` }} />
+                      </div>
+                    </div>
+                  ))}
+                  <p className="text-[9px] font-bold text-emerald-600 mt-2">⭐ UCL recommended</p>
+                </div>
+
               </div>
-            </div>
-            {/* Floating stat strip — Countries → Universities → Fields → Programs */}
-            <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 w-[calc(100%+2rem)] bg-white rounded-2xl shadow-xl px-4 py-3 flex items-center justify-around border border-gray-100">
-              <div className="flex items-center gap-2">
-                <Globe2 className="w-4 h-4 text-purple-500 flex-shrink-0" />
-                <div>
-                  <p className="font-extrabold text-gray-900 text-sm leading-none">{DB_STATS.countriesLabel}</p>
-                  <p className="text-[10px] text-gray-400">Countries</p>
+
+              {/* ── DESKTOP: vertical stacked cards ──────────────────── */}
+              <div className="hidden md:flex flex-col gap-3">
+
+                {/* Card 1 — Shortlist */}
+                <div className="bg-white rounded-2xl p-4 shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
+                  <div className="flex items-center justify-between mb-3">
+                    <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">AI Shortlist · 90s</p>
+                    <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-blue-50 text-blue-600 border border-blue-100">20 matches</span>
+                  </div>
+                  <div className="space-y-2">
+                    {[
+                      { flag: "🇺🇸", uni: "Carnegie Mellon", prog: "MSML", score: 69, tier: "Ambitious", tc: "text-red-600", bg: "bg-red-50 border-red-200" },
+                      { flag: "🏴󠁧󠁢󠁳󠁣󠁴󠁿", uni: "Univ. of Edinburgh", prog: "MSc Computer Science", score: 78, tier: "Reach", tc: "text-amber-700", bg: "bg-amber-50 border-amber-200" },
+                      { flag: "🇩🇪", uni: "TU Munich", prog: "MSc Informatics", score: 74, tier: "Reach", tc: "text-amber-700", bg: "bg-amber-50 border-amber-200" },
+                      { flag: "🇬🇧", uni: "Univ. of Leeds", prog: "MSc AI & Data Science", score: 88, tier: "Safe", tc: "text-emerald-700", bg: "bg-emerald-50 border-emerald-200" },
+                    ].map((r) => (
+                      <div key={r.uni} className="flex items-center gap-2.5 py-1.5 border-b border-gray-50 last:border-0">
+                        <span className="text-sm flex-shrink-0">{r.flag}</span>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-[11px] font-bold text-gray-900 truncate">{r.uni}</p>
+                          <p className="text-[10px] text-gray-400 truncate">{r.prog}</p>
+                        </div>
+                        <div className="flex items-center gap-1.5 flex-shrink-0">
+                          <span className="text-[11px] font-bold text-gray-600">{r.score}%</span>
+                          <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded-full border ${r.bg} ${r.tc}`}>{r.tier}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="text-[9px] text-gray-400 mt-2.5 pt-2 border-t border-gray-50">Showing 4 of 20 · Safe, Reach &amp; Ambitious</p>
                 </div>
-              </div>
-              <div className="w-px h-7 bg-gray-100" />
-              <div className="flex items-center gap-2">
-                <Users className="w-4 h-4 text-indigo-500 flex-shrink-0" />
-                <div>
-                  <p className="font-extrabold text-gray-900 text-sm leading-none">{DB_STATS.universitiesLabel}</p>
-                  <p className="text-[10px] text-gray-400">Universities</p>
+
+                {/* Cards 2 + 3 — side by side */}
+                <div className="grid grid-cols-2 gap-3">
+                  {/* Application Score */}
+                  <div className="bg-white rounded-2xl p-4 shadow-[0_10px_40px_rgba(0,0,0,0.2)]">
+                    <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-3">App Score</p>
+                    {[
+                      { label: "Before", pct: 61, color: "bg-rose-400" },
+                      { label: "After AI", pct: 84, color: "bg-blue-500" },
+                    ].map((b) => (
+                      <div key={b.label} className="mb-2">
+                        <div className="flex justify-between items-center mb-1">
+                          <span className="text-[9px] text-gray-500">{b.label}</span>
+                          <span className="text-[10px] font-bold text-gray-700">{b.pct}%</span>
+                        </div>
+                        <div className="h-1.5 rounded-full bg-gray-100 overflow-hidden">
+                          <div className={`h-full rounded-full ${b.color}`} style={{ width: `${b.pct}%` }} />
+                        </div>
+                      </div>
+                    ))}
+                    <p className="text-[10px] font-bold text-blue-600 mt-1">+23 pts ↑</p>
+                  </div>
+
+                  {/* ROI */}
+                  <div className="bg-white rounded-2xl p-4 shadow-[0_10px_40px_rgba(0,0,0,0.2)]">
+                    <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-3">ROI</p>
+                    {[
+                      { label: "UCL London", yrs: "3.2 yrs", pct: 32, color: "bg-emerald-500", best: true },
+                      { label: "Melbourne", yrs: "5.8 yrs", pct: 58, color: "bg-rose-400", best: false },
+                    ].map((b) => (
+                      <div key={b.label} className="mb-2">
+                        <div className="flex justify-between items-center mb-1">
+                          <span className={`text-[9px] ${b.best ? "font-bold text-gray-900" : "text-gray-400"}`}>{b.label}</span>
+                          <span className={`text-[9px] font-bold ${b.best ? "text-emerald-600" : "text-gray-400"}`}>{b.yrs}</span>
+                        </div>
+                        <div className="h-1.5 rounded-full bg-gray-100 overflow-hidden">
+                          <div className={`h-full rounded-full ${b.color}`} style={{ width: `${b.pct}%` }} />
+                        </div>
+                      </div>
+                    ))}
+                    <p className="text-[9px] font-bold text-emerald-600 mt-1">⭐ UCL wins</p>
+                  </div>
                 </div>
+
               </div>
-              <div className="w-px h-7 bg-gray-100" />
-              <div className="flex items-center gap-2">
-                <Award className="w-4 h-4 text-amber-500 flex-shrink-0" />
-                <div>
-                  <p className="font-extrabold text-gray-900 text-sm leading-none">{DB_STATS.fieldsLabel}</p>
-                  <p className="text-[10px] text-gray-400">Fields of Study</p>
-                </div>
-              </div>
-              <div className="w-px h-7 bg-gray-100" />
-              <div className="flex items-center gap-2">
-                <GraduationCap className="w-4 h-4 text-emerald-500 flex-shrink-0" />
-                <div>
-                  <p className="font-extrabold text-gray-900 text-sm leading-none">{DB_STATS.programsLabel}</p>
-                  <p className="text-[10px] text-gray-400">Programs</p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
+            </motion.div>
+
+          </div>
         </div>
       </section>
 
 
+      {/* ── Stage Funnel ─────────────────────────────────────────── */}
+      <section className="py-16 sm:py-20 px-4 sm:px-6 bg-surface">
+        <div className="max-w-5xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <p className="text-blue-600 font-semibold text-sm uppercase tracking-widest mb-3">Where are you right now?</p>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900">Pick your stage — we'll take it from there</h2>
+          </motion.div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-4">
+            {[
+              {
+                stage: "A",
+                label: "MATCH",
+                title: "No idea where to apply",
+                desc: "AI evaluates your profile and shortlists your best-fit Universities in under 2 minutes.",
+                cta: "Start Matching",
+                href: "/get-started",
+                gradient: "from-violet-600 via-indigo-500 to-blue-500",
+                glow: "shadow-indigo-500/40",
+                accent: "text-blue-600",
+                icon: "🎯",
+              },
+              {
+                stage: "B",
+                label: "CHECK",
+                title: "Got a shortlist — is my application strong enough?",
+                desc: "Write a standout SOP, score and rebuild your CV, and check your full application pack for gaps.",
+                cta: "Check My Application",
+                href: "/application-check",
+                gradient: "from-fuchsia-600 via-pink-500 to-rose-400",
+                glow: "shadow-pink-500/40",
+                accent: "text-violet-600",
+                icon: "✍️",
+                secondaryHref: "/sop-assistant",
+                secondaryCta: "Write my SOP →",
+                recommended: true,
+              },
+              {
+                stage: "C",
+                label: "PRACTICE",
+                title: "Prepare for your interview and English tests",
+                desc: "AI Interview Coach for AU, UK & US F-1. Full IELTS, PTE, DET & TOEFL mocks. Know your weak spots before the real thing.",
+                cta: "Interview Coach",
+                href: "/interview-prep",
+                gradient: "from-emerald-500 via-teal-400 to-cyan-400",
+                glow: "shadow-emerald-500/40",
+                accent: "text-emerald-600",
+                icon: "🎤",
+                secondaryHref: "/english-test-lab",
+                secondaryCta: "English Test Lab →",
+              },
+              {
+                stage: "D",
+                label: "DECIDE",
+                title: "Got my offer — should I accept?",
+                desc: "ROI Calculator + Parent Decision Tool. Real numbers before you commit.",
+                cta: "Run the Numbers",
+                href: "/roi-calculator",
+                gradient: "from-amber-500 via-orange-400 to-yellow-300",
+                glow: "shadow-amber-500/40",
+                accent: "text-amber-600",
+                icon: "📊",
+              },
+              {
+                stage: "E",
+                label: "APPLY",
+                title: "Accepted — now the visa",
+                desc: "F-1, UK Student, Canada SDS, AUS 500 & Germany D-visa. Official checklists, financial proof rules, risk flags, and direct links to the official portals.",
+                cta: "Open Visa Coach",
+                href: "/visa-coach",
+                gradient: "from-sky-600 via-cyan-500 to-teal-400",
+                glow: "shadow-cyan-500/40",
+                accent: "text-sky-600",
+                icon: "🛂",
+              },
+            ].map((s, i) => (
+              <motion.div
+                key={s.stage}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08 }}
+                className={`relative rounded-2xl bg-white border p-6 flex flex-col hover:-translate-y-1 transition-all duration-300 group overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.05)] ${"recommended" in s && s.recommended ? "border-blue-300 ring-1 ring-blue-100 shadow-md shadow-blue-100/50" : "border-gray-200 hover:border-gray-300 hover:shadow-md"}`}
+              >
+                {/* Glow blob */}
+                <div className={`absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br ${s.gradient} opacity-5 rounded-full blur-2xl group-hover:opacity-10 transition-opacity`} />
+
+                {/* Stage badge */}
+                <div className="flex items-center justify-between mb-5">
+                  <span className={`text-[10px] font-black uppercase tracking-widest ${s.accent}`}>{s.label}</span>
+                  <span className={`w-7 h-7 rounded-lg bg-gradient-to-br ${s.gradient} flex items-center justify-center text-white font-black text-xs shadow-lg ${s.glow}`}>
+                    {s.stage}
+                  </span>
+                </div>
+
+                <div className="text-3xl mb-2">{s.icon}</div>
+
+                {/* Most popular badge — inline, doesn't overlap content */}
+                {"recommended" in s && s.recommended && (
+                  <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-blue-500 text-white text-[8px] font-bold uppercase tracking-widest shadow-sm mb-2.5 self-start">
+                    ✦ Most used by successful applicants
+                  </div>
+                )}
+
+                <h3 className="font-bold text-gray-900 text-sm leading-snug mb-2">{s.title}</h3>
+                <p className="text-gray-500 text-xs leading-relaxed flex-1 mb-5">{s.desc}</p>
+
+                <Link
+                  href={s.href}
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:gap-2.5 transition-all group-hover:gap-2.5"
+                >
+                  {s.cta} <ChevronRight className={`w-3.5 h-3.5 ${s.accent}`} />
+                </Link>
+                {"secondaryHref" in s && s.secondaryHref && (
+                  <Link
+                    href={s.secondaryHref as string}
+                    className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-gray-400 hover:text-blue-500 transition-colors"
+                  >
+                    {s.secondaryCta as string}
+                  </Link>
+                )}
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ══════════════════════════════════════════════════════════
            HOW IT WORKS: 3 merged steps
           ══════════════════════════════════════════════════════════ */}
-      <section id="how-it-works" className="py-28 px-6 bg-white overflow-hidden">
+      <section id="how-it-works" className="py-16 sm:py-28 px-4 sm:px-6 bg-white overflow-hidden">
         <div className="max-w-6xl mx-auto">
 
-          {/* Section header */}
+          {/* ── STAGE 1: Match ── */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }} className="text-center mb-24"
+            initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="relative rounded-3xl bg-gradient-to-br from-indigo-50 via-white to-violet-50 border border-indigo-100 overflow-hidden p-10 md:p-14 mb-28"
           >
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-100 text-indigo-700 text-sm font-bold uppercase tracking-widest mb-5">
-              <Zap className="w-3.5 h-3.5" /> How it works
-            </span>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mt-1 leading-tight">
-              From your profile<br className="hidden sm:block" /> to your perfect shortlist
-            </h2>
-            <p className="text-gray-400 mt-4 text-lg max-w-xl mx-auto">
-              Three steps. Fully AI driven. Results in under 2 minutes.
-            </p>
-            {/* Step connector dots */}
-            <div className="flex items-center justify-center gap-3 mt-8">
-              {["KNOW YOUR PROFILE", "MATCHING ENGINE", "TOP 20 SHORTLIST"].map((label, i) => (
-                <div key={label} className="flex items-center gap-3">
-                  <div className="flex items-center gap-2">
-                    <div className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-black text-white ${i === 0 ? "bg-indigo-500" : i === 1 ? "bg-violet-600" : "bg-fuchsia-500"}`}>{i + 1}</div>
-                    <span className="text-[11px] font-bold text-gray-400 uppercase tracking-widest hidden sm:block">{label}</span>
-                  </div>
-                  {i < 2 && <div className="w-8 h-px bg-gray-200" />}
+            {/* Blobs */}
+            <div className="absolute -top-16 -right-16 w-72 h-72 bg-indigo-200/40 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-16 -left-16 w-64 h-64 bg-violet-200/30 rounded-full blur-3xl pointer-events-none" />
+
+            {/* Stage pill */}
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-500 to-violet-600 text-white text-xs font-black px-5 py-2 rounded-full shadow-lg shadow-indigo-200 mb-8">
+              <span className="w-5 h-5 rounded-full bg-white/30 flex items-center justify-center text-[11px] font-black">1</span>
+              STAGE 1 · MATCH — KNOW YOUR PROFILE
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-14 items-center">
+              {/* Left: copy */}
+              <div>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white text-indigo-600 text-xs font-bold uppercase tracking-wider mb-4 border border-indigo-200">
+                  <BookOpen className="w-3.5 h-3.5" /> Stage 1 · Match
                 </div>
-              ))}
+                <h3 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 leading-tight">
+                  Rate your profile —<br />
+                  <span className="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">get your best-fit shortlist</span>
+                </h3>
+                <p className="text-gray-500 text-base leading-relaxed mb-7">
+                  Tell us your scores, budget, and goals. Our AI matches against {DB_STATS.programsLabel} programs across 12 signals. You get a personalised Top 20 shortlist — Safe, Reach, and Ambitious — in under 2 minutes.
+                </p>
+                {/* Score meter */}
+                <div className="mb-8 p-4 rounded-2xl bg-white border border-indigo-100 shadow-sm">
+                  <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-2.5">Profile strength</p>
+                  <div className="relative h-2.5 rounded-full bg-gradient-to-r from-gray-200 via-indigo-400 via-amber-400 to-rose-500 mb-2">
+                    <div className="absolute right-[4%] top-1/2 -translate-y-1/2 w-3.5 h-3.5 rounded-full bg-white border-2 border-rose-500 shadow-md" />
+                  </div>
+                  <div className="flex justify-between text-[10px] font-semibold text-gray-400">
+                    <span>Competitive</span><span>Strong</span><span>Very Strong</span><span className="text-rose-500 font-bold">Admit Strength</span>
+                  </div>
+                </div>
+                <div className="flex flex-wrap items-center gap-3">
+                  <Link href="/get-started"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gray-900 text-white text-sm font-bold hover:bg-indigo-600 transition-colors">
+                    Rate your profile now <ChevronRight className="w-4 h-4" />
+                  </Link>
+                  <Link href="/get-started"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-500 to-violet-600 text-white text-sm font-bold shadow-lg shadow-indigo-200 hover:shadow-indigo-300 hover:brightness-110 transition-all">
+                    Get my customised Shortlist <ChevronRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              </div>
+
+              {/* Right: product mockup — shortlist results */}
+              <div className="relative">
+                <div className="rounded-3xl overflow-hidden shadow-2xl bg-white border border-indigo-100 p-6">
+                  {/* Header */}
+                  <div className="flex items-center gap-3 mb-4 pb-3 border-b border-gray-100">
+                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center flex-shrink-0">
+                      <Target className="w-4 h-4 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-xs font-black text-gray-900 uppercase tracking-wider">Your Top 20 Shortlist</p>
+                      <p className="text-[10px] text-gray-400">Generated in 1.8s · 12 signals matched</p>
+                    </div>
+                    <span className="text-[10px] font-bold px-2 py-1 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-100 flex-shrink-0">AI Match</span>
+                  </div>
+                  {/* University rows */}
+                  {[
+                    { name: "Univ. of Leeds", program: "MSc AI & Data Science", score: 91, tier: "Safe", flag: "🇬🇧", tc: "text-emerald-700", bc: "bg-emerald-50", bar: "from-emerald-400 to-teal-400" },
+                    { name: "Univ. of Edinburgh", program: "MSc Computer Science", score: 76, tier: "Reach", flag: "🏴󠁧󠁢󠁳󠁣󠁴󠁿", tc: "text-amber-700", bc: "bg-amber-50", bar: "from-amber-400 to-orange-400" },
+                    { name: "Imperial College", program: "MSc Machine Learning", score: 63, tier: "Ambitious", flag: "🇬🇧", tc: "text-indigo-700", bc: "bg-indigo-50", bar: "from-indigo-400 to-violet-400" },
+                    { name: "TU Munich", program: "MSc Informatics", score: 79, tier: "Reach", flag: "🇩🇪", tc: "text-amber-700", bc: "bg-amber-50", bar: "from-amber-400 to-orange-400" },
+                    { name: "Univ. of Toronto", program: "MEng Computer Science", score: 88, tier: "Safe", flag: "🇨🇦", tc: "text-emerald-700", bc: "bg-emerald-50", bar: "from-emerald-400 to-teal-400" },
+                  ].map((r) => (
+                    <div key={r.name} className="flex items-center gap-3 py-2.5 border-b border-gray-50 last:border-0">
+                      <div className="w-8 h-8 rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center text-base flex-shrink-0">{r.flag}</div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-xs font-bold text-gray-900 truncate">{r.name}</p>
+                        <p className="text-[10px] text-gray-400 truncate">{r.program}</p>
+                        <div className="flex items-center gap-2 mt-1">
+                          <div className="flex-1 h-1 rounded-full bg-gray-100 overflow-hidden">
+                            <div className={`h-full rounded-full bg-gradient-to-r ${r.bar}`} style={{width: `${r.score}%`}} />
+                          </div>
+                          <span className="text-[10px] font-black text-gray-600">{r.score}%</span>
+                        </div>
+                      </div>
+                      <span className={`text-[9px] font-bold px-2 py-0.5 rounded-full ${r.bc} ${r.tc} flex-shrink-0`}>{r.tier}</span>
+                    </div>
+                  ))}
+                  <div className="mt-3 pt-3 border-t border-gray-100 flex items-center justify-between">
+                    <span className="text-[10px] text-gray-400">Showing 5 of 20 matches</span>
+                    <span className="text-[10px] font-bold text-indigo-600 flex items-center gap-1">View all <ChevronRight className="w-3 h-3" /></span>
+                  </div>
+                </div>
+                {/* Corner graduate photo */}
+                <div className="absolute -bottom-8 -right-6 w-44 h-44 rounded-2xl overflow-hidden shadow-xl border-4 border-white">
+                  <img src="/graduate-india.jpg"
+                    alt="Indian graduate" className="w-full h-full object-cover object-top" />
+                </div>
+                {/* Floating shortlist mockup */}
+                <div className="absolute top-4 -left-4 bg-white rounded-2xl shadow-xl border border-gray-100 p-3 w-52">
+                  <p className="text-[9px] font-black text-gray-400 uppercase tracking-widest mb-2">Your Top 3 Matches</p>
+                  {[
+                    { name: "Univ. of Leeds", program: "MSc AI", score: "91%", tier: "Safe", tc: "text-emerald-600", bc: "bg-emerald-50" },
+                    { name: "Univ. of Edinburgh", program: "MSc CS", score: "76%", tier: "Reach", tc: "text-amber-600", bc: "bg-amber-50" },
+                    { name: "Imperial College", program: "MSc CS", score: "63%", tier: "Ambitious", bc: "bg-indigo-50", tc: "text-indigo-600" },
+                  ].map((r) => (
+                    <div key={r.name} className="flex items-center justify-between py-1 border-b border-gray-50 last:border-0">
+                      <div>
+                        <p className="text-[10px] font-bold text-gray-800 leading-none">{r.name}</p>
+                        <p className="text-[9px] text-gray-400">{r.program}</p>
+                      </div>
+                      <div className="flex items-center gap-1.5 flex-shrink-0">
+                        <span className="text-[10px] font-black text-gray-700">{r.score}</span>
+                        <span className={`text-[8px] font-bold px-1.5 py-0.5 rounded-full ${r.bc} ${r.tc}`}>{r.tier}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </motion.div>
 
-          {/* ── STEP 1: Know Your Profile ── */}
-          <div className="grid md:grid-cols-2 gap-14 items-center mb-28">
-            {/* Left: visual */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }} className="relative"
-            >
-              <div className="rounded-3xl overflow-hidden shadow-2xl">
-                <img src="/hot-profile.jpg" alt="Student profile"
-                  className="w-full h-[420px] object-cover" />
-              </div>
-              {/* Corner campus image */}
-              <div className="absolute -bottom-8 -right-6 w-44 h-44 rounded-2xl overflow-hidden shadow-xl border-4 border-white">
-                <img src="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=300&q=85"
-                  alt="University campus" className="w-full h-full object-cover" />
-              </div>
-              {/* Floating rating badge */}
-              <div className="absolute top-6 -left-4 bg-white rounded-2xl shadow-xl px-4 py-3 border border-gray-100">
-                <p className="text-[10px] text-gray-400 font-semibold uppercase tracking-wider mb-0.5">Profile Rating</p>
-                <p className="text-base font-black text-rose-500">🔥 SUPER HOT Profile</p>
-              </div>
-              {/* Step pill */}
-              <div className="absolute -top-5 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-gradient-to-r from-indigo-500 to-violet-500 text-white text-xs font-black px-5 py-2 rounded-full shadow-lg shadow-indigo-200 whitespace-nowrap">
-                <span className="w-5 h-5 rounded-full bg-white/30 flex items-center justify-center text-[11px] font-black">1</span>
-                KNOW YOUR PROFILE
-              </div>
-            </motion.div>
-
-            {/* Right: copy */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 text-indigo-600 text-xs font-bold uppercase tracking-wider mb-4">
-                <BookOpen className="w-3.5 h-3.5" /> Step 1 of 3
-              </div>
-              <h3 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 leading-tight">
-                Know Your Profile —<br />
-                <span className="text-indigo-600">we rate every signal</span>
-              </h3>
-              <p className="text-gray-500 text-base leading-relaxed mb-7">
-                Fill in your academic scores, English results, budget, preferred destinations, work experience, backlogs, and gap year history. We evaluate 12 signals and assign you an honest profile rating.
-              </p>
-              <div className="grid grid-cols-2 gap-2.5 mb-8">
-                {[
-                  { emoji: "🔥", label: "SUPER HOT", sub: "Top 20% of applicants", ring: "ring-rose-200 bg-rose-50" },
-                  { emoji: "⭐", label: "HOT",        sub: "Strong across key signals", ring: "ring-amber-200 bg-amber-50" },
-                  { emoji: "💪", label: "STRONG",     sub: "Solid with room to grow",   ring: "ring-indigo-200 bg-indigo-50" },
-                  { emoji: "📊", label: "GOOD",       sub: "Targeted prep recommended", ring: "ring-gray-200 bg-gray-50" },
-                ].map((r) => (
-                  <div key={r.label} className={`flex items-center gap-3 ring-1 ${r.ring} rounded-2xl px-4 py-3`}>
-                    <span className="text-xl">{r.emoji}</span>
-                    <div>
-                      <p className="text-xs font-black text-gray-900">{r.label} Profile</p>
-                      <p className="text-[11px] text-gray-400 leading-tight">{r.sub}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <Link href="/get-started"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gray-900 text-white text-sm font-bold hover:bg-indigo-600 transition-colors">
-                Know your profile now <ChevronRight className="w-4 h-4" />
-              </Link>
-            </motion.div>
+          {/* ── Stage separator 1 → 2 ── */}
+          <div className="flex items-center gap-5 mb-16 -mt-12">
+            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-indigo-200 to-indigo-300/60" />
+            <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 border border-indigo-200 shadow-sm">
+              <span className="w-4 h-4 rounded-full bg-gradient-to-br from-fuchsia-500 to-pink-500 flex items-center justify-center text-white text-[9px] font-black">2</span>
+              <span className="text-[10px] font-bold text-indigo-500 uppercase tracking-widest">Check &amp; Strengthen</span>
+            </div>
+            <div className="flex-1 h-px bg-gradient-to-l from-transparent via-indigo-200 to-indigo-300/60" />
           </div>
 
           {/* ── STEP 2: Matching Engine ── */}
           <motion.div
             initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="relative rounded-3xl bg-gradient-to-br from-slate-900 via-indigo-950 to-purple-950 text-white overflow-hidden mb-28 p-10 md:p-14"
+            className="relative rounded-3xl bg-gradient-to-br from-indigo-950 via-violet-900 to-slate-900 text-white overflow-hidden mb-28 p-10 md:p-14"
           >
             {/* Blobs */}
-            <div className="absolute top-0 right-0 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute top-0 right-0 w-80 h-80 bg-violet-500/20 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-400/15 rounded-full blur-3xl pointer-events-none" />
 
             {/* Step pill */}
             <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white text-xs font-black px-5 py-2 rounded-full mb-8">
               <span className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-[11px] font-black">2</span>
-              THE MATCHING ENGINE — AI SCORES YOUR FIT
+              STAGE 2 · CHECK — STRENGTHEN YOUR APPLICATION
             </div>
 
             <div className="relative grid md:grid-cols-2 gap-12 items-center">
@@ -568,21 +989,20 @@ export default function LandingPage() {
               <div>
                 <div className="flex items-center gap-2 mb-4">
                   <Sparkles className="w-4 h-4 text-indigo-300" />
-                  <span className="text-indigo-300 text-xs font-bold uppercase tracking-widest">Powered by AI · {DB_STATS.programsLabel} programs scored</span>
+                  <span className="text-indigo-300 text-xs font-bold uppercase tracking-widest">Build a credible application</span>
                 </div>
                 <h3 className="text-3xl md:text-4xl font-extrabold mb-5 leading-tight">
-                  10 weighted signals.<br />
-                  <span className="text-indigo-400">One perfect match.</span>
+                  You have your shortlist.<br />
+                  <span className="text-indigo-400">Now make sure you get in.</span>
                 </h3>
                 <p className="text-slate-300 text-base leading-relaxed mb-6">
-                  Our Matching Engine doesn't just filter — it <em>scores</em> every program against your exact profile. Backlogs, gap year history, QS rank, intake windows — every nuance is weighted and counted.
+                  Three tools to strengthen your application before you submit. Write a cliché-free SOP, score and rebuild your CV across 6 dimensions, or check your full application pack for credibility gaps and red flags.
                 </p>
-                {/* Mini stat row */}
                 <div className="flex flex-wrap gap-4 mb-8">
                   {[
-                    { val: DB_STATS.programsLabel, label: "programs scored" },
-                    { val: "10", label: "match signals" },
-                    { val: "<2 min", label: "results" },
+                    { val: "7", label: "SOP dimensions scored" },
+                    { val: "6", label: "CV dimensions scored" },
+                    { val: "Free", label: "always" },
                   ].map((s) => (
                     <div key={s.label} className="text-center">
                       <p className="text-2xl font-black text-white">{s.val}</p>
@@ -590,72 +1010,341 @@ export default function LandingPage() {
                     </div>
                   ))}
                 </div>
-                <Link href="/get-started"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white text-indigo-700 text-sm font-bold hover:bg-indigo-50 transition-colors shadow-lg">
-                  Run the matching engine <ArrowRight className="w-4 h-4" />
-                </Link>
+                <div className="flex flex-wrap gap-3">
+                  <Link href="/sop-assistant"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white text-indigo-700 text-sm font-bold hover:bg-indigo-50 transition-colors shadow-lg">
+                    Write my SOP <ArrowRight className="w-4 h-4" />
+                  </Link>
+                  <Link href="/application-check"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/10 border border-white/20 text-white text-sm font-bold hover:bg-white/20 transition-colors">
+                    Check my application
+                  </Link>
+                </div>
               </div>
 
-              {/* Right: signal grid */}
-              <div className="grid grid-cols-2 gap-2.5">
+              {/* Right: tool cards */}
+              <div className="space-y-3">
+                {/* Application Pack Check — hero card */}
+                <Link href="/application-check"
+                  className="relative flex items-start gap-4 p-5 rounded-2xl border border-indigo-400/40 bg-gradient-to-br from-indigo-500/20 to-purple-500/10 hover:border-indigo-400/70 hover:scale-[1.02] transition-all cursor-pointer block ring-1 ring-indigo-400/20"
+                >
+                  <div className="absolute top-0 right-0 bg-gradient-to-l from-indigo-500 to-purple-600 text-white text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-bl-xl rounded-tr-2xl">
+                    ★ Most valuable before you apply
+                  </div>
+                  <span className="text-2xl flex-shrink-0 mt-0.5">📋</span>
+                  <div>
+                    <p className="text-sm font-extrabold text-white mb-0.5 mt-0.5">Application Pack Check</p>
+                    <p className="text-xs text-slate-300 leading-snug mb-1.5">Paste your SOP, CV &amp; profile. Spot contradictions, credibility gaps, and exactly what an officer would question — with a fix list.</p>
+                    <span className="text-[10px] font-bold text-indigo-300 uppercase tracking-wider">Readiness score + fix list</span>
+                  </div>
+                </Link>
+                {/* SOP + CV cards */}
                 {[
-                  { label: "Academic Score",      icon: "🎓", bg: "bg-indigo-500/10 border-indigo-500/20" },
-                  { label: "English Proficiency", icon: "🗣️", bg: "bg-purple-500/10 border-purple-500/20" },
-                  { label: "Budget Fit",           icon: "💰", bg: "bg-pink-500/10 border-pink-500/20" },
-                  { label: "Country Preference",   icon: "🌍", bg: "bg-rose-500/10 border-rose-500/20" },
-                  { label: "QS University Rank",   icon: "🏆", bg: "bg-amber-500/10 border-amber-500/20" },
-                  { label: "Intake Availability",  icon: "📅", bg: "bg-emerald-500/10 border-emerald-500/20" },
-                  { label: "Work Experience",      icon: "💼", bg: "bg-cyan-500/10 border-cyan-500/20" },
-                  { label: "Standardized Tests",   icon: "📝", bg: "bg-blue-500/10 border-blue-500/20" },
-                  { label: "Academic Backlogs",    icon: "⚠️", bg: "bg-orange-500/10 border-orange-500/20" },
-                  { label: "Gap Year",             icon: "🗓️", bg: "bg-violet-500/10 border-violet-500/20" },
-                ].map((s, i) => (
-                  <motion.div key={s.label}
-                    initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }} transition={{ delay: i * 0.04 }}
-                    className={`p-3.5 rounded-2xl border ${s.bg} flex items-center gap-3 hover:scale-105 transition-transform cursor-default`}
+                  {
+                    icon: "✍️",
+                    title: "AI SOP Assistant",
+                    desc: "Write a compelling SOP from your story — scored across 7 dimensions from Reject Risk to Top Tier.",
+                    badge: "7 dimensions · instant score",
+                    bg: "bg-violet-500/10 border-violet-500/20",
+                    href: "/sop-assistant",
+                  },
+                  {
+                    icon: "📄",
+                    title: "CV Assessment & Builder",
+                    desc: "Score your CV across 6 admission dimensions, then generate a tailored admission-ready version in minutes.",
+                    badge: "Score /10 · 6 dimensions · CV generated",
+                    bg: "bg-pink-500/10 border-pink-500/20",
+                    href: "/application-check",
+                  },
+                ].map((tool) => (
+                  <Link href={tool.href} key={tool.title}
+                    className={`flex items-start gap-4 p-4 rounded-2xl border ${tool.bg} hover:scale-[1.02] transition-transform cursor-pointer block`}
                   >
-                    <span className="text-xl">{s.icon}</span>
-                    <span className="text-xs text-slate-300 font-semibold leading-snug">{s.label}</span>
-                  </motion.div>
+                    <span className="text-2xl flex-shrink-0">{tool.icon}</span>
+                    <div>
+                      <p className="text-sm font-extrabold text-white mb-0.5">{tool.title}</p>
+                      <p className="text-xs text-slate-300 leading-snug mb-1.5">{tool.desc}</p>
+                      <span className="text-[10px] font-bold text-indigo-300 uppercase tracking-wider">{tool.badge}</span>
+                    </div>
+                  </Link>
                 ))}
               </div>
             </div>
           </motion.div>
 
-          {/* ── STEP 3: Your TOP 20 Shortlist ── */}
+          {/* ── Stage separator 2 → 3 ── */}
+          <div className="flex items-center gap-5 mb-16 -mt-12">
+            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-teal-200 to-teal-300/60" />
+            <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-teal-50 border border-teal-200 shadow-sm">
+              <span className="w-4 h-4 rounded-full bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center text-white text-[9px] font-black">3</span>
+              <span className="text-[10px] font-bold text-teal-600 uppercase tracking-widest">Practice &amp; Prepare</span>
+            </div>
+            <div className="flex-1 h-px bg-gradient-to-l from-transparent via-teal-200 to-teal-300/60" />
+          </div>
+
+          {/* ── STAGE 3: Practice ──────────────────────────────────── */}
           <motion.div
+            id="practice"
             initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="relative rounded-3xl bg-gradient-to-br from-fuchsia-50 via-white to-rose-50 border border-fuchsia-100 overflow-hidden p-10 md:p-14"
+            className="relative rounded-3xl bg-gradient-to-br from-teal-950 via-emerald-950 to-slate-900 border border-teal-900/50 overflow-hidden p-10 md:p-14 mb-10"
           >
-            {/* Decorative blobs */}
-            <div className="absolute -top-16 -right-16 w-64 h-64 bg-fuchsia-200/30 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute -bottom-16 -left-16 w-64 h-64 bg-rose-200/30 rounded-full blur-3xl pointer-events-none" />
+            {/* Ambient glows */}
+            <div className="absolute -top-32 -left-32 w-96 h-96 bg-teal-400/15 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-32 -right-32 w-80 h-80 bg-emerald-400/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-teal-500/8 rounded-full blur-3xl pointer-events-none" />
 
-            {/* Step pill */}
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-fuchsia-500 to-rose-500 text-white text-xs font-black px-5 py-2 rounded-full shadow-lg shadow-fuchsia-200 mb-8">
-              <span className="w-5 h-5 rounded-full bg-white/30 flex items-center justify-center text-[11px] font-black">3</span>
-              YOUR TOP 20 SHORTLIST — RANKED, TIERED & EMAILED
+            {/* Stage pill */}
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-teal-500 text-white text-xs font-black px-5 py-2 rounded-full shadow-lg shadow-emerald-900/50 mb-8">
+              <span className="w-5 h-5 rounded-full bg-white/25 flex items-center justify-center text-[11px] font-black">3</span>
+              STAGE 3 · PRACTICE — PREPARE FOR WHAT&apos;S COMING
             </div>
 
-            <div className="grid md:grid-cols-2 gap-14 items-center">
-              {/* Left: copy + tier cards */}
-              <div>
-                <h3 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 leading-tight">
-                  Get your TOP 20 —<br />
-                  <span className="bg-gradient-to-r from-fuchsia-600 to-rose-500 bg-clip-text text-transparent">personalised, ranked & delivered</span>
-                </h3>
-                <p className="text-gray-500 text-base leading-relaxed mb-8">
-                  Every match is scored and tiered into <strong>Safe</strong>, <strong>Reach</strong>, and <strong>Ambitious</strong> buckets. Results land in your inbox as a beautiful, shareable PDF — in under 2 minutes.
-                </p>
+            {/* Headline */}
+            <h3 className="text-3xl md:text-5xl font-extrabold text-white mb-4 leading-tight">
+              Practice until<br />
+              <span className="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">nothing surprises you.</span>
+            </h3>
+            <p className="text-white/50 text-base leading-relaxed mb-14 max-w-2xl">
+              Two tracks, one goal: walk into your visa interview and English proficiency test already knowing your weak spots — and having fixed them.
+            </p>
 
-                {/* Feature pills */}
-                <div className="flex flex-wrap gap-2.5 mb-9">
+            {/* ─── Track A: English Test Lab ─── */}
+            <div className="mb-14">
+              <div className="flex items-start justify-between gap-4 mb-2 flex-wrap">
+                <div className="flex items-center gap-3">
+                  <div className="flex items-center justify-center w-8 h-8 rounded-xl bg-teal-500/20 border border-teal-500/30 flex-shrink-0">
+                    <BookOpen className="w-4 h-4 text-teal-400" />
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-black text-teal-400 uppercase tracking-widest">Track A · Test Prep</p>
+                    <h4 className="text-lg font-extrabold text-white leading-tight">English Test Lab</h4>
+                  </div>
+                </div>
+                <Link href="/english-test-lab" className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-teal-500/20 border border-teal-500/30 text-teal-300 text-xs font-bold hover:bg-teal-500/30 transition-colors">
+                  See all tests <ArrowRight className="w-3 h-3" />
+                </Link>
+              </div>
+              <p className="text-white/75 text-sm mb-7 pl-11">
+                Full-length mocks for all four major English proficiency exams — AI-scored, official-format questions, instant results with detailed feedback.
+              </p>
+
+              <div className="grid sm:grid-cols-4 gap-3">
+
+                {/* IELTS */}
+                <Link href="/english-test-lab/ielts" className="group relative rounded-2xl bg-black/20 border border-white/25 p-5 flex flex-col hover:bg-black/30 hover:border-violet-400/50 hover:shadow-xl hover:shadow-violet-900/20 hover:-translate-y-1 transition-all duration-300">
+                  <span className="text-2xl mb-3">🎓</span>
+                  <p className="text-[10px] font-black text-violet-300 uppercase tracking-wider mb-0.5">IELTS-style</p>
+                  <p className="text-sm font-extrabold text-white mb-1">IELTS Academic</p>
+                  <p className="text-xs text-white/80 mb-1">Bands 0–9</p>
+                  <p className="text-[10px] text-white/65 mb-auto">4 sections · 3 mocks</p>
+                  <div className="mt-3 pt-3 border-t border-white/20 flex items-center justify-between">
+                    <span className="text-[10px] text-white/75 font-semibold">Start mock</span>
+                    <ChevronRight className="w-3.5 h-3.5 text-violet-300 group-hover:translate-x-0.5 transition-transform" />
+                  </div>
+                </Link>
+
+                {/* PTE */}
+                <Link href="/english-test-lab/pte" className="group relative rounded-2xl bg-black/20 border border-white/25 p-5 flex flex-col hover:bg-black/30 hover:border-indigo-400/50 hover:shadow-xl hover:shadow-indigo-900/20 hover:-translate-y-1 transition-all duration-300">
+                  <span className="text-2xl mb-3">📝</span>
+                  <p className="text-[10px] font-black text-indigo-300 uppercase tracking-wider mb-0.5">PTE-style</p>
+                  <p className="text-sm font-extrabold text-white mb-1">PTE Academic</p>
+                  <p className="text-xs text-white/80 mb-1">Score 0–90</p>
+                  <p className="text-[10px] text-white/65 mb-auto">7 task types · 3 mocks</p>
+                  <div className="mt-3 pt-3 border-t border-white/20 flex items-center justify-between">
+                    <span className="text-[10px] text-white/75 font-semibold">Start mock</span>
+                    <ChevronRight className="w-3.5 h-3.5 text-indigo-300 group-hover:translate-x-0.5 transition-transform" />
+                  </div>
+                </Link>
+
+                {/* DET */}
+                <Link href="/english-test-lab/det" className="group relative rounded-2xl bg-black/20 border border-white/25 p-5 flex flex-col hover:bg-black/30 hover:border-teal-400/50 hover:shadow-xl hover:shadow-teal-900/20 hover:-translate-y-1 transition-all duration-300">
+                  <span className="text-2xl mb-3">🦆</span>
+                  <p className="text-[10px] font-black text-teal-300 uppercase tracking-wider mb-0.5">DET-style</p>
+                  <p className="text-sm font-extrabold text-white mb-1">Duolingo English Test</p>
+                  <p className="text-xs text-white/80 mb-1">Score 10–160</p>
+                  <p className="text-[10px] text-white/65 mb-auto">6 task types · 3 mocks</p>
+                  <div className="mt-3 pt-3 border-t border-white/20 flex items-center justify-between">
+                    <span className="text-[10px] text-white/75 font-semibold">Start mock</span>
+                    <ChevronRight className="w-3.5 h-3.5 text-teal-300 group-hover:translate-x-0.5 transition-transform" />
+                  </div>
+                </Link>
+
+                {/* TOEFL */}
+                <Link href="/english-test-lab/toefl" className="group relative rounded-2xl bg-black/20 border border-white/25 p-5 flex flex-col hover:bg-black/30 hover:border-sky-400/50 hover:shadow-xl hover:shadow-sky-900/20 hover:-translate-y-1 transition-all duration-300">
+                  <span className="text-2xl mb-3">🏛️</span>
+                  <p className="text-[10px] font-black text-sky-300 uppercase tracking-wider mb-0.5">TOEFL-style</p>
+                  <p className="text-sm font-extrabold text-white mb-1">TOEFL iBT</p>
+                  <p className="text-xs text-white/80 mb-1">Score 0–120</p>
+                  <p className="text-[10px] text-white/65 mb-auto">4 sections · 3 mocks</p>
+                  <div className="mt-3 pt-3 border-t border-white/20 flex items-center justify-between">
+                    <span className="text-[10px] text-white/75 font-semibold">Start mock</span>
+                    <ChevronRight className="w-3.5 h-3.5 text-sky-300 group-hover:translate-x-0.5 transition-transform" />
+                  </div>
+                </Link>
+
+              </div>
+
+              {/* Proof chips */}
+              <div className="flex flex-wrap gap-2 mt-6">
+                {[
+                  { icon: "🎯", text: "Official-format questions" },
+                  { icon: "🤖", text: "AI-scored writing & speaking" },
+                  { icon: "⏱️", text: "Real exam timings" },
+                  { icon: "📊", text: "Detailed score breakdown" },
+                  { icon: "🆓", text: "Completely free" },
+                ].map((c) => (
+                  <span key={c.text} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/20 border border-white/25 text-white/85 text-[11px] font-semibold">
+                    {c.icon} {c.text}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Divider */}
+            <div className="flex items-center gap-4 mb-14">
+              <div className="flex-1 h-px bg-white/10" />
+              <span className="text-white/60 text-[11px] font-black uppercase tracking-widest px-3">Also in Stage 3</span>
+              <div className="flex-1 h-px bg-white/10" />
+            </div>
+
+            {/* ─── Track B: AI Interview Coach ─── */}
+            <div>
+              <div className="flex items-center gap-3 mb-2">
+                <div className="flex items-center justify-center w-8 h-8 rounded-xl bg-emerald-500/20 border border-emerald-500/30 flex-shrink-0">
+                  <Mic className="w-4 h-4 text-emerald-400" />
+                </div>
+                <div>
+                  <p className="text-[10px] font-black text-emerald-400 uppercase tracking-widest">Track B · Interview Prep</p>
+                  <h4 className="text-lg font-extrabold text-white leading-tight">AI Interview Coach</h4>
+                </div>
+              </div>
+              <p className="text-white/40 text-sm mb-6 pl-11">Voice &amp; text mock interviews. AI flags your weak answers and gives you the exact language to fix them — before the real thing.</p>
+
+              <div className="grid sm:grid-cols-3 gap-4">
+
+                {/* Australia */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }}
+                  className="group relative bg-white/8 border border-white/15 rounded-2xl p-6 flex flex-col hover:bg-white/12 hover:border-sky-500/40 hover:shadow-xl hover:shadow-sky-900/30 transition-all duration-300"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-sky-400 to-blue-600 flex items-center justify-center shadow-lg shadow-sky-900/40 text-xl flex-shrink-0">🇦🇺</div>
+                    <div>
+                      <p className="text-[10px] font-bold text-sky-400 uppercase tracking-wider">Australia</p>
+                      <h5 className="text-sm font-extrabold text-white leading-tight">GS Interview Coach</h5>
+                    </div>
+                  </div>
+                  <p className="text-xs text-white/45 leading-relaxed mb-4 flex-1">19 Genuine Student questions. AI identifies which answers raise doubts and gives you the exact language to fix them.</p>
+                  <div className="flex flex-wrap gap-1.5 mb-4">
+                    {["19 Q", "Flags doubts", "Fixes reasoning"].map((t) => (
+                      <span key={t} className="px-2 py-0.5 rounded-full bg-sky-500/20 border border-sky-500/30 text-sky-300 text-[10px] font-semibold">{t}</span>
+                    ))}
+                  </div>
+                  <div className="flex gap-2">
+                    <Link href="/interview-prep?country=australia&mode=text" className="flex-1 inline-flex items-center justify-center gap-1 px-3 py-2 rounded-lg bg-sky-500/20 border border-sky-500/30 text-sky-300 text-xs font-bold hover:bg-sky-500/30 transition-colors">✍️ Text</Link>
+                    <Link href="/interview-prep?country=australia" className="flex-1 inline-flex items-center justify-center gap-1 px-3 py-2 rounded-lg bg-white/10 border border-white/20 text-white/60 text-xs font-bold hover:bg-white/20 transition-colors">🎙️ Voice</Link>
+                  </div>
+                </motion.div>
+
+                {/* UK */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: 0.1 }}
+                  className="group relative bg-white/8 border border-white/15 rounded-2xl p-6 flex flex-col hover:bg-white/12 hover:border-rose-500/40 hover:shadow-xl hover:shadow-rose-900/30 transition-all duration-300"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-rose-500 to-red-600 flex items-center justify-center shadow-lg shadow-rose-900/40 text-xl flex-shrink-0">🇬🇧</div>
+                    <div>
+                      <p className="text-[10px] font-bold text-rose-400 uppercase tracking-wider">United Kingdom</p>
+                      <h5 className="text-sm font-extrabold text-white leading-tight">Credibility Interview Coach</h5>
+                    </div>
+                  </div>
+                  <p className="text-xs text-white/45 leading-relaxed mb-4 flex-1">14 credibility questions. AI flags answers that raise doubts and shows you how to sound convincing before it matters.</p>
+                  <div className="flex flex-wrap gap-1.5 mb-4">
+                    {["14 Q", "Credibility gaps", "Story fix"].map((t) => (
+                      <span key={t} className="px-2 py-0.5 rounded-full bg-rose-500/20 border border-rose-500/30 text-rose-300 text-[10px] font-semibold">{t}</span>
+                    ))}
+                  </div>
+                  <div className="flex gap-2">
+                    <Link href="/interview-prep?country=uk&mode=text" className="flex-1 inline-flex items-center justify-center gap-1 px-3 py-2 rounded-lg bg-rose-500/20 border border-rose-500/30 text-rose-300 text-xs font-bold hover:bg-rose-500/30 transition-colors">✍️ Text</Link>
+                    <Link href="/interview-prep?country=uk" className="flex-1 inline-flex items-center justify-center gap-1 px-3 py-2 rounded-lg bg-white/10 border border-white/20 text-white/60 text-xs font-bold hover:bg-white/20 transition-colors">🎙️ Voice</Link>
+                  </div>
+                </motion.div>
+
+                {/* USA */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: 0.2 }}
+                  className="group relative bg-white/8 border border-white/15 rounded-2xl p-6 flex flex-col hover:bg-white/12 hover:border-blue-500/40 hover:shadow-xl hover:shadow-blue-900/30 transition-all duration-300"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-11 h-11 rounded-xl bg-gradient-to-r from-blue-600 to-red-600 flex items-center justify-center shadow-lg shadow-blue-900/40 text-xl flex-shrink-0">🇺🇸</div>
+                    <div>
+                      <p className="text-[10px] font-bold text-blue-400 uppercase tracking-wider">United States</p>
+                      <h5 className="text-sm font-extrabold text-white leading-tight">F-1 Visa Interview Coach</h5>
+                    </div>
+                  </div>
+                  <p className="text-xs text-white/45 leading-relaxed mb-4 flex-1">60+ F-1 consulate questions across 12 sections. AI reveals where the officer would doubt your intent and shows you exactly how to fix it.</p>
+                  <div className="flex flex-wrap gap-1.5 mb-4">
+                    {["60+ Q", "12 sections", "Intent clarity"].map((t) => (
+                      <span key={t} className="px-2 py-0.5 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-300 text-[10px] font-semibold">{t}</span>
+                    ))}
+                  </div>
+                  <div className="flex gap-2">
+                    <Link href="/interview-prep?country=usa&mode=text" className="flex-1 inline-flex items-center justify-center gap-1 px-3 py-2 rounded-lg bg-blue-500/20 border border-blue-500/30 text-blue-300 text-xs font-bold hover:bg-blue-500/30 transition-colors">✍️ Text</Link>
+                    <Link href="/interview-prep?country=usa" className="flex-1 inline-flex items-center justify-center gap-1 px-3 py-2 rounded-lg bg-white/10 border border-white/20 text-white/60 text-xs font-bold hover:bg-white/20 transition-colors">🎙️ Voice</Link>
+                  </div>
+                </motion.div>
+
+              </div>
+            </div>
+
+          </motion.div>
+
+          {/* ── Stage separator 3 → 4 ── */}
+          <div className="flex items-center gap-5 mb-16 mt-4">
+            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-amber-200 to-amber-300/60" />
+            <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 border border-amber-200 shadow-sm">
+              <span className="w-4 h-4 rounded-full bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center text-white text-[9px] font-black">4</span>
+              <span className="text-[10px] font-bold text-amber-600 uppercase tracking-widest">Decide with Data</span>
+            </div>
+            <div className="flex-1 h-px bg-gradient-to-l from-transparent via-amber-200 to-amber-300/60" />
+          </div>
+
+          {/* ── STAGE 4: Decide ── */}
+          <motion.div
+            id="tools"
+            initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="relative rounded-3xl bg-gradient-to-br from-amber-50 via-white to-orange-50 border border-amber-100 overflow-hidden p-10 md:p-14"
+          >
+            <div className="absolute -top-16 -right-16 w-64 h-64 bg-amber-200/30 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-16 -left-16 w-64 h-64 bg-orange-200/30 rounded-full blur-3xl pointer-events-none" />
+
+            {/* Step pill */}
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs font-black px-5 py-2 rounded-full shadow-lg shadow-amber-200 mb-8">
+              <span className="w-5 h-5 rounded-full bg-white/30 flex items-center justify-center text-[11px] font-black">4</span>
+              STAGE 4 · DECIDE — MAKE THE FINAL CALL WITH DATA
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-14 items-start">
+              {/* Left: copy */}
+              <div>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 text-amber-600 text-xs font-bold uppercase tracking-wider mb-4 border border-amber-200">
+                  <TrendingUp className="w-3.5 h-3.5" /> Stage 4 · Decide
+                </div>
+                <h3 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 leading-tight">
+                  Got your offer?<br />
+                  <span className="bg-gradient-to-r from-amber-600 to-orange-500 bg-clip-text text-transparent">Now decide with real numbers.</span>
+                </h3>
+                <p className="text-gray-500 text-base leading-relaxed mb-6">
+                  Getting an offer is one thing. Knowing it&apos;s the right financial decision — and convincing your family — is another. Our three decision tools give you a data-backed answer before you commit.
+                </p>
+                <div className="flex flex-wrap gap-2.5 mb-6">
                   {[
-                    { icon: "⚡", text: "Results in < 2 minutes" },
-                    { icon: "📧", text: "Emailed to you instantly" },
-                    { icon: "📄", text: "Shareable PDF" },
+                    { icon: "📊", text: "Real payback period" },
+                    { icon: "💰", text: "10-year ROI" },
+                    { icon: "👨‍👩‍👧", text: "Parent-ready verdict" },
+                    { icon: "↔", text: "Side-by-side compare" },
                     { icon: "🆓", text: "100% free" },
                   ].map((f) => (
                     <div key={f.text} className="flex items-center gap-2 bg-white border border-gray-200 rounded-full px-4 py-2 text-sm text-gray-700 font-semibold shadow-sm">
@@ -664,312 +1353,106 @@ export default function LandingPage() {
                   ))}
                 </div>
 
-                <Link href="/get-started"
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-fuchsia-500 to-rose-500 text-white text-base font-bold hover:shadow-xl hover:shadow-fuchsia-200 transition-all hover:-translate-y-0.5 shadow-lg">
-                  Get my TOP 20 shortlist — free
-                  <ArrowRight className="w-5 h-5" />
-                </Link>
-              </div>
-
-              {/* Right: mock shortlist preview */}
-              <div className="relative">
-                {/* Card stack background */}
-                <div className="absolute inset-x-4 -bottom-3 h-full rounded-3xl bg-fuchsia-100/60 border border-fuchsia-200" />
-                <div className="absolute inset-x-2 -bottom-1.5 h-full rounded-3xl bg-rose-100/40 border border-rose-100" />
-
-                <div className="relative bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden">
-                  {/* Card header */}
-                  <div className="bg-gradient-to-r from-fuchsia-500 to-rose-500 px-6 py-4 flex items-center justify-between">
-                    <div>
-                      <p className="text-white font-black text-sm">Your Shortlist</p>
-                      <p className="text-fuchsia-200 text-[11px]">Top 20 matched programs</p>
-                    </div>
-                    <div className="bg-white/20 rounded-xl px-3 py-1.5 text-white text-xs font-bold">20 matches</div>
-                  </div>
-
-                  {/* Mock program rows */}
-                  <div className="divide-y divide-gray-50">
-                    {[
-                      { rank: 1, prog: "MSc Data Science", uni: "University of Toronto", country: "🇨🇦", score: 92, tier: "Safe", tc: "text-emerald-600", bc: "bg-emerald-100" },
-                      { rank: 2, prog: "MSc Artificial Intelligence", uni: "University of Edinburgh", country: "🇬🇧", score: 87, tier: "Safe", tc: "text-emerald-600", bc: "bg-emerald-100" },
-                      { rank: 3, prog: "Master of CS", uni: "Monash University", country: "🇦🇺", score: 74, tier: "Reach", tc: "text-amber-600", bc: "bg-amber-100" },
-                      { rank: 4, prog: "MSc Machine Learning", uni: "Imperial College London", country: "🇬🇧", score: 61, tier: "Reach", tc: "text-amber-600", bc: "bg-amber-100" },
-                      { rank: 5, prog: "MS Computer Science", uni: "Carnegie Mellon University", country: "🇺🇸", score: 44, tier: "Ambitious", tc: "text-rose-600", bc: "bg-rose-100" },
-                    ].map((p) => (
-                      <div key={p.rank} className="flex items-center gap-3 px-5 py-3.5 hover:bg-gray-50 transition-colors">
-                        <span className="text-[11px] font-black text-gray-300 w-4">{p.rank}</span>
-                        <div className="flex-1 min-w-0">
-                          <p className="text-xs font-bold text-gray-900 truncate">{p.prog}</p>
-                          <p className="text-[11px] text-gray-400 truncate">{p.country} {p.uni}</p>
-                        </div>
-                        <div className="flex items-center gap-2 flex-shrink-0">
-                          <span className={`text-sm font-black ${p.tc}`}>{p.score}%</span>
-                          <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${p.bc} ${p.tc}`}>{p.tier}</span>
-                        </div>
+                {/* Program Comparison Tool */}
+                <Link href="/get-started" className="block group">
+                  <div className="bg-white rounded-2xl border border-violet-100 p-5 shadow-sm hover:shadow-lg hover:border-violet-300 hover:-translate-y-1 transition-all duration-300">
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center shadow-md flex-shrink-0">
+                        <BarChart2 className="w-4 h-4 text-white" />
                       </div>
-                    ))}
-                  </div>
-
-                  {/* Footer */}
-                  <div className="px-5 py-3 bg-gray-50 border-t border-gray-100 flex items-center justify-between">
-                    <span className="text-xs text-gray-400">+15 more programs</span>
-                    <span className="text-xs font-bold text-fuchsia-500">📧 Emailed to you</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Tier legend strip */}
-            <div className="grid sm:grid-cols-3 gap-4 mt-10">
-              {[
-                { tier: "✅ Safe",       score: "75–100", desc: "Your profile comfortably meets requirements",       bar: "w-[88%]", bg: "from-emerald-50 to-green-50", border: "border-emerald-200", barC: "bg-emerald-400", text: "text-emerald-700", pct: "~30% of list" },
-                { tier: "🎯 Reach",      score: "50–74",  desc: "Close to the admitted student average",             bar: "w-[62%]", bg: "from-amber-50 to-yellow-50", border: "border-amber-200",   barC: "bg-amber-400",   text: "text-amber-700",   pct: "~50% of list" },
-                { tier: "🚀 Ambitious",  score: "< 50",   desc: "Highly competitive — worth a strong application",  bar: "w-[35%]", bg: "from-rose-50 to-red-50",     border: "border-rose-200",    barC: "bg-rose-400",    text: "text-rose-700",    pct: "~20% of list" },
-              ].map((t, i) => (
-                <motion.div key={t.tier}
-                  initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-                  className={`bg-gradient-to-br ${t.bg} border ${t.border} rounded-2xl p-5 flex flex-col gap-3`}
-                >
-                  <div className="flex items-start justify-between">
-                    <div>
-                      <p className={`text-sm font-extrabold ${t.text}`}>{t.tier}</p>
-                      <p className="text-xl font-black text-gray-900 mt-0.5">{t.score} <span className="text-xs font-semibold text-gray-400">score</span></p>
+                      <div className="text-right">
+                        <span className="text-2xl font-black text-violet-600">5</span>
+                        <p className="text-[9px] text-gray-400 leading-none">offers</p>
+                      </div>
                     </div>
-                    <span className={`text-[10px] font-black px-2 py-1 rounded-full text-white ${t.barC}`}>{t.pct}</span>
+                    <p className="text-[11px] font-bold text-violet-500 uppercase tracking-wider mb-0.5">Compare Tool</p>
+                    <p className="text-sm font-extrabold text-gray-900 mb-2">Compare 5 offers side by side</p>
+                    <p className="text-xs text-gray-500 leading-relaxed mb-3">Tuition · salary · payback · safety · PSW visa — all in one table.</p>
+                    <div className="flex items-center gap-2 p-2.5 rounded-xl bg-violet-50 border border-violet-100 mb-3">
+                      <span className="text-[10px] font-bold text-violet-700">Outcome:</span>
+                      <span className="text-[10px] text-violet-600">Best-value offer, ranked</span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-1.5 text-[11px] text-gray-400">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0" />
+                        Built into your shortlist
+                      </div>
+                      <span className="text-xs font-bold text-violet-600 group-hover:gap-2 transition-all inline-flex items-center gap-1">Get Shortlist <ArrowRight className="w-3 h-3" /></span>
+                    </div>
                   </div>
-                  <p className="text-xs text-gray-500 leading-relaxed">{t.desc}</p>
-                  <div className="h-1.5 bg-white/70 rounded-full overflow-hidden">
-                    <div className={`h-full rounded-full ${t.barC} ${t.bar}`} />
+                </Link>
+              </div>
+
+              {/* Right: two tool cards */}
+              <div className="space-y-4">
+                <Link href="/roi-calculator" className="block group">
+                  <div className="bg-white rounded-2xl border border-amber-100 p-6 shadow-sm hover:shadow-xl hover:border-amber-300 hover:-translate-y-1 transition-all duration-300">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-md flex-shrink-0">
+                        <TrendingUp className="w-5 h-5 text-white" />
+                      </div>
+                      <div className="text-right">
+                        <span className="text-2xl font-black text-indigo-600">30s</span>
+                        <p className="text-[9px] text-gray-400 leading-none">to results</p>
+                      </div>
+                    </div>
+                    <p className="text-[11px] font-bold text-indigo-500 uppercase tracking-wider mb-1">ROI Calculator</p>
+                    <p className="text-base font-extrabold text-gray-900 mb-2">See payback period in 30 seconds</p>
+                    <p className="text-sm text-gray-500 leading-relaxed mb-3">Auto-fills tuition, living costs and salary data. Instant payback period, 10-year ROI and break-even salary.</p>
+                    <div className="flex items-center gap-2 p-3 rounded-xl bg-indigo-50 border border-indigo-100 mb-4">
+                      <span className="text-xs font-bold text-indigo-700">Outcome:</span>
+                      <span className="text-xs text-indigo-600">Payback period · 10-yr ROI · break-even salary</span>
+                    </div>
+                    <span className="inline-flex items-center gap-1 text-sm font-bold text-indigo-600 group-hover:gap-2 transition-all">Open Calculator <ArrowRight className="w-4 h-4" /></span>
                   </div>
-                </motion.div>
-              ))}
+                </Link>
+
+                <Link href="/parent-decision" className="block group">
+                  <div className="bg-white rounded-2xl border border-amber-100 p-6 shadow-sm hover:shadow-xl hover:border-amber-300 hover:-translate-y-1 transition-all duration-300">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center shadow-md flex-shrink-0">
+                        <Users className="w-5 h-5 text-white" />
+                      </div>
+                      <div className="text-right">
+                        <span className="text-2xl font-black text-purple-600">7</span>
+                        <p className="text-[9px] text-gray-400 leading-none">factors</p>
+                      </div>
+                    </div>
+                    <p className="text-[11px] font-bold text-purple-500 uppercase tracking-wider mb-1">Parent Decision Tool</p>
+                    <p className="text-base font-extrabold text-gray-900 mb-2">Get a verdict parents understand</p>
+                    <p className="text-sm text-gray-500 leading-relaxed mb-3">Data-driven ✓/✗ across budget fit, safety, job market, ROI and more. Built for family conversations.</p>
+                    <div className="flex items-center gap-2 p-3 rounded-xl bg-purple-50 border border-purple-100 mb-4">
+                      <span className="text-xs font-bold text-purple-700">Outcome:</span>
+                      <span className="text-xs text-purple-600">Clear verdict + printable family report</span>
+                    </div>
+                    <span className="inline-flex items-center gap-1 text-sm font-bold text-purple-600 group-hover:gap-2 transition-all">Open Tool <ArrowRight className="w-4 h-4" /></span>
+                  </div>
+                </Link>
+
+              </div>
             </div>
           </motion.div>
 
         </div>
       </section>
 
-      {/* ── Decision Tools section ───────────────────────────────── */}
-      <section id="tools" className="py-24 px-6 bg-gradient-to-br from-slate-900 via-indigo-950 to-purple-950 relative overflow-hidden">
-        {/* decorative blobs */}
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
-
-        <div className="max-w-5xl mx-auto relative">
-          {/* Heading */}
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-500/20 text-indigo-300 text-sm font-semibold mb-4 border border-indigo-500/30">
-              <Sparkles className="w-3.5 h-3.5" /> SMART DECISION MAKING TOOLS
-            </span>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-white mt-1">
-              Make smarter study-abroad decisions
-            </h2>
-            <p className="text-slate-400 mt-4 max-w-2xl mx-auto text-base leading-relaxed">
-              Before you commit thousands of dollars and years of your life — run the numbers. Our free tools give you a clear financial and qualitative picture in under a minute.
-            </p>
-          </motion.div>
-
-          {/* Tool cards */}
-          <div className="grid sm:grid-cols-2 gap-6">
-            {/* ROI Calculator card */}
-            <motion.div
-              id="roi-calculator"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="group relative bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl hover:border-indigo-400/40 hover:bg-white/8 transition-all duration-300 p-7 flex flex-col"
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg shadow-indigo-500/30">
-                  <TrendingUp className="w-5 h-5 text-white" />
-                </div>
-                <span className="text-xs font-bold text-indigo-400 uppercase tracking-wider">ROI Calculator</span>
-              </div>
-              <h3 className="text-xl font-extrabold text-white mb-2">Will your degree pay off?</h3>
-              <p className="text-sm text-slate-400 leading-relaxed mb-5 flex-1">
-                Pick any university and program — we auto-fill tuition, living costs and salary data so you instantly see your payback period, 10-year ROI and break-even salary.
-              </p>
-              <div className="flex flex-wrap gap-1.5 mb-6">
-                {["Payback Period", "10-Year ROI", "Monthly Savings", "Break-even Salary"].map((t) => (
-                  <span key={t} className="px-2.5 py-1 rounded-full bg-indigo-500/15 text-indigo-300 text-[11px] font-semibold border border-indigo-500/25">{t}</span>
-                ))}
-              </div>
-              <Link
-                href="/roi-calculator"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-bold w-fit hover:shadow-lg hover:shadow-indigo-500/30 hover:-translate-y-0.5 transition-all duration-200"
-              >
-                Open Calculator <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            </motion.div>
-
-            {/* Parent Decision Tool card */}
-            <motion.div
-              id="parent-decision-tool"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.12 }}
-              className="group relative bg-gradient-to-br from-purple-600/30 to-indigo-700/30 backdrop-blur-md border border-purple-400/20 rounded-3xl hover:border-purple-400/50 transition-all duration-300 p-7 flex flex-col"
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-11 h-11 rounded-2xl bg-purple-500/30 border border-purple-400/30 flex items-center justify-center">
-                  <Users className="w-5 h-5 text-purple-200" />
-                </div>
-                <span className="text-xs font-bold text-purple-300 uppercase tracking-wider">For Parents</span>
-              </div>
-              <h3 className="text-xl font-extrabold text-white mb-2">Is studying abroad right for your child?</h3>
-              <p className="text-sm text-slate-400 leading-relaxed mb-5 flex-1">
-                Get a data-driven verdict across 7 key factors — budget fit, job market, safety, post-study work rights, financial ROI and more. No guesswork, just clarity.
-              </p>
-              <div className="flex flex-wrap gap-1.5 mb-6">
-                {["Budget Fit", "Safety", "PSW Rights", "Job Market", "Student Life"].map((t) => (
-                  <span key={t} className="px-2.5 py-1 rounded-full bg-purple-500/20 text-purple-200 text-[11px] font-semibold border border-purple-400/25">{t}</span>
-                ))}
-              </div>
-              <Link
-                href="/parent-decision"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white text-indigo-700 text-sm font-bold w-fit hover:shadow-lg hover:shadow-purple-400/30 hover:-translate-y-0.5 transition-all duration-200"
-              >
-                Open Tool <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Interview Prep section ───────────────────────────────── */}
-      <section id="interview-prep" className="py-24 px-6 bg-white">
-        <div className="max-w-5xl mx-auto">
-
-          {/* Heading */}
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-100 text-emerald-700 text-sm font-semibold mb-4">
-              <Sparkles className="w-3.5 h-3.5" /> AI INTERVIEW COACH
-            </span>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mt-1">
-              Ace your university interview
-            </h2>
-            <p className="text-gray-500 mt-4 max-w-2xl mx-auto text-base leading-relaxed">
-              Practice with an AI coach trained on real university interview formats — get asked the questions admissions panels actually use, receive instant feedback, and walk in confident.
-            </p>
-          </motion.div>
-
-          {/* GPT cards */}
-          <div className="grid sm:grid-cols-2 gap-6 mb-12">
-
-            {/* Australia GPT */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}
-              className="group relative bg-gradient-to-br from-sky-50 to-blue-50 border border-sky-200 rounded-3xl p-7 flex flex-col hover:shadow-xl hover:shadow-sky-100 transition-all duration-300"
-            >
-              <div className="flex items-center gap-3 mb-5">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-sky-400 to-blue-600 flex items-center justify-center shadow-md shadow-sky-200 text-2xl flex-shrink-0">
-                  🇦🇺
-                </div>
-                <div>
-                  <p className="text-[11px] font-bold text-sky-600 uppercase tracking-wider">Australia</p>
-                  <h3 className="text-lg font-extrabold text-gray-900 leading-tight">University Interview Coach</h3>
-                </div>
-              </div>
-              <p className="text-sm text-gray-500 leading-relaxed mb-4 flex-1">
-                Practice the 19 approved GS visa interview questions — covering program rationale, career outcome, why Australia, university choice, and return intent across 5 categories.
-              </p>
-              <div className="flex flex-wrap gap-1.5 mb-6">
-                {["5 categories", "19 questions", "GS visa style", "Instant feedback"].map((t) => (
-                  <span key={t} className="px-2.5 py-1 rounded-full bg-sky-100 text-sky-700 text-[11px] font-semibold">{t}</span>
-                ))}
-              </div>
-              <div className="flex flex-wrap gap-2">
-                <Link
-                  href="/interview-prep?country=australia&mode=text"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-sky-500 to-blue-600 text-white text-sm font-bold hover:shadow-lg hover:shadow-sky-200 hover:-translate-y-0.5 transition-all duration-200"
-                >
-                  ✍️ Text Practice <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-                <Link
-                  href="/interview-prep?country=australia"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border-2 border-sky-300 text-sky-700 bg-sky-50 text-sm font-bold hover:bg-sky-100 hover:-translate-y-0.5 transition-all duration-200"
-                >
-                  🎙️ Voice Practice
-                </Link>
-              </div>
-            </motion.div>
-
-            {/* UK GPT */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.12 }}
-              className="group relative bg-gradient-to-br from-rose-50 to-red-50 border border-rose-200 rounded-3xl p-7 flex flex-col hover:shadow-xl hover:shadow-rose-100 transition-all duration-300"
-            >
-              <div className="flex items-center gap-3 mb-5">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-rose-500 to-red-600 flex items-center justify-center shadow-md shadow-rose-200 text-2xl flex-shrink-0">
-                  🇬🇧
-                </div>
-                <div>
-                  <p className="text-[11px] font-bold text-rose-600 uppercase tracking-wider">United Kingdom</p>
-                  <h3 className="text-lg font-extrabold text-gray-900 leading-tight">University Interview Coach</h3>
-                </div>
-              </div>
-              <p className="text-sm text-gray-500 leading-relaxed mb-4 flex-1">
-                Practice the 14 approved UK student visa interview questions — covering why the UK, course rationale, funding, academic background, university knowledge, and visa rules.
-              </p>
-              <div className="flex flex-wrap gap-1.5 mb-6">
-                {["5 categories", "14 questions", "Visa interview style", "Instant feedback"].map((t) => (
-                  <span key={t} className="px-2.5 py-1 rounded-full bg-rose-100 text-rose-700 text-[11px] font-semibold">{t}</span>
-                ))}
-              </div>
-              <div className="flex flex-wrap gap-2">
-                <Link
-                  href="/interview-prep?country=uk&mode=text"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-rose-500 to-red-600 text-white text-sm font-bold hover:shadow-lg hover:shadow-rose-200 hover:-translate-y-0.5 transition-all duration-200"
-                >
-                  ✍️ Text Practice <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-                <Link
-                  href="/interview-prep?country=uk"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border-2 border-rose-300 text-rose-700 bg-rose-50 text-sm font-bold hover:bg-rose-100 hover:-translate-y-0.5 transition-all duration-200"
-                >
-                  🎙️ Voice Practice
-                </Link>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Bottom trust strip */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-6 py-6 px-8 rounded-2xl bg-gray-50 border border-gray-100"
-          >
-            {[
-              { icon: "🎯", text: "Real admissions-style questions" },
-              { icon: "💬", text: "Instant answer feedback" },
-              { icon: "🔁", text: "Practice as many times as you like" },
-              { icon: "🆓", text: "Completely free to use" },
-            ].map((item) => (
-              <div key={item.text} className="flex items-center gap-2 text-sm text-gray-600 font-medium">
-                <span className="text-lg">{item.icon}</span>
-                {item.text}
-              </div>
-            ))}
-          </motion.div>
-
-        </div>
-      </section>
 
       {/* ── Countries ────────────────────────────────────────────── */}
-      <section id="countries" className="py-24 px-6 bg-gray-50">
+      <section id="countries" className="py-16 sm:py-24 px-4 sm:px-6 bg-gray-50 overflow-hidden">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-14">
+          <div className="text-center mb-10 sm:mb-14">
             <span className="inline-flex items-center gap-1.5 text-indigo-600 font-bold text-sm uppercase tracking-widest mb-3">
               <MapPin className="w-3.5 h-3.5" /> Destinations
             </span>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mt-1">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mt-1">
               {DB_STATS.countriesLabel} countries. {DB_STATS.programsLabel} programs. Endless possibilities.
             </h2>
+            <p className="text-gray-500 mt-3 text-base max-w-xl mx-auto">
+              Study in the destinations that fit your goals, budget, and visa reality.
+            </p>
           </div>
-          <div className="overflow-x-auto -mx-2 px-2">
-            <div className="grid grid-cols-6 gap-4 min-w-[540px]">
+          <div className="overflow-x-auto">
+            <div className="grid grid-cols-6 gap-3 min-w-[480px]">
               {COUNTRIES.map((c, i) => (
                 <motion.div
                   key={c.name}
@@ -998,11 +1481,11 @@ export default function LandingPage() {
       </section>
 
       {/* ── Scholarships section ──────────────────────────────────── */}
-      <section id="scholarships" className="py-24 px-6 bg-gradient-to-br from-indigo-50 via-white to-purple-50">
+      <section id="scholarships" className="py-20 px-4 sm:px-6 bg-white">
         <div className="max-w-5xl mx-auto">
           {/* Section heading */}
           <div className="text-center mb-10">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-100 text-indigo-700 text-sm font-semibold mb-4">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 text-blue-700 text-sm font-semibold mb-4 border border-blue-100">
               <Award className="w-3.5 h-3.5" />
               SCHOLARSHIPS
             </span>
@@ -1014,23 +1497,45 @@ export default function LandingPage() {
             </p>
           </div>
 
-          {/* Country icon row */}
-          <div className="flex flex-wrap justify-center gap-3 mb-8">
-            {SCHOLARSHIPS.map((c) => (
-              <button
-                key={c.name}
-                onClick={() => setSelectedScholarship(selectedScholarship === c.name ? null : c.name)}
-                className={`flex items-center gap-2 px-4 py-2.5 rounded-2xl border text-sm font-semibold transition-all ${
-                  selectedScholarship === c.name
-                    ? "bg-indigo-500 text-white border-indigo-500 shadow-md"
-                    : "bg-white text-gray-700 border-gray-200 hover:border-indigo-300 hover:text-indigo-600"
-                }`}
-              >
-                <span className="text-lg">{c.flag}</span>
-                {c.name}
-              </button>
-            ))}
-          </div>
+          {/* Country chips with teasers */}
+          {(() => {
+            const teasers: Record<string, string> = {
+              "USA": "Fulbright · RA/TA stipends",
+              "UK": "Chevening · Gates Cambridge",
+              "Australia": "Australia Awards · Destination",
+              "Canada": "Vanier · Ontario Trillium",
+              "Germany": "DAAD · free public unis",
+              "Singapore": "MOE · A*STAR",
+              "New Zealand": "NZ Excellence · NZ Aid",
+              "Ireland": "Govt 60 awards · IRC",
+              "France": "Eiffel Excellence · Erasmus+",
+              "UAE": "NYU Abu Dhabi · Khalifa",
+              "Malaysia": "Govt · Monash VC",
+            };
+            return (
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 mb-8">
+                {SCHOLARSHIPS.map((c) => (
+                  <button
+                    key={c.name}
+                    onClick={() => setSelectedScholarship(selectedScholarship === c.name ? null : c.name)}
+                    className={`text-left p-4 rounded-2xl border transition-all ${
+                      selectedScholarship === c.name
+                        ? "bg-blue-500 text-white border-blue-500 shadow-md"
+                        : "bg-white text-gray-700 border-gray-200 hover:border-blue-300 hover:shadow-md hover:-translate-y-0.5"
+                    }`}
+                  >
+                    <div className="flex items-center gap-2 mb-1.5">
+                      <span className="text-xl">{c.flag}</span>
+                      <span className="font-bold text-sm">{c.name}</span>
+                    </div>
+                    <p className={`text-[10px] leading-snug font-medium ${selectedScholarship === c.name ? "text-indigo-100" : "text-gray-400"}`}>
+                      {teasers[c.name] ?? c.scholarships[0].name}
+                    </p>
+                  </button>
+                ))}
+              </div>
+            );
+          })()}
 
           {/* Expanded scholarship panel */}
           {SCHOLARSHIPS.filter(c => c.name === selectedScholarship).map(c => (
@@ -1039,7 +1544,7 @@ export default function LandingPage() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.2 }}
-              className="bg-white rounded-2xl border border-indigo-100 shadow-md p-6"
+              className="bg-white rounded-2xl border border-gray-200 shadow-[0_10px_30px_rgba(0,0,0,0.05)] p-6"
             >
               <div className="flex items-center gap-3 mb-5">
                 <span className="text-3xl">{c.flag}</span>
@@ -1047,13 +1552,13 @@ export default function LandingPage() {
               </div>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {c.scholarships.map((s) => (
-                  <li key={s.name} className="flex gap-3 p-3 rounded-xl bg-indigo-50/60 border border-indigo-100">
-                    <span className="mt-1 flex-shrink-0 w-4 h-4 rounded-full bg-indigo-500 flex items-center justify-center">
+                  <li key={s.name} className="flex gap-3 p-3 rounded-xl bg-gray-50 border border-gray-100 hover:-translate-y-0.5 hover:shadow-md hover:border-gray-200 transition-all duration-200">
+                    <span className="mt-1 flex-shrink-0 w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center">
                       <span className="w-1.5 h-1.5 rounded-full bg-white" />
                     </span>
                     <div>
                       <p className="text-sm font-bold text-gray-900">{s.name}</p>
-                      <p className="text-xs font-semibold text-indigo-600 mt-0.5">{s.coverage}</p>
+                      <p className="text-xs font-semibold text-blue-600 mt-0.5">{s.coverage}</p>
                       {s.note && <p className="text-xs text-gray-500 mt-0.5">{s.note}</p>}
                     </div>
                   </li>
@@ -1074,121 +1579,393 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ── Testimonials ─────────────────────────────────────────── */}
-      <section id="testimonials" className="py-24 px-6 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-14">
-            <span className="inline-flex items-center gap-1.5 text-indigo-600 font-bold text-sm uppercase tracking-widest mb-3">
-              <Star className="w-3.5 h-3.5" /> Success stories
-            </span>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mt-1">
-              Students who made it
-            </h2>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {TESTIMONIALS.map((t, i) => (
-              <motion.div
-                key={t.name}
-                whileInView={{ opacity: 1, y: 0 }}
-                initial={{ opacity: 0, y: 20 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="p-8 rounded-3xl bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col"
-              >
-                <div className="flex items-center gap-1 mb-5">
-                  {[...Array(5)].map((_, j) => (
-                    <Star key={j} className="w-4 h-4 fill-amber-400 text-amber-400" />
-                  ))}
-                </div>
-                <p className="text-gray-600 leading-relaxed flex-1 mb-6 text-[15px]">
-                  &quot;{t.text}&quot;
-                </p>
-                <div className="flex items-center gap-3 pt-4 border-t border-gray-50">
-                  <img
-                    src={t.img}
-                    alt={t.name}
-                    className="w-11 h-11 rounded-full object-cover border-2 border-indigo-100"
-                  />
-                  <div className="flex-1 min-w-0">
-                    <div className="font-bold text-gray-900 text-sm">{t.name}</div>
-                    <div className="text-xs text-gray-400 truncate">{t.from}</div>
-                  </div>
-                  <span className="text-xs px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-600 font-semibold border border-emerald-100 flex-shrink-0">
-                    {t.score}
-                  </span>
-                </div>
-                <div className="mt-2 flex items-center gap-1.5 text-xs text-indigo-500 font-medium">
-                  <MapPin className="w-3 h-3" />
-                  {t.dest}
-                </div>
-              </motion.div>
-            ))}
+      {/* ── Product Outputs ───────────────────────────────────────── */}
+      <section id="outputs" className="py-20 bg-[#080B14] overflow-hidden">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
+
+            {/* ── LEFT: controls (40%) ── */}
+            <div className="w-full lg:w-[38%] lg:sticky lg:top-28 lg:self-start">
+              <span className="inline-flex items-center gap-1.5 text-indigo-400 font-bold text-xs uppercase tracking-widest mb-5">
+                <Sparkles className="w-3 h-3" /> See the output, not the claim
+              </span>
+              <h2 className="font-display text-3xl md:text-4xl font-bold text-white leading-tight mb-3">
+                See what you<br />actually get
+              </h2>
+              <p className="text-gray-400 text-base mb-8 leading-relaxed">
+                Real outputs. Not generic advice.
+              </p>
+
+              {/* Demo selectors */}
+              <div className="space-y-2 mb-10">
+                {[
+                  { icon: "🎯", label: "University Match",   sub: "Your personalised shortlist"        },
+                  { icon: "🧾", label: "SOP Check",          sub: "AI feedback on your statement"      },
+                  { icon: "🎤", label: "Interview Coach",    sub: "Score and improve your answers"     },
+                  { icon: "📊", label: "ROI Analysis",       sub: "Compare by return on investment"    },
+                ].map((tab, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setActiveDemo(i)}
+                    className={`w-full flex items-center gap-3.5 px-4 py-3.5 rounded-2xl text-left transition-all duration-200 ${
+                      activeDemo === i
+                        ? "bg-white/10 border border-white/20"
+                        : "border border-transparent hover:bg-white/5"
+                    }`}
+                  >
+                    <span className="text-xl flex-shrink-0">{tab.icon}</span>
+                    <div className="min-w-0 flex-1">
+                      <div className={`font-semibold text-sm ${activeDemo === i ? "text-white" : "text-gray-300"}`}>{tab.label}</div>
+                      <div className="text-xs text-gray-500 truncate mt-0.5">{tab.sub}</div>
+                    </div>
+                    {activeDemo === i && <ChevronRight className="w-4 h-4 text-indigo-400 flex-shrink-0" />}
+                  </button>
+                ))}
+              </div>
+
+              <div className="flex flex-col sm:flex-row lg:flex-col gap-3">
+                <Link
+                  href="/get-started"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-blue-500 hover:bg-blue-600 text-white font-bold text-sm transition-colors shadow-lg shadow-blue-500/25"
+                >
+                  Try this with your profile <ArrowRight className="w-4 h-4" />
+                </Link>
+                <a
+                  href="#tools"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-white/20 text-gray-300 hover:bg-white/8 hover:text-white font-semibold text-sm transition-colors"
+                >
+                  Explore all tools
+                </a>
+              </div>
+            </div>
+
+            {/* ── RIGHT: demo panel (60%) ── */}
+            <div className="w-full lg:w-[62%]">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeDemo}
+                  initial={{ opacity: 0, y: 18 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -18 }}
+                  transition={{ duration: 0.22 }}
+                >
+
+                  {/* ══ DEMO 0 — University Match ══ */}
+                  {activeDemo === 0 && (
+                    <div>
+                      {/* Card stack depth layers */}
+                      <div className="relative">
+                        {/* Back card — peeking behind */}
+                        <div className="absolute inset-x-5 top-5 bottom-0 bg-white/20 rounded-3xl" />
+                        <div className="absolute inset-x-2.5 top-2.5 bottom-0 bg-white/40 rounded-3xl" />
+                        {/* Front card */}
+                        <div className="relative bg-white rounded-3xl shadow-[0_28px_64px_-8px_rgba(0,0,0,0.65)] overflow-hidden z-10">
+                          <div className="h-1 bg-gradient-to-r from-indigo-500 to-violet-500" />
+                          {/* Header */}
+                          <div className="flex items-center justify-between px-6 pt-5 pb-4 border-b border-gray-100">
+                            <div className="flex items-center gap-2.5">
+                              <div className="w-8 h-8 rounded-xl bg-indigo-500/10 flex items-center justify-center">
+                                <Sparkles className="w-4 h-4 text-indigo-600" />
+                              </div>
+                              <span className="font-bold text-gray-900">University Match</span>
+                            </div>
+                            <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-indigo-50 text-indigo-600 uppercase tracking-wide">Match Tool</span>
+                          </div>
+                          {/* Profile */}
+                          <div className="px-6 py-2.5 bg-gray-50 border-b border-gray-100">
+                            <p className="text-xs text-gray-400 font-mono">GPA 3.4 · GRE 315 · CS · 2 yrs exp · USA</p>
+                          </div>
+                          {/* Highlighted university */}
+                          <div className="px-6 pt-5 pb-4">
+                            <div className="flex items-start justify-between mb-4">
+                              <div>
+                                <div className="flex items-center gap-2 mb-1">
+                                  <span className="text-xl">🇺🇸</span>
+                                  <span className="font-bold text-gray-900 text-lg">Northeastern University</span>
+                                </div>
+                                <p className="text-gray-500 text-sm ml-8">MS Computer Science · Boston, MA</p>
+                              </div>
+                              <div className="text-right flex-shrink-0 ml-3">
+                                <div className="text-2xl font-black text-indigo-600">82%</div>
+                                <div className="text-[10px] text-gray-400 font-semibold uppercase tracking-wide">Fit Score</div>
+                              </div>
+                            </div>
+                            <div className="flex flex-wrap gap-2 mb-4">
+                              <span className="px-3 py-1 rounded-full bg-amber-50 text-amber-700 text-xs font-bold border border-amber-200">🟡 Reach</span>
+                              <span className="px-3 py-1 rounded-full bg-gray-100 text-gray-500 text-xs font-medium">$52K / yr</span>
+                              <span className="px-3 py-1 rounded-full bg-gray-100 text-gray-500 text-xs font-medium">Deadline Jan 15</span>
+                            </div>
+                            <div className="rounded-2xl bg-indigo-50 border border-indigo-100 p-4">
+                              <div className="flex items-start gap-2">
+                                <Sparkles className="w-4 h-4 text-indigo-500 mt-0.5 flex-shrink-0" />
+                                <p className="text-sm text-indigo-800 leading-relaxed">Strong fit due to academic profile and budget alignment. Khoury co-op matches your gap-year goals.</p>
+                              </div>
+                            </div>
+                          </div>
+                          {/* Tier list below */}
+                          <div className="px-6 pb-5 grid grid-cols-3 gap-3 border-t border-gray-100 pt-4">
+                            <div>
+                              <div className="flex items-center gap-1.5 mb-2">
+                                <span className="w-2 h-2 rounded-full bg-green-500" />
+                                <span className="text-[10px] font-bold text-green-700 uppercase tracking-widest">Safe (2)</span>
+                              </div>
+                              <p className="text-xs text-gray-600 leading-relaxed">U. Cincinnati<br />Arizona State</p>
+                            </div>
+                            <div>
+                              <div className="flex items-center gap-1.5 mb-2">
+                                <span className="w-2 h-2 rounded-full bg-amber-400" />
+                                <span className="text-[10px] font-bold text-amber-700 uppercase tracking-widest">Reach (3)</span>
+                              </div>
+                              <p className="text-xs text-gray-600 leading-relaxed">Northeastern<br />UT Dallas<br />U. Washington</p>
+                            </div>
+                            <div>
+                              <div className="flex items-center gap-1.5 mb-2">
+                                <span className="w-2 h-2 rounded-full bg-red-400" />
+                                <span className="text-[10px] font-bold text-red-600 uppercase tracking-widest">Ambitious (2)</span>
+                              </div>
+                              <p className="text-xs text-gray-600 leading-relaxed">Carnegie Mellon<br />Georgia Tech</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* ══ DEMO 1 — SOP Check ══ */}
+                  {activeDemo === 1 && (
+                    <div className="bg-white rounded-3xl shadow-[0_28px_64px_-8px_rgba(0,0,0,0.65)] overflow-hidden">
+                      <div className="h-1 bg-gradient-to-r from-violet-500 to-purple-600" />
+                      <div className="flex items-center justify-between px-6 pt-5 pb-4 border-b border-gray-100">
+                        <div className="flex items-center gap-2.5">
+                          <div className="w-8 h-8 rounded-xl bg-violet-500/10 flex items-center justify-center">
+                            <FileText className="w-4 h-4 text-violet-600" />
+                          </div>
+                          <span className="font-bold text-gray-900">SOP Feedback</span>
+                        </div>
+                        <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-violet-50 text-violet-600 uppercase tracking-wide">Application Check</span>
+                      </div>
+                      <div className="px-6 py-5 space-y-4">
+                        <div>
+                          <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3">Your opening paragraph</p>
+                          <div className="rounded-2xl bg-red-50 border border-red-100 p-4">
+                            <p className="text-[15px] text-gray-600 italic leading-relaxed">&ldquo;I have always been passionate about technology and computers since my childhood days growing up...&rdquo;</p>
+                            <div className="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-red-600 bg-red-100 px-3 py-1 rounded-full">
+                              ⚠ Weak hook — reviewers stop reading
+                            </div>
+                          </div>
+                        </div>
+                        <div>
+                          <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3">AI suggested rewrite</p>
+                          <div className="rounded-2xl bg-green-50 border border-green-100 p-4">
+                            <p className="text-[15px] text-gray-700 leading-relaxed">&ldquo;At 22, I shipped a search feature used by 40,000 users. That week taught me more about systems design than three semesters of coursework.&rdquo;</p>
+                            <div className="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-green-700 bg-green-100 px-3 py-1 rounded-full">
+                              ✓ Specific · Memorable · Reviewers stop here
+                            </div>
+                          </div>
+                        </div>
+                        <div className="rounded-2xl bg-violet-50 border border-violet-100 p-4">
+                          <p className="text-[10px] font-bold text-violet-500 uppercase tracking-widest mb-2">2 more issues flagged</p>
+                          <div className="space-y-2">
+                            <div className="flex items-center gap-2 text-sm text-gray-600"><span className="w-1.5 h-1.5 rounded-full bg-amber-400 flex-shrink-0" />Career goal paragraph is vague — no measurable outcome stated</div>
+                            <div className="flex items-center gap-2 text-sm text-gray-600"><span className="w-1.5 h-1.5 rounded-full bg-amber-400 flex-shrink-0" />Why-this-university section feels templated — add specific faculty</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* ══ DEMO 2 — Interview Coach ══ */}
+                  {activeDemo === 2 && (
+                    <div className="bg-white rounded-3xl shadow-[0_28px_64px_-8px_rgba(0,0,0,0.65)] overflow-hidden">
+                      <div className="h-1 bg-gradient-to-r from-teal-500 to-cyan-500" />
+                      <div className="flex items-center justify-between px-6 pt-5 pb-4 border-b border-gray-100">
+                        <div className="flex items-center gap-2.5">
+                          <div className="w-8 h-8 rounded-xl bg-teal-500/10 flex items-center justify-center">
+                            <Mic className="w-4 h-4 text-teal-600" />
+                          </div>
+                          <span className="font-bold text-gray-900">Interview Coach</span>
+                        </div>
+                        <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-teal-50 text-teal-600 uppercase tracking-wide">Interview Prep</span>
+                      </div>
+                      <div className="px-6 py-5 space-y-4">
+                        <div className="rounded-2xl bg-gray-50 border border-gray-100 p-4">
+                          <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Question</p>
+                          <p className="text-[15px] font-semibold text-gray-800 leading-snug">&ldquo;Why did you choose Northeastern over other universities?&rdquo;</p>
+                        </div>
+                        <div className="rounded-2xl bg-red-50 border border-red-100 p-4">
+                          <div className="flex items-center justify-between mb-2">
+                            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Your answer</p>
+                            <div className="flex items-center gap-2">
+                              <div className="flex gap-0.5">
+                                {[1,2,3,4,5,6,7,8,9,10].map(n => (
+                                  <div key={n} className={`w-2.5 h-2 rounded-sm ${n <= 5 ? "bg-red-400" : "bg-gray-200"}`} />
+                                ))}
+                              </div>
+                              <span className="text-xs font-bold text-red-600">5 / 10</span>
+                            </div>
+                          </div>
+                          <p className="text-[15px] text-gray-600 italic leading-relaxed">&ldquo;It has a great reputation and good faculty in my field of interest.&rdquo;</p>
+                        </div>
+                        <div className="rounded-2xl bg-blue-50 border border-blue-100 p-4">
+                          <div className="flex items-center justify-between mb-2">
+                            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">AI suggestion</p>
+                            <div className="flex items-center gap-2">
+                              <div className="flex gap-0.5">
+                                {[1,2,3,4,5,6,7,8,9,10].map(n => (
+                                  <div key={n} className={`w-2.5 h-2 rounded-sm ${n <= 8 ? "bg-blue-400" : "bg-gray-200"}`} />
+                                ))}
+                              </div>
+                              <span className="text-xs font-bold text-blue-600">8 / 10</span>
+                            </div>
+                          </div>
+                          <p className="text-[15px] text-gray-700 leading-relaxed">Mention Prof. Riedl&rsquo;s NLP lab specifically. Tie Khoury&rsquo;s co-op to your career gap year — that&rsquo;s the concrete reason interviewers want to hear.</p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* ══ DEMO 3 — ROI Analysis ══ */}
+                  {activeDemo === 3 && (
+                    <div className="bg-white rounded-3xl shadow-[0_28px_64px_-8px_rgba(0,0,0,0.65)] overflow-hidden">
+                      <div className="h-1 bg-gradient-to-r from-amber-400 to-orange-400" />
+                      <div className="flex items-center justify-between px-6 pt-5 pb-4 border-b border-gray-100">
+                        <div className="flex items-center gap-2.5">
+                          <div className="w-8 h-8 rounded-xl bg-amber-500/10 flex items-center justify-center">
+                            <TrendingUp className="w-4 h-4 text-amber-600" />
+                          </div>
+                          <span className="font-bold text-gray-900">ROI Analysis</span>
+                        </div>
+                        <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-amber-50 text-amber-600 uppercase tracking-wide">ROI Calculator</span>
+                      </div>
+                      <div className="px-6 py-2.5 bg-gray-50 border-b border-gray-100">
+                        <p className="text-xs text-gray-400 font-mono">MS Data Science · 2 offers compared</p>
+                      </div>
+                      {/* Side-by-side offer cards */}
+                      <div className="px-6 py-5 grid grid-cols-2 gap-4 mb-2">
+                        <div className="rounded-2xl border border-gray-200 p-4">
+                          <div className="flex items-center gap-2 mb-3">
+                            <span className="text-lg">🇬🇧</span>
+                            <div>
+                              <p className="font-bold text-gray-900 text-sm">UCL</p>
+                              <p className="text-xs text-gray-400">London, UK</p>
+                            </div>
+                          </div>
+                          <div className="space-y-2 text-sm">
+                            <div className="flex justify-between"><span className="text-gray-500">Cost</span><span className="font-mono text-gray-800">£42K</span></div>
+                            <div className="flex justify-between"><span className="text-gray-500">Yr 1 salary</span><span className="font-mono text-gray-800">£55K</span></div>
+                            <div className="flex justify-between"><span className="text-gray-500">Break-even</span><span className="font-mono text-gray-800">2.3 yrs</span></div>
+                            <div className="flex justify-between"><span className="text-gray-500">5-yr gain</span><span className="font-mono text-gray-800">+£233K</span></div>
+                          </div>
+                        </div>
+                        <div className="rounded-2xl border-2 border-green-400 bg-green-50/40 p-4 relative">
+                          <div className="absolute -top-2.5 left-1/2 -translate-x-1/2">
+                            <span className="text-[10px] font-black text-white bg-green-500 px-3 py-0.5 rounded-full uppercase tracking-wide">Best ROI</span>
+                          </div>
+                          <div className="flex items-center gap-2 mb-3">
+                            <span className="text-lg">🇺🇸</span>
+                            <div>
+                              <p className="font-bold text-gray-900 text-sm">UIUC</p>
+                              <p className="text-xs text-gray-400">Illinois, USA</p>
+                            </div>
+                          </div>
+                          <div className="space-y-2 text-sm">
+                            <div className="flex justify-between"><span className="text-gray-500">Cost</span><span className="font-mono text-gray-800">$68K</span></div>
+                            <div className="flex justify-between"><span className="text-gray-500">Yr 1 salary</span><span className="font-mono font-bold text-green-700">$120K</span></div>
+                            <div className="flex justify-between"><span className="text-gray-500">Break-even</span><span className="font-mono font-bold text-green-700">1.8 yrs</span></div>
+                            <div className="flex justify-between"><span className="text-gray-500">5-yr gain</span><span className="font-mono font-bold text-green-700">+$532K</span></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="mx-6 mb-5 rounded-2xl bg-green-50 border border-green-100 px-4 py-3.5">
+                        <p className="text-sm font-semibold text-green-800">✓ UIUC recovers 22% faster and yields $299K more over 5 years</p>
+                      </div>
+                    </div>
+                  )}
+
+                </motion.div>
+              </AnimatePresence>
+            </div>
+
           </div>
         </div>
       </section>
 
-      {/* ── CTA with photo background ────────────────────────────── */}
-      <section className="relative py-32 px-6 overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1600&q=80"
-            alt="Graduation celebration"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-indigo-900/95 via-purple-900/90 to-indigo-900/95" />
-        </div>
+      {/* ── Final CTA ────────────────────────────────────────────── */}
+      <section className="relative py-28 sm:py-32 px-4 sm:px-6 bg-navy overflow-hidden">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-violet-600/8 rounded-full blur-[80px] pointer-events-none" />
         <div className="relative max-w-3xl mx-auto text-center text-white">
           <motion.div
             whileInView={{ opacity: 1, y: 0 }}
             initial={{ opacity: 0, y: 30 }}
             viewport={{ once: true }}
           >
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-indigo-200 text-sm font-semibold mb-6">
-              <FileText className="w-3.5 h-3.5" />
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/8 border border-white/15 text-gray-300 text-sm font-semibold mb-6">
+              <Zap className="w-3.5 h-3.5 text-blue-400" />
               Free · No account needed · 3 minutes
             </span>
-            <h2 className="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
-              Start your journey<br />
-              <span className="text-indigo-300">today</span>
+            <h2 className="font-display text-4xl sm:text-5xl font-bold mb-5 leading-[1.2]">
+              From shortlist to final decision —<br />
+              <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">do it with clarity.</span>
             </h2>
-            <p className="text-indigo-200 mb-10 text-xl leading-relaxed">
-              Join thousands of students who found their path abroad with eduvianAI. Get your personalised shortlist — free, instant, emailed to you.
+            <p className="text-gray-400 mb-10 text-lg leading-relaxed max-w-xl mx-auto">
+              Match universities, strengthen your application, clear your interview, and commit with real data. All free.
             </p>
-            <Link
-              href="/get-started"
-              className="inline-flex items-center gap-3 px-10 py-5 rounded-2xl bg-white text-indigo-700 text-lg font-extrabold hover:bg-indigo-50 transition-all shadow-2xl hover:shadow-white/20 hover:-translate-y-1 duration-300"
-            >
-              Find my programs now
-              <ArrowRight className="w-5 h-5" />
-            </Link>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/get-started"
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-blue-500 hover:bg-blue-600 text-white text-base font-bold transition-colors shadow-lg shadow-blue-500/30 hover:-translate-y-0.5"
+              >
+                Find my programs
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+              <Link
+                href="/application-check"
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl border border-white/25 text-white hover:bg-white/10 text-base font-bold transition-colors"
+              >
+                <FileText className="w-5 h-5" />
+                Check my application
+              </Link>
+            </div>
           </motion.div>
         </div>
       </section>
 
       {/* ── Footer ───────────────────────────────────────────────── */}
-      <footer className="py-10 px-6 border-t border-gray-100 bg-white">
+      <footer className="py-10 px-4 sm:px-6 border-t border-white/10 bg-navy">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
-              <Globe2 className="w-4 h-4 text-white" />
-            </div>
+            <svg width="32" height="32" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="36" height="36" rx="10" fill="url(#ftLg)"/>
+              <ellipse cx="18" cy="18" rx="11" ry="6" stroke="white" strokeWidth="1.2" strokeOpacity="0.4" fill="none" transform="rotate(-30 18 18)"/>
+              <text x="18" y="23" textAnchor="middle" fill="white" fontFamily="system-ui,sans-serif" fontSize="16" fontWeight="800" letterSpacing="-1">e</text>
+              <circle cx="26.5" cy="11.5" r="2" fill="white" fillOpacity="0.9"/>
+              <defs>
+                <linearGradient id="ftLg" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+                  <stop stopColor="#6366F1"/><stop offset="1" stopColor="#A855F7"/>
+                </linearGradient>
+              </defs>
+            </svg>
             <div>
-              <span className="font-extrabold text-gray-900">eduvianAI</span>
-              <p className="text-xs text-gray-400 font-medium">Your Global Future, Simplified</p>
+              <span className="font-display font-bold text-white">eduvian<span className="text-blue-400">AI</span></span>
+              <p className="text-xs text-gray-400 font-medium">Study abroad, made intelligent</p>
             </div>
           </div>
           <div className="flex flex-wrap items-center gap-4 text-xs text-gray-400">
-            <a href="#how-it-works" className="hover:text-gray-600 transition-colors">How it works</a>
-            <a href="#tools" className="hover:text-gray-600 transition-colors">Decision Making Tools</a>
-            <a href="#interview-prep" className="hover:text-gray-600 transition-colors">Interview Coach</a>
-            <a href="#countries" className="hover:text-gray-600 transition-colors">Destinations</a>
-            <a href="#scholarships" className="hover:text-gray-600 transition-colors">Scholarships</a>
-            <a href="#testimonials" className="hover:text-gray-600 transition-colors">Success Stories</a>
-            <button onClick={() => setAboutOpen(true)} className="hover:text-indigo-500 transition-colors">About Us</button>
-            <Link href="/get-started" className="hover:text-indigo-500 font-medium transition-colors">Get started</Link>
+            <a href="#how-it-works" className="hover:text-blue-400 transition-colors">How it works</a>
+            <a href="#tools" className="hover:text-blue-400 transition-colors">Decision Making Tools</a>
+            <a href="#practice" className="hover:text-blue-400 transition-colors">Practice Tools</a>
+            <a href="#countries" className="hover:text-blue-400 transition-colors">Destinations</a>
+            <a href="#scholarships" className="hover:text-blue-400 transition-colors">Scholarships</a>
+            <a href="#outputs" className="hover:text-blue-400 transition-colors">Why EduvianAI</a>
+            <button onClick={() => setAboutOpen(true)} className="hover:text-blue-400 transition-colors">About Us</button>
+            <Link href="/get-started" className="hover:text-blue-400 font-medium transition-colors">Get started</Link>
           </div>
           <div className="flex items-center gap-4 text-sm text-gray-400">
             <p>© 2025 eduvianAI. All rights reserved.</p>
+            <Link href="/admin" className="text-[10px] font-mono text-gray-500 hover:text-blue-400 transition-colors opacity-40 hover:opacity-100 select-none">
+              admin
+            </Link>
           </div>
         </div>
       </footer>
@@ -1215,16 +1992,24 @@ export default function LandingPage() {
               </button>
               <div className="relative">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-indigo-400 to-purple-500 flex items-center justify-center shadow-lg">
-                    <Globe2 className="w-5 h-5 text-white" />
-                  </div>
+                  <svg width="44" height="44" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="36" height="36" rx="10" fill="url(#abLg)"/>
+                    <ellipse cx="18" cy="18" rx="11" ry="6" stroke="white" strokeWidth="1.2" strokeOpacity="0.4" fill="none" transform="rotate(-30 18 18)"/>
+                    <text x="18" y="23" textAnchor="middle" fill="white" fontFamily="system-ui,sans-serif" fontSize="16" fontWeight="800" letterSpacing="-1">e</text>
+                    <circle cx="26.5" cy="11.5" r="2" fill="white" fillOpacity="0.9"/>
+                    <defs>
+                      <linearGradient id="abLg" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+                        <stop stopColor="#6366F1"/><stop offset="1" stopColor="#A855F7"/>
+                      </linearGradient>
+                    </defs>
+                  </svg>
                   <div>
                     <p className="text-xs font-bold text-indigo-300 uppercase tracking-widest">About</p>
-                    <p className="text-xl font-extrabold text-white">eduvianAI</p>
+                    <p className="text-xl font-extrabold text-white">eduvian<span className="text-indigo-300">AI</span></p>
                   </div>
                 </div>
                 <p className="text-base font-semibold text-white leading-relaxed mb-2">
-                  Your Global Future, Simplified.
+                  Study abroad, made intelligent.
                 </p>
                 <p className="text-sm text-slate-300 leading-relaxed">
                   eduvianAI is a <span className="text-indigo-300 font-semibold">100% AI-powered study-abroad platform</span> built for the next generation of global students. We believe every student deserves access to world-class guidance — not just those who can afford a counsellor. So we built one.
@@ -1235,35 +2020,50 @@ export default function LandingPage() {
             {/* Body */}
             <div className="px-8 py-8 space-y-6">
 
-              {/* Four pillars */}
+              {/* Journey label */}
+              <div className="flex items-center gap-2 mb-1">
+                <div className="h-px flex-1 bg-gray-100" />
+                <span className="text-[11px] font-bold text-gray-400 uppercase tracking-widest">What we do</span>
+                <div className="h-px flex-1 bg-gray-100" />
+              </div>
+
+              {/* Pillars */}
               {[
                 {
                   icon: <Brain className="w-5 h-5 text-indigo-600" />,
                   bg: "bg-indigo-50 border-indigo-100",
                   iconBg: "bg-indigo-100",
-                  title: "100% Profile-Customised Matches",
-                  body: "Our AI engine evaluates your academic scores, English results, budget, work experience, backlogs, gap year, and destination preferences across 10 weighted signals — then scores every one of our " + DB_STATS.programsLabel + " programs against your exact profile. No generic lists. No guesswork. Every recommendation is built around you.",
+                  badge: "Stage A · Match",
+                  badgeColor: "text-indigo-500",
+                  title: "100% Profile-Customised University Matching",
+                  body: "AI scores " + DB_STATS.programsLabel + " programs against your exact profile. Get a personalised Top 20 shortlist — Safe, Reach & Ambitious — in under 2 minutes.",
                 },
                 {
-                  icon: <TrendingUp className="w-5 h-5 text-purple-600" />,
-                  bg: "bg-purple-50 border-purple-100",
-                  iconBg: "bg-purple-100",
-                  title: "Smart Study-Abroad Decision Tools",
-                  body: "Committing years of your life and thousands of dollars abroad is a big decision. Our ROI Calculator shows you the real payback period, 10-year return, and break-even salary for any program. Our Parent Decision Tool gives families a data-driven verdict across 7 factors — budget fit, safety, post-study work rights, job market, and more.",
+                  icon: <FileText className="w-5 h-5 text-violet-600" />,
+                  bg: "bg-violet-50 border-violet-100",
+                  iconBg: "bg-violet-100",
+                  badge: "Stage B · Check & Write",
+                  badgeColor: "text-violet-500",
+                  title: "AI SOP Writer + Application Story Check",
+                  body: "AI writes a cliché-free SOP from your story, scores it across 7 dimensions, and flags credibility gaps in your full application — before you submit.",
                 },
                 {
                   icon: <Mic className="w-5 h-5 text-emerald-600" />,
                   bg: "bg-emerald-50 border-emerald-100",
                   iconBg: "bg-emerald-100",
-                  title: "AI Interview Coach",
-                  body: "Walk into your university visa interview with confidence. Our AI coach is trained on the exact questions used in Australian Genuine Student visa interviews (19 questions across 5 categories) and UK student credibility interviews (14 questions). Practice in voice mode, get real-time feedback on what you did well and where to improve, and hear a model answer — all powered by AI.",
+                  badge: "Stage C · Practice",
+                  badgeColor: "text-emerald-600",
+                  title: "Practice: Interview Coach + English Test Lab",
+                  body: "Mock visa interviews (AU 19Q · UK 14Q · US 60+Q) plus full-length IELTS, PTE, DET & TOEFL mocks — AI flags weak answers and scores your writing & speaking.",
                 },
                 {
-                  icon: <Award className="w-5 h-5 text-amber-600" />,
-                  bg: "bg-amber-50 border-amber-100",
-                  iconBg: "bg-amber-100",
-                  title: "Scholarship Discovery",
-                  body: "Thousands of scholarships go unclaimed every year simply because students don't know they exist. eduvianAI surfaces the most relevant fully-funded and partial scholarships across all our destination countries — from government-backed programs like Chevening, Australia Awards, and Vanier, to university merit awards — all in one place, completely free.",
+                  icon: <TrendingUp className="w-5 h-5 text-purple-600" />,
+                  bg: "bg-purple-50 border-purple-100",
+                  iconBg: "bg-purple-100",
+                  badge: "Stage D · Decide",
+                  badgeColor: "text-amber-600",
+                  title: "ROI Calculator & Parent Decision Support Tool",
+                  body: "ROI Calculator shows payback period & 10-year ROI. Parent Decision Tool gives a data-driven family verdict across 7 factors. Both free.",
                 },
               ].map((item) => (
                 <div key={item.title} className={`flex gap-4 p-5 rounded-2xl border ${item.bg}`}>
@@ -1271,6 +2071,7 @@ export default function LandingPage() {
                     {item.icon}
                   </div>
                   <div>
+                    <p className={`text-[10px] font-bold uppercase tracking-widest mb-0.5 ${item.badgeColor}`}>{item.badge}</p>
                     <p className="text-sm font-extrabold text-gray-900 mb-1">{item.title}</p>
                     <p className="text-xs text-gray-500 leading-relaxed">{item.body}</p>
                   </div>
@@ -1291,7 +2092,7 @@ export default function LandingPage() {
                   onClick={() => setAboutOpen(false)}
                   className="inline-flex items-center gap-2 px-8 py-3.5 rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-bold text-sm hover:shadow-lg hover:shadow-indigo-200 transition-all hover:-translate-y-0.5"
                 >
-                  Get my personalised shortlist — free
+                  Find my programs — free
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
@@ -1299,6 +2100,8 @@ export default function LandingPage() {
           </div>
         </div>
       )}
+
+      <HowItWorksModal open={videoOpen} onClose={() => setVideoOpen(false)} />
 
       <CountryModal
         countryName={selectedCountry}

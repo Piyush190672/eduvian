@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import {
-  Globe2,
   Users,
   BookOpen,
   LayoutDashboard,
@@ -12,6 +11,7 @@ import {
   ExternalLink,
   Trophy,
 } from "lucide-react";
+import { EduvianLogoMark } from "@/components/EduvianLogo";
 import { PROGRAMS } from "@/data/programs";
 import { getCountryFlag, formatCurrency } from "@/lib/utils";
 import { useRouter } from "next/navigation";
@@ -27,10 +27,8 @@ function AdminShell({ children }: { children: React.ReactNode }) {
       <aside className="w-60 bg-indigo-900 text-white flex flex-col fixed inset-y-0 left-0">
         <div className="p-6 border-b border-white/10">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-xl bg-white/20 flex items-center justify-center">
-              <Globe2 className="w-4 h-4" />
-            </div>
-            <span className="font-bold text-lg">eduvianAI</span>
+            <EduvianLogoMark size={32} />
+            <span className="font-display font-bold text-lg tracking-tight">eduvian<span className="text-indigo-300">AI</span></span>
           </div>
           <span className="text-xs text-indigo-300 mt-1 block">Admin Panel</span>
         </div>
