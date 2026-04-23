@@ -27,6 +27,7 @@ import {
   Lock,
   BarChart2,
   Menu,
+  AlertTriangle,
 } from "lucide-react";
 import HowItWorksModal from "@/components/HowItWorksModal";
 import { DB_STATS } from "@/data/db-stats";
@@ -1762,6 +1763,7 @@ export default function LandingPage() {
                   { icon: "🧾", label: "SOP Check",          sub: "AI feedback on your statement"      },
                   { icon: "🎤", label: "Interview Coach",    sub: "Score and improve your answers"     },
                   { icon: "📊", label: "ROI Analysis",       sub: "Compare by return on investment"    },
+                  { icon: "🛂", label: "Visa Apply",         sub: "Country-specific checklist + risk"  },
                 ].map((tab, i) => (
                   <button
                     key={i}
@@ -2037,6 +2039,92 @@ export default function LandingPage() {
                       </div>
                       <div className="mx-6 mb-5 rounded-2xl bg-green-50 border border-green-100 px-4 py-3.5">
                         <p className="text-sm font-semibold text-green-800">✓ UIUC recovers 22% faster and yields $299K more over 5 years</p>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* ══ DEMO 4 — Visa Apply ══ */}
+                  {activeDemo === 4 && (
+                    <div className="bg-white rounded-3xl shadow-[0_28px_64px_-8px_rgba(0,0,0,0.65)] overflow-hidden">
+                      <div className="h-1 bg-gradient-to-r from-sky-500 to-cyan-500" />
+                      <div className="flex items-center justify-between px-6 pt-5 pb-4 border-b border-gray-100">
+                        <div className="flex items-center gap-2.5">
+                          <div className="w-8 h-8 rounded-xl bg-sky-500/10 flex items-center justify-center">
+                            <span className="text-base">🛂</span>
+                          </div>
+                          <span className="font-bold text-gray-900">Visa Apply — F-1 (USA)</span>
+                        </div>
+                        <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-sky-50 text-sky-600 uppercase tracking-wide">Visa Coach</span>
+                      </div>
+                      <div className="px-6 py-2.5 bg-gray-50 border-b border-gray-100">
+                        <p className="text-xs text-gray-400 font-mono">Carnegie Mellon · MS · I-20 received · Apply window open</p>
+                      </div>
+
+                      {/* Financial proof + key fees — the thing that changes every intake */}
+                      <div className="px-6 py-5 grid grid-cols-3 gap-3">
+                        <div className="rounded-2xl border border-gray-100 p-3">
+                          <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">SEVIS I-901</p>
+                          <p className="text-lg font-black text-gray-900">$350</p>
+                          <p className="text-[10px] text-gray-400 mt-0.5">Pay before DS-160</p>
+                        </div>
+                        <div className="rounded-2xl border border-gray-100 p-3">
+                          <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">MRV Fee</p>
+                          <p className="text-lg font-black text-gray-900">$185</p>
+                          <p className="text-[10px] text-gray-400 mt-0.5">Non-refundable</p>
+                        </div>
+                        <div className="rounded-2xl border border-sky-200 bg-sky-50/60 p-3">
+                          <p className="text-[10px] font-bold text-sky-600 uppercase tracking-widest mb-1">Funds to show</p>
+                          <p className="text-lg font-black text-sky-700">$89,420</p>
+                          <p className="text-[10px] text-sky-600 mt-0.5">Yr 1 tuition + living</p>
+                        </div>
+                      </div>
+
+                      {/* Checklist with live statuses */}
+                      <div className="px-6 pb-2">
+                        <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Personalised checklist</p>
+                        <div className="space-y-2">
+                          {[
+                            { label: "I-20 from Carnegie Mellon", status: "done" },
+                            { label: "SEVIS I-901 payment receipt", status: "done" },
+                            { label: "DS-160 confirmation (barcode page)", status: "pending" },
+                            { label: "Bank statements — 6 months, ≥ $89,420 coverage", status: "flag" },
+                            { label: "Sponsor affidavit (if applicable)", status: "pending" },
+                            { label: "Visa interview slot — Mumbai consulate", status: "pending" },
+                          ].map((c) => {
+                            const cfg =
+                              c.status === "done"
+                                ? { dot: "bg-emerald-500", text: "text-gray-700", badge: "bg-emerald-50 text-emerald-700 border-emerald-200", label: "Done" }
+                                : c.status === "flag"
+                                ? { dot: "bg-red-500", text: "text-gray-800 font-semibold", badge: "bg-red-50 text-red-700 border-red-200", label: "Risk flag" }
+                                : { dot: "bg-amber-400", text: "text-gray-600", badge: "bg-amber-50 text-amber-700 border-amber-200", label: "Pending" };
+                            return (
+                              <div key={c.label} className="flex items-center gap-3 py-1.5 border-b border-gray-50 last:border-0">
+                                <span className={`w-2 h-2 rounded-full ${cfg.dot} flex-shrink-0`} />
+                                <p className={`text-sm leading-snug flex-1 ${cfg.text}`}>{c.label}</p>
+                                <span className={`text-[9px] font-bold px-2 py-0.5 rounded-full border ${cfg.badge} uppercase tracking-wider flex-shrink-0`}>
+                                  {cfg.label}
+                                </span>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div>
+
+                      {/* Risk flag explainer */}
+                      <div className="mx-6 mt-4 mb-3 rounded-2xl bg-red-50 border border-red-100 p-4">
+                        <div className="flex items-start gap-2">
+                          <AlertTriangle className="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" />
+                          <div>
+                            <p className="text-sm font-bold text-red-700 mb-0.5">Funds risk flag</p>
+                            <p className="text-xs text-red-600 leading-relaxed">Your current statement shows $71,200 — $18,220 short of the 1-year coverage USCIS officers expect for Pittsburgh. Add sponsor affidavit or top-up before the interview.</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Apply link */}
+                      <div className="mx-6 mb-5 rounded-2xl bg-sky-50 border border-sky-100 px-4 py-3.5 flex items-center justify-between gap-3">
+                        <p className="text-sm font-semibold text-sky-800">🔗 Direct apply link: travel.state.gov · DS-160 form</p>
+                        <span className="text-[10px] font-bold text-sky-600 bg-white border border-sky-200 rounded-full px-2 py-0.5 uppercase tracking-wider">Official</span>
                       </div>
                     </div>
                   )}
