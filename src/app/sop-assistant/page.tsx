@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import AuthGate from "@/components/AuthGate";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
@@ -14,8 +14,25 @@ import {
   Download,
   RefreshCw,
   ChevronDown,
+  Search,
+  X,
+  GraduationCap,
+  FlaskConical,
+  Target,
 } from "lucide-react";
 import { EduvianLogoMark } from "@/components/EduvianLogo";
+import { PROGRAMS } from "@/data/programs";
+
+interface ProgramRow {
+  university_name: string;
+  program_name: string;
+  degree_level?: string;
+  country?: string;
+  field_of_study?: string;
+  specialization?: string;
+  program_url?: string;
+}
+const ALL_PROGRAMS = PROGRAMS as unknown as ProgramRow[];
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
@@ -32,6 +49,35 @@ interface FormData {
   why_university: string;
   extracurriculars: string;
   additional_notes: string;
+}
+
+interface ProgramContext {
+  university: string;
+  course: string;
+  department?: string;
+  faculty: { name: string; research: string }[];
+  labs: { name: string; focus: string }[];
+  research_areas: string[];
+  curriculum_highlights: string[];
+  distinctive_features: string[];
+  recent_work: string[];
+  confidence: "high" | "medium" | "low";
+  disclaimer: string;
+}
+
+interface ParagraphFlag {
+  paragraph_snippet: string;
+  verdict: "generic" | "partial" | "specific";
+  reason: string;
+  rewrite_hint: string;
+}
+
+interface ProgramSpecificFit {
+  school_specificity_score: number;
+  swap_test_verdict: string;
+  paragraph_flags: ParagraphFlag[];
+  program_elements_referenced: string[];
+  missing_elements: string[];
 }
 
 interface DimensionScore {
@@ -69,6 +115,7 @@ interface ScoreResult {
   };
   word_count_estimate: number;
   ready_to_submit: boolean;
+  program_specific_fit?: ProgramSpecificFit;
 }
 
 type Step = "form" | "loading" | "result";
@@ -314,6 +361,338 @@ function ScoreSkeleton() {
   );
 }
 
+// ── Program Picker Modal ──────────────────────────────────────────────────────
+
+function ProgramPickerModal({
+  open,
+  onClose,
+  onSelect,
+}: {
+  open: boolean;
+  onClose: () => void;
+  onSelect: (p: ProgramRow) => void;
+}) {
+  const [query, setQuery] = useState("");
+
+  const results = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    if (!q || q.length < 2) return [];
+    return ALL_PROGRAMS
+      .filter(
+        (p) =>
+          p.university_name?.toLowerCase().includes(q) ||
+          p.program_name?.toLowerCase().includes(q) ||
+          p.field_of_study?.toLowerCase().includes(q)
+      )
+      .slice(0, 30);
+  }, [query]);
+
+  useEffect(() => {
+    if (!open) return;
+    const onEsc = (e: KeyboardEvent) => e.key === "Escape" && onClose();
+    window.addEventListener("keydown", onEsc);
+    return () => window.removeEventListener("keydown", onEsc);
+  }, [open, onClose]);
+
+  if (!open) return null;
+
+  return (
+    <div
+      className="fixed inset-0 z-[100] bg-slate-900/60 backdrop-blur-sm flex items-start justify-center p-4 pt-24"
+      onClick={onClose}
+    >
+      <div
+        className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[75vh] overflow-hidden flex flex-col"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="px-5 py-4 border-b border-gray-100 flex items-center gap-3">
+          <Search className="w-4 h-4 text-gray-400 flex-shrink-0" />
+          <input
+            autoFocus
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search by university, program, or field (e.g. Edinburgh, MSc Data Science)…"
+            className="flex-1 outline-none text-sm text-gray-800 placeholder-gray-400"
+          />
+          <button onClick={onClose} className="p-1 rounded-lg hover:bg-gray-100">
+            <X className="w-4 h-4 text-gray-400" />
+          </button>
+        </div>
+        <div className="flex-1 overflow-y-auto">
+          {query.trim().length < 2 && (
+            <div className="p-10 text-center text-xs text-gray-400">
+              Type 2+ characters to search programs in our database of {ALL_PROGRAMS.length.toLocaleString()}+ programs.
+            </div>
+          )}
+          {query.trim().length >= 2 && results.length === 0 && (
+            <div className="p-10 text-center text-xs text-gray-400">
+              No matches. You can still enter the university and course manually below.
+            </div>
+          )}
+          {results.map((p, i) => (
+            <button
+              key={`${p.university_name}-${p.program_name}-${i}`}
+              onClick={() => {
+                onSelect(p);
+                onClose();
+              }}
+              className="w-full text-left px-5 py-3 border-b border-gray-50 hover:bg-indigo-50/40 transition-colors"
+            >
+              <p className="text-sm font-semibold text-gray-900 leading-tight">{p.program_name}</p>
+              <p className="text-xs text-gray-500 mt-0.5">
+                {p.university_name}
+                {p.country ? ` · ${p.country}` : ""}
+                {p.degree_level ? ` · ${p.degree_level}` : ""}
+              </p>
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ── Program Intel Card ────────────────────────────────────────────────────────
+
+function ProgramIntelCard({
+  ctx,
+  loading,
+}: {
+  ctx: ProgramContext | null;
+  loading: boolean;
+}) {
+  if (loading) {
+    return (
+      <div className="rounded-2xl border border-indigo-100 bg-gradient-to-br from-indigo-50/70 to-white p-5">
+        <div className="flex items-center gap-2 mb-3">
+          <motion.div animate={{ rotate: 360 }} transition={{ duration: 1.2, repeat: Infinity, ease: "linear" }}>
+            <RefreshCw className="w-3.5 h-3.5 text-indigo-500" />
+          </motion.div>
+          <span className="text-xs font-bold text-indigo-700 uppercase tracking-widest">
+            Extracting program intelligence…
+          </span>
+        </div>
+        <div className="space-y-2">
+          {[1, 2, 3].map((i) => (
+            <div key={i} className="h-3 bg-indigo-100/60 rounded animate-pulse" />
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  if (!ctx) return null;
+
+  const confBadge =
+    ctx.confidence === "high"
+      ? "bg-emerald-100 text-emerald-700"
+      : ctx.confidence === "medium"
+      ? "bg-indigo-100 text-indigo-700"
+      : "bg-amber-100 text-amber-700";
+
+  const sections: { icon: React.ReactNode; title: string; items: string[] }[] = [
+    {
+      icon: <GraduationCap className="w-3.5 h-3.5" />,
+      title: "Faculty",
+      items: ctx.faculty?.map((f) => `${f.name} — ${f.research}`) ?? [],
+    },
+    {
+      icon: <FlaskConical className="w-3.5 h-3.5" />,
+      title: "Labs / Groups",
+      items: ctx.labs?.map((l) => `${l.name} — ${l.focus}`) ?? [],
+    },
+    {
+      icon: <Target className="w-3.5 h-3.5" />,
+      title: "Research areas",
+      items: ctx.research_areas ?? [],
+    },
+    {
+      icon: <FileText className="w-3.5 h-3.5" />,
+      title: "Signature courses",
+      items: ctx.curriculum_highlights ?? [],
+    },
+    {
+      icon: <Sparkles className="w-3.5 h-3.5" />,
+      title: "Distinctive features",
+      items: ctx.distinctive_features ?? [],
+    },
+  ];
+
+  return (
+    <div className="rounded-2xl border border-indigo-100 bg-gradient-to-br from-indigo-50/70 to-white p-5">
+      <div className="flex items-center justify-between mb-3 flex-wrap gap-2">
+        <div className="flex items-center gap-2">
+          <Sparkles className="w-4 h-4 text-indigo-500" />
+          <span className="text-xs font-extrabold text-indigo-800 uppercase tracking-widest">
+            Program Intelligence
+          </span>
+        </div>
+        <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider ${confBadge}`}>
+          Confidence: {ctx.confidence}
+        </span>
+      </div>
+
+      <p className="text-[11px] text-gray-500 mb-3 leading-relaxed">
+        {ctx.disclaimer || "Verify all specifics on the program's official site before citing them."}
+      </p>
+
+      <div className="space-y-3">
+        {sections.map((s) =>
+          s.items.length === 0 ? null : (
+            <div key={s.title}>
+              <div className="flex items-center gap-1.5 mb-1 text-[11px] font-bold text-indigo-700 uppercase tracking-wider">
+                {s.icon}
+                {s.title}
+              </div>
+              <ul className="space-y-1 pl-5">
+                {s.items.slice(0, 5).map((it, i) => (
+                  <li key={i} className="text-xs text-gray-700 leading-snug list-disc marker:text-indigo-300">
+                    {it}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )
+        )}
+      </div>
+    </div>
+  );
+}
+
+// ── Program-Specific Fit Card ─────────────────────────────────────────────────
+
+function ProgramFitAudit({ fit }: { fit: ProgramSpecificFit }) {
+  const pct = Math.max(0, Math.min(100, Math.round(fit.school_specificity_score ?? 0)));
+  const tone =
+    pct >= 75
+      ? { ring: "stroke-emerald-500", text: "text-emerald-600", label: "Program-specific" }
+      : pct >= 50
+      ? { ring: "stroke-indigo-500", text: "text-indigo-600", label: "Mostly tied to program" }
+      : pct >= 25
+      ? { ring: "stroke-amber-500", text: "text-amber-600", label: "Too generic" }
+      : { ring: "stroke-red-500", text: "text-red-600", label: "Copy-paste risk" };
+
+  const verdictBadge = (v: ParagraphFlag["verdict"]) => {
+    if (v === "specific") return "bg-emerald-100 text-emerald-700 border-emerald-200";
+    if (v === "partial") return "bg-amber-100 text-amber-700 border-amber-200";
+    return "bg-red-100 text-red-700 border-red-200";
+  };
+
+  const r = 40;
+  const circ = 2 * Math.PI * r;
+  const progress = (pct / 100) * circ;
+
+  return (
+    <div className="rounded-2xl border border-indigo-200 bg-gradient-to-br from-white to-indigo-50/40 p-5 mb-3">
+      <div className="flex items-center gap-2 mb-3">
+        <Target className="w-4 h-4 text-indigo-600" />
+        <span className="text-xs font-extrabold text-indigo-800 uppercase tracking-widest">
+          Program-Specific Fit
+        </span>
+      </div>
+
+      <div className="flex items-center gap-4 mb-4">
+        <div className="relative w-24 h-24 flex-shrink-0">
+          <svg className="absolute inset-0 -rotate-90" width="96" height="96" viewBox="0 0 96 96">
+            <circle cx="48" cy="48" r={r} fill="none" stroke="#e5e7eb" strokeWidth="7" />
+            <circle
+              cx="48"
+              cy="48"
+              r={r}
+              fill="none"
+              strokeWidth="7"
+              strokeDasharray={`${progress} ${circ}`}
+              strokeLinecap="round"
+              className={tone.ring}
+              style={{ transition: "stroke-dasharray 0.8s ease" }}
+            />
+          </svg>
+          <div className="absolute inset-0 flex flex-col items-center justify-center">
+            <span className={`text-2xl font-black ${tone.text}`}>{pct}</span>
+            <span className="text-[9px] text-gray-400 font-semibold uppercase tracking-wider">/ 100</span>
+          </div>
+        </div>
+        <div className="flex-1">
+          <p className={`text-sm font-extrabold ${tone.text} mb-1`}>{tone.label}</p>
+          <p className="text-[11px] text-gray-500 leading-snug">
+            <span className="font-bold text-gray-700">Swap test: </span>
+            {fit.swap_test_verdict}
+          </p>
+        </div>
+      </div>
+
+      {fit.paragraph_flags?.length > 0 && (
+        <div className="mb-3">
+          <p className="text-[11px] font-bold text-gray-500 uppercase tracking-wider mb-2">
+            Paragraph audit
+          </p>
+          <div className="space-y-2">
+            {fit.paragraph_flags.map((f, i) => (
+              <div
+                key={i}
+                className="rounded-xl border border-gray-100 bg-white p-3"
+              >
+                <div className="flex items-start gap-2 mb-1.5">
+                  <span
+                    className={`px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider border ${verdictBadge(
+                      f.verdict
+                    )}`}
+                  >
+                    {f.verdict}
+                  </span>
+                  <p className="text-[11px] text-gray-400 italic leading-snug flex-1">
+                    &ldquo;{f.paragraph_snippet}…&rdquo;
+                  </p>
+                </div>
+                <p className="text-xs text-gray-600 leading-snug mb-1">
+                  <span className="font-semibold text-gray-700">Why: </span>
+                  {f.reason}
+                </p>
+                {f.rewrite_hint && (
+                  <p className="text-xs text-indigo-700 leading-snug">
+                    <span className="font-semibold">→ Rewrite: </span>
+                    {f.rewrite_hint}
+                  </p>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {fit.program_elements_referenced?.length > 0 && (
+        <div className="mb-2">
+          <p className="text-[11px] font-bold text-emerald-700 uppercase tracking-wider mb-1">
+            ✓ Program elements you cited
+          </p>
+          <ul className="pl-5 space-y-0.5">
+            {fit.program_elements_referenced.map((e, i) => (
+              <li key={i} className="text-xs text-emerald-700 list-disc marker:text-emerald-400">
+                {e}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {fit.missing_elements?.length > 0 && (
+        <div>
+          <p className="text-[11px] font-bold text-amber-700 uppercase tracking-wider mb-1">
+            Weave these in next
+          </p>
+          <ul className="pl-5 space-y-0.5">
+            {fit.missing_elements.map((e, i) => (
+              <li key={i} className="text-xs text-amber-700 list-disc marker:text-amber-400">
+                {e}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  );
+}
+
 // ── Main Page ──────────────────────────────────────────────────────────────────
 
 export default function SOPAssistantPage() {
@@ -338,6 +717,9 @@ export default function SOPAssistantPage() {
   const [scoreResult, setScoreResult] = useState<ScoreResult | null>(null);
   const [scoreLoading, setScoreLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [pickerOpen, setPickerOpen] = useState(false);
+  const [programContext, setProgramContext] = useState<ProgramContext | null>(null);
+  const [contextLoading, setContextLoading] = useState(false);
 
   // Cycle loading steps
   useEffect(() => {
@@ -356,6 +738,42 @@ export default function SOPAssistantPage() {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   }
 
+  const fetchProgramContext = useCallback(async (university: string, course: string) => {
+    if (!university.trim() || !course.trim()) return;
+    setContextLoading(true);
+    setProgramContext(null);
+    try {
+      const res = await fetch("/api/sop-assistant", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action: "program_context", university, course }),
+      });
+      const data = (await res.json()) as { program_context?: ProgramContext; error?: string };
+      if (!res.ok || data.error) throw new Error(data.error ?? "Could not fetch program context");
+      if (data.program_context) setProgramContext(data.program_context);
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : "Could not fetch program context";
+      setError(msg);
+    } finally {
+      setContextLoading(false);
+    }
+  }, []);
+
+  function handleProgramPick(p: ProgramRow) {
+    setForm((prev) => ({
+      ...prev,
+      university: p.university_name ?? prev.university,
+      course: p.program_name ?? prev.course,
+      degree_level: p.degree_level ?? prev.degree_level,
+    }));
+    // Clear stale context so it refetches for the new program
+    setProgramContext(null);
+    // Kick off context fetch in background
+    if (p.university_name && p.program_name) {
+      fetchProgramContext(p.university_name, p.program_name);
+    }
+  }
+
   const handleScore = useCallback(async (sopText: string) => {
     setScoreLoading(true);
     setScoreResult(null);
@@ -368,6 +786,7 @@ export default function SOPAssistantPage() {
           sop_text: sopText,
           university: form.university,
           course: form.course,
+          program_context: programContext,
         }),
       });
       const data = (await res.json()) as ScoreResult & { error?: string };
@@ -379,7 +798,7 @@ export default function SOPAssistantPage() {
     } finally {
       setScoreLoading(false);
     }
-  }, [form.university, form.course]);
+  }, [form.university, form.course, programContext]);
 
   async function handleGenerate(e: React.FormEvent) {
     e.preventDefault();
@@ -390,10 +809,29 @@ export default function SOPAssistantPage() {
     setLoadingStepIdx(0);
 
     try {
+      // If we don't have program context yet but have university+course, fetch it synchronously first
+      let ctx = programContext;
+      if (!ctx && form.university.trim() && form.course.trim()) {
+        try {
+          setContextLoading(true);
+          const ctxRes = await fetch("/api/sop-assistant", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ action: "program_context", university: form.university, course: form.course }),
+          });
+          const ctxData = (await ctxRes.json()) as { program_context?: ProgramContext };
+          if (ctxData.program_context) {
+            ctx = ctxData.program_context;
+            setProgramContext(ctxData.program_context);
+          }
+        } catch { /* non-fatal — proceed without context */ }
+        finally { setContextLoading(false); }
+      }
+
       const res = await fetch("/api/sop-assistant", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ action: "generate", ...form }),
+        body: JSON.stringify({ action: "generate", ...form, program_context: ctx }),
       });
       const data = (await res.json()) as { sop?: string; error?: string };
       if (!res.ok || data.error) throw new Error(data.error ?? "Generation failed");
@@ -428,6 +866,7 @@ export default function SOPAssistantPage() {
     setEditedSOP("");
     setScoreResult(null);
     setError(null);
+    setProgramContext(null);
   }
 
   // ── Step 1: Form ────────────────────────────────────────────────────────────
@@ -438,6 +877,7 @@ export default function SOPAssistantPage() {
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50/30 font-sans">
         <Nav />
+        <ProgramPickerModal open={pickerOpen} onClose={() => setPickerOpen(false)} onSelect={handleProgramPick} />
         <main className="pt-24 pb-20 px-4 max-w-6xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
             {/* Header */}
@@ -454,7 +894,7 @@ export default function SOPAssistantPage() {
                 in Minutes
               </h1>
               <p className="text-gray-500 text-base leading-relaxed max-w-2xl mx-auto">
-                Fill in your story and let our AI craft an authentic, admissions-ready Statement of Purpose — then score it against 7 dimensions before you submit.
+                Pick your target program, fill in your story, and our AI drafts an SOP bound to that program&apos;s actual faculty, labs, and courses — then audits every paragraph for generic copy-paste vs. real program fit.
               </p>
             </div>
 
@@ -472,9 +912,19 @@ export default function SOPAssistantPage() {
                 {/* Left Column */}
                 <div className="space-y-5">
                   <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 space-y-4">
-                    <h2 className="text-sm font-extrabold text-gray-700 uppercase tracking-wider">
-                      Target Application
-                    </h2>
+                    <div className="flex items-center justify-between flex-wrap gap-2">
+                      <h2 className="text-sm font-extrabold text-gray-700 uppercase tracking-wider">
+                        Target Application
+                      </h2>
+                      <button
+                        type="button"
+                        onClick={() => setPickerOpen(true)}
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-50 hover:bg-indigo-100 text-indigo-700 text-xs font-bold transition-colors"
+                      >
+                        <Search className="w-3.5 h-3.5" />
+                        Pick from database
+                      </button>
+                    </div>
                     <div>
                       <label className="block text-sm font-semibold text-gray-700 mb-1.5">
                         University Name <span className="text-red-500 text-xs">(required)</span>
@@ -483,6 +933,11 @@ export default function SOPAssistantPage() {
                         name="university"
                         value={form.university}
                         onChange={handleFormChange}
+                        onBlur={() => {
+                          if (form.university.trim() && form.course.trim() && !programContext && !contextLoading) {
+                            fetchProgramContext(form.university, form.course);
+                          }
+                        }}
                         required
                         placeholder="e.g. University of Edinburgh"
                         className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition placeholder-gray-400"
@@ -496,6 +951,11 @@ export default function SOPAssistantPage() {
                         name="course"
                         value={form.course}
                         onChange={handleFormChange}
+                        onBlur={() => {
+                          if (form.university.trim() && form.course.trim() && !programContext && !contextLoading) {
+                            fetchProgramContext(form.university, form.course);
+                          }
+                        }}
                         required
                         placeholder="e.g. MSc Data Science"
                         className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition placeholder-gray-400"
@@ -666,6 +1126,11 @@ export default function SOPAssistantPage() {
                       />
                     </div>
                   </div>
+
+                  {/* Program intelligence card */}
+                  {(contextLoading || programContext) && (
+                    <ProgramIntelCard ctx={programContext} loading={contextLoading} />
+                  )}
 
                   {/* Tips card */}
                   <div className="bg-indigo-50 border border-indigo-100 rounded-2xl p-5">
@@ -924,6 +1389,11 @@ export default function SOPAssistantPage() {
                           {scoreResult.ready_to_submit ? "✓ Ready to Submit" : "Not Ready Yet"}
                         </span>
                       </div>
+
+                      {/* Program-Specific Fit audit */}
+                      {scoreResult.program_specific_fit && (
+                        <ProgramFitAudit fit={scoreResult.program_specific_fit} />
+                      )}
 
                       {/* Collapsible sections */}
                       {scoreResult.red_flags.length > 0 && (
