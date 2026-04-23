@@ -19,8 +19,10 @@ import {
   Star,
   Upload,
   Loader2,
+  Mail,
 } from "lucide-react";
 import { EduvianLogoMark } from "@/components/EduvianLogo";
+import { LorBriefBuilder } from "@/components/LorBriefBuilder";
 
 // ══════════════════════════════════════════════════════════════════════════════
 // Types — Application Pack Check
@@ -367,12 +369,13 @@ function UploadButton({
 
 export default function ApplicationCheckPage() {
   // ── Tab ──────────────────────────────────────────────────────────────────
-  const [activeTab, setActiveTab] = useState<"check" | "cv">("check");
+  const [activeTab, setActiveTab] = useState<"check" | "cv" | "lor">("check");
 
-  // Deep-link: /application-check?tab=cv opens directly to the CV tab
+  // Deep-link: /application-check?tab=cv or ?tab=lor opens that tab directly
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     if (params.get("tab") === "cv") setActiveTab("cv");
+    else if (params.get("tab") === "lor") setActiveTab("lor");
   }, []);
 
   // ── App Check state ───────────────────────────────────────────────────────
@@ -581,7 +584,7 @@ export default function ApplicationCheckPage() {
 
       {/* Tab bar */}
       <div className="pt-20 px-4">
-        <div className="max-w-2xl mx-auto mt-6 mb-0">
+        <div className="max-w-3xl mx-auto mt-6 mb-0">
           <div className="flex bg-white rounded-2xl border border-gray-100 shadow-sm p-1.5 gap-1">
             <button
               onClick={() => setActiveTab("check")}
@@ -604,6 +607,17 @@ export default function ApplicationCheckPage() {
             >
               <FileText className="w-4 h-4" />
               CV Assessment &amp; Builder
+            </button>
+            <button
+              onClick={() => setActiveTab("lor")}
+              className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold transition-all duration-200 ${
+                activeTab === "lor"
+                  ? "bg-gradient-to-r from-rose-500 to-orange-500 text-white shadow-md"
+                  : "text-gray-500 hover:text-gray-700 hover:bg-gray-50"
+              }`}
+            >
+              <Mail className="w-4 h-4" />
+              LOR Coach
             </button>
           </div>
         </div>
@@ -1201,6 +1215,12 @@ export default function ApplicationCheckPage() {
             )}
 
           </AnimatePresence>
+        </main>
+      )}
+
+      {activeTab === "lor" && (
+        <main className="pt-8 pb-20 px-4 max-w-6xl mx-auto">
+          <LorBriefBuilder />
         </main>
       )}
     </div>

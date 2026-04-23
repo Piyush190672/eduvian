@@ -1045,7 +1045,7 @@ export default function LandingPage() {
                   <span className="text-indigo-400">Now make sure you get in.</span>
                 </h3>
                 <p className="text-slate-300 text-base leading-relaxed mb-6">
-                  Three tools to strengthen your application before you submit. Write a cliché-free SOP, score and rebuild your CV across 6 dimensions, or check your full application pack for credibility gaps and red flags.
+                  Three tools to strengthen your application before you submit. Write a cliché-free SOP, score and rebuild your CV across 6 dimensions, or run a full Pack Check — SOP, CV, profile, and recommendation letters — for credibility gaps and red flags.
                 </p>
                 <div className="flex flex-wrap gap-4 mb-8">
                   {[
@@ -1083,7 +1083,7 @@ export default function LandingPage() {
                   <span className="text-2xl flex-shrink-0 mt-0.5">📋</span>
                   <div>
                     <p className="text-sm font-extrabold text-white mb-0.5 mt-0.5">Application Pack Check</p>
-                    <p className="text-xs text-slate-300 leading-snug mb-1.5">Paste your SOP, CV &amp; profile. Spot contradictions, credibility gaps, and exactly what an officer would question — with a fix list.</p>
+                    <p className="text-xs text-slate-300 leading-snug mb-1.5">Paste your SOP, CV, profile &amp; recommendation letters. Spot contradictions, credibility gaps, and exactly what an officer would question — plus an LOR Coach link to send recommenders. With a fix list.</p>
                     <span className="text-[10px] font-bold text-indigo-300 uppercase tracking-wider">Readiness score + fix list</span>
                   </div>
                 </Link>
