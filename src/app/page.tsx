@@ -481,7 +481,7 @@ export default function LandingPage() {
               >
                 <Sparkles className="w-3.5 h-3.5 text-blue-400" />
                 <span className="text-xs font-semibold tracking-widest uppercase bg-gradient-to-r from-blue-300 via-violet-300 to-blue-300 bg-clip-text text-transparent">
-                  Match · Check · Practice · Decide
+                  Match · Check · Practice · Decide · Apply Visa
                 </span>
               </motion.div>
 
@@ -496,7 +496,7 @@ export default function LandingPage() {
 
               {/* Subheadline */}
               <p className="text-base sm:text-lg text-gray-400 mb-8 leading-relaxed max-w-lg">
-                Find the right programs, strengthen your application, prepare for English tests and interviews, and decide with confidence—using AI built for real outcomes.
+                Find the right programs, strengthen your application, prepare for English tests and interviews, decide with confidence, and nail your student visa — F-1, UK, SDS, AUS 500 &amp; 8 more — using AI built for real outcomes.
               </p>
 
               {/* CTA row */}
@@ -514,6 +514,13 @@ export default function LandingPage() {
                 >
                   Check my application
                   <FileText className="w-4 h-4" />
+                </Link>
+                <Link
+                  href="/visa-coach"
+                  className="inline-flex items-center justify-center gap-2 border border-sky-400/40 text-sky-200 hover:border-sky-300 hover:text-white hover:bg-sky-500/10 rounded-xl px-6 py-3.5 font-bold text-base transition-colors"
+                >
+                  <span className="text-base leading-none">🛂</span>
+                  Apply for Visa
                 </Link>
               </div>
 
@@ -614,6 +621,27 @@ export default function LandingPage() {
                   <p className="text-[9px] font-bold text-emerald-600 mt-2">⭐ UCL recommended</p>
                 </div>
 
+                {/* Card M4 — Visa */}
+                <div className="flex-shrink-0 w-[220px] snap-start bg-white rounded-2xl p-4 shadow-[0_12px_40px_rgba(0,0,0,0.22)]">
+                  <div className="flex items-center justify-between mb-3">
+                    <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Visa Coach</p>
+                    <span className="text-[8px] font-bold px-1.5 py-0.5 rounded-full bg-sky-50 text-sky-600 border border-sky-100">12 countries</span>
+                  </div>
+                  {[
+                    { flag: "🇺🇸", name: "F-1 (USA)", fee: "$185", risk: "low", rc: "text-emerald-600", rb: "bg-emerald-50 border-emerald-200" },
+                    { flag: "🇬🇧", name: "UK Student", fee: "£558", risk: "low", rc: "text-emerald-600", rb: "bg-emerald-50 border-emerald-200" },
+                    { flag: "🇨🇦", name: "SDS (Canada)", fee: "CAD 150", risk: "med", rc: "text-amber-700", rb: "bg-amber-50 border-amber-200" },
+                  ].map((v) => (
+                    <div key={v.name} className="flex items-center gap-2 py-1 border-b border-gray-50 last:border-0">
+                      <span className="text-sm flex-shrink-0">{v.flag}</span>
+                      <p className="text-[10px] font-bold text-gray-900 flex-1 truncate">{v.name}</p>
+                      <span className="text-[9px] text-gray-500 flex-shrink-0">{v.fee}</span>
+                      <span className={`text-[8px] font-bold px-1.5 py-0.5 rounded-full border ${v.rb} ${v.rc}`}>{v.risk}</span>
+                    </div>
+                  ))}
+                  <p className="text-[9px] font-bold text-sky-600 mt-2 pt-2 border-t border-gray-50">🛂 Official-source checklists</p>
+                </div>
+
               </div>
 
               {/* ── DESKTOP: vertical stacked cards ──────────────────── */}
@@ -689,6 +717,30 @@ export default function LandingPage() {
                     ))}
                     <p className="text-[9px] font-bold text-emerald-600 mt-1">⭐ UCL wins</p>
                   </div>
+                </div>
+
+                {/* Card 4 — Visa Coach (desktop) */}
+                <div className="bg-white rounded-2xl p-4 shadow-[0_10px_40px_rgba(0,0,0,0.2)]">
+                  <div className="flex items-center justify-between mb-3">
+                    <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Visa Coach · 12 countries</p>
+                    <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-sky-50 text-sky-600 border border-sky-100">F-1 · UK · SDS · AUS 500 +8</span>
+                  </div>
+                  <div className="grid grid-cols-3 gap-2">
+                    {[
+                      { flag: "🇺🇸", label: "F-1", detail: "$185 · I-20 ready" },
+                      { flag: "🇬🇧", label: "UK Student", detail: "£558 · CAS" },
+                      { flag: "🇨🇦", label: "SDS", detail: "CAD 22,895 GIC" },
+                    ].map((v) => (
+                      <div key={v.label} className="rounded-lg border border-gray-100 p-2">
+                        <div className="flex items-center gap-1 mb-0.5">
+                          <span className="text-sm">{v.flag}</span>
+                          <span className="text-[10px] font-bold text-gray-900 truncate">{v.label}</span>
+                        </div>
+                        <p className="text-[9px] text-gray-500 leading-tight truncate">{v.detail}</p>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="text-[9px] text-sky-600 font-bold mt-2.5 pt-2 border-t border-gray-50">🛂 Official-source checklists · risk flags · apply links</p>
                 </div>
 
               </div>
