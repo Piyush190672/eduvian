@@ -1497,6 +1497,117 @@ export default function LandingPage() {
             </div>
           </motion.div>
 
+          {/* ── Stage divider ── */}
+          <div className="flex items-center gap-4 my-16">
+            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-sky-200 to-sky-300/60" />
+            <div className="flex items-center gap-2 text-sky-500 text-xs font-bold uppercase tracking-widest">
+              <span className="w-6 h-6 rounded-full bg-sky-100 text-sky-700 flex items-center justify-center text-[11px] font-black">5</span>
+              Then → Stage 5
+            </div>
+            <div className="flex-1 h-px bg-gradient-to-l from-transparent via-sky-200 to-sky-300/60" />
+          </div>
+
+          {/* ── STAGE 5: Apply (Visa) ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="relative rounded-3xl bg-gradient-to-br from-sky-50 via-white to-cyan-50 border border-sky-100 overflow-hidden p-10 md:p-14"
+          >
+            <div className="absolute -top-16 -right-16 w-64 h-64 bg-sky-200/30 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-16 -left-16 w-64 h-64 bg-cyan-200/30 rounded-full blur-3xl pointer-events-none" />
+
+            {/* Step pill */}
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-sky-500 to-cyan-500 text-white text-xs font-black px-5 py-2 rounded-full shadow-lg shadow-sky-200 mb-8">
+              <span className="w-5 h-5 rounded-full bg-white/30 flex items-center justify-center text-[11px] font-black">5</span>
+              STAGE 5 · APPLY — GET THE VISA RIGHT THE FIRST TIME
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-14 items-start">
+              {/* Left: copy */}
+              <div>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-50 text-sky-600 text-xs font-bold uppercase tracking-wider mb-4 border border-sky-200">
+                  <span>🛂</span> Stage 5 · Apply
+                </div>
+                <h3 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 leading-tight">
+                  Accepted. Now the visa.<br />
+                  <span className="bg-gradient-to-r from-sky-600 to-cyan-500 bg-clip-text text-transparent">No surprises, no rejections.</span>
+                </h3>
+                <p className="text-gray-500 text-base leading-relaxed mb-6">
+                  Most students panic at this stage. Financial proof amounts change mid-year, deadlines are country-specific, and one missed form means a lost intake. Our Visa Coach and Application Tracker keep you on rails — from checklist to countdown to apply-portal click.
+                </p>
+                <div className="flex flex-wrap gap-2.5 mb-6">
+                  {[
+                    { icon: "🛂", text: "12 countries covered" },
+                    { icon: "📄", text: "Official-source checklists" },
+                    { icon: "⚠️", text: "Risk flags" },
+                    { icon: "⏱", text: "Deadline countdowns" },
+                    { icon: "🔗", text: "Direct apply links" },
+                  ].map((f) => (
+                    <div key={f.text} className="flex items-center gap-2 bg-white border border-gray-200 rounded-full px-4 py-2 text-sm text-gray-700 font-semibold shadow-sm">
+                      <span>{f.icon}</span>{f.text}
+                    </div>
+                  ))}
+                </div>
+
+                {/* Country flag chips */}
+                <div className="grid grid-cols-6 gap-1.5">
+                  {["🇺🇸","🇬🇧","🇨🇦","🇦🇺","🇩🇪","🇮🇪","🇳🇱","🇫🇷","🇳🇿","🇸🇬","🇲🇾","🇦🇪"].map((f, i) => (
+                    <div key={i} className="aspect-square rounded-lg bg-white border border-sky-100 flex items-center justify-center text-xl shadow-sm">
+                      {f}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Right: two tool cards */}
+              <div className="space-y-4">
+                <Link href="/visa-coach" className="block group">
+                  <div className="bg-white rounded-2xl border border-sky-100 p-6 shadow-sm hover:shadow-xl hover:border-sky-300 hover:-translate-y-1 transition-all duration-300">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-500 to-cyan-600 flex items-center justify-center shadow-md flex-shrink-0">
+                        <span className="text-xl">🛂</span>
+                      </div>
+                      <div className="text-right">
+                        <span className="text-2xl font-black text-sky-600">12</span>
+                        <p className="text-[9px] text-gray-400 leading-none">countries</p>
+                      </div>
+                    </div>
+                    <p className="text-[11px] font-bold text-sky-500 uppercase tracking-wider mb-1">Visa Coach</p>
+                    <p className="text-base font-extrabold text-gray-900 mb-2">Country-specific visa playbooks</p>
+                    <p className="text-sm text-gray-500 leading-relaxed mb-3">F-1, UK Student, SDS, AUS 500, Germany D-visa and 7 more. Fees, financial proof, checklists, risk flags — every figure linked to the official government page.</p>
+                    <div className="flex items-center gap-2 p-3 rounded-xl bg-sky-50 border border-sky-100 mb-4">
+                      <span className="text-xs font-bold text-sky-700">Outcome:</span>
+                      <span className="text-xs text-sky-600">A filed-on-time, rejection-proof application</span>
+                    </div>
+                    <span className="inline-flex items-center gap-1 text-sm font-bold text-sky-600 group-hover:gap-2 transition-all">Open Visa Coach <ArrowRight className="w-4 h-4" /></span>
+                  </div>
+                </Link>
+
+                <Link href="/application-tracker" className="block group">
+                  <div className="bg-white rounded-2xl border border-sky-100 p-6 shadow-sm hover:shadow-xl hover:border-indigo-300 hover:-translate-y-1 transition-all duration-300">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center shadow-md flex-shrink-0">
+                        <span className="text-xl">🗂️</span>
+                      </div>
+                      <div className="text-right">
+                        <span className="text-2xl font-black text-indigo-600">4</span>
+                        <p className="text-[9px] text-gray-400 leading-none">columns</p>
+                      </div>
+                    </div>
+                    <p className="text-[11px] font-bold text-indigo-500 uppercase tracking-wider mb-1">Application Tracker</p>
+                    <p className="text-base font-extrabold text-gray-900 mb-2">Kanban board for every application</p>
+                    <p className="text-sm text-gray-500 leading-relaxed mb-3">Shortlisted → In Progress → Submitted → Decision. Per-program checklists, deadline countdowns, and document-version history in one place.</p>
+                    <div className="flex items-center gap-2 p-3 rounded-xl bg-indigo-50 border border-indigo-100 mb-4">
+                      <span className="text-xs font-bold text-indigo-700">Outcome:</span>
+                      <span className="text-xs text-indigo-600">Every deadline met, every version saved</span>
+                    </div>
+                    <span className="inline-flex items-center gap-1 text-sm font-bold text-indigo-600 group-hover:gap-2 transition-all">Open Tracker <ArrowRight className="w-4 h-4" /></span>
+                  </div>
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+
         </div>
       </section>
 
