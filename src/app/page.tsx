@@ -515,13 +515,6 @@ export default function LandingPage() {
                   Check my application
                   <FileText className="w-4 h-4" />
                 </Link>
-                <Link
-                  href="/visa-coach"
-                  className="inline-flex items-center justify-center gap-2 border border-sky-400/40 text-sky-200 hover:border-sky-300 hover:text-white hover:bg-sky-500/10 rounded-xl px-6 py-3.5 font-bold text-base transition-colors"
-                >
-                  <span className="text-base leading-none">🛂</span>
-                  Apply for Visa
-                </Link>
               </div>
 
               {/* Trust strip */}
