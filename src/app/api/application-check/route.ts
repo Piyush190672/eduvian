@@ -49,15 +49,11 @@ const extractJSON = (text: string): string | null => {
   return null;
 };
 
-const ANALYSIS_PROMPT = (data: ApplicationCheckRequest) => `You are an expert international university admissions consultant and visa counsellor. Analyse the following student application pack for ${data.course} at ${data.university}.
+// Static rubric/instructions — same on every call. Lives in the system block
+// with cache_control: ephemeral so Anthropic prompt caching can reuse it.
+const APPLICATION_CHECK_SYSTEM = `You are an expert international university admissions consultant and visa counsellor. You always respond with valid JSON only — no markdown, no code fences, no preamble, no trailing text. Your entire response must be a single valid JSON object and nothing else.
 
-APPLICATION PACK:
-${data.sop ? `\n=== STATEMENT OF PURPOSE / PERSONAL STATEMENT ===\n${data.sop}\n` : ""}
-${data.cv ? `\n=== CV / RESUME HIGHLIGHTS ===\n${data.cv}\n` : ""}
-${data.profile ? `\n=== PROFILE SUMMARY (GPA, backlogs, work exp, English score) ===\n${data.profile}\n` : ""}
-${data.visa_notes ? `\n=== VISA / INTERVIEW PREPARATION NOTES ===\n${data.visa_notes}\n` : ""}
-
-Perform a thorough credibility and quality check. Evaluate:
+You will receive an application pack (SOP, CV, profile summary, visa/interview notes) along with the target university and program. Perform a thorough credibility and quality check. Evaluate:
 1. Overall readiness for this specific application (0-100 score)
 2. Logical consistency and credibility across all documents
 3. Weak or generic language in the SOP/CV that admissions panels flag
@@ -84,6 +80,14 @@ Rules for field values:
 - weak_phrases: 3-5 specific weak phrases from the SOP/CV with concrete replacements
 - missing_evidence: 3-5 things claimed but not substantiated
 - followup_questions: exactly 6 questions the admissions or visa officer would ask`;
+
+const buildApplicationUserContent = (data: ApplicationCheckRequest) => `Analyse the following student application pack for ${data.course} at ${data.university}.
+
+APPLICATION PACK:
+${data.sop ? `\n=== STATEMENT OF PURPOSE / PERSONAL STATEMENT ===\n${data.sop}\n` : ""}
+${data.cv ? `\n=== CV / RESUME HIGHLIGHTS ===\n${data.cv}\n` : ""}
+${data.profile ? `\n=== PROFILE SUMMARY (GPA, backlogs, work exp, English score) ===\n${data.profile}\n` : ""}
+${data.visa_notes ? `\n=== VISA / INTERVIEW PREPARATION NOTES ===\n${data.visa_notes}\n` : ""}`;
 
 export async function POST(req: NextRequest) {
   try {
@@ -123,12 +127,17 @@ export async function POST(req: NextRequest) {
         response = await client.messages.create({
           model: "claude-sonnet-4-5",
           max_tokens: 1500,
-          system:
-            "You are an expert international university admissions consultant. You always respond with valid JSON only — no markdown, no code fences, no preamble, no trailing text. Your entire response must be a single valid JSON object and nothing else.",
+          system: [
+            {
+              type: "text",
+              text: APPLICATION_CHECK_SYSTEM,
+              cache_control: { type: "ephemeral" },
+            },
+          ],
           messages: [
             {
               role: "user",
-              content: ANALYSIS_PROMPT(body),
+              content: buildApplicationUserContent(body),
             },
           ],
         });

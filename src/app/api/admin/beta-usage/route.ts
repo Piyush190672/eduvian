@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { createServiceClient } from "@/lib/supabase";
-import { MONTHLY_UNIQUE_USER_CAP } from "@/lib/beta-gate";
+import { MONTHLY_UNIQUE_USER_CAP, MAX_MONTHLY_SPEND_CENTS } from "@/lib/beta-gate";
 
 export async function GET() {
   const supabase = createServiceClient();
@@ -9,6 +9,8 @@ export async function GET() {
       uniqueUsers: 0,
       totalCalls: 0,
       cap: MONTHLY_UNIQUE_USER_CAP,
+      spendCents: 0,
+      spendCapCents: MAX_MONTHLY_SPEND_CENTS,
       byTool: [],
       configured: false,
     });
@@ -23,14 +25,22 @@ export async function GET() {
   try {
     const { data, error } = await supabase
       .from("tool_usage")
-      .select("email, tool")
+      .select("email, tool, cost_estimate_cents")
       .gte("created_at", startOfMonth);
 
     if (error) throw error;
 
-    const rows = (data ?? []) as { email: string; tool: string }[];
+    const rows = (data ?? []) as {
+      email: string;
+      tool: string;
+      cost_estimate_cents: number | null;
+    }[];
     const totalCalls = rows.length;
     const uniqueUsers = new Set(rows.map((r) => r.email.toLowerCase())).size;
+    const spendCents = rows.reduce(
+      (sum, r) => sum + (r.cost_estimate_cents ?? 0),
+      0
+    );
 
     // Aggregate by tool
     const toolMap = new Map<string, { calls: number; users: Set<string> }>();
@@ -48,6 +58,8 @@ export async function GET() {
       uniqueUsers,
       totalCalls,
       cap: MONTHLY_UNIQUE_USER_CAP,
+      spendCents,
+      spendCapCents: MAX_MONTHLY_SPEND_CENTS,
       byTool,
       configured: true,
     });

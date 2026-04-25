@@ -46,6 +46,8 @@ interface BetaUsage {
   uniqueUsers: number;
   totalCalls: number;
   cap: number;
+  spendCents?: number;
+  spendCapCents?: number;
   byTool: { tool: string; calls: number; users: number }[];
 }
 
@@ -232,7 +234,7 @@ export default function DashboardPage() {
               {betaUsage.totalCalls.toLocaleString()} total tool calls
             </div>
           </div>
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-3 gap-6">
             <div>
               <div className="flex items-baseline justify-between mb-2">
                 <span className="text-sm font-semibold text-gray-700">Unique users</span>
@@ -256,6 +258,36 @@ export default function DashboardPage() {
                 />
               </div>
             </div>
+            {typeof betaUsage.spendCapCents === "number" && betaUsage.spendCapCents > 0 && (
+              <div>
+                <div className="flex items-baseline justify-between mb-2">
+                  <span className="text-sm font-semibold text-gray-700">Spend</span>
+                  <span className="text-2xl font-black text-emerald-600">
+                    ${((betaUsage.spendCents ?? 0) / 100).toFixed(2)}
+                    <span className="text-sm font-semibold text-gray-400">
+                      {" "}/ ${(betaUsage.spendCapCents / 100).toFixed(0)}
+                    </span>
+                  </span>
+                </div>
+                <div className="w-full h-3 bg-gray-100 rounded-full overflow-hidden">
+                  <div
+                    className={`h-full rounded-full transition-all ${
+                      (betaUsage.spendCents ?? 0) >= betaUsage.spendCapCents
+                        ? "bg-rose-500"
+                        : (betaUsage.spendCents ?? 0) / betaUsage.spendCapCents >= 0.75
+                        ? "bg-amber-500"
+                        : "bg-emerald-500"
+                    }`}
+                    style={{
+                      width: `${Math.min(
+                        100,
+                        ((betaUsage.spendCents ?? 0) / betaUsage.spendCapCents) * 100
+                      )}%`,
+                    }}
+                  />
+                </div>
+              </div>
+            )}
             <div>
               <div className="text-sm font-semibold text-gray-700 mb-2">Top 3 tools</div>
               {betaUsage.byTool.length === 0 ? (

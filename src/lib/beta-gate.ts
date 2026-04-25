@@ -2,8 +2,9 @@
  * Server-side beta gate.
  *
  * Caps:
- *   - 20 unique users per calendar month (UTC)
+ *   - 100 unique users per calendar month (UTC)
  *   - Per-user per-tool monthly caps (PER_USER_MONTHLY_CAPS)
+ *   - Global monthly spend cap in cents (MAX_MONTHLY_SPEND_CENTS)
  *
  * Owner emails listed in BETA_OWNER_EMAILS (comma-separated) bypass everything.
  */
@@ -20,11 +21,30 @@ export const PER_USER_MONTHLY_CAPS: Record<string, number> = {
   "extract-text": 20,
 };
 
-export const MONTHLY_UNIQUE_USER_CAP = 20;
+export const MONTHLY_UNIQUE_USER_CAP = 100;
+
+/** Hard global ceiling on monthly Anthropic spend, in cents. Default $50. */
+export const MAX_MONTHLY_SPEND_CENTS = parseInt(
+  process.env.MAX_MONTHLY_SPEND_CENTS ?? "5000",
+  10
+);
+
+/** Per-tool cost estimates in cents (post-caching ballpark). */
+export const TOOL_COST_CENTS: Record<string, number> = {
+  "sop-assistant": 3,
+  "cv-assessment": 2,
+  "application-check": 2,
+  "lor-coach-generate": 12,
+  "lor-coach-assess": 3,
+  "interview-feedback": 1,
+  "score-english": 1,
+  "chat": 1,
+  "extract-text": 0,
+};
 
 export interface GateResult {
   allowed: boolean;
-  reason?: "beta_full" | "tool_cap_exceeded" | "no_user";
+  reason?: "beta_full" | "tool_cap_exceeded" | "no_user" | "spend_cap_exceeded";
   message?: string;
   remaining?: number;
 }
@@ -88,26 +108,40 @@ export async function checkBetaAccess(
   const startOfMonth = startOfMonthUTC();
 
   try {
-    // ── 1. Unique-user count for the month ────────────────────────────────
+    // ── 1. Unique-user count + spend total for the month ──────────────────
     const { data: monthRows, error: monthErr } = await supabase
       .from("tool_usage")
-      .select("email")
+      .select("email, cost_estimate_cents")
       .gte("created_at", startOfMonth);
 
     if (monthErr) throw monthErr;
 
-    const distinct = new Set(
-      (monthRows ?? []).map((r: { email: string }) => r.email.toLowerCase())
-    );
+    const rows = (monthRows ?? []) as { email: string; cost_estimate_cents: number | null }[];
+    const distinct = new Set(rows.map((r) => r.email.toLowerCase()));
     const userAlreadyCounted = distinct.has(normalized);
     const monthlyUniques = distinct.size;
+
+    const monthlySpendCents = rows.reduce(
+      (sum, r) => sum + (r.cost_estimate_cents ?? 0),
+      0
+    );
+
+    // ── Global spend cap (hard stop) ──────────────────────────────────────
+    if (monthlySpendCents >= MAX_MONTHLY_SPEND_CENTS) {
+      return {
+        allowed: false,
+        reason: "spend_cap_exceeded",
+        message:
+          "Beta spend cap reached for this month. Resets on the 1st.",
+      };
+    }
 
     if (!userAlreadyCounted && monthlyUniques >= MONTHLY_UNIQUE_USER_CAP) {
       return {
         allowed: false,
         reason: "beta_full",
         message:
-          "We're in beta — only 20 users per month and this month's slots are full. Please try again next month.",
+          "We're in beta — only 100 users per month and this month's slots are full. Please try again next month.",
       };
     }
 
@@ -152,6 +186,7 @@ export async function logToolUsage(
       email: email.toLowerCase().trim(),
       tool,
       ip: ip ?? null,
+      cost_estimate_cents: TOOL_COST_CENTS[tool] ?? 0,
     });
   } catch (err) {
     console.error("logToolUsage error:", err);

@@ -25,6 +25,94 @@ interface AssessBody {
 
 type RequestBody = GenerateBody | AssessBody;
 
+// ── Static prompts (cached via system block + cache_control: ephemeral) ──────
+
+const LOR_GENERATE_SYSTEM = `You are drafting Letters of Recommendation (LORs) for graduate-school applications. You write AS the recommender (first-person, professional, credible). The student provides a brief; the recommender provides specifics only they can attest to. Fuse both into a tight, authentic letter tailored to the specific target program supplied in the user message.
+
+══ WRITING RULES ══
+1. Length: 450–600 words. A single page of single-spaced text.
+2. Structure:
+   • Paragraph 1 (60–90 words): open with the capacity and duration, state the comparative rank clearly, name the program and university, and a one-line thesis ("I recommend X for your Y program without reservation because…")
+   • Paragraph 2–3 (250–350 words total): two standout moments from RECOMMENDER INPUTS in concrete detail (what happened, what the student did, what it revealed). Tie each moment to a named trait (technical depth, initiative, collaboration, etc.).
+   • Paragraph 4 (70–100 words): explicit fit to THIS program. Reference a real program specific (faculty area, signature course, lab theme) from the PROGRAM SPECIFICS block ONLY if it authentically connects to the student's work. If the context is thin, write about the program theme without inventing names.
+   • Paragraph 5 (40–60 words): the close — restate endorsement level, offer to answer questions, sign off as the recommender.
+3. Voice: first-person, professional, specific. A recommender who actually knows the student would write this. No clichés ("It is my great pleasure…"), no hyperbole.
+4. Do NOT invent facts. If the recommender said "top 2 of 60", do not escalate to "top 1 of 100".
+5. Do NOT name-drop faculty or labs unless the PROGRAM SPECIFICS block explicitly listed them with names.
+6. Honour the desired tone supplied in the user message: "formal" → formal and restrained; "warm" → warm but professional; otherwise → detailed and anecdote-rich.
+
+Return JSON only — no preamble, no markdown:
+{
+  "letter": "Full letter text with \\n\\n between paragraphs.",
+  "program_specifics_used": ["specific element 1", "specific element 2"]
+}`;
+
+const LOR_ASSESS_SYSTEM = `You are a senior admissions officer at a top-100 global graduate program. You always respond with ONLY valid JSON — no markdown, no preamble, no trailing text.
+
+Evaluate a Letter of Recommendation across 7 dimensions with precise, calibrated scoring. Be strict but fair. Reward specificity, first-hand observation, and program fit. Penalise generic praise, vague traits, and boilerplate.
+
+--- DIMENSION 1: RECOMMENDER CREDIBILITY (Max: 1.5) ---
+Does the letter clearly establish WHO the recommender is, in what capacity they observed the student, and for how long? Penalise letters that hide the recommender's vantage point.
+
+--- DIMENSION 2: SPECIFIC FIRST-HAND OBSERVATION (Max: 2) ---
+Does the letter contain 2+ concrete stories the recommender personally observed (a project moment, a class incident, a research episode)? Generic traits without stories cap at 0.8.
+
+--- DIMENSION 3: COMPARATIVE RANKING (Max: 1) ---
+Does the letter place the student against a peer set (e.g. "top 3 of 40 students I've supervised in the last 5 years")? Vague superlatives ("one of the best") cap at 0.3.
+
+--- DIMENSION 4: TRAIT EVIDENCE (Max: 1.5) ---
+For each named trait (e.g. "curious", "collaborative"), is there a concrete evidence anchor? Hollow adjective stacks cap at 0.5.
+
+--- DIMENSION 5: PROGRAM FIT (Max: 1.5) ---
+If the user message provides a target program: does the letter explicitly connect the student to THIS program (faculty area, course, lab, thesis structure)?
+- Generic fit language ("will thrive anywhere"): cap at 0.3
+- Names program theme but no real specifics: cap at 0.7
+- Names real specifics tied to student: 1.2-1.5
+If no target program is given, evaluate whether the letter reads like a fit for a named program OR reads fungibly-generic. Give 0.7 if fit is authentic-sounding, 0.3 if purely generic.
+
+--- DIMENSION 6: TONE & AUTHENTICITY (Max: 1.5) ---
+Does the letter sound like a real professor/manager wrote it? Clichés ("It is my great pleasure to recommend"), hyperbole, or AI-template phrasing cap at 0.6.
+
+--- DIMENSION 7: CONCERNS HANDLED (Max: 1) ---
+Does the recommender proactively address potential weaknesses (e.g. a low grade, a gap year)? Award partial credit if concerns are implied-but-not-avoided. If no concerns are relevant, award full 1.0.
+
+--- AGGREGATE ---
+Total out of 10. Verdict:
+- 8.5+: "Strong Recommendation" (reads like a champion)
+- 6.5–8.4: "Solid" (well-above-average, adds credible value)
+- 4.5–6.4: "Middling" (neutral — neither helps nor hurts meaningfully)
+- Below 4.5: "Weak / Generic" (could hurt the application)
+
+ALSO DO:
+- red_flags: specific phrases or sections that will hurt the applicant (list 0-5, quote from letter)
+- generic_phrases: exact clichés + suggested replacements (0-5)
+- missing_elements: what the recommender should add (0-5, concrete)
+- standout_moments_detected: direct quotes of the strongest stories in the letter (0-3)
+- suggested_strengthening_rewrites: up to 3 paragraphs from the letter with concrete rewrites that incorporate more specificity, comparative ranking, or program fit
+
+Return ONLY valid JSON in this exact shape — no markdown, no preamble:
+{
+  "total_score": number (0-10, one decimal),
+  "verdict": "Strong Recommendation" | "Solid" | "Middling" | "Weak / Generic",
+  "verdict_description": "one sentence",
+  "dimension_scores": {
+    "recommender_credibility": { "score": number, "max": 1.5, "feedback": ["point 1", "point 2"] },
+    "first_hand_observation": { "score": number, "max": 2, "feedback": ["point 1", "point 2"] },
+    "comparative_ranking": { "score": number, "max": 1, "feedback": ["point 1"] },
+    "trait_evidence": { "score": number, "max": 1.5, "feedback": ["point 1", "point 2"] },
+    "program_fit": { "score": number, "max": 1.5, "feedback": ["point 1", "point 2"] },
+    "tone_authenticity": { "score": number, "max": 1.5, "feedback": ["point 1", "point 2"] },
+    "concerns_handled": { "score": number, "max": 1, "feedback": ["point 1"] }
+  },
+  "red_flags": ["string"],
+  "generic_phrases": [{ "original": "exact phrase", "suggested_rewrite": "concrete alternative" }],
+  "missing_elements": ["string"],
+  "standout_moments_detected": ["string"],
+  "suggested_strengthening_rewrites": [{ "original_paragraph_snippet": "first 120 chars...", "rewrite": "strengthened paragraph" }],
+  "word_count_estimate": number,
+  "ready_to_send": boolean
+}`;
+
 // Light program-context helper — same idea as the SOP route but inline here so
 // LOR Coach stays self-contained.
 async function getProgramContext(
@@ -97,13 +185,13 @@ export async function POST(req: NextRequest) {
         capped.map((p) => getProgramContext(client as never, p.university_name, p.program_name))
       );
 
-      // Generate each letter in parallel
+      // Generate each letter in parallel — each call shares LOR_GENERATE_SYSTEM,
+      // so after the first, all parallel calls land on a warm cache.
       const letters = await Promise.all(
         capped.map(async (p, idx) => {
           const ctx = contexts[idx];
-          const prompt = `You are drafting a Letter of Recommendation (LOR) for a graduate-school application. You are writing AS the recommender (first-person, professional, credible). The student has provided a brief; the recommender has provided the specifics only they can attest to. Fuse both into a tight, authentic letter tailored to the specific target program.
 
-══ STUDENT BRIEF ══
+          const userContent = `══ STUDENT BRIEF ══
 Student: ${brief.student_name}
 Field of interest: ${brief.field_of_interest || "(not specified)"}
 Recommender: ${brief.recommender_name} — ${brief.recommender_role}
@@ -126,23 +214,7 @@ ${p.university_name} — ${p.program_name}${p.degree_level ? ` (${p.degree_level
 Program specifics (use sparingly — only if they fit the student's profile):
 ${ctx || "(No program-specific context available. Use generic but credible language.)"}
 
-══ WRITING RULES ══
-1. Length: 450–600 words. A single page of single-spaced text.
-2. Structure:
-   • Paragraph 1 (60–90 words): open with the capacity and duration, state the comparative rank clearly, name the program and university, and a one-line thesis ("I recommend X for your Y program without reservation because…")
-   • Paragraph 2–3 (250–350 words total): two standout moments from RECOMMENDER INPUTS in concrete detail (what happened, what the student did, what it revealed). Tie each moment to a named trait (technical depth, initiative, collaboration, etc.).
-   • Paragraph 4 (70–100 words): explicit fit to THIS program. Reference a real program specific (faculty area, signature course, lab theme) from the PROGRAM SPECIFICS block ONLY if it authentically connects to the student's work. If the context is thin, write about the program theme without inventing names.
-   • Paragraph 5 (40–60 words): the close — restate endorsement level, offer to answer questions, sign off as the recommender.
-3. Voice: first-person, professional, specific. A recommender who actually knows the student would write this. No clichés ("It is my great pleasure…"), no hyperbole.
-4. Do NOT invent facts. If the recommender said "top 2 of 60", do not escalate to "top 1 of 100".
-5. Do NOT name-drop faculty or labs unless the PROGRAM SPECIFICS block explicitly listed them with names.
-6. Tone: ${recommender.tone === "formal" ? "formal and restrained" : recommender.tone === "warm" ? "warm but professional" : "detailed and anecdote-rich"}.
-
-Return JSON only — no preamble, no markdown:
-{
-  "letter": "Full letter text with \\n\\n between paragraphs.",
-  "program_specifics_used": ["specific element 1", "specific element 2"]
-}`;
+Draft the letter per the writing rules now.`;
 
           let response;
           for (let attempt = 1; attempt <= 3; attempt++) {
@@ -151,7 +223,14 @@ Return JSON only — no preamble, no markdown:
                 model: "claude-sonnet-4-5",
                 max_tokens: 1800,
                 temperature: 0.5,
-                messages: [{ role: "user", content: prompt }],
+                system: [
+                  {
+                    type: "text",
+                    text: LOR_GENERATE_SYSTEM,
+                    cache_control: { type: "ephemeral" },
+                  },
+                ],
+                messages: [{ role: "user", content: userContent }],
               });
               break;
             } catch (apiErr: unknown) {
@@ -199,71 +278,11 @@ Return JSON only — no preamble, no markdown:
         programCtx = await getProgramContext(client as never, university, course);
       }
 
-      const prompt = `You are a senior admissions officer at a top-100 global graduate program. Evaluate this Letter of Recommendation across 7 dimensions with precise, calibrated scoring. Be strict but fair. Reward specificity, first-hand observation, and program fit. Penalise generic praise, vague traits, and boilerplate.
-
-${university && course ? `Target program: ${course} at ${university}` : "Target program: (not specified — do not penalise for program-specific fit beyond generic relevance)"}
+      const userContent = `${university && course ? `Target program: ${course} at ${university}` : "Target program: (not specified — do not penalise for program-specific fit beyond generic relevance)"}
 ${student_name ? `Student: ${student_name}` : ""}
 ${recommender_role ? `Recommender role: ${recommender_role}` : ""}
 
 ${programCtx ? `PROGRAM CONTEXT:\n${programCtx}\n` : ""}
-
---- DIMENSION 1: RECOMMENDER CREDIBILITY (Max: 1.5) ---
-Does the letter clearly establish WHO the recommender is, in what capacity they observed the student, and for how long? Penalise letters that hide the recommender's vantage point.
-
---- DIMENSION 2: SPECIFIC FIRST-HAND OBSERVATION (Max: 2) ---
-Does the letter contain 2+ concrete stories the recommender personally observed (a project moment, a class incident, a research episode)? Generic traits without stories cap at 0.8.
-
---- DIMENSION 3: COMPARATIVE RANKING (Max: 1) ---
-Does the letter place the student against a peer set (e.g. "top 3 of 40 students I've supervised in the last 5 years")? Vague superlatives ("one of the best") cap at 0.3.
-
---- DIMENSION 4: TRAIT EVIDENCE (Max: 1.5) ---
-For each named trait (e.g. "curious", "collaborative"), is there a concrete evidence anchor? Hollow adjective stacks cap at 0.5.
-
---- DIMENSION 5: PROGRAM FIT (Max: 1.5) ---
-${university && course ? `Does the letter explicitly connect the student to THIS program (faculty area, course, lab, thesis structure)?\n- Generic fit language ("will thrive anywhere"): cap at 0.3\n- Names program theme but no real specifics: cap at 0.7\n- Names real specifics tied to student: 1.2-1.5` : `No target program given — evaluate whether the letter reads like a fit for a named program OR reads fungibly-generic. Give 0.7 if fit is authentic-sounding, 0.3 if purely generic.`}
-
---- DIMENSION 6: TONE & AUTHENTICITY (Max: 1.5) ---
-Does the letter sound like a real professor/manager wrote it? Clichés ("It is my great pleasure to recommend"), hyperbole, or AI-template phrasing cap at 0.6.
-
---- DIMENSION 7: CONCERNS HANDLED (Max: 1) ---
-Does the recommender proactively address potential weaknesses (e.g. a low grade, a gap year)? Award partial credit if concerns are implied-but-not-avoided. If no concerns are relevant, award full 1.0.
-
---- AGGREGATE ---
-Total out of 10. Verdict:
-- 8.5+: "Strong Recommendation" (reads like a champion)
-- 6.5–8.4: "Solid" (well-above-average, adds credible value)
-- 4.5–6.4: "Middling" (neutral — neither helps nor hurts meaningfully)
-- Below 4.5: "Weak / Generic" (could hurt the application)
-
-ALSO DO:
-- red_flags: specific phrases or sections that will hurt the applicant (list 0-5, quote from letter)
-- generic_phrases: exact clichés + suggested replacements (0-5)
-- missing_elements: what the recommender should add (0-5, concrete)
-- standout_moments_detected: direct quotes of the strongest stories in the letter (0-3)
-- suggested_strengthening_rewrites: up to 3 paragraphs from the letter with concrete rewrites that incorporate more specificity, comparative ranking, or program fit
-
-Return ONLY valid JSON in this exact shape — no markdown, no preamble:
-{
-  "total_score": number (0-10, one decimal),
-  "verdict": "Strong Recommendation" | "Solid" | "Middling" | "Weak / Generic",
-  "verdict_description": "one sentence",
-  "dimension_scores": {
-    "recommender_credibility": { "score": number, "max": 1.5, "feedback": ["point 1", "point 2"] },
-    "first_hand_observation": { "score": number, "max": 2, "feedback": ["point 1", "point 2"] },
-    "comparative_ranking": { "score": number, "max": 1, "feedback": ["point 1"] },
-    "trait_evidence": { "score": number, "max": 1.5, "feedback": ["point 1", "point 2"] },
-    "program_fit": { "score": number, "max": 1.5, "feedback": ["point 1", "point 2"] },
-    "tone_authenticity": { "score": number, "max": 1.5, "feedback": ["point 1", "point 2"] },
-    "concerns_handled": { "score": number, "max": 1, "feedback": ["point 1"] }
-  },
-  "red_flags": ["string"],
-  "generic_phrases": [{ "original": "exact phrase", "suggested_rewrite": "concrete alternative" }],
-  "missing_elements": ["string"],
-  "standout_moments_detected": ["string"],
-  "suggested_strengthening_rewrites": [{ "original_paragraph_snippet": "first 120 chars...", "rewrite": "strengthened paragraph" }],
-  "word_count_estimate": number,
-  "ready_to_send": boolean
-}
 
 LETTER TO EVALUATE:
 ${letter_text}`;
@@ -275,7 +294,14 @@ ${letter_text}`;
             model: "claude-sonnet-4-5",
             max_tokens: 3500,
             temperature: 0.2,
-            messages: [{ role: "user", content: prompt }],
+            system: [
+              {
+                type: "text",
+                text: LOR_ASSESS_SYSTEM,
+                cache_control: { type: "ephemeral" },
+              },
+            ],
+            messages: [{ role: "user", content: userContent }],
           });
           break;
         } catch (apiErr: unknown) {

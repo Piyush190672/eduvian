@@ -36,55 +36,12 @@ interface BuildBody {
 
 type RequestBody = ScoreBody | BuildBody;
 
-// ── JSON helper ───────────────────────────────────────────────────────────────
+// ── Static prompts (cached via system block + cache_control: ephemeral) ──────
+// Both blocks are well above 1024 tokens — caching engages after the first call.
 
-const extractJSON = (text: string): string | null => {
-  // 1. Strip markdown fences and try direct parse
-  const stripped = text
-    .replace(/^[\s\S]*?```(?:json)?\s*/i, "")
-    .replace(/\s*```[\s\S]*$/i, "")
-    .trim();
-  try { JSON.parse(stripped); return stripped; } catch { /* fallthrough */ }
+const CV_SCORE_SYSTEM = `You are a senior admissions officer at a top global university evaluating CVs for graduate admissions. You always respond with valid JSON only — no markdown fences, no preamble, no trailing text. Your entire response must be a single valid JSON object.
 
-  // 2. Try the raw text directly
-  try { JSON.parse(text.trim()); return text.trim(); } catch { /* fallthrough */ }
-
-  // 3. Extract the largest { ... } blob
-  const m = text.match(/\{[\s\S]*\}/);
-  if (m) { try { JSON.parse(m[0]); return m[0]; } catch { /* fallthrough */ } }
-
-  return null;
-};
-
-// ── Route ─────────────────────────────────────────────────────────────────────
-
-export async function POST(req: NextRequest) {
-  try {
-    const user = await getUserFromRequest(req);
-    const gate = await checkBetaAccess(user?.email ?? null, "cv-assessment");
-    if (!gate.allowed) {
-      return NextResponse.json(
-        { error: gate.message, reason: gate.reason },
-        { status: gate.reason === "no_user" ? 401 : 403 }
-      );
-    }
-
-    const body = (await req.json()) as RequestBody;
-
-    const apiKey = process.env.ANTHROPIC_API_KEY;
-    if (!apiKey) {
-      return NextResponse.json({ error: "CV service not configured" }, { status: 503 });
-    }
-
-    const Anthropic = (await import("@anthropic-ai/sdk")).default;
-    const client = new Anthropic({ apiKey });
-
-    // ── Score ─────────────────────────────────────────────────────────────────
-
-    if (body.action === "score") {
-      const { cv_text, university, course, degree_level } = body;
-
-      const prompt = `You are a senior admissions officer at a top global university evaluating CVs for graduate admissions. Score this CV for ${course} at ${university}${degree_level ? ` (${degree_level})` : ""} using the exact framework below.
+Score the CV using the exact framework below.
 
 SCORING DIMENSIONS — Total: 10 points
 
@@ -116,7 +73,7 @@ Penalty: No CGPA/GPA, no relevant coursework, no academic achievements
 
 --- DIMENSION 3: RELEVANCE TO PROGRAM (Max: 2) ---
 Score criteria:
-- Projects/experience directly relevant to ${course}
+- Projects/experience directly relevant to the target program
 - Skills that map to what the program builds on
 - Clear connection between background and target program
 - Evidence of domain knowledge in the field
@@ -124,7 +81,7 @@ Score criteria:
 1.5: Good alignment, most content relevant
 1.0: Some relevance but generic content dominates
 0.5: Minimal connection to target program
-0 : No discernible connection to ${course}
+0 : No discernible connection to the target program
 Penalty: Generic CV with no program-specific tailoring
 
 --- DIMENSION 4: IMPACT & ACHIEVEMENTS (Max: 2) ---
@@ -188,7 +145,81 @@ Return ONLY valid JSON in exactly this format. No markdown fences, no preamble, 
     "Specific fix 3"
   ],
   "missing_sections": ["list only section names that are absent or critically weak — choose from: profile_summary, relevant_coursework, quantified_bullets, academic_achievements, linkedin, project_depth, leadership_evidence"]
-}
+}`;
+
+const CV_BUILD_SYSTEM = `You are an expert admission-focused CV writer. You build powerful, top-tier admission-ready CVs based on candidate details supplied by the user.
+
+CRITICAL WRITING RULES:
+1. Section order: PROFILE → EDUCATION → PROJECTS → PROFESSIONAL EXPERIENCE → TECHNICAL SKILLS → ACHIEVEMENTS → EXTRACURRICULAR
+2. Profile Summary: 2-3 sentences — (1) who you are + academic background, (2) what you have done (key experience/projects), (3) what you aim to do (career direction aligned to the target program)
+3. Education section: include degree, university, graduation year, CGPA, AND list 3-5 relevant coursework subjects mapped to the target program
+4. Every project bullet: [What you built] + [tools/approach used] + [measurable outcome or learning]
+5. Every experience bullet: starts with strong action verb + quantified impact (%, numbers, scale) — NEVER use "worked on", "helped", "assisted"
+6. Skills: categorize into Programming / Frameworks & Tools / Concepts or similar
+7. Achievements: include context (e.g. "Top 5% of batch of 300 students")
+8. Leadership: quantify where possible (e.g. "organised workshop for 100+ students")
+9. Everything must be tailored to the target program and university the user supplies
+10. Keep it clean and professional — one page appropriate for most Masters programs
+
+FORMATTING RULES:
+- Use CAPS for section headers
+- Use dashes (–) for bullet points
+- Separate sections with a blank line
+- No markdown symbols (* ** ## etc)
+- No emojis in the main body
+- Contact line: Name on first line, then contact details on second line separated by |
+
+Output ONLY the CV text. No commentary, no preamble.`;
+
+// ── JSON helper ───────────────────────────────────────────────────────────────
+
+const extractJSON = (text: string): string | null => {
+  // 1. Strip markdown fences and try direct parse
+  const stripped = text
+    .replace(/^[\s\S]*?```(?:json)?\s*/i, "")
+    .replace(/\s*```[\s\S]*$/i, "")
+    .trim();
+  try { JSON.parse(stripped); return stripped; } catch { /* fallthrough */ }
+
+  // 2. Try the raw text directly
+  try { JSON.parse(text.trim()); return text.trim(); } catch { /* fallthrough */ }
+
+  // 3. Extract the largest { ... } blob
+  const m = text.match(/\{[\s\S]*\}/);
+  if (m) { try { JSON.parse(m[0]); return m[0]; } catch { /* fallthrough */ } }
+
+  return null;
+};
+
+// ── Route ─────────────────────────────────────────────────────────────────────
+
+export async function POST(req: NextRequest) {
+  try {
+    const user = await getUserFromRequest(req);
+    const gate = await checkBetaAccess(user?.email ?? null, "cv-assessment");
+    if (!gate.allowed) {
+      return NextResponse.json(
+        { error: gate.message, reason: gate.reason },
+        { status: gate.reason === "no_user" ? 401 : 403 }
+      );
+    }
+
+    const body = (await req.json()) as RequestBody;
+
+    const apiKey = process.env.ANTHROPIC_API_KEY;
+    if (!apiKey) {
+      return NextResponse.json({ error: "CV service not configured" }, { status: 503 });
+    }
+
+    const Anthropic = (await import("@anthropic-ai/sdk")).default;
+    const client = new Anthropic({ apiKey });
+
+    // ── Score ─────────────────────────────────────────────────────────────────
+
+    if (body.action === "score") {
+      const { cv_text, university, course, degree_level } = body;
+
+      const userContent = `Score this CV for ${course} at ${university}${degree_level ? ` (${degree_level})` : ""}.
 
 CV TO EVALUATE:
 ${cv_text}`;
@@ -199,8 +230,14 @@ ${cv_text}`;
           response = await client.messages.create({
             model: "claude-sonnet-4-5",
             max_tokens: 2500,
-            system: "You are an expert CV evaluator. You always respond with valid JSON only — no markdown fences, no preamble, no trailing text. Your entire response must be a single valid JSON object.",
-            messages: [{ role: "user", content: prompt }],
+            system: [
+              {
+                type: "text",
+                text: CV_SCORE_SYSTEM,
+                cache_control: { type: "ephemeral" },
+              },
+            ],
+            messages: [{ role: "user", content: userContent }],
           });
           break;
         } catch (apiErr: unknown) {
@@ -245,9 +282,7 @@ ${cv_text}`;
         experience, skills, achievements, extracurricular,
       } = body;
 
-      const prompt = `You are an expert admission-focused CV writer. Build a powerful, top-tier admission-ready CV based on the candidate details below.
-
-Target:
+      const userContent = `Target:
 - University: ${university}
 - Program: ${course}
 - Degree Level: ${degree_level}
@@ -265,27 +300,7 @@ Candidate details:
 ${achievements ? `- Achievements/Awards: ${achievements}` : ""}
 ${extracurricular ? `- Extracurricular/Leadership: ${extracurricular}` : ""}
 
-CRITICAL WRITING RULES:
-1. Section order: PROFILE → EDUCATION → PROJECTS → PROFESSIONAL EXPERIENCE → TECHNICAL SKILLS → ACHIEVEMENTS → EXTRACURRICULAR
-2. Profile Summary: 2-3 sentences — (1) who you are + academic background, (2) what you have done (key experience/projects), (3) what you aim to do (career direction aligned to ${course})
-3. Education section: include degree, university, graduation year, CGPA, AND list 3-5 relevant coursework subjects mapped to ${course}
-4. Every project bullet: [What you built] + [tools/approach used] + [measurable outcome or learning]
-5. Every experience bullet: starts with strong action verb + quantified impact (%, numbers, scale) — NEVER use "worked on", "helped", "assisted"
-6. Skills: categorize into Programming / Frameworks & Tools / Concepts or similar
-7. Achievements: include context (e.g. "Top 5% of batch of 300 students")
-8. Leadership: quantify where possible (e.g. "organised workshop for 100+ students")
-9. Everything must be tailored to ${course} at ${university}
-10. Keep it clean and professional — one page appropriate for most Masters programs
-
-FORMATTING RULES:
-- Use CAPS for section headers
-- Use dashes (–) for bullet points
-- Separate sections with a blank line
-- No markdown symbols (* ** ## etc)
-- No emojis in the main body
-- Contact line: Name on first line, then contact details on second line separated by |
-
-Output ONLY the CV text. No commentary, no preamble.`;
+Build the CV per the writing and formatting rules. Tailor every section to ${course} at ${university}.`;
 
       let response;
       for (let attempt = 1; attempt <= 3; attempt++) {
@@ -294,7 +309,14 @@ Output ONLY the CV text. No commentary, no preamble.`;
             model: "claude-sonnet-4-5",
             max_tokens: 2000,
             temperature: 0.5,
-            messages: [{ role: "user", content: prompt }],
+            system: [
+              {
+                type: "text",
+                text: CV_BUILD_SYSTEM,
+                cache_control: { type: "ephemeral" },
+              },
+            ],
+            messages: [{ role: "user", content: userContent }],
           });
           break;
         } catch (apiErr: unknown) {
