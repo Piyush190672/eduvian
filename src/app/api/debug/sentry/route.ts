@@ -13,6 +13,7 @@ export async function GET() {
   // Force-init Sentry inline to bypass instrumentation.ts entirely.
   // If THIS works but the auto-init didn't, we know the hook never fires.
   let inlineInitOk = false;
+  let inlineErr: string | undefined;
   try {
     if (!Sentry.getClient()) {
       Sentry.init({
@@ -23,8 +24,10 @@ export async function GET() {
     }
     inlineInitOk = !!Sentry.getClient();
   } catch (e) {
-    inlineInitOk = false;
+    inlineErr = (e as Error).message + " | " + ((e as Error).stack ?? "").slice(0, 300);
   }
+  // Sentry exports we can see
+  const sentryKeys = Object.keys(Sentry).slice(0, 20).join(",");
 
   // Try to capture a real event
   let captureId: string | undefined;
@@ -49,6 +52,8 @@ export async function GET() {
   return NextResponse.json({
     env: { dsnPresent, dsnPrefix, nodeEnv, vercelEnv, nextRuntime },
     inlineInitOk,
+    inlineErr,
+    sentryKeys,
     client: {
       active: clientActive,
       enabled: clientEnabled,
