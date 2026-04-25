@@ -28,7 +28,7 @@ const securityHeaders = [
       // Images: self + data URIs + trusted CDNs
       "img-src 'self' data: blob: https://flagcdn.com https://*.supabase.co",
       // API connections
-      "connect-src 'self' https://*.supabase.co https://api.resend.com https://api.anthropic.com",
+      "connect-src 'self' https://*.supabase.co https://api.resend.com https://api.anthropic.com https://*.ingest.sentry.io https://*.ingest.us.sentry.io",
       // Media (audio for interview prep)
       "media-src 'self' blob:",
       // No objects/embeds/frames from external origins
@@ -47,6 +47,8 @@ const nextConfig = {
   },
   experimental: {
     serverComponentsExternalPackages: ["mammoth", "pdf-parse"],
+    // Required in Next 14 to load instrumentation.ts (Sentry init).
+    instrumentationHook: true,
   },
   async headers() {
     return [
