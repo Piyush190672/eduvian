@@ -8,6 +8,23 @@ export async function GET() {
   const dsnPrefix = process.env.SENTRY_DSN?.slice(0, 30) ?? null;
   const nodeEnv = process.env.NODE_ENV;
   const vercelEnv = process.env.VERCEL_ENV;
+  const nextRuntime = process.env.NEXT_RUNTIME;
+
+  // Force-init Sentry inline to bypass instrumentation.ts entirely.
+  // If THIS works but the auto-init didn't, we know the hook never fires.
+  let inlineInitOk = false;
+  try {
+    if (!Sentry.getClient()) {
+      Sentry.init({
+        dsn: process.env.SENTRY_DSN,
+        enabled: true,
+        environment: vercelEnv || nodeEnv,
+      });
+    }
+    inlineInitOk = !!Sentry.getClient();
+  } catch (e) {
+    inlineInitOk = false;
+  }
 
   // Try to capture a real event
   let captureId: string | undefined;
@@ -30,7 +47,8 @@ export async function GET() {
   const clientEnabled = client?.getOptions().enabled;
 
   return NextResponse.json({
-    env: { dsnPresent, dsnPrefix, nodeEnv, vercelEnv },
+    env: { dsnPresent, dsnPrefix, nodeEnv, vercelEnv, nextRuntime },
+    inlineInitOk,
     client: {
       active: clientActive,
       enabled: clientEnabled,

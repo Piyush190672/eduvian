@@ -1,6 +1,22 @@
 import * as Sentry from "@sentry/nextjs";
 import { NextResponse } from "next/server";
 
+// Belt-and-suspenders: Next 14's instrumentation hook is unreliable on
+// Vercel for our config, so eagerly init Sentry here too. No-op if already
+// initialized by instrumentation.ts.
+if (!Sentry.getClient() && process.env.SENTRY_DSN) {
+  Sentry.init({
+    dsn: process.env.SENTRY_DSN,
+    enabled: true,
+    environment: process.env.VERCEL_ENV || process.env.NODE_ENV,
+    tracesSampleRate: 0.1,
+    ignoreErrors: [
+      "ResizeObserver loop limit exceeded",
+      "Non-Error promise rejection captured",
+    ],
+  });
+}
+
 export function captureApiError(err: unknown, context: { route: string; extra?: Record<string, unknown> }) {
   console.error(`[${context.route}]`, err);
   try {
