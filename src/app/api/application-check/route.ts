@@ -1,4 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
+import { getUserFromRequest } from "@/lib/user-cookie";
+import { checkBetaAccess, logToolUsage } from "@/lib/beta-gate";
+import { getClientIp } from "@/lib/rate-limit";
 
 export const maxDuration = 60; // allow up to 60s for Claude analysis
 
@@ -84,6 +87,15 @@ Rules for field values:
 
 export async function POST(req: NextRequest) {
   try {
+    const user = await getUserFromRequest(req);
+    const gate = await checkBetaAccess(user?.email ?? null, "application-check");
+    if (!gate.allowed) {
+      return NextResponse.json(
+        { error: gate.message, reason: gate.reason },
+        { status: gate.reason === "no_user" ? 401 : 403 }
+      );
+    }
+
     const body = (await req.json()) as ApplicationCheckRequest;
 
     const { university, course } = body;
@@ -155,6 +167,7 @@ export async function POST(req: NextRequest) {
     else if (score >= 50) result.verdict = "Needs Work";
     else result.verdict = "Risky";
 
+    if (user) await logToolUsage(user.email, "application-check", getClientIp(req.headers));
     return NextResponse.json(result);
   } catch (err: unknown) {
     console.error("Application check error:", err);

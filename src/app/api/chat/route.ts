@@ -320,8 +320,21 @@ interface ChatMessage {
   content: string;
 }
 
+import { getUserFromRequest } from "@/lib/user-cookie";
+import { checkBetaAccess, logToolUsage } from "@/lib/beta-gate";
+import { getClientIp } from "@/lib/rate-limit";
+
 export async function POST(req: NextRequest) {
   try {
+    const user = await getUserFromRequest(req);
+    const gate = await checkBetaAccess(user?.email ?? null, "chat");
+    if (!gate.allowed) {
+      return NextResponse.json(
+        { error: gate.message, reason: gate.reason },
+        { status: gate.reason === "no_user" ? 401 : 403 }
+      );
+    }
+
     const { messages, programsContext } = await req.json() as {
       messages: ChatMessage[];
       programsContext?: string;
@@ -362,6 +375,7 @@ export async function POST(req: NextRequest) {
     if (!response) throw new Error("No response after retries");
 
     const text = response.content[0].type === "text" ? response.content[0].text : "";
+    if (user) await logToolUsage(user.email, "chat", getClientIp(req.headers));
     return NextResponse.json({ message: text });
   } catch (err: unknown) {
     console.error("Chat error:", err);

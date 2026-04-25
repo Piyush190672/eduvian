@@ -1,9 +1,21 @@
 import { NextRequest, NextResponse } from "next/server";
+import { getUserFromRequest } from "@/lib/user-cookie";
+import { checkBetaAccess, logToolUsage } from "@/lib/beta-gate";
+import { getClientIp } from "@/lib/rate-limit";
 
 export const maxDuration = 60;
 
 export async function POST(req: NextRequest) {
   try {
+    const user = await getUserFromRequest(req);
+    const gate = await checkBetaAccess(user?.email ?? null, "interview-feedback");
+    if (!gate.allowed) {
+      return NextResponse.json(
+        { error: gate.message, reason: gate.reason },
+        { status: gate.reason === "no_user" ? 401 : 403 }
+      );
+    }
+
     const { question, objective, transcript, country, studentName, checklist } =
       await req.json() as {
         question: string;
@@ -92,6 +104,7 @@ ${sampleLabel}: [write a complete, confident sample answer under 200 words, ener
     const text =
       response.content[0].type === "text" ? response.content[0].text : "";
 
+    if (user) await logToolUsage(user.email, "interview-feedback", getClientIp(req.headers));
     return NextResponse.json({ feedback: text });
   } catch (err) {
     console.error("Interview feedback error:", err);

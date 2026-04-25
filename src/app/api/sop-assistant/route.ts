@@ -1,4 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
+import { getUserFromRequest } from "@/lib/user-cookie";
+import { checkBetaAccess, logToolUsage } from "@/lib/beta-gate";
+import { getClientIp } from "@/lib/rate-limit";
 
 export const maxDuration = 90; // allow up to 90s for program context + generation + scoring
 
@@ -104,6 +107,15 @@ ${recent}`;
 
 export async function POST(req: NextRequest) {
   try {
+    const user = await getUserFromRequest(req);
+    const gate = await checkBetaAccess(user?.email ?? null, "sop-assistant");
+    if (!gate.allowed) {
+      return NextResponse.json(
+        { error: gate.message, reason: gate.reason },
+        { status: gate.reason === "no_user" ? 401 : 403 }
+      );
+    }
+
     const body = (await req.json()) as RequestBody;
 
     const apiKey = process.env.ANTHROPIC_API_KEY;
@@ -182,6 +194,7 @@ Return ONLY valid JSON in exactly this shape — no markdown, no preamble:
       }
       try {
         const parsed = JSON.parse(jsonStr) as ProgramContext;
+        if (user) await logToolUsage(user.email, "sop-assistant", getClientIp(req.headers));
         return NextResponse.json({ program_context: parsed });
       } catch {
         return NextResponse.json({ error: "Malformed program context response." }, { status: 500 });
@@ -255,6 +268,7 @@ Return ONLY the SOP text. No preamble, no commentary.`;
 
       if (!response) throw new Error("No response after retries");
       const text = response.content[0].type === "text" ? response.content[0].text : "";
+      if (user) await logToolUsage(user.email, "sop-assistant", getClientIp(req.headers));
       return NextResponse.json({ sop: text });
     }
 
@@ -456,6 +470,7 @@ ${sop_text}`;
         return NextResponse.json({ error: "Failed to parse scoring response. Please try again." }, { status: 500 });
       }
 
+      if (user) await logToolUsage(user.email, "sop-assistant", getClientIp(req.headers));
       return NextResponse.json(parsed);
     }
 

@@ -1,4 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
+import { getUserFromRequest } from "@/lib/user-cookie";
+import { checkBetaAccess, logToolUsage } from "@/lib/beta-gate";
+import { getClientIp } from "@/lib/rate-limit";
 
 export const maxDuration = 60;
 
@@ -57,6 +60,15 @@ const extractJSON = (text: string): string | null => {
 
 export async function POST(req: NextRequest) {
   try {
+    const user = await getUserFromRequest(req);
+    const gate = await checkBetaAccess(user?.email ?? null, "cv-assessment");
+    if (!gate.allowed) {
+      return NextResponse.json(
+        { error: gate.message, reason: gate.reason },
+        { status: gate.reason === "no_user" ? 401 : 403 }
+      );
+    }
+
     const body = (await req.json()) as RequestBody;
 
     const apiKey = process.env.ANTHROPIC_API_KEY;
@@ -219,6 +231,7 @@ ${cv_text}`;
       else if (score >= 5) parsed.verdict = "Average";
       else parsed.verdict = "Weak";
 
+      if (user) await logToolUsage(user.email, "cv-assessment", getClientIp(req.headers));
       return NextResponse.json(parsed);
     }
 
@@ -296,6 +309,7 @@ Output ONLY the CV text. No commentary, no preamble.`;
 
       if (!response) throw new Error("No response after retries");
       const text = response.content[0].type === "text" ? response.content[0].text : "";
+      if (user) await logToolUsage(user.email, "cv-assessment", getClientIp(req.headers));
       return NextResponse.json({ cv: text });
     }
 

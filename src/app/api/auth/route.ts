@@ -1,5 +1,18 @@
 import { NextRequest, NextResponse } from "next/server";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
+import { createUserToken, USER_COOKIE_NAME, USER_COOKIE_OPTS } from "@/lib/user-cookie";
+
+/** Build a JSON response with the signed user cookie attached. */
+async function jsonWithUserCookie(payload: Record<string, unknown>, email: string, status = 200) {
+  const res = NextResponse.json(payload, { status });
+  try {
+    const token = await createUserToken(email);
+    res.cookies.set(USER_COOKIE_NAME, token, USER_COOKIE_OPTS);
+  } catch (e) {
+    console.error("Failed to set user cookie:", e);
+  }
+  return res;
+}
 
 /** Escape HTML special chars to prevent injection into email templates / PDFs */
 function sanitize(value: string, maxLen = 255): string {
@@ -76,7 +89,8 @@ export async function POST(req: NextRequest) {
         if (student) {
           // Found in students table — also fetch their latest submission token
           const token = await getLatestToken(supabase);
-          return NextResponse.json({ ok: true, student, isNew: false, token });
+          const studentEmail = (student as { email?: string }).email ?? normalizedEmail;
+          return jsonWithUserCookie({ ok: true, student, isNew: false, token }, studentEmail);
         }
 
         // 2. Student record missing (e.g. DB was unavailable when they registered).
@@ -105,7 +119,7 @@ export async function POST(req: NextRequest) {
             .select()
             .single();
 
-          return NextResponse.json({ ok: true, student: recovered, isNew: false, token });
+          return jsonWithUserCookie({ ok: true, student: recovered, isNew: false, token }, recovered.email);
         }
       }
 
@@ -151,18 +165,22 @@ export async function POST(req: NextRequest) {
       const { data, error } = upsertResult;
       if (!error && data) {
         sendWelcomeEmail(); // fire-and-forget
-        return NextResponse.json({ ok: true, student: data, isNew: true });
+        const studentEmail = (data as { email?: string }).email ?? normalizedEmail;
+        return jsonWithUserCookie({ ok: true, student: data, isNew: true }, studentEmail);
       }
       console.error("Supabase upsert error during register:", error);
     }
 
     // Fallback: return data without DB persistence
     sendWelcomeEmail(); // fire-and-forget
-    return NextResponse.json({
-      ok: true,
-      student: { ...student, id: `guest_${Date.now()}` },
-      isNew: true,
-    });
+    return jsonWithUserCookie(
+      {
+        ok: true,
+        student: { ...student, id: `guest_${Date.now()}` },
+        isNew: true,
+      },
+      student.email
+    );
 
   } catch (err) {
     console.error("Auth error:", err);

@@ -42,6 +42,13 @@ interface Registration {
   created_at: string;
 }
 
+interface BetaUsage {
+  uniqueUsers: number;
+  totalCalls: number;
+  cap: number;
+  byTool: { tool: string; calls: number; users: number }[];
+}
+
 // ── Admin Shell ────────────────────────────────────────────────────────────
 
 function AdminShell({ children }: { children: React.ReactNode }) {
@@ -101,15 +108,18 @@ const RATING_CONFIG: Record<string, { emoji: string; bg: string; text: string }>
 export default function DashboardPage() {
   const [submissions, setSubmissions]   = useState<StoredSubmission[]>([]);
   const [registrations, setRegistrations] = useState<Registration[]>([]);
+  const [betaUsage, setBetaUsage]       = useState<BetaUsage | null>(null);
   const [loading, setLoading]           = useState(true);
 
   useEffect(() => {
     Promise.all([
       fetch("/api/admin/leads").then((r) => r.json()),
+      fetch("/api/admin/beta-usage").then((r) => (r.ok ? r.json() : null)).catch(() => null),
     ])
-      .then(([data]) => {
+      .then(([data, usage]) => {
         setSubmissions(data.leads ?? []);
         setRegistrations(data.registrations ?? []);
+        if (usage && typeof usage.uniqueUsers === "number") setBetaUsage(usage);
       })
       .catch(() => {})
       .finally(() => setLoading(false));
@@ -207,6 +217,65 @@ export default function DashboardPage() {
           View all leads <ArrowRight className="w-4 h-4" />
         </Link>
       </div>
+
+      {/* ── Beta Usage card (this month) ────────────────────────────────── */}
+      {betaUsage && (
+        <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 mb-6">
+          <div className="flex items-center justify-between mb-4">
+            <div>
+              <h2 className="font-bold text-gray-900">Beta Usage This Month</h2>
+              <p className="text-xs text-gray-400 mt-0.5">
+                Calendar-month caps · resets on the 1st (UTC)
+              </p>
+            </div>
+            <div className="text-xs text-gray-500 font-semibold">
+              {betaUsage.totalCalls.toLocaleString()} total tool calls
+            </div>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div>
+              <div className="flex items-baseline justify-between mb-2">
+                <span className="text-sm font-semibold text-gray-700">Unique users</span>
+                <span className="text-2xl font-black text-indigo-600">
+                  {betaUsage.uniqueUsers}
+                  <span className="text-sm font-semibold text-gray-400"> / {betaUsage.cap}</span>
+                </span>
+              </div>
+              <div className="w-full h-3 bg-gray-100 rounded-full overflow-hidden">
+                <div
+                  className={`h-full rounded-full transition-all ${
+                    betaUsage.uniqueUsers >= betaUsage.cap
+                      ? "bg-rose-500"
+                      : betaUsage.uniqueUsers / betaUsage.cap >= 0.75
+                      ? "bg-amber-500"
+                      : "bg-indigo-500"
+                  }`}
+                  style={{
+                    width: `${Math.min(100, (betaUsage.uniqueUsers / betaUsage.cap) * 100)}%`,
+                  }}
+                />
+              </div>
+            </div>
+            <div>
+              <div className="text-sm font-semibold text-gray-700 mb-2">Top 3 tools</div>
+              {betaUsage.byTool.length === 0 ? (
+                <div className="text-xs text-gray-400">No usage yet this month.</div>
+              ) : (
+                <ul className="space-y-1.5">
+                  {betaUsage.byTool.slice(0, 3).map((t) => (
+                    <li key={t.tool} className="flex items-center justify-between text-xs">
+                      <span className="font-mono text-gray-700">{t.tool}</span>
+                      <span className="text-gray-500">
+                        <span className="font-bold text-gray-800">{t.calls}</span> calls · {t.users} users
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* ── Stat cards ──────────────────────────────────────────────────── */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">

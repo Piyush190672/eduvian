@@ -1,5 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import type { LorBrief, RecommenderInputs, LorProgram } from "@/lib/lor-coach";
+import { getUserFromRequest } from "@/lib/user-cookie";
+import { checkBetaAccess, logToolUsage } from "@/lib/beta-gate";
+import { getClientIp } from "@/lib/rate-limit";
 
 export const maxDuration = 90;
 
@@ -61,7 +64,18 @@ Keep under 120 words. If uncertain, say "General specifics only" and list 2-3 co
 
 export async function POST(req: NextRequest) {
   try {
+    const user = await getUserFromRequest(req);
     const body = (await req.json()) as RequestBody;
+    const toolKey =
+      body.action === "generate" ? "lor-coach-generate" : "lor-coach-assess";
+    const gate = await checkBetaAccess(user?.email ?? null, toolKey);
+    if (!gate.allowed) {
+      return NextResponse.json(
+        { error: gate.message, reason: gate.reason },
+        { status: gate.reason === "no_user" ? 401 : 403 }
+      );
+    }
+
     const apiKey = process.env.ANTHROPIC_API_KEY;
     if (!apiKey) {
       return NextResponse.json({ error: "LOR service not configured" }, { status: 503 });
@@ -170,6 +184,7 @@ Return JSON only — no preamble, no markdown:
         })
       );
 
+      if (user) await logToolUsage(user.email, "lor-coach-generate", getClientIp(req.headers));
       return NextResponse.json({ letters });
     }
 
@@ -278,6 +293,7 @@ ${letter_text}`;
       try {
         const parsed = m ? JSON.parse(m[0]) : null;
         if (!parsed) throw new Error("parse");
+        if (user) await logToolUsage(user.email, "lor-coach-assess", getClientIp(req.headers));
         return NextResponse.json(parsed);
       } catch {
         console.error("Failed to parse LOR assessment:", raw);

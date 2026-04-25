@@ -1,9 +1,21 @@
 import { NextRequest, NextResponse } from "next/server";
+import { getUserFromRequest } from "@/lib/user-cookie";
+import { checkBetaAccess, logToolUsage } from "@/lib/beta-gate";
+import { getClientIp } from "@/lib/rate-limit";
 
 export const maxDuration = 60;
 
 export async function POST(req: NextRequest) {
   try {
+    const user = await getUserFromRequest(req);
+    const gate = await checkBetaAccess(user?.email ?? null, "score-english");
+    if (!gate.allowed) {
+      return NextResponse.json(
+        { error: gate.message, reason: gate.reason },
+        { status: gate.reason === "no_user" ? 401 : 403 }
+      );
+    }
+
     const { exam, section, taskType, prompt, response: userResponse, rubric } = await req.json() as {
       exam: string;
       section: string;
@@ -166,6 +178,7 @@ Return ONLY valid JSON in this exact structure:
       });
     }
 
+    if (user) await logToolUsage(user.email, "score-english", getClientIp(req.headers));
     return NextResponse.json(parsed);
   } catch (err) {
     console.error("Score English error:", err);
