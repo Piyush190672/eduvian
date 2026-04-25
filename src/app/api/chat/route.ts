@@ -45,17 +45,17 @@ MATCHING TIERS:
 - AMBITIOUS (score <50): Highly competitive; worth a strong application. ~20% of shortlist.
 
 COUNTRIES WE COVER (${DB_STATS.totalCountries} destinations):
-1. USA — 1,400+ programs
-2. UK — 1,900+ programs (largest in database)
+1. UK — 1,950+ programs (largest in database)
+2. USA — 1,800+ programs
 3. Australia — 850+ programs
-4. Canada — 450+ programs
-5. Germany — 500+ programs
-6. Malaysia — 320+ programs
-7. New Zealand — 210+ programs
-8. France — 320+ programs
-9. Ireland — 180+ programs
-10. Singapore — 141 programs
-11. UAE — 200+ programs
+4. Canada — 660+ programs
+5. Germany — 530+ programs
+6. Malaysia — 340+ programs
+7. France — 330+ programs
+8. New Zealand — 210+ programs
+9. UAE — 200+ programs
+10. Ireland — 180+ programs
+11. Singapore — 141 programs
 12. Netherlands — 27+ programs (VU Amsterdam, University of Amsterdam)
 
 TOTAL DATABASE: ${DB_STATS.totalPrograms.toLocaleString()}+ programs across ${DB_STATS.totalUniversities}+ universities, ${DB_STATS.totalFields} fields of study.

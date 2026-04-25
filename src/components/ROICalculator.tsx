@@ -11,6 +11,7 @@ import { CURATED_UNIVERSITIES, SALARY_LOOKUP } from "@/data/roi-data";
 import type { SalaryCountry, FieldOfStudy } from "@/data/roi-data";
 import { calculateROI, lookupSalary } from "@/lib/roi-calculator";
 import { PROGRAMS } from "@/data/programs";
+import { DB_STATS } from "@/data/db-stats";
 import { formatCurrency } from "@/lib/utils";
 
 // ── types ─────────────────────────────────────────────────────────────────────
@@ -746,7 +747,7 @@ export default function ROICalculator() {
                   <div className="bg-gradient-to-r from-indigo-600/30 to-purple-600/30 border border-indigo-500/30 rounded-2xl p-5 flex items-center justify-between gap-4">
                     <div>
                       <p className="font-bold text-white text-sm">Find programs that maximise your ROI</p>
-                      <p className="text-xs text-slate-400 mt-0.5">Our AI matching engine ranks 6,900+ programs by fit and financial return.</p>
+                      <p className="text-xs text-slate-400 mt-0.5">Our AI matching engine ranks {DB_STATS.programsLabel} programs by fit and financial return.</p>
                     </div>
                     <a href="/get-started" className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-bold hover:shadow-lg transition-all whitespace-nowrap flex-shrink-0">
                       Get My Matches <ArrowRight className="w-3.5 h-3.5" />
