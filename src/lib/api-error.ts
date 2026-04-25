@@ -13,12 +13,19 @@ export function captureApiError(err: unknown, context: { route: string; extra?: 
   }
 }
 
-export function apiErrorResponse(
+export async function apiErrorResponse(
   err: unknown,
   context: { route: string; extra?: Record<string, unknown>; busyMessage?: string },
   fallbackMessage = "Something went wrong"
 ) {
   captureApiError(err, context);
+  // CRITICAL on Vercel: serverless functions freeze the moment the response
+  // returns, killing Sentry's in-flight HTTP send. Flush before responding.
+  try {
+    await Sentry.flush(2000);
+  } catch {
+    /* ignore */
+  }
   const status = (err as { status?: number })?.status;
   if (status === 529) {
     return NextResponse.json(
