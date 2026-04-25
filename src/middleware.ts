@@ -4,29 +4,27 @@ import { verifySessionToken } from "@/lib/session";
 
 const COOKIE_NAME = "eduvianai_admin_session";
 
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Protect all /admin/* sub-routes except the login page itself (/admin)
-  const isProtectedAdmin =
-    pathname.startsWith("/admin/") ||
-    (pathname === "/admin" && false); // login page stays open
+  // The session endpoint itself must be reachable without a session cookie —
+  // POST creates it (chicken-and-egg), DELETE clears it on logout.
+  if (pathname === "/api/admin/session") return NextResponse.next();
 
-  // Protect all /api/admin/* routes (these were previously unprotected)
+  // Protect /admin/* sub-routes (login page at /admin stays open)
+  const isProtectedAdmin = pathname.startsWith("/admin/");
   const isAdminApi = pathname.startsWith("/api/admin/");
 
   if (isProtectedAdmin || isAdminApi) {
     const sessionCookie = request.cookies.get(COOKIE_NAME);
     const valid = sessionCookie?.value
-      ? verifySessionToken(sessionCookie.value)
+      ? await verifySessionToken(sessionCookie.value)
       : false;
 
     if (!valid) {
       if (isAdminApi) {
-        // Return JSON 401 for API routes
         return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
       }
-      // Redirect to login for UI routes
       return NextResponse.redirect(new URL("/admin", request.url));
     }
   }
