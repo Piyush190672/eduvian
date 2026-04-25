@@ -26,7 +26,7 @@ const securityHeaders = [
       // Fonts
       "font-src 'self' https://fonts.gstatic.com",
       // Images: self + data URIs + trusted CDNs
-      "img-src 'self' data: blob: https://flagcdn.com https://*.supabase.co",
+      "img-src 'self' data: blob: https://flagcdn.com https://*.supabase.co https://images.unsplash.com",
       // API connections
       "connect-src 'self' https://*.supabase.co https://api.resend.com https://api.anthropic.com https://*.ingest.sentry.io https://*.ingest.us.sentry.io",
       // Media (audio for interview prep)
@@ -43,7 +43,7 @@ const securityHeaders = [
 
 const nextConfig = {
   images: {
-    domains: ["flagcdn.com"],
+    domains: ["flagcdn.com", "images.unsplash.com"],
   },
   experimental: {
     serverComponentsExternalPackages: ["mammoth", "pdf-parse"],
