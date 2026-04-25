@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Beta banner offset — pushes any fixed top-0 nav below the banner.
+   The banner itself opts out via the `beta-banner` class. */
+nav.fixed.top-0:not(.beta-banner) {
+  top: var(--beta-banner-h, 0px);
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
