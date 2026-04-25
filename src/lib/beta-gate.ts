@@ -19,6 +19,8 @@ export const PER_USER_MONTHLY_CAPS: Record<string, number> = {
   "score-english": 10,
   "chat": 50,
   "extract-text": 20,
+  "submit-match": 5,
+  "check-match": 30,
 };
 
 export const MONTHLY_UNIQUE_USER_CAP = 100;
@@ -40,6 +42,8 @@ export const TOOL_COST_CENTS: Record<string, number> = {
   "score-english": 1,
   "chat": 1,
   "extract-text": 0,
+  "submit-match": 0,
+  "check-match": 0,
 };
 
 export interface GateResult {

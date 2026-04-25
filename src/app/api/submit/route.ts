@@ -6,6 +6,8 @@ import type { Program, StudentProfile } from "@/lib/types";
 import { scoreStudentProfile } from "@/lib/profile-score";
 import { v4 as uuidv4 } from "uuid";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
+import { checkBetaAccess, logToolUsage } from "@/lib/beta-gate";
+import { createUserToken, USER_COOKIE_NAME, USER_COOKIE_OPTS } from "@/lib/user-cookie";
 
 export async function POST(req: NextRequest) {
   // Rate limit: 5 submissions per IP per hour
@@ -31,6 +33,17 @@ export async function POST(req: NextRequest) {
     // Basic field-length guards
     if (profile.full_name.length > 120 || profile.email.length > 255) {
       return NextResponse.json({ error: "Invalid input" }, { status: 400 });
+    }
+
+    const normalizedEmail = profile.email.toLowerCase().trim();
+
+    // Beta gate (in addition to IP rate limit)
+    const gate = await checkBetaAccess(normalizedEmail, "submit-match");
+    if (!gate.allowed) {
+      return NextResponse.json(
+        { error: gate.message, reason: gate.reason },
+        { status: gate.reason === "no_user" ? 401 : 403 }
+      );
     }
 
     // Build program list with stable IDs
@@ -100,6 +113,9 @@ export async function POST(req: NextRequest) {
       created_at: new Date().toISOString(),
     });
 
+    // Log tool usage so this user counts toward the 100/mo cap
+    await logToolUsage(normalizedEmail, "submit-match", ip);
+
     // Send email asynchronously (don't block the response)
     const appUrl =
       process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
@@ -113,11 +129,19 @@ export async function POST(req: NextRequest) {
       }),
     }).catch(() => {});
 
-    return NextResponse.json({
+    // Set the user cookie so unregistered submitters become known users.
+    const res = NextResponse.json({
       token,
       total: scored.length,
       savedToDb,
     });
+    try {
+      const userToken = await createUserToken(normalizedEmail);
+      res.cookies.set(USER_COOKIE_NAME, userToken, USER_COOKIE_OPTS);
+    } catch (e) {
+      console.error("Failed to set user cookie:", e);
+    }
+    return res;
   } catch (err) {
     console.error("Submit error:", err);
     // Never leak internal details to the client
