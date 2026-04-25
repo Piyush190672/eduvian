@@ -1,4 +1,4 @@
-import * as Sentry from "@sentry/nextjs";
+import * as Sentry from "@sentry/node";
 import { NextResponse } from "next/server";
 
 // Diagnostic endpoint to verify Sentry is wired correctly on Vercel.

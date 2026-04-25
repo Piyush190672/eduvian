@@ -1,9 +1,9 @@
-import * as Sentry from "@sentry/nextjs";
+// Use @sentry/node directly — webpack's server build mis-resolves
+// @sentry/nextjs to its browser entry, which has a no-op init() stub.
+// @sentry/node is a transitive dep and resolves correctly.
+import * as Sentry from "@sentry/node";
 import { NextResponse } from "next/server";
 
-// Belt-and-suspenders: Next 14's instrumentation hook is unreliable on
-// Vercel for our config, so eagerly init Sentry here too. No-op if already
-// initialized by instrumentation.ts.
 if (!Sentry.getClient() && process.env.SENTRY_DSN) {
   Sentry.init({
     dsn: process.env.SENTRY_DSN,
