@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { apiErrorResponse } from "@/lib/api-error";
 import type { ScoredProgram, StudentProfile, Program } from "@/lib/types";
 import { formatCurrency, getTierLabel } from "@/lib/utils";
 import { scoreStudentProfile, getCategoryStyle, categoryBadgeHtml } from "@/lib/profile-score";
@@ -233,7 +234,6 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ ok: true });
   } catch (err) {
-    console.error("Email error:", err);
-    return NextResponse.json({ error: "Email failed" }, { status: 500 });
+    return apiErrorResponse(err, { route: "email" }, "Email failed");
   }
 }

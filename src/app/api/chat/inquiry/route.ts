@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { captureApiError } from "@/lib/api-error";
 
 export async function POST(req: NextRequest) {
   try {
@@ -43,7 +44,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ ok: true });
   } catch (err) {
-    console.error("Chat inquiry error:", err);
+    captureApiError(err, { route: "chat/inquiry" });
     return NextResponse.json({ ok: false, error: "Failed to save" }, { status: 500 });
   }
 }

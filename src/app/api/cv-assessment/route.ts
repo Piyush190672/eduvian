@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getUserFromRequest } from "@/lib/user-cookie";
 import { checkBetaAccess, logToolUsage } from "@/lib/beta-gate";
 import { getClientIp } from "@/lib/rate-limit";
+import { apiErrorResponse } from "@/lib/api-error";
 
 export const maxDuration = 60;
 
@@ -338,14 +339,6 @@ Build the CV per the writing and formatting rules. Tailor every section to ${cou
     return NextResponse.json({ error: "Invalid action" }, { status: 400 });
 
   } catch (err: unknown) {
-    console.error("CV assessment error:", err);
-    const status = (err as { status?: number })?.status;
-    if (status === 529) {
-      return NextResponse.json(
-        { error: "AI service is busy right now. Please try again in a moment." },
-        { status: 503 }
-      );
-    }
-    return NextResponse.json({ error: "CV assessment failed. Please try again." }, { status: 500 });
+    return apiErrorResponse(err, { route: "cv-assessment" }, "CV assessment failed. Please try again.");
   }
 }

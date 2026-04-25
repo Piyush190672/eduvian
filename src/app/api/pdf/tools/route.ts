@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { apiErrorResponse } from "@/lib/api-error";
 
 export const maxDuration = 30;
 
@@ -440,7 +441,6 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Invalid type" }, { status: 400 });
 
   } catch (err) {
-    console.error("PDF tools error:", err);
-    return NextResponse.json({ error: "Failed to generate PDF" }, { status: 500 });
+    return apiErrorResponse(err, { route: "pdf/tools" }, "Failed to generate PDF");
   }
 }

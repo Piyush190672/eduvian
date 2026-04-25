@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getUserFromRequest } from "@/lib/user-cookie";
 import { checkBetaAccess, logToolUsage } from "@/lib/beta-gate";
 import { getClientIp } from "@/lib/rate-limit";
+import { apiErrorResponse } from "@/lib/api-error";
 
 export const maxDuration = 30;
 
@@ -88,10 +89,10 @@ export async function POST(req: NextRequest) {
     if (user) await logToolUsage(user.email, "extract-text", getClientIp(req.headers));
     return NextResponse.json({ text });
   } catch (err) {
-    console.error("Text extraction error:", err);
-    return NextResponse.json(
-      { error: "Could not extract text from this file. Please paste the content manually." },
-      { status: 500 }
+    return apiErrorResponse(
+      err,
+      { route: "extract-text" },
+      "Could not extract text from this file. Please paste the content manually."
     );
   }
 }

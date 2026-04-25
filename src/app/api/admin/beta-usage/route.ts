@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { createServiceClient } from "@/lib/supabase";
 import { MONTHLY_UNIQUE_USER_CAP, MAX_MONTHLY_SPEND_CENTS } from "@/lib/beta-gate";
+import { apiErrorResponse } from "@/lib/api-error";
 
 export async function GET() {
   const supabase = createServiceClient();
@@ -64,10 +65,6 @@ export async function GET() {
       configured: true,
     });
   } catch (err) {
-    console.error("beta-usage error:", err);
-    return NextResponse.json(
-      { error: "Failed to load beta usage" },
-      { status: 500 }
-    );
+    return apiErrorResponse(err, { route: "admin/beta-usage" }, "Failed to load beta usage");
   }
 }

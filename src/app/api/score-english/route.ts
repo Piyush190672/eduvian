@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getUserFromRequest } from "@/lib/user-cookie";
 import { checkBetaAccess, logToolUsage } from "@/lib/beta-gate";
 import { getClientIp } from "@/lib/rate-limit";
+import { apiErrorResponse } from "@/lib/api-error";
 
 export const maxDuration = 60;
 
@@ -181,7 +182,6 @@ Return ONLY valid JSON in this exact structure:
     if (user) await logToolUsage(user.email, "score-english", getClientIp(req.headers));
     return NextResponse.json(parsed);
   } catch (err) {
-    console.error("Score English error:", err);
-    return NextResponse.json({ error: "Scoring failed" }, { status: 500 });
+    return apiErrorResponse(err, { route: "score-english" }, "Scoring failed");
   }
 }

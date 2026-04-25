@@ -77,3 +77,26 @@ Per-tool cost estimates (cents, post-caching ballpark) live in `TOOL_COST_CENTS`
 - Total calls + top 3 tools
 
 It hits `GET /api/admin/beta-usage` (admin-cookie protected via existing middleware), which now also returns `spendCents` and `spendCapCents`.
+
+## Sentry error monitoring
+
+Sentry is wired into every `/api/*` route's outer `catch` block but is
+**disabled by default** until env vars are set. Without a DSN, Sentry init
+is a no-op and routes behave identically to before.
+
+### Enable in production
+
+1. Create a free Sentry account → New project → Next.js (free tier covers
+   5K events/month, plenty for current traffic).
+2. Copy the DSN from the project settings.
+3. In Vercel project → Settings → Environment Variables (Production), add:
+   - `SENTRY_DSN` = the DSN
+   - `NEXT_PUBLIC_SENTRY_DSN` = the same DSN (used by the browser SDK)
+   - (Optional, for source-map upload) `SENTRY_ORG` and `SENTRY_PROJECT`
+4. Redeploy. From the next request on, every `/api/*` exception is
+   captured with a `route` tag (e.g. `route:lor-coach`) so you can filter
+   by tool in the Sentry UI.
+
+The `apiErrorResponse` helper in `src/lib/api-error.ts` preserves the
+original JSON error shapes (including the 529→503 mapping for Anthropic
+busy errors), so client behaviour is unchanged.

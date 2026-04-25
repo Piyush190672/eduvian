@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getUserFromRequest } from "@/lib/user-cookie";
 import { checkBetaAccess, logToolUsage } from "@/lib/beta-gate";
 import { getClientIp } from "@/lib/rate-limit";
+import { apiErrorResponse } from "@/lib/api-error";
 
 export const maxDuration = 60; // allow up to 60s for Claude analysis
 
@@ -179,20 +180,13 @@ export async function POST(req: NextRequest) {
     if (user) await logToolUsage(user.email, "application-check", getClientIp(req.headers));
     return NextResponse.json(result);
   } catch (err: unknown) {
-    console.error("Application check error:", err);
-    const status = (err as { status?: number })?.status;
-    if (status === 529) {
-      return NextResponse.json(
-        {
-          error:
-            "Our AI analyser is very busy right now. Please try again in a moment.",
-        },
-        { status: 503 }
-      );
-    }
-    return NextResponse.json(
-      { error: "Analysis failed. Please try again." },
-      { status: 500 }
+    return apiErrorResponse(
+      err,
+      {
+        route: "application-check",
+        busyMessage: "Our AI analyser is very busy right now. Please try again in a moment.",
+      },
+      "Analysis failed. Please try again."
     );
   }
 }

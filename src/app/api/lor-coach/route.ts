@@ -3,6 +3,7 @@ import type { LorBrief, RecommenderInputs, LorProgram } from "@/lib/lor-coach";
 import { getUserFromRequest } from "@/lib/user-cookie";
 import { checkBetaAccess, logToolUsage } from "@/lib/beta-gate";
 import { getClientIp } from "@/lib/rate-limit";
+import { apiErrorResponse } from "@/lib/api-error";
 
 export const maxDuration = 90;
 
@@ -329,14 +330,6 @@ ${letter_text}`;
 
     return NextResponse.json({ error: "Invalid action" }, { status: 400 });
   } catch (err: unknown) {
-    console.error("LOR coach error:", err);
-    const status = (err as { status?: number })?.status;
-    if (status === 529) {
-      return NextResponse.json(
-        { error: "AI service is busy right now. Please try again in a moment." },
-        { status: 503 }
-      );
-    }
-    return NextResponse.json({ error: "LOR coach failed" }, { status: 500 });
+    return apiErrorResponse(err, { route: "lor-coach" }, "LOR coach failed");
   }
 }

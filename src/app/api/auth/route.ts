@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 import { createUserToken, USER_COOKIE_NAME, USER_COOKIE_OPTS } from "@/lib/user-cookie";
+import { apiErrorResponse } from "@/lib/api-error";
 
 /** Build a JSON response with the signed user cookie attached. */
 async function jsonWithUserCookie(payload: Record<string, unknown>, email: string, status = 200) {
@@ -183,7 +184,6 @@ export async function POST(req: NextRequest) {
     );
 
   } catch (err) {
-    console.error("Auth error:", err);
-    return NextResponse.json({ error: "Something went wrong" }, { status: 500 });
+    return apiErrorResponse(err, { route: "auth" }, "Something went wrong");
   }
 }

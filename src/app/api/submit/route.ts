@@ -3,6 +3,7 @@ import { recommendPrograms } from "@/lib/scoring";
 import { PROGRAMS } from "@/data/programs";
 import { submissionStore } from "@/lib/store";
 import type { Program, StudentProfile } from "@/lib/types";
+import { apiErrorResponse } from "@/lib/api-error";
 import { scoreStudentProfile } from "@/lib/profile-score";
 import { v4 as uuidv4 } from "uuid";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
@@ -143,8 +144,7 @@ export async function POST(req: NextRequest) {
     }
     return res;
   } catch (err) {
-    console.error("Submit error:", err);
     // Never leak internal details to the client
-    return NextResponse.json({ error: "Something went wrong" }, { status: 500 });
+    return apiErrorResponse(err, { route: "submit" }, "Something went wrong");
   }
 }

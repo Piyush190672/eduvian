@@ -323,6 +323,7 @@ interface ChatMessage {
 import { getUserFromRequest } from "@/lib/user-cookie";
 import { checkBetaAccess, logToolUsage } from "@/lib/beta-gate";
 import { getClientIp } from "@/lib/rate-limit";
+import { apiErrorResponse } from "@/lib/api-error";
 
 export async function POST(req: NextRequest) {
   try {
@@ -378,14 +379,13 @@ export async function POST(req: NextRequest) {
     if (user) await logToolUsage(user.email, "chat", getClientIp(req.headers));
     return NextResponse.json({ message: text });
   } catch (err: unknown) {
-    console.error("Chat error:", err);
-    const status = (err as { status?: number })?.status;
-    if (status === 529) {
-      return NextResponse.json(
-        { error: "Our AI advisor is very busy right now. Please try again in a moment." },
-        { status: 503 }
-      );
-    }
-    return NextResponse.json({ error: "Chat failed" }, { status: 500 });
+    return apiErrorResponse(
+      err,
+      {
+        route: "chat",
+        busyMessage: "Our AI advisor is very busy right now. Please try again in a moment.",
+      },
+      "Chat failed"
+    );
   }
 }

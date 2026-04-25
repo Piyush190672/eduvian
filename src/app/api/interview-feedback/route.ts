@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getUserFromRequest } from "@/lib/user-cookie";
 import { checkBetaAccess, logToolUsage } from "@/lib/beta-gate";
 import { getClientIp } from "@/lib/rate-limit";
+import { apiErrorResponse } from "@/lib/api-error";
 
 export const maxDuration = 60;
 
@@ -107,7 +108,6 @@ ${sampleLabel}: [write a complete, confident sample answer under 200 words, ener
     if (user) await logToolUsage(user.email, "interview-feedback", getClientIp(req.headers));
     return NextResponse.json({ feedback: text });
   } catch (err) {
-    console.error("Interview feedback error:", err);
-    return NextResponse.json({ error: "Feedback generation failed" }, { status: 500 });
+    return apiErrorResponse(err, { route: "interview-feedback" }, "Feedback generation failed");
   }
 }

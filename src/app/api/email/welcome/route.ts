@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { captureApiError } from "@/lib/api-error";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 
 export async function POST(req: NextRequest) {
@@ -269,7 +270,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ ok: true });
   } catch (err) {
-    console.error("Welcome email error:", err);
+    captureApiError(err, { route: "email/welcome" });
     // Non-fatal — don't block registration
     return NextResponse.json({ ok: false, error: String(err) }, { status: 500 });
   }

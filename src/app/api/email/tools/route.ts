@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { apiErrorResponse } from "@/lib/api-error";
 
 export const maxDuration = 30;
 
@@ -350,7 +351,6 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ok: true });
 
   } catch (err) {
-    console.error("Email tools error:", err);
-    return NextResponse.json({ error: "Failed to send email. Please try again." }, { status: 500 });
+    return apiErrorResponse(err, { route: "email/tools" }, "Failed to send email. Please try again.");
   }
 }
