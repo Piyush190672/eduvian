@@ -18,6 +18,7 @@ import {
 import type { ScoredProgram } from "@/lib/types";
 import { calculateROI, lookupSalary } from "@/lib/roi-calculator";
 import { formatCurrency, getCountryFlag, getTierColor, getTierLabel } from "@/lib/utils";
+import { isFeeUnavailable, FEE_UNAVAILABLE_SHORT } from "@/lib/format-fee";
 import { PSW_RIGHTS, SAFETY_RATINGS, JOB_MARKET } from "@/data/parent-decision-data";
 import type { SalaryCountry, FieldOfStudy } from "@/data/roi-data";
 
@@ -154,7 +155,7 @@ export default function ComparePanel({ programs, onClose, onRemove }: Props) {
     const pswInfo = PSW_RIGHTS[safeCountry];
     const safetyInfo = SAFETY_RATINGS[safeCountry];
     const jobInfo = JOB_MARKET[safeCountry];
-    const totalAnnual = p.annual_tuition_usd + p.avg_living_cost_usd;
+    const totalAnnual = isFeeUnavailable(p.annual_tuition_usd) ? null : (p.annual_tuition_usd as number) + (p.avg_living_cost_usd ?? 0);
     return { salary, roi, pswInfo, safetyInfo, jobInfo, totalAnnual, country: safeCountry };
   });
 
@@ -346,7 +347,7 @@ export default function ComparePanel({ programs, onClose, onRemove }: Props) {
                 "Annual Tuition",
                 programs.map((p) => p.annual_tuition_usd),
                 "lowest",
-                formatCurrency,
+                (v) => (isFeeUnavailable(v) ? FEE_UNAVAILABLE_SHORT : formatCurrency(v as number)),
               )}
 
               {numericRow(
@@ -360,7 +361,7 @@ export default function ComparePanel({ programs, onClose, onRemove }: Props) {
                 "Total Annual Cost",
                 derived.map((d) => d.totalAnnual),
                 "lowest",
-                formatCurrency,
+                (v) => (isFeeUnavailable(v) ? FEE_UNAVAILABLE_SHORT : formatCurrency(v as number)),
               )}
 
               {numericRow(

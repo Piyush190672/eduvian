@@ -2,7 +2,8 @@
 
 import type { ScoredProgram } from "@/lib/types";
 import { BookmarkCheck, X } from "lucide-react";
-import { formatCurrency, getCountryFlag } from "@/lib/utils";
+import { getCountryFlag } from "@/lib/utils";
+import { formatTotalCost } from "@/lib/format-fee";
 
 interface Props {
   programs: ScoredProgram[];
@@ -33,7 +34,7 @@ export default function ShortlistSummary({ programs, onRemove }: Props) {
                   {p.program_name}
                 </p>
                 <p className="text-xs text-gray-500 truncate">
-                  {p.university_name} · {formatCurrency(p.annual_tuition_usd + p.avg_living_cost_usd)}/yr
+                  {p.university_name} · {formatTotalCost(p.annual_tuition_usd, p.avg_living_cost_usd, { short: true })}
                 </p>
               </div>
             </div>

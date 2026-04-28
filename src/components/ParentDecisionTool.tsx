@@ -34,8 +34,8 @@ const ALL_PROGRAMS = PROGRAMS as unknown as ProgramEntry[];
 
 // ── helpers ───────────────────────────────────────────────────────────────────
 
-function fmtK(n: number) {
-  if (!isFinite(n) || n === 0) return "$0";
+function fmtK(n: number | null | undefined) {
+  if (n == null || !isFinite(n) || n === 0) return "—";
   return n >= 1000 ? `$${(n / 1000).toFixed(0)}K` : `$${n.toFixed(0)}`;
 }
 
@@ -439,7 +439,7 @@ export default function ParentDecisionTool() {
                               className={`w-full text-left px-4 py-3 hover:bg-purple-50 transition-colors border-b border-gray-50 last:border-0 ${selectedProgram?.program_name === p.program_name ? "bg-purple-50" : ""}`}
                             >
                               <p className="text-sm font-semibold text-gray-800 leading-tight">{p.program_name}</p>
-                              <p className="text-xs text-gray-400 mt-0.5">{p.degree_level} · {p.duration_months} mo · {fmtK(p.annual_tuition_usd)}/yr</p>
+                              <p className="text-xs text-gray-400 mt-0.5">{p.degree_level} · {p.duration_months} mo · {p.annual_tuition_usd ? `${fmtK(p.annual_tuition_usd)}/yr` : "fee unavailable"}</p>
                             </button>
                           ))}
                         </motion.div>

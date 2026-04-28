@@ -32,8 +32,8 @@ const ALL_PROGRAMS = PROGRAMS as unknown as ProgramEntry[];
 
 // ── helpers ───────────────────────────────────────────────────────────────────
 
-function fmtK(n: number) {
-  if (!isFinite(n) || n === 0) return "—";
+function fmtK(n: number | null | undefined) {
+  if (n == null || !isFinite(n) || n === 0) return "—";
   return n >= 1000 ? `$${(n / 1000).toFixed(0)}K` : `$${n}`;
 }
 
@@ -481,7 +481,7 @@ export default function ROICalculator() {
                             >
                               <span className="text-sm font-semibold text-white leading-tight">{p.program_name}</span>
                               <span className="text-xs text-slate-400 mt-0.5">
-                                {p.degree_level} · {p.duration_months} mo · {fmtK(p.annual_tuition_usd)}/yr tuition
+                                {p.degree_level} · {p.duration_months} mo · {p.annual_tuition_usd ? `${fmtK(p.annual_tuition_usd)}/yr tuition` : "fee unavailable"}
                               </span>
                             </button>
                           ))}

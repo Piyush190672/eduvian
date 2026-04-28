@@ -2,6 +2,7 @@
 
 import type { ScoredProgram } from "@/lib/types";
 import { formatCurrency, getTierColor, getTierLabel, getCountryFlag } from "@/lib/utils";
+import { isFeeUnavailable, FEE_UNAVAILABLE_MESSAGE, FEE_UNAVAILABLE_SHORT } from "@/lib/format-fee";
 import {
   ExternalLink,
   BookmarkCheck,
@@ -134,7 +135,8 @@ function getDeadlineInfo(deadline: string | null | undefined): {
 }
 
 export default function ProgramCard({ program, isShortlisted, onToggleShortlist, isInCompare, onToggleCompare, compareDisabled }: Props) {
-  const totalCost = program.annual_tuition_usd + program.avg_living_cost_usd;
+  const tuitionUnavailable = isFeeUnavailable(program.annual_tuition_usd);
+  const totalCost = tuitionUnavailable ? null : (program.annual_tuition_usd as number) + (program.avg_living_cost_usd ?? 0);
   const flag = getCountryFlag(program.country);
   const tierStyle = getTierColor(program.tier);
   const tierLabel = getTierLabel(program.tier);
@@ -231,14 +233,26 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist,
 
             {/* Cost & deadline row */}
             <div className="flex flex-wrap items-center gap-4 mt-3 text-sm">
-              <span className="flex items-center gap-1 text-gray-600">
-                <DollarSign className="w-3.5 h-3.5 text-indigo-400" />
-                <span className="font-semibold">{formatCurrency(totalCost)}</span>
-                <span className="text-gray-400 text-xs">/yr total</span>
-              </span>
-              <span className="text-gray-400 text-xs">
-                Tuition: {formatCurrency(program.annual_tuition_usd)} + Living: {formatCurrency(program.avg_living_cost_usd)}
-              </span>
+              {tuitionUnavailable ? (
+                <span
+                  className="flex items-center gap-1 text-amber-700 text-xs font-medium"
+                  title={FEE_UNAVAILABLE_MESSAGE}
+                >
+                  <DollarSign className="w-3.5 h-3.5 text-amber-500" />
+                  {FEE_UNAVAILABLE_SHORT}
+                </span>
+              ) : (
+                <>
+                  <span className="flex items-center gap-1 text-gray-600">
+                    <DollarSign className="w-3.5 h-3.5 text-indigo-400" />
+                    <span className="font-semibold">{formatCurrency(totalCost as number)}</span>
+                    <span className="text-gray-400 text-xs">/yr total</span>
+                  </span>
+                  <span className="text-gray-400 text-xs">
+                    Tuition: {formatCurrency(program.annual_tuition_usd as number)} + Living: {formatCurrency(program.avg_living_cost_usd as number)}
+                  </span>
+                </>
+              )}
               {deadlineInfo && (
                 <span className={`flex items-center gap-1 text-xs ${
                   deadlineInfo.past    ? "text-gray-400"  :

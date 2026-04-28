@@ -34,8 +34,8 @@ function toSalaryField(f: string): FieldOfStudy {
 
 // ── formatting helpers ────────────────────────────────────────────────────────
 
-function fmtK(n: number) {
-  if (!isFinite(n) || n === 0) return "—";
+function fmtK(n: number | null | undefined) {
+  if (n == null || !isFinite(n) || n === 0) return "—";
   if (Math.abs(n) >= 1_000_000) return `$${(n / 1_000_000).toFixed(1)}M`;
   if (Math.abs(n) >= 1000) return `$${(n / 1000).toFixed(0)}K`;
   return `$${Math.round(n)}`;
@@ -207,8 +207,8 @@ export default function InlineProgramROI({ program }: Props) {
                   `${program.country}`,
                   `${program.field_of_study}`,
                   `${Math.round(program.duration_months / 12 * 10) / 10} yrs`,
-                  `Tuition ${fmtK(program.annual_tuition_usd)}/yr`,
-                  `Living ${fmtK(program.avg_living_cost_usd)}/yr`,
+                  program.annual_tuition_usd ? `Tuition ${fmtK(program.annual_tuition_usd)}/yr` : "Tuition: fee unavailable",
+                  program.avg_living_cost_usd ? `Living ${fmtK(program.avg_living_cost_usd)}/yr` : "Living: see website",
                 ].map((tag) => (
                   <span
                     key={tag}

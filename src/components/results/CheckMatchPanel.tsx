@@ -4,7 +4,8 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, X, TrendingUp, Loader2, MapPin, GraduationCap, DollarSign } from "lucide-react";
 import type { ScoredProgram } from "@/lib/types";
-import { getTierLabel, formatCurrency } from "@/lib/utils";
+import { getTierLabel } from "@/lib/utils";
+import { formatTotalCost } from "@/lib/format-fee";
 
 interface Props {
   token: string;
@@ -209,7 +210,7 @@ export default function CheckMatchPanel({ token }: Props) {
                               <GraduationCap className="w-3 h-3" />{selected.field_of_study}
                             </span>
                             <span className="flex items-center gap-1 text-xs text-gray-500">
-                              <DollarSign className="w-3 h-3" />{formatCurrency(selected.annual_tuition_usd + selected.avg_living_cost_usd)}/yr
+                              <DollarSign className="w-3 h-3" />{formatTotalCost(selected.annual_tuition_usd, selected.avg_living_cost_usd, { short: true })}
                             </span>
                           </div>
                         </div>
