@@ -1,0 +1,14 @@
+[
+  { "university": "Massachusetts Institute of Technology", "country": "USA", "city": "Cambridge, MA", "qs_ranking": 1, "catalog_url": "https://catalog.mit.edu/degree-charts/" },
+  { "university": "Imperial College London", "country": "UK", "city": "London", "qs_ranking": 2, "catalog_url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/" },
+  { "university": "Stanford University", "country": "USA", "city": "Stanford, CA", "qs_ranking": 3, "catalog_url": "https://exploredegrees.stanford.edu/" },
+  { "university": "University of Oxford", "country": "UK", "city": "Oxford", "qs_ranking": 4, "catalog_url": "https://www.ox.ac.uk/admissions/graduate/courses/courses-a-z-listing" },
+  { "university": "Harvard University", "country": "USA", "city": "Cambridge, MA", "qs_ranking": 5, "catalog_url": "https://gsas.harvard.edu/programs-of-study" },
+  { "university": "University of Cambridge", "country": "UK", "city": "Cambridge", "qs_ranking": 6, "catalog_url": "https://www.postgraduate.study.cam.ac.uk/courses" },
+  { "university": "ETH Zurich", "country": "Switzerland", "city": "Zurich", "qs_ranking": 7, "catalog_url": "https://ethz.ch/en/studies/master/programmes.html" },
+  { "university": "National University of Singapore", "country": "Singapore", "city": "Singapore", "qs_ranking": 8, "catalog_url": "https://nus.edu.sg/education/graduate-programmes" },
+  { "university": "UCL", "country": "UK", "city": "London", "qs_ranking": 9, "catalog_url": "https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees" },
+  { "university": "California Institute of Technology", "country": "USA", "city": "Pasadena, CA", "qs_ranking": 10, "catalog_url": "https://www.caltech.edu/academics/graduate-studies" },
+  { "university": "University of Pennsylvania", "country": "USA", "city": "Philadelphia, PA", "qs_ranking": 11, "catalog_url": "https://www.upenn.edu/about/schools-centers" },
+  { "university": "University of California, Berkeley", "country": "USA", "city": "Berkeley, CA", "qs_ranking": 12, "catalog_url": "https://grad.berkeley.edu/programs/list/" }
+]

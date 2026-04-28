@@ -1,0 +1,2098 @@
+[
+  {
+    "university": "Purdue University",
+    "country": "USA",
+    "city": "West Lafayette, IN",
+    "qs_ranking": 109,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.cs.purdue.edu/graduate/"
+  },
+  {
+    "university": "Arizona State University",
+    "country": "USA",
+    "city": "Tempe, AZ",
+    "qs_ranking": 216,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://scai.engineering.asu.edu/graduate-program-software-engineering/"
+  },
+  {
+    "university": "Australian National University",
+    "country": "Australia",
+    "city": "Canberra",
+    "qs_ranking": 30,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://programsandcourses.anu.edu.au/program/7706xmcomp"
+  },
+  {
+    "university": "University of Queensland",
+    "country": "Australia",
+    "city": "Brisbane",
+    "qs_ranking": 43,
+    "field_of_study": "Business & Management",
+    "program_url": "https://study.uq.edu.au/study-options/programs/bachelor-business-management-2171"
+  },
+  {
+    "university": "University of Waterloo",
+    "country": "Canada",
+    "city": "Waterloo, ON",
+    "qs_ranking": 112,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://uwaterloo.ca/data-science/masters-data-science-and-artificial-intelligence-mdsai"
+  },
+  {
+    "university": "University of Auckland",
+    "country": "New Zealand",
+    "city": "Auckland",
+    "qs_ranking": 68,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.auckland.ac.nz/en/study/study-options/find-a-study-option/master-of-information-technology-minfotech.html"
+  },
+  {
+    "university": "Technical University of Munich",
+    "country": "Germany",
+    "city": "Munich",
+    "qs_ranking": 37,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.tum.de/en/studies/degree-programs/detail/informatics-master-of-science-msc"
+  },
+  {
+    "university": "INSEAD",
+    "country": "France",
+    "city": "Fontainebleau",
+    "qs_ranking": 11,
+    "field_of_study": "MBA",
+    "program_url": "https://www.insead.edu/master-programmes/mba"
+  },
+  {
+    "university": "National University of Singapore",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": 8,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.comp.nus.edu.sg/programmes/pg/"
+  },
+  {
+    "university": "American University of Sharjah",
+    "country": "UAE",
+    "city": "Sharjah",
+    "qs_ranking": 416,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.aus.edu/graduate-programs"
+  },
+  {
+    "university": "Khalifa University",
+    "country": "UAE",
+    "city": "Abu Dhabi",
+    "qs_ranking": 181,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.ku.ac.ae/academics/graduate-programs/master-of-science-in-computer-science"
+  },
+  {
+    "university": "INSEAD Asia Campus",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": 11,
+    "field_of_study": "MBA",
+    "program_url": "https://www.insead.edu/master-programmes/mba"
+  },
+  {
+    "university": "Universiti Malaya",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": 65,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://fsktm.um.edu.my/master-of-computer-science-applied-computing-mixed-mode"
+  },
+  {
+    "university": "Deakin University",
+    "country": "Australia",
+    "city": "Melbourne",
+    "qs_ranking": 266,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.deakin.edu.au/course/master-cyber-security"
+  },
+  {
+    "university": "University of Strathclyde",
+    "country": "UK",
+    "city": "Glasgow",
+    "qs_ranking": 301,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.strath.ac.uk/courses/postgraduatetaught/advancedcomputerscience/"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 16,
+    "field_of_study": "Law",
+    "program_url": "https://law.yale.edu/admissions/jd-admissions"
+  },
+  {
+    "university": "Cornell University",
+    "country": "USA",
+    "city": "Ithaca, NY",
+    "qs_ranking": 13,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://sha.cornell.edu/admissions/"
+  },
+  {
+    "university": "University of Pennsylvania",
+    "country": "USA",
+    "city": "Philadelphia, PA",
+    "qs_ranking": 12,
+    "field_of_study": "MBA",
+    "program_url": "https://mba.wharton.upenn.edu/"
+  },
+  {
+    "university": "University of Pennsylvania",
+    "country": "USA",
+    "city": "Philadelphia, PA",
+    "qs_ranking": 12,
+    "field_of_study": "MBA",
+    "program_url": "https://www.seas.upenn.edu/undergraduate/engineering-majors/computer-science/"
+  },
+  {
+    "university": "Cornell University",
+    "country": "USA",
+    "city": "Ithaca, NY",
+    "qs_ranking": 13,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.cs.cornell.edu/masters"
+  },
+  {
+    "university": "Northwestern University",
+    "country": "USA",
+    "city": "Evanston, IL",
+    "qs_ranking": 33,
+    "field_of_study": "MBA",
+    "program_url": "https://www.kellogg.northwestern.edu/programs/full-time-mba.aspx"
+  },
+  {
+    "university": "UCLA",
+    "country": "USA",
+    "city": "Los Angeles, CA",
+    "qs_ranking": 44,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.tft.ucla.edu/programs/"
+  },
+  {
+    "university": "Duke University",
+    "country": "USA",
+    "city": "Durham, NC",
+    "qs_ranking": 51,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.fuqua.duke.edu/programs/daytime-mba"
+  },
+  {
+    "university": "UC San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 62,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://cse.ucsd.edu/graduate"
+  },
+  {
+    "university": "University of Wisconsin-Madison",
+    "country": "USA",
+    "city": "Madison, WI",
+    "qs_ranking": 82,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://datascience.wisc.edu/"
+  },
+  {
+    "university": "UCLA",
+    "country": "USA",
+    "city": "Los Angeles, CA",
+    "qs_ranking": 44,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.cs.ucla.edu/graduate-admission/"
+  },
+  {
+    "university": "Georgetown University",
+    "country": "USA",
+    "city": "Washington, DC",
+    "qs_ranking": 228,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://msfs.georgetown.edu/"
+  },
+  {
+    "university": "University of Cambridge",
+    "country": "UK",
+    "city": "Cambridge",
+    "qs_ranking": 2,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.undergraduate.study.cam.ac.uk/"
+  },
+  {
+    "university": "University of Bath",
+    "country": "UK",
+    "city": "Bath",
+    "qs_ranking": 176,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.bath.ac.uk/courses/postgraduate-2025/taught-postgraduate-courses/msc-business-administration/"
+  },
+  {
+    "university": "University of Sheffield",
+    "country": "UK",
+    "city": "Sheffield",
+    "qs_ranking": 111,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.sheffield.ac.uk/postgraduate/taught/courses/2026/data-analytics-msc"
+  },
+  {
+    "university": "Queen Mary University of London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 154,
+    "field_of_study": "Law",
+    "program_url": "https://www.qmul.ac.uk/postgraduate/taught/coursefinder/courses/international-commercial-law-llm/"
+  },
+  {
+    "university": "University of Liverpool",
+    "country": "UK",
+    "city": "Liverpool",
+    "qs_ranking": 178,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.liverpool.ac.uk/study/postgraduate-taught/taught/engineering-management-msc/"
+  },
+  {
+    "university": "Loughborough University",
+    "country": "UK",
+    "city": "Loughborough",
+    "qs_ranking": 209,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.lboro.ac.uk/study/postgraduate/masters-degrees/"
+  },
+  {
+    "university": "Heriot-Watt University",
+    "country": "UK",
+    "city": "Edinburgh",
+    "qs_ranking": 451,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.hw.ac.uk/uk/study/postgraduate/"
+  },
+  {
+    "university": "University of Surrey",
+    "country": "UK",
+    "city": "Guildford",
+    "qs_ranking": 435,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://www.surrey.ac.uk/postgraduate/"
+  },
+  {
+    "university": "Swinburne University of Technology",
+    "country": "Australia",
+    "city": "Melbourne",
+    "qs_ranking": 462,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.swinburne.edu.au/courses/postgraduate/"
+  },
+  {
+    "university": "McMaster University",
+    "country": "Canada",
+    "city": "Hamilton, ON",
+    "qs_ranking": 189,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.eng.mcmaster.ca/graduate/"
+  },
+  {
+    "university": "University of Wollongong",
+    "country": "Australia",
+    "city": "Wollongong",
+    "qs_ranking": 196,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.uow.edu.au/study/courses/"
+  },
+  {
+    "university": "Western University",
+    "country": "Canada",
+    "city": "London, ON",
+    "qs_ranking": 246,
+    "field_of_study": "MBA",
+    "program_url": "https://www.ivey.uwo.ca/mba/"
+  },
+  {
+    "university": "University College Cork",
+    "country": "Ireland",
+    "city": "Cork",
+    "qs_ranking": 266,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.ucc.ie/en/study/postgrad/"
+  },
+  {
+    "university": "Karlsruhe Institute of Technology",
+    "country": "Germany",
+    "city": "Karlsruhe",
+    "qs_ranking": 119,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.kit.edu/kit/english/education.php"
+  },
+  {
+    "university": "EDHEC Business School",
+    "country": "France",
+    "city": "Lille",
+    "qs_ranking": 501,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://master.edhec.edu/msc-financial-markets"
+  },
+  {
+    "university": "Abu Dhabi University",
+    "country": "UAE",
+    "city": "Abu Dhabi",
+    "qs_ranking": 801,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.adu.ac.ae/academics/graduate-programs/"
+  },
+  {
+    "university": "Sunway University",
+    "country": "Malaysia",
+    "city": "Subang Jaya",
+    "qs_ranking": 601,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://university.sunway.edu.my/Undergraduate-Studies"
+  },
+  {
+    "university": "University of Queensland",
+    "country": "Australia",
+    "city": "Brisbane",
+    "qs_ranking": 40,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://medicine.uq.edu.au/study/mbbs"
+  },
+  {
+    "university": "McGill University",
+    "country": "Canada",
+    "city": "Montreal",
+    "qs_ranking": 46,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.mcgill.ca/medicine/"
+  },
+  {
+    "university": "Nanyang Technological University",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": 26,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.lkcmedicine.ntu.edu.sg/Education/MBBS"
+  },
+  {
+    "university": "University College Dublin",
+    "country": "Ireland",
+    "city": "Dublin",
+    "qs_ranking": 171,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.ucd.ie/medicine/"
+  },
+  {
+    "university": "University College Cork",
+    "country": "Ireland",
+    "city": "Cork",
+    "qs_ranking": 303,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.ucc.ie/en/ck701/"
+  },
+  {
+    "university": "University of South Australia",
+    "country": "Australia",
+    "city": "Adelaide",
+    "qs_ranking": 490,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://study.unisa.edu.au/degrees/bachelor-of-engineering-honours"
+  },
+  {
+    "university": "Edith Cowan University",
+    "country": "Australia",
+    "city": "Perth",
+    "qs_ranking": 601,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.ecu.edu.au/degrees/courses/master-of-information-technology"
+  },
+  {
+    "university": "Bond University",
+    "country": "Australia",
+    "city": "Gold Coast",
+    "qs_ranking": 601,
+    "field_of_study": "MBA",
+    "program_url": "https://bond.edu.au/program/master-business-administration"
+  },
+  {
+    "university": "University of Reading",
+    "country": "UK",
+    "city": "Reading",
+    "qs_ranking": 251,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.reading.ac.uk/study/undergraduate/ug-courses/business-and-management-bsc"
+  },
+  {
+    "university": "Queen's University Belfast",
+    "country": "UK",
+    "city": "Belfast",
+    "qs_ranking": 251,
+    "field_of_study": "MBA",
+    "program_url": "https://www.qub.ac.uk/courses/postgraduate-taught/mba/"
+  },
+  {
+    "university": "Swansea University",
+    "country": "UK",
+    "city": "Swansea",
+    "qs_ranking": 451,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.swansea.ac.uk/undergraduate/courses/engineering/beng-aerospace-engineering/"
+  },
+  {
+    "university": "Coventry University",
+    "country": "UK",
+    "city": "Coventry",
+    "qs_ranking": 601,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.coventry.ac.uk/course-structure/pg/eec/data-science-and-computational-intelligence-msc/"
+  },
+  {
+    "university": "University of East Anglia",
+    "country": "UK",
+    "city": "Norwich",
+    "qs_ranking": 521,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.uea.ac.uk/course/undergraduate/bsc-computer-science-with-artificial-intelligence"
+  },
+  {
+    "university": "City, University of London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 601,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.city.ac.uk/prospective-students/courses/postgraduate/mba"
+  },
+  {
+    "university": "University of Portsmouth",
+    "country": "UK",
+    "city": "Portsmouth",
+    "qs_ranking": 651,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.port.ac.uk/study/courses/undergraduate/bsc-business-information-systems"
+  },
+  {
+    "university": "De Montfort University",
+    "country": "UK",
+    "city": "Leicester",
+    "qs_ranking": 801,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.dmu.ac.uk/study/courses/postgraduate/cyber-security-msc/cyber-security.aspx"
+  },
+  {
+    "university": "De Montfort University",
+    "country": "UK",
+    "city": "Leicester",
+    "qs_ranking": 801,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.dmu.ac.uk/study/courses/undergraduate/software-engineering-bsc/software-engineering.aspx"
+  },
+  {
+    "university": "City, University of London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 601,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.city.ac.uk/prospective-students/courses/postgraduate/data-science"
+  },
+  {
+    "university": "Torrens University Australia",
+    "country": "Australia",
+    "city": "Sydney",
+    "qs_ranking": 1001,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.torrens.edu.au/courses/technology/bachelor-of-information-technology"
+  },
+  {
+    "university": "University of Southern Queensland",
+    "country": "Australia",
+    "city": "Toowoomba",
+    "qs_ranking": 801,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-nursing"
+  },
+  {
+    "university": "University of New England",
+    "country": "Australia",
+    "city": "Armidale",
+    "qs_ranking": 601,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.une.edu.au/study/courses/bachelor-of-agriculture"
+  },
+  {
+    "university": "Leeds Beckett University",
+    "country": "UK",
+    "city": "Leeds",
+    "qs_ranking": 1001,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.leedsbeckett.ac.uk/courses/data-analytics-msc/"
+  },
+  {
+    "university": "Anglia Ruskin University",
+    "country": "UK",
+    "city": "Chelmsford",
+    "qs_ranking": 601,
+    "field_of_study": "Business & Management",
+    "program_url": "https://aru.ac.uk/study/undergraduate/business-management"
+  },
+  {
+    "university": "Middlesex University London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 801,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.mdx.ac.uk/courses/postgraduate/cyber-security"
+  },
+  {
+    "university": "Teesside University",
+    "country": "UK",
+    "city": "Middlesbrough",
+    "qs_ranking": 1001,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.tees.ac.uk/courses/computer-games-development/"
+  },
+  {
+    "university": "Ulster University",
+    "country": "UK",
+    "city": "Coleraine",
+    "qs_ranking": 801,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.ulster.ac.uk/faculties/business-and-management/business-technology-bsc"
+  },
+  {
+    "university": "SOAS University of London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 521,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.soas.ac.uk/study/find-course/economics-ba"
+  },
+  {
+    "university": "Goldsmiths, University of London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 651,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.gold.ac.uk/ug/ba-media-communications/"
+  },
+  {
+    "university": "Glasgow Caledonian University",
+    "country": "UK",
+    "city": "Glasgow",
+    "qs_ranking": 801,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.gcu.ac.uk/study/courses/details/index.php/P02020/Business_Management"
+  },
+  {
+    "university": "Bath Spa University",
+    "country": "UK",
+    "city": "Bath",
+    "qs_ranking": 1001,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.bathspa.ac.uk/courses/ug/business-and-management/"
+  },
+  {
+    "university": "New York University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 42,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.nyu.edu/graduate"
+  },
+  {
+    "university": "Michigan State University",
+    "country": "USA",
+    "city": "East Lansing, MI",
+    "qs_ranking": 301,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.msu.edu/graduate"
+  },
+  {
+    "university": "Michigan State University",
+    "country": "USA",
+    "city": "East Lansing, MI",
+    "qs_ranking": 301,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.msu.edu/graduate"
+  },
+  {
+    "university": "Humboldt University Berlin",
+    "country": "Germany",
+    "city": "Berlin",
+    "qs_ranking": 120,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.hu-berlin.de/graduate"
+  },
+  {
+    "university": "University of G\u00f6ttingen",
+    "country": "Germany",
+    "city": "G\u00f6ttingen",
+    "qs_ranking": 261,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.uni-goettingen.de/graduate"
+  },
+  {
+    "university": "University of T\u00fcbingen",
+    "country": "Germany",
+    "city": "T\u00fcbingen",
+    "qs_ranking": 206,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://uni-tuebingen.de/en/study/finding-a-course/degree-programs-available/detail/course/machine-learning-master/"
+  },
+  {
+    "university": "University of T\u00fcbingen",
+    "country": "Germany",
+    "city": "T\u00fcbingen",
+    "qs_ranking": 206,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://uni-tuebingen.de/en/study/finding-a-course/degree-programs-available/detail/course/computational-neuroscience-master/"
+  },
+  {
+    "university": "University of T\u00fcbingen",
+    "country": "Germany",
+    "city": "T\u00fcbingen",
+    "qs_ranking": 206,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://uni-tuebingen.de/en/study/finding-a-course/degree-programs-available/detail/course/quantitative-data-science-methods-psychometrics-econometrics-and-machine-learning-master/"
+  },
+  {
+    "university": "University of T\u00fcbingen",
+    "country": "Germany",
+    "city": "T\u00fcbingen",
+    "qs_ranking": 206,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://uni-tuebingen.de/en/study/finding-a-course/degree-programs-available/detail/course/computerlinguistik-computational-linguistics-master/"
+  },
+  {
+    "university": "University of T\u00fcbingen",
+    "country": "Germany",
+    "city": "T\u00fcbingen",
+    "qs_ranking": 206,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://uni-tuebingen.de/en/fakultaeten/wirtschafts-und-sozialwissenschaftliche-fakultaet/faecher/fachbereich-wirtschaftswissenschaft/wirtschaftswissenschaft/studium/studiengaenge/master/msc-economics-and-finance/"
+  },
+  {
+    "university": "University of T\u00fcbingen",
+    "country": "Germany",
+    "city": "T\u00fcbingen",
+    "qs_ranking": 206,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://uni-tuebingen.de/en/study/finding-a-course/degree-programs-available/detail/course/european-economics-master/"
+  },
+  {
+    "university": "University of T\u00fcbingen",
+    "country": "Germany",
+    "city": "T\u00fcbingen",
+    "qs_ranking": 206,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://uni-tuebingen.de/fakultaeten/wirtschafts-und-sozialwissenschaftliche-fakultaet/faecher/fachbereich-wirtschaftswissenschaft/wirtschaftswissenschaft/studium/studiengaenge/master/msc-management-and-economics-managerial-economics/"
+  },
+  {
+    "university": "University of T\u00fcbingen",
+    "country": "Germany",
+    "city": "T\u00fcbingen",
+    "qs_ranking": 206,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://uni-tuebingen.de/en/study/finding-a-course/degree-programs-available/detail/course/cellular-and-molecular-neuroscience-master/"
+  },
+  {
+    "university": "University of T\u00fcbingen",
+    "country": "Germany",
+    "city": "T\u00fcbingen",
+    "qs_ranking": 206,
+    "field_of_study": "Business & Management",
+    "program_url": "https://uni-tuebingen.de/en/study/finding-a-course/degree-programs-available/detail/course/neural-and-behavioural-sciences-master/"
+  },
+  {
+    "university": "University of T\u00fcbingen",
+    "country": "Germany",
+    "city": "T\u00fcbingen",
+    "qs_ranking": 206,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://uni-tuebingen.de/en/study/finding-a-course/degree-programs-available/detail/course/molekulare-medizin-master/"
+  },
+  {
+    "university": "University of T\u00fcbingen",
+    "country": "Germany",
+    "city": "T\u00fcbingen",
+    "qs_ranking": 206,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://uni-tuebingen.de/studium/studienangebot/verzeichnis-der-studiengaenge/detail/course/population-based-medicine-master/"
+  },
+  {
+    "university": "University of T\u00fcbingen",
+    "country": "Germany",
+    "city": "T\u00fcbingen",
+    "qs_ranking": 206,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://uni-tuebingen.de/en/study/finding-a-course/degree-programs-available/detail/course/biochemistry-master/"
+  },
+  {
+    "university": "University of T\u00fcbingen",
+    "country": "Germany",
+    "city": "T\u00fcbingen",
+    "qs_ranking": 206,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://uni-tuebingen.de/en/study/finding-a-course/degree-programs-available/detail/course/biomedical-technologies-master/"
+  },
+  {
+    "university": "University of T\u00fcbingen",
+    "country": "Germany",
+    "city": "T\u00fcbingen",
+    "qs_ranking": 206,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://uni-tuebingen.de/en/study/finding-a-course/degree-programs-available/detail/course/applied-environmental-geoscience-aeg-master/"
+  },
+  {
+    "university": "University of T\u00fcbingen",
+    "country": "Germany",
+    "city": "T\u00fcbingen",
+    "qs_ranking": 206,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://uni-tuebingen.de/en/study/finding-a-course/degree-programs-available/detail/course/geooekologiegeoecology-master/"
+  },
+  {
+    "university": "University of T\u00fcbingen",
+    "country": "Germany",
+    "city": "T\u00fcbingen",
+    "qs_ranking": 206,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://uni-tuebingen.de/en/study/finding-a-course/degree-programs-available/detail/course/astro-and-particle-physics-master/"
+  },
+  {
+    "university": "University of T\u00fcbingen",
+    "country": "Germany",
+    "city": "T\u00fcbingen",
+    "qs_ranking": 206,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://uni-tuebingen.de/en/study/finding-a-course/degree-programs-available/detail/course/advanced-quantum-physics-master/"
+  },
+  {
+    "university": "University of T\u00fcbingen",
+    "country": "Germany",
+    "city": "T\u00fcbingen",
+    "qs_ranking": 206,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://uni-tuebingen.de/en/faculties/faculty-of-science/departments/physics/studies/study-programs/msc-mathematical-physics/"
+  },
+  {
+    "university": "University of T\u00fcbingen",
+    "country": "Germany",
+    "city": "T\u00fcbingen",
+    "qs_ranking": 206,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://uni-tuebingen.de/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/physik/studium/studiengaenge/msc-nano-science/"
+  },
+  {
+    "university": "University of T\u00fcbingen",
+    "country": "Germany",
+    "city": "T\u00fcbingen",
+    "qs_ranking": 206,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://uni-tuebingen.de/en/study/finding-a-course/degree-programs-available/detail/course/geowissenschaften-geosciences-master/"
+  },
+  {
+    "university": "University of T\u00fcbingen",
+    "country": "Germany",
+    "city": "T\u00fcbingen",
+    "qs_ranking": 206,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://uni-tuebingen.de/en/study/finding-a-course/degree-programs-available/detail/course/american-studies-master/"
+  },
+  {
+    "university": "University of T\u00fcbingen",
+    "country": "Germany",
+    "city": "T\u00fcbingen",
+    "qs_ranking": 206,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://uni-tuebingen.de/en/study/finding-a-course/degree-programs-available/detail/course/english-literatures-and-cultures-master/"
+  },
+  {
+    "university": "University of T\u00fcbingen",
+    "country": "Germany",
+    "city": "T\u00fcbingen",
+    "qs_ranking": 206,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://uni-tuebingen.de/en/study/finding-a-course/degree-programs-available/detail/course/english-linguistics-master/"
+  },
+  {
+    "university": "University of T\u00fcbingen",
+    "country": "Germany",
+    "city": "T\u00fcbingen",
+    "qs_ranking": 206,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://uni-tuebingen.de/en/study/finding-a-course/degree-programs-available/detail/course/ethnologiesocial-and-cultural-anthropology-master/"
+  },
+  {
+    "university": "University of T\u00fcbingen",
+    "country": "Germany",
+    "city": "T\u00fcbingen",
+    "qs_ranking": 206,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://uni-tuebingen.de/en/study/finding-a-course/degree-programs-available/detail/course/comparative-middle-east-politics-and-society-cmeps-master/"
+  },
+  {
+    "university": "University of T\u00fcbingen",
+    "country": "Germany",
+    "city": "T\u00fcbingen",
+    "qs_ranking": 206,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://uni-tuebingen.de/en/study/finding-a-course/degree-programs-available/detail/course/peace-research-and-international-relations-master/"
+  },
+  {
+    "university": "University of T\u00fcbingen",
+    "country": "Germany",
+    "city": "T\u00fcbingen",
+    "qs_ranking": 206,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://uni-tuebingen.de/en/study/finding-a-course/degree-programs-available/detail/course/master-of-public-policy-and-social-change-master/"
+  },
+  {
+    "university": "University of T\u00fcbingen",
+    "country": "Germany",
+    "city": "T\u00fcbingen",
+    "qs_ranking": 206,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://uni-tuebingen.de/en/study/finding-a-course/degree-programs-available/detail/course/palaeolithic-archaeology-master/"
+  },
+  {
+    "university": "New York University Abu Dhabi",
+    "country": "UAE",
+    "city": "Abu Dhabi",
+    "qs_ranking": 185,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.nyuad.ac.ae/graduate"
+  },
+  {
+    "university": "New York University Abu Dhabi",
+    "country": "UAE",
+    "city": "Abu Dhabi",
+    "qs_ranking": 185,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.nyuad.ac.ae/graduate"
+  },
+  {
+    "university": "University of Rochester",
+    "country": "USA",
+    "city": "Rochester, NY",
+    "qs_ranking": 236,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://simon.rochester.edu/programs/full-time-mba"
+  },
+  {
+    "university": "University of Rochester",
+    "country": "USA",
+    "city": "Rochester, NY",
+    "qs_ranking": 236,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.esm.rochester.edu/graduate/"
+  },
+  {
+    "university": "Dartmouth College",
+    "country": "USA",
+    "city": "Hanover, NH",
+    "qs_ranking": 243,
+    "field_of_study": "MBA",
+    "program_url": "https://engineering.dartmouth.edu/graduate/"
+  },
+  {
+    "university": "Dartmouth College",
+    "country": "USA",
+    "city": "Hanover, NH",
+    "qs_ranking": 243,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://geiselmed.dartmouth.edu/qbs/"
+  },
+  {
+    "university": "University of Massachusetts Amherst",
+    "country": "USA",
+    "city": "Amherst, MA",
+    "qs_ranking": 275,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.resecon.umass.edu/graduate/"
+  },
+  {
+    "university": "University of Arizona",
+    "country": "USA",
+    "city": "Tucson, AZ",
+    "qs_ranking": 293,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://datascience.arizona.edu/"
+  },
+  {
+    "university": "University of Massachusetts Amherst",
+    "country": "USA",
+    "city": "Amherst, MA",
+    "qs_ranking": 275,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.isenberg.umass.edu/programs/masters/mba"
+  },
+  {
+    "university": "North Carolina State University",
+    "country": "USA",
+    "city": "Raleigh, NC",
+    "qs_ranking": 311,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.csc.ncsu.edu/academics/graduate/"
+  },
+  {
+    "university": "North Carolina State University",
+    "country": "USA",
+    "city": "Raleigh, NC",
+    "qs_ranking": 311,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.csc.ncsu.edu/academics/graduate/"
+  },
+  {
+    "university": "North Carolina State University",
+    "country": "USA",
+    "city": "Raleigh, NC",
+    "qs_ranking": 311,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.mae.ncsu.edu/graduate/"
+  },
+  {
+    "university": "North Carolina State University",
+    "country": "USA",
+    "city": "Raleigh, NC",
+    "qs_ranking": 311,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://mba.ncsu.edu/"
+  },
+  {
+    "university": "North Carolina State University",
+    "country": "USA",
+    "city": "Raleigh, NC",
+    "qs_ranking": 311,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://biotech.ncsu.edu/graduate/"
+  },
+  {
+    "university": "University of Colorado Boulder",
+    "country": "USA",
+    "city": "Boulder, CO",
+    "qs_ranking": 320,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.colorado.edu/engineering/academics/graduate-programs/data-science-masters-program"
+  },
+  {
+    "university": "University of Miami",
+    "country": "USA",
+    "city": "Coral Gables, FL",
+    "qs_ranking": 324,
+    "field_of_study": "MBA",
+    "program_url": "https://csc.as.miami.edu/programs/master-of-science/index.html"
+  },
+  {
+    "university": "University of Miami",
+    "country": "USA",
+    "city": "Coral Gables, FL",
+    "qs_ranking": 324,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://com.miami.edu/graduate/"
+  },
+  {
+    "university": "University of Miami",
+    "country": "USA",
+    "city": "Coral Gables, FL",
+    "qs_ranking": 324,
+    "field_of_study": "MBA",
+    "program_url": "https://www.herbert.miami.edu/graduate/find-and-compare-programs/finance/index.html"
+  },
+  {
+    "university": "University of Miami",
+    "country": "USA",
+    "city": "Coral Gables, FL",
+    "qs_ranking": 324,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://admissions.law.miami.edu/academics/jd/apply/"
+  },
+  {
+    "university": "Rutgers University\u2013New Brunswick",
+    "country": "USA",
+    "city": "New Brunswick, NJ",
+    "qs_ranking": 328,
+    "field_of_study": "MBA",
+    "program_url": "https://nursing.rutgers.edu/academics-admissions/graduate/masters/"
+  },
+  {
+    "university": "Tufts University",
+    "country": "USA",
+    "city": "Medford, MA",
+    "qs_ranking": 344,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://vet.tufts.edu/dvm-program-overview"
+  },
+  {
+    "university": "University of Illinois at Chicago",
+    "country": "USA",
+    "city": "Chicago, IL",
+    "qs_ranking": 365,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://business.uic.edu/mba/"
+  },
+  {
+    "university": "George Washington University",
+    "country": "USA",
+    "city": "Washington, DC",
+    "qs_ranking": 371,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://datascience.gwu.edu/"
+  },
+  {
+    "university": "George Washington University",
+    "country": "USA",
+    "city": "Washington, DC",
+    "qs_ranking": 371,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.cs.gwu.edu/graduate/"
+  },
+  {
+    "university": "University of Illinois at Chicago",
+    "country": "USA",
+    "city": "Chicago, IL",
+    "qs_ranking": 365,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://nursing.uic.edu/graduate/"
+  },
+  {
+    "university": "George Washington University",
+    "country": "USA",
+    "city": "Washington, DC",
+    "qs_ranking": 371,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://business.gwu.edu/mba/"
+  },
+  {
+    "university": "Virginia Tech",
+    "country": "USA",
+    "city": "Blacksburg, VA",
+    "qs_ranking": 389,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://archdesign.vt.edu/graduate/"
+  },
+  {
+    "university": "Colorado State University",
+    "country": "USA",
+    "city": "Fort Collins, CO",
+    "qs_ranking": 442,
+    "field_of_study": "MBA",
+    "program_url": "https://agriculture.colostate.edu/graduate/"
+  },
+  {
+    "university": "Stony Brook University",
+    "country": "USA",
+    "city": "Stony Brook, NY",
+    "qs_ranking": 460,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://publichealth.stonybrook.edu/"
+  },
+  {
+    "university": "Colorado State University",
+    "country": "USA",
+    "city": "Fort Collins, CO",
+    "qs_ranking": 442,
+    "field_of_study": "MBA",
+    "program_url": "https://cvmbs.colostate.edu/dvm/"
+  },
+  {
+    "university": "University at Buffalo (SUNY)",
+    "country": "USA",
+    "city": "Buffalo, NY",
+    "qs_ranking": 466,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://mgt.buffalo.edu/mba/"
+  },
+  {
+    "university": "Iowa State University",
+    "country": "USA",
+    "city": "Ames, IA",
+    "qs_ranking": 470,
+    "field_of_study": "MBA",
+    "program_url": "https://www.cnr.iastate.edu/graduate/"
+  },
+  {
+    "university": "University of Tennessee Knoxville",
+    "country": "USA",
+    "city": "Knoxville, TN",
+    "qs_ranking": 481,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://me.utk.edu/graduate/"
+  },
+  {
+    "university": "University of Tennessee Knoxville",
+    "country": "USA",
+    "city": "Knoxville, TN",
+    "qs_ranking": 481,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://ag.tennessee.edu/graduate/"
+  },
+  {
+    "university": "University of Tennessee Knoxville",
+    "country": "USA",
+    "city": "Knoxville, TN",
+    "qs_ranking": 481,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.eecs.utk.edu/graduate/"
+  },
+  {
+    "university": "University of Hawaii at Manoa",
+    "country": "USA",
+    "city": "Honolulu, HI",
+    "qs_ranking": 488,
+    "field_of_study": "Law",
+    "program_url": "https://manoa.hawaii.edu/graduate/"
+  },
+  {
+    "university": "UC Riverside",
+    "country": "USA",
+    "city": "Riverside, CA",
+    "qs_ranking": 497,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.biochem.ucr.edu/graduate/"
+  },
+  {
+    "university": "UC Riverside",
+    "country": "USA",
+    "city": "Riverside, CA",
+    "qs_ranking": 497,
+    "field_of_study": "MBA",
+    "program_url": "https://www.cnas.ucr.edu/graduate/"
+  },
+  {
+    "university": "Colorado School of Mines",
+    "country": "USA",
+    "city": "Golden, CO",
+    "qs_ranking": 501,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://economics.mines.edu/graduate/"
+  },
+  {
+    "university": "University of Delaware",
+    "country": "USA",
+    "city": "Newark, DE",
+    "qs_ranking": 506,
+    "field_of_study": "MBA",
+    "program_url": "https://www.lerner.udel.edu/mba/"
+  },
+  {
+    "university": "University of Delaware",
+    "country": "USA",
+    "city": "Newark, DE",
+    "qs_ranking": 506,
+    "field_of_study": "MBA",
+    "program_url": "https://www.che.udel.edu/graduate/"
+  },
+  {
+    "university": "University of Delaware",
+    "country": "USA",
+    "city": "Newark, DE",
+    "qs_ranking": 506,
+    "field_of_study": "MBA",
+    "program_url": "https://www.nursing.udel.edu/graduate/"
+  },
+  {
+    "university": "Missouri University of Science and Technology",
+    "country": "USA",
+    "city": "Rolla, MO",
+    "qs_ranking": 527,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://ce.mst.edu/graduate/"
+  },
+  {
+    "university": "Missouri University of Science and Technology",
+    "country": "USA",
+    "city": "Rolla, MO",
+    "qs_ranking": 527,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://ce.mst.edu/graduate/"
+  },
+  {
+    "university": "University of Utah",
+    "country": "USA",
+    "city": "Salt Lake City, UT",
+    "qs_ranking": 531,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://bme.utah.edu/graduate/"
+  },
+  {
+    "university": "University of Connecticut",
+    "country": "USA",
+    "city": "Storrs, CT",
+    "qs_ranking": 565,
+    "field_of_study": "Law",
+    "program_url": "https://business.uconn.edu/mba/"
+  },
+  {
+    "university": "University of Connecticut",
+    "country": "USA",
+    "city": "Storrs, CT",
+    "qs_ranking": 565,
+    "field_of_study": "Law",
+    "program_url": "https://enve.uconn.edu/graduate/"
+  },
+  {
+    "university": "University of Connecticut",
+    "country": "USA",
+    "city": "Storrs, CT",
+    "qs_ranking": 565,
+    "field_of_study": "Law",
+    "program_url": "https://cahnr.uconn.edu/graduate/"
+  },
+  {
+    "university": "University of Sussex",
+    "country": "UK",
+    "city": "Brighton",
+    "qs_ranking": 246,
+    "field_of_study": "MBA",
+    "program_url": "https://www.sussex.ac.uk/international-development/"
+  },
+  {
+    "university": "University of Sussex",
+    "country": "UK",
+    "city": "Brighton",
+    "qs_ranking": 246,
+    "field_of_study": "MBA",
+    "program_url": "https://www.sussex.ac.uk/media-arts-humanities/"
+  },
+  {
+    "university": "Centennial College",
+    "country": "Canada",
+    "city": "Toronto, ON",
+    "qs_ranking": 0,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.centennialcollege.ca/programs-courses/full-time/software-engineering-technology/"
+  },
+  {
+    "university": "Centennial College",
+    "country": "Canada",
+    "city": "Toronto, ON",
+    "qs_ranking": 0,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.centennialcollege.ca/programs-courses/full-time/business-accounting/"
+  },
+  {
+    "university": "Centennial College",
+    "country": "Canada",
+    "city": "Toronto, ON",
+    "qs_ranking": 0,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.centennialcollege.ca/programs-courses/full-time/journalism/"
+  },
+  {
+    "university": "Centennial College",
+    "country": "Canada",
+    "city": "Toronto, ON",
+    "qs_ranking": 0,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.centennialcollege.ca/programs-courses/full-time/hospitality-and-tourism-management/"
+  },
+  {
+    "university": "Centennial College",
+    "country": "Canada",
+    "city": "Toronto, ON",
+    "qs_ranking": 0,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.centennialcollege.ca/programs-courses/full-time/biotechnology/"
+  },
+  {
+    "university": "Conestoga College",
+    "country": "Canada",
+    "city": "Kitchener, ON",
+    "qs_ranking": 0,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.conestogac.on.ca/fulltime/computer-programming"
+  },
+  {
+    "university": "Conestoga College",
+    "country": "Canada",
+    "city": "Kitchener, ON",
+    "qs_ranking": 0,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.conestogac.on.ca/fulltime/mechanical-engineering-technology"
+  },
+  {
+    "university": "Conestoga College",
+    "country": "Canada",
+    "city": "Kitchener, ON",
+    "qs_ranking": 0,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.conestogac.on.ca/fulltime/supply-chain-management"
+  },
+  {
+    "university": "Conestoga College",
+    "country": "Canada",
+    "city": "Kitchener, ON",
+    "qs_ranking": 0,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.conestogac.on.ca/fulltime/environmental-technology"
+  },
+  {
+    "university": "Mohawk College",
+    "country": "Canada",
+    "city": "Hamilton, ON",
+    "qs_ranking": 0,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.mohawkcollege.ca/programs/technology/electrical-engineering-technology"
+  },
+  {
+    "university": "Mohawk College",
+    "country": "Canada",
+    "city": "Hamilton, ON",
+    "qs_ranking": 0,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.mohawkcollege.ca/programs/technology/building-information-modelling"
+  },
+  {
+    "university": "Fanshawe College",
+    "country": "Canada",
+    "city": "London, ON",
+    "qs_ranking": 0,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.fanshawec.ca/programs/cpr1-computer-programmer-analyst"
+  },
+  {
+    "university": "Fanshawe College",
+    "country": "Canada",
+    "city": "London, ON",
+    "qs_ranking": 0,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.fanshawec.ca/programs/dmk1-digital-marketing-management"
+  },
+  {
+    "university": "Fanshawe College",
+    "country": "Canada",
+    "city": "London, ON",
+    "qs_ranking": 0,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.fanshawec.ca/programs/hot2-hospitality-management"
+  },
+  {
+    "university": "Durham College",
+    "country": "Canada",
+    "city": "Oshawa, ON",
+    "qs_ranking": 0,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.durhamcollege.ca/programs/biotechnology-advanced"
+  },
+  {
+    "university": "Niagara College",
+    "country": "Canada",
+    "city": "Niagara-on-the-Lake, ON",
+    "qs_ranking": 0,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.niagaracollege.ca/hospitalitytourism/"
+  },
+  {
+    "university": "British Columbia Institute of Technology (BCIT)",
+    "country": "Canada",
+    "city": "Burnaby, BC",
+    "qs_ranking": 0,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.bcit.ca/programs/construction-management-bachelor-of-technology-full-time-6045btech/"
+  },
+  {
+    "university": "British Columbia Institute of Technology (BCIT)",
+    "country": "Canada",
+    "city": "Burnaby, BC",
+    "qs_ranking": 0,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.bcit.ca/programs/biotechnology-diploma-full-time-6520dipma/"
+  },
+  {
+    "university": "British Columbia Institute of Technology (BCIT)",
+    "country": "Canada",
+    "city": "Burnaby, BC",
+    "qs_ranking": 0,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.bcit.ca/programs/bachelor-of-science-in-nursing-full-time-6750bscn/"
+  },
+  {
+    "university": "Georgian College",
+    "country": "Canada",
+    "city": "Barrie, ON",
+    "qs_ranking": 0,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.georgiancollege.ca/academics/programs/environmental-technology/"
+  },
+  {
+    "university": "Langara College",
+    "country": "Canada",
+    "city": "Vancouver, BC",
+    "qs_ranking": 0,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://langara.ca/programs-and-courses/programs/practical-nursing/"
+  },
+  {
+    "university": "Douglas College",
+    "country": "Canada",
+    "city": "New Westminster, BC",
+    "qs_ranking": 0,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.douglas.bc.ca/programs/cis"
+  },
+  {
+    "university": "Douglas College",
+    "country": "Canada",
+    "city": "New Westminster, BC",
+    "qs_ranking": 0,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.douglas.bc.ca/programs/practical-nursing"
+  },
+  {
+    "university": "Douglas College",
+    "country": "Canada",
+    "city": "New Westminster, BC",
+    "qs_ranking": 0,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.douglas.bc.ca/programs/criminology"
+  },
+  {
+    "university": "Douglas College",
+    "country": "Canada",
+    "city": "New Westminster, BC",
+    "qs_ranking": 0,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.douglas.bc.ca/programs/finance"
+  },
+  {
+    "university": "Okanagan College",
+    "country": "Canada",
+    "city": "Kelowna, BC",
+    "qs_ranking": 0,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.okanagan.bc.ca/programs/technology/"
+  },
+  {
+    "university": "Northern Alberta Institute of Technology (NAIT)",
+    "country": "Canada",
+    "city": "Edmonton, AB",
+    "qs_ranking": 0,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.nait.ca/programs/electrical-engineering-technology"
+  },
+  {
+    "university": "Northern Alberta Institute of Technology (NAIT)",
+    "country": "Canada",
+    "city": "Edmonton, AB",
+    "qs_ranking": 0,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.nait.ca/programs/biotechnology"
+  },
+  {
+    "university": "Bow Valley College",
+    "country": "Canada",
+    "city": "Calgary, AB",
+    "qs_ranking": 0,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://bowvalleycollege.ca/programs-courses/business/accounting"
+  },
+  {
+    "university": "NorQuest College",
+    "country": "Canada",
+    "city": "Edmonton, AB",
+    "qs_ranking": 0,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.norquest.ca/programs-courses/programs/technology/"
+  },
+  {
+    "university": "Olds College",
+    "country": "Canada",
+    "city": "Olds, AB",
+    "qs_ranking": 0,
+    "field_of_study": "Agriculture & Veterinary Sciences",
+    "program_url": "https://www.oldscollege.ca/programs/agriculture/"
+  },
+  {
+    "university": "Clemson University",
+    "country": "USA",
+    "city": "Clemson, SC",
+    "qs_ranking": 601,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://business.clemson.edu/mba/"
+  },
+  {
+    "university": "University of Houston",
+    "country": "USA",
+    "city": "Houston, TX",
+    "qs_ranking": 521,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.cs.uh.edu/graduate/"
+  },
+  {
+    "university": "University of Houston",
+    "country": "USA",
+    "city": "Houston, TX",
+    "qs_ranking": 521,
+    "field_of_study": "MBA",
+    "program_url": "https://www.cs.uh.edu/undergraduate/"
+  },
+  {
+    "university": "University of Houston",
+    "country": "USA",
+    "city": "Houston, TX",
+    "qs_ranking": 521,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.uh.edu/nsm/computer-science/graduate/"
+  },
+  {
+    "university": "University of Iowa",
+    "country": "USA",
+    "city": "Iowa City, IA",
+    "qs_ranking": 511,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://law.uiowa.edu/"
+  },
+  {
+    "university": "University of Iowa",
+    "country": "USA",
+    "city": "Iowa City, IA",
+    "qs_ranking": 511,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://cs.uiowa.edu/graduate"
+  },
+  {
+    "university": "Illinois Institute of Technology",
+    "country": "USA",
+    "city": "Chicago, IL",
+    "qs_ranking": 601,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.iit.edu/computer-science/undergraduate"
+  },
+  {
+    "university": "Stevens Institute of Technology",
+    "country": "USA",
+    "city": "Hoboken, NJ",
+    "qs_ranking": 651,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.stevens.edu/school-engineering-science/computer-science/graduate"
+  },
+  {
+    "university": "Rochester Institute of Technology",
+    "country": "USA",
+    "city": "Rochester, NY",
+    "qs_ranking": 0,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.rit.edu/computing/school-computer-science/graduate"
+  },
+  {
+    "university": "George Mason University",
+    "country": "USA",
+    "city": "Fairfax, VA",
+    "qs_ranking": 651,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://volgenau.gmu.edu/academics/graduate/data-analytics"
+  },
+  {
+    "university": "George Mason University",
+    "country": "USA",
+    "city": "Fairfax, VA",
+    "qs_ranking": 651,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://volgenau.gmu.edu/academics/graduate/cybersecurity"
+  },
+  {
+    "university": "George Mason University",
+    "country": "USA",
+    "city": "Fairfax, VA",
+    "qs_ranking": 651,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://business.gmu.edu/graduate/mba/"
+  },
+  {
+    "university": "University of Oregon",
+    "country": "USA",
+    "city": "Eugene, OR",
+    "qs_ranking": 601,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://cepe.uoregon.edu/graduate"
+  },
+  {
+    "university": "Temple University",
+    "country": "USA",
+    "city": "Philadelphia, PA",
+    "qs_ranking": 651,
+    "field_of_study": "MBA",
+    "program_url": "https://www.fox.temple.edu/mba/"
+  },
+  {
+    "university": "University of Vermont",
+    "country": "USA",
+    "city": "Burlington, VT",
+    "qs_ranking": 701,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.uvm.edu/rsenr/graduate"
+  },
+  {
+    "university": "University of Alabama",
+    "country": "USA",
+    "city": "Tuscaloosa, AL",
+    "qs_ranking": 801,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://ce.ua.edu/graduate/"
+  },
+  {
+    "university": "Universit\u00e9 Laval",
+    "country": "Canada",
+    "city": "Quebec City, QC",
+    "qs_ranking": 451,
+    "field_of_study": "MBA",
+    "program_url": "https://www.ete.ulaval.ca/programmes/msc"
+  },
+  {
+    "university": "Universit\u00e9 de Sherbrooke",
+    "country": "Canada",
+    "city": "Sherbrooke, QC",
+    "qs_ranking": 601,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.usherbrooke.ca/informatique/graduate"
+  },
+  {
+    "university": "Universit\u00e9 de Sherbrooke",
+    "country": "Canada",
+    "city": "Sherbrooke, QC",
+    "qs_ranking": 601,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.usherbrooke.ca/genie-electrique/graduate"
+  },
+  {
+    "university": "Universit\u00e9 de Sherbrooke",
+    "country": "Canada",
+    "city": "Sherbrooke, QC",
+    "qs_ranking": 601,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.usherbrooke.ca/ges/mba"
+  },
+  {
+    "university": "Universit\u00e9 de Sherbrooke",
+    "country": "Canada",
+    "city": "Sherbrooke, QC",
+    "qs_ranking": 601,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.usherbrooke.ca/senv/graduate"
+  },
+  {
+    "university": "Universit\u00e9 de Sherbrooke",
+    "country": "Canada",
+    "city": "Sherbrooke, QC",
+    "qs_ranking": 601,
+    "field_of_study": "MBA",
+    "program_url": "https://www.usherbrooke.ca/biologie/graduate"
+  },
+  {
+    "university": "UC San Francisco",
+    "country": "USA",
+    "city": "San Francisco, CA",
+    "qs_ranking": 69,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://globalhealth.ucsf.edu/ms-global-health"
+  },
+  {
+    "university": "University of Kansas",
+    "country": "USA",
+    "city": "Lawrence, KS",
+    "qs_ranking": 452,
+    "field_of_study": "Law",
+    "program_url": "https://civil.ku.edu/graduate"
+  },
+  {
+    "university": "University of Kansas",
+    "country": "USA",
+    "city": "Lawrence, KS",
+    "qs_ranking": 452,
+    "field_of_study": "Law",
+    "program_url": "https://law.ku.edu/jd"
+  },
+  {
+    "university": "University of Kansas",
+    "country": "USA",
+    "city": "Lawrence, KS",
+    "qs_ranking": 452,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://datascience.ku.edu/ms"
+  },
+  {
+    "university": "University of Kansas",
+    "country": "USA",
+    "city": "Lawrence, KS",
+    "qs_ranking": 452,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://publichealth.ku.edu/mph"
+  },
+  {
+    "university": "University of Kansas",
+    "country": "USA",
+    "city": "Lawrence, KS",
+    "qs_ranking": 452,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://politicalscience.ku.edu/graduate"
+  },
+  {
+    "university": "University of Kansas",
+    "country": "USA",
+    "city": "Lawrence, KS",
+    "qs_ranking": 452,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://business.ku.edu/ms-accounting"
+  },
+  {
+    "university": "University of Kansas",
+    "country": "USA",
+    "city": "Lawrence, KS",
+    "qs_ranking": 452,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://art.ku.edu/graduate"
+  },
+  {
+    "university": "Washington State University",
+    "country": "USA",
+    "city": "Pullman, WA",
+    "qs_ranking": 466,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://arch.wsu.edu/graduate/"
+  },
+  {
+    "university": "Washington State University",
+    "country": "USA",
+    "city": "Pullman, WA",
+    "qs_ranking": 466,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://sociology.wsu.edu/graduate/"
+  },
+  {
+    "university": "University of Kentucky",
+    "country": "USA",
+    "city": "Lexington, KY",
+    "qs_ranking": 795,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://me.engr.uky.edu/graduate"
+  },
+  {
+    "university": "University of Kentucky",
+    "country": "USA",
+    "city": "Lexington, KY",
+    "qs_ranking": 795,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://economics.uky.edu/graduate"
+  },
+  {
+    "university": "University of Kentucky",
+    "country": "USA",
+    "city": "Lexington, KY",
+    "qs_ranking": 795,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://biosci.uky.edu/graduate"
+  },
+  {
+    "university": "Vrije Universiteit Amsterdam",
+    "country": "Netherlands",
+    "city": "Amsterdam",
+    "qs_ranking": 219,
+    "field_of_study": "Business & Management",
+    "program_url": "https://vu.nl/en/education/master/business-administration"
+  },
+  {
+    "university": "Vrije Universiteit Amsterdam",
+    "country": "Netherlands",
+    "city": "Amsterdam",
+    "qs_ranking": 219,
+    "field_of_study": "Business & Management",
+    "program_url": "https://vu.nl/en/education/master/finance"
+  },
+  {
+    "university": "Vrije Universiteit Amsterdam",
+    "country": "Netherlands",
+    "city": "Amsterdam",
+    "qs_ranking": 219,
+    "field_of_study": "Business & Management",
+    "program_url": "https://vu.nl/en/education/master/biomedical-sciences"
+  },
+  {
+    "university": "Vrije Universiteit Amsterdam",
+    "country": "Netherlands",
+    "city": "Amsterdam",
+    "qs_ranking": 219,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://vu.nl/en/education/master/health-sciences"
+  },
+  {
+    "university": "Vrije Universiteit Amsterdam",
+    "country": "Netherlands",
+    "city": "Amsterdam",
+    "qs_ranking": 219,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://vu.nl/en/education/master/neurosciences"
+  },
+  {
+    "university": "Vrije Universiteit Amsterdam",
+    "country": "Netherlands",
+    "city": "Amsterdam",
+    "qs_ranking": 219,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://vu.nl/en/education/master/clinical-psychology"
+  },
+  {
+    "university": "Vrije Universiteit Amsterdam",
+    "country": "Netherlands",
+    "city": "Amsterdam",
+    "qs_ranking": 219,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://vu.nl/en/education/master/international-and-european-law"
+  },
+  {
+    "university": "Vrije Universiteit Amsterdam",
+    "country": "Netherlands",
+    "city": "Amsterdam",
+    "qs_ranking": 219,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://vu.nl/en/education/master/political-science"
+  },
+  {
+    "university": "Vrije Universiteit Amsterdam",
+    "country": "Netherlands",
+    "city": "Amsterdam",
+    "qs_ranking": 219,
+    "field_of_study": "Law",
+    "program_url": "https://vu.nl/en/education/master/communication-science"
+  },
+  {
+    "university": "Vrije Universiteit Amsterdam",
+    "country": "Netherlands",
+    "city": "Amsterdam",
+    "qs_ranking": 219,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://vu.nl/en/education/master/environment-and-resource-management"
+  },
+  {
+    "university": "Vrije Universiteit Amsterdam",
+    "country": "Netherlands",
+    "city": "Amsterdam",
+    "qs_ranking": 219,
+    "field_of_study": "Media, Arts & Design",
+    "program_url": "https://vu.nl/en/education/master/physics-and-astronomy"
+  },
+  {
+    "university": "Vrije Universiteit Amsterdam",
+    "country": "Netherlands",
+    "city": "Amsterdam",
+    "qs_ranking": 219,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://vu.nl/en/education/master/epidemiology"
+  },
+  {
+    "university": "Vrije Universiteit Amsterdam",
+    "country": "Netherlands",
+    "city": "Amsterdam",
+    "qs_ranking": 219,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://vu.nl/en/education/master/pharmaceutical-sciences"
+  },
+  {
+    "university": "Vrije Universiteit Amsterdam",
+    "country": "Netherlands",
+    "city": "Amsterdam",
+    "qs_ranking": 219,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://vu.nl/en/education/master/marketing-analytics"
+  },
+  {
+    "university": "Vrije Universiteit Amsterdam",
+    "country": "Netherlands",
+    "city": "Amsterdam",
+    "qs_ranking": 219,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://vu.nl/en/education/master/human-language-technology"
+  },
+  {
+    "university": "Vrije Universiteit Amsterdam",
+    "country": "Netherlands",
+    "city": "Amsterdam",
+    "qs_ranking": 219,
+    "field_of_study": "Business & Management",
+    "program_url": "https://vu.nl/en/education/master/accounting-and-control"
+  },
+  {
+    "university": "Vrije Universiteit Amsterdam",
+    "country": "Netherlands",
+    "city": "Amsterdam",
+    "qs_ranking": 219,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://vu.nl/en/education/master/mathematics"
+  },
+  {
+    "university": "Vrije Universiteit Amsterdam",
+    "country": "Netherlands",
+    "city": "Amsterdam",
+    "qs_ranking": 219,
+    "field_of_study": "Business & Management",
+    "program_url": "https://vu.nl/en/education/master/biomedical-sciences/cancer-biology-immunology"
+  },
+  {
+    "university": "Vrije Universiteit Amsterdam",
+    "country": "Netherlands",
+    "city": "Amsterdam",
+    "qs_ranking": 219,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://vu.nl/en/education/master/movement-sciences"
+  },
+  {
+    "university": "Vrije Universiteit Amsterdam",
+    "country": "Netherlands",
+    "city": "Amsterdam",
+    "qs_ranking": 219,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://vu.nl/en/education/master/philosophy"
+  },
+  {
+    "university": "Vrije Universiteit Amsterdam",
+    "country": "Netherlands",
+    "city": "Amsterdam",
+    "qs_ranking": 219,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://vu.nl/en/education/master/educational-sciences"
+  },
+  {
+    "university": "TU Darmstadt",
+    "country": "Germany",
+    "city": "Darmstadt",
+    "qs_ranking": 241,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.informatik.tu-darmstadt.de/studium_fb20/master_program_fb20/ai_and_ml/index.en.jsp"
+  },
+  {
+    "university": "TU Darmstadt",
+    "country": "Germany",
+    "city": "Darmstadt",
+    "qs_ranking": 241,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.tu-darmstadt.de/studying/study_and_teaching_tuda/study_programmes/masters_programmes/it-security.en.jsp"
+  },
+  {
+    "university": "TU Darmstadt",
+    "country": "Germany",
+    "city": "Darmstadt",
+    "qs_ranking": 241,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.tu-darmstadt.de/studieren/studieninteressierte/studienangebot/studiengang_134208.en.jsp"
+  },
+  {
+    "university": "Liverpool John Moores University",
+    "country": "UK",
+    "city": "Liverpool",
+    "qs_ranking": 851,
+    "field_of_study": "MBA",
+    "program_url": "https://www.ljmu.ac.uk/study/courses/postgraduates/mba"
+  },
+  {
+    "university": "Royal Veterinary College",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 901,
+    "field_of_study": "Agriculture & Veterinary Sciences",
+    "program_url": "https://www.rvc.ac.uk/study/postgraduate-taught/veterinary-epidemiology"
+  },
+  {
+    "university": "Royal Veterinary College",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 901,
+    "field_of_study": "Agriculture & Veterinary Sciences",
+    "program_url": "https://www.rvc.ac.uk/study/postgraduate-taught/wild-animal-health"
+  },
+  {
+    "university": "Royal Veterinary College",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 901,
+    "field_of_study": "Agriculture & Veterinary Sciences",
+    "program_url": "https://www.rvc.ac.uk/study/postgraduate-taught/one-health"
+  },
+  {
+    "university": "Royal Veterinary College",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 901,
+    "field_of_study": "Agriculture & Veterinary Sciences",
+    "program_url": "https://www.rvc.ac.uk/study/postgraduate-research/mres-biological-sciences"
+  },
+  {
+    "university": "University of Cambridge",
+    "country": "UK",
+    "city": "Cambridge",
+    "qs_ranking": 2,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.compbio.cam.ac.uk/"
+  },
+  {
+    "university": "University of Cambridge",
+    "country": "UK",
+    "city": "Cambridge",
+    "qs_ranking": 2,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.csic.cam.ac.uk/learn/postgraduate-study/mphil-engineering-sustainable-development"
+  },
+  {
+    "university": "University of Oxford",
+    "country": "UK",
+    "city": "Oxford",
+    "qs_ranking": 4,
+    "field_of_study": "MBA",
+    "program_url": "https://www.sbs.ox.ac.uk/programmes/mbas/oxford-mba"
+  },
+  {
+    "university": "University of Oxford",
+    "country": "UK",
+    "city": "Oxford",
+    "qs_ranking": 4,
+    "field_of_study": "MBA",
+    "program_url": "https://www.sbs.ox.ac.uk/programmes/mscs/msc-financial-economics"
+  },
+  {
+    "university": "ETH Zurich",
+    "country": "Switzerland",
+    "city": "Zurich",
+    "qs_ranking": 7,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://master-datascience.ethz.ch/"
+  },
+  {
+    "university": "ETH Zurich",
+    "country": "Switzerland",
+    "city": "Zurich",
+    "qs_ranking": 7,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://arch.ethz.ch/en/studium.html"
+  },
+  {
+    "university": "Ohio State University",
+    "country": "USA",
+    "city": "Columbus, OH",
+    "qs_ranking": 148,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://hospitality.osu.edu/"
+  },
+  {
+    "university": "Penn State University",
+    "country": "USA",
+    "city": "University Park, PA",
+    "qs_ranking": 123,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://hhd.psu.edu/shm/graduate/"
+  },
+  {
+    "university": "Ohio State University",
+    "country": "USA",
+    "city": "Columbus, OH",
+    "qs_ranking": 148,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://fisher.osu.edu/mba"
+  },
+  {
+    "university": "Cornell University",
+    "country": "USA",
+    "city": "Ithaca, NY",
+    "qs_ranking": 16,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://dyson.cornell.edu/programs/graduate/"
+  }
+]

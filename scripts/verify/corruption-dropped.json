@@ -1,0 +1,17 @@
+[
+  {
+    "idx": 0,
+    "reason": "parse error: Unexpected token '{'",
+    "src": "{ university_name: \"Fanshawe College\", country: \"Canada\", city: \"London, ON\", qs_ranking: null, program_name: \"Diploma in Hospitality Management\", degree_level: \"diploma\", duration_months: 24, field_of_study: \"Hospitality & Tourism\", specialization: \"Hospitality Management\", annual_tuition_usd: 13000, avg_living_cost_usd: 12000, intake_semesters: [\"fall\",\"winter\"], application_{ university_name: \"Durham College\", country: \"Canada\", city: \"Oshawa, ON\", qs_ranking: null, program_name: \"Computer Systems Technician – Transfer to Ontario Tech University Bachelor of Information Technology (Hons)\", d"
+  },
+  {
+    "idx": 1,
+    "reason": "parse error: Unexpected token '{'",
+    "src": "{ university_name: \"Florida State University\", country: \"USA\", city: \"Tallahassee, FL\", qs_ranking: 651, program_name: \"Graduate Admission Requirements – Department of Computer Science\", degree_level: \"postgraduate\", duration_months: 24, field_of_study: \"Computer Science & IT\", specialization: \"CS\", annual_tuition_usd: 26707, avg_living_cost_usd: 14000, intake_semesters: [\"fall\",\"spring\"], application_deadline{ university_name: \"Florida State University\", country: \"USA\", city: \"Tallahassee, FL\", qs_ranking: 651, program_name: \"Interdisciplinary Data Science Master's Degree Program\", degree_lev"
+  },
+  {
+    "idx": 2,
+    "reason": "parse error: Unexpected identifier 'University'",
+    "src": "{ university_name: \"Clemson University\", country: \"USA\", city: \"Clemson, SC\", qs_ranking: 601, program_name: \"MS in Environmental Engineering\", degree_level: \"postgraduate\", duration_months: 24, field_of_study: \"Environmental & Sustainability Studies\", specialization: \"Environmental Engin{ university_name: \"University of Houston\", country: \"USA\", city: \"Houston, TX\", qs_ranking: 521, program_name: \"M.S. in Computer Science\", degree_level: \"postgraduate\", duration_months: 24, field_of_study: \"Computer Science & IT\", specialization: \"CS\", annual_tuition_usd: 18199, avg_living_cost_usd: 16000, in"
+  }
+]

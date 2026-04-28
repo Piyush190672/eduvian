@@ -194,6 +194,21 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist,
                     QS #{program.qs_ranking}
                   </span>
                 )}
+                {program.verified_at ? (
+                  <span
+                    className="ml-2 inline-flex items-center gap-1 text-[10px] font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 rounded px-1.5 py-0.5"
+                    title={`Verified against official program page on ${new Date(program.verified_at).toLocaleDateString()}`}
+                  >
+                    ✓ Verified
+                  </span>
+                ) : (
+                  <span
+                    className="ml-2 inline-flex items-center gap-1 text-[10px] font-semibold text-amber-700 bg-amber-50 border border-amber-200 rounded px-1.5 py-0.5"
+                    title="Listing only — fees, deadlines and cutoffs have not been re-confirmed against the official page in the current admissions cycle. Always check the official link before applying."
+                  >
+                    ⚠ Listing only
+                  </span>
+                )}
               </p>
             </div>
 

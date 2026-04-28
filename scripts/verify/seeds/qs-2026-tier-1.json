@@ -1,0 +1,46 @@
+[
+  { "university": "Massachusetts Institute of Technology", "country": "USA", "city": "Cambridge, MA", "qs_ranking": 1, "field_of_study": "Computer Science & IT", "program_url": "https://www.eecs.mit.edu/academics/graduate-programs/" },
+  { "university": "Massachusetts Institute of Technology", "country": "USA", "city": "Cambridge, MA", "qs_ranking": 1, "field_of_study": "MBA", "program_url": "https://mitsloan.mit.edu/mba" },
+  { "university": "Massachusetts Institute of Technology", "country": "USA", "city": "Cambridge, MA", "qs_ranking": 1, "field_of_study": "Engineering (Mechanical/Civil/Electrical)", "program_url": "https://meche.mit.edu/academic/graduate" },
+  { "university": "Massachusetts Institute of Technology", "country": "USA", "city": "Cambridge, MA", "qs_ranking": 1, "field_of_study": "Artificial Intelligence & Data Science", "program_url": "https://www.eecs.mit.edu/research/explore-all-research-areas/artificial-intelligence-and-decision-making/" },
+  { "university": "Massachusetts Institute of Technology", "country": "USA", "city": "Cambridge, MA", "qs_ranking": 1, "field_of_study": "Economics & Finance", "program_url": "https://economics.mit.edu/academic-programs/phd-program" },
+
+  { "university": "Imperial College London", "country": "UK", "city": "London", "qs_ranking": 2, "field_of_study": "Computer Science & IT", "program_url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/computing-msc/" },
+  { "university": "Imperial College London", "country": "UK", "city": "London", "qs_ranking": 2, "field_of_study": "Artificial Intelligence & Data Science", "program_url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/artificial-intelligence/" },
+  { "university": "Imperial College London", "country": "UK", "city": "London", "qs_ranking": 2, "field_of_study": "MBA", "program_url": "https://www.imperial.ac.uk/business-school/mba/full-time-mba/" },
+  { "university": "Imperial College London", "country": "UK", "city": "London", "qs_ranking": 2, "field_of_study": "Economics & Finance", "program_url": "https://www.imperial.ac.uk/business-school/programmes/msc-finance/" },
+
+  { "university": "Stanford University", "country": "USA", "city": "Stanford, CA", "qs_ranking": 3, "field_of_study": "Computer Science & IT", "program_url": "https://cs.stanford.edu/academics/masters" },
+  { "university": "Stanford University", "country": "USA", "city": "Stanford, CA", "qs_ranking": 3, "field_of_study": "MBA", "program_url": "https://www.gsb.stanford.edu/programs/mba" },
+  { "university": "Stanford University", "country": "USA", "city": "Stanford, CA", "qs_ranking": 3, "field_of_study": "Engineering (Mechanical/Civil/Electrical)", "program_url": "https://me.stanford.edu/academics-admissions/graduate-program" },
+
+  { "university": "University of Oxford", "country": "UK", "city": "Oxford", "qs_ranking": 4, "field_of_study": "Computer Science & IT", "program_url": "https://www.cs.ox.ac.uk/admissions/postgraduate/msc-computer-science.html" },
+  { "university": "University of Oxford", "country": "UK", "city": "Oxford", "qs_ranking": 4, "field_of_study": "Artificial Intelligence & Data Science", "program_url": "https://www.ox.ac.uk/admissions/graduate/courses/msc-statistical-science" },
+  { "university": "University of Oxford", "country": "UK", "city": "Oxford", "qs_ranking": 4, "field_of_study": "MBA", "program_url": "https://www.sbs.ox.ac.uk/programmes/mbas/oxford-mba" },
+  { "university": "University of Oxford", "country": "UK", "city": "Oxford", "qs_ranking": 4, "field_of_study": "Economics & Finance", "program_url": "https://www.sbs.ox.ac.uk/programmes/masters/msc-financial-economics" },
+
+  { "university": "Harvard University", "country": "USA", "city": "Cambridge, MA", "qs_ranking": 5, "field_of_study": "MBA", "program_url": "https://www.hbs.edu/mba/Pages/default.aspx" },
+  { "university": "Harvard University", "country": "USA", "city": "Cambridge, MA", "qs_ranking": 5, "field_of_study": "Computer Science & IT", "program_url": "https://www.seas.harvard.edu/computer-science/graduate-program" },
+  { "university": "Harvard University", "country": "USA", "city": "Cambridge, MA", "qs_ranking": 5, "field_of_study": "Law", "program_url": "https://hls.harvard.edu/dept/graduate-program/" },
+  { "university": "Harvard University", "country": "USA", "city": "Cambridge, MA", "qs_ranking": 5, "field_of_study": "Medicine & Public Health", "program_url": "https://www.hsph.harvard.edu/admissions/" },
+
+  { "university": "University of Cambridge", "country": "UK", "city": "Cambridge", "qs_ranking": 6, "field_of_study": "Artificial Intelligence & Data Science", "program_url": "https://www.mlmi.eng.cam.ac.uk/" },
+  { "university": "University of Cambridge", "country": "UK", "city": "Cambridge", "qs_ranking": 6, "field_of_study": "Computer Science & IT", "program_url": "https://www.cst.cam.ac.uk/admissions/acs" },
+  { "university": "University of Cambridge", "country": "UK", "city": "Cambridge", "qs_ranking": 6, "field_of_study": "MBA", "program_url": "https://www.jbs.cam.ac.uk/mbas/cambridge-mba/" },
+  { "university": "University of Cambridge", "country": "UK", "city": "Cambridge", "qs_ranking": 6, "field_of_study": "Economics & Finance", "program_url": "https://www.jbs.cam.ac.uk/programmes/master-of-finance/" },
+
+  { "university": "ETH Zurich", "country": "Switzerland", "city": "Zurich", "qs_ranking": 7, "field_of_study": "Computer Science & IT", "program_url": "https://inf.ethz.ch/studies/master/master-cs.html" },
+  { "university": "ETH Zurich", "country": "Switzerland", "city": "Zurich", "qs_ranking": 7, "field_of_study": "Artificial Intelligence & Data Science", "program_url": "https://inf.ethz.ch/studies/master/master-ds.html" },
+  { "university": "ETH Zurich", "country": "Switzerland", "city": "Zurich", "qs_ranking": 7, "field_of_study": "Engineering (Mechanical/Civil/Electrical)", "program_url": "https://ethz.ch/students/en/studies/programmes/master/mech-process-engineering.html" },
+
+  { "university": "National University of Singapore", "country": "Singapore", "city": "Singapore", "qs_ranking": 8, "field_of_study": "Computer Science & IT", "program_url": "https://www.comp.nus.edu.sg/programmes/pg/mcomp/" },
+  { "university": "National University of Singapore", "country": "Singapore", "city": "Singapore", "qs_ranking": 8, "field_of_study": "MBA", "program_url": "https://mba.nus.edu.sg/" },
+  { "university": "National University of Singapore", "country": "Singapore", "city": "Singapore", "qs_ranking": 8, "field_of_study": "Artificial Intelligence & Data Science", "program_url": "https://scale.nus.edu.sg/programmes/graduate/master-of-science-in-data-science-and-machine-learning" },
+
+  { "university": "UCL", "country": "UK", "city": "London", "qs_ranking": 9, "field_of_study": "Computer Science & IT", "program_url": "https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/computer-science-msc" },
+  { "university": "UCL", "country": "UK", "city": "London", "qs_ranking": 9, "field_of_study": "Artificial Intelligence & Data Science", "program_url": "https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/machine-learning-msc" },
+  { "university": "UCL", "country": "UK", "city": "London", "qs_ranking": 9, "field_of_study": "Economics & Finance", "program_url": "https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/economics-msc" },
+
+  { "university": "California Institute of Technology", "country": "USA", "city": "Pasadena, CA", "qs_ranking": 10, "field_of_study": "Computer Science & IT", "program_url": "https://www.cms.caltech.edu/academics/grad_cs" },
+  { "university": "California Institute of Technology", "country": "USA", "city": "Pasadena, CA", "qs_ranking": 10, "field_of_study": "Engineering (Mechanical/Civil/Electrical)", "program_url": "https://www.eas.caltech.edu/academics/grad" }
+]

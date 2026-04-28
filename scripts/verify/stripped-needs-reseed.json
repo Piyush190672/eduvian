@@ -1,0 +1,4298 @@
+[
+  {
+    "idx": 1,
+    "university": "Stanford University",
+    "program": "MS in Artificial Intelligence",
+    "url": "https://cs.stanford.edu/academics/masters-degree",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 7,
+    "university": "Northeastern University",
+    "program": "MS in Information Systems",
+    "url": "https://graduate.northeastern.edu/programs/information-systems-ms/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 8,
+    "university": "Columbia University",
+    "program": "MBA \u2014 Columbia Business School",
+    "url": "https://business.columbia.edu/mba",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 10,
+    "university": "University of Illinois Urbana-Champaign",
+    "program": "BS in Computer Science",
+    "url": "https://cs.illinois.edu/academics/undergraduate-program",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 12,
+    "university": "University of Michigan",
+    "program": "BS in Business Administration",
+    "url": "https://michiganross.umich.edu/undergraduate/bba",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 13,
+    "university": "University of Oxford",
+    "program": "MSc in Computer Science",
+    "url": "https://www.cs.ox.ac.uk/admissions/graduate/msc/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 15,
+    "university": "University of Edinburgh",
+    "program": "MSc in Informatics",
+    "url": "https://informatics.ed.ac.uk/study-with-us/our-degrees/postgraduate-taught",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 16,
+    "university": "University of Manchester",
+    "program": "MBA",
+    "url": "https://www.mbs.ac.uk/masters/mba",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 17,
+    "university": "University of Warwick",
+    "program": "MSc in Business Analytics",
+    "url": "https://warwick.ac.uk/fac/soc/wbs/subjects/businessanalytics/msc-business-analytics/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 18,
+    "university": "University of Leeds",
+    "program": "MSc International Finance",
+    "url": "https://business.leeds.ac.uk/masters",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 22,
+    "university": "Monash University",
+    "program": "MS in Engineering (AI)",
+    "url": "https://www.monash.edu/study/courses/find-a-course/artificial-intelligence-c6007",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 28,
+    "university": "University of British Columbia",
+    "program": "MSc in Computer Science",
+    "url": "https://www.cs.ubc.ca/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 31,
+    "university": "Simon Fraser University",
+    "program": "MSc in Computing Science",
+    "url": "https://www.sfu.ca/computing/prospective-students/graduate-students.html",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 35,
+    "university": "Victoria University of Wellington",
+    "program": "Master of Advanced Technology Enterprise",
+    "url": "https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 38,
+    "university": "University College Dublin",
+    "program": "MSc in Business Analytics",
+    "url": "https://www.ucd.ie/business/programmes/masters/msc-business-analytics/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 39,
+    "university": "Dublin City University",
+    "program": "MSc in Data Analytics",
+    "url": "https://www.dcu.ie/courses/postgraduate/data-analytics",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 40,
+    "university": "National University of Ireland Galway",
+    "program": "BSc in Computer Science and IT",
+    "url": "https://www.universityofgalway.ie/courses/undergraduate-courses/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 42,
+    "university": "RWTH Aachen University",
+    "program": "MSc in Mechanical Engineering",
+    "url": "https://www.rwth-aachen.de/cms/root/studium/vor-dem-studium/studienangebot/lehreinheit/~bpqt/maschinenbau/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 43,
+    "university": "Heidelberg University",
+    "program": "MSc in Biotechnology",
+    "url": "https://www.uni-heidelberg.de/en/study/all-subjects/molecular-biosciences-msc/molecular-biosciences",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 44,
+    "university": "University of Munich (LMU)",
+    "program": "MSc in Data Science",
+    "url": "https://www.lmu.de/en/study/all-degrees-and-programs/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 45,
+    "university": "Mannheim Business School",
+    "program": "Full-time MBA",
+    "url": "https://www.mannheim-business-school.com/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 48,
+    "university": "Paris Sciences et Lettres University",
+    "program": "MSc in Data & Artificial Intelligence",
+    "url": "https://psl.eu/en/education",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 49,
+    "university": "ESSEC Business School",
+    "program": "Grande Ecole \u2014 Master in Management",
+    "url": "https://www.essec.edu/en/programs/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 22,
+    "university": "University of Otago",
+    "program": "Master of Business",
+    "url": "https://www.otago.ac.nz/courses/qualifications/mb",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 29,
+    "university": "University of Dubai",
+    "program": "MBA",
+    "url": "https://ud.ac.ae/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 35,
+    "university": "APU \u2014 Asia Pacific University",
+    "program": "BSc (Hons) in Artificial Intelligence",
+    "url": "https://www.apu.edu.my/programmes",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 32,
+    "university": "Singapore Management University",
+    "program": "MBA",
+    "url": "https://masters.smu.edu.sg/programme/mba",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 36,
+    "university": "Universiti Teknologi Malaysia",
+    "program": "Master of Engineering (Electrical)",
+    "url": "https://www.utm.my/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 42,
+    "university": "Toronto Metropolitan University",
+    "program": "Master of Engineering \u2014 Electrical & Computer Engineering",
+    "url": "https://www.torontomu.ca/graduate/programs/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 47,
+    "university": "Dublin Institute of Technology (TU Dublin)",
+    "program": "Master of Science in Computing",
+    "url": "https://www.tudublin.ie/study/postgraduate/courses/master-of-science-in-computing/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 48,
+    "university": "Harvard University",
+    "program": "JD \u2014 Harvard Law School",
+    "url": "https://hls.harvard.edu/jd/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 50,
+    "university": "Harvard University",
+    "program": "AB in Computer Science",
+    "url": "https://www.seas.harvard.edu/computer-science/undergraduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 39,
+    "university": "Newcastle University",
+    "program": "MSc in Biomedical Sciences",
+    "url": "https://www.ncl.ac.uk/postgraduate/degrees/5203f/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 55,
+    "university": "Princeton University",
+    "program": "MSE in Electrical Engineering",
+    "url": "https://ece.princeton.edu/graduate/programs/master",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 54,
+    "university": "Princeton University",
+    "program": "BSE in Computer Science",
+    "url": "https://www.cs.princeton.edu/academics/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 65,
+    "university": "Johns Hopkins University",
+    "program": "MS in Applied Mathematics & Statistics",
+    "url": "https://engineering.jhu.edu/ams/graduate-studies/masters-programs/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 70,
+    "university": "Texas A&M University",
+    "program": "MS in Mechanical Engineering",
+    "url": "https://engineering.tamu.edu/mechanical/academics/graduate/ms-me.html",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 73,
+    "university": "Ohio State University",
+    "program": "MS in Business Analytics",
+    "url": "https://fisher.osu.edu/graduate/programs/ms-business-analytics",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 74,
+    "university": "Penn State University",
+    "program": "MS in Electrical Engineering",
+    "url": "https://www.eecs.psu.edu/students/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 78,
+    "university": "London School of Economics",
+    "program": "LLM in International Law",
+    "url": "https://www.lse.ac.uk/study-at-lse/Graduate/degree-programmes-2026/LLM",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 75,
+    "university": "University of Cambridge",
+    "program": "MPhil in Advanced Computer Science",
+    "url": "https://www.cl.cam.ac.uk/teaching/current/ACS/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 77,
+    "university": "London School of Economics",
+    "program": "MSc in Economics",
+    "url": "https://www.lse.ac.uk/study-at-lse/Graduate/degree-programmes-2026/MSc-Economics",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 80,
+    "university": "University of Nottingham",
+    "program": "MSc in Finance",
+    "url": "https://www.nottingham.ac.uk/pgstudy/courses/business/finance-msc.aspx",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 79,
+    "university": "University of Birmingham",
+    "program": "MSc in Computer Science",
+    "url": "https://www.birmingham.ac.uk/postgraduate/courses/taught/cs/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 82,
+    "university": "Durham University",
+    "program": "MSc in Finance",
+    "url": "https://www.durham.ac.uk/study/postgraduate/finance-msc/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 85,
+    "university": "University of St Andrews",
+    "program": "MLitt in International Relations",
+    "url": "https://www.st-andrews.ac.uk/subjects/international-relations/international-relations-mlit/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 88,
+    "university": "Cardiff University",
+    "program": "LLM in Law",
+    "url": "https://www.cardiff.ac.uk/study/postgraduate/taught/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 94,
+    "university": "University of New South Wales",
+    "program": "Bachelor of Commerce",
+    "url": "https://www.unsw.edu.au/business/study-with-us",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 92,
+    "university": "University of York",
+    "program": "MSc in Computer Science (Artificial Intelligence)",
+    "url": "https://www.york.ac.uk/study/postgraduate/courses/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 93,
+    "university": "University of New South Wales",
+    "program": "Master of Engineering (Electrical)",
+    "url": "https://www.unsw.edu.au/engineering/study-with-us/postgraduate-coursework",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 95,
+    "university": "University of Western Australia",
+    "program": "Master of Professional Engineering",
+    "url": "https://www.uwa.edu.au/study/courses-and-careers/postgraduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 100,
+    "university": "Queen's University",
+    "program": "MBA \u2014 Smith School of Business",
+    "url": "https://smith.queensu.ca/grad_studies/mba/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 103,
+    "university": "University of Calgary",
+    "program": "MSc in Energy Engineering",
+    "url": "https://www.ucalgary.ca/future-students/graduate/explore-programs",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 104,
+    "university": "University of Victoria",
+    "program": "MSc in Computer Science",
+    "url": "https://www.uvic.ca/graduate/programs/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 102,
+    "university": "University of Ottawa",
+    "program": "LLM in Common Law",
+    "url": "https://www.uottawa.ca/faculty-law/graduate-studies",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 105,
+    "university": "Concordia University",
+    "program": "MEng in Electrical and Computer Engineering",
+    "url": "https://www.concordia.ca/ginacody/grad/programs.html",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 106,
+    "university": "University of Canterbury",
+    "program": "BE (Hons) in Civil Engineering",
+    "url": "https://www.canterbury.ac.nz/study/courses-and-qualifications/qualifications/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 110,
+    "university": "Maynooth University",
+    "program": "MSc in Data Science and Analytics",
+    "url": "https://www.maynoothuniversity.ie/study-maynooth/postgraduate-studies/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 109,
+    "university": "University of Limerick",
+    "program": "MSc in Immersive Software Engineering",
+    "url": "https://www.ul.ie/gps/courses/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 113,
+    "university": "Free University of Berlin",
+    "program": "MA in International Relations",
+    "url": "https://www.fu-berlin.de/en/studium/index.html",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 112,
+    "university": "TU Berlin",
+    "program": "MSc in Electrical Engineering",
+    "url": "https://www.tu.berlin/en/studying/study-programs/all-programs-offered/study-course/computer-science-m-sc/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 114,
+    "university": "University of Freiburg",
+    "program": "MSc in Environmental Sciences",
+    "url": "https://www.uni-freiburg.de/en/prospective-students/bachelor-master-programs/master-programs/computer-science",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 107,
+    "university": "Waikato University",
+    "program": "MSc in Computer Science",
+    "url": "https://www.waikato.ac.nz/study/qualifications/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 116,
+    "university": "Goethe University Frankfurt",
+    "program": "MSc in Finance",
+    "url": "https://www.goethe-university-frankfurt.de/en/educational-programmes/graduate-programmes/master/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 115,
+    "university": "University of Stuttgart",
+    "program": "MSc in Aerospace Engineering",
+    "url": "https://www.uni-stuttgart.de/en/study/degree-programs/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 119,
+    "university": "Universit\u00e9 Paris-Saclay",
+    "program": "MSc in Computer Science",
+    "url": "https://www.universite-paris-saclay.fr/en/education/master",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 124,
+    "university": "Middlesex University Dubai",
+    "program": "MBA",
+    "url": "https://www.mdx.ac.ae/postgraduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 126,
+    "university": "BITS Pilani Dubai Campus",
+    "program": "BE in Computer Science",
+    "url": "https://www.bits-dubai.ac.ae/programmes/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 125,
+    "university": "SP Jain School of Global Management",
+    "program": "MBA \u2014 Global MBA",
+    "url": "https://www.spjain.org/mba",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 127,
+    "university": "Singapore University of Technology and Design",
+    "program": "BEng in Engineering Systems Design",
+    "url": "https://www.sutd.edu.sg/Education/Undergraduate-Programmes",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 128,
+    "university": "Singapore University of Technology and Design",
+    "program": "MSc in Engineering Systems Design",
+    "url": "https://www.sutd.edu.sg/Education/Graduate-Programmes",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 129,
+    "university": "ESSEC Business School Asia-Pacific",
+    "program": "MBA in Asian Context",
+    "url": "https://www.essec.edu/en/asia/programmes/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 130,
+    "university": "James Cook University Singapore",
+    "program": "BPsych in Psychology",
+    "url": "https://www.jcu.edu.sg/courses/undergraduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 131,
+    "university": "Universiti Putra Malaysia",
+    "program": "Master of Agricultural Science",
+    "url": "https://www.upm.edu.my/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 133,
+    "university": "Universiti Kebangsaan Malaysia",
+    "program": "MSc in Computer Science",
+    "url": "https://www.ukm.my/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 135,
+    "university": "Heriot-Watt University Malaysia",
+    "program": "BEng in Mechanical Engineering",
+    "url": "https://www.hw.ac.uk/malaysia/programmes/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 132,
+    "university": "Universiti Sains Malaysia",
+    "program": "Master of Science in Pharmaceutical Technology",
+    "url": "https://www.usm.my/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 137,
+    "university": "Universiti Teknologi PETRONAS",
+    "program": "BEng in Chemical Engineering",
+    "url": "https://www.utp.edu.my/Pages/Programmes.aspx",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 136,
+    "university": "Multimedia University",
+    "program": "BEng in Electrical Engineering",
+    "url": "https://www.mmu.edu.my/programmes/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 139,
+    "university": "University of Oxford",
+    "program": "BM BCh (Medicine)",
+    "url": "https://www.ox.ac.uk/admissions/undergraduate/courses/course-listing/medicine",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 140,
+    "university": "University of Oxford",
+    "program": "MSc Global Health Science and Epidemiology",
+    "url": "https://www.ox.ac.uk/admissions/graduate/courses/msc-global-health-science",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 143,
+    "university": "King's College London",
+    "program": "MBBS Medicine",
+    "url": "https://www.kcl.ac.uk/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 144,
+    "university": "King's College London",
+    "program": "MSc Public Health",
+    "url": "https://www.kcl.ac.uk/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 145,
+    "university": "University of Edinburgh",
+    "program": "MBChB Medicine",
+    "url": "https://www.ed.ac.uk/studying/undergraduate/degrees/index.php?action=view&code=A100",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 146,
+    "university": "University of Manchester",
+    "program": "MBChB Medicine",
+    "url": "https://www.manchester.ac.uk/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 149,
+    "university": "University of Birmingham",
+    "program": "MBChB Medicine",
+    "url": "https://www.birmingham.ac.uk/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 150,
+    "university": "University of Birmingham",
+    "program": "MSc Public Health",
+    "url": "https://www.birmingham.ac.uk/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 152,
+    "university": "University of Bristol",
+    "program": "MSc Public Health",
+    "url": "https://www.bristol.ac.uk/study/postgraduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 154,
+    "university": "University of Nottingham",
+    "program": "BMBS Medicine",
+    "url": "https://www.nottingham.ac.uk/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 155,
+    "university": "University of Leeds",
+    "program": "MBChB Medicine",
+    "url": "https://www.leeds.ac.uk/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 157,
+    "university": "Queen Mary University of London",
+    "program": "MBBS Medicine",
+    "url": "https://www.qmul.ac.uk/undergraduate/coursefinder/courses/medicine-mbbs/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 159,
+    "university": "University of Liverpool",
+    "program": "MBChB Medicine",
+    "url": "https://www.liverpool.ac.uk/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 158,
+    "university": "University of Southampton",
+    "program": "MBBS Medicine",
+    "url": "https://www.southampton.ac.uk/courses/medicine-degree-mbbs",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 162,
+    "university": "Monash University",
+    "program": "MBBS Medicine",
+    "url": "https://www.monash.edu/medicine/undergraduate-study",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 163,
+    "university": "University of New South Wales",
+    "program": "Medicine (MBBS)",
+    "url": "https://www.unsw.edu.au/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 164,
+    "university": "University of Adelaide",
+    "program": "MBBS Medicine",
+    "url": "https://www.adelaide.edu.au/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 120,
+    "university": "Sciences Po",
+    "program": "Master in International Affairs",
+    "url": "https://www.sciencespo.fr/en/education/masters",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 172,
+    "university": "National University of Singapore",
+    "program": "MBBS Medicine",
+    "url": "https://medicine.nus.edu.sg/education/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 171,
+    "university": "National University of Ireland Galway",
+    "program": "MB BCh BAO (Medicine)",
+    "url": "https://www.universityofgalway.ie/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 175,
+    "university": "Monash University Malaysia",
+    "program": "MBBS Medicine",
+    "url": "https://www.monash.edu.my/medicine/undergraduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 174,
+    "university": "Universiti Malaya",
+    "program": "MBBS Medicine",
+    "url": "https://medicine.um.edu.my/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 177,
+    "university": "Queensland University of Technology",
+    "program": "Master of Business Administration (MBA)",
+    "url": "https://www.qut.edu.au/courses/master-of-business-administration",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 181,
+    "university": "University of South Australia",
+    "program": "Master of Information Technology",
+    "url": "https://study.unisa.edu.au/degrees/master-of-information-technology",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 179,
+    "university": "University of Newcastle",
+    "program": "Master of Engineering",
+    "url": "https://www.newcastle.edu.au/degrees/master-of-engineering",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 184,
+    "university": "Western Sydney University",
+    "program": "Bachelor of Computer Science",
+    "url": "https://www.westernsydney.edu.au/future/study/courses/bachelor-of-computer-science",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 183,
+    "university": "University of Tasmania",
+    "program": "Master of Information and Communication Technology",
+    "url": "https://www.utas.edu.au/courses/ict",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 185,
+    "university": "Murdoch University",
+    "program": "Bachelor of Engineering (Honours)",
+    "url": "https://www.murdoch.edu.au/courses/bachelor-of-engineering-electrical",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 190,
+    "university": "Southern Cross University",
+    "program": "Bachelor of Business",
+    "url": "https://www.scu.edu.au/study-at-scu/courses/bachelor-of-business",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 189,
+    "university": "Edith Cowan University",
+    "program": "Bachelor of Engineering (Honours)",
+    "url": "https://www.ecu.edu.au/degrees/courses/bachelor-of-engineering-honours",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 191,
+    "university": "Federation University",
+    "program": "Master of Information Technology",
+    "url": "https://www.federation.edu.au/courses/master-of-information-technology",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 194,
+    "university": "University of Leicester",
+    "program": "MSc Data Analytics",
+    "url": "https://le.ac.uk/courses/data-analytics-msc",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 197,
+    "university": "University of Aberdeen",
+    "program": "MSc Data Science",
+    "url": "https://www.abdn.ac.uk/study/postgraduate-taught/degree-programmes/1244/data-science/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 198,
+    "university": "University of Aberdeen",
+    "program": "BSc Computing Science",
+    "url": "https://www.abdn.ac.uk/study/undergraduate/degree-programmes/computing-science/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 200,
+    "university": "Aston University",
+    "program": "MSc Business Analytics",
+    "url": "https://www.aston.ac.uk/study/postgraduate/courses/business-analytics-msc",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 201,
+    "university": "Aston University",
+    "program": "MBA",
+    "url": "https://www.aston.ac.uk/study/postgraduate/courses/mba",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 204,
+    "university": "Coventry University",
+    "program": "BEng Computer Engineering",
+    "url": "https://www.coventry.ac.uk/course-structure/ug/eec/computer-engineering-beng/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 205,
+    "university": "Northumbria University",
+    "program": "MBA",
+    "url": "https://www.northumbria.ac.uk/study-at-northumbria/courses/mba/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 203,
+    "university": "Coventry University",
+    "program": "MBA",
+    "url": "https://www.coventry.ac.uk/course-structure/pg/cbass/mba/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 206,
+    "university": "University of Essex",
+    "program": "MSc Data Science",
+    "url": "https://www.essex.ac.uk/courses/pg01327/1/msc-data-science",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 208,
+    "university": "University of Dundee",
+    "program": "MSc Applied Computing",
+    "url": "https://www.dundee.ac.uk/postgraduate/applied-computing",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 210,
+    "university": "University of Stirling",
+    "program": "MSc Finance",
+    "url": "https://www.stir.ac.uk/courses/pg-taught/management/finance/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 213,
+    "university": "Brunel University London",
+    "program": "BEng Computer Science",
+    "url": "https://www.brunel.ac.uk/study/undergraduate/Computer-Science-BEng",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 211,
+    "university": "University of Stirling",
+    "program": "BSc Business Studies",
+    "url": "https://www.stir.ac.uk/courses/ug/management/business-studies/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 216,
+    "university": "Royal Holloway, University of London",
+    "program": "MSc Information Security",
+    "url": "https://www.royalholloway.ac.uk/studying-here/postgraduate/2024/information-security/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 218,
+    "university": "University of Kent",
+    "program": "BSc Accounting and Finance",
+    "url": "https://www.kent.ac.uk/courses/undergraduate/302/accounting-and-finance",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 217,
+    "university": "University of Kent",
+    "program": "MSc Advanced Computer Science",
+    "url": "https://www.kent.ac.uk/courses/postgraduate/237/advanced-computer-science",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 220,
+    "university": "University of Portsmouth",
+    "program": "MSc Cybersecurity and Digital Forensics",
+    "url": "https://www.port.ac.uk/study/courses/postgraduate/msc-cybersecurity-and-digital-forensics",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 222,
+    "university": "Bangor University",
+    "program": "MSc Finance and Banking",
+    "url": "https://www.bangor.ac.uk/business-and-management/postgraduate/finance-and-banking-msc",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 227,
+    "university": "CQUniversity",
+    "program": "Master of Information Technology",
+    "url": "https://www.cqu.edu.au/courses/postgraduate/master-of-information-technology",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 228,
+    "university": "CQUniversity",
+    "program": "Bachelor of Engineering (Civil)",
+    "url": "https://www.cqu.edu.au/courses/undergraduate/bachelor-of-engineering-civil",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 229,
+    "university": "Charles Sturt University",
+    "program": "Master of Information Technology",
+    "url": "https://www.csu.edu.au/courses/postgraduate/master-of-information-technology",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 231,
+    "university": "Victoria University",
+    "program": "Master of Information Technology",
+    "url": "https://www.vu.edu.au/courses/master-of-information-technology-nbmi",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 230,
+    "university": "University of the Sunshine Coast",
+    "program": "Bachelor of Computer Science",
+    "url": "https://www.usc.edu.au/study/courses-and-programs/undergraduate/bachelor-of-computer-science",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 232,
+    "university": "Victoria University",
+    "program": "Bachelor of Business",
+    "url": "https://www.vu.edu.au/courses/bachelor-of-business-abbs",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 240,
+    "university": "Nottingham Trent University",
+    "program": "BA Business Management",
+    "url": "https://www.ntu.ac.uk/course/business-management-ba",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 242,
+    "university": "Leeds Beckett University",
+    "program": "BA Business and Management",
+    "url": "https://www.leedsbeckett.ac.uk/courses/business-and-management-ba/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 246,
+    "university": "University of Greenwich",
+    "program": "MSc Data Science",
+    "url": "https://www.gre.ac.uk/postgraduate/computing/data-science",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 243,
+    "university": "Oxford Brookes University",
+    "program": "BA Business and Management",
+    "url": "https://www.brookes.ac.uk/courses/undergraduate/business-management",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 245,
+    "university": "University of Hertfordshire",
+    "program": "BSc Business Information Technology",
+    "url": "https://www.herts.ac.uk/courses/business-information-technology-bsc",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 249,
+    "university": "University of Westminster",
+    "program": "MSc Data Science and Analytics",
+    "url": "https://www.westminster.ac.uk/data-science-and-analytics-course",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 244,
+    "university": "University of Brighton",
+    "program": "BSc Business Studies",
+    "url": "https://www.brighton.ac.uk/courses/subjects/business-and-management/business-studies-bsc.aspx",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 247,
+    "university": "Kingston University London",
+    "program": "BA Business Management",
+    "url": "https://www.kingston.ac.uk/undergraduate/courses/business-management-ba/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 253,
+    "university": "Bournemouth University",
+    "program": "BA Business Studies",
+    "url": "https://www.bournemouth.ac.uk/study/courses/ba-business-studies",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 255,
+    "university": "University of Huddersfield",
+    "program": "BA Business Administration",
+    "url": "https://www.hud.ac.uk/undergraduate/courses/business-administration/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 254,
+    "university": "University of Lincoln",
+    "program": "BSc Engineering (Mechanical)",
+    "url": "https://www.lincoln.ac.uk/course/mengbeng/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 256,
+    "university": "Teesside University",
+    "program": "MSc Cyber Security",
+    "url": "https://www.tees.ac.uk/courses/cyber-security-msc/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 260,
+    "university": "University of Sunderland",
+    "program": "BSc Business Management",
+    "url": "https://www.sunderland.ac.uk/study/business/business-management-bsc/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 259,
+    "university": "University of Sunderland",
+    "program": "MSc Data Science",
+    "url": "https://www.sunderland.ac.uk/study/computing/data-science-msc/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 261,
+    "university": "Edinburgh Napier University",
+    "program": "MSc Cyber Security",
+    "url": "https://www.napier.ac.uk/courses/msc-cyber-security",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 263,
+    "university": "Glasgow Caledonian University",
+    "program": "MSc Data Science",
+    "url": "https://www.gcu.ac.uk/study/courses/details/index.php/P02827/Data_Science",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 266,
+    "university": "Robert Gordon University",
+    "program": "BEng Petroleum Engineering",
+    "url": "https://www.rgu.ac.uk/study/courses/1254-beng-petroleum-engineering",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 262,
+    "university": "Edinburgh Napier University",
+    "program": "BSc Software Engineering",
+    "url": "https://www.napier.ac.uk/courses/beng-software-engineering",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 265,
+    "university": "Robert Gordon University",
+    "program": "MSc Computing (Advanced Computer Science)",
+    "url": "https://www.rgu.ac.uk/study/courses/2986-msc-computing",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 267,
+    "university": "Birmingham City University",
+    "program": "BA Business and Management",
+    "url": "https://www.bcu.ac.uk/business-and-law/courses/business-and-management-ba",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 268,
+    "university": "University of South Wales",
+    "program": "MSc Cyber Security",
+    "url": "https://www.southwales.ac.uk/courses/msc-cyber-security/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 269,
+    "university": "Cardiff Metropolitan University",
+    "program": "MSc Data Science",
+    "url": "https://www.cardiffmet.ac.uk/technologies/courses/Pages/msc-data-science.aspx",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 270,
+    "university": "Cardiff Metropolitan University",
+    "program": "BA Business Management",
+    "url": "https://www.cardiffmet.ac.uk/management/courses/Pages/Business-Management.aspx",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 274,
+    "university": "SOAS University of London",
+    "program": "MSc International Management",
+    "url": "https://www.soas.ac.uk/study/find-course/international-management-msc",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 279,
+    "university": "Staffordshire University",
+    "program": "MSc Cyber Security and Digital Forensics",
+    "url": "https://www.staffs.ac.uk/course/cyber-security-and-digital-forensics-msc",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 281,
+    "university": "University of Chester",
+    "program": "MSc Data Science",
+    "url": "https://www1.chester.ac.uk/study/postgraduate/data-science-msc",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 278,
+    "university": "University of Wolverhampton",
+    "program": "BA Business Management",
+    "url": "https://www.wlv.ac.uk/courses/course-search/business-and-management/business-management-ba/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 284,
+    "university": "University of the West of Scotland",
+    "program": "MSc Data Science",
+    "url": "https://www.uws.ac.uk/university-life/courses/postgraduate/data-science-msc/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 285,
+    "university": "University of the West of Scotland",
+    "program": "BSc Computing",
+    "url": "https://www.uws.ac.uk/university-life/courses/undergraduate/computing-bsc/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 283,
+    "university": "University of Northampton",
+    "program": "BA Business and Management",
+    "url": "https://www.northampton.ac.uk/courses/business-and-management-ba/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 289,
+    "university": "University of Gloucestershire",
+    "program": "MSc Cyber Security Management",
+    "url": "https://www.glos.ac.uk/courses/postgraduate/cyber-security-management-msc/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 292,
+    "university": "University of Chicago",
+    "program": "MSc Finance",
+    "url": "https://www.uchicago.edu/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 290,
+    "university": "University of Gloucestershire",
+    "program": "BA Business and Management",
+    "url": "https://www.glos.ac.uk/courses/undergraduate/business-management-ba/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 291,
+    "university": "University of Chicago",
+    "program": "MSc Data Science",
+    "url": "https://www.uchicago.edu/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 296,
+    "university": "UC Santa Barbara",
+    "program": "MSc Finance",
+    "url": "https://www.ucsb.edu/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 297,
+    "university": "UC Davis",
+    "program": "MSc Data Science",
+    "url": "https://www.ucdavis.edu/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 295,
+    "university": "UC Santa Barbara",
+    "program": "MSc Data Science",
+    "url": "https://www.ucsb.edu/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 299,
+    "university": "UC Irvine",
+    "program": "MSc Data Science",
+    "url": "https://www.uci.edu/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 300,
+    "university": "UC Irvine",
+    "program": "MSc Finance",
+    "url": "https://www.uci.edu/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 302,
+    "university": "Vanderbilt University",
+    "program": "MSc Finance",
+    "url": "https://www.vanderbilt.edu/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 304,
+    "university": "University of Minnesota Twin Cities",
+    "program": "MSc Finance",
+    "url": "https://www.umn.edu/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 301,
+    "university": "Vanderbilt University",
+    "program": "MSc Data Science",
+    "url": "https://www.vanderbilt.edu/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 303,
+    "university": "University of Minnesota Twin Cities",
+    "program": "MSc Data Science",
+    "url": "https://www.umn.edu/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 308,
+    "university": "University of Notre Dame",
+    "program": "MSc Finance",
+    "url": "https://www.nd.edu/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 307,
+    "university": "University of Notre Dame",
+    "program": "MSc Data Science",
+    "url": "https://www.nd.edu/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 305,
+    "university": "Emory University",
+    "program": "MSc Data Science",
+    "url": "https://www.emory.edu/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 313,
+    "university": "University of Florida",
+    "program": "MSc Data Science",
+    "url": "https://www.ufl.edu/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 314,
+    "university": "University of Florida",
+    "program": "MSc Finance",
+    "url": "https://www.ufl.edu/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 311,
+    "university": "University of Maryland",
+    "program": "MSc Data Science",
+    "url": "https://www.umd.edu/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 312,
+    "university": "University of Maryland",
+    "program": "MSc Finance",
+    "url": "https://www.umd.edu/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 315,
+    "university": "University of Pittsburgh",
+    "program": "MSc Data Science",
+    "url": "https://www.pitt.edu/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 316,
+    "university": "University of Pittsburgh",
+    "program": "MSc Finance",
+    "url": "https://www.pitt.edu/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 321,
+    "university": "Cranfield University",
+    "program": "MSc Data Science",
+    "url": "https://www.cranfield.ac.uk/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 325,
+    "university": "University of Bonn",
+    "program": "MSc Finance",
+    "url": "https://www.uni-bonn.de/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 322,
+    "university": "Humboldt University Berlin",
+    "program": "MSc Data Science",
+    "url": "https://www.hu-berlin.de/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 324,
+    "university": "University of Bonn",
+    "program": "MSc Data Science",
+    "url": "https://www.uni-bonn.de/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 326,
+    "university": "University of Cologne",
+    "program": "MSc Data Science",
+    "url": "https://www.uni-koeln.de/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 329,
+    "university": "University of M\u00fcnster",
+    "program": "MSc Data Science",
+    "url": "https://www.uni-muenster.de/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 330,
+    "university": "University of M\u00fcnster",
+    "program": "MSc Finance",
+    "url": "https://www.uni-muenster.de/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 327,
+    "university": "University of Cologne",
+    "program": "MSc Finance",
+    "url": "https://www.uni-koeln.de/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 332,
+    "university": "University of G\u00f6ttingen",
+    "program": "MSc Finance",
+    "url": "https://www.uni-goettingen.de/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 333,
+    "university": "Leibniz University Hannover",
+    "program": "MSc Data Science",
+    "url": "https://www.uni-hannover.de/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 364,
+    "university": "CentraleSup\u00e9lec",
+    "program": "MSc Data Science",
+    "url": "https://www.centralesupelec.fr/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 367,
+    "university": "Universit\u00e9 de Strasbourg",
+    "program": "MSc Data Science",
+    "url": "https://www.unistra.fr/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 368,
+    "university": "Universit\u00e9 de Strasbourg",
+    "program": "MSc Finance",
+    "url": "https://www.unistra.fr/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 369,
+    "university": "Aix-Marseille University",
+    "program": "MSc Data Science",
+    "url": "https://www.univ-amu.fr/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 370,
+    "university": "Aix-Marseille University",
+    "program": "MSc Finance",
+    "url": "https://www.univ-amu.fr/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 371,
+    "university": "Universit\u00e9 Grenoble Alpes",
+    "program": "MSc Data Science",
+    "url": "https://www.univ-grenoble-alpes.fr/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 372,
+    "university": "Universit\u00e9 Grenoble Alpes",
+    "program": "MSc Finance",
+    "url": "https://www.univ-grenoble-alpes.fr/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 375,
+    "university": "University of Birmingham Dubai",
+    "program": "MSc Data Science",
+    "url": "https://www.birmingham.ac.uk/dubai/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 376,
+    "university": "University of Birmingham Dubai",
+    "program": "MSc Finance",
+    "url": "https://www.birmingham.ac.uk/dubai/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 377,
+    "university": "International Islamic University Malaysia",
+    "program": "MSc Data Science",
+    "url": "https://www.iium.edu.my/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 378,
+    "university": "International Islamic University Malaysia",
+    "program": "MSc Finance",
+    "url": "https://www.iium.edu.my/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 389,
+    "university": "Washington University in St. Louis",
+    "program": "MS in Finance",
+    "url": "https://olin.washu.edu/programs/index.php?redirectid=103",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 394,
+    "university": "Washington University in St. Louis",
+    "program": "MPH \u2014 Public Health",
+    "url": "https://publichealth.wustl.edu/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 406,
+    "university": "Dartmouth College",
+    "program": "MS in Health Policy & Clinical Practice",
+    "url": "https://tdi.dartmouth.edu/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 408,
+    "university": "Case Western Reserve University",
+    "program": "MS in Computer Science",
+    "url": "https://engineering.case.edu/eecs/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 413,
+    "university": "Case Western Reserve University",
+    "program": "MS in Artificial Intelligence",
+    "url": "https://engineering.case.edu/eecs/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 416,
+    "university": "University of Massachusetts Amherst",
+    "program": "MS in Data Science",
+    "url": "https://www.cics.umass.edu/academics/programs/degrees",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 418,
+    "university": "University of Massachusetts Amherst",
+    "program": "MS in Electrical & Computer Engineering",
+    "url": "https://ece.umass.edu/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 420,
+    "university": "University of Massachusetts Amherst",
+    "program": "MS in Environmental Science",
+    "url": "https://eco.umass.edu/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 426,
+    "university": "University of Arizona",
+    "program": "MPH \u2014 Public Health",
+    "url": "https://publichealth.arizona.edu/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 438,
+    "university": "University of Colorado Boulder",
+    "program": "MS in Environmental Engineering",
+    "url": "https://www.colorado.edu/ceae/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 439,
+    "university": "University of Colorado Boulder",
+    "program": "MS in Natural Sciences",
+    "url": "https://www.colorado.edu/graduateschool/academics",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 450,
+    "university": "Rutgers University\u2013New Brunswick",
+    "program": "MPH \u2014 Public Health",
+    "url": "https://sph.rutgers.edu/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 453,
+    "university": "Tufts University",
+    "program": "MS in Engineering Management",
+    "url": "https://engineering.tufts.edu/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 455,
+    "university": "Tufts University",
+    "program": "MA in International Relations",
+    "url": "https://fletcher.tufts.edu/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 458,
+    "university": "Indiana University Bloomington",
+    "program": "MS in Computer Science",
+    "url": "https://luddy.indiana.edu/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 461,
+    "university": "Indiana University Bloomington",
+    "program": "JD \u2014 Maurer School of Law",
+    "url": "https://law.indiana.edu/jd/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 462,
+    "university": "Indiana University Bloomington",
+    "program": "MA in Media Arts & Sciences",
+    "url": "https://mediaschool.indiana.edu/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 469,
+    "university": "University of Illinois at Chicago",
+    "program": "MS in Bioengineering",
+    "url": "https://bioe.uic.edu/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 467,
+    "university": "University of Illinois at Chicago",
+    "program": "MPH \u2014 Public Health",
+    "url": "https://publichealth.uic.edu/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 474,
+    "university": "George Washington University",
+    "program": "MS in Engineering Management",
+    "url": "https://www.seas.gwu.edu/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 475,
+    "university": "George Washington University",
+    "program": "MA in Media & Public Affairs",
+    "url": "https://smpa.gwu.edu/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 473,
+    "university": "George Washington University",
+    "program": "MA in International Affairs",
+    "url": "https://elliott.gwu.edu/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 476,
+    "university": "George Washington University",
+    "program": "JD \u2014 Law School",
+    "url": "https://www.law.gwu.edu/jd",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 478,
+    "university": "Virginia Tech",
+    "program": "MS in Mechanical Engineering",
+    "url": "https://me.vt.edu/graduate.html",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 479,
+    "university": "Virginia Tech",
+    "program": "MS in Electrical Engineering",
+    "url": "https://ece.vt.edu/graduate.html",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 480,
+    "university": "Virginia Tech",
+    "program": "MBA \u2014 Pamplin Business School",
+    "url": "https://pamplin.vt.edu/mba/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 483,
+    "university": "UC Santa Cruz",
+    "program": "MS in Computer Science & Engineering",
+    "url": "https://engineering.ucsc.edu/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 482,
+    "university": "Virginia Tech",
+    "program": "MS in Agriculture & Life Sciences",
+    "url": "https://cals.vt.edu/graduate.html",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 485,
+    "university": "UC Santa Cruz",
+    "program": "MS in Electrical Engineering",
+    "url": "https://engineering.ucsc.edu/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 486,
+    "university": "UC Santa Cruz",
+    "program": "MA in Economics",
+    "url": "https://economics.ucsc.edu/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 484,
+    "university": "UC Santa Cruz",
+    "program": "MS in Applied Mathematics & Statistics",
+    "url": "https://www.soe.ucsc.edu/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 489,
+    "university": "Colorado State University",
+    "program": "MS in Computer Science",
+    "url": "https://www.cs.colostate.edu/grad/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 487,
+    "university": "UC Santa Cruz",
+    "program": "MA in Social Sciences",
+    "url": "https://socialsciences.ucsc.edu/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 495,
+    "university": "Stony Brook University",
+    "program": "MS in Computer Science",
+    "url": "https://www.cs.stonybrook.edu/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 496,
+    "university": "Stony Brook University",
+    "program": "MS in Artificial Intelligence",
+    "url": "https://www.cs.stonybrook.edu/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 497,
+    "university": "Stony Brook University",
+    "program": "MS in Electrical Engineering",
+    "url": "https://www.ece.stonybrook.edu/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 504,
+    "university": "University at Buffalo (SUNY)",
+    "program": "JD \u2014 School of Law",
+    "url": "https://www.buffalo.edu/law/jd.html",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 500,
+    "university": "Stony Brook University",
+    "program": "MS in Applied Mathematics",
+    "url": "https://www.math.stonybrook.edu/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 498,
+    "university": "Stony Brook University",
+    "program": "MBA \u2014 College of Business",
+    "url": "https://www.stonybrook.edu/commcms/mba/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 507,
+    "university": "Iowa State University",
+    "program": "MS in Computer Science",
+    "url": "https://www.cs.iastate.edu/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 506,
+    "university": "University at Buffalo (SUNY)",
+    "program": "MPH \u2014 Public Health",
+    "url": "https://sphhp.buffalo.edu/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 520,
+    "university": "University of Hawaii at Manoa",
+    "program": "MS in Natural Sciences",
+    "url": "https://manoa.hawaii.edu/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 523,
+    "university": "University of Hawaii at Manoa",
+    "program": "MS in Agriculture",
+    "url": "https://www.ctahr.hawaii.edu/site/graduate.aspx",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 525,
+    "university": "UC Riverside",
+    "program": "MS in Electrical Engineering",
+    "url": "https://www.ece.ucr.edu/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 531,
+    "university": "Colorado School of Mines",
+    "program": "MS in Mechanical Engineering",
+    "url": "https://mechanical.mines.edu/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 535,
+    "university": "University of Delaware",
+    "program": "MS in Computer Science",
+    "url": "https://www.cis.udel.edu/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 540,
+    "university": "University of Delaware",
+    "program": "MS in Biotechnology",
+    "url": "https://www.udel.edu/academics/colleges/grad/programs/biotechnology-ms/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 542,
+    "university": "Missouri University of Science and Technology",
+    "program": "MS in Electrical Engineering",
+    "url": "https://ece.mst.edu/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 541,
+    "university": "Missouri University of Science and Technology",
+    "program": "MS in Computer Science",
+    "url": "https://cs.mst.edu/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 538,
+    "university": "University of Delaware",
+    "program": "MS in Agricultural Sciences",
+    "url": "https://canr.udel.edu/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 548,
+    "university": "University of Utah",
+    "program": "MBA \u2014 David Eccles School",
+    "url": "https://eccles.utah.edu/mba/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 545,
+    "university": "Missouri University of Science and Technology",
+    "program": "MBA \u2014 Business Administration",
+    "url": "https://business.mst.edu/graduate/mba/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 546,
+    "university": "Missouri University of Science and Technology",
+    "program": "MS in Applied Mathematics",
+    "url": "https://math.mst.edu/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 552,
+    "university": "University of Utah",
+    "program": "MPH \u2014 Public Health",
+    "url": "https://medicine.utah.edu/publichealth/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 565,
+    "university": "Humber College",
+    "program": "Diploma in Computer Programming",
+    "url": "https://humber.ca/programs/computer-programming",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 567,
+    "university": "Humber College",
+    "program": "Postgraduate Certificate in Project Management",
+    "url": "https://humber.ca/programs/project-management",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 566,
+    "university": "Humber College",
+    "program": "Postgraduate Certificate in Big Data Analytics",
+    "url": "https://humber.ca/programs/big-data-analytics",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 569,
+    "university": "Humber College",
+    "program": "Diploma in Hospitality & Tourism Management",
+    "url": "https://humber.ca/programs/hospitality-tourism-management",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 568,
+    "university": "Humber College",
+    "program": "Diploma in Graphic Design",
+    "url": "https://humber.ca/programs/graphic-design",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 570,
+    "university": "Humber College",
+    "program": "Diploma in Mechanical Engineering Technology",
+    "url": "https://humber.ca/programs/mechanical-engineering-technology",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 572,
+    "university": "George Brown College",
+    "program": "Diploma in Computer Programming",
+    "url": "https://www.georgebrown.ca/programs/computer-programming-and-analysis-program-t177",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 571,
+    "university": "Humber College",
+    "program": "Diploma in Media Communications",
+    "url": "https://humber.ca/programs/media-communications",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 574,
+    "university": "George Brown College",
+    "program": "Postgraduate Certificate in Financial Planning",
+    "url": "https://www.georgebrown.ca/programs/financial-planning-program-b407",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 573,
+    "university": "George Brown College",
+    "program": "Postgraduate Certificate in Applied AI & Machine Learning",
+    "url": "https://www.georgebrown.ca/programs/applied-ai-solutions-development-program-t431",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 575,
+    "university": "George Brown College",
+    "program": "Diploma in Culinary Arts",
+    "url": "https://www.georgebrown.ca/programs/culinary-arts-program-h100",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 576,
+    "university": "George Brown College",
+    "program": "Postgraduate Certificate in Construction Management",
+    "url": "https://www.georgebrown.ca/programs/construction-management-program-t408",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 578,
+    "university": "Seneca Polytechnic",
+    "program": "Postgraduate Certificate in Cybersecurity",
+    "url": "https://www.senecacollege.ca/programs/fulltime/CYS.html",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 581,
+    "university": "Seneca Polytechnic",
+    "program": "Diploma in Media Arts",
+    "url": "https://www.senecacollege.ca/programs/fulltime/MAP.html",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 588,
+    "university": "Sheridan College",
+    "program": "Diploma in Computer Systems Technology",
+    "url": "https://www.sheridancollege.ca/programs/computer-systems-technology",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 589,
+    "university": "Sheridan College",
+    "program": "Advanced Diploma in Animation",
+    "url": "https://www.sheridancollege.ca/programs/animation",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 590,
+    "university": "Sheridan College",
+    "program": "Bachelor of Design in Illustration",
+    "url": "https://www.sheridancollege.ca/programs/bachelor-of-design-illustration",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 595,
+    "university": "Algonquin College",
+    "program": "Postgraduate Certificate in Project Management",
+    "url": "https://www.algonquincollege.com/ba/program/project-management/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 594,
+    "university": "Algonquin College",
+    "program": "Postgraduate Certificate in Cybersecurity & Threat Management",
+    "url": "https://www.algonquincollege.com/sat/program/cybersecurity-and-threat-management/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 598,
+    "university": "Conestoga College",
+    "program": "Postgraduate Certificate in AI Solutions",
+    "url": "https://www.conestogac.on.ca/fulltime/artificial-intelligence",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 602,
+    "university": "Mohawk College",
+    "program": "Diploma in Software Development",
+    "url": "https://www.mohawkcollege.ca/programs/technology/software-development",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 608,
+    "university": "Fanshawe College",
+    "program": "Diploma in Environmental Technology",
+    "url": "https://www.fanshawec.ca/programs/envt1-environmental-technology",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 614,
+    "university": "Niagara College",
+    "program": "Postgraduate Certificate in Digital Marketing",
+    "url": "https://www.niagaracollege.ca/digitalmarketing/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 616,
+    "university": "St. Clair College",
+    "program": "Diploma in Computer Systems Technology",
+    "url": "https://www.stclaircollege.ca/programs/computer-systems-technician",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 615,
+    "university": "Niagara College",
+    "program": "Diploma in Environmental Technology",
+    "url": "https://www.niagaracollege.ca/environment/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 618,
+    "university": "St. Clair College",
+    "program": "Postgraduate Certificate in Digital Communications",
+    "url": "https://www.stclaircollege.ca/programs/digital-communications",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 620,
+    "university": "Georgian College",
+    "program": "Postgraduate Certificate in Supply Chain Management",
+    "url": "https://www.georgiancollege.ca/academics/programs/supply-chain-management/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 623,
+    "university": "British Columbia Institute of Technology (BCIT)",
+    "program": "Diploma in Data Analytics",
+    "url": "https://www.bcit.ca/programs/data-analytics-diploma-full-time-6870dipma/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 627,
+    "university": "British Columbia Institute of Technology (BCIT)",
+    "program": "Diploma in Financial Management",
+    "url": "https://www.bcit.ca/programs/financial-management-diploma-full-time-6410dipma/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 631,
+    "university": "Langara College",
+    "program": "Diploma in Environmental Science",
+    "url": "https://langara.ca/programs-and-courses/programs/environmental-science/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 636,
+    "university": "Kwantlen Polytechnic University",
+    "program": "Bachelor of Science in Computing",
+    "url": "https://www.kpu.ca/science/programs/bsc-computing",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 638,
+    "university": "Kwantlen Polytechnic University",
+    "program": "Bachelor of Engineering in Mechatronic Systems",
+    "url": "https://www.kpu.ca/engineering/mechatronics",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 642,
+    "university": "Vancouver Community College",
+    "program": "Diploma in Dental Technology",
+    "url": "https://www.vcc.ca/programs-courses/program-areas/health/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 641,
+    "university": "Vancouver Community College",
+    "program": "Diploma in Culinary Arts",
+    "url": "https://www.vcc.ca/programs-courses/program-areas/hospitality/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 644,
+    "university": "Camosun College",
+    "program": "Diploma in Computer Science Technology",
+    "url": "https://camosun.ca/programs-courses/programs/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 643,
+    "university": "Vancouver Community College",
+    "program": "Diploma in Fashion Arts",
+    "url": "https://www.vcc.ca/programs-courses/program-areas/fashion/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 645,
+    "university": "Camosun College",
+    "program": "Diploma in Engineering Technology",
+    "url": "https://camosun.ca/programs-courses/programs/engineering/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 649,
+    "university": "Okanagan College",
+    "program": "Diploma in Wine Business",
+    "url": "https://www.okanagan.bc.ca/programs/hospitality/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 650,
+    "university": "Southern Alberta Institute of Technology (SAIT)",
+    "program": "Diploma in Information Technology",
+    "url": "https://www.sait.ca/programs-and-courses/diplomas/information-technology",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 652,
+    "university": "Southern Alberta Institute of Technology (SAIT)",
+    "program": "Postgraduate Certificate in Project Management",
+    "url": "https://www.sait.ca/programs-and-courses/certificates/project-management",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 653,
+    "university": "Southern Alberta Institute of Technology (SAIT)",
+    "program": "Diploma in Hospitality & Tourism Management",
+    "url": "https://www.sait.ca/programs-and-courses/diplomas/hospitality-and-tourism-management",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 655,
+    "university": "Southern Alberta Institute of Technology (SAIT)",
+    "program": "Bachelor of Business Administration \u2014 Tourism",
+    "url": "https://www.sait.ca/programs-and-courses/degrees/bachelor-of-business-administration-tourism",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 659,
+    "university": "Northern Alberta Institute of Technology (NAIT)",
+    "program": "Postgraduate Certificate in Digital Marketing",
+    "url": "https://www.nait.ca/programs/digital-marketing",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 656,
+    "university": "Northern Alberta Institute of Technology (NAIT)",
+    "program": "Diploma in Information Technology",
+    "url": "https://www.nait.ca/programs/information-technology",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 660,
+    "university": "Northern Alberta Institute of Technology (NAIT)",
+    "program": "Diploma in Environmental Technology",
+    "url": "https://www.nait.ca/programs/environmental-technology",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 664,
+    "university": "Red Deer Polytechnic",
+    "program": "Diploma in Engineering Technology",
+    "url": "https://rdpolytech.ca/programs/engineering-technology/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 666,
+    "university": "Lethbridge College",
+    "program": "Diploma in Agriculture Technology",
+    "url": "https://lethbridgecollege.ca/programs/agriculture/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 667,
+    "university": "Lethbridge College",
+    "program": "Diploma in Environmental Technology",
+    "url": "https://lethbridgecollege.ca/programs/environment/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 661,
+    "university": "Bow Valley College",
+    "program": "Diploma in Information Technology",
+    "url": "https://bowvalleycollege.ca/programs-courses/technology/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 670,
+    "university": "NorQuest College",
+    "program": "Diploma in Early Childhood Education",
+    "url": "https://www.norquest.ca/programs-courses/programs/early-childhood/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 672,
+    "university": "Olds College",
+    "program": "Diploma in Animal Health Technology",
+    "url": "https://www.oldscollege.ca/programs/animal-health-technology/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 675,
+    "university": "Red River College Polytechnic",
+    "program": "Diploma in Information Technology",
+    "url": "https://www.rrc.ca/programs/information-technology/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 673,
+    "university": "Olds College",
+    "program": "Diploma in Environmental Conservation",
+    "url": "https://www.oldscollege.ca/programs/environment/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 677,
+    "university": "Red River College Polytechnic",
+    "program": "Postgraduate Certificate in Business Technology Management",
+    "url": "https://www.rrc.ca/programs/business-technology-management/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 674,
+    "university": "Olds College",
+    "program": "Diploma in Land Stewardship",
+    "url": "https://www.oldscollege.ca/programs/land-stewardship/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 679,
+    "university": "Assiniboine Community College",
+    "program": "Diploma in Information Technology",
+    "url": "https://assiniboine.net/programs/technology/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 680,
+    "university": "Assiniboine Community College",
+    "program": "Diploma in Agriculture \u2014 Production",
+    "url": "https://assiniboine.net/programs/agriculture/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 681,
+    "university": "Assiniboine Community College",
+    "program": "Diploma in Hospitality & Tourism",
+    "url": "https://assiniboine.net/programs/hospitality/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 678,
+    "university": "Red River College Polytechnic",
+    "program": "Diploma in Graphic Design",
+    "url": "https://www.rrc.ca/programs/graphic-design/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 682,
+    "university": "Saskatchewan Polytechnic",
+    "program": "Diploma in Information Technology",
+    "url": "https://saskpolytech.ca/programs-and-courses/programs/information-technology/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 685,
+    "university": "Saskatchewan Polytechnic",
+    "program": "Diploma in Natural Resources Technology",
+    "url": "https://saskpolytech.ca/programs-and-courses/programs/natural-resources-technology/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 684,
+    "university": "Saskatchewan Polytechnic",
+    "program": "Diploma in Agriculture Technology",
+    "url": "https://saskpolytech.ca/programs-and-courses/programs/agriculture/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 686,
+    "university": "Saskatchewan Polytechnic",
+    "program": "Diploma in Hospitality & Tourism Management",
+    "url": "https://saskpolytech.ca/programs-and-courses/programs/hospitality/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 693,
+    "university": "Clemson University",
+    "program": "MS in Computer Science",
+    "url": "https://www.clemson.edu/cecas/departments/cs/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 694,
+    "university": "Clemson University",
+    "program": "MS in Electrical Engineering",
+    "url": "https://www.clemson.edu/cecas/departments/ece/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 698,
+    "university": "Clemson University",
+    "program": "Bachelor of Science in Mechanical Engineering",
+    "url": "https://www.clemson.edu/cecas/departments/me/undergraduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 702,
+    "university": "University of Houston",
+    "program": "MS in Petroleum Engineering",
+    "url": "https://www.egr.uh.edu/pete/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 706,
+    "university": "Oregon State University",
+    "program": "MS in Artificial Intelligence",
+    "url": "https://eecs.oregonstate.edu/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 705,
+    "university": "Oregon State University",
+    "program": "MS in Computer Science",
+    "url": "https://eecs.oregonstate.edu/academics/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 708,
+    "university": "Oregon State University",
+    "program": "MS in Agricultural Sciences",
+    "url": "https://agsci.oregonstate.edu/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 707,
+    "university": "Oregon State University",
+    "program": "MS in Environmental Science",
+    "url": "https://ceoas.oregonstate.edu/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 714,
+    "university": "University of Iowa",
+    "program": "MS in Biostatistics",
+    "url": "https://www.public-health.uiowa.edu/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 715,
+    "university": "University of Iowa",
+    "program": "MS in Economics",
+    "url": "https://tippie.uiowa.edu/economics/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 718,
+    "university": "Syracuse University",
+    "program": "MBA",
+    "url": "https://whitman.syr.edu/mba/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 716,
+    "university": "Syracuse University",
+    "program": "MS in Computer Science",
+    "url": "https://ecs.syracuse.edu/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 720,
+    "university": "Syracuse University",
+    "program": "Master of Architecture",
+    "url": "https://soa.syr.edu/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 719,
+    "university": "Syracuse University",
+    "program": "MS in Media & Communications",
+    "url": "https://newhouse.syr.edu/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 717,
+    "university": "Syracuse University",
+    "program": "MS in Information Management",
+    "url": "https://ischool.syr.edu/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 723,
+    "university": "Tulane University",
+    "program": "Juris Doctor (JD)",
+    "url": "https://law.tulane.edu/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 721,
+    "university": "Syracuse University",
+    "program": "Juris Doctor (JD)",
+    "url": "https://law.syr.edu/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 726,
+    "university": "Tulane University",
+    "program": "MS in Biomedical Sciences",
+    "url": "https://medicine.tulane.edu/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 725,
+    "university": "Tulane University",
+    "program": "MS in Finance",
+    "url": "https://freeman.tulane.edu/ms-finance/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 728,
+    "university": "Drexel University",
+    "program": "MS in Data Science",
+    "url": "https://drexel.edu/cci/academics/graduate-programs/ms-data-science/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 727,
+    "university": "Drexel University",
+    "program": "MS in Computer Science",
+    "url": "https://drexel.edu/cci/academics/graduate-programs/ms-cs/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 730,
+    "university": "Drexel University",
+    "program": "MBA (Online/Hybrid)",
+    "url": "https://www.lebow.drexel.edu/academics/graduate-programs/mba",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 731,
+    "university": "Drexel University",
+    "program": "BS in Computer Science",
+    "url": "https://drexel.edu/cci/academics/undergraduate-programs/bs-cs/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 732,
+    "university": "Illinois Institute of Technology",
+    "program": "MS in Computer Science",
+    "url": "https://www.iit.edu/computer-science/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 734,
+    "university": "Illinois Institute of Technology",
+    "program": "MS in Electrical & Computer Engineering",
+    "url": "https://www.iit.edu/electrical-computer-engineering/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 735,
+    "university": "Illinois Institute of Technology",
+    "program": "MBA",
+    "url": "https://www.iit.edu/business/graduate/mba",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 736,
+    "university": "Illinois Institute of Technology",
+    "program": "Master of Architecture",
+    "url": "https://www.iit.edu/architecture/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 739,
+    "university": "Stevens Institute of Technology",
+    "program": "MS in Artificial Intelligence",
+    "url": "https://www.stevens.edu/school-engineering-science/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 741,
+    "university": "Stevens Institute of Technology",
+    "program": "MBA (Technology Management)",
+    "url": "https://www.stevens.edu/school-business/graduate/mba",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 742,
+    "university": "Stevens Institute of Technology",
+    "program": "MS in Financial Engineering",
+    "url": "https://www.stevens.edu/school-business/graduate/ms-financial-engineering",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 740,
+    "university": "Stevens Institute of Technology",
+    "program": "MS in Cybersecurity",
+    "url": "https://www.stevens.edu/school-engineering-science/cybersecurity",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 744,
+    "university": "Rochester Institute of Technology",
+    "program": "MS in Data Science",
+    "url": "https://www.rit.edu/computing/data-science",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 746,
+    "university": "Rochester Institute of Technology",
+    "program": "MFA in Design",
+    "url": "https://www.rit.edu/study/design-mfa",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 745,
+    "university": "Rochester Institute of Technology",
+    "program": "MS in Cybersecurity",
+    "url": "https://www.rit.edu/computing/cybersecurity",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 748,
+    "university": "Rochester Institute of Technology",
+    "program": "BS in Computer Science",
+    "url": "https://www.rit.edu/computing/school-computer-science/undergraduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 749,
+    "university": "George Mason University",
+    "program": "MS in Computer Science",
+    "url": "https://cs.gmu.edu/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 754,
+    "university": "Rensselaer Polytechnic Institute",
+    "program": "MS in Computer Science",
+    "url": "https://science.rpi.edu/computer-science/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 753,
+    "university": "George Mason University",
+    "program": "MS in Economics",
+    "url": "https://economics.gmu.edu/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 755,
+    "university": "Rensselaer Polytechnic Institute",
+    "program": "MS in Artificial Intelligence",
+    "url": "https://science.rpi.edu/computer-science/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 756,
+    "university": "Rensselaer Polytechnic Institute",
+    "program": "MS in Electrical Engineering",
+    "url": "https://ecse.rpi.edu/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 759,
+    "university": "Rensselaer Polytechnic Institute",
+    "program": "BS in Computer Science",
+    "url": "https://science.rpi.edu/computer-science/undergraduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 760,
+    "university": "Lehigh University",
+    "program": "MS in Computer Science",
+    "url": "https://engineering.lehigh.edu/cse/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 761,
+    "university": "Lehigh University",
+    "program": "MS in Data Science",
+    "url": "https://engineering.lehigh.edu/cse/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 765,
+    "university": "Texas Tech University",
+    "program": "MS in Computer Science",
+    "url": "https://www.depts.ttu.edu/cs/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 766,
+    "university": "Texas Tech University",
+    "program": "MS in Electrical Engineering",
+    "url": "https://www.depts.ttu.edu/ee/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 768,
+    "university": "Texas Tech University",
+    "program": "MS in Agricultural Sciences",
+    "url": "https://www.depts.ttu.edu/aaes/graduate.php",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 769,
+    "university": "Texas Tech University",
+    "program": "BS in Computer Science",
+    "url": "https://www.depts.ttu.edu/cs/undergraduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 770,
+    "university": "Temple University",
+    "program": "MS in Computer & Information Science",
+    "url": "https://cis.temple.edu/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 771,
+    "university": "Temple University",
+    "program": "MS in Data Science",
+    "url": "https://cis.temple.edu/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 775,
+    "university": "University of Oregon",
+    "program": "MBA",
+    "url": "https://business.uoregon.edu/graduate/mba",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 773,
+    "university": "Temple University",
+    "program": "Juris Doctor (JD)",
+    "url": "https://www.law.temple.edu/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 780,
+    "university": "Wake Forest University",
+    "program": "MBA (Full-Time)",
+    "url": "https://business.wfu.edu/graduate/mba/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 782,
+    "university": "Wake Forest University",
+    "program": "MS in Biomedical Sciences",
+    "url": "https://school.wakehealth.edu/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 784,
+    "university": "Wake Forest University",
+    "program": "MS in Finance",
+    "url": "https://business.wfu.edu/graduate/ms-finance/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 783,
+    "university": "Wake Forest University",
+    "program": "MS in Analytics",
+    "url": "https://business.wfu.edu/graduate/ms-analytics/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 785,
+    "university": "University of Vermont",
+    "program": "MS in Computer Science",
+    "url": "https://www.uvm.edu/cems/cs/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 787,
+    "university": "University of Vermont",
+    "program": "MS in Biomedical Engineering",
+    "url": "https://www.uvm.edu/cems/bme/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 788,
+    "university": "University of Vermont",
+    "program": "MBA",
+    "url": "https://www.uvm.edu/business/graduate/mba",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 793,
+    "university": "University of Guelph",
+    "program": "MSc in Computer Science",
+    "url": "https://www.uoguelph.ca/computing/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 790,
+    "university": "University of Alabama",
+    "program": "MBA",
+    "url": "https://culverhouse.ua.edu/graduate/mba/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 794,
+    "university": "University of Guelph",
+    "program": "MSc in Agriculture",
+    "url": "https://www.uoguelph.ca/oac/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 796,
+    "university": "University of Guelph",
+    "program": "MSc in Environmental Sciences",
+    "url": "https://www.uoguelph.ca/ses/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 799,
+    "university": "Universit\u00e9 Laval",
+    "program": "MSc in Computer Science",
+    "url": "https://www.fsg.ulaval.ca/programmes/msc-informatique",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 798,
+    "university": "University of Guelph",
+    "program": "MSc in Biotechnology",
+    "url": "https://www.uoguelph.ca/mcb/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 801,
+    "university": "Universit\u00e9 Laval",
+    "program": "MBA",
+    "url": "https://www.fsa.ulaval.ca/programmes/mba",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 803,
+    "university": "Universit\u00e9 Laval",
+    "program": "Juris Doctor (JD)",
+    "url": "https://www.fd.ulaval.ca/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 811,
+    "university": "Wilfrid Laurier University",
+    "program": "MSc in Data Science",
+    "url": "https://www.wlu.ca/programs/science/graduate/msc-data-science/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 810,
+    "university": "Wilfrid Laurier University",
+    "program": "MSc in Economics",
+    "url": "https://www.wlu.ca/programs/lazaridis-school-of-business-and-economics/graduate/msc-economics/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 809,
+    "university": "Wilfrid Laurier University",
+    "program": "MBA",
+    "url": "https://www.wlu.ca/programs/lazaridis-school-of-business-and-economics/graduate/mba/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 812,
+    "university": "Wilfrid Laurier University",
+    "program": "MSc in Business Technology Management",
+    "url": "https://www.wlu.ca/programs/lazaridis-school-of-business-and-economics/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 813,
+    "university": "Wilfrid Laurier University",
+    "program": "MSc in Finance",
+    "url": "https://www.wlu.ca/programs/lazaridis-school-of-business-and-economics/graduate/msc-finance/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 817,
+    "university": "Brock University",
+    "program": "MA in Social Justice and Equity Studies",
+    "url": "https://brocku.ca/social-justice/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 818,
+    "university": "Memorial University of Newfoundland",
+    "program": "MSc in Computer Science",
+    "url": "https://www.mun.ca/computerscience/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 815,
+    "university": "Brock University",
+    "program": "MBA",
+    "url": "https://brocku.ca/business/graduate/mba/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 816,
+    "university": "Brock University",
+    "program": "MSc in Data Science",
+    "url": "https://brocku.ca/mathematics-science/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 823,
+    "university": "University of Windsor",
+    "program": "MSc in Computer Science",
+    "url": "https://www.uwindsor.ca/computerscience/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 825,
+    "university": "University of Windsor",
+    "program": "MBA",
+    "url": "https://www.uwindsor.ca/odette/graduate/mba",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 827,
+    "university": "University of Windsor",
+    "program": "MSc in Environmental Science",
+    "url": "https://www.uwindsor.ca/environment/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 829,
+    "university": "University of Regina",
+    "program": "MEng in Industrial Systems Engineering",
+    "url": "https://www.uregina.ca/engineering/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 832,
+    "university": "UC San Francisco",
+    "program": "MS in Biomedical Sciences",
+    "url": "https://graduate.ucsf.edu/biomedical-sciences",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 833,
+    "university": "UC San Francisco",
+    "program": "MS in Nursing",
+    "url": "https://nursing.ucsf.edu/programs/ms",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 835,
+    "university": "UC San Francisco",
+    "program": "MS in Pharmaceutical Sciences & Pharmacogenomics",
+    "url": "https://pharmacy.ucsf.edu/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 836,
+    "university": "Yeshiva University",
+    "program": "MS in Biotechnology Management",
+    "url": "https://www.yu.edu/katz/graduate/biotechnology",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 838,
+    "university": "Yeshiva University",
+    "program": "JD \u2014 Benjamin N. Cardozo School of Law",
+    "url": "https://cardozo.yu.edu/jd",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 839,
+    "university": "Yeshiva University",
+    "program": "MS in Mental Health Counseling",
+    "url": "https://www.yu.edu/ferkauf/programs/mental-health-counseling",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 841,
+    "university": "University of Kansas",
+    "program": "MBA \u2014 School of Business",
+    "url": "https://business.ku.edu/mba",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 845,
+    "university": "Washington State University",
+    "program": "MS in Agriculture",
+    "url": "https://cahnrs.wsu.edu/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 840,
+    "university": "University of Kansas",
+    "program": "MS in Computer Science",
+    "url": "https://eecs.ku.edu/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 848,
+    "university": "University of Kentucky",
+    "program": "MS in Computer Science",
+    "url": "https://www.cs.uky.edu/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 849,
+    "university": "University of Kentucky",
+    "program": "MS in Agricultural Economics",
+    "url": "https://agecon.ca.uky.edu/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 851,
+    "university": "University of Kentucky",
+    "program": "MS in Civil Engineering",
+    "url": "https://www.engr.uky.edu/research-faculty/departments/civil-environmental-engineering/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 854,
+    "university": "University of New England",
+    "program": "Bachelor of Business",
+    "url": "https://www.une.edu.au/study/courses/bachelor-of-business",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 853,
+    "university": "University of New England",
+    "program": "Master of Data Science",
+    "url": "https://www.une.edu.au/study/courses/master-of-data-science",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 855,
+    "university": "University of New England",
+    "program": "Master of Accounting",
+    "url": "https://www.une.edu.au/study/courses/master-of-accounting",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 857,
+    "university": "University of New England",
+    "program": "Bachelor of Science",
+    "url": "https://www.une.edu.au/study/courses/bachelor-of-science",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 858,
+    "university": "University of New England",
+    "program": "Bachelor of Veterinary Biology",
+    "url": "https://www.une.edu.au/study/courses/bachelor-of-veterinary-biology",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 859,
+    "university": "University of New England",
+    "program": "Bachelor of Arts (Psychology)",
+    "url": "https://www.une.edu.au/study/courses/bachelor-of-arts",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 856,
+    "university": "University of New England",
+    "program": "Master of Environmental Science",
+    "url": "https://www.une.edu.au/study/courses/master-of-environmental-science",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 862,
+    "university": "University of Southern Queensland",
+    "program": "Master of Professional Accounting",
+    "url": "https://www.unisq.edu.au/study/degrees/business/master-of-professional-accounting",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 860,
+    "university": "University of Southern Queensland",
+    "program": "Master of Data Science",
+    "url": "https://www.unisq.edu.au/study/degrees/information-technology/master-of-data-science",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 864,
+    "university": "University of Southern Queensland",
+    "program": "Bachelor of Environmental Science",
+    "url": "https://www.unisq.edu.au/study/degrees/science/bachelor-of-environmental-science",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 863,
+    "university": "University of Southern Queensland",
+    "program": "Master of Engineering Management",
+    "url": "https://www.unisq.edu.au/study/degrees/engineering/master-of-engineering-management",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 861,
+    "university": "University of Southern Queensland",
+    "program": "Bachelor of Business",
+    "url": "https://www.unisq.edu.au/study/degrees/business/bachelor-of-business",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 868,
+    "university": "UC San Francisco",
+    "program": "MS in Epidemiology & Translational Science",
+    "url": "https://epibiostat.ucsf.edu/graduate/ms",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 869,
+    "university": "UC San Francisco",
+    "program": "MS in Health Data Science",
+    "url": "https://epibiostat.ucsf.edu/graduate/mhds",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 866,
+    "university": "University of Southern Queensland",
+    "program": "Bachelor of Agriculture",
+    "url": "https://www.unisq.edu.au/study/degrees/agriculture/bachelor-of-agriculture",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 870,
+    "university": "UC San Francisco",
+    "program": "Doctor of Nursing Practice (DNP)",
+    "url": "https://nursing.ucsf.edu/programs/dnp",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 867,
+    "university": "University of Southern Queensland",
+    "program": "Bachelor of Arts (Psychology)",
+    "url": "https://www.unisq.edu.au/study/degrees/arts-social-sciences/bachelor-of-arts",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 865,
+    "university": "University of Southern Queensland",
+    "program": "Bachelor of Science",
+    "url": "https://www.unisq.edu.au/study/degrees/science/bachelor-of-science",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 871,
+    "university": "UC San Francisco",
+    "program": "MS in Neuroscience",
+    "url": "https://neuroscience.ucsf.edu/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 873,
+    "university": "UC San Francisco",
+    "program": "MS in Biochemistry & Molecular Biology",
+    "url": "https://graduate.ucsf.edu/biochemistry-molecular-biology",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 872,
+    "university": "UC San Francisco",
+    "program": "PharmD \u2014 Doctor of Pharmacy",
+    "url": "https://pharmacy.ucsf.edu/pharmd",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 875,
+    "university": "Yeshiva University",
+    "program": "MS in Data Analytics & Visualization",
+    "url": "https://www.yu.edu/katz/graduate/data-analytics",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 874,
+    "university": "Yeshiva University",
+    "program": "MS in Cybersecurity",
+    "url": "https://www.yu.edu/katz/graduate/cybersecurity",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 878,
+    "university": "Yeshiva University",
+    "program": "MS in Accounting \u2014 Sy Syms School",
+    "url": "https://www.yu.edu/syms/ms-accounting",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 879,
+    "university": "Yeshiva University",
+    "program": "LLM \u2014 Cardozo School of Law",
+    "url": "https://cardozo.yu.edu/llm",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 884,
+    "university": "University of Kansas",
+    "program": "MA in Journalism",
+    "url": "https://journalism.ku.edu/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 885,
+    "university": "University of Kansas",
+    "program": "MS in Environmental Studies",
+    "url": "https://www.ku.edu/environment/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 881,
+    "university": "University of Kansas",
+    "program": "MS in Electrical Engineering",
+    "url": "https://eecs.ku.edu/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 883,
+    "university": "University of Kansas",
+    "program": "MS in Economics",
+    "url": "https://economics.ku.edu/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 890,
+    "university": "Washington State University",
+    "program": "MS in Data Analytics",
+    "url": "https://analytics.wsu.edu/ms-data-analytics/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 893,
+    "university": "Washington State University",
+    "program": "MS in Chemistry",
+    "url": "https://chemistry.wsu.edu/graduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 895,
+    "university": "Washington State University",
+    "program": "MS in Accounting",
+    "url": "https://business.wsu.edu/programs/ms-accounting/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 900,
+    "university": "University of Kentucky",
+    "program": "MS in Data Science",
+    "url": "https://www.uky.edu/academics/graduate/data-science",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 901,
+    "university": "University of Kentucky",
+    "program": "JD \u2014 College of Law",
+    "url": "https://law.uky.edu/jd",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 904,
+    "university": "University of Kentucky",
+    "program": "MPH \u2014 College of Public Health",
+    "url": "https://cph.uky.edu/mph",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 907,
+    "university": "University of Kentucky",
+    "program": "MS in Environmental Engineering",
+    "url": "https://www.engr.uky.edu/research-faculty/departments/civil-environmental-engineering/graduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 906,
+    "university": "University of Kentucky",
+    "program": "MPA \u2014 Martin School of Public Policy",
+    "url": "https://martin.uky.edu/mpa",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 909,
+    "university": "University of Kentucky",
+    "program": "MS in Business Analytics",
+    "url": "https://gatton.uky.edu/programs/ms-business-analytics",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 932,
+    "university": "FAU Erlangen-Nuremberg",
+    "program": "MSc Data Science",
+    "url": "https://www.fau.eu/study/master/data-science-msc/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 933,
+    "university": "FAU Erlangen-Nuremberg",
+    "program": "MSc Advanced Materials and Processes",
+    "url": "https://www.fau.eu/study/master/advanced-materials-and-processes-msc/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 937,
+    "university": "Ruhr University Bochum",
+    "program": "MSc Applied IT Security",
+    "url": "https://studium.ruhr-uni-bochum.de/en/applied-it-security-msc",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 938,
+    "university": "Ruhr University Bochum",
+    "program": "MSc Electrical Engineering and IT",
+    "url": "https://studium.ruhr-uni-bochum.de/en/electrical-engineering-and-information-technology-msc",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 942,
+    "university": "Friedrich Schiller University Jena",
+    "program": "MSc Chemistry of Materials",
+    "url": "https://www.uni-jena.de/en/study-programmes/chemistry-of-materials",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 941,
+    "university": "Friedrich Schiller University Jena",
+    "program": "MSc Photonics",
+    "url": "https://www.uni-jena.de/en/study-programmes/photonics",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 939,
+    "university": "Johannes Gutenberg University Mainz",
+    "program": "MSc International Economics and Public Policy (MIEPP)",
+    "url": "https://www.economics.uni-mainz.de/miepp/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 943,
+    "university": "Leipzig University",
+    "program": "MSc Bioinformatics",
+    "url": "https://www.uni-leipzig.de/en/study/programmes/master-of-science/bioinformatics",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 940,
+    "university": "Johannes Gutenberg University Mainz",
+    "program": "MSc Molecular Biotechnology",
+    "url": "https://www.uni-mainz.de/eng/studying/graduate-studies/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 946,
+    "university": "University of Bremen",
+    "program": "MSc Space Engineering",
+    "url": "https://www.uni-bremen.de/en/studies/degree-programmes/detail/master-space-engineering",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 945,
+    "university": "University of Bremen",
+    "program": "MSc Digital Media",
+    "url": "https://www.uni-bremen.de/en/studies/degree-programmes/detail/master-digital-media",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 944,
+    "university": "Leipzig University",
+    "program": "MSc Earth System Data Science",
+    "url": "https://www.uni-leipzig.de/en/study/programmes/master-of-science/earth-system-data-science",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 947,
+    "university": "Kiel University",
+    "program": "MSc Quantitative Finance",
+    "url": "https://www.uni-kiel.de/en/studies/master/quantitative-finance",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 948,
+    "university": "Kiel University",
+    "program": "MSc Quantitative Economics",
+    "url": "https://www.uni-kiel.de/en/studies/master/quantitative-economics",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 949,
+    "university": "Kiel University",
+    "program": "MSc Biological Oceanography",
+    "url": "https://www.uni-kiel.de/en/studies/master/biological-oceanography",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 950,
+    "university": "Heinrich Heine University D\u00fcsseldorf",
+    "program": "MSc Biology International",
+    "url": "https://www.hhu.de/en/studying/study-programmes/master/biology-international",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 953,
+    "university": "Frankfurt School of Finance & Management",
+    "program": "Full-Time MBA",
+    "url": "https://www.frankfurt-school.de/en/home/programmes/full-time-mba",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 954,
+    "university": "Aberystwyth University",
+    "program": "MSc Data Science",
+    "url": "https://courses.aber.ac.uk/postgraduate/data-science-msc/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 955,
+    "university": "Aberystwyth University",
+    "program": "LLM International Commercial Law",
+    "url": "https://courses.aber.ac.uk/postgraduate/international-commercial-law-llm/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 956,
+    "university": "Aberystwyth University",
+    "program": "MSc Environmental Change, Impact and Adaptation",
+    "url": "https://courses.aber.ac.uk/postgraduate/environmental-change-impact-adaptation-msc/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 957,
+    "university": "Aberystwyth University",
+    "program": "MA International Politics",
+    "url": "https://courses.aber.ac.uk/postgraduate/international-politics-ma/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 962,
+    "university": "Edge Hill University",
+    "program": "MSc Data Science with AI",
+    "url": "https://www.edgehill.ac.uk/courses/data-science-with-artificial-intelligence/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 963,
+    "university": "Edge Hill University",
+    "program": "MBA",
+    "url": "https://www.edgehill.ac.uk/courses/mba/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 960,
+    "university": "Liverpool John Moores University",
+    "program": "MSc Public Health",
+    "url": "https://www.ljmu.ac.uk/study/courses/postgraduates/public-health-msc",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 959,
+    "university": "Liverpool John Moores University",
+    "program": "MSc Civil Engineering",
+    "url": "https://www.ljmu.ac.uk/study/courses/postgraduates/civil-engineering-msc",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 964,
+    "university": "Edge Hill University",
+    "program": "MSc Public Health",
+    "url": "https://www.edgehill.ac.uk/courses/public-health/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 961,
+    "university": "Liverpool John Moores University",
+    "program": "MA Media, Culture, Communication",
+    "url": "https://www.ljmu.ac.uk/study/courses/postgraduates/media-culture-communication-ma",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 965,
+    "university": "Edge Hill University",
+    "program": "MA Creative Writing",
+    "url": "https://www.edgehill.ac.uk/courses/creative-writing/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 968,
+    "university": "University of Buckingham",
+    "program": "MBA",
+    "url": "https://www.buckingham.ac.uk/courses/postgraduate/mba/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 966,
+    "university": "University of Buckingham",
+    "program": "MSc Computing",
+    "url": "https://www.buckingham.ac.uk/courses/postgraduate/msc-computing/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 969,
+    "university": "University of Buckingham",
+    "program": "LLM International Commercial Law",
+    "url": "https://www.buckingham.ac.uk/courses/postgraduate/llm-international-commercial-law/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 970,
+    "university": "University of Buckingham",
+    "program": "MSc Finance and Investment",
+    "url": "https://www.buckingham.ac.uk/courses/postgraduate/msc-finance-investment/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 971,
+    "university": "University of Buckingham",
+    "program": "MBBS Medicine",
+    "url": "https://www.buckingham.ac.uk/courses/undergraduate/mbchb-medicine/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 976,
+    "university": "University of Winchester",
+    "program": "MSc Data Science",
+    "url": "https://www.winchester.ac.uk/courses/postgraduate/data-science-msc/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 977,
+    "university": "University of Winchester",
+    "program": "MBA",
+    "url": "https://www.winchester.ac.uk/courses/postgraduate/mba/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 978,
+    "university": "University of Winchester",
+    "program": "MA Education",
+    "url": "https://www.winchester.ac.uk/courses/postgraduate/education-ma/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 979,
+    "university": "University of Winchester",
+    "program": "MA Creative and Critical Writing",
+    "url": "https://www.winchester.ac.uk/courses/postgraduate/creative-and-critical-writing-ma/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 980,
+    "university": "University of Winchester",
+    "program": "MSc Sustainability and Environmental Management",
+    "url": "https://www.winchester.ac.uk/courses/postgraduate/sustainability-and-environmental-management-msc/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 982,
+    "university": "University of Derby",
+    "program": "MBA Global",
+    "url": "https://www.derby.ac.uk/postgraduate/business-courses/mba-global/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 983,
+    "university": "University of Derby",
+    "program": "MSc International Hospitality Management",
+    "url": "https://www.derby.ac.uk/postgraduate/hospitality-events-and-tourism-courses/international-hospitality-management-msc/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 985,
+    "university": "Harper Adams University",
+    "program": "MSc Agribusiness",
+    "url": "https://www.harper-adams.ac.uk/courses/postgraduate/202103/agribusiness",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 986,
+    "university": "Harper Adams University",
+    "program": "MSc Veterinary Epidemiology and Public Health",
+    "url": "https://www.harper-adams.ac.uk/courses/postgraduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 987,
+    "university": "Harper Adams University",
+    "program": "MSc Sustainable Agriculture and Food Security",
+    "url": "https://www.harper-adams.ac.uk/courses/postgraduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 990,
+    "university": "University of West London",
+    "program": "MBA",
+    "url": "https://www.uwl.ac.uk/course/postgraduate/mba",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 989,
+    "university": "University of West London",
+    "program": "MSc Data Science",
+    "url": "https://www.uwl.ac.uk/course/postgraduate/data-science",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 988,
+    "university": "Harper Adams University",
+    "program": "MSc Agricultural Engineering",
+    "url": "https://www.harper-adams.ac.uk/courses/postgraduate/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 991,
+    "university": "University of West London",
+    "program": "MSc International Hospitality Management",
+    "url": "https://www.uwl.ac.uk/course/postgraduate/international-hospitality-management",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 992,
+    "university": "University of West London",
+    "program": "MA Music",
+    "url": "https://www.uwl.ac.uk/course/postgraduate/music-performance",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 993,
+    "university": "University of Bedfordshire",
+    "program": "MSc Artificial Intelligence and Data Analytics",
+    "url": "https://www.beds.ac.uk/howtoapply/courses/postgraduate/next-year/artificial-intelligence-and-data-analytics-msc/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 995,
+    "university": "University of Bedfordshire",
+    "program": "MSc Public Health",
+    "url": "https://www.beds.ac.uk/howtoapply/courses/postgraduate/next-year/public-health-msc/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 994,
+    "university": "University of Bedfordshire",
+    "program": "MBA",
+    "url": "https://www.beds.ac.uk/howtoapply/courses/postgraduate/next-year/mba/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 996,
+    "university": "University of Bedfordshire",
+    "program": "MA Mass Communications",
+    "url": "https://www.beds.ac.uk/howtoapply/courses/postgraduate/next-year/mass-communications-ma/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 1001,
+    "university": "University of Roehampton",
+    "program": "MSc Nutrition and Health",
+    "url": "https://www.roehampton.ac.uk/postgraduate-courses/nutrition-and-health/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 1003,
+    "university": "University of Cambridge",
+    "program": "MPhil in Data Intensive Science",
+    "url": "https://www.maths.cam.ac.uk/postgrad/mphil-dis",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 1007,
+    "university": "University of Cambridge",
+    "program": "MPhil in Architecture and Urban Design",
+    "url": "https://www.aha.cam.ac.uk/postgraduate",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 1005,
+    "university": "University of Cambridge",
+    "program": "Master of Finance (MFin)",
+    "url": "https://www.jbs.cam.ac.uk/masters/master-of-finance/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 1006,
+    "university": "University of Cambridge",
+    "program": "Cambridge MBA",
+    "url": "https://www.jbs.cam.ac.uk/masters/mba/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 1009,
+    "university": "University of Cambridge",
+    "program": "LLM (Master of Law)",
+    "url": "https://www.law.cam.ac.uk/postgraduate/llm",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 1010,
+    "university": "University of Oxford",
+    "program": "MSc in Statistical Science",
+    "url": "https://www.stats.ox.ac.uk/all-courses/postgraduate-study/msc-in-statistical-science/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 1011,
+    "university": "University of Oxford",
+    "program": "MSc in Advanced Computer Science",
+    "url": "https://www.cs.ox.ac.uk/admissions/graduate/msc-advanced-computer-science/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 1014,
+    "university": "University of Oxford",
+    "program": "BCL (Bachelor of Civil Law)",
+    "url": "https://www.law.ox.ac.uk/admissions/postgraduate-research/bachelor-civil-law",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 1016,
+    "university": "Imperial College London",
+    "program": "MSc Machine Learning and Data Science",
+    "url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/machine-learning-and-data-science/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 1015,
+    "university": "University of Oxford",
+    "program": "MSc Environmental Change and Management",
+    "url": "https://www.eci.ox.ac.uk/teaching/ecm.html",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 1021,
+    "university": "Massachusetts Institute of Technology",
+    "program": "MEng in Electrical Engineering and Computer Science",
+    "url": "https://www.eecs.mit.edu/academics/graduate-programs/master-of-engineering/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 1020,
+    "university": "Imperial College London",
+    "program": "MSc Climate Change, Management and Finance",
+    "url": "https://www.imperial.ac.uk/business-school/programmes/msc-climate-change-management-finance/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 1024,
+    "university": "Massachusetts Institute of Technology",
+    "program": "MArch (Master of Architecture)",
+    "url": "https://architecture.mit.edu/architecture/program/master-architecture",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 1027,
+    "university": "Stanford University",
+    "program": "MS in Statistics: Data Science",
+    "url": "https://statistics.stanford.edu/academics/data-science",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 1030,
+    "university": "Harvard University",
+    "program": "MS in Computational Science and Engineering",
+    "url": "https://www.seas.harvard.edu/computational-science-engineering/graduate-programs",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 1025,
+    "university": "Massachusetts Institute of Technology",
+    "program": "MS in Aeronautics and Astronautics",
+    "url": "https://aeroastro.mit.edu/graduate-program/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 1036,
+    "university": "ETH Zurich",
+    "program": "MSc Environmental Sciences",
+    "url": "https://usys.ethz.ch/en/studies/master.html",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 1037,
+    "university": "Purdue University",
+    "program": "MS in Agricultural Economics",
+    "url": "https://ag.purdue.edu/department/agecon/graduate/index.html",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 1039,
+    "university": "Texas A&M University",
+    "program": "MS in Agricultural Economics",
+    "url": "https://agecon.tamu.edu/graduate-programs/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 1049,
+    "university": "University of Southern California",
+    "program": "MS in Hospitality Management",
+    "url": "https://priceschool.usc.edu/programs/masters/mhm/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 1050,
+    "university": "Boston University",
+    "program": "Questrom MBA",
+    "url": "https://www.bu.edu/questrom/mba-programs/full-time-mba/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 1053,
+    "university": "University of Strathclyde",
+    "program": "MSc International Hospitality and Tourism Management",
+    "url": "https://www.strath.ac.uk/courses/postgraduatetaught/internationalhospitalitytourismmanagement/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 1051,
+    "university": "Boston University",
+    "program": "MS in Hospitality Management",
+    "url": "https://www.bu.edu/hospitality/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 1055,
+    "university": "University of Wollongong",
+    "program": "Master of Business (Hospitality & Tourism)",
+    "url": "https://www.uow.edu.au/study/",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 1058,
+    "university": "University of Amsterdam",
+    "program": "Amsterdam MBA",
+    "url": "https://www.abs.uva.nl/programmes/mba/full-time-mba/full-time-mba.html",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 1060,
+    "university": "University of Amsterdam",
+    "program": "MSc Earth Sciences",
+    "url": "https://www.uva.nl/en/programmes/masters/earth-sciences/earth-sciences.html",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 1057,
+    "university": "University of Otago",
+    "program": "Master of Tourism",
+    "url": "https://www.otago.ac.nz/courses/qualifications/mtour.html",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 1062,
+    "university": "University of Amsterdam",
+    "program": "MSc Sustainable Development",
+    "url": "https://www.uva.nl/en/programmes/masters/sustainable-development/sustainable-development.html",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 1064,
+    "university": "Karlsruhe Institute of Technology",
+    "program": "MSc Architecture",
+    "url": "https://www.arch.kit.edu/english/Master.php",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 1065,
+    "university": "TU Berlin",
+    "program": "MSc Architecture",
+    "url": "https://www.tu.berlin/en/studium/study-offerings/programs",
+    "status": 4,
+    "reason": "no_program_name"
+  },
+  {
+    "idx": 1063,
+    "university": "RWTH Aachen University",
+    "program": "MSc Architecture",
+    "url": "https://www.rwth-aachen.de/cms/root/Studium/Vor-dem-Studium/Studiengaenge/Liste-Aktuelle-Studiengaenge/Studiengangbeschreibung/~bnzz/Architektur-M-Sc/",
+    "status": 4,
+    "reason": "no_program_name"
+  }
+]

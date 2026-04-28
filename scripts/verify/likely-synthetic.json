@@ -1,0 +1,308 @@
+[
+  {
+    "university": "Yale University",
+    "program": "BA in Economics",
+    "db_url": "https://economics.yale.edu/undergraduate",
+    "page_name_at_db_url": "Undergraduate Program",
+    "websearch_candidate": null,
+    "websearch_outcome": "websearch_returned_none",
+    "recommendation": "strip_synthetic"
+  },
+  {
+    "university": "Brown University",
+    "program": "MA in Economics",
+    "db_url": "https://economics.brown.edu/academics/graduate",
+    "page_name_at_db_url": "Ph.D. program in Economics",
+    "websearch_candidate": null,
+    "websearch_outcome": "websearch_returned_none",
+    "recommendation": "strip_synthetic"
+  },
+  {
+    "university": "Dartmouth College",
+    "program": "MA in Economics",
+    "db_url": "https://economics.dartmouth.edu/",
+    "page_name_at_db_url": "Department of Economics",
+    "websearch_candidate": null,
+    "websearch_outcome": "websearch_returned_none",
+    "recommendation": "strip_synthetic"
+  },
+  {
+    "university": "Dartmouth College",
+    "program": "MS in Quantitative Biomedical Sciences",
+    "db_url": "https://geiselmed.dartmouth.edu/qbs/",
+    "page_name_at_db_url": "Graduate Program in Quantitative Biomedical Sciences",
+    "websearch_candidate": "https://geiselmed.dartmouth.edu/qbs/program/ms-programs/",
+    "websearch_outcome": "verifier_status=3",
+    "recommendation": "strip_or_fix_field"
+  },
+  {
+    "university": "Case Western Reserve University",
+    "program": "MS in Mechanical Engineering",
+    "db_url": "https://engineering.case.edu/emae/graduate/",
+    "page_name_at_db_url": "Mechanical & Aerospace Engineering",
+    "websearch_candidate": "https://case.edu/programs/mechanical-engineering-ms",
+    "websearch_outcome": "verifier_status=3",
+    "recommendation": "strip_or_fix_field"
+  },
+  {
+    "university": "University of Arizona",
+    "program": "MS in Environmental Science",
+    "db_url": "https://snre.arizona.edu/graduate/ms-phd-natural-resources",
+    "page_name_at_db_url": "M.S. and Ph.D. in Natural Resources",
+    "websearch_candidate": "https://envs.arizona.edu/graduate/ms-environmental-science",
+    "websearch_outcome": "verifier_status=3",
+    "recommendation": "strip_or_fix_field"
+  },
+  {
+    "university": "University of Arizona",
+    "program": "MS in Agricultural & Biosystems Engineering",
+    "db_url": "https://be.arizona.edu/graduate/msphd-biosystems-engineering",
+    "page_name_at_db_url": "M.S. & Ph.D. in Biosystems Engineering",
+    "websearch_candidate": "https://grad.arizona.edu/catalog/programinfo/BEMS",
+    "websearch_outcome": "verifier_status=3",
+    "recommendation": "strip_or_fix_field"
+  },
+  {
+    "university": "University of Miami",
+    "program": "MS in Hospitality Management",
+    "db_url": "https://www.grad.miami.edu/graduate-education/a-z-listing-graduate-programs/index.html",
+    "page_name_at_db_url": "Hospitality Design",
+    "websearch_candidate": null,
+    "websearch_outcome": "websearch_returned_none",
+    "recommendation": "strip_synthetic"
+  },
+  {
+    "university": "Indiana University Bloomington",
+    "program": "MS in Data Science",
+    "db_url": "https://datascience.indiana.edu/",
+    "page_name_at_db_url": "Data Science",
+    "websearch_candidate": "https://academics.iu.edu/degrees/bloomington/master-of-science-in-data-science.html",
+    "websearch_outcome": "verifier_status=3",
+    "recommendation": "strip_or_fix_field"
+  },
+  {
+    "university": "Colorado State University",
+    "program": "MS in Natural Resources",
+    "db_url": "https://warnercnr.colostate.edu/graduate/",
+    "page_name_at_db_url": "Graduate Certificates",
+    "websearch_candidate": null,
+    "websearch_outcome": "websearch_returned_none",
+    "recommendation": "strip_synthetic"
+  },
+  {
+    "university": "University of Hawaii at Manoa",
+    "program": "MS in Environmental Science",
+    "db_url": "https://manoa.hawaii.edu/graduate/",
+    "page_name_at_db_url": "Graduate Division",
+    "websearch_candidate": null,
+    "websearch_outcome": "websearch_returned_none",
+    "recommendation": "strip_synthetic"
+  },
+  {
+    "university": "University of Hawaii at Manoa",
+    "program": "MA in Social Sciences",
+    "db_url": "https://manoa.hawaii.edu/graduate/",
+    "page_name_at_db_url": "Graduate Division",
+    "websearch_candidate": null,
+    "websearch_outcome": "websearch_returned_none",
+    "recommendation": "strip_synthetic"
+  },
+  {
+    "university": "University of Sussex",
+    "program": "MSc Psychology",
+    "db_url": "https://www.sussex.ac.uk/psychology/",
+    "page_name_at_db_url": "School of Psychology",
+    "websearch_candidate": "https://www.sussex.ac.uk/study/masters/courses/psychology-conversion-msc",
+    "websearch_outcome": "verifier_status=3",
+    "recommendation": "strip_or_fix_field"
+  },
+  {
+    "university": "Seneca Polytechnic",
+    "program": "Postgraduate Certificate in Human Resources Management",
+    "db_url": "https://www.senecacollege.ca/programs/fulltime/HRM.html",
+    "page_name_at_db_url": "Human Resources Management",
+    "websearch_candidate": "https://www.senecapolytechnic.ca/programs/fulltime/HRM.html",
+    "websearch_outcome": "verifier_status=3",
+    "recommendation": "strip_or_fix_field"
+  },
+  {
+    "university": "Seneca Polytechnic",
+    "program": "Postgraduate Certificate in Marketing Management",
+    "db_url": "https://www.senecacollege.ca/programs/fulltime/MKM.html",
+    "page_name_at_db_url": "Marketing Management",
+    "websearch_candidate": "https://www.senecapolytechnic.ca/programs/fulltime/MKM.html",
+    "websearch_outcome": "verifier_status=3",
+    "recommendation": "strip_or_fix_field"
+  },
+  {
+    "university": "Centennial College",
+    "program": "Postgraduate Certificate in Artificial Intelligence",
+    "db_url": "https://www.centennialcollege.ca/programs-courses/full-time/artificial-intelligence/",
+    "page_name_at_db_url": "Artificial Intelligence - Software Engineering Technology (Optional Co-op)",
+    "websearch_candidate": null,
+    "websearch_outcome": "websearch_returned_none",
+    "recommendation": "strip_synthetic"
+  },
+  {
+    "university": "Florida State University",
+    "program": "MS in Environmental Science",
+    "db_url": "https://www.eoas.fsu.edu/graduate",
+    "page_name_at_db_url": "Graduate Advising",
+    "websearch_candidate": "https://www.eoas.fsu.edu/grad-degrees/environmental/",
+    "websearch_outcome": "verifier_status=3",
+    "recommendation": "strip_or_fix_field"
+  },
+  {
+    "university": "Florida State University",
+    "program": "Juris Doctor (JD)",
+    "db_url": "https://law.fsu.edu/",
+    "page_name_at_db_url": "Florida State University College of Law",
+    "websearch_candidate": "https://law.fsu.edu/academics/academic-programs/juris-doctor-program",
+    "websearch_outcome": "verifier_status=3",
+    "recommendation": "strip_or_fix_field"
+  },
+  {
+    "university": "University of Houston",
+    "program": "Juris Doctor (JD)",
+    "db_url": "https://www.law.uh.edu/",
+    "page_name_at_db_url": "University of Houston Law Center",
+    "websearch_candidate": null,
+    "websearch_outcome": "websearch_returned_none",
+    "recommendation": "strip_synthetic"
+  },
+  {
+    "university": "Oregon State University",
+    "program": "BS in Computer Science",
+    "db_url": "https://eecs.oregonstate.edu/undergrad",
+    "page_name_at_db_url": "Electrical Engineering and Computer Science",
+    "websearch_candidate": "https://ecampus.oregonstate.edu/online-degrees/undergraduate/computer-science-postbacc/",
+    "websearch_outcome": "verifier_status=3",
+    "recommendation": "strip_or_fix_field"
+  },
+  {
+    "university": "University of Iowa",
+    "program": "MS in Computer Science",
+    "db_url": "https://cs.uiowa.edu/graduate",
+    "page_name_at_db_url": "Graduate Programs",
+    "websearch_candidate": "https://catalog.registrar.uiowa.edu/liberal-arts-sciences/computer-science/computer-science-ms/",
+    "websearch_outcome": "verifier_status=3",
+    "recommendation": "strip_or_fix_field"
+  },
+  {
+    "university": "Tulane University",
+    "program": "MS in Public Health",
+    "db_url": "https://sph.tulane.edu/",
+    "page_name_at_db_url": "Celia Scott Weatherhead School of Public Health and Tropical Medicine",
+    "websearch_candidate": "https://sph.tulane.edu/msph-programs",
+    "websearch_outcome": "verifier_status=3",
+    "recommendation": "strip_or_fix_field"
+  },
+  {
+    "university": "Rochester Institute of Technology",
+    "program": "MS in Mechanical Engineering",
+    "db_url": "https://www.rit.edu/engineering/mechanical-engineering",
+    "page_name_at_db_url": "Department of Mechanical Engineering",
+    "websearch_candidate": "https://www.rit.edu/study/mechanical-engineering-ms",
+    "websearch_outcome": "verifier_status=3",
+    "recommendation": "strip_or_fix_field"
+  },
+  {
+    "university": "Temple University",
+    "program": "MS in Media & Communication",
+    "db_url": "https://klein.temple.edu/graduate/",
+    "page_name_at_db_url": "Graduate Programs",
+    "websearch_candidate": null,
+    "websearch_outcome": "websearch_returned_none",
+    "recommendation": "strip_synthetic"
+  },
+  {
+    "university": "University of Oregon",
+    "program": "MS in Computer & Information Science",
+    "db_url": "https://cs.uoregon.edu/graduate",
+    "page_name_at_db_url": "Computer Science",
+    "websearch_candidate": "https://catalog.uoregon.edu/arts-sciences/school-computer-data-sciences/computer-science/ms-computer-science/",
+    "websearch_outcome": "verifier_status=3",
+    "recommendation": "strip_or_fix_field"
+  },
+  {
+    "university": "University of Oregon",
+    "program": "MS in Economics",
+    "db_url": "https://economics.uoregon.edu/graduate",
+    "page_name_at_db_url": "Economics",
+    "websearch_candidate": "https://socialsciences.uoregon.edu/economics/graduate-programs/masters",
+    "websearch_outcome": "verifier_status=3",
+    "recommendation": "strip_or_fix_field"
+  },
+  {
+    "university": "University of Alabama",
+    "program": "Juris Doctor (JD)",
+    "db_url": "https://law.ua.edu/",
+    "page_name_at_db_url": "University of Alabama School of Law",
+    "websearch_candidate": null,
+    "websearch_outcome": "websearch_returned_none",
+    "recommendation": "strip_synthetic"
+  },
+  {
+    "university": "Memorial University of Newfoundland",
+    "program": "Juris Doctor (JD)",
+    "db_url": "https://www.mun.ca/law/",
+    "page_name_at_db_url": "Faculty of Law Proposal",
+    "websearch_candidate": null,
+    "websearch_outcome": "websearch_returned_none",
+    "recommendation": "strip_synthetic"
+  },
+  {
+    "university": "University of Windsor",
+    "program": "Juris Doctor (JD)",
+    "db_url": "https://www.uwindsor.ca/law/",
+    "page_name_at_db_url": "Faculty of Law",
+    "websearch_candidate": "https://www.future.uwindsor.ca/program/juris-doctor/",
+    "websearch_outcome": "verifier_status=3",
+    "recommendation": "strip_or_fix_field"
+  },
+  {
+    "university": "University of Kentucky",
+    "program": "MSN \u2014 College of Nursing",
+    "db_url": "https://nursing.uky.edu/graduate",
+    "page_name_at_db_url": "Graduate Programs",
+    "websearch_candidate": "https://nursing.uky.edu/graduate-programs/msn",
+    "websearch_outcome": "verifier_status=3",
+    "recommendation": "strip_or_fix_field"
+  },
+  {
+    "university": "University of Kansas",
+    "program": "MS in Chemistry",
+    "db_url": "https://chemistry.ku.edu/graduate",
+    "page_name_at_db_url": "Graduate Program",
+    "websearch_candidate": "https://catalog.ku.edu/liberal-arts-sciences/chemistry/ms/",
+    "websearch_outcome": "verifier_status=3",
+    "recommendation": "strip_or_fix_field"
+  },
+  {
+    "university": "Washington State University",
+    "program": "MA in Communication",
+    "db_url": "https://communication.wsu.edu/graduate/",
+    "page_name_at_db_url": "Graduate Programs",
+    "websearch_candidate": "https://gradschool.wsu.edu/degrees/master-of-arts-in-communication/",
+    "websearch_outcome": "verifier_status=3",
+    "recommendation": "strip_or_fix_field"
+  },
+  {
+    "university": "Penn State University",
+    "program": "MS in Hospitality Management",
+    "db_url": "https://hhd.psu.edu/shm/graduate/",
+    "page_name_at_db_url": "Graduate Programs in Hospitality Management",
+    "websearch_candidate": "https://hhd.psu.edu/shm/graduate/ms-hospitality-management",
+    "websearch_outcome": "verifier_status=4",
+    "recommendation": "strip_or_fix_field"
+  },
+  {
+    "university": "University of Amsterdam",
+    "program": "MSc Biomedical Sciences",
+    "db_url": "https://www.uva.nl/en/programmes/masters/biomedical-sciences/biomedical-sciences.html",
+    "page_name_at_db_url": "Biomedical Sciences",
+    "websearch_candidate": "https://www.uva.nl/shared-content/programmas/en/masters/biomedical-sciences/biomedical-sciences.html",
+    "websearch_outcome": "verifier_status=3",
+    "recommendation": "strip_or_fix_field"
+  }
+]

@@ -111,6 +111,10 @@ export interface Program {
   apply_url: string | null;
   is_active: boolean;
   last_updated: string;
+  /** ISO timestamp when fields on this entry were last confirmed against the official program page. Null/undefined = never verified. */
+  verified_at?: string | null;
+  /** URL whose live content the verification was performed against (typically same as program_url, captured at verification time). */
+  verification_source_url?: string | null;
 }
 
 // ─── Recommendation Result ────────────────────────────────────────────────────

@@ -1,0 +1,4 @@
+# Runtime artifacts — regenerated each pipeline run.
+# Verified outputs are reflected in src/data/programs.ts via verified_at stamps.
+output/
+reverify-report.jsonl
