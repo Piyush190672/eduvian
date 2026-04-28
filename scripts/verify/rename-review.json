@@ -1,1 +1,177 @@
-[]
+[
+  {
+    "university": "Yale University",
+    "url": "https://economics.yale.edu/undergraduate",
+    "db_program_name": "BA in Economics",
+    "page_program_name": "Undergraduate Program",
+    "reason": "page_name_does_not_match_level_and_field"
+  },
+  {
+    "university": "University of Tübingen",
+    "url": "https://uni-tuebingen.de/en/study/finding-a-course/degree-programs-available/detail/course/palaeolithic-archaeology-master/",
+    "db_program_name": "MA Palaeolithic Archaeology",
+    "page_program_name": "Palaeolithic Archaeology - Master",
+    "reason": "page_name_does_not_match_level_and_field"
+  },
+  {
+    "university": "Brown University",
+    "url": "https://engineering.brown.edu/graduate",
+    "db_program_name": "MS in Engineering",
+    "page_program_name": "Graduate Programs",
+    "reason": "page_name_does_not_match_level_and_field"
+  },
+  {
+    "university": "Brown University",
+    "url": "https://economics.brown.edu/academics/graduate",
+    "db_program_name": "MA in Economics",
+    "page_program_name": "Ph.D. program in Economics",
+    "reason": "page_name_does_not_match_level_and_field"
+  },
+  {
+    "university": "Dartmouth College",
+    "url": "https://economics.dartmouth.edu/",
+    "db_program_name": "MA in Economics",
+    "page_program_name": "Department of Economics",
+    "reason": "page_name_does_not_match_level_and_field"
+  },
+  {
+    "university": "Dartmouth College",
+    "url": "https://geiselmed.dartmouth.edu/qbs/",
+    "db_program_name": "MS in Quantitative Biomedical Sciences",
+    "page_program_name": "Graduate Program in Quantitative Biomedical Sciences",
+    "reason": "page_name_does_not_match_level_and_field"
+  },
+  {
+    "university": "Case Western Reserve University",
+    "url": "https://engineering.case.edu/emae/graduate/",
+    "db_program_name": "MS in Mechanical Engineering",
+    "page_program_name": "Mechanical & Aerospace Engineering",
+    "reason": "page_name_does_not_match_level_and_field"
+  },
+  {
+    "university": "University of Arizona",
+    "url": "https://snre.arizona.edu/graduate/ms-phd-natural-resources",
+    "db_program_name": "MS in Environmental Science",
+    "page_program_name": "M.S. and Ph.D. in Natural Resources",
+    "reason": "page_name_does_not_match_level_and_field"
+  },
+  {
+    "university": "University of Arizona",
+    "url": "https://be.arizona.edu/graduate/msphd-biosystems-engineering",
+    "db_program_name": "MS in Agricultural & Biosystems Engineering",
+    "page_program_name": "M.S. & Ph.D. in Biosystems Engineering",
+    "reason": "page_name_does_not_match_level_and_field"
+  },
+  {
+    "university": "University of Miami",
+    "url": "https://www.grad.miami.edu/graduate-education/a-z-listing-graduate-programs/index.html",
+    "db_program_name": "MS in Hospitality Management",
+    "page_program_name": "Hospitality Design",
+    "reason": "page_name_does_not_match_level_and_field"
+  },
+  {
+    "university": "Indiana University Bloomington",
+    "url": "https://datascience.indiana.edu/",
+    "db_program_name": "MS in Data Science",
+    "page_program_name": "Data Science",
+    "reason": "page_name_does_not_match_level_and_field"
+  },
+  {
+    "university": "Colorado State University",
+    "url": "https://warnercnr.colostate.edu/graduate/",
+    "db_program_name": "MS in Natural Resources",
+    "page_program_name": "Graduate Certificates",
+    "reason": "page_name_does_not_match_level_and_field"
+  },
+  {
+    "university": "University of Hawaii at Manoa",
+    "url": "https://manoa.hawaii.edu/graduate/",
+    "db_program_name": "MS in Environmental Science",
+    "page_program_name": "Graduate Division",
+    "reason": "page_name_does_not_match_level_and_field"
+  },
+  {
+    "university": "University of Hawaii at Manoa",
+    "url": "https://manoa.hawaii.edu/graduate/",
+    "db_program_name": "MA in Social Sciences",
+    "page_program_name": "Graduate Division",
+    "reason": "page_name_does_not_match_level_and_field"
+  },
+  {
+    "university": "University of Sussex",
+    "url": "https://www.sussex.ac.uk/psychology/",
+    "db_program_name": "MSc Psychology",
+    "page_program_name": "School of Psychology",
+    "reason": "page_name_does_not_match_level_and_field"
+  },
+  {
+    "university": "Seneca Polytechnic",
+    "url": "https://www.senecacollege.ca/programs/fulltime/HRM.html",
+    "db_program_name": "Postgraduate Certificate in Human Resources Management",
+    "page_program_name": "Human Resources Management",
+    "reason": "page_name_does_not_match_level_and_field"
+  },
+  {
+    "university": "Seneca Polytechnic",
+    "url": "https://www.senecacollege.ca/programs/fulltime/MKM.html",
+    "db_program_name": "Postgraduate Certificate in Marketing Management",
+    "page_program_name": "Marketing Management",
+    "reason": "page_name_does_not_match_level_and_field"
+  },
+  {
+    "university": "Centennial College",
+    "url": "https://www.centennialcollege.ca/programs-courses/full-time/artificial-intelligence/",
+    "db_program_name": "Postgraduate Certificate in Artificial Intelligence",
+    "page_program_name": "Artificial Intelligence - Software Engineering Technology (Optional Co-op)",
+    "reason": "page_name_does_not_match_level_and_field"
+  },
+  {
+    "university": "Sheridan College",
+    "url": "https://www.sheridancollege.ca/programs/interior-decorating",
+    "db_program_name": "Postgraduate Certificate in Interior Decorating",
+    "page_program_name": "Interior Decorating",
+    "reason": "page_name_does_not_match_level_and_field"
+  },
+  {
+    "university": "Southern Alberta Institute of Technology (SAIT)",
+    "url": "https://www.sait.ca/programs-and-courses/diplomas/environmental-technology",
+    "db_program_name": "Diploma in Environmental Technology",
+    "page_program_name": "Environmental Technology",
+    "reason": "page_name_does_not_match_level_and_field"
+  },
+  {
+    "university": "Florida State University",
+    "url": "https://www.eoas.fsu.edu/graduate",
+    "db_program_name": "MS in Environmental Science",
+    "page_program_name": "Graduate Advising",
+    "reason": "page_name_does_not_match_level_and_field"
+  },
+  {
+    "university": "Florida State University",
+    "url": "https://law.fsu.edu/",
+    "db_program_name": "Juris Doctor (JD)",
+    "page_program_name": "Florida State University College of Law",
+    "reason": "page_name_does_not_match_level_and_field"
+  },
+  {
+    "university": "Florida State University",
+    "url": "https://www.cs.fsu.edu/undergraduate/",
+    "db_program_name": "Bachelor of Science in Computer Science",
+    "page_program_name": "Admission Procedures and Standards",
+    "reason": "page_name_does_not_match_level_and_field"
+  },
+  {
+    "university": "University of Houston",
+    "url": "https://www.uh.edu/nsm/computer-science/graduate/",
+    "db_program_name": "MS in Data Analytics",
+    "page_program_name": "Graduate Programs - Department of Computer Science",
+    "reason": "page_name_does_not_match_level_and_field"
+  },
+  {
+    "university": "University of Houston",
+    "url": "https://www.law.uh.edu/",
+    "db_program_name": "Juris Doctor (JD)",
+    "page_program_name": "University of Houston Law Center",
+    "reason": "page_name_does_not_match_level_and_field"
+  }
+]

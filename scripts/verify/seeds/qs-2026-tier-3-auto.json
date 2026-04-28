@@ -1,0 +1,794 @@
+[
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://gsas.yale.edu/programs-of-study/african-studies"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://gsas.yale.edu/programs-of-study/american-studies"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://gsas.yale.edu/programs-of-study/anthropology"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://gsas.yale.edu/programs-of-study/applied-computational-mathematics"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://gsas.yale.edu/programs-of-study/applied-physics"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://gsas.yale.edu/programs-of-study/archaeological-studies"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://gsas.yale.edu/programs-of-study/architecture"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://gsas.yale.edu/programs-of-study/astronomy"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://gsas.yale.edu/programs-of-study/biological-biomedical-sciences-bbs"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://gsas.yale.edu/programs-of-study/biomedical-engineering"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://gsas.yale.edu/programs-of-study/black-studies"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://gsas.yale.edu/programs-of-study/cell-biology"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://gsas.yale.edu/programs-of-study/cellular-molecular-physiology"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://gsas.yale.edu/programs-of-study/chemical-environmental-engineering"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://gsas.yale.edu/programs-of-study/chemistry"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://gsas.yale.edu/programs-of-study/classics"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://gsas.yale.edu/programs-of-study/comparative-literature"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://gsas.yale.edu/programs-of-study/computational-biology-biomedical-informatics-ms-program"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://gsas.yale.edu/programs-of-study/computational-biology-biomedical-informatics-phd-program"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://gsas.yale.edu/programs-of-study/computer-science"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://gsas.yale.edu/programs-of-study/early-modern-studies"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://gsas.yale.edu/programs-of-study/earth-planetary-sciences"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://gsas.yale.edu/programs-of-study/east-asian-languages-literatures"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://gsas.yale.edu/programs-of-study/east-asian-studies"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://gsas.yale.edu/programs-of-study/ecology-evolutionary-biology"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://gsas.yale.edu/programs-of-study/economics"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://gsas.yale.edu/programs-of-study/electrical-computer-engineering"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://gsas.yale.edu/programs-of-study/english-language-literature"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://gsas.yale.edu/programs-of-study/environment"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://gsas.yale.edu/programs-of-study/european-russian-studies"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://gsas.yale.edu/programs-of-study/film-media-studies"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://gsas.yale.edu/programs-of-study/french"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://gsas.yale.edu/programs-of-study/genetics"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://gsas.yale.edu/programs-of-study/germanic-languages-literatures"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://gsas.yale.edu/programs-of-study/history"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://gsas.yale.edu/programs-of-study/history-art"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://gsas.yale.edu/programs-of-study/history-science-medicine"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://gsas.yale.edu/programs-of-study/immunobiology"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://gsas.yale.edu/programs-of-study/interdepartmental-neuroscience-program"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://gsas.yale.edu/programs-of-study/international-development-economics"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://gsas.yale.edu/programs-of-study/investigative-medicine"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://gsas.yale.edu/programs-of-study/italian-studies"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Law",
+    "program_url": "https://gsas.yale.edu/programs-of-study/law"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://gsas.yale.edu/programs-of-study/linguistics"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Business & Management",
+    "program_url": "https://gsas.yale.edu/programs-of-study/management"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://gsas.yale.edu/programs-of-study/materials-science"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://gsas.yale.edu/programs-of-study/mathematics"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://gsas.yale.edu/programs-of-study/mechanical-engineering"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://gsas.yale.edu/programs-of-study/medieval-studies"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://gsas.yale.edu/programs-of-study/microbiology"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://gsas.yale.edu/programs-of-study/molecular-biophysics-biochemistry"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://gsas.yale.edu/programs-of-study/molecular-cellular-developmental-biology"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://gsas.yale.edu/programs-of-study/music"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://gsas.yale.edu/programs-of-study/near-eastern-languages-civilizations"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://gsas.yale.edu/programs-of-study/nursing"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://gsas.yale.edu/programs-of-study/pathology-molecular-medicine"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://gsas.yale.edu/programs-of-study/personalized-medicine-applied-engineering"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://gsas.yale.edu/programs-of-study/pharmacology"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://gsas.yale.edu/programs-of-study/philosophy"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://gsas.yale.edu/programs-of-study/physics"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://gsas.yale.edu/programs-of-study/political-science"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://gsas.yale.edu/programs-of-study/psychology"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://gsas.yale.edu/programs-of-study/public-health"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://gsas.yale.edu/programs-of-study/religious-studies"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://gsas.yale.edu/programs-of-study/slavic-languages-literatures"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://gsas.yale.edu/programs-of-study/sociology"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://gsas.yale.edu/programs-of-study/spanish-portuguese"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://gsas.yale.edu/programs-of-study/statistics"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://gsas.yale.edu/programs-of-study/statistics-data-science"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://gsas.yale.edu/programs-of-study/translational-biomedicine"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://gsas.yale.edu/programs-of-study/womens-gender-sexuality-studies"
+  },
+  {
+    "university": "École Polytechnique",
+    "country": "France",
+    "city": "Palaiseau",
+    "qs_ranking": 56,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://programmes.polytechnique.edu/en/master/all-msct-programs/artificial-intelligence-advanced-visual-computing-master"
+  },
+  {
+    "university": "École Polytechnique",
+    "country": "France",
+    "city": "Palaiseau",
+    "qs_ranking": 56,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://programmes.polytechnique.edu/en/master/all-msct-specializations/trustworthy-and-responsible-ai-trai"
+  },
+  {
+    "university": "École Polytechnique",
+    "country": "France",
+    "city": "Palaiseau",
+    "qs_ranking": 56,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://programmes.polytechnique.edu/en/master/all-msct-specializations/large-language-models-graphs-and-applications-llga"
+  },
+  {
+    "university": "École Polytechnique",
+    "country": "France",
+    "city": "Palaiseau",
+    "qs_ranking": 56,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://programmes.polytechnique.edu/en/master/all-msct-specializations/ai-for-markets-and-quantitative-investment-x-ensae-maqi"
+  },
+  {
+    "university": "École Polytechnique",
+    "country": "France",
+    "city": "Palaiseau",
+    "qs_ranking": 56,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://programmes.polytechnique.edu/en/master/all-msct-specializations/science-technology-in-extended-cinematography-excin"
+  },
+  {
+    "university": "École Polytechnique",
+    "country": "France",
+    "city": "Palaiseau",
+    "qs_ranking": 56,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://programmes.polytechnique.edu/en/master/all-msct-programs/internet-of-things-innovation-and-management"
+  },
+  {
+    "university": "École Polytechnique",
+    "country": "France",
+    "city": "Palaiseau",
+    "qs_ranking": 56,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://programmes.polytechnique.edu/en/master-all-msct-programs/environmental-engineering-and-sustainability-management"
+  },
+  {
+    "university": "École Polytechnique",
+    "country": "France",
+    "city": "Palaiseau",
+    "qs_ranking": 56,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://programmes.polytechnique.edu/en/master-all-msct-programs/energy-environment-science-technology-and-management"
+  },
+  {
+    "university": "École Polytechnique",
+    "country": "France",
+    "city": "Palaiseau",
+    "qs_ranking": 56,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://programmes.polytechnique.edu/en/master/all-msct-specializations/data-and-economics-for-public-policy-x-ensae-telecom-depp"
+  },
+  {
+    "university": "École Polytechnique",
+    "country": "France",
+    "city": "Palaiseau",
+    "qs_ranking": 56,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://programmes.polytechnique.edu/en/master-all-msct-programs/economics-data-analytics-and-corporate-finance/economics-data-analytics"
+  },
+  {
+    "university": "École Polytechnique",
+    "country": "France",
+    "city": "Palaiseau",
+    "qs_ranking": 56,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://programmes.polytechnique.edu/en/master/all-msct-specializations/double-degree-data-finance-x-hec-dddf"
+  },
+  {
+    "university": "École Polytechnique",
+    "country": "France",
+    "city": "Palaiseau",
+    "qs_ranking": 56,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://programmes.polytechnique.edu/en/master/programs/data-science-for-business-joint-degree-with-hec"
+  },
+  {
+    "university": "École Polytechnique",
+    "country": "France",
+    "city": "Palaiseau",
+    "qs_ranking": 56,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://programmes.polytechnique.edu/en/bachelor/program-details/double-major-in-mathematics-physics"
+  },
+  {
+    "university": "École Polytechnique",
+    "country": "France",
+    "city": "Palaiseau",
+    "qs_ranking": 56,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://programmes.polytechnique.edu/en/bachelor/program-details/double-major-in-mathematics-computer-science"
+  },
+  {
+    "university": "École Polytechnique",
+    "country": "France",
+    "city": "Palaiseau",
+    "qs_ranking": 56,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://programmes.polytechnique.edu/en/bachelor/program-details/double-major-in-mathematics-economics"
+  },
+  {
+    "university": "École Polytechnique",
+    "country": "France",
+    "city": "Palaiseau",
+    "qs_ranking": 56,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://programmes.polytechnique.edu/en/ingenieur-polytechnicien-program/ingenieur-polytechnicien-program"
+  },
+  {
+    "university": "École Polytechnique",
+    "country": "France",
+    "city": "Palaiseau",
+    "qs_ranking": 56,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://programmes.polytechnique.edu/en/bachelor/about-the-bachelor/bachelor-of-science"
+  },
+  {
+    "university": "ESCP Business School",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://escp.eu/programmes/bachelor-in-management-BSc"
+  },
+  {
+    "university": "ESCP Business School",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://escp.eu/programmes/master-in-management"
+  },
+  {
+    "university": "ESCP Business School",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://escp.eu/programmes/master-in-management/escp-ceibs-global-master-management"
+  },
+  {
+    "university": "ESCP Business School",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://escp.eu/programmes/specialised-masters-MSc"
+  },
+  {
+    "university": "ESCP Business School",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://escp.eu/programmes/MBA-in-international-management"
+  },
+  {
+    "university": "ESCP Business School",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://escp.eu/programmes/executive-mba"
+  },
+  {
+    "university": "ESCP Business School",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://escp.eu/programmes/doctoral-programmes"
+  },
+  {
+    "university": "ESCP Business School",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://escp.eu/programmes/doctoral-programmes/berlin"
+  },
+  {
+    "university": "ESCP Business School",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://escp.eu/programmes/doctoral-programmes/paris"
+  },
+  {
+    "university": "ESCP Business School",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://escp.eu/programmes/executive-education/global-executive-phd"
+  },
+  {
+    "university": "ESCP Business School",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://escp.eu/programmes/executive-masters"
+  }
+]
