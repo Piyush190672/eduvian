@@ -30,8 +30,13 @@ function buildProgramsContext(programs: ScoredProgram[], studentName: string): s
   const reach     = programs.filter((p) => p.tier === "reach");
   const ambitious = programs.filter((p) => p.tier === "ambitious");
 
+  // Null-safe formatters: many verified entries have null tuition/cost/intake
+  // (the official page didn't state a value) — never call .toLocaleString() or
+  // .join() on them directly or the entire ChatWidget crashes client-side.
+  const usd = (n: number | null | undefined) => (typeof n === "number" ? `$${n.toLocaleString()}` : "—");
+  const intake = (a: string[] | null | undefined) => (a && a.length ? a.join("/") : "—");
   const fmt = (p: ScoredProgram) =>
-    `  - ${p.program_name} @ ${p.university_name} (${p.city}, ${p.country}) | QS #${p.qs_ranking ?? "N/A"} | Match: ${p.match_score}% | Tuition: $${p.annual_tuition_usd.toLocaleString()}/yr | Living: $${p.avg_living_cost_usd.toLocaleString()}/yr | Field: ${p.field_of_study} | Deadline: ${p.application_deadline ?? "Rolling"} | Intake: ${p.intake_semesters.join("/")}`;
+    `  - ${p.program_name} @ ${p.university_name} (${p.city}, ${p.country}) | QS #${p.qs_ranking ?? "N/A"} | Match: ${p.match_score}% | Tuition: ${usd(p.annual_tuition_usd)}/yr | Living: ${usd(p.avg_living_cost_usd)}/yr | Field: ${p.field_of_study} | Deadline: ${p.application_deadline ?? "Rolling"} | Intake: ${intake(p.intake_semesters)}`;
 
   return `
 === ${studentName.toUpperCase()}'S MATCHED PROGRAMS ===

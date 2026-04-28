@@ -179,7 +179,7 @@ export default function ResultsPage() {
     });
     out = [...out].sort((a, b) => {
       switch (filters.sort) {
-        case "tuition":     return a.annual_tuition_usd - b.annual_tuition_usd;
+        case "tuition":     return (a.annual_tuition_usd ?? Infinity) - (b.annual_tuition_usd ?? Infinity);
         case "qs_ranking":  return (a.qs_ranking ?? 9999) - (b.qs_ranking ?? 9999);
         case "deadline":
           if (!a.application_deadline) return 1;
