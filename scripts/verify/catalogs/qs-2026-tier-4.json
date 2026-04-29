@@ -1,0 +1,22 @@
+[
+  { "university": "Johns Hopkins University", "country": "USA", "city": "Baltimore, MD", "qs_ranking": 23, "catalog_url": "https://e-catalogue.jhu.edu/programs-az/" },
+  { "university": "Columbia University", "country": "USA", "city": "New York, NY", "qs_ranking": 20, "catalog_url": "https://bulletin.columbia.edu/columbia/programs-of-study/" },
+  { "university": "University of Texas at Austin", "country": "USA", "city": "Austin, TX", "qs_ranking": 56, "catalog_url": "https://catalog.utexas.edu/graduate/" },
+  { "university": "University of Florida", "country": "USA", "city": "Gainesville, FL", "qs_ranking": 162, "catalog_url": "https://catalog.ufl.edu/graduate/programs/" },
+  { "university": "Carnegie Mellon University", "country": "USA", "city": "Pittsburgh, PA", "qs_ranking": 58, "catalog_url": "https://coursecatalog.web.cmu.edu/schools-colleges/" },
+  { "university": "Duke University", "country": "USA", "city": "Durham, NC", "qs_ranking": 50, "catalog_url": "https://bulletin.duke.edu/duke-grad-programs-az/" },
+  { "university": "Vanderbilt University", "country": "USA", "city": "Nashville, TN", "qs_ranking": 174, "catalog_url": "https://catalog.vanderbilt.edu/programs.aspx" },
+  { "university": "Georgia Institute of Technology", "country": "USA", "city": "Atlanta, GA", "qs_ranking": 80, "catalog_url": "https://www.gatech.edu/academics/all-programs" },
+  { "university": "University of Washington", "country": "USA", "city": "Seattle, WA", "qs_ranking": 76, "catalog_url": "https://grad.uw.edu/programs-of-study/" },
+  { "university": "University of Maryland", "country": "USA", "city": "College Park, MD", "qs_ranking": 138, "catalog_url": "https://gradschool.umd.edu/admissions/explore-programs" },
+  { "university": "University of California, San Diego", "country": "USA", "city": "La Jolla, CA", "qs_ranking": 67, "catalog_url": "https://grad.ucsd.edu/admissions/programs/index.html" },
+  { "university": "Purdue University", "country": "USA", "city": "West Lafayette, IN", "qs_ranking": 89, "catalog_url": "https://www.purdue.edu/gradschool/admissions/find-program/" },
+  { "university": "University of Southern California", "country": "USA", "city": "Los Angeles, CA", "qs_ranking": 116, "catalog_url": "https://catalogue.usc.edu/content.php?catoid=18&navoid=4316" },
+  { "university": "University of North Carolina at Chapel Hill", "country": "USA", "city": "Chapel Hill, NC", "qs_ranking": 95, "catalog_url": "https://gradschool.unc.edu/admissions/programs.html" },
+  { "university": "Brown University", "country": "USA", "city": "Providence, RI", "qs_ranking": 73, "catalog_url": "https://www.brown.edu/academics/gradschool/programs" },
+  { "university": "University of Auckland", "country": "New Zealand", "city": "Auckland", "qs_ranking": 65, "catalog_url": "https://www.auckland.ac.nz/en/study/study-options/find-a-study-option.html?cqlevel=postgraduate" },
+  { "university": "Massey University", "country": "New Zealand", "city": "Palmerston North", "qs_ranking": 239, "catalog_url": "https://www.massey.ac.nz/study/programmes-and-papers/programmes/?qualificationType=PGD,MSC,MBA" },
+  { "university": "American University of Sharjah", "country": "UAE", "city": "Sharjah", "qs_ranking": 364, "catalog_url": "https://www.aus.edu/cas/graduate-programs" },
+  { "university": "Khalifa University", "country": "UAE", "city": "Abu Dhabi", "qs_ranking": 230, "catalog_url": "https://www.ku.ac.ae/college-of-engineering-and-physical-sciences/graduate-programs" },
+  { "university": "Nanyang Technological University", "country": "Singapore", "city": "Singapore", "qs_ranking": 12, "catalog_url": "https://www.ntu.edu.sg/admissions/graduate/coursework-programmes" }
+]

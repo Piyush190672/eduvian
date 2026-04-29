@@ -1,0 +1,474 @@
+[
+  {
+    "university": "Columbia University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 20,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/human-rights/"
+  },
+  {
+    "university": "Columbia University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 20,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://bulletin.columbia.edu/columbia-college/departments-instruction/african-american-studies/"
+  },
+  {
+    "university": "Columbia University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 20,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://bulletin.columbia.edu/general-studies/majors-concentrations/east-asian-studies/"
+  },
+  {
+    "university": "Columbia University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 20,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://bulletin.columbia.edu/general-studies/majors-concentrations/classical-studies/"
+  },
+  {
+    "university": "Columbia University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 20,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://bulletin.columbia.edu/general-studies/majors-concentrations/modern-greek-studies/"
+  },
+  {
+    "university": "Columbia University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 20,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://bulletin.columbia.edu/general-studies/majors-concentrations/yiddish-studies/"
+  },
+  {
+    "university": "Columbia University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 20,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://bulletin.columbia.edu/general-studies/majors-concentrations/latin-american-caribbean-studies/"
+  },
+  {
+    "university": "Columbia University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 20,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://bulletin.columbia.edu/general-studies/majors-concentrations/ancient-studies/"
+  },
+  {
+    "university": "Columbia University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 20,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://bulletin.columbia.edu/general-studies/majors-concentrations/womens-gender-studies/"
+  },
+  {
+    "university": "Columbia University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 20,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://bulletin.columbia.edu/general-studies/majors-concentrations/ethnicity-race-studies/"
+  },
+  {
+    "university": "Columbia University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 20,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://bulletin.columbia.edu/general-studies/majors-concentrations/jewish-studies/"
+  },
+  {
+    "university": "Columbia University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 20,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://bulletin.columbia.edu/general-studies/majors-concentrations/evolutionary-biology-human-species/"
+  },
+  {
+    "university": "Columbia University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 20,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://bulletin.columbia.edu/general-studies/majors-concentrations/hispanic-studies/"
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://history.ucsd.edu/graduate/prospective.html"
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://literature.ucsd.edu/"
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://music-cms.ucsd.edu/grad/admissions.html"
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://philosophy.ucsd.edu/graduate/prospective.html"
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www-theatre.ucsd.edu/admissions/graduate/index.html"
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://visarts.ucsd.edu/grad/admissions/index.html"
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://biology.ucsd.edu/education/index.html"
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://datascience.ucsd.edu/academics/graduate/"
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://omds.ucsd.edu/"
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://mas-dse.ucsd.edu/"
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://gps.ucsd.edu/admissions/index.html"
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://biomedsci.ucsd.edu/how-to-apply/"
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://clre.ucsd.edu/application-requirements/"
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://ddpm.ucsd.edu/apply-today/"
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://neurograd.ucsd.edu/apply/application-info.html"
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://pmto.ucsd.edu/apply/index.html"
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://ph.ucsd.edu/biostat/index.html"
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://ph.ucsd.edu/"
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://be.ucsd.edu/grad/prospective-students"
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://bioinformatics.ucsd.edu/node/13"
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://cse.ucsd.edu/graduate/admissions"
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.ece.ucsd.edu/graduate/graduate-admissions"
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://matsci.ucsd.edu/admissions"
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://maeweb.ucsd.edu/grad/graduate-admissions"
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://ne.ucsd.edu/graduate-programs/admissions/faqs"
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://se.ucsd.edu/academics/graduate-program/2019-applications"
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://astronomy.ucsd.edu/admissions/index.html"
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www-chem.ucsd.edu/graduate-program/"
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://math.ucsd.edu/students/graduate"
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://physics.ucsd.edu/Student/Prospective/Graduate/Program/Admission/Requirements"
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "field_of_study": "Business & Management",
+    "program_url": "https://rady.ucsd.edu/programs/"
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://scripps.ucsd.edu/education"
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://anthropology.ucsd.edu/graduate-studies/Admissions/index.html"
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://cogsci.ucsd.edu/graduates/phd-program/admissions/index.html#Admission-Information"
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://communication.ucsd.edu/graduate/grad-admissions.html"
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://css.ucsd.edu/masters/Prospectives.html"
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://economics.ucsd.edu/graduate-program/prospective-students/index.html"
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://eds.ucsd.edu/graduate/index.html"
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://ethnicstudies.ucsd.edu/graduate-studies/admissions.html"
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://globalhealthprogram.ucsd.edu/graduate/admissions.html"
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://las.ucsd.edu/graduate/admission/index.html"
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://linguistics.ucsd.edu/grad/application.html"
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://polisci.ucsd.edu/grad/prospective-students/index.html"
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://psychology.ucsd.edu/graduate-program/prospective-students/admissions.html"
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://sociology.ucsd.edu/graduate/admissions.html"
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://usp.ucsd.edu/"
+  }
+]
