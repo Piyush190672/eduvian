@@ -70,6 +70,13 @@
     "reason": "page_name_does_not_match_level_and_field"
   },
   {
+    "university": "Tufts University",
+    "url": "https://vet.tufts.edu/dvm-program-overview",
+    "db_program_name": "MS in Veterinary Science",
+    "page_program_name": "D.V.M. Program",
+    "reason": "page_name_does_not_match_level_and_field"
+  },
+  {
     "university": "Indiana University Bloomington",
     "url": "https://datascience.indiana.edu/",
     "db_program_name": "MS in Data Science",
