@@ -2180,39 +2180,58 @@ export default function LandingPage() {
 
       {/* ── Footer ───────────────────────────────────────────────── */}
       <footer className="py-10 px-4 sm:px-6 border-t border-white/10 bg-navy">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-2.5">
-            <svg width="32" height="32" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="36" height="36" rx="10" fill="url(#ftLg)"/>
-              <ellipse cx="18" cy="18" rx="11" ry="6" stroke="white" strokeWidth="1.2" strokeOpacity="0.4" fill="none" transform="rotate(-30 18 18)"/>
-              <text x="18" y="23" textAnchor="middle" fill="white" fontFamily="system-ui,sans-serif" fontSize="16" fontWeight="800" letterSpacing="-1">e</text>
-              <circle cx="26.5" cy="11.5" r="2" fill="white" fillOpacity="0.9"/>
-              <defs>
-                <linearGradient id="ftLg" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
-                  <stop stopColor="#6366F1"/><stop offset="1" stopColor="#A855F7"/>
-                </linearGradient>
-              </defs>
-            </svg>
-            <div>
-              <span className="font-display font-bold text-white">eduvian<span className="text-blue-400">AI</span></span>
-              <p className="text-xs text-gray-400 font-medium">Study abroad, made intelligent</p>
+        <div className="max-w-6xl mx-auto flex flex-col gap-6">
+          {/* Top row — brand + nav */}
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="flex items-center gap-2.5">
+              <svg width="32" height="32" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="36" height="36" rx="10" fill="url(#ftLg)"/>
+                <ellipse cx="18" cy="18" rx="11" ry="6" stroke="white" strokeWidth="1.2" strokeOpacity="0.4" fill="none" transform="rotate(-30 18 18)"/>
+                <text x="18" y="23" textAnchor="middle" fill="white" fontFamily="system-ui,sans-serif" fontSize="16" fontWeight="800" letterSpacing="-1">e</text>
+                <circle cx="26.5" cy="11.5" r="2" fill="white" fillOpacity="0.9"/>
+                <defs>
+                  <linearGradient id="ftLg" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+                    <stop stopColor="#6366F1"/><stop offset="1" stopColor="#A855F7"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+              <div>
+                <span className="font-display font-bold text-white">eduvian<span className="text-blue-400">AI</span></span>
+                <p className="text-xs text-gray-400 font-medium">Study abroad, made intelligent</p>
+              </div>
+            </div>
+            <div className="flex flex-wrap items-center gap-4 text-xs text-gray-400">
+              <a href="#how-it-works" className="hover:text-blue-400 transition-colors">How it works</a>
+              <a href="#tools" className="hover:text-blue-400 transition-colors">Decision Making Tools</a>
+              <a href="#practice" className="hover:text-blue-400 transition-colors">Practice Tools</a>
+              <a href="#countries" className="hover:text-blue-400 transition-colors">Destinations</a>
+              <a href="#scholarships" className="hover:text-blue-400 transition-colors">Scholarships</a>
+              <a href="#outputs" className="hover:text-blue-400 transition-colors">Why EduvianAI</a>
+              <button onClick={() => setAboutOpen(true)} className="hover:text-blue-400 transition-colors">About Us</button>
+              <Link href="/get-started" className="hover:text-blue-400 font-medium transition-colors">Get started</Link>
             </div>
           </div>
-          <div className="flex flex-wrap items-center gap-4 text-xs text-gray-400">
-            <a href="#how-it-works" className="hover:text-blue-400 transition-colors">How it works</a>
-            <a href="#tools" className="hover:text-blue-400 transition-colors">Decision Making Tools</a>
-            <a href="#practice" className="hover:text-blue-400 transition-colors">Practice Tools</a>
-            <a href="#countries" className="hover:text-blue-400 transition-colors">Destinations</a>
-            <a href="#scholarships" className="hover:text-blue-400 transition-colors">Scholarships</a>
-            <a href="#outputs" className="hover:text-blue-400 transition-colors">Why EduvianAI</a>
-            <button onClick={() => setAboutOpen(true)} className="hover:text-blue-400 transition-colors">About Us</button>
-            <Link href="/get-started" className="hover:text-blue-400 font-medium transition-colors">Get started</Link>
+
+          {/* Middle — short integrity disclaimer */}
+          <div className="text-[11px] text-gray-500 leading-relaxed border-t border-white/5 pt-5 max-w-3xl mx-auto text-center">
+            EduvianAI is a decision-support tool. AI-generated recommendations and tool outputs are estimates, not professional admissions, immigration, financial, or legal advice. University fees, deadlines, and eligibility may change &mdash; always confirm directly with the university before applying. Read our full <Link href="/disclaimer" className="text-gray-400 underline hover:text-blue-400">Disclaimer</Link>.
           </div>
-          <div className="flex items-center gap-4 text-sm text-gray-400">
-            <p>© 2025 eduvianAI. All rights reserved.</p>
-            <Link href="/admin" className="text-[10px] font-mono text-gray-500 hover:text-blue-400 transition-colors opacity-40 hover:opacity-100 select-none">
-              admin
-            </Link>
+
+          {/* Bottom — legal links */}
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-400 border-t border-white/5 pt-4">
+            <div className="flex flex-wrap items-center gap-4">
+              <Link href="/terms" className="hover:text-blue-400 transition-colors">Terms of Use</Link>
+              <Link href="/privacy" className="hover:text-blue-400 transition-colors">Privacy Policy</Link>
+              <Link href="/disclaimer" className="hover:text-blue-400 transition-colors">Disclaimer</Link>
+              <a href="mailto:grievance@eduvianai.com" className="hover:text-blue-400 transition-colors">Grievance Officer</a>
+              <a href="mailto:support@eduvianai.com" className="hover:text-blue-400 transition-colors">Contact</a>
+            </div>
+            <div className="flex items-center gap-3">
+              <p>© 2026 eduvianAI. All rights reserved.</p>
+              <Link href="/admin" className="text-[10px] font-mono text-gray-500 hover:text-blue-400 transition-colors opacity-40 hover:opacity-100 select-none">
+                admin
+              </Link>
+            </div>
           </div>
         </div>
       </footer>
