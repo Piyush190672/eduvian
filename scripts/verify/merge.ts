@@ -35,10 +35,20 @@ while ((m = re.exec(programsTs)) !== null) {
   existing.add(`${m[1]}|${m[2]}`);
 }
 
+// Only these 12 countries are in scope. Programs from any other country (e.g.
+// ETH Zurich → Switzerland) must NOT be merged regardless of how they ended
+// up in /output/, otherwise the homepage country count drifts away from 12.
+const TARGET_COUNTRIES = new Set([
+  "USA", "UK", "Australia", "Canada", "New Zealand", "Ireland",
+  "Germany", "France", "UAE", "Singapore", "Malaysia", "Netherlands",
+]);
+
 const toInsert: string[] = [];
 let skipped = 0;
+let outOfScope = 0;
 for (const f of files) {
   const v = JSON.parse(readFileSync(join(OUT_DIR, f), "utf8"));
+  if (!TARGET_COUNTRIES.has(v.country)) { outOfScope++; continue; }
   const key = `${v.university_name}|${v.program_name}`;
   if (existing.has(key)) { skipped++; continue; }
 
@@ -70,4 +80,4 @@ if (!before.endsWith(",")) before += ",";
 const after = programsTs.slice(closeIdx);
 const merged = before + "\n\n  // ─── Verified additions (auto-merged) ──────────────\n" + toInsert.join("") + after;
 writeFileSync(PROGRAMS_PATH, merged);
-console.log(`Inserted ${toInsert.length} verified programs. Skipped ${skipped} duplicates.`);
+console.log(`Inserted ${toInsert.length} verified programs. Skipped ${skipped} duplicates, ${outOfScope} out-of-scope countries.`);
