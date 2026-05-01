@@ -205,12 +205,22 @@ async function main() {
 
   const client = new Anthropic();
   console.error(`[extract] sending to Claude...`);
-  // Cost-tuned: Haiku 4.5 is 5× cheaper than Opus and the JSON-extraction task
-  // (read HTML, return strict-schema JSON) is well within Haiku's quality.
-  // Adaptive thinking removed — extraction needs no chain of reasoning, and
-  // thinking output tokens are billed at the higher output rate.
+  // INTEGRITY: this is the only pipeline script where the model produces
+  // values that land in the public database. We cannot use a model that
+  // ever fabricates. Opus 4.7 holds the "null when not literally stated"
+  // instruction reliably; Haiku 4.5 and Sonnet 4.6 both failed
+  // audit-haiku-vs-opus.ts (each invented a field at least once on a
+  // 5-sample test). Pay for Opus on this single hot path.
+  //
+  // Other pipeline scripts (seed-crawler, websearch-seed-finder, deepen-
+  // review, investigate-gaps) DO use Sonnet because they pick URLs from
+  // a fixed candidate list — they can't fabricate URLs that aren't in the
+  // search/anchor results.
+  //
+  // Adaptive thinking removed: extraction is mechanical, no chain of
+  // reasoning to do, and thinking output tokens are billed at output rate.
   const response = await client.messages.create({
-    model: "claude-haiku-4-5",
+    model: "claude-opus-4-7",
     max_tokens: 2048,
     messages: [
       {
@@ -229,13 +239,20 @@ async function main() {
   if (!textBlock || textBlock.type !== "text") {
     throw new Error("No text response from model");
   }
-  const json = textBlock.text.trim();
+  // Strip optional ```json / ``` code fences. Haiku wraps JSON in fences more
+  // often than Opus did. Slice from first '{' to last '}' to be robust.
+  let json = textBlock.text.trim();
+  const firstBrace = json.indexOf("{");
+  const lastBrace = json.lastIndexOf("}");
+  if (firstBrace >= 0 && lastBrace > firstBrace) {
+    json = json.slice(firstBrace, lastBrace + 1);
+  }
   let extracted: Record<string, unknown>;
   try {
     extracted = JSON.parse(json);
   } catch (e) {
     console.error("Model did not return valid JSON. Raw output:");
-    console.error(json);
+    console.error(textBlock.text);
     process.exit(2);
   }
 
