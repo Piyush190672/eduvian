@@ -101,7 +101,7 @@ function findRowContext(university: string, db_program: string) {
 // ── Web search via Claude to find canonical URL ────────────────────────────
 async function findUrlViaWebSearch(client: Anthropic, university: string, program: string, level: string, field: string): Promise<string | null> {
   const r = await client.messages.create({
-    model: "claude-opus-4-7",
+    model: "claude-sonnet-4-6",
     max_tokens: 1024,
     tools: [{ type: "web_search_20250305", name: "web_search", max_uses: 3 } as unknown as Anthropic.Messages.Tool],
     messages: [{

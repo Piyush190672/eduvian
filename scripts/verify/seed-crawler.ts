@@ -107,10 +107,12 @@ Rules:
 - Be conservative — empty result is better than wrong field assignment.
 - Output ONLY the JSON array, no prose.`;
 
+  // Cost-tuned: Sonnet 4.6 is ~40% cheaper than Opus, with the reasoning power
+  // we need to map anchors → 17 fields. Adaptive thinking dropped to save
+  // output tokens on what is mostly a classification task.
   const r = await client.messages.create({
-    model: "claude-opus-4-7",
+    model: "claude-sonnet-4-6",
     max_tokens: 4096,
-    thinking: { type: "adaptive" },
     messages: [{ role: "user", content: prompt }],
   });
   const tb = r.content.find((b) => b.type === "text");

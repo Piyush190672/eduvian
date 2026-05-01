@@ -148,7 +148,7 @@ async function askWhichAnchor(
   const client = new Anthropic();
   const compact = anchors.map((a) => `${a.text} | ${a.href}`).join("\n").slice(0, 80_000);
   const r = await client.messages.create({
-    model: "claude-opus-4-7",
+    model: "claude-sonnet-4-6",
     max_tokens: 256,
     messages: [{
       role: "user",

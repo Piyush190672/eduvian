@@ -124,7 +124,10 @@ async function fetchPage(url: string): Promise<string> {
       .replace(/<[^>]+>/g, " ")
       .replace(/\s+/g, " ")
       .trim();
-    return stripped.slice(0, 150_000);
+    // Cap to ~60K chars: program detail pages have all the important fields
+    // (name, fees, deadlines, IELTS) in the first half. The rest is footer /
+    // FAQ / sidebar / unrelated marketing. Trimming saves ~50% of input tokens.
+    return stripped.slice(0, 60_000);
   } finally {
     await page.close();
     await ctx.close();
@@ -202,10 +205,13 @@ async function main() {
 
   const client = new Anthropic();
   console.error(`[extract] sending to Claude...`);
+  // Cost-tuned: Haiku 4.5 is 5× cheaper than Opus and the JSON-extraction task
+  // (read HTML, return strict-schema JSON) is well within Haiku's quality.
+  // Adaptive thinking removed — extraction needs no chain of reasoning, and
+  // thinking output tokens are billed at the higher output rate.
   const response = await client.messages.create({
-    model: "claude-opus-4-7",
+    model: "claude-haiku-4-5",
     max_tokens: 2048,
-    thinking: { type: "adaptive" },
     messages: [
       {
         role: "user",

@@ -88,10 +88,13 @@ Return ONLY a JSON array of objects, no prose, no code fences:
 ]`;
 
 async function findUrlsForUni(client: Anthropic, uni: UniInput): Promise<SeedOut[]> {
+  // Cost-tuned: Sonnet 4.6 handles web-search-driven URL discovery well at
+  // ~40% lower cost than Opus. Web-search tool calls themselves are billed
+  // separately per invocation; cap at 17 (one per field) instead of 25.
   const r = await client.messages.create({
-    model: "claude-opus-4-7",
+    model: "claude-sonnet-4-6",
     max_tokens: 4096,
-    tools: [{ type: "web_search_20250305", name: "web_search", max_uses: 25 } as unknown as Anthropic.Messages.Tool],
+    tools: [{ type: "web_search_20250305", name: "web_search", max_uses: 17 } as unknown as Anthropic.Messages.Tool],
     messages: [{ role: "user", content: PROMPT(uni) }],
   });
   // Concatenate all text blocks (the final answer comes after web_search tool calls)
