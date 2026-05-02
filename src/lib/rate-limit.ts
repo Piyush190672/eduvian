@@ -92,19 +92,36 @@ export async function checkRateLimit(
   limit: number,
   windowSecs: number
 ): Promise<RateLimitResult> {
-  const lim = getLimiter(limit, windowSecs);
-  if (lim) {
+  // Whole-body try/catch — this function MUST NOT throw. Any failure
+  // (Upstash unreachable, malformed env, SDK quirk) falls back to the
+  // in-memory limiter, which is never perfect but is never broken either.
+  try {
+    let lim: Ratelimit | null = null;
     try {
-      const r = await lim.limit(identifier);
-      if (r.success) return { ok: true };
-      const reset = typeof r.reset === "number" ? r.reset : Date.now();
-      const retryAfter = Math.max(1, Math.ceil((reset - Date.now()) / 1000));
-      return { ok: false, retryAfter };
-    } catch {
-      // Fall through to in-memory check below.
+      lim = getLimiter(limit, windowSecs);
+    } catch (e) {
+      console.warn("Upstash limiter init failed; falling back to in-memory:", e);
+      lim = null;
     }
+
+    if (lim) {
+      try {
+        const r = await lim.limit(identifier);
+        if (r.success) return { ok: true };
+        const reset = typeof r.reset === "number" ? r.reset : Date.now();
+        const retryAfter = Math.max(1, Math.ceil((reset - Date.now()) / 1000));
+        return { ok: false, retryAfter };
+      } catch (e) {
+        console.warn("Upstash limit() failed; falling back to in-memory:", e);
+        // Fall through to in-memory.
+      }
+    }
+    return memCheck(identifier, limit, windowSecs);
+  } catch (e) {
+    console.error("checkRateLimit unexpected failure; allowing request:", e);
+    // Last-resort fail-open. Better to serve than to 500 every request.
+    return { ok: true };
   }
-  return memCheck(identifier, limit, windowSecs);
 }
 
 /** Get the real client IP from Next.js request headers. */
