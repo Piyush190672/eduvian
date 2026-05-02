@@ -24,13 +24,27 @@ export default function AdminLogin() {
         process.env.NEXT_PUBLIC_SUPABASE_URL!,
         process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!
       );
-      const { error: authError } = await supabase.auth.signInWithPassword({
+      const { data, error: authError } = await supabase.auth.signInWithPassword({
         email,
         password,
       });
       if (authError) throw authError;
-      // Set httpOnly session cookie so middleware can protect admin routes
-      await fetch("/api/admin/session", { method: "POST" });
+      const accessToken = data.session?.access_token;
+      if (!accessToken) throw new Error("No session returned from Supabase.");
+      // Set httpOnly session cookie so middleware can protect admin routes.
+      // Server verifies the JWT and owner allowlist before issuing the cookie.
+      const sessionRes = await fetch("/api/admin/session", {
+        method: "POST",
+        headers: { Authorization: `Bearer ${accessToken}` },
+      });
+      if (!sessionRes.ok) {
+        await supabase.auth.signOut();
+        throw new Error(
+          sessionRes.status === 403
+            ? "This account is not authorized for admin access."
+            : "Failed to establish admin session."
+        );
+      }
       router.push("/admin/dashboard");
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : "Invalid credentials.";
