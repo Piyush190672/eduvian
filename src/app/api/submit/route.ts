@@ -9,6 +9,7 @@ import { v4 as uuidv4 } from "uuid";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 import { checkBetaAccess, logToolUsage } from "@/lib/beta-gate";
 import { createUserToken, USER_COOKIE_NAME, USER_COOKIE_OPTS } from "@/lib/user-cookie";
+import { escHtmlBounded } from "@/lib/html-escape";
 
 /**
  * Notify admissions@eduvianai.com whenever a profile is submitted. Sent
@@ -28,24 +29,27 @@ async function sendLeadNotification(
   if (!resendKey) return; // Dev / preview without key — skip silently
   const fromEmail = process.env.RESEND_FROM_EMAIL ?? "results@eduvianai.com";
   const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "https://www.eduvianai.com";
-  const safe = (s: string | undefined): string => (s ?? "—").toString().slice(0, 200).replace(/[<>"'`]/g, "");
-  const subject = `New lead: ${safe(profile.full_name)} (${profileCategory}) — ${totalMatched} matches`;
+  // Strip CRLFs from anything heading into the Resend subject (defence-in-depth
+  // against header injection) and entity-escape for HTML body interpolation.
+  const safeText = (s: unknown) => String(s ?? "—").slice(0, 200).replace(/[\r\n]/g, "");
+  const esc = (s: unknown) => escHtmlBounded(s, 200);
+  const subject = `New lead: ${safeText(profile.full_name)} (${safeText(profileCategory)}) — ${totalMatched} matches`;
   const html = `
     <h2>New lead via the profile builder</h2>
     <table style="border-collapse:collapse;font-family:Arial,sans-serif;font-size:14px">
-      <tr><td><b>Name</b></td><td>${safe(profile.full_name)}</td></tr>
-      <tr><td><b>Email</b></td><td>${safe(profile.email)}</td></tr>
-      <tr><td><b>Phone</b></td><td>${safe(profile.phone)}</td></tr>
-      <tr><td><b>City / nationality</b></td><td>${safe(profile.city)} / ${safe(profile.nationality)}</td></tr>
-      <tr><td><b>Degree level</b></td><td>${safe(profile.degree_level)}</td></tr>
-      <tr><td><b>Intended field</b></td><td>${safe(profile.intended_field)}</td></tr>
-      <tr><td><b>Country preference</b></td><td>${safe((profile.country_preferences || []).join(", "))}</td></tr>
-      <tr><td><b>Budget</b></td><td>${safe(profile.budget_range)}</td></tr>
-      <tr><td><b>Profile category</b></td><td>${safe(profileCategory)}</td></tr>
+      <tr><td><b>Name</b></td><td>${esc(profile.full_name)}</td></tr>
+      <tr><td><b>Email</b></td><td>${esc(profile.email)}</td></tr>
+      <tr><td><b>Phone</b></td><td>${esc(profile.phone)}</td></tr>
+      <tr><td><b>City / nationality</b></td><td>${esc(profile.city)} / ${esc(profile.nationality)}</td></tr>
+      <tr><td><b>Degree level</b></td><td>${esc(profile.degree_level)}</td></tr>
+      <tr><td><b>Intended field</b></td><td>${esc(profile.intended_field)}</td></tr>
+      <tr><td><b>Country preference</b></td><td>${esc((profile.country_preferences || []).join(", "))}</td></tr>
+      <tr><td><b>Budget</b></td><td>${esc(profile.budget_range)}</td></tr>
+      <tr><td><b>Profile category</b></td><td>${esc(profileCategory)}</td></tr>
       <tr><td><b>Matches</b></td><td>${totalMatched}</td></tr>
-      <tr><td><b>Token</b></td><td><code>${safe(token)}</code></td></tr>
+      <tr><td><b>Token</b></td><td><code>${esc(token)}</code></td></tr>
     </table>
-    <p style="margin-top:16px"><a href="${appUrl}/results/${safe(token)}">View their results</a></p>
+    <p style="margin-top:16px"><a href="${appUrl}/results/${encodeURIComponent(String(token))}">View their results</a></p>
   `;
   try {
     await fetch("https://api.resend.com/emails", {
@@ -56,7 +60,7 @@ async function sendLeadNotification(
       },
       body: JSON.stringify({
         from: `eduvianAI Lead Notifier <${fromEmail}>`,
-        reply_to: profile.email, // Replying goes directly to the student
+        reply_to: safeText(profile.email), // Reply routes to the student; CRLFs stripped
         to: ["admissions@eduvianai.com"],
         subject,
         html,

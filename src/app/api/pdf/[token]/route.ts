@@ -5,6 +5,7 @@ import { submissionStore } from "@/lib/store";
 import type { Program, StudentProfile, ScoredProgram } from "@/lib/types";
 import { getTierLabel, formatCurrency, getCountryFlag } from "@/lib/utils";
 import { scoreStudentProfile, categoryBadgeHtml } from "@/lib/profile-score";
+import { escHtml } from "@/lib/html-escape";
 
 export async function GET(
   req: NextRequest,
@@ -82,7 +83,7 @@ function buildPDFHtml(profile: StudentProfile, programs: ScoredProgram[]): strin
       const color = full ? "#166534" : partial ? "#92400e" : "#991b1b";
       const icon  = full ? "✓" : partial ? "~" : "✗";
       const pts   = c.maxPoints > 1 ? ` (${c.points}/${c.maxPoints})` : "";
-      return `<span style="display:inline-flex;align-items:center;gap:6px;background:${bg};border:1px solid ${bdr};border-radius:8px;padding:5px 10px;font-size:11px;color:${color};">${icon} ${c.label}${pts}</span>`;
+      return `<span style="display:inline-flex;align-items:center;gap:6px;background:${bg};border:1px solid ${bdr};border-radius:8px;padding:5px 10px;font-size:11px;color:${color};">${icon} ${escHtml(c.label)}${escHtml(pts)}</span>`;
     })
     .join("");
 
@@ -91,15 +92,15 @@ function buildPDFHtml(profile: StudentProfile, programs: ScoredProgram[]): strin
       (p) => `
     <tr>
       <td>
-        <div class="prog-name">${getCountryFlag(p.country)} ${p.program_name}</div>
-        <div class="uni-name">${p.university_name} · ${p.city}</div>
+        <div class="prog-name">${escHtml(getCountryFlag(p.country))} ${escHtml(p.program_name)}</div>
+        <div class="uni-name">${escHtml(p.university_name)} · ${escHtml(p.city)}</div>
       </td>
       <td class="center">
-        <span class="tier-badge tier-${p.tier}">${getTierLabel(p.tier)}</span>
+        <span class="tier-badge tier-${escHtml(p.tier)}">${escHtml(getTierLabel(p.tier))}</span>
       </td>
-      <td class="center score">${p.match_score}%</td>
-      <td class="right">${formatCurrency(p.annual_tuition_usd + p.avg_living_cost_usd)}/yr</td>
-      <td class="right">${(() => {
+      <td class="center score">${escHtml(p.match_score)}%</td>
+      <td class="right">${escHtml(formatCurrency(p.annual_tuition_usd + p.avg_living_cost_usd))}/yr</td>
+      <td class="right">${escHtml((() => {
         const dl = p.application_deadline;
         if (!dl) return "—";
         if (dl === "rolling") return "Rolling";
@@ -107,8 +108,8 @@ function buildPDFHtml(profile: StudentProfile, programs: ScoredProgram[]): strin
         const d = new Date(dl); d.setHours(0,0,0,0);
         if (d < today) return "App. process not started";
         return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
-      })()}</td>
-      <td class="center">${p.qs_ranking ? `#${p.qs_ranking}` : "—"}</td>
+      })())}</td>
+      <td class="center">${p.qs_ranking ? `#${escHtml(p.qs_ranking)}` : "—"}</td>
     </tr>`
     )
     .join("");
@@ -117,7 +118,7 @@ function buildPDFHtml(profile: StudentProfile, programs: ScoredProgram[]): strin
 <html>
 <head>
 <meta charset="utf-8">
-<title>eduvianAI Profile — ${profile.full_name}</title>
+<title>eduvianAI Profile — ${escHtml(profile.full_name)}</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #1e1b4b; background: #fff; padding: 40px; }
@@ -156,8 +157,8 @@ function buildPDFHtml(profile: StudentProfile, programs: ScoredProgram[]): strin
       <div style="font-size:12px;font-weight:600;color:#9ca3af;margin-top:2px;">Your Global Future, Simplified</div>
     </div>
     <div class="student-info">
-      <strong>${profile.full_name}</strong>
-      ${profile.email}${profile.phone ? ` · ${profile.phone}` : ""}
+      <strong>${escHtml(profile.full_name)}</strong>
+      ${escHtml(profile.email)}${profile.phone ? ` · ${escHtml(profile.phone)}` : ""}
       <div style="margin-top:2px;">Generated ${new Date().toLocaleDateString("en-US", { dateStyle: "long" })}</div>
     </div>
   </div>
@@ -170,11 +171,11 @@ function buildPDFHtml(profile: StudentProfile, programs: ScoredProgram[]): strin
     </div>
     <div class="profile-grid">
       <div><span>Degree Level</span>${profile.degree_level === "postgraduate" ? "Postgraduate" : "Undergraduate"}</div>
-      <div><span>Field of Study</span>${profile.intended_field}</div>
-      <div><span>Nationality</span>${profile.nationality}${profile.city ? ` · ${profile.city}` : ""}</div>
-      <div><span>Target Intake</span>${profile.target_intake_semester} ${profile.target_intake_year}</div>
-      <div><span>Academic Score</span>${profile.academic_score}${profile.academic_score_type === "gpa" ? " / 4.0 GPA" : "%"}</div>
-      <div><span>English Test</span>${profile.english_test !== "none" ? `${profile.english_test.toUpperCase()} ${profile.english_score_overall ?? ""}` : "Not taken"}</div>
+      <div><span>Field of Study</span>${escHtml(profile.intended_field)}</div>
+      <div><span>Nationality</span>${escHtml(profile.nationality)}${profile.city ? ` · ${escHtml(profile.city)}` : ""}</div>
+      <div><span>Target Intake</span>${escHtml(profile.target_intake_semester)} ${escHtml(profile.target_intake_year)}</div>
+      <div><span>Academic Score</span>${escHtml(profile.academic_score)}${profile.academic_score_type === "gpa" ? " / 4.0 GPA" : "%"}</div>
+      <div><span>English Test</span>${profile.english_test !== "none" ? `${escHtml(String(profile.english_test).toUpperCase())} ${escHtml(profile.english_score_overall ?? "")}` : "Not taken"}</div>
     </div>
     <!-- Criteria checklist -->
     <div style="margin-top:16px;border-top:1px solid #e0e7ff;padding-top:14px;">

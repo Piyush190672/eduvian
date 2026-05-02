@@ -3,6 +3,7 @@ import { apiErrorResponse } from "@/lib/api-error";
 import type { ScoredProgram, StudentProfile, Program } from "@/lib/types";
 import { formatCurrency, getTierLabel } from "@/lib/utils";
 import { scoreStudentProfile, getCategoryStyle, categoryBadgeHtml } from "@/lib/profile-score";
+import { escHtml, escHtmlBounded } from "@/lib/html-escape";
 
 export async function POST(req: NextRequest) {
   try {
@@ -88,7 +89,7 @@ export async function POST(req: NextRequest) {
         const color = full ? "#166534" : partial ? "#92400e" : "#991b1b";
         const icon  = full ? "✓" : partial ? "~" : "✗";
         const pts   = c.maxPoints > 1 ? ` (${c.points}/${c.maxPoints})` : "";
-        return `<span style="display:inline-block;background:${bg};border:1px solid ${bdr};border-radius:8px;padding:4px 10px;font-size:11px;color:${color};">${icon} ${c.label}${pts}</span>`;
+        return `<span style="display:inline-block;background:${bg};border:1px solid ${bdr};border-radius:8px;padding:4px 10px;font-size:11px;color:${color};">${icon} ${escHtml(c.label)}${escHtml(pts)}</span>`;
       };
       return `
       <div style="background:#f8fafc;border:1.5px solid #e0e7ff;border-radius:14px;padding:20px 24px;margin-bottom:24px;">
@@ -96,7 +97,7 @@ export async function POST(req: NextRequest) {
           <div style="font-weight:700;color:#1e1b4b;font-size:15px;">Your Profile Assessment</div>
           ${badge}
         </div>
-        <p style="color:#6b7280;font-size:13px;margin:0 0 14px;line-height:1.5;">${style.description}</p>
+        <p style="color:#6b7280;font-size:13px;margin:0 0 14px;line-height:1.5;">${escHtml(style.description)}</p>
         <div style="display:flex;flex-wrap:wrap;gap:6px;">
           ${ps.criteria.map(renderCriteria).join("")}
         </div>
@@ -108,14 +109,14 @@ export async function POST(req: NextRequest) {
         (p) => `
       <tr style="border-bottom:1px solid #f1f5f9;">
         <td style="padding:12px 8px;">
-          <div style="font-weight:600;color:#1e1b4b;font-size:14px;">${p.program_name}</div>
-          <div style="color:#6b7280;font-size:12px;margin-top:2px;">${p.university_name} · ${p.country}</div>
+          <div style="font-weight:600;color:#1e1b4b;font-size:14px;">${escHtml(p.program_name)}</div>
+          <div style="color:#6b7280;font-size:12px;margin-top:2px;">${escHtml(p.university_name)} · ${escHtml(p.country)}</div>
         </td>
         <td style="padding:12px 8px;text-align:center;">
-          <span style="background:${p.tier === "safe" ? "#d1fae5" : p.tier === "reach" ? "#fef3c7" : "#fff1f2"};color:${p.tier === "safe" ? "#065f46" : p.tier === "reach" ? "#92400e" : "#be123c"};padding:3px 10px;border-radius:20px;font-size:12px;font-weight:600;">${getTierLabel(p.tier)}</span>
+          <span style="background:${p.tier === "safe" ? "#d1fae5" : p.tier === "reach" ? "#fef3c7" : "#fff1f2"};color:${p.tier === "safe" ? "#065f46" : p.tier === "reach" ? "#92400e" : "#be123c"};padding:3px 10px;border-radius:20px;font-size:12px;font-weight:600;">${escHtml(getTierLabel(p.tier))}</span>
         </td>
-        <td style="padding:12px 8px;text-align:right;font-weight:700;color:#4f46e5;font-size:14px;">${p.match_score}%</td>
-        <td style="padding:12px 8px;text-align:right;color:#6b7280;font-size:13px;">${formatCurrency(p.annual_tuition_usd + p.avg_living_cost_usd)}/yr</td>
+        <td style="padding:12px 8px;text-align:right;font-weight:700;color:#4f46e5;font-size:14px;">${escHtml(p.match_score)}%</td>
+        <td style="padding:12px 8px;text-align:right;color:#6b7280;font-size:13px;">${escHtml(formatCurrency(p.annual_tuition_usd + p.avg_living_cost_usd))}/yr</td>
       </tr>`
       )
       .join("");
@@ -135,7 +136,7 @@ export async function POST(req: NextRequest) {
 
     <div style="padding:32px;">
       <h2 style="color:#1e1b4b;font-size:22px;font-weight:800;margin:0 0 8px;">
-        Hey ${profile?.full_name?.split(" ")[0] ?? "there"}! 👋
+        Hey ${escHtmlBounded(profile?.full_name?.split(" ")[0], 60, "there")}! 👋
       </h2>
       <p style="color:#6b7280;margin:0 0 24px;line-height:1.6;">
         Here ${programs.length === 1 ? "is" : "are"} your <strong>${programs.length} shortlisted program${programs.length === 1 ? "" : "s"}</strong> — ranked by how well they match <strong>you</strong>.

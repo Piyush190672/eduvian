@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { apiErrorResponse } from "@/lib/api-error";
+import { escHtml } from "@/lib/html-escape";
 
 export const maxDuration = 30;
 
@@ -196,13 +197,13 @@ function buildROIBody(d: ROIData): string {
     <div class="section">
       <div class="section-title">Program Overview</div>
       <div class="program-box">
-        <div class="program-flag">${d.flag || "🎓"}</div>
+        <div class="program-flag">${escHtml(d.flag || "🎓")}</div>
         <div>
-          <div class="program-name">${d.program_name}</div>
+          <div class="program-name">${escHtml(d.program_name)}</div>
           <div class="program-meta">
-            ${d.university_name}${d.qs_ranking ? ` · QS Rank #${d.qs_ranking}` : ""}  ·  ${d.city || d.country}, ${d.country}<br/>
-            ${d.degree_level}  ·  ${d.field}  ·  ${d.duration_months} months (${durationYears} years)
-            ${d.scholarship_usd > 0 ? `  ·  ${fmtK(d.scholarship_usd)} scholarship` : ""}
+            ${escHtml(d.university_name)}${d.qs_ranking ? ` · QS Rank #${escHtml(d.qs_ranking)}` : ""}  ·  ${escHtml(d.city || d.country)}, ${escHtml(d.country)}<br/>
+            ${escHtml(d.degree_level)}  ·  ${escHtml(d.field)}  ·  ${d.duration_months} months (${durationYears} years)
+            ${d.scholarship_usd > 0 ? `  ·  ${escHtml(fmtK(d.scholarship_usd))} scholarship` : ""}
           </div>
         </div>
       </div>
@@ -312,14 +313,14 @@ function buildParentBody(d: ParentData): string {
     <div class="section">
       <div class="section-title">Program Overview</div>
       <div class="program-box">
-        <div class="program-flag">${d.flag || "🎓"}</div>
+        <div class="program-flag">${escHtml(d.flag || "🎓")}</div>
         <div>
-          <div class="program-name">${d.program_name}</div>
+          <div class="program-name">${escHtml(d.program_name)}</div>
           <div class="program-meta">
-            ${d.university_name}${d.qs_ranking ? ` · QS Rank #${d.qs_ranking}` : ""}  ·  ${d.city || d.country}, ${d.country}<br/>
-            ${d.degree_level}  ·  ${d.field}  ·  ${d.duration_months} months (${durationYears} years)
-            ${d.scholarship_usd > 0 ? `  ·  ${fmtK(d.scholarship_usd)} scholarship` : ""}
-            ·  Parent budget: ${d.budget_usd >= 999999 ? "No limit" : fmtK(d.budget_usd) + "/yr"}
+            ${escHtml(d.university_name)}${d.qs_ranking ? ` · QS Rank #${escHtml(d.qs_ranking)}` : ""}  ·  ${escHtml(d.city || d.country)}, ${escHtml(d.country)}<br/>
+            ${escHtml(d.degree_level)}  ·  ${escHtml(d.field)}  ·  ${d.duration_months} months (${durationYears} years)
+            ${d.scholarship_usd > 0 ? `  ·  ${escHtml(fmtK(d.scholarship_usd))} scholarship` : ""}
+            ·  Parent budget: ${d.budget_usd >= 999999 ? "No limit" : escHtml(fmtK(d.budget_usd)) + "/yr"}
           </div>
         </div>
       </div>
@@ -331,8 +332,8 @@ function buildParentBody(d: ParentData): string {
       <div class="rec-badge ${rc}">
         <div>
           <div class="rec-label">Overall Recommendation</div>
-          <div class="rec-title ${rc}">${d.recommendation_icon} ${d.recommendation}</div>
-          <div style="font-size:11px;color:#6b7280;margin-top:4px;">${d.university_name} · ${d.program_name}</div>
+          <div class="rec-title ${rc}">${escHtml(d.recommendation_icon)} ${escHtml(d.recommendation)}</div>
+          <div style="font-size:11px;color:#6b7280;margin-top:4px;">${escHtml(d.university_name)} · ${escHtml(d.program_name)}</div>
         </div>
         <div class="score-circle ${rc}">
           <div class="score-circle-num">${d.total_pct}</div>
@@ -390,30 +391,30 @@ function buildParentBody(d: ParentData): string {
           <div class="qual-label">Post-Study Work</div>
           <div class="qual-value">
             ${d.psw_available
-              ? `<span style="color:#059669;">✓ Available — ${d.psw_duration}</span>`
+              ? `<span style="color:#059669;">✓ Available — ${escHtml(d.psw_duration)}</span>`
               : `<span style="color:#dc2626;">✗ Not available</span>`}
-            <div class="qual-detail">${d.psw_note || ""}</div>
+            <div class="qual-detail">${escHtml(d.psw_note || "")}</div>
           </div>
         </div>
         <div class="qual-row">
           <div class="qual-label">Job Market</div>
           <div class="qual-value">
-            <span class="rating-badge ${d.job_market_rating}">${d.job_market_rating}</span>
-            <div class="qual-detail">${d.job_market_detail}</div>
+            <span class="rating-badge ${escHtml(d.job_market_rating)}">${escHtml(d.job_market_rating)}</span>
+            <div class="qual-detail">${escHtml(d.job_market_detail)}</div>
           </div>
         </div>
         <div class="qual-row">
           <div class="qual-label">Safety & Security</div>
           <div class="qual-value">
-            <span class="rating-badge ${d.safety_rating}">${d.safety_rating}</span>
-            <div class="qual-detail">${d.safety_detail}</div>
+            <span class="rating-badge ${escHtml(d.safety_rating)}">${escHtml(d.safety_rating)}</span>
+            <div class="qual-detail">${escHtml(d.safety_detail)}</div>
           </div>
         </div>
         <div class="qual-row">
           <div class="qual-label">Student Life</div>
           <div class="qual-value">
-            <span class="rating-badge ${d.student_life_rating}">${d.student_life_rating}</span>
-            <div class="qual-detail">${d.student_life_detail}</div>
+            <span class="rating-badge ${escHtml(d.student_life_rating)}">${escHtml(d.student_life_rating)}</span>
+            <div class="qual-detail">${escHtml(d.student_life_detail)}</div>
           </div>
         </div>
       </div>

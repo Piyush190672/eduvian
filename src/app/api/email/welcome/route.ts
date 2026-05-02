@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { captureApiError } from "@/lib/api-error";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
+import { escHtmlBounded } from "@/lib/html-escape";
 
 export async function POST(req: NextRequest) {
   // Rate limit: 3 welcome emails per IP per hour (prevents email abuse)
@@ -27,9 +28,13 @@ export async function POST(req: NextRequest) {
     const fromEmail = process.env.RESEND_FROM_EMAIL ?? "hello@eduvianai.com";
     const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "https://www.eduvianai.com";
 
-    // Sanitize — strip HTML chars before interpolating into the email template
-    const rawFirst = (name ?? "").split(" ")[0].trim().slice(0, 60) || "there";
-    const firstName = rawFirst.replace(/[<>"'&`]/g, "");
+    // Plain-text version for subject lines (HTML entities would render
+    // literally there). Strips CRLFs as belt-and-suspenders against email
+    // header injection in case Resend's parser ever forwards them through.
+    const rawFirst = (name ?? "").split(" ")[0].trim().slice(0, 60);
+    const firstNameText = (rawFirst || "there").replace(/[\r\n]/g, "");
+    // HTML-body version — escape so "O'Brien" survives intact.
+    const firstName = escHtmlBounded(rawFirst, 60, "there");
 
     const htmlBody = `<!DOCTYPE html>
 <html lang="en">
@@ -258,7 +263,7 @@ export async function POST(req: NextRequest) {
         from: `eduvianAI <${fromEmail}>`,
         reply_to: "support@eduvianai.com",
         to: [email],
-        subject: `Welcome to eduvianAI, ${firstName}! 🌍 Your study abroad journey starts here`,
+        subject: `Welcome to eduvianAI, ${firstNameText}! 🌍 Your study abroad journey starts here`,
         html: htmlBody,
       }),
     });

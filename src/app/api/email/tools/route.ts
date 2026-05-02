@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { apiErrorResponse } from "@/lib/api-error";
+import { escHtml } from "@/lib/html-escape";
 
 export const maxDuration = 30;
 
@@ -60,7 +61,7 @@ function emailShell(preheader: string, body: string): string {
   <title>eduvianAI Results</title>
 </head>
 <body style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;background:#f8fafc;margin:0;padding:20px;">
-  <div style="display:none;max-height:0;overflow:hidden;">${preheader}</div>
+  <div style="display:none;max-height:0;overflow:hidden;">${escHtml(preheader)}</div>
   <div style="max-width:600px;margin:0 auto;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.08);">
     <!-- Header -->
     <div style="background:linear-gradient(135deg,#6366f1,#8b5cf6,#ec4899);padding:36px 32px;text-align:center;">
@@ -107,12 +108,12 @@ function buildROIEmail(d: ROIData): string {
 
     <!-- Program card -->
     <div style="background:#f0f4ff;border:1.5px solid #c7d2fe;border-radius:12px;padding:14px 18px;margin-bottom:20px;display:flex;align-items:flex-start;gap:12px;">
-      <div style="font-size:26px;line-height:1;flex-shrink:0;">${d.flag || "🎓"}</div>
+      <div style="font-size:26px;line-height:1;flex-shrink:0;">${escHtml(d.flag || "🎓")}</div>
       <div>
-        <div style="font-size:15px;font-weight:800;color:#1e1b4b;">${d.program_name}</div>
+        <div style="font-size:15px;font-weight:800;color:#1e1b4b;">${escHtml(d.program_name)}</div>
         <div style="font-size:12px;color:#6b7280;margin-top:3px;line-height:1.6;">
-          ${d.university_name}${d.qs_ranking ? ` · QS #${d.qs_ranking}` : ""}  ·  ${d.city || d.country}, ${d.country}<br/>
-          ${d.degree_level}  ·  ${(d.duration_months / 12).toFixed(1)} years${d.scholarship_usd > 0 ? ` · ${fmtK(d.scholarship_usd)} scholarship` : ""}
+          ${escHtml(d.university_name)}${d.qs_ranking ? ` · QS #${escHtml(d.qs_ranking)}` : ""}  ·  ${escHtml(d.city || d.country)}, ${escHtml(d.country)}<br/>
+          ${escHtml(d.degree_level)}  ·  ${(d.duration_months / 12).toFixed(1)} years${d.scholarship_usd > 0 ? ` · ${escHtml(fmtK(d.scholarship_usd))} scholarship` : ""}
         </div>
       </div>
     </div>
@@ -201,7 +202,7 @@ function buildParentEmail(d: ParentData): string {
       Good:       "background:#fef3c7;color:#92400e;",
       Concerning: "background:#fee2e2;color:#991b1b;",
     };
-    return `<span style="display:inline-block;padding:2px 9px;border-radius:999px;font-size:10px;font-weight:700;${styles[rating] ?? ""}">${rating}</span>`;
+    return `<span style="display:inline-block;padding:2px 9px;border-radius:999px;font-size:10px;font-weight:700;${styles[rating] ?? ""}">${escHtml(rating)}</span>`;
   };
 
   const paybackClass = d.payback_years <= 8 ? "#059669" : d.payback_years <= 15 ? "#d97706" : "#dc2626";
@@ -215,14 +216,14 @@ function buildParentEmail(d: ParentData): string {
     <!-- Program card -->
     <div style="background:#f5f3ff;border:1.5px solid #ddd6fe;border-radius:12px;padding:14px 18px;margin-bottom:20px;">
       <div style="display:flex;align-items:flex-start;gap:12px;">
-        <div style="font-size:26px;line-height:1;flex-shrink:0;">${d.flag || "🎓"}</div>
+        <div style="font-size:26px;line-height:1;flex-shrink:0;">${escHtml(d.flag || "🎓")}</div>
         <div>
-          <div style="font-size:15px;font-weight:800;color:#1e1b4b;">${d.program_name}</div>
+          <div style="font-size:15px;font-weight:800;color:#1e1b4b;">${escHtml(d.program_name)}</div>
           <div style="font-size:12px;color:#6b7280;margin-top:3px;line-height:1.6;">
-            ${d.university_name}${d.qs_ranking ? ` · QS #${d.qs_ranking}` : ""}  ·  ${d.city || d.country}, ${d.country}<br/>
-            ${d.degree_level}  ·  ${(d.duration_months / 12).toFixed(1)} years
-            ${d.scholarship_usd > 0 ? ` · ${fmtK(d.scholarship_usd)} scholarship` : ""}
-            ·  Budget: ${d.budget_usd >= 999999 ? "No limit" : fmtK(d.budget_usd) + "/yr"}
+            ${escHtml(d.university_name)}${d.qs_ranking ? ` · QS #${escHtml(d.qs_ranking)}` : ""}  ·  ${escHtml(d.city || d.country)}, ${escHtml(d.country)}<br/>
+            ${escHtml(d.degree_level)}  ·  ${(d.duration_months / 12).toFixed(1)} years
+            ${d.scholarship_usd > 0 ? ` · ${escHtml(fmtK(d.scholarship_usd))} scholarship` : ""}
+            ·  Budget: ${d.budget_usd >= 999999 ? "No limit" : escHtml(fmtK(d.budget_usd)) + "/yr"}
           </div>
         </div>
       </div>
@@ -232,7 +233,7 @@ function buildParentEmail(d: ParentData): string {
     <div style="background:${rcc.bg};border:1.5px solid ${rcc.border};border-radius:12px;padding:16px 20px;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;gap:12px;">
       <div>
         <div style="font-size:10px;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:0.6px;margin-bottom:3px;">Recommendation</div>
-        <div style="font-size:22px;font-weight:900;color:${rcc.text};">${d.recommendation_icon} ${d.recommendation}</div>
+        <div style="font-size:22px;font-weight:900;color:${rcc.text};">${escHtml(d.recommendation_icon)} ${escHtml(d.recommendation)}</div>
       </div>
       <div style="width:60px;height:60px;border-radius:50%;background:${rcc.badge};display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;">
         <div style="font-size:20px;font-weight:900;color:#fff;line-height:1;">${d.total_pct}</div>
@@ -267,21 +268,21 @@ function buildParentEmail(d: ParentData): string {
         <tr style="border-bottom:1px solid #f1f5f9;">
           <td style="padding:9px 8px;font-size:12px;color:#6b7280;width:130px;">Post-Study Work</td>
           <td style="padding:9px 8px;font-size:12px;font-weight:600;color:${d.psw_available ? "#059669" : "#dc2626"};">
-            ${d.psw_available ? `✓ Available — ${d.psw_duration}` : "✗ Not available"}
-            <div style="font-size:10px;color:#9ca3af;margin-top:1px;">${d.psw_note || ""}</div>
+            ${d.psw_available ? `✓ Available — ${escHtml(d.psw_duration)}` : "✗ Not available"}
+            <div style="font-size:10px;color:#9ca3af;margin-top:1px;">${escHtml(d.psw_note || "")}</div>
           </td>
         </tr>
         <tr style="border-bottom:1px solid #f1f5f9;">
           <td style="padding:9px 8px;font-size:12px;color:#6b7280;">Job Market</td>
-          <td style="padding:9px 8px;">${ratingBadge(d.job_market_rating)}<div style="font-size:10px;color:#9ca3af;margin-top:2px;">${d.job_market_detail}</div></td>
+          <td style="padding:9px 8px;">${ratingBadge(d.job_market_rating)}<div style="font-size:10px;color:#9ca3af;margin-top:2px;">${escHtml(d.job_market_detail)}</div></td>
         </tr>
         <tr style="border-bottom:1px solid #f1f5f9;">
           <td style="padding:9px 8px;font-size:12px;color:#6b7280;">Safety</td>
-          <td style="padding:9px 8px;">${ratingBadge(d.safety_rating)}<div style="font-size:10px;color:#9ca3af;margin-top:2px;">${d.safety_detail}</div></td>
+          <td style="padding:9px 8px;">${ratingBadge(d.safety_rating)}<div style="font-size:10px;color:#9ca3af;margin-top:2px;">${escHtml(d.safety_detail)}</div></td>
         </tr>
         <tr>
           <td style="padding:9px 8px;font-size:12px;color:#6b7280;">Student Life</td>
-          <td style="padding:9px 8px;">${ratingBadge(d.student_life_rating)}<div style="font-size:10px;color:#9ca3af;margin-top:2px;">${d.student_life_detail}</div></td>
+          <td style="padding:9px 8px;">${ratingBadge(d.student_life_rating)}<div style="font-size:10px;color:#9ca3af;margin-top:2px;">${escHtml(d.student_life_detail)}</div></td>
         </tr>
       </table>
     </div>
@@ -313,17 +314,22 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Email service not configured." }, { status: 503 });
     }
 
+    // Strip CRLFs from anything that ends up in an email header (subject /
+    // preheader). Defence-in-depth against header injection in case Resend
+    // ever passes raw values straight through to SMTP.
+    const stripCR = (s: unknown) => String(s ?? "").replace(/[\r\n]/g, "").slice(0, 200);
+
     let subject: string;
     let htmlBody: string;
 
     if (type === "roi") {
       const d = data as ROIData;
-      subject = `📊 Your ROI Analysis — ${d.program_name} at ${d.university_name}`;
-      htmlBody = emailShell(`Your ROI results for ${d.program_name} at ${d.university_name}`, buildROIEmail(d));
+      subject = `📊 Your ROI Analysis — ${stripCR(d.program_name)} at ${stripCR(d.university_name)}`;
+      htmlBody = emailShell(`Your ROI results for ${stripCR(d.program_name)} at ${stripCR(d.university_name)}`, buildROIEmail(d));
     } else if (type === "parent") {
       const d = data as ParentData;
-      subject = `👨‍👩‍👧 Parent Decision Report — ${d.program_name} at ${d.university_name}`;
-      htmlBody = emailShell(`Parent decision verdict for ${d.program_name} at ${d.university_name}`, buildParentEmail(d));
+      subject = `👨‍👩‍👧 Parent Decision Report — ${stripCR(d.program_name)} at ${stripCR(d.university_name)}`;
+      htmlBody = emailShell(`Parent decision verdict for ${stripCR(d.program_name)} at ${stripCR(d.university_name)}`, buildParentEmail(d));
     } else {
       return NextResponse.json({ error: "Invalid type." }, { status: 400 });
     }
