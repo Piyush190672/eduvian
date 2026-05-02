@@ -65,9 +65,12 @@ ALTER TABLE submissions ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "programs_public_read" ON programs FOR SELECT USING (true);
 CREATE POLICY "programs_service_write" ON programs FOR ALL USING (auth.role() = 'service_role');
 
--- Submissions: public insert + read, service-role all
+-- Submissions: public can INSERT only; reads are server-side via service-role.
+-- (Token-scoped reads happen in API routes that hold the secret key. The
+-- explicit anon SELECT denial guards against future RLS regressions; see
+-- migrations/20260502-c2-submissions-rls.sql for the production fix.)
 CREATE POLICY "submissions_public_insert" ON submissions FOR INSERT WITH CHECK (true);
-CREATE POLICY "submissions_token_read" ON submissions FOR SELECT USING (true);
+CREATE POLICY "submissions_no_public_read" ON submissions FOR SELECT TO anon, authenticated USING (false);
 CREATE POLICY "submissions_service_all" ON submissions FOR ALL USING (auth.role() = 'service_role');
 
 -- ─── Students table ───────────────────────────────────────────────────────────
