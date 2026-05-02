@@ -8,6 +8,13 @@
   },
   {
     "university": "University of Tübingen",
+    "url": "https://uni-tuebingen.de/en/study/finding-a-course/degree-programs-available/detail/course/molekulare-medizin-master/",
+    "db_program_name": "MSc Molecular Medicine",
+    "page_program_name": "Molekulare Medizin - Master",
+    "reason": "page_name_does_not_match_level_and_field"
+  },
+  {
+    "university": "University of Tübingen",
     "url": "https://uni-tuebingen.de/en/study/finding-a-course/degree-programs-available/detail/course/palaeolithic-archaeology-master/",
     "db_program_name": "MA Palaeolithic Archaeology",
     "page_program_name": "Palaeolithic Archaeology - Master",
