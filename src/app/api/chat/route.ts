@@ -325,6 +325,7 @@ import { getUserFromRequest } from "@/lib/user-cookie";
 import { checkBetaAccess, logToolUsage } from "@/lib/beta-gate";
 import { getClientIp, aiToolLimit } from "@/lib/rate-limit";
 import { apiErrorResponse } from "@/lib/api-error";
+import { wrapUserInput, JAILBREAK_GUARDRAILS, MAX_OUTPUT_TOKENS } from "@/lib/llm-safety";
 
 export async function POST(req: NextRequest) {
   try {
@@ -353,18 +354,28 @@ export async function POST(req: NextRequest) {
     const Anthropic = (await import("@anthropic-ai/sdk")).default;
     const client = new Anthropic({ apiKey });
 
-    const systemPrompt = programsContext
+    const baseSystem = programsContext
       ? `${SYSTEM_PROMPT}\n\n${programsContext}\n\nIMPORTANT: The student is viewing their matched results. Prioritise answering questions about their specific matched programs. Use exact data from the list above — tuition, rankings, deadlines, match scores.`
       : SYSTEM_PROMPT;
+    const systemPrompt = baseSystem + JAILBREAK_GUARDRAILS;
+
+    // Wrap user-supplied content so any prompt-injection attempts inside
+    // are seen by the model as data, not instructions. Assistant turns are
+    // model output and are passed through unchanged.
+    const safeMessages = messages.map((m) =>
+      m.role === "user"
+        ? { role: "user" as const, content: wrapUserInput(m.content) }
+        : { role: m.role, content: m.content }
+    );
 
     let response;
     for (let attempt = 1; attempt <= 3; attempt++) {
       try {
         response = await client.messages.create({
           model: "claude-haiku-4-5",
-          max_tokens: 700,
+          max_tokens: Math.min(700, MAX_OUTPUT_TOKENS),
           system: systemPrompt,
-          messages: messages.map((m) => ({ role: m.role, content: m.content })),
+          messages: safeMessages,
         });
         break;
       } catch (apiErr: unknown) {

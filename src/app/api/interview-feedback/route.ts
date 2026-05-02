@@ -3,6 +3,7 @@ import { getUserFromRequest } from "@/lib/user-cookie";
 import { checkBetaAccess, logToolUsage } from "@/lib/beta-gate";
 import { getClientIp, aiToolLimit } from "@/lib/rate-limit";
 import { apiErrorResponse } from "@/lib/api-error";
+import { wrapLabelledInput, JAILBREAK_GUARDRAILS } from "@/lib/llm-safety";
 
 export const maxDuration = 60;
 
@@ -51,7 +52,7 @@ Your tone must always be: supportive, energetic, positive, and motivating — li
 Address the student by their first name: ${studentName} in the "What you did well" and improvement sections only.
 Never be harsh or discouraging. Frame all improvement points as growth opportunities.
 You strictly evaluate answers against the official approved checklist provided — if a checklist is given, every bullet point in it is a required element that should be present in a strong answer.
-CRITICAL RULE FOR SAMPLE ANSWER: The sample answer is what the student should say directly TO the visa interviewer. Write it in first person as if the student is speaking to the interviewer. Do NOT address or mention the student's name (${studentName}) anywhere in the sample answer. Do NOT begin with "${studentName}" or "Hi ${studentName}". The sample answer must read as the student's own words spoken to the interviewer — energetic, confident, under 200 words, covering all checklist points.`;
+CRITICAL RULE FOR SAMPLE ANSWER: The sample answer is what the student should say directly TO the visa interviewer. Write it in first person as if the student is speaking to the interviewer. Do NOT address or mention the student's name (${studentName}) anywhere in the sample answer. Do NOT begin with "${studentName}" or "Hi ${studentName}". The sample answer must read as the student's own words spoken to the interviewer — energetic, confident, under 200 words, covering all checklist points.${JAILBREAK_GUARDRAILS}`;
 
     const interviewContext = isAU
       ? "Australian Genuine Student visa interview"
@@ -59,15 +60,13 @@ CRITICAL RULE FOR SAMPLE ANSWER: The sample answer is what the student should sa
       ? "US F-1 student visa consular interview"
       : "UK student credibility interview";
 
-    const userPrompt = `Interview context: ${interviewContext}
-
-Category objective: ${objective}
-${checklistSection}
-Question asked: "${question}"
-
-Student's answer: "${transcript || "(no answer given — student did not speak)"}"
-
-Evaluate this answer strictly against the official checklist above. Respond in EXACTLY this format with no extra text:
+    const userPrompt =
+      `Interview context: ${interviewContext}\n\nCategory objective: ${objective}\n${checklistSection}\n` +
+      wrapLabelledInput({
+        question,
+        student_answer: transcript || "(no answer given — student did not speak)",
+      }) +
+      `\n\nEvaluate this answer strictly against the official checklist above. Respond in EXACTLY this format with no extra text:
 
 What you did well:
 - [point 1]
