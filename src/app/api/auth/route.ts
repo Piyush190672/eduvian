@@ -3,11 +3,16 @@ import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 import { createUserToken, USER_COOKIE_NAME, USER_COOKIE_OPTS } from "@/lib/user-cookie";
 import { apiErrorResponse } from "@/lib/api-error";
 
-/** Build a JSON response with the signed user cookie attached. */
-async function jsonWithUserCookie(payload: Record<string, unknown>, email: string, status = 200) {
+/** Build a JSON response with the opaque session cookie attached. */
+async function jsonWithUserCookie(
+  payload: Record<string, unknown>,
+  email: string,
+  meta: { ip?: string; userAgent?: string },
+  status = 200,
+) {
   const res = NextResponse.json(payload, { status });
   try {
-    const token = await createUserToken(email);
+    const token = await createUserToken(email, meta);
     res.cookies.set(USER_COOKIE_NAME, token, USER_COOKIE_OPTS);
   } catch (e) {
     console.error("Failed to set user cookie:", e);
@@ -30,6 +35,8 @@ function isValidEmail(email: string): boolean {
 export async function POST(req: NextRequest) {
   // Rate limit: 10 auth attempts per IP per 15 minutes
   const ip = getClientIp(req.headers);
+  const userAgent = req.headers.get("user-agent") ?? undefined;
+  const meta = { ip, userAgent };
   const rl = await checkRateLimit(`auth:${ip}`, 10, 900);
   if (!rl.ok) {
     return NextResponse.json(
@@ -91,7 +98,7 @@ export async function POST(req: NextRequest) {
           // Found in students table — also fetch their latest submission token
           const token = await getLatestToken(supabase);
           const studentEmail = (student as { email?: string }).email ?? normalizedEmail;
-          return jsonWithUserCookie({ ok: true, student, isNew: false, token }, studentEmail);
+          return jsonWithUserCookie({ ok: true, student, isNew: false, token }, studentEmail, meta);
         }
 
         // 2. Student record missing (e.g. DB was unavailable when they registered).
@@ -120,7 +127,7 @@ export async function POST(req: NextRequest) {
             .select()
             .single();
 
-          return jsonWithUserCookie({ ok: true, student: recovered, isNew: false, token }, recovered.email);
+          return jsonWithUserCookie({ ok: true, student: recovered, isNew: false, token }, recovered.email, meta);
         }
       }
 
@@ -167,7 +174,7 @@ export async function POST(req: NextRequest) {
       if (!error && data) {
         sendWelcomeEmail(); // fire-and-forget
         const studentEmail = (data as { email?: string }).email ?? normalizedEmail;
-        return jsonWithUserCookie({ ok: true, student: data, isNew: true }, studentEmail);
+        return jsonWithUserCookie({ ok: true, student: data, isNew: true }, studentEmail, meta);
       }
       console.error("Supabase upsert error during register:", error);
     }
@@ -180,7 +187,8 @@ export async function POST(req: NextRequest) {
         student: { ...student, id: `guest_${Date.now()}` },
         isNew: true,
       },
-      student.email
+      student.email,
+      meta,
     );
 
   } catch (err) {

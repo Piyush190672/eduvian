@@ -96,6 +96,21 @@ CREATE POLICY "students_service_all"   ON students FOR ALL   USING (auth.role() 
 -- ALTER TABLE students ADD COLUMN IF NOT EXISTS source TEXT;
 -- ALTER TABLE students ADD COLUMN IF NOT EXISTS source_stage INTEGER;
 
+-- ─── User sessions table (opaque cookie -> email lookup) ────────────────────
+-- See migrations/20260502-h2-user-sessions.sql for the production fix.
+CREATE TABLE IF NOT EXISTS public.user_sessions (
+  id          UUID        PRIMARY KEY DEFAULT gen_random_uuid(),
+  email       TEXT        NOT NULL,
+  expires_at  TIMESTAMPTZ NOT NULL,
+  created_at  TIMESTAMPTZ NOT NULL DEFAULT now(),
+  user_agent  TEXT,
+  ip          TEXT
+);
+CREATE INDEX IF NOT EXISTS idx_user_sessions_email   ON public.user_sessions(email);
+CREATE INDEX IF NOT EXISTS idx_user_sessions_expires ON public.user_sessions(expires_at);
+ALTER TABLE public.user_sessions ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "user_sessions_service_all" ON public.user_sessions FOR ALL USING (auth.role() = 'service_role');
+
 -- ─── Tool usage table (beta gate) ────────────────────────────────────────────
 create table if not exists public.tool_usage (
   id uuid primary key default gen_random_uuid(),

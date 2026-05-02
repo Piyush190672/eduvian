@@ -200,7 +200,10 @@ export async function POST(req: NextRequest) {
       savedToDb,
     });
     try {
-      const userToken = await createUserToken(normalizedEmail);
+      const userToken = await createUserToken(normalizedEmail, {
+        ip,
+        userAgent: req.headers.get("user-agent") ?? undefined,
+      });
       res.cookies.set(USER_COOKIE_NAME, userToken, USER_COOKIE_OPTS);
     } catch (e) {
       console.error("Failed to set user cookie:", e);
