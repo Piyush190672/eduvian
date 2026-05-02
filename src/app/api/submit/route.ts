@@ -71,7 +71,7 @@ async function sendLeadNotification(
 export async function POST(req: NextRequest) {
   // Rate limit: 5 submissions per IP per hour
   const ip = getClientIp(req.headers);
-  const rl = checkRateLimit(`submit:${ip}`, 5, 3600);
+  const rl = await checkRateLimit(`submit:${ip}`, 5, 3600);
   if (!rl.ok) {
     return NextResponse.json(
       { error: "Too many requests. Please try again later." },

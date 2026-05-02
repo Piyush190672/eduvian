@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getUserFromRequest } from "@/lib/user-cookie";
 import { checkBetaAccess, logToolUsage } from "@/lib/beta-gate";
-import { getClientIp } from "@/lib/rate-limit";
+import { getClientIp, aiToolLimit } from "@/lib/rate-limit";
 import { apiErrorResponse } from "@/lib/api-error";
 
 export const maxDuration = 60;
@@ -16,6 +16,8 @@ export async function POST(req: NextRequest) {
         { status: gate.reason === "no_user" ? 401 : 403 }
       );
     }
+    const limited = await aiToolLimit(req, "score-english", user?.email, { limit: 20 });
+    if (limited) return limited;
 
     const { exam, section, taskType, prompt, response: userResponse, rubric } = await req.json() as {
       exam: string;

@@ -30,7 +30,7 @@ function isValidEmail(email: string): boolean {
 export async function POST(req: NextRequest) {
   // Rate limit: 10 auth attempts per IP per 15 minutes
   const ip = getClientIp(req.headers);
-  const rl = checkRateLimit(`auth:${ip}`, 10, 900);
+  const rl = await checkRateLimit(`auth:${ip}`, 10, 900);
   if (!rl.ok) {
     return NextResponse.json(
       { error: "Too many attempts. Please try again later." },

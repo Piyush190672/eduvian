@@ -5,7 +5,7 @@ import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 export async function POST(req: NextRequest) {
   // Rate limit: 3 welcome emails per IP per hour (prevents email abuse)
   const ip = getClientIp(req.headers);
-  const rl = checkRateLimit(`email-welcome:${ip}`, 3, 3600);
+  const rl = await checkRateLimit(`email-welcome:${ip}`, 3, 3600);
   if (!rl.ok) {
     return NextResponse.json({ ok: false, error: "Rate limited" }, { status: 429 });
   }

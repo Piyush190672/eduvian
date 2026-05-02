@@ -323,7 +323,7 @@ interface ChatMessage {
 
 import { getUserFromRequest } from "@/lib/user-cookie";
 import { checkBetaAccess, logToolUsage } from "@/lib/beta-gate";
-import { getClientIp } from "@/lib/rate-limit";
+import { getClientIp, aiToolLimit } from "@/lib/rate-limit";
 import { apiErrorResponse } from "@/lib/api-error";
 
 export async function POST(req: NextRequest) {
@@ -336,6 +336,9 @@ export async function POST(req: NextRequest) {
         { status: gate.reason === "no_user" ? 401 : 403 }
       );
     }
+    // Chat is high-volume; allow more headroom than the heavier tools.
+    const limited = await aiToolLimit(req, "chat", user?.email, { limit: 30 });
+    if (limited) return limited;
 
     const { messages, programsContext } = await req.json() as {
       messages: ChatMessage[];

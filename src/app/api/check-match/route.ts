@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import type { StudentProfile, Program, ScoredProgram } from "@/lib/types";
 import { getUserFromRequest } from "@/lib/user-cookie";
 import { checkBetaAccess, logToolUsage } from "@/lib/beta-gate";
-import { getClientIp } from "@/lib/rate-limit";
+import { getClientIp, aiToolLimit } from "@/lib/rate-limit";
 
 export async function GET(req: NextRequest) {
   const { searchParams } = req.nextUrl;
@@ -61,6 +61,8 @@ export async function GET(req: NextRequest) {
       { status: gate.reason === "no_user" ? 401 : 403 }
     );
   }
+  const limited = await aiToolLimit(req, "check-match", gateEmail, { limit: 30 });
+  if (limited) return limited;
 
   // Load all programs
   const { PROGRAMS } = await import("@/data/programs");

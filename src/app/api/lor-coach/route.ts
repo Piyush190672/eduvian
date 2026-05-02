@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import type { LorBrief, RecommenderInputs, LorProgram } from "@/lib/lor-coach";
 import { getUserFromRequest } from "@/lib/user-cookie";
 import { checkBetaAccess, logToolUsage } from "@/lib/beta-gate";
-import { getClientIp } from "@/lib/rate-limit";
+import { getClientIp, aiToolLimit } from "@/lib/rate-limit";
 import { apiErrorResponse } from "@/lib/api-error";
 
 export const maxDuration = 90;
@@ -164,6 +164,11 @@ export async function POST(req: NextRequest) {
         { status: gate.reason === "no_user" ? 401 : 403 }
       );
     }
+    // Generate is heavier than assess — match the tighter beta-gate cap.
+    const limited = await aiToolLimit(req, toolKey, user?.email, {
+      limit: body.action === "generate" ? 3 : 10,
+    });
+    if (limited) return limited;
 
     const apiKey = process.env.ANTHROPIC_API_KEY;
     if (!apiKey) {

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getUserFromRequest } from "@/lib/user-cookie";
 import { checkBetaAccess, logToolUsage } from "@/lib/beta-gate";
-import { getClientIp } from "@/lib/rate-limit";
+import { getClientIp, aiToolLimit } from "@/lib/rate-limit";
 import { apiErrorResponse } from "@/lib/api-error";
 
 export const maxDuration = 60; // allow up to 60s for Claude analysis
@@ -100,6 +100,8 @@ export async function POST(req: NextRequest) {
         { status: gate.reason === "no_user" ? 401 : 403 }
       );
     }
+    const limited = await aiToolLimit(req, "application-check", user?.email);
+    if (limited) return limited;
 
     const body = (await req.json()) as ApplicationCheckRequest;
 
