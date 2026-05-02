@@ -2212,19 +2212,16 @@ export default function LandingPage() {
             </div>
           </div>
 
-          {/* Middle — short integrity disclaimer */}
+          {/* Middle — short integrity disclaimer (legal pages offline pending counsel review) */}
           <div className="text-[11px] text-gray-500 leading-relaxed border-t border-white/5 pt-5 max-w-3xl mx-auto text-center">
-            EduvianAI is a decision-support tool. AI-generated recommendations and tool outputs are estimates, not professional admissions, immigration, financial, or legal advice. University fees, deadlines, and eligibility may change &mdash; always confirm directly with the university before applying. Read our full <Link href="/disclaimer" className="text-gray-400 underline hover:text-blue-400">Disclaimer</Link>.
+            EduvianAI is a decision-support tool. AI-generated recommendations and tool outputs are estimates, not professional admissions, immigration, financial, or legal advice. University fees, deadlines, and eligibility may change &mdash; always confirm directly with the university before applying.
           </div>
 
-          {/* Bottom — legal links */}
+          {/* Bottom — contact + copyright */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-400 border-t border-white/5 pt-4">
             <div className="flex flex-wrap items-center gap-4">
-              <Link href="/terms" className="hover:text-blue-400 transition-colors">Terms of Use</Link>
-              <Link href="/privacy" className="hover:text-blue-400 transition-colors">Privacy Policy</Link>
-              <Link href="/disclaimer" className="hover:text-blue-400 transition-colors">Disclaimer</Link>
-              <a href="mailto:grievance@eduvianai.com" className="hover:text-blue-400 transition-colors">Grievance Officer</a>
               <a href="mailto:support@eduvianai.com" className="hover:text-blue-400 transition-colors">Contact</a>
+              <a href="mailto:grievance@eduvianai.com" className="hover:text-blue-400 transition-colors">Grievance Officer</a>
             </div>
             <div className="flex items-center gap-3">
               <p>© 2026 eduvianAI. All rights reserved.</p>
