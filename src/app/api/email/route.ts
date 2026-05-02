@@ -208,6 +208,9 @@ export async function POST(req: NextRequest) {
       },
       body: JSON.stringify({
         from: `eduvianAI <${fromEmail}>`,
+        // reply_to routes user replies to the support inbox (Google Workspace
+        // alias on piyush@eduvianai.com) instead of the noreply-style sender.
+        reply_to: "support@eduvianai.com",
         to: [profile.email],
         subject: `🎓 Your eduvianAI shortlist — ${programs.length} program${programs.length === 1 ? "" : "s"} saved`,
         html: htmlBody,

@@ -10,6 +10,64 @@ import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 import { checkBetaAccess, logToolUsage } from "@/lib/beta-gate";
 import { createUserToken, USER_COOKIE_NAME, USER_COOKIE_OPTS } from "@/lib/user-cookie";
 
+/**
+ * Notify admissions@eduvianai.com whenever a profile is submitted. Sent
+ * fire-and-forget — failures are silently swallowed by the caller so a
+ * Resend outage cannot block the student from getting their results.
+ *
+ * Uses the same `RESEND_FROM_EMAIL` env var (default `results@eduvianai.com`)
+ * as the user-facing emails, so SPF/DKIM/DMARC alignment is identical.
+ */
+async function sendLeadNotification(
+  profile: StudentProfile,
+  profileCategory: string,
+  totalMatched: number,
+  token: string,
+): Promise<void> {
+  const resendKey = process.env.RESEND_API_KEY;
+  if (!resendKey) return; // Dev / preview without key — skip silently
+  const fromEmail = process.env.RESEND_FROM_EMAIL ?? "results@eduvianai.com";
+  const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "https://www.eduvianai.com";
+  const safe = (s: string | undefined): string => (s ?? "—").toString().slice(0, 200).replace(/[<>"'`]/g, "");
+  const subject = `New lead: ${safe(profile.full_name)} (${profileCategory}) — ${totalMatched} matches`;
+  const html = `
+    <h2>New lead via the profile builder</h2>
+    <table style="border-collapse:collapse;font-family:Arial,sans-serif;font-size:14px">
+      <tr><td><b>Name</b></td><td>${safe(profile.full_name)}</td></tr>
+      <tr><td><b>Email</b></td><td>${safe(profile.email)}</td></tr>
+      <tr><td><b>Phone</b></td><td>${safe(profile.phone)}</td></tr>
+      <tr><td><b>City / nationality</b></td><td>${safe(profile.city)} / ${safe(profile.nationality)}</td></tr>
+      <tr><td><b>Degree level</b></td><td>${safe(profile.degree_level)}</td></tr>
+      <tr><td><b>Intended field</b></td><td>${safe(profile.intended_field)}</td></tr>
+      <tr><td><b>Country preference</b></td><td>${safe((profile.country_preferences || []).join(", "))}</td></tr>
+      <tr><td><b>Budget</b></td><td>${safe(profile.budget_range)}</td></tr>
+      <tr><td><b>Profile category</b></td><td>${safe(profileCategory)}</td></tr>
+      <tr><td><b>Matches</b></td><td>${totalMatched}</td></tr>
+      <tr><td><b>Token</b></td><td><code>${safe(token)}</code></td></tr>
+    </table>
+    <p style="margin-top:16px"><a href="${appUrl}/results/${safe(token)}">View their results</a></p>
+  `;
+  try {
+    await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${resendKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: `eduvianAI Lead Notifier <${fromEmail}>`,
+        reply_to: profile.email, // Replying goes directly to the student
+        to: ["admissions@eduvianai.com"],
+        subject,
+        html,
+      }),
+    });
+  } catch (e) {
+    console.error("Lead notification failed:", e);
+    // Swallow — never block the student's result from this.
+  }
+}
+
 export async function POST(req: NextRequest) {
   // Rate limit: 5 submissions per IP per hour
   const ip = getClientIp(req.headers);
@@ -117,7 +175,7 @@ export async function POST(req: NextRequest) {
     // Log tool usage so this user counts toward the 100/mo cap
     await logToolUsage(normalizedEmail, "submit-match", ip);
 
-    // Send email asynchronously (don't block the response)
+    // Send results email asynchronously (don't block the response)
     const appUrl =
       process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
     fetch(`${appUrl}/api/email`, {
@@ -129,6 +187,11 @@ export async function POST(req: NextRequest) {
         programs: scored.slice(0, 10),
       }),
     }).catch(() => {});
+
+    // Notify admissions@ of every new lead. Fire-and-forget — never blocks
+    // the user's response. Uses Resend directly (no internal API roundtrip)
+    // so the notification still goes out even if /api/email is rate-limited.
+    sendLeadNotification(profile, profile_category, scored.length, token).catch(() => {});
 
     // Set the user cookie so unregistered submitters become known users.
     const res = NextResponse.json({

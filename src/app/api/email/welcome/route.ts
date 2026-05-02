@@ -256,6 +256,7 @@ export async function POST(req: NextRequest) {
       },
       body: JSON.stringify({
         from: `eduvianAI <${fromEmail}>`,
+        reply_to: "support@eduvianai.com",
         to: [email],
         subject: `Welcome to eduvianAI, ${firstName}! 🌍 Your study abroad journey starts here`,
         html: htmlBody,
