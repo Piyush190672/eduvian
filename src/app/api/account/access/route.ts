@@ -3,6 +3,9 @@ import { getUserFromRequest } from "@/lib/user-cookie";
 import { createServiceClient } from "@/lib/supabase";
 import { apiErrorResponse } from "@/lib/api-error";
 
+// Reads the session cookie — must be evaluated per-request, never statically.
+export const dynamic = "force-dynamic";
+
 /**
  * DPDPA s.13 / GDPR Art.15 — right of access.
  * Returns every piece of data we hold tied to the calling user's email.

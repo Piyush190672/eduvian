@@ -3,6 +3,9 @@ import { getUserFromRequest } from "@/lib/user-cookie";
 import { createServiceClient } from "@/lib/supabase";
 import { apiErrorResponse } from "@/lib/api-error";
 
+// Reads the session cookie — must be evaluated per-request, never statically.
+export const dynamic = "force-dynamic";
+
 /** Accepted, sanitised, length-capped fields for self-service correction. */
 function clean(value: unknown, maxLen: number): string | null {
   if (typeof value !== "string") return null;
