@@ -1,0 +1,4098 @@
+[
+  {
+    "university": "Queen Mary University of London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 130,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.qmul.ac.uk/postgraduate/taught/coursefinder/courses/advanced-computer-science-msc/"
+  },
+  {
+    "university": "Queen Mary University of London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 130,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.qmul.ac.uk/postgraduate/taught/coursefinder/courses/artificial-intelligence-msc/"
+  },
+  {
+    "university": "Queen Mary University of London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 130,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.qmul.ac.uk/postgraduate/taught/coursefinder/courses/management-msc/"
+  },
+  {
+    "university": "Queen Mary University of London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 130,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.qmul.ac.uk/postgraduate/taught/coursefinder/courses/advanced-mechanical-engineering-msc/"
+  },
+  {
+    "university": "Queen Mary University of London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 130,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.qmul.ac.uk/postgraduate/taught/coursefinder/courses/biotechnology-msc/"
+  },
+  {
+    "university": "Queen Mary University of London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 130,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.qmul.ac.uk/undergraduate/coursefinder/courses/2026/medicine-5-year-programme/"
+  },
+  {
+    "university": "Queen Mary University of London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 130,
+    "field_of_study": "Law",
+    "program_url": "https://www.qmul.ac.uk/postgraduate/taught/coursefinder/courses/laws-llm/"
+  },
+  {
+    "university": "Queen Mary University of London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 130,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.qmul.ac.uk/postgraduate/taught/coursefinder/courses/creative-arts-and-media-ma/"
+  },
+  {
+    "university": "Queen Mary University of London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 130,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.qmul.ac.uk/postgraduate/taught/coursefinder/courses/heritage-management-ma/"
+  },
+  {
+    "university": "Queen Mary University of London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 130,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.qmul.ac.uk/postgraduate/taught/coursefinder/courses/finance-msc/"
+  },
+  {
+    "university": "Queen Mary University of London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 130,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.qmul.ac.uk/postgraduate/taught/coursefinder/courses/digital-media-and-global-cultures-ma/"
+  },
+  {
+    "university": "Queen Mary University of London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 130,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.qmul.ac.uk/postgraduate/taught/coursefinder/courses/water-and-environmental-management-msc/"
+  },
+  {
+    "university": "Queen Mary University of London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 130,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.qmul.ac.uk/postgraduate/taught/coursefinder/courses/physics-euromasters-msc/"
+  },
+  {
+    "university": "Queen Mary University of London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 130,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.qmul.ac.uk/postgraduate/taught/coursefinder/courses/critical-care-msc/"
+  },
+  {
+    "university": "Royal Holloway, University of London",
+    "country": "UK",
+    "city": "Egham",
+    "qs_ranking": 391,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.royalholloway.ac.uk/studying-here/postgraduate/computer-science/data-science-and-analytics/"
+  },
+  {
+    "university": "Royal Holloway, University of London",
+    "country": "UK",
+    "city": "Egham",
+    "qs_ranking": 391,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.royalholloway.ac.uk/studying-here/postgraduate/computer-science/artificial-intelligence/"
+  },
+  {
+    "university": "Royal Holloway, University of London",
+    "country": "UK",
+    "city": "Egham",
+    "qs_ranking": 391,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.royalholloway.ac.uk/studying-here/postgraduate/business-school/international-business-management/"
+  },
+  {
+    "university": "Royal Holloway, University of London",
+    "country": "UK",
+    "city": "Egham",
+    "qs_ranking": 391,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.royalholloway.ac.uk/studying-here/undergraduate/electronic-engineering/electronic-engineering-meng/"
+  },
+  {
+    "university": "Royal Holloway, University of London",
+    "country": "UK",
+    "city": "Egham",
+    "qs_ranking": 391,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.royalholloway.ac.uk/studying-here/undergraduate/biological-sciences/biomedical-sciences/"
+  },
+  {
+    "university": "Royal Holloway, University of London",
+    "country": "UK",
+    "city": "Egham",
+    "qs_ranking": 391,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.royalholloway.ac.uk/studying-here/postgraduate/health-studies/msc-global-health-human-health-and-the-environment/"
+  },
+  {
+    "university": "Royal Holloway, University of London",
+    "country": "UK",
+    "city": "Egham",
+    "qs_ranking": 391,
+    "field_of_study": "Law",
+    "program_url": "https://www.royalholloway.ac.uk/studying-here/undergraduate/law-and-criminology/law/"
+  },
+  {
+    "university": "Royal Holloway, University of London",
+    "country": "UK",
+    "city": "Egham",
+    "qs_ranking": 391,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.royalholloway.ac.uk/studying-here/undergraduate/media-arts/video-games-art-and-design/"
+  },
+  {
+    "university": "Royal Holloway, University of London",
+    "country": "UK",
+    "city": "Egham",
+    "qs_ranking": 391,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.royalholloway.ac.uk/studying-here/undergraduate/social-work/social-science/"
+  },
+  {
+    "university": "Royal Holloway, University of London",
+    "country": "UK",
+    "city": "Egham",
+    "qs_ranking": 391,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.royalholloway.ac.uk/studying-here/postgraduate/economics/finance/"
+  },
+  {
+    "university": "Royal Holloway, University of London",
+    "country": "UK",
+    "city": "Egham",
+    "qs_ranking": 391,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.royalholloway.ac.uk/studying-here/postgraduate/media-arts/international-media-management/"
+  },
+  {
+    "university": "Royal Holloway, University of London",
+    "country": "UK",
+    "city": "Egham",
+    "qs_ranking": 391,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.royalholloway.ac.uk/studying-here/postgraduate/geography/sustainability-and-management/"
+  },
+  {
+    "university": "Royal Holloway, University of London",
+    "country": "UK",
+    "city": "Egham",
+    "qs_ranking": 391,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.royalholloway.ac.uk/studying-here/undergraduate/earth-sciences/earth-climate-and-environmental-change/"
+  },
+  {
+    "university": "Royal Holloway, University of London",
+    "country": "UK",
+    "city": "Egham",
+    "qs_ranking": 391,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.royalholloway.ac.uk/studying-here/undergraduate/health-studies/health-sciences/"
+  },
+  {
+    "university": "SOAS, University of London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.soas.ac.uk/study/find-course/msc-data-science"
+  },
+  {
+    "university": "SOAS, University of London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.soas.ac.uk/study/find-course/msc-artificial-intelligence-and-sustainability"
+  },
+  {
+    "university": "SOAS, University of London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.soas.ac.uk/study/find-course/msc-international-business"
+  },
+  {
+    "university": "SOAS, University of London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": null,
+    "field_of_study": "Law",
+    "program_url": "https://www.soas.ac.uk/study/find-course/llm"
+  },
+  {
+    "university": "SOAS, University of London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": null,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.soas.ac.uk/study/find-course/ma-medical-anthropology-and-mental-health"
+  },
+  {
+    "university": "SOAS, University of London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.soas.ac.uk/study/find-course/ma-history-art-and-archaeology"
+  },
+  {
+    "university": "SOAS, University of London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.soas.ac.uk/study/find-course/ma-social-anthropology"
+  },
+  {
+    "university": "SOAS, University of London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.soas.ac.uk/study/find-course/msc-economics"
+  },
+  {
+    "university": "SOAS, University of London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.soas.ac.uk/study/find-course/ma-global-media-and-digital-communications"
+  },
+  {
+    "university": "SOAS, University of London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.soas.ac.uk/study/find-course/msc-environment-politics-and-development"
+  },
+  {
+    "university": "University of Aberdeen",
+    "country": "UK",
+    "city": "Aberdeen",
+    "qs_ranking": 264,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.abdn.ac.uk/study/postgraduate-taught/degree-programmes/133/information-technology/"
+  },
+  {
+    "university": "University of Aberdeen",
+    "country": "UK",
+    "city": "Aberdeen",
+    "qs_ranking": 264,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.abdn.ac.uk/study/postgraduate-taught/degree-programmes/1034/artificial-intelligence/"
+  },
+  {
+    "university": "University of Aberdeen",
+    "country": "UK",
+    "city": "Aberdeen",
+    "qs_ranking": 264,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.abdn.ac.uk/study/postgraduate-taught/degree-programmes/141/international-business-management/"
+  },
+  {
+    "university": "University of Aberdeen",
+    "country": "UK",
+    "city": "Aberdeen",
+    "qs_ranking": 264,
+    "field_of_study": "MBA",
+    "program_url": "https://www.abdn.ac.uk/study/postgraduate-taught/degree-programmes/31/mba-aberdeen/"
+  },
+  {
+    "university": "University of Aberdeen",
+    "country": "UK",
+    "city": "Aberdeen",
+    "qs_ranking": 264,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.abdn.ac.uk/study/postgraduate-taught/degree-programmes/1037/advanced-mechanical-engineering/"
+  },
+  {
+    "university": "University of Aberdeen",
+    "country": "UK",
+    "city": "Aberdeen",
+    "qs_ranking": 264,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.abdn.ac.uk/study/postgraduate-taught/degree-programmes/1036/msc-biotechnology-bioinformatics-and-bio-business/"
+  },
+  {
+    "university": "University of Aberdeen",
+    "country": "UK",
+    "city": "Aberdeen",
+    "qs_ranking": 264,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.abdn.ac.uk/study/postgraduate-taught/degree-programmes/909/master-of-public-health/"
+  },
+  {
+    "university": "University of Aberdeen",
+    "country": "UK",
+    "city": "Aberdeen",
+    "qs_ranking": 264,
+    "field_of_study": "Law",
+    "program_url": "https://www.abdn.ac.uk/study/postgraduate-taught/degree-programmes/97/general-law/"
+  },
+  {
+    "university": "University of Aberdeen",
+    "country": "UK",
+    "city": "Aberdeen",
+    "qs_ranking": 264,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.abdn.ac.uk/study/postgraduate-taught/degree-programmes/332/film-and-visual-culture/"
+  },
+  {
+    "university": "University of Aberdeen",
+    "country": "UK",
+    "city": "Aberdeen",
+    "qs_ranking": 264,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.abdn.ac.uk/study/postgraduate-taught/degree-programmes/300/sociology/"
+  },
+  {
+    "university": "University of Aberdeen",
+    "country": "UK",
+    "city": "Aberdeen",
+    "qs_ranking": 264,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.abdn.ac.uk/study/postgraduate-taught/degree-programmes/228/energy-economics-and-finance/"
+  },
+  {
+    "university": "University of Aberdeen",
+    "country": "UK",
+    "city": "Aberdeen",
+    "qs_ranking": 264,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.abdn.ac.uk/study/postgraduate-taught/degree-programmes/252/global-business-communication/"
+  },
+  {
+    "university": "University of Aberdeen",
+    "country": "UK",
+    "city": "Aberdeen",
+    "qs_ranking": 264,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.abdn.ac.uk/study/postgraduate-taught/degree-programmes/1022/environmental-management/"
+  },
+  {
+    "university": "University of Aberdeen",
+    "country": "UK",
+    "city": "Aberdeen",
+    "qs_ranking": 264,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.abdn.ac.uk/study/postgraduate-taught/degree-programmes/1198/data-science/"
+  },
+  {
+    "university": "University of Aberdeen",
+    "country": "UK",
+    "city": "Aberdeen",
+    "qs_ranking": 264,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.abdn.ac.uk/study/postgraduate-taught/degree-programmes/1182/advanced-clinical-practice/"
+  },
+  {
+    "university": "University of Aberdeen",
+    "country": "UK",
+    "city": "Aberdeen",
+    "qs_ranking": 264,
+    "field_of_study": "Agriculture & Veterinary Sciences",
+    "program_url": "https://www.abdn.ac.uk/study/undergraduate/degree-programmes/1831/C345/animal-behaviour-and-welfare/"
+  },
+  {
+    "university": "University of Aberdeen",
+    "country": "UK",
+    "city": "Aberdeen",
+    "qs_ranking": 264,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://www.abdn.ac.uk/study/postgraduate-taught/degree-programmes/141/international-business-management/"
+  },
+  {
+    "university": "University of Dundee",
+    "country": "UK",
+    "city": "Dundee",
+    "qs_ranking": 412,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.dundee.ac.uk/postgraduate/computer-science"
+  },
+  {
+    "university": "University of Dundee",
+    "country": "UK",
+    "city": "Dundee",
+    "qs_ranking": 412,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.dundee.ac.uk/postgraduate/artificial-intelligence"
+  },
+  {
+    "university": "University of Dundee",
+    "country": "UK",
+    "city": "Dundee",
+    "qs_ranking": 412,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.dundee.ac.uk/postgraduate/management"
+  },
+  {
+    "university": "University of Dundee",
+    "country": "UK",
+    "city": "Dundee",
+    "qs_ranking": 412,
+    "field_of_study": "MBA",
+    "program_url": "https://www.dundee.ac.uk/postgraduate/mba-accelerated"
+  },
+  {
+    "university": "University of Dundee",
+    "country": "UK",
+    "city": "Dundee",
+    "qs_ranking": 412,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.dundee.ac.uk/undergraduate/civil-structural-engineering-meng"
+  },
+  {
+    "university": "University of Dundee",
+    "country": "UK",
+    "city": "Dundee",
+    "qs_ranking": 412,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.dundee.ac.uk/postgraduate/biomedical-molecular-sciences"
+  },
+  {
+    "university": "University of Dundee",
+    "country": "UK",
+    "city": "Dundee",
+    "qs_ranking": 412,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.dundee.ac.uk/postgraduate/public-health"
+  },
+  {
+    "university": "University of Dundee",
+    "country": "UK",
+    "city": "Dundee",
+    "qs_ranking": 412,
+    "field_of_study": "Law",
+    "program_url": "https://www.dundee.ac.uk/postgraduate/law-general"
+  },
+  {
+    "university": "University of Dundee",
+    "country": "UK",
+    "city": "Dundee",
+    "qs_ranking": 412,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.dundee.ac.uk/undergraduate/architecture"
+  },
+  {
+    "university": "University of Dundee",
+    "country": "UK",
+    "city": "Dundee",
+    "qs_ranking": 412,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.dundee.ac.uk/undergraduate/social-work"
+  },
+  {
+    "university": "University of Dundee",
+    "country": "UK",
+    "city": "Dundee",
+    "qs_ranking": 412,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.dundee.ac.uk/postgraduate/finance"
+  },
+  {
+    "university": "University of Dundee",
+    "country": "UK",
+    "city": "Dundee",
+    "qs_ranking": 412,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.dundee.ac.uk/postgraduate/communication-design"
+  },
+  {
+    "university": "University of Dundee",
+    "country": "UK",
+    "city": "Dundee",
+    "qs_ranking": 412,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.dundee.ac.uk/postgraduate/sustainability"
+  },
+  {
+    "university": "University of Dundee",
+    "country": "UK",
+    "city": "Dundee",
+    "qs_ranking": 412,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.dundee.ac.uk/undergraduate/biological-sciences"
+  },
+  {
+    "university": "University of Dundee",
+    "country": "UK",
+    "city": "Dundee",
+    "qs_ranking": 412,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.dundee.ac.uk/postgraduate/nursing-health"
+  },
+  {
+    "university": "University of Stirling",
+    "country": "UK",
+    "city": "Stirling",
+    "qs_ranking": 487,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.stir.ac.uk/courses/ug/computing-science/"
+  },
+  {
+    "university": "University of Stirling",
+    "country": "UK",
+    "city": "Stirling",
+    "qs_ranking": 487,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.stir.ac.uk/courses/pg-taught/artificial-intelligence/"
+  },
+  {
+    "university": "University of Stirling",
+    "country": "UK",
+    "city": "Stirling",
+    "qs_ranking": 487,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.stir.ac.uk/courses/pg-taught/business-management/"
+  },
+  {
+    "university": "University of Stirling",
+    "country": "UK",
+    "city": "Stirling",
+    "qs_ranking": 487,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.stir.ac.uk/courses/pg-taught/aquaculture-sustainable-aquaculture/"
+  },
+  {
+    "university": "University of Stirling",
+    "country": "UK",
+    "city": "Stirling",
+    "qs_ranking": 487,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.stir.ac.uk/courses/pg-taught/public-health/"
+  },
+  {
+    "university": "University of Stirling",
+    "country": "UK",
+    "city": "Stirling",
+    "qs_ranking": 487,
+    "field_of_study": "Law",
+    "program_url": "https://www.stir.ac.uk/courses/ug/law-llb/"
+  },
+  {
+    "university": "University of Stirling",
+    "country": "UK",
+    "city": "Stirling",
+    "qs_ranking": 487,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.stir.ac.uk/courses/pg-taught/applied-social-research-msc/"
+  },
+  {
+    "university": "University of Stirling",
+    "country": "UK",
+    "city": "Stirling",
+    "qs_ranking": 487,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.stir.ac.uk/courses/pg-taught/finance/"
+  },
+  {
+    "university": "University of Stirling",
+    "country": "UK",
+    "city": "Stirling",
+    "qs_ranking": 487,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.stir.ac.uk/courses/pg-taught/media-management/"
+  },
+  {
+    "university": "University of Stirling",
+    "country": "UK",
+    "city": "Stirling",
+    "qs_ranking": 487,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.stir.ac.uk/courses/pg-taught/environmental-management/"
+  },
+  {
+    "university": "University of Stirling",
+    "country": "UK",
+    "city": "Stirling",
+    "qs_ranking": 487,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.stir.ac.uk/courses/ug/biology/"
+  },
+  {
+    "university": "University of Stirling",
+    "country": "UK",
+    "city": "Stirling",
+    "qs_ranking": 487,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.stir.ac.uk/courses/pg-taught/advancing-practice-online/"
+  },
+  {
+    "university": "University of Stirling",
+    "country": "UK",
+    "city": "Stirling",
+    "qs_ranking": 487,
+    "field_of_study": "Agriculture & Veterinary Sciences",
+    "program_url": "https://www.stir.ac.uk/courses/pg-taught/aquatic-veterinary-studies/"
+  },
+  {
+    "university": "University of Stirling",
+    "country": "UK",
+    "city": "Stirling",
+    "qs_ranking": 487,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://www.stir.ac.uk/courses/ug/heritage-tourism/"
+  },
+  {
+    "university": "University of Essex",
+    "country": "UK",
+    "city": "Colchester",
+    "qs_ranking": 412,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.essex.ac.uk/courses/pg00435/1/msc-advanced-computer-science"
+  },
+  {
+    "university": "University of Essex",
+    "country": "UK",
+    "city": "Colchester",
+    "qs_ranking": 412,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.essex.ac.uk/courses/pg00457/1/msc-artificial-intelligence"
+  },
+  {
+    "university": "University of Essex",
+    "country": "UK",
+    "city": "Colchester",
+    "qs_ranking": 412,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.essex.ac.uk/courses/pg00670/1/msc-management"
+  },
+  {
+    "university": "University of Essex",
+    "country": "UK",
+    "city": "Colchester",
+    "qs_ranking": 412,
+    "field_of_study": "MBA",
+    "program_url": "https://www.essex.ac.uk/courses/pg00472/1/master-of-business-administration,-c-,-the-essex-mba"
+  },
+  {
+    "university": "University of Essex",
+    "country": "UK",
+    "city": "Colchester",
+    "qs_ranking": 412,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.essex.ac.uk/courses/pg00546/1/msc-electronic-engineering"
+  },
+  {
+    "university": "University of Essex",
+    "country": "UK",
+    "city": "Colchester",
+    "qs_ranking": 412,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.essex.ac.uk/courses/PG00469/1/MSc-Biotechnology"
+  },
+  {
+    "university": "University of Essex",
+    "country": "UK",
+    "city": "Colchester",
+    "qs_ranking": 412,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.essex.ac.uk/courses/pg01447/1/msc-global-public-health"
+  },
+  {
+    "university": "University of Essex",
+    "country": "UK",
+    "city": "Colchester",
+    "qs_ranking": 412,
+    "field_of_study": "Law",
+    "program_url": "https://www.essex.ac.uk/courses/pg01386/1/llm-international-law"
+  },
+  {
+    "university": "University of Essex",
+    "country": "UK",
+    "city": "Colchester",
+    "qs_ranking": 412,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.essex.ac.uk/courses/pg00456/1/ma-art-history-and-theory"
+  },
+  {
+    "university": "University of Essex",
+    "country": "UK",
+    "city": "Colchester",
+    "qs_ranking": 412,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.essex.ac.uk/courses/pg00783/1/ma-sociology"
+  },
+  {
+    "university": "University of Essex",
+    "country": "UK",
+    "city": "Colchester",
+    "qs_ranking": 412,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.essex.ac.uk/courses/pg00542/1/msc-economics"
+  },
+  {
+    "university": "University of Essex",
+    "country": "UK",
+    "city": "Colchester",
+    "qs_ranking": 412,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.essex.ac.uk/courses/pg00441/1/ma-advertising-marketing-and-the-media"
+  },
+  {
+    "university": "University of Essex",
+    "country": "UK",
+    "city": "Colchester",
+    "qs_ranking": 412,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.essex.ac.uk/courses/PG01406/2/MSc-Environmental-Futures-with-Climate-Change"
+  },
+  {
+    "university": "University of Essex",
+    "country": "UK",
+    "city": "Colchester",
+    "qs_ranking": 412,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.essex.ac.uk/courses/pg00837/1/msc-tropical-marine-biology"
+  },
+  {
+    "university": "University of Essex",
+    "country": "UK",
+    "city": "Colchester",
+    "qs_ranking": 412,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.essex.ac.uk/courses/ug01535/1/integrated-master-in-science,-c-,-nursing-(dual-award-in-adult-and-mental-health)"
+  },
+  {
+    "university": "University of Essex",
+    "country": "UK",
+    "city": "Colchester",
+    "qs_ranking": 412,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://www.essex.ac.uk/courses/PG01115/1/MSc-International-Hospitality-Management"
+  },
+  {
+    "university": "University of Bradford",
+    "country": "UK",
+    "city": "Bradford",
+    "qs_ranking": 691,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.bradford.ac.uk/courses/ug/computer-science-bsc/"
+  },
+  {
+    "university": "University of Bradford",
+    "country": "UK",
+    "city": "Bradford",
+    "qs_ranking": 691,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.bradford.ac.uk/courses/pg/applied-artificial-intelligence-and-data-analytics/"
+  },
+  {
+    "university": "University of Bradford",
+    "country": "UK",
+    "city": "Bradford",
+    "qs_ranking": 691,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.bradford.ac.uk/courses/pg/management/"
+  },
+  {
+    "university": "University of Bradford",
+    "country": "UK",
+    "city": "Bradford",
+    "qs_ranking": 691,
+    "field_of_study": "MBA",
+    "program_url": "https://www.bradford.ac.uk/courses/pg/mba-distance-learning/"
+  },
+  {
+    "university": "University of Bradford",
+    "country": "UK",
+    "city": "Bradford",
+    "qs_ranking": 691,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.bradford.ac.uk/courses/ug/mechanical-engineering-meng/"
+  },
+  {
+    "university": "University of Bradford",
+    "country": "UK",
+    "city": "Bradford",
+    "qs_ranking": 691,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.bradford.ac.uk/courses/pg/medical-bioscience/"
+  },
+  {
+    "university": "University of Bradford",
+    "country": "UK",
+    "city": "Bradford",
+    "qs_ranking": 691,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.bradford.ac.uk/courses/pg/public-health/"
+  },
+  {
+    "university": "University of Bradford",
+    "country": "UK",
+    "city": "Bradford",
+    "qs_ranking": 691,
+    "field_of_study": "Law",
+    "program_url": "https://www.bradford.ac.uk/courses/ug/law-llb/"
+  },
+  {
+    "university": "University of Bradford",
+    "country": "UK",
+    "city": "Bradford",
+    "qs_ranking": 691,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.bradford.ac.uk/courses/ug/architectural-technology-bsc/"
+  },
+  {
+    "university": "University of Bradford",
+    "country": "UK",
+    "city": "Bradford",
+    "qs_ranking": 691,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.bradford.ac.uk/courses/pg/sustainable-development/"
+  },
+  {
+    "university": "University of Bradford",
+    "country": "UK",
+    "city": "Bradford",
+    "qs_ranking": 691,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.bradford.ac.uk/courses/pg/finance-and-investment/"
+  },
+  {
+    "university": "University of Bradford",
+    "country": "UK",
+    "city": "Bradford",
+    "qs_ranking": 691,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.bradford.ac.uk/courses/pg/renewable-and-sustainable-energy/"
+  },
+  {
+    "university": "University of Bradford",
+    "country": "UK",
+    "city": "Bradford",
+    "qs_ranking": 691,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.bradford.ac.uk/courses/ug/nursing-adult-bsc/"
+  },
+  {
+    "university": "Oxford Brookes University",
+    "country": "UK",
+    "city": "Oxford",
+    "qs_ranking": 561,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.brookes.ac.uk/courses/postgraduate/advanced-computer-science"
+  },
+  {
+    "university": "Oxford Brookes University",
+    "country": "UK",
+    "city": "Oxford",
+    "qs_ranking": 561,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.brookes.ac.uk/courses/postgraduate/data-science-and-artificial-intelligence"
+  },
+  {
+    "university": "Oxford Brookes University",
+    "country": "UK",
+    "city": "Oxford",
+    "qs_ranking": 561,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.brookes.ac.uk/courses/postgraduate/management"
+  },
+  {
+    "university": "Oxford Brookes University",
+    "country": "UK",
+    "city": "Oxford",
+    "qs_ranking": 561,
+    "field_of_study": "MBA",
+    "program_url": "https://www.brookes.ac.uk/courses/postgraduate/oxford-brookes-mba"
+  },
+  {
+    "university": "Oxford Brookes University",
+    "country": "UK",
+    "city": "Oxford",
+    "qs_ranking": 561,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.brookes.ac.uk/courses/postgraduate/mechanical-engineering-msc"
+  },
+  {
+    "university": "Oxford Brookes University",
+    "country": "UK",
+    "city": "Oxford",
+    "qs_ranking": 561,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.brookes.ac.uk/courses/postgraduate/medical-genetics-and-genomics"
+  },
+  {
+    "university": "Oxford Brookes University",
+    "country": "UK",
+    "city": "Oxford",
+    "qs_ranking": 561,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.brookes.ac.uk/courses/postgraduate/public-health"
+  },
+  {
+    "university": "Oxford Brookes University",
+    "country": "UK",
+    "city": "Oxford",
+    "qs_ranking": 561,
+    "field_of_study": "Law",
+    "program_url": "https://www.brookes.ac.uk/courses/postgraduate/llm"
+  },
+  {
+    "university": "Oxford Brookes University",
+    "country": "UK",
+    "city": "Oxford",
+    "qs_ranking": 561,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.brookes.ac.uk/courses/postgraduate/digital-craft-in-architecture"
+  },
+  {
+    "university": "Oxford Brookes University",
+    "country": "UK",
+    "city": "Oxford",
+    "qs_ranking": 561,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.brookes.ac.uk/courses/undergraduate/communication-media-and-culture"
+  },
+  {
+    "university": "Oxford Brookes University",
+    "country": "UK",
+    "city": "Oxford",
+    "qs_ranking": 561,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.brookes.ac.uk/courses/postgraduate/finance"
+  },
+  {
+    "university": "Oxford Brookes University",
+    "country": "UK",
+    "city": "Oxford",
+    "qs_ranking": 561,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.brookes.ac.uk/courses/undergraduate/communication-media-and-culture"
+  },
+  {
+    "university": "Oxford Brookes University",
+    "country": "UK",
+    "city": "Oxford",
+    "qs_ranking": 561,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.brookes.ac.uk/courses/postgraduate/conservation-ecology"
+  },
+  {
+    "university": "Oxford Brookes University",
+    "country": "UK",
+    "city": "Oxford",
+    "qs_ranking": 561,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.brookes.ac.uk/courses/undergraduate/biological-sciences"
+  },
+  {
+    "university": "Oxford Brookes University",
+    "country": "UK",
+    "city": "Oxford",
+    "qs_ranking": 561,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.brookes.ac.uk/courses/undergraduate/adult-nursing"
+  },
+  {
+    "university": "Oxford Brookes University",
+    "country": "UK",
+    "city": "Oxford",
+    "qs_ranking": 561,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://www.brookes.ac.uk/courses/postgraduate/international-hospitality-events-and-tourism"
+  },
+  {
+    "university": "De Montfort University",
+    "country": "UK",
+    "city": "Leicester",
+    "qs_ranking": 581,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.dmu.ac.uk/study/courses/postgraduate-courses/computing/computing-msc-degree.aspx"
+  },
+  {
+    "university": "De Montfort University",
+    "country": "UK",
+    "city": "Leicester",
+    "qs_ranking": 581,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.dmu.ac.uk/study/courses/postgraduate-courses/artificial-intelligence-msc/artificial-intelligence-msc.aspx"
+  },
+  {
+    "university": "De Montfort University",
+    "country": "UK",
+    "city": "Leicester",
+    "qs_ranking": 581,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.dmu.ac.uk/study/courses/postgraduate-courses/international-business-and-management-msc-degree/international-business-and-management-msc.aspx"
+  },
+  {
+    "university": "De Montfort University",
+    "country": "UK",
+    "city": "Leicester",
+    "qs_ranking": 581,
+    "field_of_study": "MBA",
+    "program_url": "https://www.dmu.ac.uk/study/courses/postgraduate-courses/master-of-business-administration-global-mba/master-of-business-administration-mba-global.aspx"
+  },
+  {
+    "university": "De Montfort University",
+    "country": "UK",
+    "city": "Leicester",
+    "qs_ranking": 581,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.dmu.ac.uk/study/courses/undergraduate-courses/mechanical-engineering-beng-degree/mechanical-engineering-beng-degree.aspx"
+  },
+  {
+    "university": "De Montfort University",
+    "country": "UK",
+    "city": "Leicester",
+    "qs_ranking": 581,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.dmu.ac.uk/study/courses/postgraduate-courses/pharmaceutical-biotechnology-mscpg-dippg-cert/pharmaceutical-biotechnology.aspx"
+  },
+  {
+    "university": "De Montfort University",
+    "country": "UK",
+    "city": "Leicester",
+    "qs_ranking": 581,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.dmu.ac.uk/study/courses/postgraduate-courses/public-health-mph/public-health-mph.aspx"
+  },
+  {
+    "university": "De Montfort University",
+    "country": "UK",
+    "city": "Leicester",
+    "qs_ranking": 581,
+    "field_of_study": "Law",
+    "program_url": "https://www.dmu.ac.uk/study/courses/postgraduate-courses/llm-international-commercial-law-practice/llm-international-commercial-law-practice.aspx"
+  },
+  {
+    "university": "De Montfort University",
+    "country": "UK",
+    "city": "Leicester",
+    "qs_ranking": 581,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.dmu.ac.uk/study/courses/postgraduate-courses/architecture-march-degree/architecture-march-degree.aspx"
+  },
+  {
+    "university": "De Montfort University",
+    "country": "UK",
+    "city": "Leicester",
+    "qs_ranking": 581,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.dmu.ac.uk/study/courses/postgraduate-courses/humanities-research-mphil-phd-degree/humanities-research-mphil-phd-degree.aspx"
+  },
+  {
+    "university": "De Montfort University",
+    "country": "UK",
+    "city": "Leicester",
+    "qs_ranking": 581,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.dmu.ac.uk/study/courses/postgraduate-courses/economics-msc/economics-msc.aspx"
+  },
+  {
+    "university": "De Montfort University",
+    "country": "UK",
+    "city": "Leicester",
+    "qs_ranking": 581,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.dmu.ac.uk/study/courses/undergraduate-courses/media-and-communication-ba-degree/media-and-communication-ba-degree.aspx"
+  },
+  {
+    "university": "De Montfort University",
+    "country": "UK",
+    "city": "Leicester",
+    "qs_ranking": 581,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.dmu.ac.uk/study/courses/postgraduate-courses/energy-and-sustainable-development/energy-and-sustainable-development-msc-degree.aspx"
+  },
+  {
+    "university": "De Montfort University",
+    "country": "UK",
+    "city": "Leicester",
+    "qs_ranking": 581,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.dmu.ac.uk/study/courses/postgraduate-courses/advanced-biomedical-science-mscpg-dippg-cert/advanced-biomedical-science.aspx"
+  },
+  {
+    "university": "De Montfort University",
+    "country": "UK",
+    "city": "Leicester",
+    "qs_ranking": 581,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.dmu.ac.uk/study/courses/undergraduate-courses/nursing-with-registration-adult-nursing-degree/nursing-with-registration-adult-nursing-bsc-hons.aspx"
+  },
+  {
+    "university": "De Montfort University",
+    "country": "UK",
+    "city": "Leicester",
+    "qs_ranking": 581,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://www.dmu.ac.uk/study/courses/undergraduate-courses/international-tourism-and-hospitality-management/international-tourism-hospitality-management.aspx"
+  },
+  {
+    "university": "Anglia Ruskin University",
+    "country": "UK",
+    "city": "Cambridge",
+    "qs_ranking": 671,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.aru.ac.uk/study/postgraduate/computer-science"
+  },
+  {
+    "university": "Anglia Ruskin University",
+    "country": "UK",
+    "city": "Cambridge",
+    "qs_ranking": 671,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.aru.ac.uk/study/postgraduate/artificial-intelligence"
+  },
+  {
+    "university": "Anglia Ruskin University",
+    "country": "UK",
+    "city": "Cambridge",
+    "qs_ranking": 671,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.aru.ac.uk/study/postgraduate/international-business"
+  },
+  {
+    "university": "Anglia Ruskin University",
+    "country": "UK",
+    "city": "Cambridge",
+    "qs_ranking": 671,
+    "field_of_study": "MBA",
+    "program_url": "https://www.aru.ac.uk/study/postgraduate/master-of-business-administration-mba"
+  },
+  {
+    "university": "Anglia Ruskin University",
+    "country": "UK",
+    "city": "Cambridge",
+    "qs_ranking": 671,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.aru.ac.uk/study/postgraduate/mechanical-engineering"
+  },
+  {
+    "university": "Anglia Ruskin University",
+    "country": "UK",
+    "city": "Cambridge",
+    "qs_ranking": 671,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.aru.ac.uk/study/postgraduate/biotechnology"
+  },
+  {
+    "university": "Anglia Ruskin University",
+    "country": "UK",
+    "city": "Cambridge",
+    "qs_ranking": 671,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.aru.ac.uk/study/postgraduate/global-public-health"
+  },
+  {
+    "university": "Anglia Ruskin University",
+    "country": "UK",
+    "city": "Cambridge",
+    "qs_ranking": 671,
+    "field_of_study": "Law",
+    "program_url": "https://www.aru.ac.uk/study/postgraduate/international-business-and-commercial-law"
+  },
+  {
+    "university": "Anglia Ruskin University",
+    "country": "UK",
+    "city": "Cambridge",
+    "qs_ranking": 671,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.aru.ac.uk/study/postgraduate/architecture"
+  },
+  {
+    "university": "Anglia Ruskin University",
+    "country": "UK",
+    "city": "Cambridge",
+    "qs_ranking": 671,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.aru.ac.uk/study/postgraduate/accounting-and-finance"
+  },
+  {
+    "university": "Anglia Ruskin University",
+    "country": "UK",
+    "city": "Cambridge",
+    "qs_ranking": 671,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.aru.ac.uk/study/postgraduate/sustainability"
+  },
+  {
+    "university": "Anglia Ruskin University",
+    "country": "UK",
+    "city": "Cambridge",
+    "qs_ranking": 671,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.aru.ac.uk/study/undergraduate/nursing-adult-and-mental-health"
+  },
+  {
+    "university": "Anglia Ruskin University",
+    "country": "UK",
+    "city": "Cambridge",
+    "qs_ranking": 671,
+    "field_of_study": "Agriculture & Veterinary Sciences",
+    "program_url": "https://www.aru.ac.uk/study/undergraduate/animal-science"
+  },
+  {
+    "university": "Anglia Ruskin University",
+    "country": "UK",
+    "city": "Cambridge",
+    "qs_ranking": 671,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://www.aru.ac.uk/study/postgraduate/international-hospitality-and-management"
+  },
+  {
+    "university": "Robert Gordon University",
+    "country": "UK",
+    "city": "Aberdeen",
+    "qs_ranking": 851,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.rgu.ac.uk/study/courses/446-bsc-hons-computer-science"
+  },
+  {
+    "university": "Robert Gordon University",
+    "country": "UK",
+    "city": "Aberdeen",
+    "qs_ranking": 851,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.rgu.ac.uk/study/courses/7871-pgcert-pgdip-msc-artificial-intelligence"
+  },
+  {
+    "university": "Robert Gordon University",
+    "country": "UK",
+    "city": "Aberdeen",
+    "qs_ranking": 851,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.rgu.ac.uk/study/courses/1777-pgcert-pgdip-msc-business-and-management"
+  },
+  {
+    "university": "Robert Gordon University",
+    "country": "UK",
+    "city": "Aberdeen",
+    "qs_ranking": 851,
+    "field_of_study": "MBA",
+    "program_url": "https://www.rgu.ac.uk/study/courses/571-mba-master-of-business-administration"
+  },
+  {
+    "university": "Robert Gordon University",
+    "country": "UK",
+    "city": "Aberdeen",
+    "qs_ranking": 851,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.rgu.ac.uk/study/courses/859-meng-mechanical-engineering"
+  },
+  {
+    "university": "Robert Gordon University",
+    "country": "UK",
+    "city": "Aberdeen",
+    "qs_ranking": 851,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.rgu.ac.uk/study/courses/1393-pgcert-pgdip-msc-pharmaceutical-science"
+  },
+  {
+    "university": "Robert Gordon University",
+    "country": "UK",
+    "city": "Aberdeen",
+    "qs_ranking": 851,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.rgu.ac.uk/study/courses/918-pgcert-pgdip-msc-public-health-and-health-promotion"
+  },
+  {
+    "university": "Robert Gordon University",
+    "country": "UK",
+    "city": "Aberdeen",
+    "qs_ranking": 851,
+    "field_of_study": "Law",
+    "program_url": "https://www.rgu.ac.uk/study/courses/849-llm-law"
+  },
+  {
+    "university": "Robert Gordon University",
+    "country": "UK",
+    "city": "Aberdeen",
+    "qs_ranking": 851,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.rgu.ac.uk/study/courses/850-bsc-master-of-architecture"
+  },
+  {
+    "university": "Robert Gordon University",
+    "country": "UK",
+    "city": "Aberdeen",
+    "qs_ranking": 851,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.rgu.ac.uk/study/courses/920-ba-hons-applied-social-sciences"
+  },
+  {
+    "university": "Robert Gordon University",
+    "country": "UK",
+    "city": "Aberdeen",
+    "qs_ranking": 851,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.rgu.ac.uk/study/courses/860-pgcert-pgdip-msc-financial-management"
+  },
+  {
+    "university": "Robert Gordon University",
+    "country": "UK",
+    "city": "Aberdeen",
+    "qs_ranking": 851,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.rgu.ac.uk/study/courses/1051-pgcert-pgdip-msc-corporate-communications-and-public-affairs"
+  },
+  {
+    "university": "Robert Gordon University",
+    "country": "UK",
+    "city": "Aberdeen",
+    "qs_ranking": 851,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.rgu.ac.uk/study/courses/4380-pgcert-pgdip-msc-energy-transitions-and-sustainability"
+  },
+  {
+    "university": "Robert Gordon University",
+    "country": "UK",
+    "city": "Aberdeen",
+    "qs_ranking": 851,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.rgu.ac.uk/study/courses/bsc-nursing-adult"
+  },
+  {
+    "university": "Robert Gordon University",
+    "country": "UK",
+    "city": "Aberdeen",
+    "qs_ranking": 851,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://www.rgu.ac.uk/study/courses/pgcert-pgdip-msc-international-tourism-and-hospitality-management"
+  },
+  {
+    "university": "Auckland University of Technology",
+    "country": "New Zealand",
+    "city": "Auckland",
+    "qs_ranking": 416,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.aut.ac.nz/study/study-options/engineering-computer-and-mathematical-sciences/courses/master-of-computer-and-information-sciences"
+  },
+  {
+    "university": "Auckland University of Technology",
+    "country": "New Zealand",
+    "city": "Auckland",
+    "qs_ranking": 416,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.aut.ac.nz/study/study-options/engineering-computer-and-mathematical-sciences/courses/master-of-analytics"
+  },
+  {
+    "university": "Auckland University of Technology",
+    "country": "New Zealand",
+    "city": "Auckland",
+    "qs_ranking": 416,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.aut.ac.nz/study/study-options/business/courses/master-of-business-management"
+  },
+  {
+    "university": "Auckland University of Technology",
+    "country": "New Zealand",
+    "city": "Auckland",
+    "qs_ranking": 416,
+    "field_of_study": "MBA",
+    "program_url": "https://www.aut.ac.nz/study/study-options/business/courses/master-of-business-administration"
+  },
+  {
+    "university": "Auckland University of Technology",
+    "country": "New Zealand",
+    "city": "Auckland",
+    "qs_ranking": 416,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.aut.ac.nz/study/study-options/engineering-computer-and-mathematical-sciences/courses/master-of-engineering"
+  },
+  {
+    "university": "Auckland University of Technology",
+    "country": "New Zealand",
+    "city": "Auckland",
+    "qs_ranking": 416,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.aut.ac.nz/courses/master-of-science/biomedical-science-specialisation"
+  },
+  {
+    "university": "Auckland University of Technology",
+    "country": "New Zealand",
+    "city": "Auckland",
+    "qs_ranking": 416,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.aut.ac.nz/study/study-options/health-sciences/courses/master-of-public-health"
+  },
+  {
+    "university": "Auckland University of Technology",
+    "country": "New Zealand",
+    "city": "Auckland",
+    "qs_ranking": 416,
+    "field_of_study": "Law",
+    "program_url": "https://www.aut.ac.nz/study/study-options/law/courses/bachelor-of-laws"
+  },
+  {
+    "university": "Auckland University of Technology",
+    "country": "New Zealand",
+    "city": "Auckland",
+    "qs_ranking": 416,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.aut.ac.nz/study/study-options/architecture-and-built-environment/courses/master-of-architecture-professional"
+  },
+  {
+    "university": "Auckland University of Technology",
+    "country": "New Zealand",
+    "city": "Auckland",
+    "qs_ranking": 416,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.aut.ac.nz/courses/master-of-arts"
+  },
+  {
+    "university": "Auckland University of Technology",
+    "country": "New Zealand",
+    "city": "Auckland",
+    "qs_ranking": 416,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.aut.ac.nz/study/study-options/business/courses/master-of-applied-finance"
+  },
+  {
+    "university": "Auckland University of Technology",
+    "country": "New Zealand",
+    "city": "Auckland",
+    "qs_ranking": 416,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.aut.ac.nz/study/study-options/communication-studies/courses/master-of-communication-studies"
+  },
+  {
+    "university": "Auckland University of Technology",
+    "country": "New Zealand",
+    "city": "Auckland",
+    "qs_ranking": 416,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.aut.ac.nz/study/study-options/science/courses/master-of-science-research"
+  },
+  {
+    "university": "Auckland University of Technology",
+    "country": "New Zealand",
+    "city": "Auckland",
+    "qs_ranking": 416,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.aut.ac.nz/courses/master-of-science"
+  },
+  {
+    "university": "Auckland University of Technology",
+    "country": "New Zealand",
+    "city": "Auckland",
+    "qs_ranking": 416,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.aut.ac.nz/study/study-options/health-sciences/courses/master-of-nursing-science"
+  },
+  {
+    "university": "Auckland University of Technology",
+    "country": "New Zealand",
+    "city": "Auckland",
+    "qs_ranking": 416,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://www.aut.ac.nz/study/study-options/hospitality-tourism-and-events/courses/master-of-international-hospitality-management"
+  },
+  {
+    "university": "University of Canterbury",
+    "country": "New Zealand",
+    "city": "Christchurch",
+    "qs_ranking": 261,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.canterbury.ac.nz/study/academic-study/qualifications/professional-master-of-computer-science"
+  },
+  {
+    "university": "University of Canterbury",
+    "country": "New Zealand",
+    "city": "Christchurch",
+    "qs_ranking": 261,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.canterbury.ac.nz/study/academic-study/qualifications/master-of-artificial-intelligence"
+  },
+  {
+    "university": "University of Canterbury",
+    "country": "New Zealand",
+    "city": "Christchurch",
+    "qs_ranking": 261,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.canterbury.ac.nz/study/academic-study/qualifications/master-of-business"
+  },
+  {
+    "university": "University of Canterbury",
+    "country": "New Zealand",
+    "city": "Christchurch",
+    "qs_ranking": 261,
+    "field_of_study": "MBA",
+    "program_url": "https://www.canterbury.ac.nz/study/academic-study/qualifications/master-of-business-administration"
+  },
+  {
+    "university": "University of Canterbury",
+    "country": "New Zealand",
+    "city": "Christchurch",
+    "qs_ranking": 261,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.canterbury.ac.nz/study/academic-study/qualifications/master-of-engineering"
+  },
+  {
+    "university": "University of Canterbury",
+    "country": "New Zealand",
+    "city": "Christchurch",
+    "qs_ranking": 261,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.canterbury.ac.nz/study/academic-study/subjects/biotechnology-pg"
+  },
+  {
+    "university": "University of Canterbury",
+    "country": "New Zealand",
+    "city": "Christchurch",
+    "qs_ranking": 261,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.canterbury.ac.nz/study/academic-study/qualifications/master-of-public-health"
+  },
+  {
+    "university": "University of Canterbury",
+    "country": "New Zealand",
+    "city": "Christchurch",
+    "qs_ranking": 261,
+    "field_of_study": "Law",
+    "program_url": "https://www.canterbury.ac.nz/study/academic-study/qualifications/bachelor-of-laws"
+  },
+  {
+    "university": "University of Canterbury",
+    "country": "New Zealand",
+    "city": "Christchurch",
+    "qs_ranking": 261,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.canterbury.ac.nz/study/academic-study/qualifications/master-of-architectural-engineering"
+  },
+  {
+    "university": "University of Canterbury",
+    "country": "New Zealand",
+    "city": "Christchurch",
+    "qs_ranking": 261,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.canterbury.ac.nz/study/academic-study/qualifications/bachelor-of-arts-with-honours"
+  },
+  {
+    "university": "University of Canterbury",
+    "country": "New Zealand",
+    "city": "Christchurch",
+    "qs_ranking": 261,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.canterbury.ac.nz/study/academic-study/qualifications/master-of-applied-finance-and-economics"
+  },
+  {
+    "university": "University of Canterbury",
+    "country": "New Zealand",
+    "city": "Christchurch",
+    "qs_ranking": 261,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.canterbury.ac.nz/study/qualifications-and-courses/masters-degrees/master-of-strategic-communication/"
+  },
+  {
+    "university": "University of Canterbury",
+    "country": "New Zealand",
+    "city": "Christchurch",
+    "qs_ranking": 261,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.canterbury.ac.nz/study/academic-study/qualifications/bachelor-of-environmental-science-with-honours"
+  },
+  {
+    "university": "University of Canterbury",
+    "country": "New Zealand",
+    "city": "Christchurch",
+    "qs_ranking": 261,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.canterbury.ac.nz/study/academic-study/qualifications/master-of-science"
+  },
+  {
+    "university": "University of Canterbury",
+    "country": "New Zealand",
+    "city": "Christchurch",
+    "qs_ranking": 261,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.canterbury.ac.nz/study/academic-study/qualifications/master-of-advanced-nursing"
+  },
+  {
+    "university": "University of Canterbury",
+    "country": "New Zealand",
+    "city": "Christchurch",
+    "qs_ranking": 261,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://www.canterbury.ac.nz/study/academic-study/subjects/tourism-marketing-and-management"
+  },
+  {
+    "university": "University of Waikato",
+    "country": "New Zealand",
+    "city": "Hamilton",
+    "qs_ranking": 261,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.waikato.ac.nz/study/qualifications/master-of-information-technology/"
+  },
+  {
+    "university": "University of Waikato",
+    "country": "New Zealand",
+    "city": "Hamilton",
+    "qs_ranking": 261,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.waikato.ac.nz/study/qualifications/master-of-artificial-intelligence/"
+  },
+  {
+    "university": "University of Waikato",
+    "country": "New Zealand",
+    "city": "Hamilton",
+    "qs_ranking": 261,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.waikato.ac.nz/study/qualifications/master-of-business-and-management/"
+  },
+  {
+    "university": "University of Waikato",
+    "country": "New Zealand",
+    "city": "Hamilton",
+    "qs_ranking": 261,
+    "field_of_study": "MBA",
+    "program_url": "https://www.waikato.ac.nz/study/qualifications/master-of-business-administration/"
+  },
+  {
+    "university": "University of Waikato",
+    "country": "New Zealand",
+    "city": "Hamilton",
+    "qs_ranking": 261,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.waikato.ac.nz/study/qualifications/master-of-engineering-practice/"
+  },
+  {
+    "university": "University of Waikato",
+    "country": "New Zealand",
+    "city": "Hamilton",
+    "qs_ranking": 261,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.waikato.ac.nz/study/qualifications/master-of-science/molecular-and-cellular-biology"
+  },
+  {
+    "university": "University of Waikato",
+    "country": "New Zealand",
+    "city": "Hamilton",
+    "qs_ranking": 261,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.waikato.ac.nz/study/qualifications/master-of-health-science/"
+  },
+  {
+    "university": "University of Waikato",
+    "country": "New Zealand",
+    "city": "Hamilton",
+    "qs_ranking": 261,
+    "field_of_study": "Law",
+    "program_url": "https://www.waikato.ac.nz/study/qualifications/master-of-laws"
+  },
+  {
+    "university": "University of Waikato",
+    "country": "New Zealand",
+    "city": "Hamilton",
+    "qs_ranking": 261,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.waikato.ac.nz/study/qualifications/master-of-design/"
+  },
+  {
+    "university": "University of Waikato",
+    "country": "New Zealand",
+    "city": "Hamilton",
+    "qs_ranking": 261,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.waikato.ac.nz/study/qualifications/master-of-social-sciences/"
+  },
+  {
+    "university": "University of Waikato",
+    "country": "New Zealand",
+    "city": "Hamilton",
+    "qs_ranking": 261,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.waikato.ac.nz/study/qualifications/master-of-applied-finance/"
+  },
+  {
+    "university": "University of Waikato",
+    "country": "New Zealand",
+    "city": "Hamilton",
+    "qs_ranking": 261,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.waikato.ac.nz/study/qualifications/master-of-media-and-creative-technologies/"
+  },
+  {
+    "university": "University of Waikato",
+    "country": "New Zealand",
+    "city": "Hamilton",
+    "qs_ranking": 261,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.waikato.ac.nz/study/qualifications/master-of-environment-and-society/"
+  },
+  {
+    "university": "University of Waikato",
+    "country": "New Zealand",
+    "city": "Hamilton",
+    "qs_ranking": 261,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.waikato.ac.nz/study/qualifications/master-of-science/"
+  },
+  {
+    "university": "University of Waikato",
+    "country": "New Zealand",
+    "city": "Hamilton",
+    "qs_ranking": 261,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.waikato.ac.nz/study/qualifications/master-of-nursing-practice/"
+  },
+  {
+    "university": "University of Waikato",
+    "country": "New Zealand",
+    "city": "Hamilton",
+    "qs_ranking": 261,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://www.waikato.ac.nz/study/subjects/tourism-management/"
+  },
+  {
+    "university": "Lincoln University NZ",
+    "country": "New Zealand",
+    "city": "Christchurch",
+    "qs_ranking": 387,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.lincoln.ac.nz/study/study-programmes/programme-search/master-of-applied-computing/"
+  },
+  {
+    "university": "Lincoln University NZ",
+    "country": "New Zealand",
+    "city": "Christchurch",
+    "qs_ranking": 387,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.lincoln.ac.nz/study/study-programmes/programme-search/master-of-artificial-intelligence-for-land-use/"
+  },
+  {
+    "university": "Lincoln University NZ",
+    "country": "New Zealand",
+    "city": "Christchurch",
+    "qs_ranking": 387,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.lincoln.ac.nz/study/study-programmes/programme-search/master-of-business-global-management-and-marketing/"
+  },
+  {
+    "university": "Lincoln University NZ",
+    "country": "New Zealand",
+    "city": "Christchurch",
+    "qs_ranking": 387,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.lincoln.ac.nz/study/study-programmes/programme-search/master-of-business-finance/"
+  },
+  {
+    "university": "Lincoln University NZ",
+    "country": "New Zealand",
+    "city": "Christchurch",
+    "qs_ranking": 387,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.lincoln.ac.nz/study/study-programmes/programme-search/master-of-environmental-policy-and-management/"
+  },
+  {
+    "university": "Lincoln University NZ",
+    "country": "New Zealand",
+    "city": "Christchurch",
+    "qs_ranking": 387,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.lincoln.ac.nz/study/study-programmes/programme-search/master-of-landscape-architecture/"
+  },
+  {
+    "university": "Lincoln University NZ",
+    "country": "New Zealand",
+    "city": "Christchurch",
+    "qs_ranking": 387,
+    "field_of_study": "Agriculture & Veterinary Sciences",
+    "program_url": "https://www.lincoln.ac.nz/study/study-programmes/programme-search/master-of-agricultural-science-research/"
+  },
+  {
+    "university": "Lincoln University NZ",
+    "country": "New Zealand",
+    "city": "Christchurch",
+    "qs_ranking": 387,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://www.lincoln.ac.nz/study/study-programmes/programme-search/master-of-tourism-management/"
+  },
+  {
+    "university": "Lincoln University NZ",
+    "country": "New Zealand",
+    "city": "Christchurch",
+    "qs_ranking": 387,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.lincoln.ac.nz/study/study-programmes/programme-search/master-of-science-research/"
+  },
+  {
+    "university": "Lincoln University NZ",
+    "country": "New Zealand",
+    "city": "Christchurch",
+    "qs_ranking": 387,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.lincoln.ac.nz/study/study-programmes/programme-search/master-of-app-sci-land-and-society-research/"
+  },
+  {
+    "university": "Lincoln University NZ",
+    "country": "New Zealand",
+    "city": "Christchurch",
+    "qs_ranking": 387,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.lincoln.ac.nz/study/study-programmes/programme-search/master-of-science-research/"
+  },
+  {
+    "university": "Massey University",
+    "country": "New Zealand",
+    "city": "Palmerston North",
+    "qs_ranking": 239,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.massey.ac.nz/study/all-qualifications-and-degrees/master-of-information-sciences-PMINS/"
+  },
+  {
+    "university": "Massey University",
+    "country": "New Zealand",
+    "city": "Palmerston North",
+    "qs_ranking": 239,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.massey.ac.nz/study/all-qualifications-and-degrees/master-of-analytics-PMANL/"
+  },
+  {
+    "university": "Massey University",
+    "country": "New Zealand",
+    "city": "Palmerston North",
+    "qs_ranking": 239,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.massey.ac.nz/study/all-qualifications-and-degrees/master-of-management-PMMNG/"
+  },
+  {
+    "university": "Massey University",
+    "country": "New Zealand",
+    "city": "Palmerston North",
+    "qs_ranking": 239,
+    "field_of_study": "MBA",
+    "program_url": "https://www.massey.ac.nz/study/all-qualifications-and-degrees/master-of-business-administration-PMBSM/"
+  },
+  {
+    "university": "Massey University",
+    "country": "New Zealand",
+    "city": "Palmerston North",
+    "qs_ranking": 239,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.massey.ac.nz/study/all-qualifications-and-degrees/master-of-engineering-studies-PMENS/"
+  },
+  {
+    "university": "Massey University",
+    "country": "New Zealand",
+    "city": "Palmerston North",
+    "qs_ranking": 239,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.massey.ac.nz/study/all-qualifications-and-degrees/master-of-science-PMSCN/biological-sciences-PMSCN1SBLSC2/"
+  },
+  {
+    "university": "Massey University",
+    "country": "New Zealand",
+    "city": "Palmerston North",
+    "qs_ranking": 239,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.massey.ac.nz/study/all-qualifications-and-degrees/master-of-public-health-PMPBH/"
+  },
+  {
+    "university": "Massey University",
+    "country": "New Zealand",
+    "city": "Palmerston North",
+    "qs_ranking": 239,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.massey.ac.nz/study/all-qualifications-and-degrees/master-of-design-PMDSG/"
+  },
+  {
+    "university": "Massey University",
+    "country": "New Zealand",
+    "city": "Palmerston North",
+    "qs_ranking": 239,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.massey.ac.nz/study/all-qualifications-and-degrees/master-of-arts-PMART/"
+  },
+  {
+    "university": "Massey University",
+    "country": "New Zealand",
+    "city": "Palmerston North",
+    "qs_ranking": 239,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.massey.ac.nz/study/all-qualifications-and-degrees/master-of-finance-PMFNN/"
+  },
+  {
+    "university": "Massey University",
+    "country": "New Zealand",
+    "city": "Palmerston North",
+    "qs_ranking": 239,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.massey.ac.nz/study/all-qualifications-and-degrees/master-of-arts-PMART/media-studies-PMART1SMDST1/"
+  },
+  {
+    "university": "Massey University",
+    "country": "New Zealand",
+    "city": "Palmerston North",
+    "qs_ranking": 239,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.massey.ac.nz/study/all-qualifications-and-degrees/master-of-environmental-management-PMENM/"
+  },
+  {
+    "university": "Massey University",
+    "country": "New Zealand",
+    "city": "Palmerston North",
+    "qs_ranking": 239,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.massey.ac.nz/study/all-qualifications-and-degrees/master-of-science-PMSCN/"
+  },
+  {
+    "university": "Massey University",
+    "country": "New Zealand",
+    "city": "Palmerston North",
+    "qs_ranking": 239,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.massey.ac.nz/study/all-qualifications-and-degrees/master-of-nursing-PMNRS/"
+  },
+  {
+    "university": "Massey University",
+    "country": "New Zealand",
+    "city": "Palmerston North",
+    "qs_ranking": 239,
+    "field_of_study": "Agriculture & Veterinary Sciences",
+    "program_url": "https://www.massey.ac.nz/study/all-qualifications-and-degrees/master-of-veterinary-studies-PMVTT/"
+  },
+  {
+    "university": "Victoria University of Wellington",
+    "country": "New Zealand",
+    "city": "Wellington",
+    "qs_ranking": 240,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.wgtn.ac.nz/explore/postgraduate-programmes/master-of-computer-science/overview"
+  },
+  {
+    "university": "Victoria University of Wellington",
+    "country": "New Zealand",
+    "city": "Wellington",
+    "qs_ranking": 240,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.wgtn.ac.nz/explore/postgraduate-programmes/master-of-data-science/overview"
+  },
+  {
+    "university": "Victoria University of Wellington",
+    "country": "New Zealand",
+    "city": "Wellington",
+    "qs_ranking": 240,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.wgtn.ac.nz/som/study/postgraduate/mcom"
+  },
+  {
+    "university": "Victoria University of Wellington",
+    "country": "New Zealand",
+    "city": "Wellington",
+    "qs_ranking": 240,
+    "field_of_study": "MBA",
+    "program_url": "https://www.wgtn.ac.nz/explore/postgraduate-programmes/executive-master-of-business-administration/overview"
+  },
+  {
+    "university": "Victoria University of Wellington",
+    "country": "New Zealand",
+    "city": "Wellington",
+    "qs_ranking": 240,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.wgtn.ac.nz/explore/postgraduate-programmes/master-of-engineering/overview"
+  },
+  {
+    "university": "Victoria University of Wellington",
+    "country": "New Zealand",
+    "city": "Wellington",
+    "qs_ranking": 240,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.wgtn.ac.nz/sbs/study/postgraduate-study/bio-technology"
+  },
+  {
+    "university": "Victoria University of Wellington",
+    "country": "New Zealand",
+    "city": "Wellington",
+    "qs_ranking": 240,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.wgtn.ac.nz/explore/postgraduate-programmes/master-of-health/overview"
+  },
+  {
+    "university": "Victoria University of Wellington",
+    "country": "New Zealand",
+    "city": "Wellington",
+    "qs_ranking": 240,
+    "field_of_study": "Law",
+    "program_url": "https://www.wgtn.ac.nz/explore/postgraduate-programmes/master-of-laws/overview"
+  },
+  {
+    "university": "Victoria University of Wellington",
+    "country": "New Zealand",
+    "city": "Wellington",
+    "qs_ranking": 240,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.wgtn.ac.nz/explore/postgraduate-programmes/master-of-architecture/overview"
+  },
+  {
+    "university": "Victoria University of Wellington",
+    "country": "New Zealand",
+    "city": "Wellington",
+    "qs_ranking": 240,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.wgtn.ac.nz/fhss/study/postgraduate/masters-study"
+  },
+  {
+    "university": "Victoria University of Wellington",
+    "country": "New Zealand",
+    "city": "Wellington",
+    "qs_ranking": 240,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.wgtn.ac.nz/sef/study/postgraduate/masters"
+  },
+  {
+    "university": "Victoria University of Wellington",
+    "country": "New Zealand",
+    "city": "Wellington",
+    "qs_ranking": 240,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.wgtn.ac.nz/seftms/study/postgraduate/ma-in-seftms"
+  },
+  {
+    "university": "Victoria University of Wellington",
+    "country": "New Zealand",
+    "city": "Wellington",
+    "qs_ranking": 240,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.wgtn.ac.nz/explore/postgraduate-programmes/master-of-environmental-studies/overview"
+  },
+  {
+    "university": "Victoria University of Wellington",
+    "country": "New Zealand",
+    "city": "Wellington",
+    "qs_ranking": 240,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.wgtn.ac.nz/explore/postgraduate-programmes/master-of-science-by-coursework-and-thesis/overview"
+  },
+  {
+    "university": "Victoria University of Wellington",
+    "country": "New Zealand",
+    "city": "Wellington",
+    "qs_ranking": 240,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.wgtn.ac.nz/explore/postgraduate-programmes/master-of-nursing-science/overview"
+  },
+  {
+    "university": "Victoria University of Wellington",
+    "country": "New Zealand",
+    "city": "Wellington",
+    "qs_ranking": 240,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://www.wgtn.ac.nz/explore/study-areas/tourism-management/overview"
+  },
+  {
+    "university": "Bond University",
+    "country": "Australia",
+    "city": "Gold Coast",
+    "qs_ranking": 487,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://bond.edu.au/program/master-of-enterprise-artificial-intelligence"
+  },
+  {
+    "university": "Bond University",
+    "country": "Australia",
+    "city": "Gold Coast",
+    "qs_ranking": 487,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://bond.edu.au/program/master-of-enterprise-artificial-intelligence"
+  },
+  {
+    "university": "Bond University",
+    "country": "Australia",
+    "city": "Gold Coast",
+    "qs_ranking": 487,
+    "field_of_study": "Business & Management",
+    "program_url": "https://bond.edu.au/program/master-of-business"
+  },
+  {
+    "university": "Bond University",
+    "country": "Australia",
+    "city": "Gold Coast",
+    "qs_ranking": 487,
+    "field_of_study": "MBA",
+    "program_url": "https://bond.edu.au/program/master-of-business-administration"
+  },
+  {
+    "university": "Bond University",
+    "country": "Australia",
+    "city": "Gold Coast",
+    "qs_ranking": 487,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://bond.edu.au/program/bachelor-of-biomedical-science"
+  },
+  {
+    "university": "Bond University",
+    "country": "Australia",
+    "city": "Gold Coast",
+    "qs_ranking": 487,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://bond.edu.au/program/medical-program-bachelor-of-medical-studies-doctor-of-medicine"
+  },
+  {
+    "university": "Bond University",
+    "country": "Australia",
+    "city": "Gold Coast",
+    "qs_ranking": 487,
+    "field_of_study": "Law",
+    "program_url": "https://bond.edu.au/program/master-of-laws"
+  },
+  {
+    "university": "Bond University",
+    "country": "Australia",
+    "city": "Gold Coast",
+    "qs_ranking": 487,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://bond.edu.au/program/master-of-architecture"
+  },
+  {
+    "university": "Bond University",
+    "country": "Australia",
+    "city": "Gold Coast",
+    "qs_ranking": 487,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://bond.edu.au/program/bachelor-of-social-science"
+  },
+  {
+    "university": "Bond University",
+    "country": "Australia",
+    "city": "Gold Coast",
+    "qs_ranking": 487,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://bond.edu.au/program/master-of-finance"
+  },
+  {
+    "university": "Bond University",
+    "country": "Australia",
+    "city": "Gold Coast",
+    "qs_ranking": 487,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://bond.edu.au/program/master-of-communication"
+  },
+  {
+    "university": "Bond University",
+    "country": "Australia",
+    "city": "Gold Coast",
+    "qs_ranking": 487,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://bond.edu.au/program/bachelor-of-climate-change-and-sustainable-action"
+  },
+  {
+    "university": "Bond University",
+    "country": "Australia",
+    "city": "Gold Coast",
+    "qs_ranking": 487,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://bond.edu.au/program/bachelor-of-health-sciences"
+  },
+  {
+    "university": "Bond University",
+    "country": "Australia",
+    "city": "Gold Coast",
+    "qs_ranking": 487,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://bond.edu.au/program/master-of-international-hotel-and-tourism-management"
+  },
+  {
+    "university": "University of Canberra",
+    "country": "Australia",
+    "city": "Canberra",
+    "qs_ranking": 461,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.canberra.edu.au/course/973AA/7/2026"
+  },
+  {
+    "university": "University of Canberra",
+    "country": "Australia",
+    "city": "Canberra",
+    "qs_ranking": 461,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.canberra.edu.au/course/ITM001/2/2026"
+  },
+  {
+    "university": "University of Canberra",
+    "country": "Australia",
+    "city": "Canberra",
+    "qs_ranking": 461,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.canberra.edu.au/course/MGM102/2/2026"
+  },
+  {
+    "university": "University of Canberra",
+    "country": "Australia",
+    "city": "Canberra",
+    "qs_ranking": 461,
+    "field_of_study": "MBA",
+    "program_url": "https://www.canberra.edu.au/course/723AA/7/2026"
+  },
+  {
+    "university": "University of Canberra",
+    "country": "Australia",
+    "city": "Canberra",
+    "qs_ranking": 461,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.canberra.edu.au/course/354JA/2/2026"
+  },
+  {
+    "university": "University of Canberra",
+    "country": "Australia",
+    "city": "Canberra",
+    "qs_ranking": 461,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.canberra.edu.au/course/NPB001/1/2026"
+  },
+  {
+    "university": "University of Canberra",
+    "country": "Australia",
+    "city": "Canberra",
+    "qs_ranking": 461,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.canberra.edu.au/course/HLM101/3/2026"
+  },
+  {
+    "university": "University of Canberra",
+    "country": "Australia",
+    "city": "Canberra",
+    "qs_ranking": 461,
+    "field_of_study": "Law",
+    "program_url": "https://www.canberra.edu.au/course/SCM002/1/2026"
+  },
+  {
+    "university": "University of Canberra",
+    "country": "Australia",
+    "city": "Canberra",
+    "qs_ranking": 461,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.canberra.edu.au/course/913AA/6/2026"
+  },
+  {
+    "university": "University of Canberra",
+    "country": "Australia",
+    "city": "Canberra",
+    "qs_ranking": 461,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.canberra.edu.au/course/SCM501/1/2026"
+  },
+  {
+    "university": "University of Canberra",
+    "country": "Australia",
+    "city": "Canberra",
+    "qs_ranking": 461,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.canberra.edu.au/course/MGB302/1/2026"
+  },
+  {
+    "university": "University of Canberra",
+    "country": "Australia",
+    "city": "Canberra",
+    "qs_ranking": 461,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.canberra.edu.au/course/ARM201/3/2026"
+  },
+  {
+    "university": "University of Canberra",
+    "country": "Australia",
+    "city": "Canberra",
+    "qs_ranking": 461,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.canberra.edu.au/course/ENB001/1/2026"
+  },
+  {
+    "university": "University of Canberra",
+    "country": "Australia",
+    "city": "Canberra",
+    "qs_ranking": 461,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.canberra.edu.au/course/NPB003/1/2026"
+  },
+  {
+    "university": "University of Canberra",
+    "country": "Australia",
+    "city": "Canberra",
+    "qs_ranking": 461,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.canberra.edu.au/course/HLM601/1/2026"
+  },
+  {
+    "university": "University of Canberra",
+    "country": "Australia",
+    "city": "Canberra",
+    "qs_ranking": 461,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://www.canberra.edu.au/coursesandunits/course?course_cd=MGB401"
+  },
+  {
+    "university": "Australian Catholic University",
+    "country": "Australia",
+    "city": "Sydney",
+    "qs_ranking": 851,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.acu.edu.au/course/master-of-information-technology"
+  },
+  {
+    "university": "Australian Catholic University",
+    "country": "Australia",
+    "city": "Sydney",
+    "qs_ranking": 851,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.acu.edu.au/course/bachelor-of-computer-science--master-of-data-science"
+  },
+  {
+    "university": "Australian Catholic University",
+    "country": "Australia",
+    "city": "Sydney",
+    "qs_ranking": 851,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.acu.edu.au/course/master-of-business-administration"
+  },
+  {
+    "university": "Australian Catholic University",
+    "country": "Australia",
+    "city": "Sydney",
+    "qs_ranking": 851,
+    "field_of_study": "MBA",
+    "program_url": "https://www.acu.edu.au/course/master-of-business-administration"
+  },
+  {
+    "university": "Australian Catholic University",
+    "country": "Australia",
+    "city": "Sydney",
+    "qs_ranking": 851,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.acu.edu.au/course/bachelor-of-biomedical-science"
+  },
+  {
+    "university": "Australian Catholic University",
+    "country": "Australia",
+    "city": "Sydney",
+    "qs_ranking": 851,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.acu.edu.au/course/master-of-public-health"
+  },
+  {
+    "university": "Australian Catholic University",
+    "country": "Australia",
+    "city": "Sydney",
+    "qs_ranking": 851,
+    "field_of_study": "Law",
+    "program_url": "https://www.acu.edu.au/course/bachelor-of-laws-graduate-entry"
+  },
+  {
+    "university": "Australian Catholic University",
+    "country": "Australia",
+    "city": "Sydney",
+    "qs_ranking": 851,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.acu.edu.au/course/bachelor-of-creative-arts"
+  },
+  {
+    "university": "Australian Catholic University",
+    "country": "Australia",
+    "city": "Sydney",
+    "qs_ranking": 851,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.acu.edu.au/course/bachelor-of-arts"
+  },
+  {
+    "university": "Australian Catholic University",
+    "country": "Australia",
+    "city": "Sydney",
+    "qs_ranking": 851,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.acu.edu.au/course/bachelor-of-creative-arts"
+  },
+  {
+    "university": "Australian Catholic University",
+    "country": "Australia",
+    "city": "Sydney",
+    "qs_ranking": 851,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.acu.edu.au/study-at-acu/find-a-course/new-courses/bachelor-of-social-and-environmental-sustainability"
+  },
+  {
+    "university": "Australian Catholic University",
+    "country": "Australia",
+    "city": "Sydney",
+    "qs_ranking": 851,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.acu.edu.au/course/bachelor-of-nursing"
+  },
+  {
+    "university": "Murdoch University",
+    "country": "Australia",
+    "city": "Perth",
+    "qs_ranking": 487,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.murdoch.edu.au/course/postgraduate/m1220"
+  },
+  {
+    "university": "Murdoch University",
+    "country": "Australia",
+    "city": "Perth",
+    "qs_ranking": 487,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.murdoch.edu.au/course/postgraduate/mj-iaid"
+  },
+  {
+    "university": "Murdoch University",
+    "country": "Australia",
+    "city": "Perth",
+    "qs_ranking": 487,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.murdoch.edu.au/course/postgraduate/m1279"
+  },
+  {
+    "university": "Murdoch University",
+    "country": "Australia",
+    "city": "Perth",
+    "qs_ranking": 487,
+    "field_of_study": "MBA",
+    "program_url": "https://www.murdoch.edu.au/course/postgraduate/m1256"
+  },
+  {
+    "university": "Murdoch University",
+    "country": "Australia",
+    "city": "Perth",
+    "qs_ranking": 487,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.murdoch.edu.au/course/postgraduate/m1330"
+  },
+  {
+    "university": "Murdoch University",
+    "country": "Australia",
+    "city": "Perth",
+    "qs_ranking": 487,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.murdoch.edu.au/course/undergraduate/b1419"
+  },
+  {
+    "university": "Murdoch University",
+    "country": "Australia",
+    "city": "Perth",
+    "qs_ranking": 487,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.murdoch.edu.au/course/postgraduate/m1267"
+  },
+  {
+    "university": "Murdoch University",
+    "country": "Australia",
+    "city": "Perth",
+    "qs_ranking": 487,
+    "field_of_study": "Law",
+    "program_url": "https://www.murdoch.edu.au/course/research/m1235"
+  },
+  {
+    "university": "Murdoch University",
+    "country": "Australia",
+    "city": "Perth",
+    "qs_ranking": 487,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.murdoch.edu.au/course/undergraduate/mj-gph"
+  },
+  {
+    "university": "Murdoch University",
+    "country": "Australia",
+    "city": "Perth",
+    "qs_ranking": 487,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.murdoch.edu.au/course/undergraduate/b1356"
+  },
+  {
+    "university": "Murdoch University",
+    "country": "Australia",
+    "city": "Perth",
+    "qs_ranking": 487,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.murdoch.edu.au/course/undergraduate/mj-fina"
+  },
+  {
+    "university": "Murdoch University",
+    "country": "Australia",
+    "city": "Perth",
+    "qs_ranking": 487,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.murdoch.edu.au/course/postgraduate/m1277"
+  },
+  {
+    "university": "Murdoch University",
+    "country": "Australia",
+    "city": "Perth",
+    "qs_ranking": 487,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.murdoch.edu.au/course/postgraduate/m1214"
+  },
+  {
+    "university": "Murdoch University",
+    "country": "Australia",
+    "city": "Perth",
+    "qs_ranking": 487,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.murdoch.edu.au/course/honours/h1257"
+  },
+  {
+    "university": "Murdoch University",
+    "country": "Australia",
+    "city": "Perth",
+    "qs_ranking": 487,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.murdoch.edu.au/course/undergraduate/b1417"
+  },
+  {
+    "university": "Murdoch University",
+    "country": "Australia",
+    "city": "Perth",
+    "qs_ranking": 487,
+    "field_of_study": "Agriculture & Veterinary Sciences",
+    "program_url": "https://www.murdoch.edu.au/course/undergraduate/b1402"
+  },
+  {
+    "university": "Murdoch University",
+    "country": "Australia",
+    "city": "Perth",
+    "qs_ranking": 487,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://www.murdoch.edu.au/course/undergraduate/mj-htma"
+  },
+  {
+    "university": "Victoria University",
+    "country": "Australia",
+    "city": "Melbourne",
+    "qs_ranking": 543,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.vu.edu.au/courses/master-of-applied-information-technology-nmit"
+  },
+  {
+    "university": "Victoria University",
+    "country": "Australia",
+    "city": "Melbourne",
+    "qs_ranking": 543,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.vu.edu.au/courses/master-of-business-analytics-bmbu"
+  },
+  {
+    "university": "Victoria University",
+    "country": "Australia",
+    "city": "Melbourne",
+    "qs_ranking": 543,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.vu.edu.au/courses/international/BMMN"
+  },
+  {
+    "university": "Victoria University",
+    "country": "Australia",
+    "city": "Melbourne",
+    "qs_ranking": 543,
+    "field_of_study": "MBA",
+    "program_url": "https://www.vu.edu.au/courses/master-of-business-administration-bmpf"
+  },
+  {
+    "university": "Victoria University",
+    "country": "Australia",
+    "city": "Melbourne",
+    "qs_ranking": 543,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.vu.edu.au/courses/master-of-engineering-nmen"
+  },
+  {
+    "university": "Victoria University",
+    "country": "Australia",
+    "city": "Melbourne",
+    "qs_ranking": 543,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.vu.edu.au/courses/bachelor-of-biomedical-science-hbbs"
+  },
+  {
+    "university": "Victoria University",
+    "country": "Australia",
+    "city": "Melbourne",
+    "qs_ranking": 543,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.vu.edu.au/courses/master-of-global-public-health-hmgp"
+  },
+  {
+    "university": "Victoria University",
+    "country": "Australia",
+    "city": "Melbourne",
+    "qs_ranking": 543,
+    "field_of_study": "Law",
+    "program_url": "https://www.vu.edu.au/courses/bachelor-of-laws-blaw"
+  },
+  {
+    "university": "Victoria University",
+    "country": "Australia",
+    "city": "Melbourne",
+    "qs_ranking": 543,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.vu.edu.au/courses/bachelor-of-architectural-design-nbad"
+  },
+  {
+    "university": "Victoria University",
+    "country": "Australia",
+    "city": "Melbourne",
+    "qs_ranking": 543,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.vu.edu.au/courses/bachelor-of-arts-abab"
+  },
+  {
+    "university": "Victoria University",
+    "country": "Australia",
+    "city": "Melbourne",
+    "qs_ranking": 543,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.vu.edu.au/courses/master-of-business-administration-global-bmag"
+  },
+  {
+    "university": "Victoria University",
+    "country": "Australia",
+    "city": "Melbourne",
+    "qs_ranking": 543,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.vu.edu.au/courses/master-of-digital-media-amdm"
+  },
+  {
+    "university": "Victoria University",
+    "country": "Australia",
+    "city": "Melbourne",
+    "qs_ranking": 543,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.vu.edu.au/courses/bachelor-of-outdoor-education-and-environmental-science-sboe"
+  },
+  {
+    "university": "Victoria University",
+    "country": "Australia",
+    "city": "Melbourne",
+    "qs_ranking": 543,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.vu.edu.au/courses/bachelor-of-science-nbsc"
+  },
+  {
+    "university": "Victoria University",
+    "country": "Australia",
+    "city": "Melbourne",
+    "qs_ranking": 543,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.vu.edu.au/courses/bachelor-of-nursing-hbnb"
+  },
+  {
+    "university": "Victoria University",
+    "country": "Australia",
+    "city": "Melbourne",
+    "qs_ranking": 543,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://www.vu.edu.au/courses/associate-degree-in-hospitality-and-hotel-management-vahh"
+  },
+  {
+    "university": "Flinders University",
+    "country": "Australia",
+    "city": "Adelaide",
+    "qs_ranking": 374,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.flinders.edu.au/study/courses/postgraduate-master-computer-science"
+  },
+  {
+    "university": "Flinders University",
+    "country": "Australia",
+    "city": "Adelaide",
+    "qs_ranking": 374,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.flinders.edu.au/study/courses/computer-science-artificial-intelligence"
+  },
+  {
+    "university": "Flinders University",
+    "country": "Australia",
+    "city": "Adelaide",
+    "qs_ranking": 374,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.flinders.edu.au/study/courses/postgraduate-business-administration-future-business"
+  },
+  {
+    "university": "Flinders University",
+    "country": "Australia",
+    "city": "Adelaide",
+    "qs_ranking": 374,
+    "field_of_study": "MBA",
+    "program_url": "https://www.flinders.edu.au/study/business/master-of-business-administration"
+  },
+  {
+    "university": "Flinders University",
+    "country": "Australia",
+    "city": "Adelaide",
+    "qs_ranking": 374,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.flinders.edu.au/study/courses/postgraduate-engineering-electrical-electronic"
+  },
+  {
+    "university": "Flinders University",
+    "country": "Australia",
+    "city": "Adelaide",
+    "qs_ranking": 374,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.flinders.edu.au/study/courses/postgraduate-biotechnology"
+  },
+  {
+    "university": "Flinders University",
+    "country": "Australia",
+    "city": "Adelaide",
+    "qs_ranking": 374,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.flinders.edu.au/study/courses/master-public-health"
+  },
+  {
+    "university": "Flinders University",
+    "country": "Australia",
+    "city": "Adelaide",
+    "qs_ranking": 374,
+    "field_of_study": "Law",
+    "program_url": "https://www.flinders.edu.au/study/courses/bachelor-laws-legal-practice"
+  },
+  {
+    "university": "Flinders University",
+    "country": "Australia",
+    "city": "Adelaide",
+    "qs_ranking": 374,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.flinders.edu.au/study/courses/master-arts-research-creative-performing-arts"
+  },
+  {
+    "university": "Flinders University",
+    "country": "Australia",
+    "city": "Adelaide",
+    "qs_ranking": 374,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.flinders.edu.au/study/courses/master-arts-research-social-sciences"
+  },
+  {
+    "university": "Flinders University",
+    "country": "Australia",
+    "city": "Adelaide",
+    "qs_ranking": 374,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.flinders.edu.au/study/courses/postgraduate-accounting-finance"
+  },
+  {
+    "university": "Flinders University",
+    "country": "Australia",
+    "city": "Adelaide",
+    "qs_ranking": 374,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.flinders.edu.au/study/courses/postgraduate-media-communication"
+  },
+  {
+    "university": "Flinders University",
+    "country": "Australia",
+    "city": "Adelaide",
+    "qs_ranking": 374,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.flinders.edu.au/study/courses/postgraduate-environmental-management-sustainability"
+  },
+  {
+    "university": "Flinders University",
+    "country": "Australia",
+    "city": "Adelaide",
+    "qs_ranking": 374,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.flinders.edu.au/study/courses/postgraduate-biology"
+  },
+  {
+    "university": "Flinders University",
+    "country": "Australia",
+    "city": "Adelaide",
+    "qs_ranking": 374,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.flinders.edu.au/study/courses/postgraduate-nursing"
+  },
+  {
+    "university": "Flinders University",
+    "country": "Australia",
+    "city": "Adelaide",
+    "qs_ranking": 374,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://www.flinders.edu.au/study/courses/bachelor-business-event-management-tourism"
+  },
+  {
+    "university": "Federation University Australia",
+    "country": "Australia",
+    "city": "Ballarat",
+    "qs_ranking": 691,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.federation.edu.au/courses/dcv9-master-of-computing/"
+  },
+  {
+    "university": "Federation University Australia",
+    "country": "Australia",
+    "city": "Ballarat",
+    "qs_ranking": 691,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.federation.edu.au/courses/dit5.ads-bachelor-of-information-technology-ai-and-data-science"
+  },
+  {
+    "university": "Federation University Australia",
+    "country": "Australia",
+    "city": "Ballarat",
+    "qs_ranking": 691,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.federation.edu.au/courses/dmu9-master-of-business/"
+  },
+  {
+    "university": "Federation University Australia",
+    "country": "Australia",
+    "city": "Ballarat",
+    "qs_ranking": 691,
+    "field_of_study": "MBA",
+    "program_url": "https://study.federation.edu.au/course/DMM9.IB"
+  },
+  {
+    "university": "Federation University Australia",
+    "country": "Australia",
+    "city": "Ballarat",
+    "qs_ranking": 691,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.federation.edu.au/courses/dez9.civ-master-of-engineering-technology-civil"
+  },
+  {
+    "university": "Federation University Australia",
+    "country": "Australia",
+    "city": "Ballarat",
+    "qs_ranking": 691,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.federation.edu.au/courses/dsb5-bachelor-of-biomedical-science/"
+  },
+  {
+    "university": "Federation University Australia",
+    "country": "Australia",
+    "city": "Ballarat",
+    "qs_ranking": 691,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.federation.edu.au/courses/DHP9-Master-of-Public-Health"
+  },
+  {
+    "university": "Federation University Australia",
+    "country": "Australia",
+    "city": "Ballarat",
+    "qs_ranking": 691,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.federation.edu.au/courses/dqm5-bachelor-of-visual-arts/"
+  },
+  {
+    "university": "Federation University Australia",
+    "country": "Australia",
+    "city": "Ballarat",
+    "qs_ranking": 691,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://study.federation.edu.au/course/DHS8.HU"
+  },
+  {
+    "university": "Federation University Australia",
+    "country": "Australia",
+    "city": "Ballarat",
+    "qs_ranking": 691,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.federation.edu.au/courses/DBU5.ECO-Bachelor-of-Business-Economics-and-Finance"
+  },
+  {
+    "university": "Federation University Australia",
+    "country": "Australia",
+    "city": "Ballarat",
+    "qs_ranking": 691,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.federation.edu.au/courses/dsi5.es-bachelor-of-science-environmental-science"
+  },
+  {
+    "university": "Federation University Australia",
+    "country": "Australia",
+    "city": "Ballarat",
+    "qs_ranking": 691,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.federation.edu.au/courses/dsi5-bachelor-of-science/"
+  },
+  {
+    "university": "Federation University Australia",
+    "country": "Australia",
+    "city": "Ballarat",
+    "qs_ranking": 691,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.federation.edu.au/courses/dnn5-bachelor-of-nursing/"
+  },
+  {
+    "university": "Federation University Australia",
+    "country": "Australia",
+    "city": "Ballarat",
+    "qs_ranking": 691,
+    "field_of_study": "Agriculture & Veterinary Sciences",
+    "program_url": "https://www.federation.edu.au/courses/dsi5.vb-bachelor-of-science-veterinary-bioscience"
+  },
+  {
+    "university": "Heriot-Watt University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": 274,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.hw.ac.uk/dubai/study/postgraduate/software-engineering"
+  },
+  {
+    "university": "Heriot-Watt University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": 274,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.hw.ac.uk/dubai/study/postgraduate/artificial-intelligence"
+  },
+  {
+    "university": "Heriot-Watt University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": 274,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.hw.ac.uk/dubai/study/postgraduate/international-business-management-with-marketing"
+  },
+  {
+    "university": "Heriot-Watt University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": 274,
+    "field_of_study": "MBA",
+    "program_url": "https://www.hw.ac.uk/dubai/study/postgraduate/mba-with-a-specialism-in-professional-practice"
+  },
+  {
+    "university": "Heriot-Watt University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": 274,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.hw.ac.uk/dubai/study/postgraduate/civil-engineering-construction-management"
+  },
+  {
+    "university": "Heriot-Watt University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": 274,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.hw.ac.uk/dubai/study/postgraduate/interior-architecture-and-design"
+  },
+  {
+    "university": "Heriot-Watt University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": 274,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.hw.ac.uk/dubai/study/postgraduate/business-psychology"
+  },
+  {
+    "university": "Heriot-Watt University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": 274,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.hw.ac.uk/dubai/study/postgraduate/finance-and-management"
+  },
+  {
+    "university": "Heriot-Watt University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": 274,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.hw.ac.uk/dubai/study/postgraduate/global-sustainability-engineering"
+  },
+  {
+    "university": "Heriot-Watt University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": 274,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.hw.ac.uk/dubai/study/undergraduate/statistical-data-science"
+  },
+  {
+    "university": "RIT Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.rit.edu/dubai/bachelor-science-computing-and-information-technologies"
+  },
+  {
+    "university": "RIT Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.rit.edu/dubai/masters-science-professional-studies-data-analytics"
+  },
+  {
+    "university": "RIT Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.rit.edu/dubai/bachelor-science-global-business-management"
+  },
+  {
+    "university": "RIT Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.rit.edu/dubai/masters-science-mechanical-engineering"
+  },
+  {
+    "university": "RIT Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.rit.edu/dubai/bachelor-fine-arts-new-media-design"
+  },
+  {
+    "university": "RIT Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.rit.edu/dubai/bachelor-science-psychology"
+  },
+  {
+    "university": "RIT Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.rit.edu/dubai/bachelor-science-finance"
+  },
+  {
+    "university": "RIT Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.rit.edu/dubai/bachelor-science-advertising-and-public-relations"
+  },
+  {
+    "university": "RIT Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.rit.edu/dubai/masters-science-professional-studies-smart-cities"
+  },
+  {
+    "university": "University of Sharjah",
+    "country": "UAE",
+    "city": "Sharjah",
+    "qs_ranking": 426,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.sharjah.ac.ae/academics/degree/graduate/master-of-computer-science"
+  },
+  {
+    "university": "University of Sharjah",
+    "country": "UAE",
+    "city": "Sharjah",
+    "qs_ranking": 426,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.sharjah.ac.ae/academics/degree/graduate/master-of-science-in-artificial-intelligence"
+  },
+  {
+    "university": "University of Sharjah",
+    "country": "UAE",
+    "city": "Sharjah",
+    "qs_ranking": 426,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.sharjah.ac.ae/academics/degree/undergraduate/business-administration-management"
+  },
+  {
+    "university": "University of Sharjah",
+    "country": "UAE",
+    "city": "Sharjah",
+    "qs_ranking": 426,
+    "field_of_study": "MBA",
+    "program_url": "https://www.sharjah.ac.ae/academics/degree/graduate/master-in-business-administration"
+  },
+  {
+    "university": "University of Sharjah",
+    "country": "UAE",
+    "city": "Sharjah",
+    "qs_ranking": 426,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.sharjah.ac.ae/Academics/Degree/Graduate/Master-Mechanical-Engineering"
+  },
+  {
+    "university": "University of Sharjah",
+    "country": "UAE",
+    "city": "Sharjah",
+    "qs_ranking": 426,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.sharjah.ac.ae/academics/degree/graduate/master-of-biotechnology"
+  },
+  {
+    "university": "University of Sharjah",
+    "country": "UAE",
+    "city": "Sharjah",
+    "qs_ranking": 426,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.sharjah.ac.ae/academics/degree/graduate/master-of-public-health"
+  },
+  {
+    "university": "University of Sharjah",
+    "country": "UAE",
+    "city": "Sharjah",
+    "qs_ranking": 426,
+    "field_of_study": "Law",
+    "program_url": "https://www.sharjah.ac.ae/academics/degree/undergraduate/law-in-english"
+  },
+  {
+    "university": "University of Sharjah",
+    "country": "UAE",
+    "city": "Sharjah",
+    "qs_ranking": 426,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.sharjah.ac.ae/academics/degree/graduate/master-architectural-engineering"
+  },
+  {
+    "university": "University of Sharjah",
+    "country": "UAE",
+    "city": "Sharjah",
+    "qs_ranking": 426,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.sharjah.ac.ae/en/Academics/ahss/Why-Arts-Humanities-and-Social-Studies"
+  },
+  {
+    "university": "University of Sharjah",
+    "country": "UAE",
+    "city": "Sharjah",
+    "qs_ranking": 426,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.sharjah.ac.ae/en/Academics/Degree/Graduate/Master-Financial-Technology"
+  },
+  {
+    "university": "University of Sharjah",
+    "country": "UAE",
+    "city": "Sharjah",
+    "qs_ranking": 426,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.sharjah.ac.ae/en/academics/degree/graduate/master-of-communication"
+  },
+  {
+    "university": "University of Sharjah",
+    "country": "UAE",
+    "city": "Sharjah",
+    "qs_ranking": 426,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.sharjah.ac.ae/academics/degree/graduate/master-environmental-science-and-engineering"
+  },
+  {
+    "university": "University of Sharjah",
+    "country": "UAE",
+    "city": "Sharjah",
+    "qs_ranking": 426,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.sharjah.ac.ae/en/academics/degree/undergraduate/chemistry"
+  },
+  {
+    "university": "University of Sharjah",
+    "country": "UAE",
+    "city": "Sharjah",
+    "qs_ranking": 426,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.sharjah.ac.ae/academics/degree/graduate/master-of-science-in-adult-critical-care-nursing"
+  },
+  {
+    "university": "Curtin University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://curtindubai.ac.ae/it-and-computing/information-technology/"
+  },
+  {
+    "university": "Curtin University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://curtindubai.ac.ae/postgraduate-programs/master-of-artificial-intelligence/"
+  },
+  {
+    "university": "Curtin University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://curtindubai.ac.ae/business-and-management/bachelor-of-business-administration/"
+  },
+  {
+    "university": "Curtin University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://curtindubai.ac.ae/postgraduate-programs/master-of-business-administration-in-international-business/"
+  },
+  {
+    "university": "Curtin University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://curtindubai.ac.ae/engineering/mechanical-engineering/"
+  },
+  {
+    "university": "Curtin University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://curtindubai.ac.ae/arts-and-humanities/bachelor-of-design-graphic-design/"
+  },
+  {
+    "university": "Curtin University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://curtindubai.ac.ae/health-sciences/bachelor-of-science-psychological-science/"
+  },
+  {
+    "university": "Curtin University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://curtindubai.ac.ae/business-and-management/finance/"
+  },
+  {
+    "university": "Curtin University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://curtindubai.ac.ae/arts-and-humanities/bachelor-of-communications/"
+  },
+  {
+    "university": "Curtin University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://curtindubai.ac.ae/business-and-management/bachelor-business-administration-tourism-hospitality/"
+  },
+  {
+    "university": "Multimedia University",
+    "country": "Malaysia",
+    "city": "Cyberjaya",
+    "qs_ranking": 711,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.mmu.edu.my/programmes-by-faculty-all/programmes-by-faculty-fci/master-of-computer-science-software-engineering-via-odl-by-coursework/"
+  },
+  {
+    "university": "Multimedia University",
+    "country": "Malaysia",
+    "city": "Cyberjaya",
+    "qs_ranking": 711,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.mmu.edu.my/programmes-by-faculty-all/programmes-by-faculty-faie/bachelor-of-science-honours-in-applied-artificial-intelligence/"
+  },
+  {
+    "university": "Multimedia University",
+    "country": "Malaysia",
+    "city": "Cyberjaya",
+    "qs_ranking": 711,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.mmu.edu.my/programmes-by-faculty-all/programmes-by-faculty-fob/master-of-business-administration-m-b-a-by-coursework-2/"
+  },
+  {
+    "university": "Multimedia University",
+    "country": "Malaysia",
+    "city": "Cyberjaya",
+    "qs_ranking": 711,
+    "field_of_study": "MBA",
+    "program_url": "https://www.mmu.edu.my/programmes-by-faculty-all/programmes-by-faculty-fom/master-of-business-administration-m-b-a-by-coursework/"
+  },
+  {
+    "university": "Multimedia University",
+    "country": "Malaysia",
+    "city": "Cyberjaya",
+    "qs_ranking": 711,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.mmu.edu.my/programmes-by-faculty-all/programmes-by-faculty-fet/bachelor-of-engineering-hons-mechanical/"
+  },
+  {
+    "university": "Multimedia University",
+    "country": "Malaysia",
+    "city": "Cyberjaya",
+    "qs_ranking": 711,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.mmu.edu.my/programmes-by-faculty-all/programmes-by-faculty-fist/bachelor-of-science-hons-bioinformatics/"
+  },
+  {
+    "university": "Multimedia University",
+    "country": "Malaysia",
+    "city": "Cyberjaya",
+    "qs_ranking": 711,
+    "field_of_study": "Law",
+    "program_url": "https://www.mmu.edu.my/programmes-by-faculty-all/programmes-by-faculty-fol/bachelor-of-law-hons/"
+  },
+  {
+    "university": "Multimedia University",
+    "country": "Malaysia",
+    "city": "Cyberjaya",
+    "qs_ranking": 711,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.mmu.edu.my/programmes-by-faculty-all/programmes-by-faculty-fcm/master-of-science-creative-multimedia-by-research/"
+  },
+  {
+    "university": "Multimedia University",
+    "country": "Malaysia",
+    "city": "Cyberjaya",
+    "qs_ranking": 711,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.mmu.edu.my/programmes-by-faculty-all/programmes-by-faculty-fom/bachelor-of-analytical-economics/"
+  },
+  {
+    "university": "Multimedia University",
+    "country": "Malaysia",
+    "city": "Cyberjaya",
+    "qs_ranking": 711,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.mmu.edu.my/programmes-by-faculty-all/programmes-by-faculty-fac/master-of-philosophy-communication-by-research/"
+  },
+  {
+    "university": "UCSI University",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": 271,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.ucsiuniversity.edu.my/programmes/master-science-computer-science"
+  },
+  {
+    "university": "UCSI University",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": 271,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.ucsiuniversity.edu.my/programmes/bachelor-computer-science-artificial-intelligence-honours"
+  },
+  {
+    "university": "UCSI University",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": 271,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.ucsiuniversity.edu.my/programmes/bachelor-business-management-honours"
+  },
+  {
+    "university": "UCSI University",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": 271,
+    "field_of_study": "MBA",
+    "program_url": "https://www.ucsiuniversity.edu.my/programmes/mba"
+  },
+  {
+    "university": "UCSI University",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": 271,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.ucsiuniversity.edu.my/programmes/bachelor-civil-engineering-honours"
+  },
+  {
+    "university": "UCSI University",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": 271,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.ucsiuniversity.edu.my/programmes/msc-biotechnology"
+  },
+  {
+    "university": "UCSI University",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": 271,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.ucsiuniversity.edu.my/programmes/doctor-medicine-md"
+  },
+  {
+    "university": "UCSI University",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": 271,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.ucsiuniversity.edu.my/programmes/bachelor-science-hons-architecture"
+  },
+  {
+    "university": "UCSI University",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": 271,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.ucsiuniversity.edu.my/programmes/ba-hons-mass-communication"
+  },
+  {
+    "university": "UCSI University",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": 271,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.ucsiuniversity.edu.my/programmes/bachelor-financial-economics-hons"
+  },
+  {
+    "university": "UCSI University",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": 271,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.ucsiuniversity.edu.my/programmes/master-strategic-communication"
+  },
+  {
+    "university": "UCSI University",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": 271,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.ucsiuniversity.edu.my/programmes/master-environmental-social-and-governance-leadership"
+  },
+  {
+    "university": "UCSI University",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": 271,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.ucsiuniversity.edu.my/programmes/bachelor-nursing-hons"
+  },
+  {
+    "university": "UCSI University",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": 271,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://www.ucsiuniversity.edu.my/programmes/bachelor-arts-honours-hospitality-management"
+  },
+  {
+    "university": "Monash University Malaysia",
+    "country": "Malaysia",
+    "city": "Subang Jaya",
+    "qs_ranking": 36,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.monash.edu.my/study/postgraduate-and-research/information-technology/master-business-information-systems"
+  },
+  {
+    "university": "Monash University Malaysia",
+    "country": "Malaysia",
+    "city": "Subang Jaya",
+    "qs_ranking": 36,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.monash.edu.my/study/postgraduate-and-research/information-technology/master-of-artificial-intelligence"
+  },
+  {
+    "university": "Monash University Malaysia",
+    "country": "Malaysia",
+    "city": "Subang Jaya",
+    "qs_ranking": 36,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.monash.edu.my/study/postgraduate-and-research/business/master-international-business"
+  },
+  {
+    "university": "Monash University Malaysia",
+    "country": "Malaysia",
+    "city": "Subang Jaya",
+    "qs_ranking": 36,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.monash.edu.my/study/postgraduate-and-research/engineering/master-of-applied-engineering"
+  },
+  {
+    "university": "Monash University Malaysia",
+    "country": "Malaysia",
+    "city": "Subang Jaya",
+    "qs_ranking": 36,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.monash.edu.my/study/postgraduate-and-research/medicine-health-sciences/master-of-biotechnology"
+  },
+  {
+    "university": "Monash University Malaysia",
+    "country": "Malaysia",
+    "city": "Subang Jaya",
+    "qs_ranking": 36,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.monash.edu.my/study/undergraduate/jeffrey-cheah-school-medicine-health-sciences/bachelor-medical-science-doctor-medicine"
+  },
+  {
+    "university": "Monash University Malaysia",
+    "country": "Malaysia",
+    "city": "Subang Jaya",
+    "qs_ranking": 36,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.monash.edu.my/study/undergraduate/arts-social-sciences/bachelor-arts-social-sciences"
+  },
+  {
+    "university": "Monash University Malaysia",
+    "country": "Malaysia",
+    "city": "Subang Jaya",
+    "qs_ranking": 36,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.monash.edu.my/study/postgraduate-and-research/arts-social-sciences/phd"
+  },
+  {
+    "university": "Monash University Malaysia",
+    "country": "Malaysia",
+    "city": "Subang Jaya",
+    "qs_ranking": 36,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.monash.edu.my/study/undergraduate/business/bachelor-business-commerce"
+  },
+  {
+    "university": "Monash University Malaysia",
+    "country": "Malaysia",
+    "city": "Subang Jaya",
+    "qs_ranking": 36,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.monash.edu.my/study/postgraduate-and-research/arts-social-sciences/master-communications-media-studies"
+  },
+  {
+    "university": "Monash University Malaysia",
+    "country": "Malaysia",
+    "city": "Subang Jaya",
+    "qs_ranking": 36,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.monash.edu.my/study/postgraduate-and-research/engineering/master-of-advanced-engineering-energy-and-sustainability"
+  },
+  {
+    "university": "Monash University Malaysia",
+    "country": "Malaysia",
+    "city": "Subang Jaya",
+    "qs_ranking": 36,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.monash.edu.my/study/undergraduate/science/bachelor-science"
+  },
+  {
+    "university": "Monash University Malaysia",
+    "country": "Malaysia",
+    "city": "Subang Jaya",
+    "qs_ranking": 36,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.monash.edu.my/study/undergraduate/jeffrey-cheah-school-medicine-health-sciences/bachelor-of-health-sciences-honours"
+  },
+  {
+    "university": "INTI International University",
+    "country": "Malaysia",
+    "city": "Nilai",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://newinti.edu.my/programme/bachelor-of-computer-science-hons-coventry-uk/"
+  },
+  {
+    "university": "INTI International University",
+    "country": "Malaysia",
+    "city": "Nilai",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://newinti.edu.my/programme/master-of-science-in-data-science/"
+  },
+  {
+    "university": "INTI International University",
+    "country": "Malaysia",
+    "city": "Nilai",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://newinti.edu.my/programme/bachelor-of-business-hons-in-business-administration/"
+  },
+  {
+    "university": "INTI International University",
+    "country": "Malaysia",
+    "city": "Nilai",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://newinti.edu.my/programme/master-of-business-administration-mba-by-inti-international-university_1/"
+  },
+  {
+    "university": "INTI International University",
+    "country": "Malaysia",
+    "city": "Nilai",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://newinti.edu.my/programme/bachelor-of-engineering-hons-in-mechanical-engineering/"
+  },
+  {
+    "university": "INTI International University",
+    "country": "Malaysia",
+    "city": "Nilai",
+    "qs_ranking": null,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://newinti.edu.my/programme/bachelor-of-biotechnology-hons/"
+  },
+  {
+    "university": "INTI International University",
+    "country": "Malaysia",
+    "city": "Nilai",
+    "qs_ranking": null,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://newinti.edu.my/programme/bachelor-of-traditional-chinese-medicine-hons/"
+  },
+  {
+    "university": "INTI International University",
+    "country": "Malaysia",
+    "city": "Nilai",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://newinti.edu.my/programme/bachelor-of-art-honours-interior-architecture-design-3-5-0-sheffield-hallam-uk/"
+  },
+  {
+    "university": "INTI International University",
+    "country": "Malaysia",
+    "city": "Nilai",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://newinti.edu.my/programme/bachelor-of-business-hons-in-finance/"
+  },
+  {
+    "university": "INTI International University",
+    "country": "Malaysia",
+    "city": "Nilai",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://newinti.edu.my/programme/bachelor-mass-communication-hons-collaboration-university-hertfordshire-uk/"
+  },
+  {
+    "university": "INTI International University",
+    "country": "Malaysia",
+    "city": "Nilai",
+    "qs_ranking": null,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://newinti.edu.my/programme/diploma-in-hotel-management/"
+  },
+  {
+    "university": "HELP University",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://university.help.edu.my/programme/bachelor-of-computer-science/"
+  },
+  {
+    "university": "HELP University",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://university.help.edu.my/programme/master-in-artificial-intelligence-odl/"
+  },
+  {
+    "university": "HELP University",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://university.help.edu.my/course/bachelor-of-management-hons/"
+  },
+  {
+    "university": "HELP University",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://university.help.edu.my/programme/master-of-business-administration-online/"
+  },
+  {
+    "university": "HELP University",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": null,
+    "field_of_study": "Law",
+    "program_url": "https://university.help.edu.my/programme/bachelor-of-laws/"
+  },
+  {
+    "university": "HELP University",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://university.help.edu.my/programme/bachelor-of-psychology/"
+  },
+  {
+    "university": "HELP University",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://university.help.edu.my/programme/bachelor-of-economics/"
+  },
+  {
+    "university": "HELP University",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://university.help.edu.my/programme/bachelor-in-communication-media-studies/"
+  },
+  {
+    "university": "HELP University",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": null,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://university.help.edu.my/programme/bachelor-of-tourism-management/"
+  },
+  {
+    "university": "Munster Technological University",
+    "country": "Ireland",
+    "city": "Cork",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.mtu.ie/courses/crkinse9/"
+  },
+  {
+    "university": "Munster Technological University",
+    "country": "Ireland",
+    "city": "Cork",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.mtu.ie/courses/crkarin9/"
+  },
+  {
+    "university": "Munster Technological University",
+    "country": "Ireland",
+    "city": "Cork",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.mtu.ie/courses/crbibus9/"
+  },
+  {
+    "university": "Munster Technological University",
+    "country": "Ireland",
+    "city": "Cork",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://www.mtu.ie/courses/crbstra9/"
+  },
+  {
+    "university": "Munster Technological University",
+    "country": "Ireland",
+    "city": "Cork",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.mtu.ie/courses/crcceee9/"
+  },
+  {
+    "university": "Munster Technological University",
+    "country": "Ireland",
+    "city": "Cork",
+    "qs_ranking": null,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.mtu.ie/courses/mt873/"
+  },
+  {
+    "university": "Munster Technological University",
+    "country": "Ireland",
+    "city": "Cork",
+    "qs_ranking": null,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.mtu.ie/courses/cremedd9/"
+  },
+  {
+    "university": "Munster Technological University",
+    "country": "Ireland",
+    "city": "Cork",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.mtu.ie/courses/mt859/"
+  },
+  {
+    "university": "Munster Technological University",
+    "country": "Ireland",
+    "city": "Cork",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.mtu.ie/courses/tlbfntcm/"
+  },
+  {
+    "university": "Munster Technological University",
+    "country": "Ireland",
+    "city": "Cork",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.mtu.ie/courses/crhjdcc9/"
+  },
+  {
+    "university": "Munster Technological University",
+    "country": "Ireland",
+    "city": "Cork",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.mtu.ie/courses/mt878/"
+  },
+  {
+    "university": "Munster Technological University",
+    "country": "Ireland",
+    "city": "Cork",
+    "qs_ranking": null,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.mtu.ie/courses/mt870/"
+  },
+  {
+    "university": "Munster Technological University",
+    "country": "Ireland",
+    "city": "Cork",
+    "qs_ranking": null,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.mtu.ie/courses/tlnnuprm/"
+  },
+  {
+    "university": "Munster Technological University",
+    "country": "Ireland",
+    "city": "Cork",
+    "qs_ranking": null,
+    "field_of_study": "Agriculture & Veterinary Sciences",
+    "program_url": "https://www.mtu.ie/courses/mt881/"
+  },
+  {
+    "university": "Munster Technological University",
+    "country": "Ireland",
+    "city": "Cork",
+    "qs_ranking": null,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://www.mtu.ie/courses/mt948/"
+  },
+  {
+    "university": "Technological University Dublin",
+    "country": "Ireland",
+    "city": "Dublin",
+    "qs_ranking": 691,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.tudublin.ie/study/postgraduate/courses/computing-advanced-software-development-tu059/"
+  },
+  {
+    "university": "Technological University Dublin",
+    "country": "Ireland",
+    "city": "Dublin",
+    "qs_ranking": 691,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.tudublin.ie/study/postgraduate/courses/applied-data-science-and-analytics/"
+  },
+  {
+    "university": "Technological University Dublin",
+    "country": "Ireland",
+    "city": "Dublin",
+    "qs_ranking": 691,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.tudublin.ie/study/postgraduate/courses/strategic-management-pt/"
+  },
+  {
+    "university": "Technological University Dublin",
+    "country": "Ireland",
+    "city": "Dublin",
+    "qs_ranking": 691,
+    "field_of_study": "MBA",
+    "program_url": "https://www.tudublin.ie/study/postgraduate/courses/masters-business-administration/"
+  },
+  {
+    "university": "Technological University Dublin",
+    "country": "Ireland",
+    "city": "Dublin",
+    "qs_ranking": 691,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.tudublin.ie/study/postgraduate/courses/mechanical-engineering/"
+  },
+  {
+    "university": "Technological University Dublin",
+    "country": "Ireland",
+    "city": "Dublin",
+    "qs_ranking": 691,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.tudublin.ie/study/undergraduate/courses/biotechnology-tu889/"
+  },
+  {
+    "university": "Technological University Dublin",
+    "country": "Ireland",
+    "city": "Dublin",
+    "qs_ranking": 691,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.tudublin.ie/study/postgraduate/courses/higher-diploma-in-medical-science-full-time/"
+  },
+  {
+    "university": "Technological University Dublin",
+    "country": "Ireland",
+    "city": "Dublin",
+    "qs_ranking": 691,
+    "field_of_study": "Law",
+    "program_url": "https://www.tudublin.ie/study/postgraduate/courses/law-professional/"
+  },
+  {
+    "university": "Technological University Dublin",
+    "country": "Ireland",
+    "city": "Dublin",
+    "qs_ranking": 691,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.tudublin.ie/study/postgraduate/courses/architecture/"
+  },
+  {
+    "university": "Technological University Dublin",
+    "country": "Ireland",
+    "city": "Dublin",
+    "qs_ranking": 691,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.tudublin.ie/study/postgraduate/courses/full-time-finance2/"
+  },
+  {
+    "university": "Technological University Dublin",
+    "country": "Ireland",
+    "city": "Dublin",
+    "qs_ranking": 691,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.tudublin.ie/study/postgraduate/courses/journalism/"
+  },
+  {
+    "university": "Technological University Dublin",
+    "country": "Ireland",
+    "city": "Dublin",
+    "qs_ranking": 691,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.tudublin.ie/study/postgraduate/courses/sustainable-development/"
+  },
+  {
+    "university": "Technological University Dublin",
+    "country": "Ireland",
+    "city": "Dublin",
+    "qs_ranking": 691,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://www.tudublin.ie/study/postgraduate/courses/hospitality-management/"
+  },
+  {
+    "university": "Maynooth University",
+    "country": "Ireland",
+    "city": "Maynooth",
+    "qs_ranking": 851,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.maynoothuniversity.ie/study-maynooth/postgraduate-studies/courses/msc-computer-science-applied"
+  },
+  {
+    "university": "Maynooth University",
+    "country": "Ireland",
+    "city": "Maynooth",
+    "qs_ranking": 851,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.maynoothuniversity.ie/study-maynooth/postgraduate-studies/courses/msc-data-science-and-analytics"
+  },
+  {
+    "university": "Maynooth University",
+    "country": "Ireland",
+    "city": "Maynooth",
+    "qs_ranking": 851,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.maynoothuniversity.ie/study-maynooth/postgraduate-studies/courses/msc-business-management"
+  },
+  {
+    "university": "Maynooth University",
+    "country": "Ireland",
+    "city": "Maynooth",
+    "qs_ranking": 851,
+    "field_of_study": "MBA",
+    "program_url": "https://www.maynoothuniversity.ie/study-maynooth/postgraduate-studies/courses/master-business-administration-mba"
+  },
+  {
+    "university": "Maynooth University",
+    "country": "Ireland",
+    "city": "Maynooth",
+    "qs_ranking": 851,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.maynoothuniversity.ie/study-maynooth/undergraduate-studies/courses/bachelor-engineering"
+  },
+  {
+    "university": "Maynooth University",
+    "country": "Ireland",
+    "city": "Maynooth",
+    "qs_ranking": 851,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.maynoothuniversity.ie/study-maynooth/undergraduate-studies/courses/bsc-biotechnology"
+  },
+  {
+    "university": "Maynooth University",
+    "country": "Ireland",
+    "city": "Maynooth",
+    "qs_ranking": 851,
+    "field_of_study": "Law",
+    "program_url": "https://www.maynoothuniversity.ie/study-maynooth/postgraduate-studies/courses/llm-global-legal-studies"
+  },
+  {
+    "university": "Maynooth University",
+    "country": "Ireland",
+    "city": "Maynooth",
+    "qs_ranking": 851,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.maynoothuniversity.ie/design-innovation/our-courses/msc-design-innovation"
+  },
+  {
+    "university": "Maynooth University",
+    "country": "Ireland",
+    "city": "Maynooth",
+    "qs_ranking": 851,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.maynoothuniversity.ie/study-maynooth/postgraduate-studies/courses/msc-social-research"
+  },
+  {
+    "university": "Maynooth University",
+    "country": "Ireland",
+    "city": "Maynooth",
+    "qs_ranking": 851,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.maynoothuniversity.ie/study-maynooth/postgraduate-studies/courses/msc-economics"
+  },
+  {
+    "university": "Maynooth University",
+    "country": "Ireland",
+    "city": "Maynooth",
+    "qs_ranking": 851,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.maynoothuniversity.ie/study-maynooth/postgraduate-studies/courses/ma-critical-and-creative-media"
+  },
+  {
+    "university": "Maynooth University",
+    "country": "Ireland",
+    "city": "Maynooth",
+    "qs_ranking": 851,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.maynoothuniversity.ie/study-maynooth/postgraduate-studies/courses/msc-climate-change"
+  },
+  {
+    "university": "Maynooth University",
+    "country": "Ireland",
+    "city": "Maynooth",
+    "qs_ranking": 851,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.maynoothuniversity.ie/study-maynooth/undergraduate-studies/courses/bachelor-science"
+  },
+  {
+    "university": "Maynooth University",
+    "country": "Ireland",
+    "city": "Maynooth",
+    "qs_ranking": 851,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.maynoothuniversity.ie/study-maynooth/undergraduate-studies/courses/bachelor-science-general-nursing"
+  }
+]
