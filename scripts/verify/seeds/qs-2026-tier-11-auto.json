@@ -1550,5 +1550,1893 @@
     "qs_ranking": 244,
     "field_of_study": "Natural Sciences",
     "program_url": "https://www.physik.tu-darmstadt.de/lehre_physik/studiengaenge/master_physics_engl/index.en.jsp"
+  },
+  {
+    "university": "Hamburg University of Technology",
+    "country": "Germany",
+    "city": "Hamburg",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.tuhh.de/tuhh/en/studying/before-studying/degree-courses/masters-programs/computer-science"
+  },
+  {
+    "university": "Hamburg University of Technology",
+    "country": "Germany",
+    "city": "Hamburg",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.tuhh.de/tuhh/en/studying/before-studying/degree-courses/international-study-programs/data-science"
+  },
+  {
+    "university": "Hamburg University of Technology",
+    "country": "Germany",
+    "city": "Hamburg",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.tuhh.de/tuhh/en/studying/before-studying/degree-courses/masters-programs/international-management-and-engineering"
+  },
+  {
+    "university": "Hamburg University of Technology",
+    "country": "Germany",
+    "city": "Hamburg",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.tuhh.de/tuhh/en/studying/before-studying/degree-courses/international-study-programs/mechanical-engineering-and-management"
+  },
+  {
+    "university": "Hamburg University of Technology",
+    "country": "Germany",
+    "city": "Hamburg",
+    "qs_ranking": null,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.tuhh.de/tuhh/en/studying/before-studying/degree-courses/international-study-programs/chemical-and-bioprocess-engineering-1"
+  },
+  {
+    "university": "Hamburg University of Technology",
+    "country": "Germany",
+    "city": "Hamburg",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.tuhh.de/tuhh/en/studying/before-studying/degree-courses/international-study-programs/environmental-engineering"
+  },
+  {
+    "university": "Hamburg University of Technology",
+    "country": "Germany",
+    "city": "Hamburg",
+    "qs_ranking": null,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.tuhh.de/tuhh/en/studying/before-studying/degree-courses/international-study-programs/materials-science-and-engineering"
+  },
+  {
+    "university": "University of Bayreuth",
+    "country": "Germany",
+    "city": "Bayreuth",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.uni-bayreuth.de/en/master/computer-science"
+  },
+  {
+    "university": "University of Bayreuth",
+    "country": "Germany",
+    "city": "Bayreuth",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.uni-bayreuth.de/en/bachelor/data-science-and-ai"
+  },
+  {
+    "university": "University of Bayreuth",
+    "country": "Germany",
+    "city": "Bayreuth",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.uni-bayreuth.de/en/master/business-administration"
+  },
+  {
+    "university": "University of Bayreuth",
+    "country": "Germany",
+    "city": "Bayreuth",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://www.uni-bayreuth.de/en/mba/marketing-sales-management"
+  },
+  {
+    "university": "University of Bayreuth",
+    "country": "Germany",
+    "city": "Bayreuth",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.uni-bayreuth.de/en/master/mechanical-engineering"
+  },
+  {
+    "university": "University of Bayreuth",
+    "country": "Germany",
+    "city": "Bayreuth",
+    "qs_ranking": null,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.uni-bayreuth.de/en/master/biotechnology-and-process-engineering"
+  },
+  {
+    "university": "University of Bayreuth",
+    "country": "Germany",
+    "city": "Bayreuth",
+    "qs_ranking": null,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.uni-bayreuth.de/en/master/ecch"
+  },
+  {
+    "university": "University of Bayreuth",
+    "country": "Germany",
+    "city": "Bayreuth",
+    "qs_ranking": null,
+    "field_of_study": "Law",
+    "program_url": "https://www.uni-bayreuth.de/en/state-examinations/law"
+  },
+  {
+    "university": "University of Bayreuth",
+    "country": "Germany",
+    "city": "Bayreuth",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.uni-bayreuth.de/en/master/avva"
+  },
+  {
+    "university": "University of Bayreuth",
+    "country": "Germany",
+    "city": "Bayreuth",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.uni-bayreuth.de/en/master/african-studies"
+  },
+  {
+    "university": "University of Bayreuth",
+    "country": "Germany",
+    "city": "Bayreuth",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.uni-bayreuth.de/en/master/economics"
+  },
+  {
+    "university": "University of Bayreuth",
+    "country": "Germany",
+    "city": "Bayreuth",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.uni-bayreuth.de/en/master/media-culture-media-economy"
+  },
+  {
+    "university": "University of Bayreuth",
+    "country": "Germany",
+    "city": "Bayreuth",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.uni-bayreuth.de/en/master/global-change-ecology"
+  },
+  {
+    "university": "University of Bayreuth",
+    "country": "Germany",
+    "city": "Bayreuth",
+    "qs_ranking": null,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.uni-bayreuth.de/en/master/polymer-science"
+  },
+  {
+    "university": "University of Bayreuth",
+    "country": "Germany",
+    "city": "Bayreuth",
+    "qs_ranking": null,
+    "field_of_study": "Agriculture & Veterinary Sciences",
+    "program_url": "https://www.uni-bayreuth.de/en/master/food-quality-and-safety"
+  },
+  {
+    "university": "Heinrich Heine University Düsseldorf",
+    "country": "Germany",
+    "city": "Düsseldorf",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.hhu.de/en/studies/all-courses-of-study-at-heinrich-heine-university/course-information/computer-science-master"
+  },
+  {
+    "university": "Heinrich Heine University Düsseldorf",
+    "country": "Germany",
+    "city": "Düsseldorf",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.hhu.de/en/studies/all-courses-of-study-at-heinrich-heine-university/course-information/artificial-intelligence-and-data-science-master"
+  },
+  {
+    "university": "Heinrich Heine University Düsseldorf",
+    "country": "Germany",
+    "city": "Düsseldorf",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.hhu.de/en/studies/all-courses-of-study-at-heinrich-heine-university/course-information/business-administration-master"
+  },
+  {
+    "university": "Heinrich Heine University Düsseldorf",
+    "country": "Germany",
+    "city": "Düsseldorf",
+    "qs_ranking": null,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.molekularebiomedizin.hhu.de/en/"
+  },
+  {
+    "university": "Heinrich Heine University Düsseldorf",
+    "country": "Germany",
+    "city": "Düsseldorf",
+    "qs_ranking": null,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.hhu.de/en/studies/all-courses-of-study-at-heinrich-heine-university/course-information/medicine-staatsexamen"
+  },
+  {
+    "university": "Heinrich Heine University Düsseldorf",
+    "country": "Germany",
+    "city": "Düsseldorf",
+    "qs_ranking": null,
+    "field_of_study": "Law",
+    "program_url": "https://www.hhu.de/en/studies/all-courses-of-study-at-heinrich-heine-university/course-information/law-jurisprudence-staatsexamen"
+  },
+  {
+    "university": "Heinrich Heine University Düsseldorf",
+    "country": "Germany",
+    "city": "Düsseldorf",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.hhu.de/en/studies/all-courses-of-study-at-heinrich-heine-university/course-information/art-history-bachelor"
+  },
+  {
+    "university": "Heinrich Heine University Düsseldorf",
+    "country": "Germany",
+    "city": "Düsseldorf",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.hhu.de/en/studies/all-courses-of-study-at-heinrich-heine-university/course-information?tx_igstudiengaenge_txigstudiengaengepi2%5Baction%5D=list&tx_igstudiengaenge_txigstudiengaengepi2%5Bcontroller%5D=DoSvDetail&tx_igstudiengaenge_txigstudiengaengepi2%5Bstudiengang%5D=141&cHash=98dffc070debc4fd0211d82d5044b2f2"
+  },
+  {
+    "university": "Heinrich Heine University Düsseldorf",
+    "country": "Germany",
+    "city": "Düsseldorf",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.hhu.de/en/studies/all-courses-of-study-at-heinrich-heine-university/course-information/economics-master"
+  },
+  {
+    "university": "Heinrich Heine University Düsseldorf",
+    "country": "Germany",
+    "city": "Düsseldorf",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.hhu.de/en/studies/all-courses-of-study-at-heinrich-heine-university/course-information?tx_igstudiengaenge_txigstudiengaengepi2%5Baction%5D=list&tx_igstudiengaenge_txigstudiengaengepi2%5Bcontroller%5D=DoSvDetail&tx_igstudiengaenge_txigstudiengaengepi2%5Bstudiengang%5D=366&cHash=92fc738a0620712e9e93c247dd910ee9"
+  },
+  {
+    "university": "Heinrich Heine University Düsseldorf",
+    "country": "Germany",
+    "city": "Düsseldorf",
+    "qs_ranking": null,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.hhu.de/en/studies/all-courses-of-study-at-heinrich-heine-university/course-information/biology-master"
+  },
+  {
+    "university": "Ruhr University Bochum",
+    "country": "Germany",
+    "city": "Bochum",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://studienangebot.ruhr-uni-bochum.de/en/computer-science/master-1-subject"
+  },
+  {
+    "university": "Ruhr University Bochum",
+    "country": "Germany",
+    "city": "Bochum",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://studienangebot.ruhr-uni-bochum.de/en/computer-science/master-1-subject"
+  },
+  {
+    "university": "Ruhr University Bochum",
+    "country": "Germany",
+    "city": "Bochum",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://studienangebot.ruhr-uni-bochum.de/en/management-and-economics/master-1-subject"
+  },
+  {
+    "university": "Ruhr University Bochum",
+    "country": "Germany",
+    "city": "Bochum",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://studienangebot.ruhr-uni-bochum.de/en/mechanical-engineering/master-1-subject"
+  },
+  {
+    "university": "Ruhr University Bochum",
+    "country": "Germany",
+    "city": "Bochum",
+    "qs_ranking": null,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://studienangebot.ruhr-uni-bochum.de/en/biochemistry/master-1-subject"
+  },
+  {
+    "university": "Ruhr University Bochum",
+    "country": "Germany",
+    "city": "Bochum",
+    "qs_ranking": null,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://studienangebot.ruhr-uni-bochum.de/en/medicine/state-examination"
+  },
+  {
+    "university": "Ruhr University Bochum",
+    "country": "Germany",
+    "city": "Bochum",
+    "qs_ranking": null,
+    "field_of_study": "Law",
+    "program_url": "https://studienangebot.ruhr-uni-bochum.de/en/law/state-examination"
+  },
+  {
+    "university": "Ruhr University Bochum",
+    "country": "Germany",
+    "city": "Bochum",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://studienangebot.ruhr-uni-bochum.de/en/history-of-modern-and-present-art/master-1-subject"
+  },
+  {
+    "university": "Ruhr University Bochum",
+    "country": "Germany",
+    "city": "Bochum",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://studienangebot.ruhr-uni-bochum.de/en/social-sciences/master-1-subject"
+  },
+  {
+    "university": "Ruhr University Bochum",
+    "country": "Germany",
+    "city": "Bochum",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://studienangebot.ruhr-uni-bochum.de/en/finance-accounting-auditing-controlling-taxation/master-1-subject"
+  },
+  {
+    "university": "Ruhr University Bochum",
+    "country": "Germany",
+    "city": "Bochum",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://studienangebot.ruhr-uni-bochum.de/en/media-studies/master-1-subject"
+  },
+  {
+    "university": "Ruhr University Bochum",
+    "country": "Germany",
+    "city": "Bochum",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://studienangebot.ruhr-uni-bochum.de/en/environmental-engineering/master-1-subject"
+  },
+  {
+    "university": "Ruhr University Bochum",
+    "country": "Germany",
+    "city": "Bochum",
+    "qs_ranking": null,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://studienangebot.ruhr-uni-bochum.de/en/physics/master-1-subject"
+  },
+  {
+    "university": "Martin Luther University Halle-Wittenberg",
+    "country": "Germany",
+    "city": "Halle",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://studienangebot.uni-halle.de/informatik-master-120"
+  },
+  {
+    "university": "Martin Luther University Halle-Wittenberg",
+    "country": "Germany",
+    "city": "Halle",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.wiwi.uni-halle.de/studienangebot/master_edsp/"
+  },
+  {
+    "university": "Martin Luther University Halle-Wittenberg",
+    "country": "Germany",
+    "city": "Halle",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.wiwi.uni-halle.de/studienangebot/bachelor_busecon/"
+  },
+  {
+    "university": "Martin Luther University Halle-Wittenberg",
+    "country": "Germany",
+    "city": "Halle",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.wiwi.uni-halle.de/studienangebot/engineering/"
+  },
+  {
+    "university": "Martin Luther University Halle-Wittenberg",
+    "country": "Germany",
+    "city": "Halle",
+    "qs_ranking": null,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://studienangebot.uni-halle.de/pharmaceutical-and-industrial-biotechnology-master-120"
+  },
+  {
+    "university": "Martin Luther University Halle-Wittenberg",
+    "country": "Germany",
+    "city": "Halle",
+    "qs_ranking": null,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://studienangebot.uni-halle.de/gesundheits-und-pflegewissenschaften-master-120"
+  },
+  {
+    "university": "Martin Luther University Halle-Wittenberg",
+    "country": "Germany",
+    "city": "Halle",
+    "qs_ranking": null,
+    "field_of_study": "Law",
+    "program_url": "https://www.jura.uni-halle.de/studium_lehre_pruefung/studium_lehre/magisterstudium/?lang=en"
+  },
+  {
+    "university": "Martin Luther University Halle-Wittenberg",
+    "country": "Germany",
+    "city": "Halle",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://studienangebot.uni-halle.de/soziologie-master-120"
+  },
+  {
+    "university": "Martin Luther University Halle-Wittenberg",
+    "country": "Germany",
+    "city": "Halle",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://studienangebot.uni-halle.de/economics-data-science-and-policy-master-120"
+  },
+  {
+    "university": "Martin Luther University Halle-Wittenberg",
+    "country": "Germany",
+    "city": "Halle",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://studienangebot.uni-halle.de/angewandte-geowissenschaften-applied-geosciences-master-120"
+  },
+  {
+    "university": "Martin Luther University Halle-Wittenberg",
+    "country": "Germany",
+    "city": "Halle",
+    "qs_ranking": null,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://studienangebot.uni-halle.de/molecular-and-cellular-biosciences-master-120"
+  },
+  {
+    "university": "Martin Luther University Halle-Wittenberg",
+    "country": "Germany",
+    "city": "Halle",
+    "qs_ranking": null,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://studienangebot.uni-halle.de/gesundheits-und-pflegewissenschaften-master-120"
+  },
+  {
+    "university": "Martin Luther University Halle-Wittenberg",
+    "country": "Germany",
+    "city": "Halle",
+    "qs_ranking": null,
+    "field_of_study": "Agriculture & Veterinary Sciences",
+    "program_url": "https://studienangebot.uni-halle.de/agrarwissenschaften-master-120"
+  },
+  {
+    "university": "University of Greifswald",
+    "country": "Germany",
+    "city": "Greifswald",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://math-inf.uni-greifswald.de/en/study/study-programs/our-study-subjects/bsc-mathematics-with-computer-science/"
+  },
+  {
+    "university": "University of Greifswald",
+    "country": "Germany",
+    "city": "Greifswald",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.uni-greifswald.de/en/study/prior-to-studies/study-opportunities/courses-and-degrees/d/data-science/"
+  },
+  {
+    "university": "University of Greifswald",
+    "country": "Germany",
+    "city": "Greifswald",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://rsf.uni-greifswald.de/studium/studienangebot-und-weitere-informationen/studienangebot-und-bewerbung-jurabwl/"
+  },
+  {
+    "university": "University of Greifswald",
+    "country": "Germany",
+    "city": "Greifswald",
+    "qs_ranking": null,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.uni-greifswald.de/en/study/prior-to-studies/international-degree-courses/msc-infection-biology-and-immunology/"
+  },
+  {
+    "university": "University of Greifswald",
+    "country": "Germany",
+    "city": "Greifswald",
+    "qs_ranking": null,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.uni-greifswald.de/studium/vor-dem-studium/studienangebot/studienfaecher/h/humanmedizin/"
+  },
+  {
+    "university": "University of Greifswald",
+    "country": "Germany",
+    "city": "Greifswald",
+    "qs_ranking": null,
+    "field_of_study": "Law",
+    "program_url": "https://rsf.uni-greifswald.de/studium/rechtswissenschaften-studieren/rechtswissenschaften-staatsexamen/vor-dem-studium/fachbeschreibung-zulassung-einschreibung/"
+  },
+  {
+    "university": "University of Greifswald",
+    "country": "Germany",
+    "city": "Greifswald",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://cdfi.uni-greifswald.de/en/fine-arts/"
+  },
+  {
+    "university": "University of Greifswald",
+    "country": "Germany",
+    "city": "Greifswald",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.uni-greifswald.de/en/studium/vor-dem-studium/studienangebot/studienfaecher/h/history-and-culture-of-the-baltic-sea-region/"
+  },
+  {
+    "university": "University of Greifswald",
+    "country": "Germany",
+    "city": "Greifswald",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://rsf.uni-greifswald.de/en/study/"
+  },
+  {
+    "university": "University of Greifswald",
+    "country": "Germany",
+    "city": "Greifswald",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://biologie.uni-greifswald.de/en/teaching/study-courses-leading-to-a-master-of-science-degree/msc-landscape-ecology-and-nature-conservation/"
+  },
+  {
+    "university": "University of Greifswald",
+    "country": "Germany",
+    "city": "Greifswald",
+    "qs_ranking": null,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://physik.uni-greifswald.de/en/study/m-sc-physics/"
+  },
+  {
+    "university": "University of New Brunswick",
+    "country": "Canada",
+    "city": "Fredericton",
+    "qs_ranking": 712,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.unb.ca/gradstudies/programs/computer-science.html"
+  },
+  {
+    "university": "University of New Brunswick",
+    "country": "Canada",
+    "city": "Fredericton",
+    "qs_ranking": 712,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.unb.ca/fredericton/cs/grad/masters/index.html"
+  },
+  {
+    "university": "University of New Brunswick",
+    "country": "Canada",
+    "city": "Fredericton",
+    "qs_ranking": 712,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.unb.ca/gradstudies/programs/business-fr.html"
+  },
+  {
+    "university": "University of New Brunswick",
+    "country": "Canada",
+    "city": "Fredericton",
+    "qs_ranking": 712,
+    "field_of_study": "MBA",
+    "program_url": "https://www.unb.ca/fredericton/management/grad/mba/index.html"
+  },
+  {
+    "university": "University of New Brunswick",
+    "country": "Canada",
+    "city": "Fredericton",
+    "qs_ranking": 712,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.unb.ca/gradstudies/programs/civil.html"
+  },
+  {
+    "university": "University of New Brunswick",
+    "country": "Canada",
+    "city": "Fredericton",
+    "qs_ranking": 712,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.unb.ca/gradstudies/programs/biology-sj.html"
+  },
+  {
+    "university": "University of New Brunswick",
+    "country": "Canada",
+    "city": "Fredericton",
+    "qs_ranking": 712,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.unb.ca/gradstudies/programs/mahsr.html"
+  },
+  {
+    "university": "University of New Brunswick",
+    "country": "Canada",
+    "city": "Fredericton",
+    "qs_ranking": 712,
+    "field_of_study": "Law",
+    "program_url": "https://www.unb.ca/fredericton/law/future/programs/juris-doctor.html"
+  },
+  {
+    "university": "University of New Brunswick",
+    "country": "Canada",
+    "city": "Fredericton",
+    "qs_ranking": 712,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.unb.ca/fredericton/arts/undergrad/baa.html"
+  },
+  {
+    "university": "University of New Brunswick",
+    "country": "Canada",
+    "city": "Fredericton",
+    "qs_ranking": 712,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.unb.ca/gradstudies/programs/sociology.html"
+  },
+  {
+    "university": "University of New Brunswick",
+    "country": "Canada",
+    "city": "Fredericton",
+    "qs_ranking": 712,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.unb.ca/gradstudies/programs/economics.html"
+  },
+  {
+    "university": "University of New Brunswick",
+    "country": "Canada",
+    "city": "Fredericton",
+    "qs_ranking": 712,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.unb.ca/academics/programs/arts/media-arts--cultures.html"
+  },
+  {
+    "university": "University of New Brunswick",
+    "country": "Canada",
+    "city": "Fredericton",
+    "qs_ranking": 712,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.unb.ca/fredericton/forestry/graduate-programs/mscem.html"
+  },
+  {
+    "university": "University of New Brunswick",
+    "country": "Canada",
+    "city": "Fredericton",
+    "qs_ranking": 712,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.unb.ca/academics/programs/science/biology.html"
+  },
+  {
+    "university": "University of New Brunswick",
+    "country": "Canada",
+    "city": "Fredericton",
+    "qs_ranking": 712,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.unb.ca/fredericton/nursing/undergraduate/bn/"
+  },
+  {
+    "university": "University of New Brunswick",
+    "country": "Canada",
+    "city": "Fredericton",
+    "qs_ranking": 712,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://www.unb.ca/academics/calendar/undergraduate/current/saintjohnprograms/bachelorofappliedmanagement/index.html"
+  },
+  {
+    "university": "Trent University",
+    "country": "Canada",
+    "city": "Peterborough",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.trentu.ca/cois/programs/degree-computer-science"
+  },
+  {
+    "university": "Trent University",
+    "country": "Canada",
+    "city": "Peterborough",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.trentu.ca/graduatestudies/programs/course-based-masters-programs/master-science-big-data-analytics-applied-modelling-and"
+  },
+  {
+    "university": "Trent University",
+    "country": "Canada",
+    "city": "Peterborough",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.trentu.ca/business/programs/undergraduate-programs/bachelor-business-administration-bba"
+  },
+  {
+    "university": "Trent University",
+    "country": "Canada",
+    "city": "Peterborough",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://www.trentu.ca/mmgt/programs/master-management"
+  },
+  {
+    "university": "Trent University",
+    "country": "Canada",
+    "city": "Peterborough",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.trentu.ca/engineering/program"
+  },
+  {
+    "university": "Trent University",
+    "country": "Canada",
+    "city": "Peterborough",
+    "qs_ranking": null,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.trentu.ca/biology/programs/biomedical-science-bsc"
+  },
+  {
+    "university": "Trent University",
+    "country": "Canada",
+    "city": "Peterborough",
+    "qs_ranking": null,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.trentu.ca/premedicalstudies/medical-professional-stream"
+  },
+  {
+    "university": "Trent University",
+    "country": "Canada",
+    "city": "Peterborough",
+    "qs_ranking": null,
+    "field_of_study": "Law",
+    "program_url": "https://www.trentu.ca/law/program-overview"
+  },
+  {
+    "university": "Trent University",
+    "country": "Canada",
+    "city": "Peterborough",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.trentu.ca/artsci/humanities-social-sciences"
+  },
+  {
+    "university": "Trent University",
+    "country": "Canada",
+    "city": "Peterborough",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.trentu.ca/economics/program"
+  },
+  {
+    "university": "Trent University",
+    "country": "Canada",
+    "city": "Peterborough",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.trentu.ca/mediastudies/program"
+  },
+  {
+    "university": "Trent University",
+    "country": "Canada",
+    "city": "Peterborough",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.trentu.ca/sustainabilityma/"
+  },
+  {
+    "university": "Trent University",
+    "country": "Canada",
+    "city": "Peterborough",
+    "qs_ranking": null,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.trentu.ca/els/"
+  },
+  {
+    "university": "Trent University",
+    "country": "Canada",
+    "city": "Peterborough",
+    "qs_ranking": null,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.trentu.ca/nursing/programs/undergraduate/collaborative-program"
+  },
+  {
+    "university": "Trent University",
+    "country": "Canada",
+    "city": "Peterborough",
+    "qs_ranking": null,
+    "field_of_study": "Agriculture & Veterinary Sciences",
+    "program_url": "https://www.trentu.ca/agriculture/program"
+  },
+  {
+    "university": "St. Francis Xavier University",
+    "country": "Canada",
+    "city": "Antigonish",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.stfx.ca/programs-courses/programs/master-applied-computer-science"
+  },
+  {
+    "university": "St. Francis Xavier University",
+    "country": "Canada",
+    "city": "Antigonish",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.stfx.ca/programs-courses/programs/data-science"
+  },
+  {
+    "university": "St. Francis Xavier University",
+    "country": "Canada",
+    "city": "Antigonish",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.stfx.ca/business/programs/undergraduate-bba"
+  },
+  {
+    "university": "St. Francis Xavier University",
+    "country": "Canada",
+    "city": "Antigonish",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.stfx.ca/programs-courses/programs/engineering"
+  },
+  {
+    "university": "St. Francis Xavier University",
+    "country": "Canada",
+    "city": "Antigonish",
+    "qs_ranking": null,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.stfx.ca/programs-courses/programs/master-science-biology"
+  },
+  {
+    "university": "St. Francis Xavier University",
+    "country": "Canada",
+    "city": "Antigonish",
+    "qs_ranking": null,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.stfx.ca/programs-courses/programs/health"
+  },
+  {
+    "university": "St. Francis Xavier University",
+    "country": "Canada",
+    "city": "Antigonish",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.stfx.ca/programs-courses/programs/art"
+  },
+  {
+    "university": "St. Francis Xavier University",
+    "country": "Canada",
+    "city": "Antigonish",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.stfx.ca/programs-courses/programs/sociology"
+  },
+  {
+    "university": "St. Francis Xavier University",
+    "country": "Canada",
+    "city": "Antigonish",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.stfx.ca/programs-courses/programs/finance"
+  },
+  {
+    "university": "St. Francis Xavier University",
+    "country": "Canada",
+    "city": "Antigonish",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.stfx.ca/programs-courses/programs/climate-environment"
+  },
+  {
+    "university": "St. Francis Xavier University",
+    "country": "Canada",
+    "city": "Antigonish",
+    "qs_ranking": null,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.stfx.ca/programs-courses/programs/master-science-earth-environmental-sciences"
+  },
+  {
+    "university": "St. Francis Xavier University",
+    "country": "Canada",
+    "city": "Antigonish",
+    "qs_ranking": null,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.stfx.ca/programs-courses/programs/nursing"
+  },
+  {
+    "university": "St. Francis Xavier University",
+    "country": "Canada",
+    "city": "Antigonish",
+    "qs_ranking": null,
+    "field_of_study": "Agriculture & Veterinary Sciences",
+    "program_url": "https://www.stfx.ca/programs-courses/programs/aquatic-resources"
+  },
+  {
+    "university": "Lakehead University",
+    "country": "Canada",
+    "city": "Thunder Bay",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.lakeheadu.ca/programs/graduate/programs/masters/computer-science"
+  },
+  {
+    "university": "Lakehead University",
+    "country": "Canada",
+    "city": "Thunder Bay",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.lakeheadu.ca/programs/graduate/programs/masters/computer-science"
+  },
+  {
+    "university": "Lakehead University",
+    "country": "Canada",
+    "city": "Thunder Bay",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.lakeheadu.ca/programs/graduate/programs/masters/business-management"
+  },
+  {
+    "university": "Lakehead University",
+    "country": "Canada",
+    "city": "Thunder Bay",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://www.lakeheadu.ca/programs/graduate/programs/masters/business-administration"
+  },
+  {
+    "university": "Lakehead University",
+    "country": "Canada",
+    "city": "Thunder Bay",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.lakeheadu.ca/programs/faculties/engineering/graduate-programs/mechanical"
+  },
+  {
+    "university": "Lakehead University",
+    "country": "Canada",
+    "city": "Thunder Bay",
+    "qs_ranking": null,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.lakeheadu.ca/programs/programs/biotechnology/graduate-program"
+  },
+  {
+    "university": "Lakehead University",
+    "country": "Canada",
+    "city": "Thunder Bay",
+    "qs_ranking": null,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.lakeheadu.ca/programs/graduate/programs/masters/public-health"
+  },
+  {
+    "university": "Lakehead University",
+    "country": "Canada",
+    "city": "Thunder Bay",
+    "qs_ranking": null,
+    "field_of_study": "Law",
+    "program_url": "https://www.lakeheadu.ca/programs/undergraduate-programs/law/node/3598"
+  },
+  {
+    "university": "Lakehead University",
+    "country": "Canada",
+    "city": "Thunder Bay",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.lakeheadu.ca/programs/undergraduate-programs/visual-arts/node/2959"
+  },
+  {
+    "university": "Lakehead University",
+    "country": "Canada",
+    "city": "Thunder Bay",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.lakeheadu.ca/programs/departments/social-justice"
+  },
+  {
+    "university": "Lakehead University",
+    "country": "Canada",
+    "city": "Thunder Bay",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.lakeheadu.ca/programs/undergraduate-programs/economics"
+  },
+  {
+    "university": "Lakehead University",
+    "country": "Canada",
+    "city": "Thunder Bay",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.lakeheadu.ca/programs/undergraduate-programs/media-studies"
+  },
+  {
+    "university": "Lakehead University",
+    "country": "Canada",
+    "city": "Thunder Bay",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.lakeheadu.ca/programs/undergraduate-programs/environmental-sustainability/node/3358"
+  },
+  {
+    "university": "Lakehead University",
+    "country": "Canada",
+    "city": "Thunder Bay",
+    "qs_ranking": null,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.lakeheadu.ca/programs/undergraduate-programs/natural-science/node/3596"
+  },
+  {
+    "university": "Lakehead University",
+    "country": "Canada",
+    "city": "Thunder Bay",
+    "qs_ranking": null,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.lakeheadu.ca/programs/graduate/programs/masters-specialization/nursing-practitioner"
+  },
+  {
+    "university": "Lakehead University",
+    "country": "Canada",
+    "city": "Thunder Bay",
+    "qs_ranking": null,
+    "field_of_study": "Agriculture & Veterinary Sciences",
+    "program_url": "https://www.lakeheadu.ca/programs/departments/nrm/program-options/graduate-program-options/master-of-science-in-forestry-mscf"
+  },
+  {
+    "university": "Lakehead University",
+    "country": "Canada",
+    "city": "Thunder Bay",
+    "qs_ranking": null,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://www.lakeheadu.ca/programs/departments/outdoor-rec"
+  },
+  {
+    "university": "University of Northern British Columbia",
+    "country": "Canada",
+    "city": "Prince George",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.unbc.ca/computer-science/graduate-program"
+  },
+  {
+    "university": "University of Northern British Columbia",
+    "country": "Canada",
+    "city": "Prince George",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.unbc.ca/commerce/msc/master-science-business-administration-msc-ba"
+  },
+  {
+    "university": "University of Northern British Columbia",
+    "country": "Canada",
+    "city": "Prince George",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://www.unbc.ca/commerce/mba"
+  },
+  {
+    "university": "University of Northern British Columbia",
+    "country": "Canada",
+    "city": "Prince George",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.unbc.ca/engineering/master-applied-science-engineering"
+  },
+  {
+    "university": "University of Northern British Columbia",
+    "country": "Canada",
+    "city": "Prince George",
+    "qs_ranking": null,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.unbc.ca/programs/biochemistry-and-molecular-biology"
+  },
+  {
+    "university": "University of Northern British Columbia",
+    "country": "Canada",
+    "city": "Prince George",
+    "qs_ranking": null,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.unbc.ca/northern-medical-program"
+  },
+  {
+    "university": "University of Northern British Columbia",
+    "country": "Canada",
+    "city": "Prince George",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.unbc.ca/calendar/graduate/interdisciplinary-studies"
+  },
+  {
+    "university": "University of Northern British Columbia",
+    "country": "Canada",
+    "city": "Prince George",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.unbc.ca/calendar/graduate/development-economics-ma"
+  },
+  {
+    "university": "University of Northern British Columbia",
+    "country": "Canada",
+    "city": "Prince George",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.unbc.ca/environmental-and-sustainability-studies/ba-environmental-and-sustainability-studies"
+  },
+  {
+    "university": "University of Northern British Columbia",
+    "country": "Canada",
+    "city": "Prince George",
+    "qs_ranking": null,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.unbc.ca/calendar/graduate/nres-msc"
+  },
+  {
+    "university": "University of Northern British Columbia",
+    "country": "Canada",
+    "city": "Prince George",
+    "qs_ranking": null,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.unbc.ca/nursing/northern-baccalaureate-nursing-program"
+  },
+  {
+    "university": "University of Northern British Columbia",
+    "country": "Canada",
+    "city": "Prince George",
+    "qs_ranking": null,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://www.unbc.ca/programs/nature-based-tourism-management"
+  },
+  {
+    "university": "Mount Allison University",
+    "country": "Canada",
+    "city": "Sackville",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://mta.ca/academics/programs-and-degrees/computer-science"
+  },
+  {
+    "university": "Mount Allison University",
+    "country": "Canada",
+    "city": "Sackville",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://mta.ca/academics/programs-and-degrees/data-science"
+  },
+  {
+    "university": "Mount Allison University",
+    "country": "Canada",
+    "city": "Sackville",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://mta.ca/academics/programs-and-degrees/commerce"
+  },
+  {
+    "university": "Mount Allison University",
+    "country": "Canada",
+    "city": "Sackville",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://mta.ca/academics/programs-and-degrees/economics"
+  },
+  {
+    "university": "Mount Allison University",
+    "country": "Canada",
+    "city": "Sackville",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://mta.ca/academics/programs-and-degrees/fine-arts"
+  },
+  {
+    "university": "Mount Allison University",
+    "country": "Canada",
+    "city": "Sackville",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://mta.ca/academics/programs-and-degrees/sociology"
+  },
+  {
+    "university": "Mount Allison University",
+    "country": "Canada",
+    "city": "Sackville",
+    "qs_ranking": null,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://mta.ca/academics/programs-and-degrees/biochemistry"
+  },
+  {
+    "university": "Mount Allison University",
+    "country": "Canada",
+    "city": "Sackville",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://mta.ca/academics/programs-and-degrees/environmental-studies"
+  },
+  {
+    "university": "Mount Allison University",
+    "country": "Canada",
+    "city": "Sackville",
+    "qs_ranking": null,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://mta.ca/academics/programs-and-degrees/physics"
+  },
+  {
+    "university": "Mount Allison University",
+    "country": "Canada",
+    "city": "Sackville",
+    "qs_ranking": null,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://mta.ca/academics/programs-and-degrees/health-studies"
+  },
+  {
+    "university": "Acadia University",
+    "country": "Canada",
+    "city": "Wolfville",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www2.acadiau.ca/academics/undergraduate/computer-science.html"
+  },
+  {
+    "university": "Acadia University",
+    "country": "Canada",
+    "city": "Wolfville",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://cs.acadiau.ca/bacs.html"
+  },
+  {
+    "university": "Acadia University",
+    "country": "Canada",
+    "city": "Wolfville",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www2.acadiau.ca/academics/undergraduate/business-administration.html"
+  },
+  {
+    "university": "Acadia University",
+    "country": "Canada",
+    "city": "Wolfville",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www2.acadiau.ca/academics/undergraduate/engineering.html"
+  },
+  {
+    "university": "Acadia University",
+    "country": "Canada",
+    "city": "Wolfville",
+    "qs_ranking": null,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www2.acadiau.ca/academics/graduate/biology.html"
+  },
+  {
+    "university": "Acadia University",
+    "country": "Canada",
+    "city": "Wolfville",
+    "qs_ranking": null,
+    "field_of_study": "Law",
+    "program_url": "https://www2.acadiau.ca/academics/undergraduate/law-and-society.html"
+  },
+  {
+    "university": "Acadia University",
+    "country": "Canada",
+    "city": "Wolfville",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www2.acadiau.ca/academics/graduate/sociology.html"
+  },
+  {
+    "university": "Acadia University",
+    "country": "Canada",
+    "city": "Wolfville",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www2.acadiau.ca/academics/undergraduate/economics.html"
+  },
+  {
+    "university": "Acadia University",
+    "country": "Canada",
+    "city": "Wolfville",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www2.acadiau.ca/academics/undergraduate/environmental-sustainability-studies.html"
+  },
+  {
+    "university": "Acadia University",
+    "country": "Canada",
+    "city": "Wolfville",
+    "qs_ranking": null,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www2.acadiau.ca/academics/undergraduate/physics.html"
+  },
+  {
+    "university": "Acadia University",
+    "country": "Canada",
+    "city": "Wolfville",
+    "qs_ranking": null,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www2.acadiau.ca/academics/undergraduate/nursing.html"
+  },
+  {
+    "university": "Bishop's University",
+    "country": "Canada",
+    "city": "Sherbrooke",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.ubishops.ca/academic-programs/faculty-of-natural-sciences-and-mathematics/computer-science/masters-degree-program/"
+  },
+  {
+    "university": "Bishop's University",
+    "country": "Canada",
+    "city": "Sherbrooke",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.ubishops.ca/academic-programs/faculty-of-natural-sciences-and-mathematics/computer-science/masters-degree-program/"
+  },
+  {
+    "university": "Bishop's University",
+    "country": "Canada",
+    "city": "Sherbrooke",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.ubishops.ca/academic-programs/williams-school-of-business/courses-and-programs/bba/"
+  },
+  {
+    "university": "Bishop's University",
+    "country": "Canada",
+    "city": "Sherbrooke",
+    "qs_ranking": null,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.ubishops.ca/academic-programs/faculty-of-natural-sciences-and-mathematics/biology-and-biochemistry/"
+  },
+  {
+    "university": "Bishop's University",
+    "country": "Canada",
+    "city": "Sherbrooke",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.ubishops.ca/academic-programs/faculty-of-humanities/fine-arts/"
+  },
+  {
+    "university": "Bishop's University",
+    "country": "Canada",
+    "city": "Sherbrooke",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.ubishops.ca/academic-programs/faculty-of-arts-and-science/social-sciences/psychology/"
+  },
+  {
+    "university": "Bishop's University",
+    "country": "Canada",
+    "city": "Sherbrooke",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.ubishops.ca/academic-programs/faculty-of-arts-and-science/social-sciences/economics/"
+  },
+  {
+    "university": "Bishop's University",
+    "country": "Canada",
+    "city": "Sherbrooke",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.ubishops.ca/academic-programs/faculty-of-arts-and-science/social-sciences/environment-agriculture-and-geography/courses-programs/"
+  },
+  {
+    "university": "Bishop's University",
+    "country": "Canada",
+    "city": "Sherbrooke",
+    "qs_ranking": null,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.ubishops.ca/academic-programs/faculty-of-arts-and-science/natural-sciences-and-mathematics/"
+  },
+  {
+    "university": "Bishop's University",
+    "country": "Canada",
+    "city": "Sherbrooke",
+    "qs_ranking": null,
+    "field_of_study": "Agriculture & Veterinary Sciences",
+    "program_url": "https://www.ubishops.ca/academic-programs/faculty-of-social-sciences/environment-agriculture-and-geography/courses-programs/sustainable-agriculture-and-food-systems-safs/"
+  },
+  {
+    "university": "Cape Breton University",
+    "country": "Canada",
+    "city": "Sydney",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.cbu.ca/academics/programs/bachelor-of-science/"
+  },
+  {
+    "university": "Cape Breton University",
+    "country": "Canada",
+    "city": "Sydney",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.cbu.ca/newsroom/releases/cape-breton-university-launches-three-new-masters-programs/"
+  },
+  {
+    "university": "Cape Breton University",
+    "country": "Canada",
+    "city": "Sydney",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.cbu.ca/academics/programs/bachelor-of-business-administration-bba/"
+  },
+  {
+    "university": "Cape Breton University",
+    "country": "Canada",
+    "city": "Sydney",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://www.cbu.ca/academics/programs/mba-in-community-economic-development/"
+  },
+  {
+    "university": "Cape Breton University",
+    "country": "Canada",
+    "city": "Sydney",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.cbu.ca/academics/programs/bachelor-of-engineering-technology/"
+  },
+  {
+    "university": "Cape Breton University",
+    "country": "Canada",
+    "city": "Sydney",
+    "qs_ranking": null,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.cbu.ca/academics/programs/biology/"
+  },
+  {
+    "university": "Cape Breton University",
+    "country": "Canada",
+    "city": "Sydney",
+    "qs_ranking": null,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.cbu.ca/academics/programs/bachelor-of-health-sciences-public-health/"
+  },
+  {
+    "university": "Cape Breton University",
+    "country": "Canada",
+    "city": "Sydney",
+    "qs_ranking": null,
+    "field_of_study": "Law",
+    "program_url": "https://www.cbu.ca/academics/programs/legal-studies/"
+  },
+  {
+    "university": "Cape Breton University",
+    "country": "Canada",
+    "city": "Sydney",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.cbu.ca/academics/programs/bachelor-of-arts-ba/"
+  },
+  {
+    "university": "Cape Breton University",
+    "country": "Canada",
+    "city": "Sydney",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.cbu.ca/academics/programs/sociology/"
+  },
+  {
+    "university": "Cape Breton University",
+    "country": "Canada",
+    "city": "Sydney",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.cbu.ca/academics/programs/economics/"
+  },
+  {
+    "university": "Cape Breton University",
+    "country": "Canada",
+    "city": "Sydney",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.cbu.ca/academics/programs/communication/"
+  },
+  {
+    "university": "Cape Breton University",
+    "country": "Canada",
+    "city": "Sydney",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.cbu.ca/academics/programs/bachelor-of-arts-and-science-in-environment/"
+  },
+  {
+    "university": "Cape Breton University",
+    "country": "Canada",
+    "city": "Sydney",
+    "qs_ranking": null,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.cbu.ca/academics/programs/bachelor-of-science/"
+  },
+  {
+    "university": "Cape Breton University",
+    "country": "Canada",
+    "city": "Sydney",
+    "qs_ranking": null,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.cbu.ca/academics/programs/bachelor-of-science-nursing/"
+  },
+  {
+    "university": "Cape Breton University",
+    "country": "Canada",
+    "city": "Sydney",
+    "qs_ranking": null,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://www.cbu.ca/academics/programs/bachelor-of-hospitality-and-tourism-management/"
+  },
+  {
+    "university": "Wilfrid Laurier University",
+    "country": "Canada",
+    "city": "Waterloo",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.wlu.ca/programs/science/graduate/computer-science-mcs/index.html"
+  },
+  {
+    "university": "Wilfrid Laurier University",
+    "country": "Canada",
+    "city": "Waterloo",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.wlu.ca/programs/science/undergraduate/data-science-bsc/index.html"
+  },
+  {
+    "university": "Wilfrid Laurier University",
+    "country": "Canada",
+    "city": "Waterloo",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.wlu.ca/programs/business-and-economics/undergraduate/business-administration-bba/index.html"
+  },
+  {
+    "university": "Wilfrid Laurier University",
+    "country": "Canada",
+    "city": "Waterloo",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://www.wlu.ca/programs/business-and-economics/graduate/business-administration-mba/index.html"
+  },
+  {
+    "university": "Wilfrid Laurier University",
+    "country": "Canada",
+    "city": "Waterloo",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.wlu.ca/programs/science/undergraduate/software-engineering-beng/index.html"
+  },
+  {
+    "university": "Wilfrid Laurier University",
+    "country": "Canada",
+    "city": "Waterloo",
+    "qs_ranking": null,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.wlu.ca/programs/science/undergraduate/biochemistry-biotechnology-bsc/index.html"
+  },
+  {
+    "university": "Wilfrid Laurier University",
+    "country": "Canada",
+    "city": "Waterloo",
+    "qs_ranking": null,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.wlu.ca/programs/science/graduate/health-sciences-msc/index.html"
+  },
+  {
+    "university": "Wilfrid Laurier University",
+    "country": "Canada",
+    "city": "Waterloo",
+    "qs_ranking": null,
+    "field_of_study": "Law",
+    "program_url": "https://www.wlu.ca/programs/liberal-arts/undergraduate/law-and-society-ba/index.html"
+  },
+  {
+    "university": "Wilfrid Laurier University",
+    "country": "Canada",
+    "city": "Waterloo",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.wlu.ca/programs/liberal-arts/undergraduate/user-experience-design-bdes/index.html"
+  },
+  {
+    "university": "Wilfrid Laurier University",
+    "country": "Canada",
+    "city": "Waterloo",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.wlu.ca/programs/arts/graduate/cultural-analysis-and-social-theory-ma/index.html"
+  },
+  {
+    "university": "Wilfrid Laurier University",
+    "country": "Canada",
+    "city": "Waterloo",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.wlu.ca/programs/business-and-economics/graduate/finance-mfin/index.html"
+  },
+  {
+    "university": "Wilfrid Laurier University",
+    "country": "Canada",
+    "city": "Waterloo",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.wlu.ca/programs/arts/graduate/communication-studies-ma/index.html"
+  },
+  {
+    "university": "Wilfrid Laurier University",
+    "country": "Canada",
+    "city": "Waterloo",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.wlu.ca/programs/science/graduate/environmental-studies-mes/index.html"
+  },
+  {
+    "university": "Wilfrid Laurier University",
+    "country": "Canada",
+    "city": "Waterloo",
+    "qs_ranking": null,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.wlu.ca/programs/science/undergraduate/biology-bsc/index.html"
+  },
+  {
+    "university": "Atlantic Technological University",
+    "country": "Ireland",
+    "city": "Galway",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.atu.ie/courses/master-of-science-computing-galway-full-time"
+  },
+  {
+    "university": "Atlantic Technological University",
+    "country": "Ireland",
+    "city": "Galway",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.atu.ie/courses/master-of-science-computing-in-big-data-analytics-and-artificial-intelligence"
+  },
+  {
+    "university": "Atlantic Technological University",
+    "country": "Ireland",
+    "city": "Galway",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.atu.ie/courses/bachelor-of-business-business-on-campus-galway-full-time"
+  },
+  {
+    "university": "Atlantic Technological University",
+    "country": "Ireland",
+    "city": "Galway",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.atu.ie/courses/bachelor-of-engineering-honours-mechanical-engineering-galway"
+  },
+  {
+    "university": "Atlantic Technological University",
+    "country": "Ireland",
+    "city": "Galway",
+    "qs_ranking": null,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.atu.ie/courses/bachelor-of-science-honours-applied-biology-and-biopharmaceutical-science"
+  },
+  {
+    "university": "Atlantic Technological University",
+    "country": "Ireland",
+    "city": "Galway",
+    "qs_ranking": null,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.atu.ie/courses/master-of-science-medical-science"
+  },
+  {
+    "university": "Atlantic Technological University",
+    "country": "Ireland",
+    "city": "Galway",
+    "qs_ranking": null,
+    "field_of_study": "Law",
+    "program_url": "https://www.atu.ie/courses/bachelor-of-arts-honours-law-and-business"
+  },
+  {
+    "university": "Atlantic Technological University",
+    "country": "Ireland",
+    "city": "Galway",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.atu.ie/courses/bachelor-of-science-honours-architectural-technology-galway"
+  },
+  {
+    "university": "Atlantic Technological University",
+    "country": "Ireland",
+    "city": "Galway",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.atu.ie/courses/bachelor-of-arts-honours-communications-media-and-storytelling"
+  },
+  {
+    "university": "Atlantic Technological University",
+    "country": "Ireland",
+    "city": "Galway",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.atu.ie/courses/bachelor-of-business-honours-finance-and-economics"
+  },
+  {
+    "university": "Atlantic Technological University",
+    "country": "Ireland",
+    "city": "Galway",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.atu.ie/courses/master-of-science-digital-media-and-marketing"
+  },
+  {
+    "university": "Atlantic Technological University",
+    "country": "Ireland",
+    "city": "Galway",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.atu.ie/courses/master-of-science-sustainability-leadership"
+  },
+  {
+    "university": "Atlantic Technological University",
+    "country": "Ireland",
+    "city": "Galway",
+    "qs_ranking": null,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.atu.ie/courses/bachelor-of-science-common-entry"
+  },
+  {
+    "university": "Atlantic Technological University",
+    "country": "Ireland",
+    "city": "Galway",
+    "qs_ranking": null,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.atu.ie/courses/bachelor-of-science-honours-general-nursing"
+  },
+  {
+    "university": "Atlantic Technological University",
+    "country": "Ireland",
+    "city": "Galway",
+    "qs_ranking": null,
+    "field_of_study": "Agriculture & Veterinary Sciences",
+    "program_url": "https://www.atu.ie/courses/bachelor-of-veterinary-medicine-and-surgery-bvms"
+  },
+  {
+    "university": "Atlantic Technological University",
+    "country": "Ireland",
+    "city": "Galway",
+    "qs_ranking": null,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://www.atu.ie/courses/bachelor-of-business-international-hotel-and-hospitality-management"
+  },
+  {
+    "university": "Auckland University of Technology",
+    "country": "New Zealand",
+    "city": "Auckland",
+    "qs_ranking": 412,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.aut.ac.nz/study/study-options/engineering-computer-and-mathematical-sciences/courses/master-of-computer-and-information-sciences"
+  },
+  {
+    "university": "Auckland University of Technology",
+    "country": "New Zealand",
+    "city": "Auckland",
+    "qs_ranking": 412,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://online.aut.ac.nz/courses/master-of-applied-artificial-intelligence"
+  },
+  {
+    "university": "Auckland University of Technology",
+    "country": "New Zealand",
+    "city": "Auckland",
+    "qs_ranking": 412,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.aut.ac.nz/study/study-options/business/courses/master-of-business-management"
+  },
+  {
+    "university": "Auckland University of Technology",
+    "country": "New Zealand",
+    "city": "Auckland",
+    "qs_ranking": 412,
+    "field_of_study": "MBA",
+    "program_url": "https://www.aut.ac.nz/study/study-options/business/courses/master-of-business-administration"
+  },
+  {
+    "university": "Auckland University of Technology",
+    "country": "New Zealand",
+    "city": "Auckland",
+    "qs_ranking": 412,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.aut.ac.nz/study/study-options/engineering-computer-and-mathematical-sciences/courses/master-of-engineering"
+  },
+  {
+    "university": "Auckland University of Technology",
+    "country": "New Zealand",
+    "city": "Auckland",
+    "qs_ranking": 412,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.aut.ac.nz/courses/master-of-science"
+  },
+  {
+    "university": "Auckland University of Technology",
+    "country": "New Zealand",
+    "city": "Auckland",
+    "qs_ranking": 412,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.aut.ac.nz/study/study-options/health-sciences/courses/master-of-public-health"
+  },
+  {
+    "university": "Auckland University of Technology",
+    "country": "New Zealand",
+    "city": "Auckland",
+    "qs_ranking": 412,
+    "field_of_study": "Law",
+    "program_url": "https://www.aut.ac.nz/study/study-options/law/courses/master-of-laws"
+  },
+  {
+    "university": "Auckland University of Technology",
+    "country": "New Zealand",
+    "city": "Auckland",
+    "qs_ranking": 412,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.aut.ac.nz/study/study-options/architecture-and-built-environment/courses/master-of-architecture-professional"
+  },
+  {
+    "university": "Auckland University of Technology",
+    "country": "New Zealand",
+    "city": "Auckland",
+    "qs_ranking": 412,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.aut.ac.nz/courses/master-of-arts"
+  },
+  {
+    "university": "Auckland University of Technology",
+    "country": "New Zealand",
+    "city": "Auckland",
+    "qs_ranking": 412,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.aut.ac.nz/study/study-options/business/courses/master-of-applied-finance"
+  },
+  {
+    "university": "Auckland University of Technology",
+    "country": "New Zealand",
+    "city": "Auckland",
+    "qs_ranking": 412,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.aut.ac.nz/study/study-options/communication-studies/courses/master-of-communication-studies"
+  },
+  {
+    "university": "Auckland University of Technology",
+    "country": "New Zealand",
+    "city": "Auckland",
+    "qs_ranking": 412,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.aut.ac.nz/study/study-options/science/courses/master-of-science-research"
+  },
+  {
+    "university": "Auckland University of Technology",
+    "country": "New Zealand",
+    "city": "Auckland",
+    "qs_ranking": 412,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.aut.ac.nz/courses/master-of-science"
+  },
+  {
+    "university": "Auckland University of Technology",
+    "country": "New Zealand",
+    "city": "Auckland",
+    "qs_ranking": 412,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.aut.ac.nz/study/study-options/health-sciences/courses/master-of-nursing-science"
+  },
+  {
+    "university": "Auckland University of Technology",
+    "country": "New Zealand",
+    "city": "Auckland",
+    "qs_ranking": 412,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://www.aut.ac.nz/study/study-options/hospitality-tourism-and-events/courses/master-of-international-hospitality-management"
   }
 ]
