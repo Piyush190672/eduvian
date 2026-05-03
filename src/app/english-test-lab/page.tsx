@@ -167,7 +167,7 @@ export default function EnglishTestLabPage() {
             </h1>
 
             <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">
-              Take exam-style mocks for IELTS, PTE, Duolingo English Test, and TOEFL. Built on official public formats, timings, and scoring frameworks — with original content created by eduvianAI.
+              Take exam-style mocks for IELTS, PTE, Duolingo English Test, and TOEFL. Practice that mirrors each exam&apos;s publicly documented format, timing and scoring framework — with original content created by eduvianAI.
             </p>
 
             <Link
