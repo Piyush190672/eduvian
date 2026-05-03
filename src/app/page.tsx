@@ -186,7 +186,7 @@ const COUNTRIES = [
 const STATS = [
   { icon: GraduationCap, value: DB_STATS.programsLabel, label: "Programs Listed" },
   { icon: Globe2, value: DB_STATS.countriesLabel, label: "Countries" },
-  { icon: Users, value: DB_STATS.universitiesLabel, label: "Universities" },
+  { icon: Users, value: DB_STATS.universitiesLabel, label: "TOP Global Universities" },
   { icon: Award, value: DB_STATS.fieldsLabel, label: "Fields of Study" },
 ];
 
@@ -525,7 +525,7 @@ export default function LandingPage() {
               {/* Trust strip */}
               <div className="grid grid-cols-4 sm:flex sm:flex-wrap sm:items-center gap-x-6 gap-y-3 pt-5 border-t border-white/10">
                 {[
-                  { val: DB_STATS.universitiesLabel, label: "Universities" },
+                  { val: DB_STATS.universitiesLabel, label: "TOP Global Universities" },
                   { val: DB_STATS.programsLabel, label: "Programs" },
                   { val: DB_STATS.countriesLabel, label: "Countries" },
                   { val: DB_STATS.fieldsLabel, label: "Fields" },
