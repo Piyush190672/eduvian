@@ -4,7 +4,7 @@ This file is loaded automatically. The full project state, decisions, and ration
 
 ## What this is
 
-Next.js 14 (App Router) study-abroad platform deployed to Vercel at https://www.eduvianai.com. Postgres + RLS in Supabase Cloud (US). Anthropic Claude for AI features, Resend for transactional mail, Sentry for errors. 12 destination countries, ~4,300 verified programs, beta-gated to 100 users/month.
+Next.js 14 (App Router) study-abroad platform deployed to Vercel at https://www.eduvianai.com. Postgres + RLS in Supabase Cloud (US, Pro plan). Anthropic Claude for AI features, Resend for transactional mail, Sentry for errors. 12 destination countries, **4,622 programs / 4,413 verified at the source / 425 universities (381 with verified programs)** as of 3 May 2026, beta-gated to 100 users/month. Email OTP gates register/login.
 
 ## Hard rules — never do without explicit user approval
 
@@ -63,23 +63,33 @@ Tier chain runner: `nohup ./scripts/verify/chain-tiers.sh tier-N > /tmp/chain-tN
   Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>
   ```
 
-## Security posture (post-audit, May 2026)
+## Security posture (post-audit, 3 May 2026)
 
-Audit document: `~/Desktop/EduvianAI-Security-Architecture-Risk-Assessment.docx`. Status as of the last session:
+Audit document: `~/Desktop/EduvianAI-Security-Architecture-Risk-Assessment.docx`. Status:
 
 - **All four critical** (C1 admin session, C2 submissions IDOR, C3 rate-limiter, C4 LLM injection) — closed and verified in prod.
-- **High** H2 (opaque sessions), H3 (CSRF), H4 (DPDPA endpoints), H6 (output encoding) — closed.
-- **High H1** (admin TOTP MFA): TOTP enabled at Supabase project level, enrolment UI deferred to a follow-up.
-- **High H5** (service-role overuse): closed-with-rationale — subsumed by C2.
-- **High H7** (PII encryption): **Phase A done** (shadow columns, dual-write, backfill). Phase B (readers switch) and Phase C (drop plaintext) deferred.
+- **All HIGH** except H7-Phase-C closed:
+  - H1 admin TOTP MFA: enrolled and verified — login flow now challenges for the 6-digit code.
+  - H2 opaque sessions, H3 CSRF gate, H4 DPDPA endpoints, H6 output encoding — closed.
+  - H5 service-role overuse — closed-with-rationale (subsumed by C2).
+  - **H7 PII encryption: Phase A + Phase B both live.** Readers prefer `profile_encrypted` and fall back to plaintext. Phase C (drop plaintext column) is the last open item; **wait at least 24-48h after Phase B ships before doing it**, take a fresh `pg_dump` first.
 
-When working on `submissions`, both `profile` (plaintext) and `profile_encrypted` exist. Plaintext is still the source of truth until Phase B ships.
+When working on `submissions`, both `profile` (plaintext) and `profile_encrypted` exist. Phase B is shipping; Phase C drops plaintext.
+
+## Authentication
+
+- Email OTP gates `/api/auth` register and login. 6-digit codes hashed with HMAC-SHA256 keyed on `PII_HASH_SECRET`. 5-min expiry, 5-attempt lockout, 60s resend cooldown. See `src/lib/otp.ts`.
+- Cookie is opaque UUID (H2) → resolves via `user_sessions` table.
+- `LogoutButton` clears server session + localStorage; visible on `/profile` and `/results/[token]`.
+- Admin login: email + password → 6-digit MFA code → HMAC admin cookie. Server enforces AAL2 in `/api/admin/session`.
+- Admin enrols MFA at `/admin/security` (QR code or manual secret).
 
 ## Key code paths
 
 | Path | What |
 |---|---|
-| `src/data/programs.ts` | THE database. 4,295 entries. `@ts-nocheck` (large data file). |
+| `src/data/programs.ts` | THE database. **4,622 entries / 4,413 verified.** `@ts-nocheck` (large data file). |
+| `src/data/db-stats.ts` | Computed counts. Now also exports `verifiedProgramsLabel` (4,413+) and `verifiedUniversitiesLabel` (381+). |
 | `src/lib/types.ts` | Single source of truth. `TARGET_COUNTRIES` (12), `FIELDS_OF_STUDY` (17). |
 | `src/lib/scoring.ts` | 9-signal `recommendPrograms()`. Tiers: Safe 75-100, Reach 50-74, Ambitious <50. |
 | `src/lib/format-fee.ts` | Null-safe tuition rendering. **Never show $0.** |
@@ -87,9 +97,14 @@ When working on `submissions`, both `profile` (plaintext) and `profile_encrypted
 | `src/lib/rate-limit.ts` | Upstash sliding-window with in-memory fallback. Must never throw. |
 | `src/lib/user-cookie.ts` | Opaque server-side sessions (H2). |
 | `src/lib/pii-crypto.ts` | AES-256-GCM + emailHash for H7. |
+| `src/lib/otp.ts` | OTP generate / hash (HMAC) / verify (timing-safe). |
+| `src/lib/submissions-decrypt.ts` | H7 Phase B reader helper. `decryptProfile()` prefers encrypted, falls back to plaintext. Use everywhere submissions are read. |
 | `src/lib/html-escape.ts` | `escHtml` / `escHtmlBounded` / `safeUrl`. Use for any user-content interpolation. |
+| `src/lib/llm-safety.ts` | `wrapUserInput`, `JAILBREAK_GUARDRAILS`, `MAX_OUTPUT_TOKENS`. Append guardrails to every system prompt. |
 | `src/lib/api-error.ts` | Sentry-flushed error response. Eager Sentry init lives here. |
-| `src/middleware.ts` | Same-origin CSRF gate + admin route protection. |
+| `src/middleware.ts` | Same-origin CSRF gate + admin route protection. `ALLOWED_HOSTS` is the safelist. |
+| `src/components/LogoutButton.tsx` | Renders only when signed in. Hits `/api/auth/logout`, clears localStorage, routes to /. |
+| `src/components/DecisionDisclaimer.tsx` | In-context disclaimers on tool pages — five variants (roi, visa, english-test, shortlist, scholarship). |
 
 ## Email deliverability monitoring
 
@@ -110,6 +125,24 @@ When working on `submissions`, both `profile` (plaintext) and `profile_encrypted
 - `simplify`, `fewer-permission-prompts`, `loop`, `schedule`, `update-config`
 
 The legal/security/pricing Word docs were generated with `docx`. Pricing Excel via `xlsx`. To regenerate legal: `node scripts/build-legal-docs.js`.
+
+## Open work for the next session
+
+Pinned in priority order. Snapshot §5.3 + §20 has full detail.
+
+1. **Run re-verify on the 209 unverified entries.** `re-verify.ts` was patched with `--only-unverified` (commit landed before this snapshot). Recipe:
+   ```bash
+   set -a; source .env.local; set +a
+   nohup npx tsx scripts/verify/re-verify.ts --only-unverified --concurrency 5 \
+     > /tmp/reverify-unverified.log 2>&1 &
+   # ~30-60 min. Then apply stamps:
+   npx tsx scripts/verify/stamp-verified.ts
+   ```
+   Goal: shrink the 209 unverified gap so `verifiedProgramsLabel` on the homepage rises toward `programsLabel`.
+2. **H7 Phase C**: drop plaintext `submissions.profile`. Wait at least 24-48h after Phase B has been live (Phase B shipped 3 May 2026 evening). Take a fresh `pg_dump` or use the Supabase Pro scheduled backup as the safety net first.
+3. **Homepage items 2 + 8 (deferred from the homepage trust pass)**: section reorder + density cut, destinations advisory rewrite. My read at the time: cut, don't reorder. See snapshot §22 for the full discussion.
+4. **Marketing email opt-in flow**: Privacy Policy §11 promises this; not yet built.
+5. **Visible unsubscribe link in email body**: header is in, body link missing.
 
 ## When unsure: ask
 

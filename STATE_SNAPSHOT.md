@@ -1,7 +1,9 @@
 # EduvianAI — Comprehensive State Snapshot for Session Handoff
 
-**Last updated:** 3 May 2026
+**Last updated:** 3 May 2026 (evening — second handoff of the day; first was after Phase 2 of the security audit)
 **Purpose:** Zero-loss handoff between Claude Code sessions. A new session reading this should be able to continue *every* in-flight workstream correctly, respect all user preferences, and avoid all known gotchas.
+
+> **Pinned next-session priority: §20.** First task is `npx tsx scripts/verify/re-verify.ts --only-unverified --concurrency 5` to verify the 209 entries that don't yet carry a `verified_at` stamp. Patched and ready.
 
 > **Read this top-to-bottom before doing anything.** Then run the verification commands in §0 to confirm reality matches this document.
 
@@ -258,16 +260,21 @@ USA, UK, Australia, Canada, New Zealand, Ireland, Germany, France, UAE, Singapor
 
 | | Value |
 |---|---:|
-| Last commit on main | `b9291a88` Improve transactional email deliverability |
-| Programs in DB | 4,295 |
-| Verified at source | 4,086 (~95%) |
+| Last commit on main | (latest after this handoff push) — re-verify patch + doc updates |
+| Programs in DB | **4,622** |
+| Verified at source | **4,413** (~95%) |
+| Universities | **425** total / **381** with at least one verified program |
 | Countries | 12 |
 | Build | green |
 | Branch | main |
-| Working tree | clean (CLAUDE.md committed; updates to this file in flight) |
-| Supabase plan | Pro (upgraded 3 May 2026) |
-| Live security posture | C1–C4 + H2/H3/H4/H6 closed; H7 Phase A live; H1/H5/H7-B+C deferred — see §5 |
-| Email OTP on register/login | live (3 May 2026) |
+| Working tree | clean after handoff commit |
+| Supabase plan | Pro (since 3 May 2026) |
+| Live security posture | C1–C4 + H1–H6 closed; **H7 Phase A + Phase B both live**; H7 Phase C is the only deferred audit item — see §5 |
+| Email OTP on register/login | live |
+| Admin TOTP MFA | enrolled and verified — `/admin` login challenges for code |
+| Logout button | live on `/profile` and `/results/[token]` |
+| Homepage trust pass | shipped — verified counts, in-context disclaimers, "Why EduvianAI is different" lead-card, off-white differentiation section |
+| Google Postmaster Tools | verified for `eduvianai.com` — dashboards stay sparse at beta volume |
 
 ### 3.1 Country breakdown (post-tier-10)
 
@@ -463,9 +470,11 @@ Audit document: `~/Desktop/EduvianAI-Security-Architecture-Risk-Assessment.docx`
 
 | ID | Title | Status / next steps |
 |---|---|---|
-| H1 | Admin TOTP MFA | TOTP **enabled at the Supabase project level** (Authentication → Multi-Factor → TOTP = Enabled). Per-user enrolment requires a small `/admin/security` page that calls `supabase.auth.mfa.enroll()` + challenges the code on the next admin login. ~30 min of work; user is sole admin and is already protected by C1 (allowlist), C3 (admin-session rate limit 20/15min), and a strong password. |
-| H7 Phase B | Switch readers to encrypted column | Update ~7 routes (`/api/auth`, `/api/email`, `/api/results/[token]`, `/api/check-match`, `/api/pdf/[token]`, `/api/admin/leads`, `/api/account/access`) to read `profile_encrypted` first and fall back to `profile`. Rewrite `/api/auth` login lookup to use `email_hash` instead of `profile->>email`. Reversible. |
-| H7 Phase C | Drop plaintext `submissions.profile` | Migration sets plaintext column to NULL (or drops it) for rows that have `profile_encrypted`. Irreversible without a backup — use Pro scheduled backup or a fresh `pg_dump` first. |
+| H7 Phase C | Drop plaintext `submissions.profile` | Migration sets plaintext column to NULL (or drops it) for rows that have `profile_encrypted`. Irreversible without a backup — **use the Supabase Pro scheduled backup or a fresh `pg_dump` first**. Wait 24-48h after Phase B has been clean in prod (Phase B shipped 3 May 2026). |
+
+**H1 and H7 Phase B closed since the previous snapshot:**
+- **H1** — `/admin/security` enrolment page, login flow now challenges for the 6-digit code, server enforces AAL2 in `/api/admin/session`. User is enrolled and verified in prod (TOTP factor recorded against the admin Supabase user).
+- **H7 Phase B** — every route that reads submissions (auth, results, email, pdf, check-match, admin/leads, account/access, account/delete) now goes through `decryptProfile()` in `lib/submissions-decrypt.ts`. Encrypted blobs are stripped from outbound responses. The three email-equality lookups (auth login, account/access, account/delete) switched to the H7 `email_hash` column.
 
 ### 5.4 Recurring cost from completed work
 
@@ -643,6 +652,28 @@ The legal/security/pricing Word docs and the pricing Excel were generated using 
 - Excel: previously had `scripts/build-pricing-xlsx.py` (deleted; can recreate)
 
 ---
+
+## §11.5 What shipped between previous snapshot and this one
+
+3 May 2026 evening session — listed by commit hash, latest first:
+
+| Commit | What |
+|---|---|
+| this handoff | re-verify.ts `--only-unverified` patch + CLAUDE.md + STATE_SNAPSHOT.md updates |
+| `700bfb9f` | "Verified is the moat" hero anchor + lead-card layout in Why-EduvianAI section + DB_STATS exposes `verifiedProgramsLabel` (4,413+) and `verifiedUniversitiesLabel` (381+) |
+| `a2c9c495` | Hero stat label "Universities" → "TOP Global Universities" → later refined to "Verified Global Universities" |
+| `0f17daf2` | Why-EduvianAI cards: deeper pastels + saturated icon tiles for contrast on the off-white bg |
+| `666ef00f` | Why-EduvianAI bg → off-white (`bg-stone-50`) — was dark-on-dark with the surrounding outputs and CTA sections |
+| `2afb528a` | New "Why EduvianAI is different" section (lead block + 4-card grid; later restructured to 1-up moat card + 3-up supporting) |
+| `9d42d197` | One-line fix to remove "official public formats" wording on the english-test-lab top hero |
+| `26a62df8` | Homepage trust pass — items 1, 3, 4, 5, 6, 9 from the homepage rework brief |
+| `15c6a022` | Tier-11 auto-merged: +327 verified programs (4,295 → 4,622). 12 AU + 15 DE + 10 CA + 2 IE + 1 NZ. |
+| `8fdb5375` | Spam-folder hint on the email-entry step (both `AuthGate.tsx` and `/get-started`) |
+| `cd7d648b` | H1 admin TOTP MFA enrolment + login challenge + AAL2 enforcement |
+| `d159c873` | Logout button + endpoint |
+| `5525135b` | H7 Phase B — readers switch to encrypted column with plaintext fallback |
+| `c9f7dae9` | CLAUDE.md: Postmaster Tools wired up + email-deliverability rules |
+| `80ad725c` | STATE_SNAPSHOT.md major refresh after the security audit + OTP feature |
 
 ## §12 Recent commits worth knowing
 
@@ -1197,4 +1228,121 @@ Both implement the same 2-step UX: collect details (name + email + phone) → re
 - **SMS OTP** — requires Twilio (or MSG91 in India after DLT registration), real cost (~$10–15/mo at current scale), and isn't materially better than email for our threat model.
 - **Magic link login** (passwordless via clickable link) — possible follow-up but the OTP flow already gets us the same security property.
 - **Existing-account hint on send-otp** — deliberately suppressed to avoid email-enumeration. The response is the same shape whether the email is in `students` or not.
+
+
+---
+
+## §20 Pinned next-session work
+
+These are concrete, ready-to-pick-up tasks. In priority order.
+
+### 20.1 Run re-verify on the 209 unverified entries
+
+`re-verify.ts` was patched this session with a `--only-unverified` flag that filters to entries lacking a `verified_at` stamp. Patch is committed; the run is for the next session.
+
+**The 209 entries:**
+| Country | Programs | Top concentrations |
+|---|---:|---|
+| USA | 75 | Miami, Connecticut, GW, Tennessee, Delaware, FSU, NCSU |
+| Canada | 49 | Centennial, Conestoga, BCIT, Douglas (mostly polytechnic colleges) |
+| UK | 32 | Sussex, De Montfort, Bath Spa |
+| Germany | 28 | **Tübingen alone has 23** — likely a tier-9 batch that failed |
+| Australia | 12 | mixed |
+| UAE | 4 |   |
+| Singapore | 3 |   |
+| France | 3 |   |
+| Ireland | 2 |   |
+| Malaysia | 1 |   |
+
+**Recipe:**
+```bash
+cd /Users/piyushkumar/Playground/eduvian
+set -a; source .env.local; set +a
+nohup npx tsx scripts/verify/re-verify.ts \
+  --only-unverified --concurrency 5 \
+  > /tmp/reverify-unverified.log 2>&1 &
+echo "PID: $!"
+```
+
+ETA ~30-60 min. Then apply stamps:
+
+```bash
+npx tsx scripts/verify/stamp-verified.ts
+git diff --stat src/data/programs.ts | head -3
+# expect ~150-200 lines changed
+```
+
+If some entries still fail (404s, dead URLs), inspect `scripts/verify/reverify-report.jsonl` and consider `audit-strip.ts` for the genuine dead ones.
+
+### 20.2 H7 Phase C — drop plaintext `submissions.profile`
+
+Wait at least 24-48h after Phase B has been clean in prod (Phase B shipped 3 May 2026 evening). Watch Sentry for any `decryptProfile` warnings.
+
+When ready:
+
+1. Take the safety net: Supabase Studio → Database → Backups → confirm the latest scheduled backup timestamp covers post-Phase-A data, or run a fresh `pg_dump`.
+2. SQL migration in `src/lib/migrations/20260504-h7-phase-c-drop-plaintext.sql` (write it):
+   ```sql
+   BEGIN;
+   UPDATE public.submissions SET profile = {}::jsonb
+     WHERE profile_encrypted IS NOT NULL;
+   -- After 1 week of clean operation:
+   -- ALTER TABLE public.submissions DROP COLUMN profile;
+   COMMIT;
+   ```
+3. Update writers to stop dual-writing `profile` (they currently still INSERT the plaintext alongside encrypted).
+4. Update readers to remove the plaintext fallback (or keep it for resilience).
+
+### 20.3 Homepage items 2 + 8 (deferred from the trust pass)
+
+User originally asked for 9 changes; we shipped 1 + 3-7 + 9 in commit `26a62df8` and item 7 ("Why EduvianAI is different") + the moat lead-card in `2afb528a` / `700bfb9f`. **Items 2 and 8 deliberately deferred** — see §22 below.
+
+### 20.4 Marketing email opt-in flow
+
+Privacy Policy §11 promises this; not yet built. Meaningful for DPDPA / GDPR alignment if we ever start sending non-transactional newsletters.
+
+### 20.5 Visible unsubscribe link in email body
+
+`List-Unsubscribe` header is in (commit `b9291a88`); a clickable unsubscribe link in the body itself is missing.
+
+---
+
+## §21 Latest dataset shape (3 May 2026 night)
+
+| | Count |
+|---|---:|
+| Programs total | **4,622** |
+| Programs verified at source | **4,413** (95%) |
+| Universities total | **425** |
+| Universities with at least one verified program | **381** (89%) |
+| Countries | 12 |
+| Fields of study | 17 |
+
+DB_STATS now exposes both totals AND verified counts. Use:
+- `DB_STATS.verifiedProgramsLabel` ("4,413+") — for the "Verified Programs" stat
+- `DB_STATS.verifiedUniversitiesLabel` ("381+") — for the "Verified Global Universities" stat
+- `DB_STATS.programsLabel` ("4,622+") — total, used in copy that explicitly says "across our database"
+
+After re-verify (§20.1) lands, the gap closes; both labels rise toward parity with the totals.
+
+---
+
+## §22 Homepage — 9-item rework brief: status
+
+User shared 9 brand+UX items mid-session. My read was: ship 5 clean wins now, defer 3 structural ones until we see the live page, defer 1 (item 7) initially then ship after user pushed for it. Then user added items 1 + 7. Final state:
+
+| # | Item | Status | Commit |
+|---|---|---|---|
+| 1 | Hero subtext shortened | ✅ "From shortlist to visa, one AI that thinks the whole journey through." | `26a62df8` |
+| 2 | Section reorder + density cut | **Deferred.** My take: cut, dont reorder. Look at the live page first; "Why EduvianAI" might have reduced the urgency. |   |
+| 3 | "Most used by successful applicants" → "Most useful before you apply" | ✅ | `26a62df8` |
+| 4 | Demo numbers labelled "Sample output" | ✅ | `26a62df8` |
+| 5 | "official-format questions" softened | ✅ on homepage `26a62df8` + on `/english-test-lab` page `9d42d197` |   |
+| 6 | Visa stage softening — "minimize rejection" → "Get visa-ready with clarity" | ✅ | `26a62df8` |
+| 7 | "Why EduvianAI is different" section (4 sub-points) | ✅ — also got the moat lead-card upgrade after user pushed | `2afb528a` → `666ef00f` → `0f17daf2` → `700bfb9f` |
+| 8 | Destinations advisory rewrite | **Deferred.** My take: 6-word "best for..." taglines feel reductive without per-country depth backing them. Either commit fully or skip. |   |
+| 9 | In-context disclaimers across tools | ✅ — new `DecisionDisclaimer` component with 5 variants wired into ROI Calculator, Visa Coach, English Test Lab, results page, scholarships section. | `26a62df8` |
+
+**Deferred-on-purpose discussion (items 2 + 8):** my brand+UX read was that the pages real problem is *density*, not order. Reordering 8 sections wont make it feel premium; cutting 2-3 will. And the destinations advisory needs full per-country depth, not 6-word taglines. Both are bigger decisions than copy swaps and warrant a fresh look at the live page first.
+
 
