@@ -28,6 +28,10 @@ import {
   BarChart2,
   Menu,
   AlertTriangle,
+  Compass,
+  ListChecks,
+  Database,
+  Eye,
 } from "lucide-react";
 import HowItWorksModal from "@/components/HowItWorksModal";
 import { DB_STATS } from "@/data/db-stats";
@@ -2139,6 +2143,72 @@ export default function LandingPage() {
               </AnimatePresence>
             </div>
 
+          </div>
+        </div>
+      </section>
+
+      {/* ── Why EduvianAI is different ────────────────────────────── */}
+      <section className="relative py-24 sm:py-28 px-4 sm:px-6 bg-[#0a0d18] overflow-hidden border-t border-white/5">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none" />
+        <div className="relative max-w-5xl mx-auto">
+          <div className="text-center mb-14">
+            <span className="inline-flex items-center gap-1.5 text-indigo-400 font-bold text-xs uppercase tracking-widest mb-4">
+              <Sparkles className="w-3 h-3" /> What makes us different
+            </span>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
+              Why EduvianAI <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">is different</span>
+            </h2>
+            <p className="text-gray-400 text-base max-w-2xl mx-auto leading-relaxed">
+              Four concrete things that set us apart from generic AI chat or one-off shortlist tools.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {[
+              {
+                Icon: Compass,
+                title: "Built for decisions, not just discovery",
+                body: "Search is only the start. EduvianAI helps you shortlist, strengthen, practise, compare and prepare — every step toward a confident yes.",
+                accent: "from-blue-500/20 to-blue-600/10 border-blue-500/30",
+                iconBg: "bg-blue-500/20 text-blue-300",
+              },
+              {
+                Icon: ListChecks,
+                title: "Structured outputs, not vague advice",
+                body: "Every tool returns specific next steps — fix this paragraph, raise this score, narrow this list — so you always know what to do next.",
+                accent: "from-violet-500/20 to-violet-600/10 border-violet-500/30",
+                iconBg: "bg-violet-500/20 text-violet-300",
+              },
+              {
+                Icon: Database,
+                title: `${DB_STATS.programsLabel} programs verified at the source`,
+                body: "Every fee, deadline and cutoff is fetched from the live university page — never invented, never recycled. If a value isn't on the official page, we leave it blank.",
+                accent: "from-emerald-500/20 to-emerald-600/10 border-emerald-500/30",
+                iconBg: "bg-emerald-500/20 text-emerald-300",
+              },
+              {
+                Icon: Eye,
+                title: "Transparent by design",
+                body: "Outputs are decision-support estimates, and we say so. Final eligibility, fees and deadlines should always be verified from official sources before you commit.",
+                accent: "from-amber-500/20 to-amber-600/10 border-amber-500/30",
+                iconBg: "bg-amber-500/20 text-amber-300",
+              },
+            ].map(({ Icon, title, body, accent, iconBg }) => (
+              <motion.div
+                key={title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.4 }}
+                className={`relative bg-gradient-to-br ${accent} border rounded-2xl p-7 hover:-translate-y-1 transition-transform duration-300`}
+              >
+                <div className={`w-11 h-11 rounded-xl flex items-center justify-center mb-5 ${iconBg}`}>
+                  <Icon className="w-5 h-5" />
+                </div>
+                <h3 className="text-white font-bold text-lg mb-2 leading-snug">{title}</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">{body}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
