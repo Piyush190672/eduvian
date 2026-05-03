@@ -4,6 +4,7 @@ import type { ScoredProgram, StudentProfile, Program } from "@/lib/types";
 import { formatCurrency, getTierLabel } from "@/lib/utils";
 import { scoreStudentProfile, getCategoryStyle, categoryBadgeHtml } from "@/lib/profile-score";
 import { escHtml, escHtmlBounded } from "@/lib/html-escape";
+import { decryptProfile } from "@/lib/submissions-decrypt";
 
 export async function POST(req: NextRequest) {
   try {
@@ -34,7 +35,8 @@ export async function POST(req: NextRequest) {
       if (stored) submission = stored as unknown as { profile?: StudentProfile; [key: string]: unknown };
     }
 
-    const profile = submission?.profile as StudentProfile | undefined;
+    // H7: prefer encrypted blob; fall back to plaintext profile.
+    const profile = (submission ? decryptProfile(submission as { profile?: unknown; profile_encrypted?: string | null }) : null) as StudentProfile | null;
 
     // Generate scored programs
     let allPrograms: ScoredProgram[] = [];

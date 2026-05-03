@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getUserFromRequest, USER_COOKIE_NAME } from "@/lib/user-cookie";
 import { createServiceClient } from "@/lib/supabase";
 import { apiErrorResponse } from "@/lib/api-error";
+import { emailHash, isEncryptionConfigured } from "@/lib/pii-crypto";
 
 // Reads the session cookie — must be evaluated per-request, never statically.
 export const dynamic = "force-dynamic";
@@ -38,15 +39,29 @@ export async function POST(req: NextRequest) {
     }
 
     const email = user.email;
+    const useHash = isEncryptionConfigured();
+
+    // For submissions deletion: prefer email_hash for encrypted rows, but
+    // also delete by JSONB email filter to catch any legacy unhashed rows.
+    // Doing both is idempotent — a row matching both gets deleted once.
+    const submissionsByHash = useHash
+      ? supabase.from("submissions").delete().eq("email_hash", emailHash(email))
+      : Promise.resolve({ error: null });
+    const submissionsByPlain = supabase
+      .from("submissions")
+      .delete()
+      .filter("profile->>email", "eq", email);
 
     // Run in parallel — each is independent. Errors are collected, not thrown,
     // so a partial failure still removes whatever it can.
-    const [students, submissions, sessions, toolUsage] = await Promise.all([
+    const [students, submissionsHash, submissionsPlain, sessions, toolUsage] = await Promise.all([
       supabase.from("students").delete().eq("email", email),
-      supabase.from("submissions").delete().filter("profile->>email", "eq", email),
+      submissionsByHash,
+      submissionsByPlain,
       supabase.from("user_sessions").delete().eq("email", email),
       supabase.from("tool_usage").delete().eq("email", email),
     ]);
+    const submissions = { error: submissionsHash.error ?? submissionsPlain.error };
 
     const errors = [students.error, submissions.error, sessions.error, toolUsage.error].filter(Boolean);
     if (errors.length) {

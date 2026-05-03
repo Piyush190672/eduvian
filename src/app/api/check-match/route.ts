@@ -3,6 +3,7 @@ import type { StudentProfile, Program, ScoredProgram } from "@/lib/types";
 import { getUserFromRequest } from "@/lib/user-cookie";
 import { checkBetaAccess, logToolUsage } from "@/lib/beta-gate";
 import { getClientIp, aiToolLimit } from "@/lib/rate-limit";
+import { decryptProfile, SUBMISSION_PROFILE_COLUMNS } from "@/lib/submissions-decrypt";
 
 export async function GET(req: NextRequest) {
   const { searchParams } = req.nextUrl;
@@ -22,10 +23,14 @@ export async function GET(req: NextRequest) {
     if (supabase) {
       const { data } = await supabase
         .from("submissions")
-        .select("profile")
+        .select(SUBMISSION_PROFILE_COLUMNS)
         .eq("token", token)
         .single();
-      if (data?.profile) profile = data.profile as StudentProfile;
+      if (data) {
+        // H7: prefer encrypted blob; fall back to plaintext.
+        const decrypted = decryptProfile(data as { profile?: unknown; profile_encrypted?: string | null });
+        if (decrypted) profile = decrypted as StudentProfile;
+      }
     }
   } catch { /* fall through */ }
 

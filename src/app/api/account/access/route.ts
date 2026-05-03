@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { getUserFromRequest } from "@/lib/user-cookie";
 import { createServiceClient } from "@/lib/supabase";
 import { apiErrorResponse } from "@/lib/api-error";
+import { emailHash, isEncryptionConfigured } from "@/lib/pii-crypto";
+import { decryptProfile } from "@/lib/submissions-decrypt";
 
 // Reads the session cookie — must be evaluated per-request, never statically.
 export const dynamic = "force-dynamic";
@@ -22,13 +24,25 @@ export async function GET(req: NextRequest) {
     }
 
     const email = user.email;
+    const useHash = isEncryptionConfigured();
+    const hash = useHash ? emailHash(email) : null;
+
+    // Submissions query: H7 prefers email_hash; falls back to JSONB filter
+    // for legacy rows without a hash. Encrypted rows naturally have hashes
+    // post-backfill, so this is mostly hot-path.
+    const submissionsQuery = useHash && hash
+      ? supabase
+          .from("submissions")
+          .select("token, profile, profile_encrypted, email_hash, profile_category, total_matched, created_at, updated_at")
+          .eq("email_hash", hash)
+      : supabase
+          .from("submissions")
+          .select("token, profile, profile_encrypted, email_hash, profile_category, total_matched, created_at, updated_at")
+          .filter("profile->>email", "eq", email);
 
     const [studentRes, submissionsRes, toolUsageRes] = await Promise.all([
       supabase.from("students").select("*").eq("email", email),
-      supabase
-        .from("submissions")
-        .select("token, profile, profile_category, total_matched, created_at, updated_at")
-        .filter("profile->>email", "eq", email),
+      submissionsQuery,
       supabase
         .from("tool_usage")
         .select("tool, cost_estimate_cents, created_at")
@@ -37,11 +51,20 @@ export async function GET(req: NextRequest) {
         .limit(500),
     ]);
 
+    // Decrypt and strip the encrypted blob before sending to the user.
+    const decryptedSubmissions = (submissionsRes.data ?? []).map((s: Record<string, unknown>) => {
+      const decrypted = decryptProfile(s as { profile?: unknown; profile_encrypted?: string | null });
+      const out: Record<string, unknown> = { ...s, profile: decrypted };
+      delete out.profile_encrypted;
+      delete out.email_hash;
+      return out;
+    });
+
     return NextResponse.json({
       email,
       generated_at: new Date().toISOString(),
       student: studentRes.data ?? [],
-      submissions: submissionsRes.data ?? [],
+      submissions: decryptedSubmissions,
       tool_usage: toolUsageRes.data ?? [],
     });
   } catch (err) {

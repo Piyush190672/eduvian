@@ -6,6 +6,7 @@ import type { Program, StudentProfile, ScoredProgram } from "@/lib/types";
 import { getTierLabel, formatCurrency, getCountryFlag } from "@/lib/utils";
 import { scoreStudentProfile, categoryBadgeHtml } from "@/lib/profile-score";
 import { escHtml } from "@/lib/html-escape";
+import { decryptProfile } from "@/lib/submissions-decrypt";
 
 export async function GET(
   req: NextRequest,
@@ -42,7 +43,11 @@ export async function GET(
     return NextResponse.json({ error: "Not found" }, { status: 404 });
   }
 
-  const profile = submission.profile as StudentProfile;
+  // H7: prefer encrypted profile; fall back to plaintext.
+  const profile = decryptProfile(submission as { profile?: unknown; profile_encrypted?: string | null }) as StudentProfile;
+  if (!profile) {
+    return NextResponse.json({ error: "Profile data unavailable" }, { status: 500 });
+  }
 
   // Prefer query param IDs, fall back to stored, then top 20
   const shortlistedIds =

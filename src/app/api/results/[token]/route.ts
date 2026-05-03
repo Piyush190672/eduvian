@@ -3,6 +3,7 @@ import { recommendPrograms } from "@/lib/scoring";
 import { PROGRAMS } from "@/data/programs";
 import { submissionStore } from "@/lib/store";
 import type { Program } from "@/lib/types";
+import { decryptProfile } from "@/lib/submissions-decrypt";
 
 export async function GET(
   _req: NextRequest,
@@ -34,6 +35,16 @@ export async function GET(
 
   if (!submission) {
     return NextResponse.json({ error: "Submission not found" }, { status: 404 });
+  }
+
+  // H7: prefer encrypted profile, fall back to plaintext. Replace the
+  // submission.profile field on the response so downstream code (and the
+  // client) sees the canonical plaintext shape; never ship the encrypted
+  // blob to the browser.
+  const decryptedProfile = decryptProfile(submission as { profile?: unknown; profile_encrypted?: string | null });
+  if (decryptedProfile) submission.profile = decryptedProfile;
+  if ("profile_encrypted" in (submission as Record<string, unknown>)) {
+    delete (submission as Record<string, unknown>).profile_encrypted;
   }
 
   // Get programs
