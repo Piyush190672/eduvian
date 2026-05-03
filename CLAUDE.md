@@ -91,6 +91,12 @@ When working on `submissions`, both `profile` (plaintext) and `profile_encrypted
 | `src/lib/api-error.ts` | Sentry-flushed error response. Eager Sentry init lives here. |
 | `src/middleware.ts` | Same-origin CSRF gate + admin route protection. |
 
+## Email deliverability monitoring
+
+- **Google Postmaster Tools** is verified for `eduvianai.com` (3 May 2026) — dashboards at https://postmaster.google.com show domain reputation, spam rate, auth pass-rate. Sparse at beta volume; check weekly. Spike on Spam Rate (>0.1%) or Domain Reputation drop = investigate before reputation tanks.
+- Microsoft SNDS does NOT apply (Resend owns the sending IPs, not us). Monitor Outlook/Hotmail signals via the Resend dashboard (`complaints` count per recipient domain).
+- All transactional sends include a plain-text alternative + `List-Unsubscribe` headers; OTP subject deliberately omits the code (looks like phishing to filters otherwise).
+
 ## Environment quirks
 
 - macOS Bash 3.2 — no `${VAR^}` (uppercase first), no `${VAR,,}`, no associative arrays. Shell scripts must be portable.
