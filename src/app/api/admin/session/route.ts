@@ -45,6 +45,35 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ok: false, error: "not_authorized" }, { status: 403 });
   }
 
+  // H1: enforce AAL2 if the user has any verified MFA factor.
+  // - If they have a verified factor, the JWT must carry aal=aal2 (i.e.
+  //   they completed MFA in this session). Otherwise reject with
+  //   mfa_required so the client knows to challenge.
+  // - If they have no factors enrolled, aal1 is fine.
+  // Decoding the unsigned middle of the JWT is safe here — getUser above
+  // already verified the signature; we're only reading already-trusted
+  // claims.
+  type FactorLike = { factor_type?: string; status?: string };
+  const factors = (data.user.factors as FactorLike[] | undefined) ?? [];
+  const hasVerifiedTotp = factors.some((f) => f?.factor_type === "totp" && f?.status === "verified");
+  if (hasVerifiedTotp) {
+    let aal: string | null = null;
+    try {
+      const payload = JSON.parse(
+        Buffer.from(jwt.split(".")[1] ?? "", "base64").toString("utf8"),
+      ) as { aal?: string };
+      aal = payload.aal ?? null;
+    } catch {
+      // Malformed token shouldn't have got past getUser, but be defensive.
+    }
+    if (aal !== "aal2") {
+      return NextResponse.json(
+        { ok: false, error: "mfa_required" },
+        { status: 403 },
+      );
+    }
+  }
+
   const token = await createSessionToken();
   const res = NextResponse.json({ ok: true });
   res.cookies.set(COOKIE_NAME, token, { ...COOKIE_OPTS, maxAge: 60 * 60 * 8 }); // 8 h

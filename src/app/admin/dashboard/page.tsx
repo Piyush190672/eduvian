@@ -14,6 +14,7 @@ import {
   Sparkles,
   ExternalLink,
   ArrowRight,
+  ShieldCheck,
 } from "lucide-react";
 import { EduvianLogoMark } from "@/components/EduvianLogo";
 import { TARGET_COUNTRIES, BUDGET_LABELS } from "@/lib/types";
@@ -76,6 +77,7 @@ function AdminShell({ children }: { children: React.ReactNode }) {
             { href: "/admin/dashboard", icon: LayoutDashboard, label: "Dashboard" },
             { href: "/admin/leads",     icon: Users,           label: "Leads"     },
             { href: "/admin/programs",  icon: BookOpen,        label: "Programs"  },
+            { href: "/admin/security",  icon: ShieldCheck,     label: "Security"  },
           ].map((item) => (
             <Link key={item.href} href={item.href}
               className="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm text-indigo-200 hover:bg-white/10 hover:text-white transition-colors">
