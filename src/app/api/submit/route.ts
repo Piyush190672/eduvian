@@ -10,6 +10,7 @@ import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 import { checkBetaAccess, logToolUsage } from "@/lib/beta-gate";
 import { createUserToken, USER_COOKIE_NAME, USER_COOKIE_OPTS } from "@/lib/user-cookie";
 import { escHtmlBounded } from "@/lib/html-escape";
+import { encryptJson, emailHash, isEncryptionConfigured } from "@/lib/pii-crypto";
 
 /**
  * Notify admissions@eduvianai.com whenever a profile is submitted. Sent
@@ -143,6 +144,25 @@ export async function POST(req: NextRequest) {
     const token = uuidv4();
     const id = uuidv4();
 
+    // Build the encrypted shadow payload alongside the plaintext profile.
+    // We dual-write through Phase A so any reader still works against the
+    // plaintext column. Skips silently if PII_ENCRYPTION_KEY isn't set —
+    // useful in local/dev where the key isn't provisioned.
+    let pii_email_hash: string | null = null;
+    let pii_profile_encrypted: string | null = null;
+    let pii_profile_enc_version: number | null = null;
+    if (isEncryptionConfigured()) {
+      try {
+        pii_email_hash = emailHash(normalizedEmail);
+        pii_profile_encrypted = encryptJson(profile);
+        pii_profile_enc_version = 1;
+      } catch (e) {
+        // Don't block the user's submit on a crypto config issue — fall back
+        // to plaintext-only and surface the error in Sentry.
+        console.error("PII encryption failed; saving plaintext only:", e);
+      }
+    }
+
     // Try Supabase persistence
     let savedToDb = false;
     try {
@@ -157,6 +177,9 @@ export async function POST(req: NextRequest) {
           email_sent: false,
           profile_category,
           total_matched,
+          email_hash: pii_email_hash,
+          profile_encrypted: pii_profile_encrypted,
+          profile_enc_version: pii_profile_enc_version,
         });
         if (!error) savedToDb = true;
       }

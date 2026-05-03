@@ -33,6 +33,8 @@ CREATE TABLE IF NOT EXISTS programs (
 );
 
 -- ─── Submissions table ────────────────────────────────────────────────────────
+-- email_hash + profile_encrypted are H7 shadow columns; populated by the
+-- writer and the backfill script (lib/migrations/20260503-h7-...sql).
 CREATE TABLE IF NOT EXISTS submissions (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   token UUID UNIQUE NOT NULL DEFAULT gen_random_uuid(),
@@ -41,6 +43,9 @@ CREATE TABLE IF NOT EXISTS submissions (
   email_sent BOOLEAN DEFAULT false,
   profile_category TEXT,
   total_matched INTEGER DEFAULT 0,
+  email_hash TEXT,
+  profile_encrypted TEXT,
+  profile_enc_version SMALLINT,
   created_at TIMESTAMPTZ DEFAULT NOW(),
   updated_at TIMESTAMPTZ DEFAULT NOW()
 );
@@ -52,6 +57,7 @@ CREATE TABLE IF NOT EXISTS submissions (
 -- Indexes
 CREATE INDEX IF NOT EXISTS idx_submissions_token ON submissions(token);
 CREATE INDEX IF NOT EXISTS idx_submissions_email ON submissions((profile->>'email'));
+CREATE INDEX IF NOT EXISTS idx_submissions_email_hash ON submissions(email_hash);
 CREATE INDEX IF NOT EXISTS idx_programs_country ON programs(country);
 CREATE INDEX IF NOT EXISTS idx_programs_field ON programs(field_of_study);
 CREATE INDEX IF NOT EXISTS idx_programs_level ON programs(degree_level);
