@@ -184,9 +184,9 @@ const COUNTRIES = [
 ];
 
 const STATS = [
-  { icon: GraduationCap, value: DB_STATS.programsLabel, label: "Programs Listed" },
+  { icon: GraduationCap, value: DB_STATS.verifiedProgramsLabel, label: "Verified Programs" },
   { icon: Globe2, value: DB_STATS.countriesLabel, label: "Countries" },
-  { icon: Users, value: DB_STATS.universitiesLabel, label: "TOP Global Universities" },
+  { icon: Users, value: DB_STATS.verifiedUniversitiesLabel, label: "Verified Global Universities" },
   { icon: Award, value: DB_STATS.fieldsLabel, label: "Fields of Study" },
 ];
 
@@ -500,9 +500,18 @@ export default function LandingPage() {
               </h1>
 
               {/* Subheadline */}
-              <p className="text-base sm:text-lg text-gray-400 mb-8 leading-relaxed max-w-lg">
+              <p className="text-base sm:text-lg text-gray-400 mb-5 leading-relaxed max-w-lg">
                 From shortlist to visa, one AI that thinks the whole journey through.
               </p>
+
+              {/* Verified-at-source anchor — our moat, given prominent space */}
+              <div className="inline-flex items-start gap-2.5 mb-8 px-4 py-2.5 rounded-xl bg-emerald-500/10 border border-emerald-400/30 max-w-lg">
+                <CheckCircle2 className="w-4 h-4 text-emerald-300 flex-shrink-0 mt-0.5" />
+                <p className="text-[13px] text-emerald-100 leading-snug">
+                  <span className="font-bold text-emerald-200">{DB_STATS.verifiedProgramsLabel} programs verified at the source.</span>
+                  <span className="text-emerald-200/80"> Every fee, deadline and cutoff fetched from the live university page — never invented.</span>
+                </p>
+              </div>
 
               {/* CTA row */}
               <div className="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center mb-10">
@@ -525,8 +534,8 @@ export default function LandingPage() {
               {/* Trust strip */}
               <div className="grid grid-cols-4 sm:flex sm:flex-wrap sm:items-center gap-x-6 gap-y-3 pt-5 border-t border-white/10">
                 {[
-                  { val: DB_STATS.universitiesLabel, label: "TOP Global Universities" },
-                  { val: DB_STATS.programsLabel, label: "Programs" },
+                  { val: DB_STATS.verifiedUniversitiesLabel, label: "Verified Global Universities" },
+                  { val: DB_STATS.verifiedProgramsLabel, label: "Verified Programs" },
                   { val: DB_STATS.countriesLabel, label: "Countries" },
                   { val: DB_STATS.fieldsLabel, label: "Fields" },
                 ].map((s) => (
@@ -2163,12 +2172,52 @@ export default function LandingPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {/* The verification card leads — it's the moat, so it gets the
+              full-width hero slot above the supporting three. */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.4 }}
+            className="relative bg-gradient-to-br from-emerald-100 to-emerald-200/70 border border-emerald-300/60 rounded-2xl p-8 sm:p-10 shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all duration-300 mb-5 overflow-hidden"
+          >
+            <div className="absolute -top-12 -right-12 w-48 h-48 bg-emerald-300/30 rounded-full blur-3xl pointer-events-none" />
+            <div className="relative flex flex-col sm:flex-row gap-6 items-start">
+              <div className="w-14 h-14 rounded-2xl flex items-center justify-center shadow-md bg-emerald-600 text-white flex-shrink-0">
+                <Database className="w-7 h-7" />
+              </div>
+              <div className="flex-1">
+                <span className="inline-flex items-center gap-1.5 text-emerald-700 font-bold text-[10px] uppercase tracking-widest mb-2">
+                  ★ Our moat
+                </span>
+                <h3 className="text-gray-900 font-extrabold text-xl sm:text-2xl mb-2 leading-snug">
+                  {DB_STATS.verifiedProgramsLabel} programs verified at the source
+                </h3>
+                <p className="text-gray-700 text-sm sm:text-base leading-relaxed mb-4">
+                  Every fee, deadline and cutoff is fetched from the live university page — never invented, never recycled. If a value isn&apos;t on the official page, we leave it blank.
+                </p>
+                <div className="grid grid-cols-3 gap-3 max-w-md">
+                  {[
+                    { num: "01", text: "Catalog seeded" },
+                    { num: "02", text: "Live URL fetch" },
+                    { num: "03", text: "Field extraction" },
+                  ].map((s) => (
+                    <div key={s.num} className="bg-white/60 border border-emerald-200/80 rounded-lg px-3 py-2">
+                      <p className="text-[9px] font-bold text-emerald-700 mb-0.5">{s.num}</p>
+                      <p className="text-[11px] font-semibold text-gray-700 leading-tight">{s.text}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
               {
                 Icon: Compass,
                 title: "Built for decisions, not just discovery",
-                body: "Search is only the start. EduvianAI helps you shortlist, strengthen, practise, compare and prepare — every step toward a confident yes.",
+                body: "Search is only the start. We help you shortlist, strengthen, practise, compare and prepare — every step toward a confident yes.",
                 accent: "from-blue-100 to-blue-200/70 border-blue-300/60",
                 iconBg: "bg-blue-600 text-white",
               },
@@ -2178,13 +2227,6 @@ export default function LandingPage() {
                 body: "Every tool returns specific next steps — fix this paragraph, raise this score, narrow this list — so you always know what to do next.",
                 accent: "from-violet-100 to-violet-200/70 border-violet-300/60",
                 iconBg: "bg-violet-600 text-white",
-              },
-              {
-                Icon: Database,
-                title: `${DB_STATS.programsLabel} programs verified at the source`,
-                body: "Every fee, deadline and cutoff is fetched from the live university page — never invented, never recycled. If a value isn't on the official page, we leave it blank.",
-                accent: "from-emerald-100 to-emerald-200/70 border-emerald-300/60",
-                iconBg: "bg-emerald-600 text-white",
               },
               {
                 Icon: Eye,
