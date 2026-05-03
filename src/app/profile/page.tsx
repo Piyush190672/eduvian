@@ -21,6 +21,7 @@ import StepPreferences from "@/components/form/StepPreferences";
 import Link from "next/link";
 import NavButtons from "@/components/ui/NavButtons";
 import { EduvianLogoMark } from "@/components/EduvianLogo";
+import LogoutButton from "@/components/LogoutButton";
 
 const STEPS = [
   { id: 1, label: "Personal", icon: User, desc: "About you" },
@@ -215,10 +216,11 @@ function ProfilePageInner() {
             <p className="text-sm font-bold text-gray-400 leading-none">Your Global Future, Simplified</p>
           </div>
         </Link>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
           <span className="text-sm text-gray-500">
             Step {step} of {STEPS.length}
           </span>
+          <LogoutButton variant="compact" />
           <NavButtons backHref="/" />
         </div>
       </nav>

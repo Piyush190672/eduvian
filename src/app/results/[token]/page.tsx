@@ -23,6 +23,7 @@ import ProgramCard from "@/components/results/ProgramCard";
 import ShortlistSummary from "@/components/results/ShortlistSummary";
 import ProfileCard from "@/components/results/ProfileCard";
 import NavButtons from "@/components/ui/NavButtons";
+import LogoutButton from "@/components/LogoutButton";
 import CheckMatchPanel from "@/components/results/CheckMatchPanel";
 import ChatWidget from "@/components/ChatWidget";
 import ComparePanel from "@/components/results/ComparePanel";
@@ -230,6 +231,7 @@ export default function ResultsPage() {
           </div>
         </Link>
         <div className="flex items-center gap-2">
+          <LogoutButton variant="compact" />
           <NavButtons backHref={`/profile?token=${token}`} backLabel="Modify Profile" />
           <button
             onClick={sendEmail}
