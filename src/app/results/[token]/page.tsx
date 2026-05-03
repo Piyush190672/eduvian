@@ -24,6 +24,7 @@ import ShortlistSummary from "@/components/results/ShortlistSummary";
 import ProfileCard from "@/components/results/ProfileCard";
 import NavButtons from "@/components/ui/NavButtons";
 import LogoutButton from "@/components/LogoutButton";
+import DecisionDisclaimer from "@/components/DecisionDisclaimer";
 import CheckMatchPanel from "@/components/results/CheckMatchPanel";
 import ChatWidget from "@/components/ChatWidget";
 import ComparePanel from "@/components/results/ComparePanel";
@@ -262,6 +263,9 @@ export default function ResultsPage() {
             <span className="text-rose-600 font-semibold">{ambitiousPrograms.length} Ambitious</span>
             {" — shortlist the ones you like, then email or download as PDF."}
           </p>
+          <div className="mt-4">
+            <DecisionDisclaimer variant="shortlist" />
+          </div>
         </motion.div>
 
         {/* Hard filters applied */}

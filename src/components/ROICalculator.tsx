@@ -13,6 +13,7 @@ import { calculateROI, lookupSalary } from "@/lib/roi-calculator";
 import { PROGRAMS } from "@/data/programs";
 import { DB_STATS } from "@/data/db-stats";
 import { formatCurrency } from "@/lib/utils";
+import DecisionDisclaimer from "@/components/DecisionDisclaimer";
 
 // ── types ─────────────────────────────────────────────────────────────────────
 
@@ -779,9 +780,15 @@ export default function ROICalculator() {
           </motion.div>
         </div>
 
-        <p className="text-center text-xs text-slate-600 mt-8">
-          Salary estimates are median figures from publicly available graduate salary surveys. Tuition and living costs are from eduvianAI&apos;s verified program database. All amounts in USD.
-        </p>
+        <div className="mt-8">
+          <DecisionDisclaimer
+            variant="roi"
+            className="flex items-start gap-2.5 text-[11px] leading-relaxed text-slate-400 bg-white/5 border border-white/10 rounded-xl px-3.5 py-2.5"
+          />
+          <p className="text-center text-[10px] text-slate-600 mt-3">
+            Salary estimates are median figures from publicly available graduate salary surveys. Tuition and living costs are from eduvianAI&apos;s verified program database. All amounts in USD.
+          </p>
+        </div>
       </div>
     </section>
   );

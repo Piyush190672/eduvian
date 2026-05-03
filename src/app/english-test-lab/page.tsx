@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import DecisionDisclaimer from "@/components/DecisionDisclaimer";
 import {
   ArrowRight,
   BookOpen,
@@ -180,9 +181,12 @@ export default function EnglishTestLabPage() {
               See all tests
             </a>
 
-            <p className="text-xs text-slate-400 mt-4 max-w-xl mx-auto">
-              Unofficial practice simulations. Not affiliated with or endorsed by IELTS, Pearson, Duolingo English Test, or ETS/TOEFL.
-            </p>
+            <div className="mt-6 max-w-xl mx-auto">
+              <DecisionDisclaimer
+                variant="english-test"
+                className="flex items-start gap-2.5 text-[11px] leading-relaxed text-slate-300 bg-white/5 border border-white/10 rounded-xl px-3.5 py-2.5 text-left"
+              />
+            </div>
           </motion.div>
         </div>
       </section>

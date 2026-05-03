@@ -5,6 +5,7 @@ import { ArrowLeft, Globe2 } from "lucide-react";
 import { EduvianLogoMark } from "@/components/EduvianLogo";
 import VisaCoach from "@/components/VisaCoach";
 import AuthGate from "@/components/AuthGate";
+import DecisionDisclaimer from "@/components/DecisionDisclaimer";
 
 export default function VisaCoachPage() {
   return (
@@ -52,6 +53,9 @@ export default function VisaCoachPage() {
                 flags — all sourced from official government pages. Plus a direct link to
                 the official application portal.
               </p>
+              <div className="mt-6 max-w-2xl mx-auto">
+                <DecisionDisclaimer variant="visa" />
+              </div>
             </div>
 
             <VisaCoach />

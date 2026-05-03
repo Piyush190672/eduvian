@@ -497,7 +497,7 @@ export default function LandingPage() {
 
               {/* Subheadline */}
               <p className="text-base sm:text-lg text-gray-400 mb-8 leading-relaxed max-w-lg">
-                Find the right programs, strengthen your application, prepare for English tests and interviews, decide with confidence, and nail your student visa — F-1, UK, SDS, AUS 500 &amp; 8 more — using AI built for real outcomes.
+                From shortlist to visa, one AI that thinks the whole journey through.
               </p>
 
               {/* CTA row */}
@@ -544,12 +544,15 @@ export default function LandingPage() {
 
               {/* ── MOBILE: horizontal snap-scroll strip ─────────────── */}
               {/* Follows headline → sub → CTA in the stacking order      */}
+              <p className="md:hidden text-[10px] uppercase tracking-widest text-gray-500 font-bold mb-2 px-1">
+                Sample outputs — illustrative
+              </p>
               <div className="md:hidden -mx-4 px-4 overflow-x-auto flex gap-3 pb-4 snap-x snap-mandatory scrollbar-none min-w-0 max-w-[100vw]">
 
                 {/* Card M1 — Shortlist */}
                 <div className="flex-shrink-0 w-[272px] snap-start bg-white rounded-2xl p-4 shadow-[0_12px_40px_rgba(0,0,0,0.28)]">
                   <div className="flex items-center justify-between mb-3">
-                    <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">AI Shortlist · 90s</p>
+                    <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">AI Shortlist · sample</p>
                     <span className="text-[8px] font-bold px-1.5 py-0.5 rounded-full bg-blue-50 text-blue-600 border border-blue-100">20 matches</span>
                   </div>
                   <div className="space-y-2">
@@ -589,8 +592,8 @@ export default function LandingPage() {
                     </div>
                   ))}
                   <div className="mt-3 pt-2 border-t border-gray-50">
-                    <p className="text-[10px] font-bold text-blue-600">+23 pts strength gain</p>
-                    <p className="text-[8px] text-gray-400 mt-0.5">Top-15% application quality</p>
+                    <p className="text-[10px] font-bold text-blue-600">+23 pts (sample)</p>
+                    <p className="text-[8px] text-gray-400 mt-0.5">Illustrative example only</p>
                   </div>
                 </div>
 
@@ -851,7 +854,7 @@ export default function LandingPage() {
                 {/* Most popular badge — inline, doesn't overlap content */}
                 {"recommended" in s && s.recommended && (
                   <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-blue-500 text-white text-[8px] font-bold uppercase tracking-widest shadow-sm mb-2.5 self-start">
-                    ✦ Most used by successful applicants
+                    ✦ Most useful before you apply
                   </div>
                 )}
 
@@ -946,7 +949,7 @@ export default function LandingPage() {
                     </div>
                     <div className="flex-1">
                       <p className="text-xs font-black text-gray-900 uppercase tracking-wider">Your Top 20 Shortlist</p>
-                      <p className="text-[10px] text-gray-400">Generated in 1.8s · 12 signals matched</p>
+                      <p className="text-[10px] text-gray-400">Sample output · 12 signals matched</p>
                     </div>
                     <span className="text-[10px] font-bold px-2 py-1 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-100 flex-shrink-0">AI Match</span>
                   </div>
@@ -1175,7 +1178,7 @@ export default function LandingPage() {
                 </Link>
               </div>
               <p className="text-white/75 text-sm mb-7 pl-11">
-                Full-length mocks for all four major English proficiency exams — AI-scored, official-format questions, instant results with detailed feedback.
+                Full-length mocks for all four major English proficiency exams — AI-scored, exam-style practice based on published test structures, with instant results and detailed feedback.
               </p>
 
               <div className="grid sm:grid-cols-4 gap-3">
@@ -1515,10 +1518,10 @@ export default function LandingPage() {
                 </div>
                 <h3 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 leading-tight">
                   Accepted. Now the visa.<br />
-                  <span className="bg-gradient-to-r from-sky-600 to-cyan-500 bg-clip-text text-transparent">No surprises, minimize rejection chances.</span>
+                  <span className="bg-gradient-to-r from-sky-600 to-cyan-500 bg-clip-text text-transparent">Get visa-ready with clarity.</span>
                 </h3>
                 <p className="text-gray-500 text-base leading-relaxed mb-6">
-                  Most students panic at this stage. Financial proof amounts change mid-year, deadlines are country-specific, and one missed form means a lost intake. Our Visa Coach and Application Tracker keep you on rails — from checklist to countdown to apply-portal click.
+                  Use country-specific checklists, financial-proof guidance, risk flags and deadline tracking to prepare more carefully. Final decisions rest with the consular officer; we help you walk in well-prepared.
                 </p>
                 <div className="flex flex-wrap gap-2.5 mb-6">
                   {[
@@ -1655,6 +1658,9 @@ export default function LandingPage() {
             <p className="text-gray-500 mt-4 max-w-2xl mx-auto text-base leading-relaxed">
               Thousands of scholarships are available for international students every year — many go unclaimed. Select a destination to explore key scholarships available there.
             </p>
+            <p className="text-xs text-gray-500 mt-4 max-w-xl mx-auto bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 leading-relaxed">
+              ℹ️ Scholarship rules change by university, intake and applicant profile. Start broad, then shortlist only what you&apos;re eligible for. Always confirm current eligibility, amounts and deadlines from the official university page before applying.
+            </p>
           </div>
 
           {/* Country chips with teasers */}
@@ -1753,7 +1759,7 @@ export default function LandingPage() {
                 See what you<br />actually get
               </h2>
               <p className="text-gray-400 text-base mb-8 leading-relaxed">
-                Real outputs. Not generic advice.
+                Sample outputs — illustrative of what each tool produces.
               </p>
 
               {/* Demo selectors */}
