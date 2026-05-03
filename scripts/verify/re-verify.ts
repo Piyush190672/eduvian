@@ -24,14 +24,28 @@ const OUT_DIR = join(__dirname, "output");
 const REPORT_PATH = join(__dirname, "reverify-report.jsonl");
 const PROGRAMS_PATH = join(__dirname, "..", "..", "src", "data", "programs.ts");
 
-interface Args { limit?: number; offset?: number; country?: string; concurrency?: number; }
+interface Args {
+  limit?: number;
+  offset?: number;
+  country?: string;
+  concurrency?: number;
+  /** Skip entries that already have a `verified_at` stamp. */
+  onlyUnverified?: boolean;
+}
 function parseArgs(): Args {
   const a: Args = {};
-  for (let i = 2; i < process.argv.length; i += 2) {
-    const k = process.argv[i].replace(/^--/, "") as keyof Args;
-    const v = process.argv[i + 1];
-    if (k === "limit" || k === "offset" || k === "concurrency") (a[k] as number) = parseInt(v, 10);
-    else (a as Record<string, string>)[k] = v;
+  const argv = process.argv.slice(2);
+  for (let i = 0; i < argv.length; i++) {
+    const tok = argv[i];
+    if (!tok.startsWith("--")) continue;
+    const key = tok.slice(2);
+    if (key === "only-unverified") { a.onlyUnverified = true; continue; }
+    const v = argv[++i];
+    if (key === "limit" || key === "offset" || key === "concurrency") {
+      (a[key as "limit" | "offset" | "concurrency"]) = parseInt(v, 10);
+    } else if (key === "country") {
+      a.country = v;
+    }
   }
   return a;
 }
@@ -65,6 +79,8 @@ interface ExistingProgram {
   qs_ranking: number | null;
   program_name: string; field_of_study: string;
   program_url: string;
+  /** Whether this entry already has a `verified_at` stamp in programs.ts. */
+  is_verified: boolean;
 }
 
 /** Extract programs from programs.ts via regex. Tolerates both compact and pretty formats. */
@@ -99,6 +115,7 @@ function extractExisting(): ExistingProgram[] {
             university_name: u, country, city,
             qs_ranking: qs && qs !== "null" ? parseInt(qs, 10) : null,
             program_name: pn, field_of_study: fos, program_url: url,
+            is_verified: /verified_at:/.test(block),
           });
         }
         start = -1;
@@ -118,9 +135,10 @@ async function main() {
   let progs = extractExisting();
   console.log(`Found ${progs.length} programs in programs.ts`);
   if (args.country) progs = progs.filter((p) => p.country === args.country);
+  if (args.onlyUnverified) progs = progs.filter((p) => !p.is_verified);
   if (args.offset) progs = progs.slice(args.offset);
   if (args.limit) progs = progs.slice(0, args.limit);
-  console.log(`Re-verifying ${progs.length} entries (country=${args.country ?? "all"}, offset=${args.offset ?? 0}, limit=${args.limit ?? "none"})`);
+  console.log(`Re-verifying ${progs.length} entries (country=${args.country ?? "all"}, only-unverified=${args.onlyUnverified ?? false}, offset=${args.offset ?? 0}, limit=${args.limit ?? "none"})`);
 
   const verifier = join(__dirname, "verify-program.ts");
   const stats = { ok: 0, mismatch: 0, http_fail: 0, no_program_name: 0, error: 0 };
