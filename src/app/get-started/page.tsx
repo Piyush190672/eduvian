@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
@@ -54,16 +54,43 @@ const BENEFITS = [
   },
 ];
 
+const RESEND_COOLDOWN_SECONDS = 60;
+
 export default function GetStartedPage() {
   const router = useRouter();
   const [mode, setMode] = useState<Mode>("choose");
+  const [step, setStep] = useState<"details" | "otp">("details");
 
   // Register form
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [otp, setOtp] = useState("");
+  const [resendIn, setResendIn] = useState(0);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const otpInputRef = useRef<HTMLInputElement | null>(null);
+
+  // Reset to step 1 whenever the user navigates between modes.
+  useEffect(() => {
+    setStep("details");
+    setOtp("");
+  }, [mode]);
+
+  // Resend countdown.
+  useEffect(() => {
+    if (resendIn <= 0) return;
+    const id = setInterval(() => setResendIn((s) => Math.max(0, s - 1)), 1000);
+    return () => clearInterval(id);
+  }, [resendIn]);
+
+  // Autofocus OTP input when step changes.
+  useEffect(() => {
+    if (step === "otp") {
+      const t = setTimeout(() => otpInputRef.current?.focus(), 50);
+      return () => clearTimeout(t);
+    }
+  }, [step]);
 
   const saveStudentLocally = (student: { name: string; email: string; phone: string; id?: string }) => {
     if (typeof window !== "undefined") {
@@ -71,14 +98,47 @@ export default function GetStartedPage() {
     }
   };
 
-  const handleRegister = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!name.trim() || !email.trim() || !phone.trim()) {
+  /** Step 1 (register or login) — request the OTP and switch UI to step 2. */
+  const requestOtp = async (purpose: "register" | "login") => {
+    if (purpose === "register" && (!name.trim() || !phone.trim())) {
       setError("Please fill in all fields.");
       return;
     }
-    if (!/\S+@\S+\.\S+/.test(email)) {
+    if (!email.trim() || !/\S+@\S+\.\S+/.test(email)) {
       setError("Please enter a valid email address.");
+      return;
+    }
+    setError("");
+    setLoading(true);
+    try {
+      const res = await fetch("/api/auth/send-otp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: email.trim(),
+          purpose,
+          name: purpose === "register" ? name.trim() : "",
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setError(data.error ?? "Could not send the code. Please try again.");
+        return;
+      }
+      setStep("otp");
+      setResendIn(RESEND_COOLDOWN_SECONDS);
+    } catch {
+      setError("Connection error. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleRegister = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (step === "details") return requestOtp("register");
+    if (!/^[0-9]{6}$/.test(otp)) {
+      setError("Enter the 6-digit code from your email.");
       return;
     }
     setError("");
@@ -87,7 +147,7 @@ export default function GetStartedPage() {
       const res = await fetch("/api/auth", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ action: "register", name, email, phone }),
+        body: JSON.stringify({ action: "register", name, email, phone, otp_code: otp }),
       });
       const data = await res.json();
       if (data.ok) {
@@ -105,8 +165,9 @@ export default function GetStartedPage() {
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email.trim()) {
-      setError("Please enter your email address.");
+    if (step === "details") return requestOtp("login");
+    if (!/^[0-9]{6}$/.test(otp)) {
+      setError("Enter the 6-digit code from your email.");
       return;
     }
     setError("");
@@ -115,7 +176,7 @@ export default function GetStartedPage() {
       const res = await fetch("/api/auth", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ action: "login", email }),
+        body: JSON.stringify({ action: "login", email, otp_code: otp }),
       });
       const data = await res.json();
       if (data.ok) {
@@ -130,6 +191,33 @@ export default function GetStartedPage() {
       } else {
         setError(data.error ?? "No account found. Please create a profile.");
       }
+    } catch {
+      setError("Connection error. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleResend = async () => {
+    if (resendIn > 0 || loading) return;
+    setLoading(true);
+    setError("");
+    try {
+      const res = await fetch("/api/auth/send-otp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: email.trim(),
+          purpose: mode === "login" ? "login" : "register",
+          name: mode === "register" ? name.trim() : "",
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setError(data.error ?? "Could not resend the code.");
+        return;
+      }
+      setResendIn(RESEND_COOLDOWN_SECONDS);
     } catch {
       setError("Connection error. Please try again.");
     } finally {
@@ -293,50 +381,80 @@ export default function GetStartedPage() {
               </div>
 
               <form onSubmit={handleRegister} className="bg-white/5 border border-white/10 rounded-3xl p-8 space-y-5">
-                <div>
-                  <label className="block text-sm font-semibold text-slate-300 mb-2">Full Name *</label>
-                  <div className="relative">
-                    <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
-                    <input
-                      type="text"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      placeholder="Priya Sharma"
-                      className="w-full pl-11 pr-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder:text-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
-                      required
-                    />
-                  </div>
-                </div>
+                {step === "details" ? (
+                  <>
+                    <div>
+                      <label className="block text-sm font-semibold text-slate-300 mb-2">Full Name *</label>
+                      <div className="relative">
+                        <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
+                        <input
+                          type="text"
+                          value={name}
+                          onChange={(e) => setName(e.target.value)}
+                          placeholder="Priya Sharma"
+                          className="w-full pl-11 pr-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder:text-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+                          required
+                        />
+                      </div>
+                    </div>
 
-                <div>
-                  <label className="block text-sm font-semibold text-slate-300 mb-2">Email Address *</label>
-                  <div className="relative">
-                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
-                    <input
-                      type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      placeholder="priya@example.com"
-                      className="w-full pl-11 pr-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder:text-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
-                      required
-                    />
-                  </div>
-                </div>
+                    <div>
+                      <label className="block text-sm font-semibold text-slate-300 mb-2">Email Address *</label>
+                      <div className="relative">
+                        <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
+                        <input
+                          type="email"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          placeholder="priya@example.com"
+                          className="w-full pl-11 pr-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder:text-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+                          required
+                        />
+                      </div>
+                    </div>
 
-                <div>
-                  <label className="block text-sm font-semibold text-slate-300 mb-2">Contact Number *</label>
-                  <div className="relative">
-                    <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
-                    <input
-                      type="tel"
-                      value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
-                      placeholder="+91 98765 43210"
-                      className="w-full pl-11 pr-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder:text-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
-                      required
-                    />
-                  </div>
-                </div>
+                    <div>
+                      <label className="block text-sm font-semibold text-slate-300 mb-2">Contact Number *</label>
+                      <div className="relative">
+                        <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
+                        <input
+                          type="tel"
+                          value={phone}
+                          onChange={(e) => setPhone(e.target.value)}
+                          placeholder="+91 98765 43210"
+                          className="w-full pl-11 pr-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder:text-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+                          required
+                        />
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className="text-center pb-2">
+                      <p className="text-slate-300 text-sm">
+                        We sent a 6-digit code to{" "}
+                        <span className="text-white font-semibold">{email}</span>.
+                      </p>
+                      <p className="text-slate-500 text-xs mt-1">It expires in 5 minutes.</p>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-semibold text-slate-300 mb-2">Verification Code *</label>
+                      <input
+                        ref={otpInputRef}
+                        type="text"
+                        inputMode="numeric"
+                        autoComplete="one-time-code"
+                        pattern="[0-9]{6}"
+                        maxLength={6}
+                        value={otp}
+                        onChange={(e) => setOtp(e.target.value.replace(/[^0-9]/g, "").slice(0, 6))}
+                        placeholder="123456"
+                        className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white text-center text-2xl font-mono tracking-[0.4em] focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+                        required
+                      />
+                    </div>
+                  </>
+                )}
 
                 {error && (
                   <motion.p
@@ -350,15 +468,37 @@ export default function GetStartedPage() {
 
                 <button
                   type="submit"
-                  disabled={loading}
+                  disabled={loading || (step === "otp" && otp.length !== 6)}
                   className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-bold text-sm hover:shadow-lg hover:shadow-indigo-500/30 transition-all disabled:opacity-60"
                 >
                   {loading ? (
-                    <><Loader2 className="w-4 h-4 animate-spin" /> Creating profile…</>
+                    <><Loader2 className="w-4 h-4 animate-spin" /> {step === "details" ? "Sending code…" : "Verifying…"}</>
+                  ) : step === "details" ? (
+                    <>Send verification code <ArrowRight className="w-4 h-4" /></>
                   ) : (
                     <>Create Profile & Continue <ArrowRight className="w-4 h-4" /></>
                   )}
                 </button>
+
+                {step === "otp" && (
+                  <div className="flex items-center justify-between text-xs text-slate-400 pt-2">
+                    <button
+                      type="button"
+                      onClick={() => { setStep("details"); setOtp(""); setError(""); }}
+                      className="hover:text-white transition-colors"
+                    >
+                      ← Change email
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handleResend}
+                      disabled={resendIn > 0 || loading}
+                      className={`hover:text-white transition-colors ${resendIn > 0 ? "cursor-not-allowed text-slate-600" : ""}`}
+                    >
+                      {resendIn > 0 ? `Resend in ${resendIn}s` : "Resend code"}
+                    </button>
+                  </div>
+                )}
 
                 <p className="text-center text-slate-500 text-xs">
                   Already have an account?{" "}
@@ -410,20 +550,48 @@ export default function GetStartedPage() {
               </div>
 
               <form onSubmit={handleLogin} className="bg-white/5 border border-white/10 rounded-3xl p-8 space-y-5">
-                <div>
-                  <label className="block text-sm font-semibold text-slate-300 mb-2">Email Address *</label>
-                  <div className="relative">
-                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
-                    <input
-                      type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      placeholder="priya@example.com"
-                      className="w-full pl-11 pr-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder:text-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
-                      required
-                    />
+                {step === "details" ? (
+                  <div>
+                    <label className="block text-sm font-semibold text-slate-300 mb-2">Email Address *</label>
+                    <div className="relative">
+                      <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
+                      <input
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="priya@example.com"
+                        className="w-full pl-11 pr-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder:text-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+                        required
+                      />
+                    </div>
                   </div>
-                </div>
+                ) : (
+                  <>
+                    <div className="text-center pb-2">
+                      <p className="text-slate-300 text-sm">
+                        We sent a 6-digit code to{" "}
+                        <span className="text-white font-semibold">{email}</span>.
+                      </p>
+                      <p className="text-slate-500 text-xs mt-1">It expires in 5 minutes.</p>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-semibold text-slate-300 mb-2">Verification Code *</label>
+                      <input
+                        ref={otpInputRef}
+                        type="text"
+                        inputMode="numeric"
+                        autoComplete="one-time-code"
+                        pattern="[0-9]{6}"
+                        maxLength={6}
+                        value={otp}
+                        onChange={(e) => setOtp(e.target.value.replace(/[^0-9]/g, "").slice(0, 6))}
+                        placeholder="123456"
+                        className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white text-center text-2xl font-mono tracking-[0.4em] focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+                        required
+                      />
+                    </div>
+                  </>
+                )}
 
                 {error && (
                   <motion.div
@@ -431,28 +599,55 @@ export default function GetStartedPage() {
                     animate={{ opacity: 1, y: 0 }}
                     className="text-rose-400 text-sm bg-rose-500/10 border border-rose-500/20 rounded-xl px-4 py-2.5"
                   >
-                    {error}{" "}
-                    <button
-                      type="button"
-                      onClick={() => { setMode("register"); setError(""); }}
-                      className="text-indigo-400 font-semibold underline"
-                    >
-                      Create one now
-                    </button>
+                    {error}
+                    {step === "details" && (
+                      <>
+                        {" "}
+                        <button
+                          type="button"
+                          onClick={() => { setMode("register"); setError(""); }}
+                          className="text-indigo-400 font-semibold underline"
+                        >
+                          Create one now
+                        </button>
+                      </>
+                    )}
                   </motion.div>
                 )}
 
                 <button
                   type="submit"
-                  disabled={loading}
+                  disabled={loading || (step === "otp" && otp.length !== 6)}
                   className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-bold text-sm hover:shadow-lg hover:shadow-indigo-500/30 transition-all disabled:opacity-60"
                 >
                   {loading ? (
-                    <><Loader2 className="w-4 h-4 animate-spin" /> Looking you up…</>
+                    <><Loader2 className="w-4 h-4 animate-spin" /> {step === "details" ? "Sending code…" : "Signing in…"}</>
+                  ) : step === "details" ? (
+                    <>Send verification code <ArrowRight className="w-4 h-4" /></>
                   ) : (
                     <>Log In & Continue <ArrowRight className="w-4 h-4" /></>
                   )}
                 </button>
+
+                {step === "otp" && (
+                  <div className="flex items-center justify-between text-xs text-slate-400 pt-2">
+                    <button
+                      type="button"
+                      onClick={() => { setStep("details"); setOtp(""); setError(""); }}
+                      className="hover:text-white transition-colors"
+                    >
+                      ← Change email
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handleResend}
+                      disabled={resendIn > 0 || loading}
+                      className={`hover:text-white transition-colors ${resendIn > 0 ? "cursor-not-allowed text-slate-600" : ""}`}
+                    >
+                      {resendIn > 0 ? `Resend in ${resendIn}s` : "Resend code"}
+                    </button>
+                  </div>
+                )}
 
                 <p className="text-center text-slate-500 text-xs">
                   New here?{" "}

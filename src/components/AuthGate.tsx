@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Lock, CheckCircle2, ArrowRight } from "lucide-react";
+import { Lock, CheckCircle2, ArrowRight, Mail } from "lucide-react";
 import { EduvianLogoMark } from "@/components/EduvianLogo";
 
 interface AuthGateProps {
@@ -55,14 +55,20 @@ const STAGE_CONFIG = {
   },
 };
 
+const RESEND_COOLDOWN_SECONDS = 60;
+
 export default function AuthGate({ stage, toolName, source, children }: AuthGateProps) {
   const [isAuthed, setIsAuthed]   = useState<boolean | null>(null);
   const [mode, setMode]           = useState<"register" | "login">("register");
+  const [step, setStep]           = useState<"details" | "otp">("details");
   const [name, setName]           = useState("");
   const [email, setEmail]         = useState("");
   const [phone, setPhone]         = useState("");
+  const [otp, setOtp]             = useState("");
+  const [resendIn, setResendIn]   = useState(0);
   const [loading, setLoading]     = useState(false);
   const [error, setError]         = useState("");
+  const otpInputRef               = useRef<HTMLInputElement | null>(null);
 
   const cfg = STAGE_CONFIG[stage];
 
@@ -71,21 +77,74 @@ export default function AuthGate({ stage, toolName, source, children }: AuthGate
     setIsAuthed(!!raw);
   }, []);
 
+  // Countdown for the "Resend" button.
+  useEffect(() => {
+    if (resendIn <= 0) return;
+    const id = setInterval(() => setResendIn((s) => Math.max(0, s - 1)), 1000);
+    return () => clearInterval(id);
+  }, [resendIn]);
+
+  // Autofocus the OTP input when we enter step 2.
+  useEffect(() => {
+    if (step === "otp") {
+      const t = setTimeout(() => otpInputRef.current?.focus(), 50);
+      return () => clearTimeout(t);
+    }
+  }, [step]);
+
   const saveAndUnlock = (student: { name: string; email: string; phone: string; id?: string }) => {
     localStorage.setItem("eduvian_student", JSON.stringify(student));
     setIsAuthed(true);
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const switchMode = (next: "register" | "login") => {
+    setMode(next);
+    setStep("details");
+    setOtp("");
+    setError("");
+  };
+
+  /** Step 1 → request an OTP, then transition to step 2. */
+  const handleRequestOtp = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email.trim()) { setError("Email is required."); return; }
     if (mode === "register" && !name.trim()) { setError("Your name is required."); return; }
     setLoading(true);
     setError("");
     try {
+      const res = await fetch("/api/auth/send-otp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: email.trim(),
+          purpose: mode,
+          name: mode === "register" ? name.trim() : "",
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setError(data.error ?? "Could not send the code. Please try again.");
+        return;
+      }
+      setStep("otp");
+      setResendIn(RESEND_COOLDOWN_SECONDS);
+    } catch {
+      setError("Network error. Please check your connection and try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  /** Step 2 → submit the OTP and complete register/login. */
+  const handleVerifyOtp = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!/^[0-9]{6}$/.test(otp)) { setError("Enter the 6-digit code from your email."); return; }
+    setLoading(true);
+    setError("");
+    try {
       const body = mode === "register"
-        ? { action: "register", name: name.trim(), email: email.trim(), phone: phone.trim(), source, source_stage: stage }
-        : { action: "login",    email: email.trim(), source, source_stage: stage };
+        ? { action: "register", name: name.trim(), email: email.trim(), phone: phone.trim(), source, source_stage: stage, otp_code: otp }
+        : { action: "login",    email: email.trim(), source, source_stage: stage, otp_code: otp };
       const res  = await fetch("/api/auth", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -96,6 +155,34 @@ export default function AuthGate({ stage, toolName, source, children }: AuthGate
       saveAndUnlock({ name: data.student.name, email: data.student.email, phone: data.student.phone, id: data.student.id });
     } catch {
       setError("Network error. Please check your connection and try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  /** Resend without changing step — same cooldown server-side. */
+  const handleResend = async () => {
+    if (resendIn > 0 || loading) return;
+    setLoading(true);
+    setError("");
+    try {
+      const res = await fetch("/api/auth/send-otp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: email.trim(),
+          purpose: mode,
+          name: mode === "register" ? name.trim() : "",
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setError(data.error ?? "Could not resend the code.");
+        return;
+      }
+      setResendIn(RESEND_COOLDOWN_SECONDS);
+    } catch {
+      setError("Network error. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -155,109 +242,192 @@ export default function AuthGate({ stage, toolName, source, children }: AuthGate
       <div className="flex-1 flex items-center justify-center px-6 py-12 bg-white">
         <div className="w-full max-w-md">
 
-          {/* Tabs */}
-          <div className="flex bg-gray-100 rounded-xl p-1 mb-8">
-            {(["register", "login"] as const).map((m) => (
-              <button
-                key={m}
-                type="button"
-                onClick={() => { setMode(m); setError(""); }}
-                className={`flex-1 py-2.5 rounded-lg text-sm font-semibold transition-all ${
-                  mode === m ? "bg-white text-gray-900 shadow-sm" : "text-gray-500 hover:text-gray-700"
-                }`}
-              >
-                {m === "register" ? "Create Account" : "Sign In"}
-              </button>
-            ))}
-          </div>
+          {/* Tabs (hidden during OTP step to avoid accidental cancel) */}
+          {step === "details" && (
+            <div className="flex bg-gray-100 rounded-xl p-1 mb-8">
+              {(["register", "login"] as const).map((m) => (
+                <button
+                  key={m}
+                  type="button"
+                  onClick={() => switchMode(m)}
+                  className={`flex-1 py-2.5 rounded-lg text-sm font-semibold transition-all ${
+                    mode === m ? "bg-white text-gray-900 shadow-sm" : "text-gray-500 hover:text-gray-700"
+                  }`}
+                >
+                  {m === "register" ? "Create Account" : "Sign In"}
+                </button>
+              ))}
+            </div>
+          )}
 
           <motion.div
-            key={mode}
+            key={`${mode}-${step}`}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.25 }}
           >
-            <h1 className="text-2xl font-extrabold text-gray-900 mb-1">
-              {mode === "register" ? "Create your free account" : "Welcome back"}
-            </h1>
-            <p className="text-sm text-gray-400 mb-8">
-              {mode === "register"
-                ? `Unlock ${toolName} and all Stage ${stage} tools — it's free forever.`
-                : "Sign in to continue where you left off."}
-            </p>
-
-            <form onSubmit={handleSubmit} className="space-y-4">
-              {mode === "register" && (
-                <div>
-                  <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Full Name</label>
-                  <input
-                    type="text"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    placeholder="e.g. Priya Sharma"
-                    className={`w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 ${cfg.ringColor} transition-shadow`}
-                    required
-                  />
-                </div>
-              )}
-              <div>
-                <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Email Address</label>
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="you@example.com"
-                  className={`w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 ${cfg.ringColor} transition-shadow`}
-                  required
-                />
-              </div>
-              {mode === "register" && (
-                <div>
-                  <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5">
-                    Phone Number{" "}
-                    <span className="font-normal text-gray-300 normal-case">(optional)</span>
-                  </label>
-                  <input
-                    type="tel"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    placeholder="+91 98765 43210"
-                    className={`w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 ${cfg.ringColor} transition-shadow`}
-                  />
-                </div>
-              )}
-
-              {error && (
-                <p className="text-sm text-rose-600 bg-rose-50 rounded-xl px-4 py-3 border border-rose-100">
-                  {error}
+            {step === "details" ? (
+              <>
+                <h1 className="text-2xl font-extrabold text-gray-900 mb-1">
+                  {mode === "register" ? "Create your free account" : "Welcome back"}
+                </h1>
+                <p className="text-sm text-gray-400 mb-8">
+                  {mode === "register"
+                    ? `Unlock ${toolName} and all Stage ${stage} tools — it's free forever.`
+                    : "Sign in to continue where you left off."}
                 </p>
-              )}
 
-              <button
-                type="submit"
-                disabled={loading}
-                className={`w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-gradient-to-r ${cfg.btnGrad} text-white font-bold text-sm shadow-lg ${cfg.btnShadow} hover:-translate-y-0.5 hover:shadow-xl transition-all disabled:opacity-60 disabled:translate-y-0 mt-2`}
-              >
-                {loading ? (
-                  <span className="flex items-center gap-2">
-                    <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-                    </svg>
-                    {mode === "register" ? "Creating account…" : "Signing in…"}
-                  </span>
-                ) : (
-                  <>
-                    {mode === "register" ? "Create Free Account" : "Sign In"}
-                    <ArrowRight className="w-4 h-4" />
-                  </>
-                )}
-              </button>
-            </form>
+                <form onSubmit={handleRequestOtp} className="space-y-4">
+                  {mode === "register" && (
+                    <div>
+                      <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Full Name</label>
+                      <input
+                        type="text"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        placeholder="e.g. Priya Sharma"
+                        className={`w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 ${cfg.ringColor} transition-shadow`}
+                        required
+                      />
+                    </div>
+                  )}
+                  <div>
+                    <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Email Address</label>
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="you@example.com"
+                      className={`w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 ${cfg.ringColor} transition-shadow`}
+                      required
+                    />
+                  </div>
+                  {mode === "register" && (
+                    <div>
+                      <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5">
+                        Phone Number{" "}
+                        <span className="font-normal text-gray-300 normal-case">(optional)</span>
+                      </label>
+                      <input
+                        type="tel"
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                        placeholder="+91 98765 43210"
+                        className={`w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 ${cfg.ringColor} transition-shadow`}
+                      />
+                    </div>
+                  )}
 
-            <p className="text-xs text-center text-gray-400 mt-6">
-              By continuing, you agree to our terms. Your data is never sold or shared.
-            </p>
+                  {error && (
+                    <p className="text-sm text-rose-600 bg-rose-50 rounded-xl px-4 py-3 border border-rose-100">
+                      {error}
+                    </p>
+                  )}
+
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className={`w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-gradient-to-r ${cfg.btnGrad} text-white font-bold text-sm shadow-lg ${cfg.btnShadow} hover:-translate-y-0.5 hover:shadow-xl transition-all disabled:opacity-60 disabled:translate-y-0 mt-2`}
+                  >
+                    {loading ? (
+                      <span className="flex items-center gap-2">
+                        <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                        </svg>
+                        Sending code…
+                      </span>
+                    ) : (
+                      <>
+                        Send verification code
+                        <ArrowRight className="w-4 h-4" />
+                      </>
+                    )}
+                  </button>
+                </form>
+
+                <p className="text-xs text-center text-gray-400 mt-6">
+                  By continuing, you agree to our terms. Your data is never sold or shared.
+                </p>
+              </>
+            ) : (
+              <>
+                <div className="flex items-center gap-3 mb-2">
+                  <div className={`w-10 h-10 rounded-full bg-gradient-to-r ${cfg.btnGrad} flex items-center justify-center shadow-md ${cfg.btnShadow}`}>
+                    <Mail className="w-5 h-5 text-white" />
+                  </div>
+                  <h1 className="text-2xl font-extrabold text-gray-900">Enter the code</h1>
+                </div>
+                <p className="text-sm text-gray-500 mb-7 leading-relaxed">
+                  We sent a 6-digit code to <span className="font-semibold text-gray-800">{email}</span>.
+                  It expires in 5 minutes.
+                </p>
+
+                <form onSubmit={handleVerifyOtp} className="space-y-4">
+                  <div>
+                    <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Verification Code</label>
+                    <input
+                      ref={otpInputRef}
+                      type="text"
+                      inputMode="numeric"
+                      autoComplete="one-time-code"
+                      pattern="[0-9]{6}"
+                      maxLength={6}
+                      value={otp}
+                      onChange={(e) => setOtp(e.target.value.replace(/[^0-9]/g, "").slice(0, 6))}
+                      placeholder="123456"
+                      className={`w-full px-4 py-3 rounded-xl border border-gray-200 text-center text-2xl font-mono tracking-[0.4em] focus:outline-none focus:ring-2 ${cfg.ringColor} transition-shadow`}
+                      required
+                    />
+                  </div>
+
+                  {error && (
+                    <p className="text-sm text-rose-600 bg-rose-50 rounded-xl px-4 py-3 border border-rose-100">
+                      {error}
+                    </p>
+                  )}
+
+                  <button
+                    type="submit"
+                    disabled={loading || otp.length !== 6}
+                    className={`w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-gradient-to-r ${cfg.btnGrad} text-white font-bold text-sm shadow-lg ${cfg.btnShadow} hover:-translate-y-0.5 hover:shadow-xl transition-all disabled:opacity-60 disabled:translate-y-0 mt-2`}
+                  >
+                    {loading ? (
+                      <span className="flex items-center gap-2">
+                        <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                        </svg>
+                        Verifying…
+                      </span>
+                    ) : (
+                      <>
+                        {mode === "register" ? "Create Free Account" : "Sign In"}
+                        <ArrowRight className="w-4 h-4" />
+                      </>
+                    )}
+                  </button>
+                </form>
+
+                <div className="flex items-center justify-between mt-6 text-xs text-gray-500">
+                  <button
+                    type="button"
+                    onClick={() => { setStep("details"); setOtp(""); setError(""); }}
+                    className="hover:text-gray-700 underline-offset-2 hover:underline"
+                  >
+                    ← Change email
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleResend}
+                    disabled={resendIn > 0 || loading}
+                    className={`hover:text-gray-700 underline-offset-2 hover:underline ${resendIn > 0 ? "cursor-not-allowed text-gray-300" : ""}`}
+                  >
+                    {resendIn > 0 ? `Resend in ${resendIn}s` : "Resend code"}
+                  </button>
+                </div>
+              </>
+            )}
           </motion.div>
 
           <div className="mt-8 pt-6 border-t border-gray-100 text-center">

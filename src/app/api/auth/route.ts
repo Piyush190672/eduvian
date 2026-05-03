@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 import { createUserToken, USER_COOKIE_NAME, USER_COOKIE_OPTS } from "@/lib/user-cookie";
 import { apiErrorResponse } from "@/lib/api-error";
+import { verifyOtpCode, OTP_CONFIG } from "@/lib/otp";
 
 /** Build a JSON response with the opaque session cookie attached. */
 async function jsonWithUserCookie(
@@ -47,13 +48,14 @@ export async function POST(req: NextRequest) {
 
   try {
     const body = await req.json();
-    const { action, name, email, phone, source, source_stage } = body as {
+    const { action, name, email, phone, source, source_stage, otp_code } = body as {
       action: "register" | "login";
       name?: string;
       email: string;
       phone?: string;
       source?: string;
       source_stage?: number;
+      otp_code?: string;
     };
 
     if (!email || !isValidEmail(email)) {
@@ -68,6 +70,85 @@ export async function POST(req: NextRequest) {
         return createServiceClient();
       } catch { return null; }
     })();
+
+    // ── OTP verification gate ────────────────────────────────────────────────
+    // Both register and login require a valid 6-digit code emailed via
+    // /api/auth/send-otp before we touch students or issue a session cookie.
+    // Constant-time hash compare; counts wrong attempts and locks the
+    // challenge after OTP_CONFIG.maxAttempts.
+    if (typeof otp_code !== "string" || !/^[0-9]{6}$/.test(otp_code)) {
+      return NextResponse.json(
+        { error: "Verification code required.", reason: "otp_required" },
+        { status: 400 },
+      );
+    }
+    if (!supabase) {
+      return NextResponse.json({ error: "Service unavailable" }, { status: 503 });
+    }
+
+    const purpose = action === "register" ? "register" : "login";
+    const { data: challenge } = await supabase
+      .from("otp_challenges")
+      .select("id, code_hash, attempts, used, expires_at, locked_until")
+      .eq("email", normalizedEmail)
+      .eq("purpose", purpose)
+      .order("created_at", { ascending: false })
+      .limit(1)
+      .maybeSingle();
+
+    if (!challenge) {
+      return NextResponse.json(
+        { error: "No active verification code. Please request one first.", reason: "otp_missing" },
+        { status: 400 },
+      );
+    }
+    if (challenge.used) {
+      return NextResponse.json(
+        { error: "This code has already been used. Request a new one.", reason: "otp_used" },
+        { status: 400 },
+      );
+    }
+    const now = Date.now();
+    if (new Date(challenge.expires_at as string).getTime() < now) {
+      return NextResponse.json(
+        { error: "This code has expired. Request a new one.", reason: "otp_expired" },
+        { status: 400 },
+      );
+    }
+    if (challenge.locked_until && new Date(challenge.locked_until as string).getTime() > now) {
+      return NextResponse.json(
+        { error: "Too many wrong attempts. Try again in a few minutes.", reason: "otp_locked" },
+        { status: 429 },
+      );
+    }
+
+    const hashOk = verifyOtpCode(otp_code, normalizedEmail, String(challenge.code_hash));
+    if (!hashOk) {
+      const nextAttempts = (Number(challenge.attempts) || 0) + 1;
+      const update: Record<string, unknown> = { attempts: nextAttempts };
+      if (nextAttempts >= OTP_CONFIG.maxAttempts) {
+        update.locked_until = new Date(now + OTP_CONFIG.lockoutSeconds * 1000).toISOString();
+      }
+      await supabase.from("otp_challenges").update(update).eq("id", challenge.id);
+      const remaining = Math.max(0, OTP_CONFIG.maxAttempts - nextAttempts);
+      return NextResponse.json(
+        {
+          error:
+            remaining > 0
+              ? `Wrong code. ${remaining} attempt${remaining === 1 ? "" : "s"} left.`
+              : "Too many wrong attempts. Try again in a few minutes.",
+          reason: "otp_wrong",
+          remaining,
+        },
+        { status: 400 },
+      );
+    }
+
+    // Success — burn the challenge so it can't be reused.
+    await supabase
+      .from("otp_challenges")
+      .update({ used: true, attempts: (Number(challenge.attempts) || 0) + 1 })
+      .eq("id", challenge.id);
 
     /** Look up the most recent submission token for this email (stored in the
      *  JSONB `profile` column of the `submissions` table). */

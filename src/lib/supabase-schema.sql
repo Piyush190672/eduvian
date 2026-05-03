@@ -117,6 +117,26 @@ CREATE INDEX IF NOT EXISTS idx_user_sessions_expires ON public.user_sessions(exp
 ALTER TABLE public.user_sessions ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "user_sessions_service_all" ON public.user_sessions FOR ALL USING (auth.role() = 'service_role');
 
+-- ─── OTP challenges (email verification on register / login) ────────────────
+-- See migrations/20260503-otp-challenges.sql.
+CREATE TABLE IF NOT EXISTS public.otp_challenges (
+  id            UUID        PRIMARY KEY DEFAULT gen_random_uuid(),
+  email         TEXT        NOT NULL,
+  code_hash     TEXT        NOT NULL,
+  purpose       TEXT        NOT NULL CHECK (purpose IN ('register', 'login')),
+  attempts      SMALLINT    NOT NULL DEFAULT 0,
+  used          BOOLEAN     NOT NULL DEFAULT false,
+  expires_at    TIMESTAMPTZ NOT NULL,
+  locked_until  TIMESTAMPTZ,
+  created_at    TIMESTAMPTZ NOT NULL DEFAULT now(),
+  ip            TEXT,
+  user_agent    TEXT
+);
+CREATE INDEX IF NOT EXISTS idx_otp_challenges_email_created ON public.otp_challenges(email, created_at DESC);
+CREATE INDEX IF NOT EXISTS idx_otp_challenges_expires ON public.otp_challenges(expires_at);
+ALTER TABLE public.otp_challenges ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "otp_challenges_service_all" ON public.otp_challenges FOR ALL USING (auth.role() = 'service_role');
+
 -- ─── Tool usage table (beta gate) ────────────────────────────────────────────
 create table if not exists public.tool_usage (
   id uuid primary key default gen_random_uuid(),
