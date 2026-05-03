@@ -2169,29 +2169,29 @@ export default function LandingPage() {
                 Icon: Compass,
                 title: "Built for decisions, not just discovery",
                 body: "Search is only the start. EduvianAI helps you shortlist, strengthen, practise, compare and prepare — every step toward a confident yes.",
-                accent: "from-blue-50 to-blue-100/60 border-blue-200",
-                iconBg: "bg-blue-100 text-blue-700",
+                accent: "from-blue-100 to-blue-200/70 border-blue-300/60",
+                iconBg: "bg-blue-600 text-white",
               },
               {
                 Icon: ListChecks,
                 title: "Structured outputs, not vague advice",
                 body: "Every tool returns specific next steps — fix this paragraph, raise this score, narrow this list — so you always know what to do next.",
-                accent: "from-violet-50 to-violet-100/60 border-violet-200",
-                iconBg: "bg-violet-100 text-violet-700",
+                accent: "from-violet-100 to-violet-200/70 border-violet-300/60",
+                iconBg: "bg-violet-600 text-white",
               },
               {
                 Icon: Database,
                 title: `${DB_STATS.programsLabel} programs verified at the source`,
                 body: "Every fee, deadline and cutoff is fetched from the live university page — never invented, never recycled. If a value isn't on the official page, we leave it blank.",
-                accent: "from-emerald-50 to-emerald-100/60 border-emerald-200",
-                iconBg: "bg-emerald-100 text-emerald-700",
+                accent: "from-emerald-100 to-emerald-200/70 border-emerald-300/60",
+                iconBg: "bg-emerald-600 text-white",
               },
               {
                 Icon: Eye,
                 title: "Transparent by design",
                 body: "Outputs are decision-support estimates, and we say so. Final eligibility, fees and deadlines should always be verified from official sources before you commit.",
-                accent: "from-amber-50 to-amber-100/60 border-amber-200",
-                iconBg: "bg-amber-100 text-amber-700",
+                accent: "from-amber-100 to-amber-200/70 border-amber-300/60",
+                iconBg: "bg-amber-600 text-white",
               },
             ].map(({ Icon, title, body, accent, iconBg }) => (
               <motion.div
@@ -2200,13 +2200,13 @@ export default function LandingPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.4 }}
-                className={`relative bg-gradient-to-br ${accent} border rounded-2xl p-7 hover:-translate-y-1 hover:shadow-lg transition-all duration-300`}
+                className={`relative bg-gradient-to-br ${accent} border rounded-2xl p-7 shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all duration-300`}
               >
-                <div className={`w-11 h-11 rounded-xl flex items-center justify-center mb-5 ${iconBg}`}>
+                <div className={`w-11 h-11 rounded-xl flex items-center justify-center mb-5 shadow-md ${iconBg}`}>
                   <Icon className="w-5 h-5" />
                 </div>
                 <h3 className="text-gray-900 font-bold text-lg mb-2 leading-snug">{title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{body}</p>
+                <p className="text-gray-700 text-sm leading-relaxed">{body}</p>
               </motion.div>
             ))}
           </div>
