@@ -253,6 +253,29 @@ export async function POST(req: NextRequest) {
 </body>
 </html>`;
 
+    const text = [
+      `Hi ${firstNameText},`,
+      "",
+      "Welcome to eduvianAI — your study-abroad journey starts here.",
+      "",
+      "We're a 100% AI-powered, free study-abroad platform. Fill in your profile once and our matching engine scores every program in our database against your exact profile across 10 signals — delivering a personalised top-20 shortlist in under two minutes.",
+      "",
+      "What you can do today:",
+      "  • University Matching — personalised shortlist across USA, UK, Australia, Canada and Europe",
+      "  • SOP Assistant — write a Statement of Purpose tailored to each university",
+      "  • Application Strength Check — uncover risk flags before you submit",
+      "  • Interview Prep Coach — practise visa & university interviews with an AI voice coach",
+      "  • English Test Lab — IELTS, PTE, TOEFL & DET mock tests with AI scoring",
+      "  • ROI Calculator — payback period and 10-year income projection",
+      "  • Parent Decision Tool — clear, data-driven family-ready report",
+      "",
+      `Get started: ${appUrl}/get-started`,
+      "",
+      "If you didn't sign up, you can safely ignore this email.",
+      "",
+      "— eduvianAI · https://www.eduvianai.com",
+    ].join("\n");
+
     const sendRes = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
@@ -263,8 +286,14 @@ export async function POST(req: NextRequest) {
         from: `eduvianAI <${fromEmail}>`,
         reply_to: "support@eduvianai.com",
         to: [email],
-        subject: `Welcome to eduvianAI, ${firstNameText}! 🌍 Your study abroad journey starts here`,
+        subject: `Welcome to eduvianAI — your study abroad journey starts here`,
         html: htmlBody,
+        text,
+        headers: {
+          "List-Unsubscribe": "<mailto:support@eduvianai.com?subject=unsubscribe>",
+          "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
+          "X-Entity-Ref-ID": "welcome",
+        },
       }),
     });
 

@@ -321,15 +321,54 @@ export async function POST(req: NextRequest) {
 
     let subject: string;
     let htmlBody: string;
+    let textBody: string;
+    let xRef: string;
 
     if (type === "roi") {
       const d = data as ROIData;
-      subject = `📊 Your ROI Analysis — ${stripCR(d.program_name)} at ${stripCR(d.university_name)}`;
+      subject = `Your ROI analysis — ${stripCR(d.program_name)} at ${stripCR(d.university_name)}`;
       htmlBody = emailShell(`Your ROI results for ${stripCR(d.program_name)} at ${stripCR(d.university_name)}`, buildROIEmail(d));
+      textBody = [
+        "Your ROI analysis is ready.",
+        "",
+        `Program: ${stripCR(d.program_name)}`,
+        `University: ${stripCR(d.university_name)}${d.qs_ranking ? ` (QS #${d.qs_ranking})` : ""}`,
+        `Location: ${stripCR(d.city || d.country)}, ${stripCR(d.country)}`,
+        `Duration: ${(d.duration_months / 12).toFixed(1)} years`,
+        "",
+        "Key metrics:",
+        `  • Total investment: ${fmtK(d.total_investment_usd)}`,
+        `  • Payback period: ${fmtYrs(d.payback_years)}`,
+        `  • 10-year ROI: ${d.ten_year_roi_pct >= 0 ? "+" : ""}${Math.round(d.ten_year_roi_pct)}%`,
+        `  • 10-year net gain: ${d.net_earnings_10yr_usd >= 0 ? "+" : ""}${fmtK(d.net_earnings_10yr_usd)}`,
+        "",
+        "Find more programs: https://www.eduvianai.com/get-started",
+        "",
+        "— eduvianAI · https://www.eduvianai.com",
+      ].join("\n");
+      xRef = "roi";
     } else if (type === "parent") {
       const d = data as ParentData;
-      subject = `👨‍👩‍👧 Parent Decision Report — ${stripCR(d.program_name)} at ${stripCR(d.university_name)}`;
+      subject = `Parent decision report — ${stripCR(d.program_name)} at ${stripCR(d.university_name)}`;
       htmlBody = emailShell(`Parent decision verdict for ${stripCR(d.program_name)} at ${stripCR(d.university_name)}`, buildParentEmail(d));
+      textBody = [
+        "Your Parent Decision Tool report is ready.",
+        "",
+        `Program: ${stripCR(d.program_name)}`,
+        `University: ${stripCR(d.university_name)}${d.qs_ranking ? ` (QS #${d.qs_ranking})` : ""}`,
+        `Location: ${stripCR(d.city || d.country)}, ${stripCR(d.country)}`,
+        "",
+        `Verdict: ${stripCR(d.recommendation)} (${d.total_pct}/100)`,
+        "",
+        `Net cost: ${fmtK(d.net_cost_usd)}`,
+        `Expected starting salary: ${fmtK(d.expected_salary_usd)}/yr`,
+        `Payback period: ${fmtYrs(d.payback_years)}`,
+        "",
+        "View the full report online: https://www.eduvianai.com",
+        "",
+        "— eduvianAI · https://www.eduvianai.com",
+      ].join("\n");
+      xRef = "parent";
     } else {
       return NextResponse.json({ error: "Invalid type." }, { status: 400 });
     }
@@ -346,6 +385,12 @@ export async function POST(req: NextRequest) {
         to: [email],
         subject,
         html: htmlBody,
+        text: textBody,
+        headers: {
+          "List-Unsubscribe": "<mailto:support@eduvianai.com?subject=unsubscribe>",
+          "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
+          "X-Entity-Ref-ID": xRef,
+        },
       }),
     });
 

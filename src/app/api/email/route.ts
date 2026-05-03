@@ -200,6 +200,30 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "No recipient email found" }, { status: 400 });
     }
 
+    // Plain-text alternative — improves spam scoring on Yahoo + Gmail.
+    const firstNameForText = profile?.full_name?.split(" ")[0] ?? "there";
+    const programLines = programs
+      .map((p) => `  • ${p.program_name} — ${p.university_name} (${p.country}) · ${p.match_score}% match`)
+      .join("\n");
+    const text = [
+      `Hi ${firstNameForText},`,
+      "",
+      `Here ${programs.length === 1 ? "is" : "are"} your ${programs.length} shortlisted program${programs.length === 1 ? "" : "s"}, ranked by how well they match you:`,
+      "",
+      programLines,
+      "",
+      `View the full shortlist: ${resultsUrl}`,
+      "Bookmark this email — your link is permanent.",
+      "",
+      "Next steps:",
+      "  • Bookmark your Safe Match programs — apply to at least 3",
+      "  • Add 1-2 Reach programs to aim high",
+      "  • Check application deadlines — many are rolling",
+      "  • Use your magic link to revisit or update your shortlist anytime",
+      "",
+      "— eduvianAI · https://www.eduvianai.com",
+    ].join("\n");
+
     // Use direct REST API call (more reliable than SDK for domain verification edge cases)
     const sendRes = await fetch("https://api.resend.com/emails", {
       method: "POST",
@@ -213,8 +237,14 @@ export async function POST(req: NextRequest) {
         // alias on piyush@eduvianai.com) instead of the noreply-style sender.
         reply_to: "support@eduvianai.com",
         to: [profile.email],
-        subject: `🎓 Your eduvianAI shortlist — ${programs.length} program${programs.length === 1 ? "" : "s"} saved`,
+        subject: `Your eduvianAI shortlist — ${programs.length} program${programs.length === 1 ? "" : "s"} saved`,
         html: htmlBody,
+        text,
+        headers: {
+          "List-Unsubscribe": "<mailto:support@eduvianai.com?subject=unsubscribe>",
+          "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
+          "X-Entity-Ref-ID": "results",
+        },
       }),
     });
 

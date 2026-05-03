@@ -147,6 +147,22 @@ export async function POST(req: NextRequest) {
   </div>
 </body></html>`;
 
+    // Plain-text alternative — multipart MIME scores far better with Yahoo
+    // and Gmail than HTML-only. Don't put the code in the subject (looks
+    // like phishing to filters); body is fine.
+    const text = [
+      `Hey ${firstName.replace(/&#39;/g, "'").replace(/&amp;/g, "&")},`,
+      "",
+      `Your eduvianAI verification code is: ${code}`,
+      "",
+      `Use it to ${action}. It expires in ${Math.round(OTP_CONFIG.expirySeconds / 60)} minutes.`,
+      "",
+      "If you didn't request this, you can safely ignore this email — your account stays untouched.",
+      "Never share this code with anyone. eduvianAI staff will never ask for it.",
+      "",
+      "— eduvianAI · https://www.eduvianai.com",
+    ].join("\n");
+
     const sendRes = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
@@ -157,8 +173,21 @@ export async function POST(req: NextRequest) {
         from: `eduvianAI <${fromEmail}>`,
         reply_to: "support@eduvianai.com",
         to: [normalizedEmail],
-        subject: `Your eduvianAI verification code: ${code}`,
+        // Subject deliberately omits the code — code-in-subject is a strong
+        // phishing signal for Yahoo / Gmail spam classifiers.
+        subject: "Your eduvianAI verification code",
         html,
+        text,
+        headers: {
+          // Yahoo + Gmail expect this on transactional mail. Pointing it at
+          // support@ is fine — there's nothing to unsubscribe FROM, but the
+          // header itself is the score-boost.
+          "List-Unsubscribe": "<mailto:support@eduvianai.com?subject=unsubscribe>",
+          "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
+          // Marks the message as a transactional auth event so receivers
+          // route it to Primary / Updates instead of Promotions.
+          "X-Entity-Ref-ID": "auth-otp",
+        },
       }),
     });
 
