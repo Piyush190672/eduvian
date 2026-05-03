@@ -466,6 +466,12 @@ export default function GetStartedPage() {
                   </motion.p>
                 )}
 
+                {step === "details" && (
+                  <p className="text-xs text-amber-300 bg-amber-500/10 border border-amber-500/30 rounded-xl px-4 py-2.5 leading-relaxed">
+                    📬 We&apos;ll email you a 6-digit code. <span className="font-semibold text-amber-200">Check your Junk / Spam folder</span> if you don&apos;t see it within a minute.
+                  </p>
+                )}
+
                 <button
                   type="submit"
                   disabled={loading || (step === "otp" && otp.length !== 6)}
@@ -613,6 +619,12 @@ export default function GetStartedPage() {
                       </>
                     )}
                   </motion.div>
+                )}
+
+                {step === "details" && (
+                  <p className="text-xs text-amber-300 bg-amber-500/10 border border-amber-500/30 rounded-xl px-4 py-2.5 leading-relaxed">
+                    📬 We&apos;ll email you a 6-digit code. <span className="font-semibold text-amber-200">Check your Junk / Spam folder</span> if you don&apos;t see it within a minute.
+                  </p>
                 )}
 
                 <button

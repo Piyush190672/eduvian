@@ -324,6 +324,10 @@ export default function AuthGate({ stage, toolName, source, children }: AuthGate
                     </p>
                   )}
 
+                  <p className="text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded-xl px-4 py-2.5 leading-relaxed">
+                    📬 We&apos;ll email you a 6-digit code. <span className="font-semibold">Check your Junk / Spam folder</span> if you don&apos;t see it within a minute.
+                  </p>
+
                   <button
                     type="submit"
                     disabled={loading}
