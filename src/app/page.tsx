@@ -1474,21 +1474,33 @@ export default function LandingPage() {
             </p>
           </div>
 
-          <ol className="space-y-3">
+          <ol className="space-y-4">
             {[
-              { n: "01", t: "We read your profile",        d: "Academic record, test scores, budget, intended field, target countries — what you give us is all we use." },
-              { n: "02", t: "We match against verified data", d: `Every program in your shortlist comes from our database of ${DB_STATS.verifiedProgramsLabel} programs verified at source. No catalog scrapes, no recycled lists.` },
-              { n: "03", t: "We classify Safe / Reach / Ambitious", d: "Each match gets a transparent fit score across 9 Most Important Signals — eligibility, ranking, fees, deadlines, language tests, work experience." },
-              { n: "04", t: "We show what influenced the rank", d: "You see why a program was placed where it was — not a black-box number." },
-              { n: "05", t: "We leave missing data blank, not guessed", d: "If the official page doesn't state a fee or deadline, the field stays empty. We never invent values." },
+              { n: "01", label: "Profile",     t: "We read your profile",        d: "Academic record, test scores, budget, intended field, target countries — what you give us is all we use." },
+              { n: "02", label: "Match",       t: "We match against verified data", d: `Every program in your shortlist comes from our database of ${DB_STATS.verifiedProgramsLabel} programs verified at source. No catalog scrapes, no recycled lists.` },
+              { n: "03", label: "Classify",    t: "We classify Safe / Reach / Ambitious", d: "Each match gets a transparent fit score across 9 Most Important Signals — eligibility, ranking, fees, deadlines, language tests, work experience." },
+              { n: "04", label: "Explain",     t: "We show what influenced the rank", d: "You see why a program was placed where it was — not a black-box number." },
+              { n: "05", label: "Honest gaps", t: "We leave missing data blank, not guessed", d: "If the official page doesn't state a fee or deadline, the field stays empty. We never invent values." },
             ].map((s) => (
-              <li key={s.n} className="flex gap-4 p-4 rounded-xl bg-stone-50 border border-stone-200">
-                <span className="flex-shrink-0 w-10 h-10 rounded-lg bg-emerald-600 text-white font-black text-sm flex items-center justify-center">{s.n}</span>
-                <div>
-                  <h3 className="font-bold text-gray-900 text-sm mb-1">{s.t}</h3>
-                  <p className="text-gray-600 text-xs leading-relaxed">{s.d}</p>
+              <motion.li
+                key={s.n}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.35 }}
+                className="group flex gap-5 p-5 rounded-2xl bg-white border border-gray-200 shadow-sm hover:shadow-md hover:border-emerald-200 hover:-translate-y-0.5 transition-all duration-300"
+              >
+                <div className="flex-shrink-0">
+                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white font-black text-base flex items-center justify-center shadow-md shadow-emerald-500/20">
+                    {s.n}
+                  </div>
                 </div>
-              </li>
+                <div className="flex-1 min-w-0">
+                  <p className="text-[10px] font-bold text-emerald-700 uppercase tracking-widest mb-1">Step {s.n} · {s.label}</p>
+                  <h3 className="font-bold text-gray-900 text-sm sm:text-base mb-1.5 leading-snug">{s.t}</h3>
+                  <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">{s.d}</p>
+                </div>
+              </motion.li>
             ))}
           </ol>
         </div>
