@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, MotionConfig } from "framer-motion";
 import ChatWidget from "@/components/ChatWidget";
 import {
   Globe2,
@@ -255,6 +255,7 @@ export default function LandingPage() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
   return (
+    <MotionConfig transition={{ duration: 0 }}>
     <div className="min-h-screen bg-white font-sans overflow-x-hidden">
 
       {/* ── Nav ──────────────────────────────────────────────────── */}
@@ -2800,5 +2801,6 @@ export default function LandingPage() {
 
       <ChatWidget />
     </div>
+    </MotionConfig>
   );
 }
