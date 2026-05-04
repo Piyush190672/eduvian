@@ -495,8 +495,8 @@ export default function LandingPage() {
       {/* ── Hero ─────────────────────────────────────────────────── */}
       <section className="relative pt-16 min-h-screen flex items-center overflow-hidden bg-navy">
         {/* Subtle gradient glow — not flashy, just alive */}
-        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-violet-600/10 rounded-full blur-[100px] pointer-events-none" />
+        <div className="hidden md:block absolute top-0 left-1/4 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
+        <div className="hidden md:block absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-violet-600/10 rounded-full blur-[100px] pointer-events-none" />
 
         <div className="relative max-w-[1200px] mx-auto px-4 sm:px-6 py-10 sm:py-24 w-full min-w-0">
           <div className="grid md:grid-cols-5 gap-12 lg:gap-16 items-center min-w-0">
@@ -890,7 +890,7 @@ export default function LandingPage() {
                 className={`relative rounded-2xl bg-white border p-6 flex flex-col hover:-translate-y-1 transition-all duration-300 group overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.05)] ${"recommended" in s && s.recommended ? "border-blue-300 ring-1 ring-blue-100 shadow-md shadow-blue-100/50" : "border-gray-200 hover:border-gray-300 hover:shadow-md"}`}
               >
                 {/* Glow blob */}
-                <div className={`absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br ${s.gradient} opacity-5 rounded-full blur-2xl group-hover:opacity-10 transition-opacity`} />
+                <div className={`hidden md:block absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br ${s.gradient} opacity-5 rounded-full blur-2xl group-hover:opacity-10 transition-opacity`} />
 
                 {/* Stage badge */}
                 <div className="flex items-center justify-between mb-5">
@@ -1362,7 +1362,7 @@ export default function LandingPage() {
 
       {/* ── Why EduvianAI is different ────────────────────────────── */}
       <section id="why-different" className="relative py-24 sm:py-28 px-4 sm:px-6 bg-stone-50 overflow-hidden border-t border-stone-200">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-indigo-200/15 rounded-full blur-[120px] pointer-events-none" />
+        <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-indigo-200/15 rounded-full blur-[120px] pointer-events-none" />
         <div className="relative max-w-5xl mx-auto">
           <div className="text-center mb-14">
             <span className="inline-flex items-center gap-1.5 text-indigo-600 font-bold text-xs uppercase tracking-widest mb-4">
@@ -1382,7 +1382,7 @@ export default function LandingPage() {
             
             className="relative bg-gradient-to-br from-emerald-100 to-emerald-200/70 border border-emerald-300/60 rounded-2xl p-8 sm:p-10 shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all duration-300 mb-5 overflow-hidden"
           >
-            <div className="absolute -top-12 -right-12 w-48 h-48 bg-emerald-300/30 rounded-full blur-3xl pointer-events-none" />
+            <div className="hidden md:block absolute -top-12 -right-12 w-48 h-48 bg-emerald-300/30 rounded-full blur-3xl pointer-events-none" />
             <div className="relative flex flex-col sm:flex-row gap-6 items-start">
               <div className="w-14 h-14 rounded-2xl flex items-center justify-center shadow-md bg-emerald-600 text-white flex-shrink-0">
                 <Database className="w-7 h-7" />
@@ -1516,8 +1516,8 @@ export default function LandingPage() {
             className="relative rounded-3xl bg-gradient-to-br from-indigo-50 via-white to-violet-50 border border-indigo-100 overflow-hidden p-6 sm:p-10 md:p-14 mb-28"
           >
             {/* Blobs */}
-            <div className="absolute -top-16 -right-16 w-72 h-72 bg-indigo-200/40 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute -bottom-16 -left-16 w-64 h-64 bg-violet-200/30 rounded-full blur-3xl pointer-events-none" />
+            <div className="hidden md:block absolute -top-16 -right-16 w-72 h-72 bg-indigo-200/40 rounded-full blur-3xl pointer-events-none" />
+            <div className="hidden md:block absolute -bottom-16 -left-16 w-64 h-64 bg-violet-200/30 rounded-full blur-3xl pointer-events-none" />
 
             {/* Stage pill */}
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-500 to-violet-600 text-white text-xs font-black px-5 py-2 rounded-full shadow-lg shadow-indigo-200 mb-8">
@@ -1650,8 +1650,8 @@ export default function LandingPage() {
             className="relative rounded-3xl bg-gradient-to-br from-indigo-950 via-violet-900 to-slate-900 text-white overflow-hidden mb-28 p-6 sm:p-10 md:p-14"
           >
             {/* Blobs */}
-            <div className="absolute top-0 right-0 w-80 h-80 bg-violet-500/20 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-400/15 rounded-full blur-3xl pointer-events-none" />
+            <div className="hidden md:block absolute top-0 right-0 w-80 h-80 bg-violet-500/20 rounded-full blur-3xl pointer-events-none" />
+            <div className="hidden md:block absolute bottom-0 left-0 w-64 h-64 bg-indigo-400/15 rounded-full blur-3xl pointer-events-none" />
 
             {/* Step pill */}
             <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white text-xs font-black px-5 py-2 rounded-full mb-8">
@@ -1795,9 +1795,9 @@ export default function LandingPage() {
             className="relative rounded-3xl bg-gradient-to-br from-teal-950 via-emerald-950 to-slate-900 border border-teal-900/50 overflow-hidden p-6 sm:p-10 md:p-14 mb-10"
           >
             {/* Ambient glows */}
-            <div className="absolute -top-32 -left-32 w-96 h-96 bg-teal-400/15 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute -bottom-32 -right-32 w-80 h-80 bg-emerald-400/10 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-teal-500/8 rounded-full blur-3xl pointer-events-none" />
+            <div className="hidden md:block absolute -top-32 -left-32 w-96 h-96 bg-teal-400/15 rounded-full blur-3xl pointer-events-none" />
+            <div className="hidden md:block absolute -bottom-32 -right-32 w-80 h-80 bg-emerald-400/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-teal-500/8 rounded-full blur-3xl pointer-events-none" />
 
             {/* Stage pill */}
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-teal-500 text-white text-xs font-black px-5 py-2 rounded-full shadow-lg shadow-emerald-900/50 mb-8">
@@ -2035,8 +2035,8 @@ export default function LandingPage() {
             
             className="relative rounded-3xl bg-gradient-to-br from-amber-50 via-white to-orange-50 border border-amber-100 overflow-hidden p-6 sm:p-10 md:p-14"
           >
-            <div className="absolute -top-16 -right-16 w-64 h-64 bg-amber-200/30 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute -bottom-16 -left-16 w-64 h-64 bg-orange-200/30 rounded-full blur-3xl pointer-events-none" />
+            <div className="hidden md:block absolute -top-16 -right-16 w-64 h-64 bg-amber-200/30 rounded-full blur-3xl pointer-events-none" />
+            <div className="hidden md:block absolute -bottom-16 -left-16 w-64 h-64 bg-orange-200/30 rounded-full blur-3xl pointer-events-none" />
 
             {/* Step pill */}
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs font-black px-5 py-2 rounded-full shadow-lg shadow-amber-200 mb-8">
@@ -2286,8 +2286,8 @@ export default function LandingPage() {
             
             className="relative rounded-3xl bg-gradient-to-br from-sky-50 via-white to-cyan-50 border border-sky-100 overflow-hidden p-6 sm:p-10 md:p-14"
           >
-            <div className="absolute -top-16 -right-16 w-64 h-64 bg-sky-200/30 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute -bottom-16 -left-16 w-64 h-64 bg-cyan-200/30 rounded-full blur-3xl pointer-events-none" />
+            <div className="hidden md:block absolute -top-16 -right-16 w-64 h-64 bg-sky-200/30 rounded-full blur-3xl pointer-events-none" />
+            <div className="hidden md:block absolute -bottom-16 -left-16 w-64 h-64 bg-cyan-200/30 rounded-full blur-3xl pointer-events-none" />
 
             {/* Step pill */}
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-sky-500 to-cyan-500 text-white text-xs font-black px-5 py-2 rounded-full shadow-lg shadow-sky-200 mb-8">
@@ -2548,8 +2548,8 @@ export default function LandingPage() {
 
       {/* ── Final CTA ────────────────────────────────────────────── */}
       <section className="relative py-28 sm:py-32 px-4 sm:px-6 bg-navy overflow-hidden">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[100px] pointer-events-none" />
-        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-violet-600/8 rounded-full blur-[80px] pointer-events-none" />
+        <div className="hidden md:block absolute top-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[100px] pointer-events-none" />
+        <div className="hidden md:block absolute bottom-0 right-1/4 w-80 h-80 bg-violet-600/8 rounded-full blur-[80px] pointer-events-none" />
         <div className="relative max-w-3xl mx-auto text-center text-white">
           <motion.div>
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/8 border border-white/15 text-gray-300 text-sm font-semibold mb-6">
@@ -2651,8 +2651,8 @@ export default function LandingPage() {
           >
             {/* Header gradient */}
             <div className="bg-gradient-to-br from-slate-900 via-indigo-950 to-purple-950 px-8 pt-10 pb-8 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl pointer-events-none" />
-              <div className="absolute bottom-0 left-0 w-48 h-48 bg-purple-500/20 rounded-full blur-3xl pointer-events-none" />
+              <div className="hidden md:block absolute top-0 right-0 w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl pointer-events-none" />
+              <div className="hidden md:block absolute bottom-0 left-0 w-48 h-48 bg-purple-500/20 rounded-full blur-3xl pointer-events-none" />
               <button
                 onClick={() => setAboutOpen(false)}
                 className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
