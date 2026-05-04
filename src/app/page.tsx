@@ -808,7 +808,7 @@ export default function LandingPage() {
       <section className="py-16 sm:py-20 px-4 sm:px-6 bg-surface">
         <div className="max-w-5xl mx-auto">
           <motion.div
-            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.25 }}
+            
             className="text-center mb-12"
           >
             <p className="text-blue-600 font-semibold text-sm uppercase tracking-widest mb-3">Where are you right now?</p>
@@ -886,7 +886,7 @@ export default function LandingPage() {
             ].map((s, i) => (
               <motion.div
                 key={s.stage}
-                initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.25, delay: i * 0.08 }}
+                
                 className={`relative rounded-2xl bg-white border p-6 flex flex-col hover:-translate-y-1 transition-all duration-300 group overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.05)] ${"recommended" in s && s.recommended ? "border-blue-300 ring-1 ring-blue-100 shadow-md shadow-blue-100/50" : "border-gray-200 hover:border-gray-300 hover:shadow-md"}`}
               >
                 {/* Glow blob */}
@@ -1379,7 +1379,7 @@ export default function LandingPage() {
           {/* The verification card leads — it's the moat, so it gets the
               full-width hero slot above the supporting three. */}
           <motion.div
-            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.25 }}
+            
             className="relative bg-gradient-to-br from-emerald-100 to-emerald-200/70 border border-emerald-300/60 rounded-2xl p-8 sm:p-10 shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all duration-300 mb-5 overflow-hidden"
           >
             <div className="absolute -top-12 -right-12 w-48 h-48 bg-emerald-300/30 rounded-full blur-3xl pointer-events-none" />
@@ -1446,7 +1446,7 @@ export default function LandingPage() {
             ].map(({ Icon, title, body, accent, iconBg }) => (
               <motion.div
                 key={title}
-                initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.25 }}
+                
                 className={`relative bg-gradient-to-br ${accent} border rounded-2xl p-7 shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all duration-300`}
               >
                 <div className={`w-11 h-11 rounded-xl flex items-center justify-center mb-5 shadow-md ${iconBg}`}>
@@ -1485,7 +1485,7 @@ export default function LandingPage() {
             ].map((s) => (
               <motion.li
                 key={s.n}
-                initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.25 }}
+                
                 className="group flex gap-5 p-5 rounded-2xl bg-white border border-gray-200 shadow-sm hover:shadow-md hover:border-emerald-200 hover:-translate-y-0.5 transition-all duration-300"
               >
                 <div className="flex-shrink-0">
@@ -1512,7 +1512,7 @@ export default function LandingPage() {
 
           {/* ── STAGE 1: Match ── */}
           <motion.div
-            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.25 }}
+            
             className="relative rounded-3xl bg-gradient-to-br from-indigo-50 via-white to-violet-50 border border-indigo-100 overflow-hidden p-6 sm:p-10 md:p-14 mb-28"
           >
             {/* Blobs */}
@@ -1646,7 +1646,7 @@ export default function LandingPage() {
 
           {/* ── STEP 2: Matching Engine ── */}
           <motion.div
-            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.25 }}
+            
             className="relative rounded-3xl bg-gradient-to-br from-indigo-950 via-violet-900 to-slate-900 text-white overflow-hidden mb-28 p-6 sm:p-10 md:p-14"
           >
             {/* Blobs */}
@@ -1791,7 +1791,7 @@ export default function LandingPage() {
           {/* ── STAGE 3: Practice ──────────────────────────────────── */}
           <motion.div
             id="practice"
-            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.25 }}
+            
             className="relative rounded-3xl bg-gradient-to-br from-teal-950 via-emerald-950 to-slate-900 border border-teal-900/50 overflow-hidden p-6 sm:p-10 md:p-14 mb-10"
           >
             {/* Ambient glows */}
@@ -1942,7 +1942,7 @@ export default function LandingPage() {
 
                 {/* Australia */}
                 <motion.div
-                  initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.4 }}
+                  
                   className="group relative bg-white/8 border border-white/15 rounded-2xl p-6 flex flex-col hover:bg-white/12 hover:border-sky-500/40 hover:shadow-xl hover:shadow-sky-900/30 transition-all duration-300"
                 >
                   <div className="flex items-center gap-3 mb-4">
@@ -1966,7 +1966,7 @@ export default function LandingPage() {
 
                 {/* UK */}
                 <motion.div
-                  initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.4, delay: 0.1 }}
+                  
                   className="group relative bg-white/8 border border-white/15 rounded-2xl p-6 flex flex-col hover:bg-white/12 hover:border-rose-500/40 hover:shadow-xl hover:shadow-rose-900/30 transition-all duration-300"
                 >
                   <div className="flex items-center gap-3 mb-4">
@@ -1990,7 +1990,7 @@ export default function LandingPage() {
 
                 {/* USA */}
                 <motion.div
-                  initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.4, delay: 0.2 }}
+                  
                   className="group relative bg-white/8 border border-white/15 rounded-2xl p-6 flex flex-col hover:bg-white/12 hover:border-blue-500/40 hover:shadow-xl hover:shadow-blue-900/30 transition-all duration-300"
                 >
                   <div className="flex items-center gap-3 mb-4">
@@ -2032,7 +2032,7 @@ export default function LandingPage() {
           {/* ── STAGE 4: Decide ── */}
           <motion.div
             id="tools"
-            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.25 }}
+            
             className="relative rounded-3xl bg-gradient-to-br from-amber-50 via-white to-orange-50 border border-amber-100 overflow-hidden p-6 sm:p-10 md:p-14"
           >
             <div className="absolute -top-16 -right-16 w-64 h-64 bg-amber-200/30 rounded-full blur-3xl pointer-events-none" />
@@ -2283,7 +2283,7 @@ export default function LandingPage() {
 
           {/* ── STAGE 5: Apply (Visa) ── */}
           <motion.div
-            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.25 }}
+            
             className="relative rounded-3xl bg-gradient-to-br from-sky-50 via-white to-cyan-50 border border-sky-100 overflow-hidden p-6 sm:p-10 md:p-14"
           >
             <div className="absolute -top-16 -right-16 w-64 h-64 bg-sky-200/30 rounded-full blur-3xl pointer-events-none" />
@@ -2428,18 +2428,10 @@ export default function LandingPage() {
               {COUNTRIES.map((c, i) => (
                 <motion.div
                   key={c.name}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.07 }}
                   onClick={() => setSelectedCountry(c.name)}
                   className="group relative rounded-2xl overflow-hidden aspect-[3/4] shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer"
                 >
-                  <img
-                    src={c.img}
-                    alt={c.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
+                  <img src={c.img} alt={c.name} loading="lazy" decoding="async" width="200" height="266" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-3">
                     <p className="text-xl mb-0.5">{c.flag}</p>
@@ -2559,12 +2551,7 @@ export default function LandingPage() {
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[100px] pointer-events-none" />
         <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-violet-600/8 rounded-full blur-[80px] pointer-events-none" />
         <div className="relative max-w-3xl mx-auto text-center text-white">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.25 }}
-          >
+          <motion.div>
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/8 border border-white/15 text-gray-300 text-sm font-semibold mb-6">
               <Zap className="w-3.5 h-3.5 text-blue-400" />
               Free · No account needed · 3 minutes
