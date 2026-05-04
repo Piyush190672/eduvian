@@ -19,11 +19,11 @@ const STAGES = [
     accentBg: "bg-indigo-500/20 border-indigo-500/30",
     // Story
     moment: "The confusion",
-    before: `Priya is a 22-year-old CS graduate from Pune. She wants to study abroad — but stares at ${DB_STATS.programsLabel} programs across ${DB_STATS.totalCountries} countries and has no idea where she actually stands a chance.`,
+    before: `Priya is a 22-year-old CS graduate from Pune. She wants to study abroad — but stares at ${DB_STATS.verifiedProgramsLabel} programs across ${DB_STATS.totalCountries} countries and has no idea where she actually stands a chance.`,
     quote: "\"I don't even know if my 7.8 CGPA is good enough for the UK. Or if I should even try for the UK.\"",
     after: "In 90 seconds, eduvianAI matches her profile against every program and returns 20 ranked universities — split into Safe, Reach, and Ambitious — with a match score for each.",
     transform: "From overwhelmed → to a clear, personalised shortlist",
-    stat: { val: DB_STATS.programsLabel, label: "programs analysed in 90 seconds" },
+    stat: { val: DB_STATS.verifiedProgramsLabel, label: "programs analysed in 90 seconds" },
     cta: { label: "Find my programs", href: "/get-started" },
   },
   {

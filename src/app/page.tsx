@@ -203,7 +203,7 @@ const HOW_IT_WORKS = [
     step: "02",
     icon: Zap,
     title: "Matching Engine scores your fit",
-    desc: `Our AI engine scores ${DB_STATS.programsLabel} programs using 10 weighted signals — GPA, language scores, budget, backlogs, gap year, QS rankings and more.`,
+    desc: `Our AI engine scores ${DB_STATS.verifiedProgramsLabel} programs using 10 weighted signals — GPA, language scores, budget, backlogs, gap year, QS rankings and more.`,
     color: "from-violet-500 to-fuchsia-500",
     bg: "bg-violet-50",
   },
@@ -222,7 +222,7 @@ const FEATURES = [
   { icon: CheckCircle2, text: "Free — no account needed" },
   { icon: CheckCircle2, text: "Takes only 3 minutes" },
   { icon: CheckCircle2, text: "Results emailed instantly" },
-  { icon: CheckCircle2, text: `${DB_STATS.countriesLabel} countries · ${DB_STATS.universitiesLabel} universities · ${DB_STATS.fieldsLabel} fields · ${DB_STATS.programsLabel} programs` },
+  { icon: CheckCircle2, text: `${DB_STATS.countriesLabel} countries · ${DB_STATS.universitiesLabel} universities · ${DB_STATS.fieldsLabel} fields · ${DB_STATS.verifiedProgramsLabel} programs` },
 ];
 
 export default function LandingPage() {
@@ -558,12 +558,12 @@ export default function LandingPage() {
 
               {/* Parent-relevant trust strip — universal trust, not a separate persona path */}
               <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 mt-5 text-[11px] text-gray-400">
-                <span className="font-semibold text-gray-300">For families:</span>
+                <span className="font-semibold text-gray-300">For students and families:</span>
                 <span className="inline-flex items-center gap-1.5"><CheckCircle2 className="w-3 h-3 text-emerald-400" /> verified fees &amp; deadlines</span>
                 <span className="text-gray-600">·</span>
-                <span className="inline-flex items-center gap-1.5"><CheckCircle2 className="w-3 h-3 text-emerald-400" /> ROI &amp; visa included</span>
-                <span className="text-gray-600">·</span>
                 <span className="inline-flex items-center gap-1.5"><CheckCircle2 className="w-3 h-3 text-emerald-400" /> no university commission</span>
+                <span className="text-gray-600">·</span>
+                <span className="inline-flex items-center gap-1.5"><CheckCircle2 className="w-3 h-3 text-emerald-400" /> ROI &amp; visa included</span>
                 <span className="text-gray-600">·</span>
                 <span className="inline-flex items-center gap-1.5"><Lock className="w-3 h-3 text-emerald-400" /> your data isn&apos;t sold or shared</span>
               </div>
@@ -1489,7 +1489,7 @@ export default function LandingPage() {
                   <span className="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">get your best-fit shortlist</span>
                 </h3>
                 <p className="text-gray-500 text-base leading-relaxed mb-7">
-                  Tell us your scores, budget, and goals. Our AI matches against {DB_STATS.programsLabel} programs across 12 signals. You get a personalised Top 20 shortlist — Safe, Reach, and Ambitious — in under 2 minutes.
+                  Tell us your scores, budget, and goals. Our AI matches against {DB_STATS.verifiedProgramsLabel} programs across 12 signals. You get a personalised Top 20 shortlist — Safe, Reach, and Ambitious — in under 2 minutes.
                 </p>
                 {/* Score meter */}
                 <div className="mb-8 p-4 rounded-2xl bg-white border border-indigo-100 shadow-sm">
@@ -2200,7 +2200,7 @@ export default function LandingPage() {
               <MapPin className="w-3.5 h-3.5" /> Destinations
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mt-1">
-              {DB_STATS.countriesLabel} countries. {DB_STATS.programsLabel} programs. Endless possibilities.
+              {DB_STATS.countriesLabel} countries. {DB_STATS.verifiedProgramsLabel} programs. Endless possibilities.
             </h2>
             <p className="text-gray-500 mt-3 text-base max-w-xl mx-auto">
               Study in the destinations that fit your goals, budget, and visa reality.
@@ -2500,7 +2500,7 @@ export default function LandingPage() {
                   badge: "Stage A · Match",
                   badgeColor: "text-indigo-500",
                   title: "100% Profile-Customised University Matching",
-                  body: "AI scores " + DB_STATS.programsLabel + " programs against your exact profile. Get a personalised Top 20 shortlist — Safe, Reach & Ambitious — in under 2 minutes.",
+                  body: "AI scores " + DB_STATS.verifiedProgramsLabel + " programs against your exact profile. Get a personalised Top 20 shortlist — Safe, Reach & Ambitious — in under 2 minutes.",
                 },
                 {
                   icon: <FileText className="w-5 h-5 text-violet-600" />,

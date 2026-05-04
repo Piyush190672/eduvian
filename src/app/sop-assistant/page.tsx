@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import { EduvianLogoMark } from "@/components/EduvianLogo";
 import { PROGRAMS } from "@/data/programs";
+import { DB_STATS } from "@/data/db-stats";
 
 interface ProgramRow {
   university_name: string;
@@ -421,7 +422,7 @@ function ProgramPickerModal({
         <div className="flex-1 overflow-y-auto">
           {query.trim().length < 2 && (
             <div className="p-10 text-center text-xs text-gray-400">
-              Type 2+ characters to search programs in our database of {ALL_PROGRAMS.length.toLocaleString()}+ programs.
+              Type 2+ characters to search our database of {DB_STATS.verifiedProgramsLabel} verified programs.
             </div>
           )}
           {query.trim().length >= 2 && results.length === 0 && (
