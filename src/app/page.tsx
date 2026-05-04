@@ -203,7 +203,7 @@ const HOW_IT_WORKS = [
     step: "02",
     icon: Zap,
     title: "Matching Engine scores your fit",
-    desc: `Our AI engine scores ${DB_STATS.verifiedProgramsLabel} programs using 10 weighted signals — GPA, language scores, budget, backlogs, gap year, QS rankings and more.`,
+    desc: `Our AI engine scores ${DB_STATS.verifiedProgramsLabel} programs using 9 weighted signals — GPA, language scores, budget, backlogs, gap year, QS rankings and more.`,
     color: "from-violet-500 to-fuchsia-500",
     bg: "bg-violet-50",
   },
@@ -1354,7 +1354,7 @@ export default function LandingPage() {
               </div>
               <div className="flex-1">
                 <span className="inline-flex items-center gap-1.5 text-emerald-700 font-bold text-[10px] uppercase tracking-widest mb-2">
-                  ★ Our moat
+                  ★ Why this is reliable
                 </span>
                 <h3 className="text-gray-900 font-extrabold text-xl sm:text-2xl mb-2 leading-snug">
                   {DB_STATS.verifiedProgramsLabel} programs verified at the source
@@ -1389,8 +1389,8 @@ export default function LandingPage() {
               },
               {
                 Icon: Brain,
-                title: "AI-driven, free of agent-counselling shortcuts",
-                body: "Traditional counselling can often depend on limited information, individual judgement, or available partner options. EduvianAI gives every student the same structured, data-driven analysis — with no commission-led nudging.",
+                title: "Structured guidance, not guesswork",
+                body: "EduvianAI gives every student the same structured, data-driven analysis. Recommendations are based on fit, budget, requirements and outcomes — not on convenience or commission.",
                 accent: "from-violet-100 to-violet-200/70 border-violet-300/60",
                 iconBg: "bg-violet-600 text-white",
               },
@@ -1439,14 +1439,14 @@ export default function LandingPage() {
               How your shortlist is built
             </h2>
             <p className="text-gray-500 text-sm max-w-xl mx-auto leading-relaxed">
-              No magic. A clear, repeatable process — same answer for the same profile, every time.
+              A clear, repeatable process — consistent logic, transparent signals, and no invented data.
             </p>
           </div>
 
           <ol className="space-y-3">
             {[
               { n: "01", t: "We read your profile",        d: "Academic record, test scores, budget, intended field, target countries — what you give us is all we use." },
-              { n: "02", t: "We match against verified data", d: "Every program in your shortlist comes from our 4,400+ verified-at-source database. No catalog scrapes, no recycled lists." },
+              { n: "02", t: "We match against verified data", d: `Every program in your shortlist comes from our database of ${DB_STATS.verifiedProgramsLabel} programs verified at source. No catalog scrapes, no recycled lists.` },
               { n: "03", t: "We classify Safe / Reach / Ambitious", d: "Each match gets a transparent fit score across 9 signals — eligibility, ranking, fees, deadlines, language tests, work experience." },
               { n: "04", t: "We show what influenced the rank", d: "You see why a program was placed where it was — not a black-box number." },
               { n: "05", t: "We leave missing data blank, not guessed", d: "If the official page doesn't state a fee or deadline, the field stays empty. We never invent values." },
@@ -1496,7 +1496,7 @@ export default function LandingPage() {
                   <span className="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">get your best-fit shortlist</span>
                 </h3>
                 <p className="text-gray-500 text-base leading-relaxed mb-7">
-                  Tell us your scores, budget, and goals. Our AI matches against {DB_STATS.verifiedProgramsLabel} programs across 12 signals. You get a personalised Top 20 shortlist — Safe, Reach, and Ambitious — in under 2 minutes.
+                  Tell us your scores, budget, and goals. Our AI matches against {DB_STATS.verifiedProgramsLabel} programs across 9 signals. You get a personalised Top 20 shortlist — Safe, Reach, and Ambitious — in under 2 minutes.
                 </p>
                 {/* Score meter */}
                 <div className="mb-8 p-4 rounded-2xl bg-white border border-indigo-100 shadow-sm">
@@ -1530,7 +1530,7 @@ export default function LandingPage() {
                     </div>
                     <div className="flex-1">
                       <p className="text-xs font-black text-gray-900 uppercase tracking-wider">Your Top 20 Shortlist</p>
-                      <p className="text-[10px] text-gray-400">Sample output · 12 signals matched</p>
+                      <p className="text-[10px] text-gray-400">Sample output · 9 signals matched</p>
                     </div>
                     <span className="text-[10px] font-bold px-2 py-1 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-100 flex-shrink-0">AI Match</span>
                   </div>
@@ -1892,7 +1892,7 @@ export default function LandingPage() {
                       <h5 className="text-sm font-extrabold text-white leading-tight">Credibility Interview Coach</h5>
                     </div>
                   </div>
-                  <p className="text-xs text-white/45 leading-relaxed mb-4 flex-1">14 credibility questions. AI flags answers that raise doubts and shows you how to sound convincing before it matters.</p>
+                  <p className="text-xs text-white/45 leading-relaxed mb-4 flex-1">14 credibility questions. AI flags answers that may raise doubts and helps you make your intent clearer in your own words.</p>
                   <div className="flex flex-wrap gap-1.5 mb-4">
                     {["14 Q", "Credibility gaps", "Story fix"].map((t) => (
                       <span key={t} className="px-2 py-0.5 rounded-full bg-rose-500/20 border border-rose-500/30 text-rose-300 text-[10px] font-semibold">{t}</span>
@@ -2075,16 +2075,28 @@ export default function LandingPage() {
                   <h4 className="font-display text-xl sm:text-2xl font-bold text-gray-900 mb-3 leading-tight">
                     What your family will actually see
                   </h4>
-                  <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                  <p className="text-gray-600 text-sm leading-relaxed mb-2">
                     A one-page summary across the seven factors that matter most. Easy to share over a WhatsApp message, easy to discuss at the dinner table.
                   </p>
-                  <Link
-                    href="/parent-decision"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white text-sm font-bold transition-colors shadow-md"
-                  >
-                    Generate family-ready report
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
+                  <p className="text-gray-500 text-xs italic leading-relaxed mb-5">
+                    Built to help students and families discuss the final choice with the same facts.
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <Link
+                      href="/parent-decision"
+                      className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white text-sm font-bold transition-colors shadow-md"
+                    >
+                      Generate family-ready report
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
+                    <Link
+                      href="/parent-decision?sample=1"
+                      className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl border border-purple-300 text-purple-700 hover:bg-purple-50 text-sm font-bold transition-colors"
+                    >
+                      <FileText className="w-4 h-4" />
+                      See sample family report
+                    </Link>
+                  </div>
                 </div>
 
                 <div className="bg-white rounded-2xl border border-purple-200 shadow-sm overflow-hidden">
