@@ -1934,7 +1934,7 @@ export default function LandingPage() {
                       <h5 className="text-sm font-extrabold text-white leading-tight">GS Interview Coach</h5>
                     </div>
                   </div>
-                  <p className="text-xs text-white/45 leading-relaxed mb-4 flex-1">19 Genuine Student questions. AI identifies which answers raise doubts and helps you strengthen them in your own words.</p>
+                  <p className="hidden sm:block text-xs text-white/45 leading-relaxed mb-4 flex-1">19 Genuine Student questions. AI identifies which answers raise doubts and helps you strengthen them in your own words.</p>
                   <div className="flex flex-wrap gap-1.5 mb-4">
                     {["19 Q", "Flags doubts", "Fixes reasoning"].map((t) => (
                       <span key={t} className="px-2 py-0.5 rounded-full bg-sky-500/20 border border-sky-500/30 text-sky-300 text-[10px] font-semibold">{t}</span>
@@ -1958,7 +1958,7 @@ export default function LandingPage() {
                       <h5 className="text-sm font-extrabold text-white leading-tight">Credibility Interview Coach</h5>
                     </div>
                   </div>
-                  <p className="text-xs text-white/45 leading-relaxed mb-4 flex-1">14 credibility questions. AI flags answers that may raise doubts and helps you make your intent clearer in your own words.</p>
+                  <p className="hidden sm:block text-xs text-white/45 leading-relaxed mb-4 flex-1">14 credibility questions. AI flags answers that may raise doubts and helps you make your intent clearer in your own words.</p>
                   <div className="flex flex-wrap gap-1.5 mb-4">
                     {["14 Q", "Credibility gaps", "Story fix"].map((t) => (
                       <span key={t} className="px-2 py-0.5 rounded-full bg-rose-500/20 border border-rose-500/30 text-rose-300 text-[10px] font-semibold">{t}</span>
@@ -1982,7 +1982,7 @@ export default function LandingPage() {
                       <h5 className="text-sm font-extrabold text-white leading-tight">F-1 Visa Interview Coach</h5>
                     </div>
                   </div>
-                  <p className="text-xs text-white/45 leading-relaxed mb-4 flex-1">60+ F-1 consulate questions across 12 sections. AI highlights where your answer may raise doubts and helps you make your intent clearer in your own words.</p>
+                  <p className="hidden sm:block text-xs text-white/45 leading-relaxed mb-4 flex-1">60+ F-1 consulate questions across 12 sections. AI highlights where your answer may raise doubts and helps you make your intent clearer in your own words.</p>
                   <div className="flex flex-wrap gap-1.5 mb-4">
                     {["60+ Q", "12 sections", "Intent clarity"].map((t) => (
                       <span key={t} className="px-2 py-0.5 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-300 text-[10px] font-semibold">{t}</span>
@@ -2038,7 +2038,7 @@ export default function LandingPage() {
                 <p className="text-gray-500 text-base leading-relaxed mb-6">
                   Compare offers using cost, ROI, safety, job-market outlook, scholarship fit and long-term value. Generate a parent-ready decision report that makes the final choice easier to discuss.
                 </p>
-                <div className="flex flex-wrap gap-2.5 mb-6">
+                <div className="hidden sm:flex flex-wrap gap-2.5 mb-6">
                   {[
                     { icon: "📊", text: "Real payback period" },
                     { icon: "💰", text: "10-year ROI" },
@@ -2278,7 +2278,7 @@ export default function LandingPage() {
                 <p className="text-gray-500 text-base leading-relaxed mb-6">
                   Use country-specific checklists, financial-proof guidance, risk flags and deadline tracking to prepare more carefully. Final decisions rest with the consular officer; we help you walk in well-prepared.
                 </p>
-                <div className="flex flex-wrap gap-2.5 mb-6">
+                <div className="hidden sm:flex flex-wrap gap-2.5 mb-6">
                   {[
                     { icon: "🛂", text: "12 countries covered" },
                     { icon: "📄", text: "Official-source checklists" },
