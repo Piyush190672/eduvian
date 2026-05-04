@@ -237,6 +237,16 @@ export default function LandingPage() {
     const id = setTimeout(() => setActiveDemo((d) => (d + 1) % 5), 5000);
     return () => clearTimeout(id);
   }, [activeDemo, demoPaused]);
+  // Mobile-only collapse for stages 2-5. Empty default = collapsed on mobile.
+  // md+ always shows full content (controlled via Tailwind responsive classes).
+  const [mobileOpenStages, setMobileOpenStages] = useState<Set<number>>(new Set());
+  const toggleMobileStage = (n: number) =>
+    setMobileOpenStages((s) => {
+      const next = new Set(s);
+      if (next.has(n)) next.delete(n); else next.add(n);
+      return next;
+    });
+
   const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
   const [selectedScholarship, setSelectedScholarship] = useState<string | null>(null);
   const [aboutOpen, setAboutOpen] = useState(false);
@@ -1804,9 +1814,21 @@ export default function LandingPage() {
               Practice until<br />
               <span className="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">nothing surprises you.</span>
             </h3>
-            <p className="text-white/50 text-base leading-relaxed mb-14 max-w-2xl">
+            <p className="text-white/50 text-base leading-relaxed mb-6 sm:mb-14 max-w-2xl">
               Two tracks, one goal: walk into your visa interview and English proficiency test already knowing your weak spots — and having fixed them.
             </p>
+
+            {/* Mobile-only: collapse the two-track body behind a toggle */}
+            <button
+              type="button"
+              onClick={() => toggleMobileStage(3)}
+              className="md:hidden mb-6 inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-200 text-sm font-bold hover:bg-emerald-500/25 transition-colors"
+              aria-expanded={mobileOpenStages.has(3)}
+            >
+              {mobileOpenStages.has(3) ? "↑ Hide details" : "↓ Show Stage 3 details (English Test Lab + Interview Coach)"}
+            </button>
+
+            <div className={`${mobileOpenStages.has(3) ? "block" : "hidden"} md:block`}>
 
             {/* ─── Track A: English Test Lab ─── */}
             <div className="mb-14">
@@ -1996,6 +2018,8 @@ export default function LandingPage() {
 
               </div>
             </div>
+
+            </div>{/* end mobile-collapsible wrapper for Stage 3 */}
 
           </motion.div>
 
