@@ -552,7 +552,7 @@ export default function LandingPage() {
               </div>
 
               {/* Trust strip */}
-              <div className="grid grid-cols-4 sm:flex sm:flex-wrap sm:items-center gap-x-6 gap-y-3 pt-5 border-t border-white/10">
+              <div className="grid grid-cols-2 sm:flex sm:flex-wrap sm:items-center gap-x-6 gap-y-4 pt-5 border-t border-white/10">
                 {[
                   { val: DB_STATS.verifiedUniversitiesLabel, label: "Verified Global Universities" },
                   { val: DB_STATS.verifiedProgramsLabel, label: "Verified Programs" },
@@ -928,7 +928,7 @@ export default function LandingPage() {
       </section>
 
       {/* ── Product Outputs ───────────────────────────────────────── */}
-      <section id="outputs" className="py-20 bg-[#080B14] overflow-hidden">
+      <section id="outputs" className="py-12 sm:py-20 bg-[#080B14] overflow-hidden">
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
 
@@ -1516,7 +1516,7 @@ export default function LandingPage() {
           <motion.div
             initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="relative rounded-3xl bg-gradient-to-br from-indigo-50 via-white to-violet-50 border border-indigo-100 overflow-hidden p-10 md:p-14 mb-28"
+            className="relative rounded-3xl bg-gradient-to-br from-indigo-50 via-white to-violet-50 border border-indigo-100 overflow-hidden p-6 sm:p-10 md:p-14 mb-28"
           >
             {/* Blobs */}
             <div className="absolute -top-16 -right-16 w-72 h-72 bg-indigo-200/40 rounded-full blur-3xl pointer-events-none" />
@@ -1648,7 +1648,7 @@ export default function LandingPage() {
           <motion.div
             initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="relative rounded-3xl bg-gradient-to-br from-indigo-950 via-violet-900 to-slate-900 text-white overflow-hidden mb-28 p-10 md:p-14"
+            className="relative rounded-3xl bg-gradient-to-br from-indigo-950 via-violet-900 to-slate-900 text-white overflow-hidden mb-28 p-6 sm:p-10 md:p-14"
           >
             {/* Blobs */}
             <div className="absolute top-0 right-0 w-80 h-80 bg-violet-500/20 rounded-full blur-3xl pointer-events-none" />
@@ -1782,7 +1782,7 @@ export default function LandingPage() {
             id="practice"
             initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="relative rounded-3xl bg-gradient-to-br from-teal-950 via-emerald-950 to-slate-900 border border-teal-900/50 overflow-hidden p-10 md:p-14 mb-10"
+            className="relative rounded-3xl bg-gradient-to-br from-teal-950 via-emerald-950 to-slate-900 border border-teal-900/50 overflow-hidden p-6 sm:p-10 md:p-14 mb-10"
           >
             {/* Ambient glows */}
             <div className="absolute -top-32 -left-32 w-96 h-96 bg-teal-400/15 rounded-full blur-3xl pointer-events-none" />
@@ -2010,7 +2010,7 @@ export default function LandingPage() {
             id="tools"
             initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="relative rounded-3xl bg-gradient-to-br from-amber-50 via-white to-orange-50 border border-amber-100 overflow-hidden p-10 md:p-14"
+            className="relative rounded-3xl bg-gradient-to-br from-amber-50 via-white to-orange-50 border border-amber-100 overflow-hidden p-6 sm:p-10 md:p-14"
           >
             <div className="absolute -top-16 -right-16 w-64 h-64 bg-amber-200/30 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute -bottom-16 -left-16 w-64 h-64 bg-orange-200/30 rounded-full blur-3xl pointer-events-none" />
@@ -2250,7 +2250,7 @@ export default function LandingPage() {
           <motion.div
             initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="relative rounded-3xl bg-gradient-to-br from-sky-50 via-white to-cyan-50 border border-sky-100 overflow-hidden p-10 md:p-14"
+            className="relative rounded-3xl bg-gradient-to-br from-sky-50 via-white to-cyan-50 border border-sky-100 overflow-hidden p-6 sm:p-10 md:p-14"
           >
             <div className="absolute -top-16 -right-16 w-64 h-64 bg-sky-200/30 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute -bottom-16 -left-16 w-64 h-64 bg-cyan-200/30 rounded-full blur-3xl pointer-events-none" />
@@ -2407,7 +2407,7 @@ export default function LandingPage() {
       </section>
 
       {/* ── Scholarships section ──────────────────────────────────── */}
-      <section id="scholarships" className="py-20 px-4 sm:px-6 bg-white">
+      <section id="scholarships" className="py-12 sm:py-20 px-4 sm:px-6 bg-white">
         <div className="max-w-5xl mx-auto">
           {/* Section heading */}
           <div className="text-center mb-10">
