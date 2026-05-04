@@ -1828,7 +1828,7 @@ export default function LandingPage() {
                 Full-length mocks for all four major English proficiency exams — AI-scored, exam-style practice based on published test structures, with instant results and detailed feedback.
               </p>
 
-              <div className="grid sm:grid-cols-4 gap-3">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
 
                 {/* IELTS */}
                 <Link href="/english-test-lab/ielts" className="group relative rounded-2xl bg-black/20 border border-white/25 p-5 flex flex-col hover:bg-black/30 hover:border-violet-400/50 hover:shadow-xl hover:shadow-violet-900/20 hover:-translate-y-1 transition-all duration-300">
@@ -2292,8 +2292,8 @@ export default function LandingPage() {
                   ))}
                 </div>
 
-                {/* Country flag chips */}
-                <div className="grid grid-cols-6 gap-1.5">
+                {/* Country flag chips — decorative; mobile-hidden to cut ~80px of scroll */}
+                <div className="hidden sm:grid grid-cols-6 gap-1.5">
                   {["🇺🇸","🇬🇧","🇨🇦","🇦🇺","🇩🇪","🇮🇪","🇳🇱","🇫🇷","🇳🇿","🇸🇬","🇲🇾","🇦🇪"].map((f, i) => (
                     <div key={i} className="aspect-square rounded-lg bg-white border border-sky-100 flex items-center justify-center text-xl shadow-sm">
                       {f}
