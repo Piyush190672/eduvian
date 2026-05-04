@@ -1686,50 +1686,69 @@ export default function LandingPage() {
                 </div>
               </div>
 
-              {/* Right: tool cards */}
+              {/* Right: tool cards — standardised 5-line pattern */}
               <div className="space-y-3">
-                {/* Application Pack Check — hero card */}
-                <Link href="/application-check"
-                  className="relative flex items-start gap-4 p-5 rounded-2xl border border-indigo-400/40 bg-gradient-to-br from-indigo-500/20 to-purple-500/10 hover:border-indigo-400/70 hover:scale-[1.02] transition-all cursor-pointer block ring-1 ring-indigo-400/20"
-                >
-                  <div className="absolute top-0 right-0 bg-gradient-to-l from-indigo-500 to-purple-600 text-white text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-bl-xl rounded-tr-2xl">
-                    ★ Most valuable before you apply
-                  </div>
-                  <span className="text-2xl flex-shrink-0 mt-0.5">📋</span>
-                  <div>
-                    <p className="text-sm font-extrabold text-white mb-0.5 mt-0.5">Application Pack Check</p>
-                    <p className="text-xs text-slate-300 leading-snug mb-1.5">Paste your SOP, CV, profile &amp; recommendation letters. Spot contradictions, credibility gaps, and exactly what an officer would question — plus an LOR Coach link to send recommenders. With a fix list.</p>
-                    <span className="text-[10px] font-bold text-indigo-300 uppercase tracking-wider">Readiness score + fix list</span>
-                  </div>
-                </Link>
-                {/* SOP + CV cards */}
                 {[
                   {
+                    icon: "📋",
+                    name: "Application Pack Check",
+                    desc: "Spot contradictions, credibility gaps and red flags across SOP, CV, profile and LORs — before you submit.",
+                    output: "Readiness score + paragraph-level fix list",
+                    time: "8 minutes",
+                    cta: "Run the pack check",
+                    href: "/application-check",
+                    hero: true,
+                  },
+                  {
                     icon: "✍️",
-                    title: "AI SOP Assistant",
-                    desc: "Write a compelling SOP from your story — scored across 7 dimensions from Reject Risk to Top Tier.",
-                    badge: "7 dimensions · instant score",
-                    bg: "bg-violet-500/10 border-violet-500/20",
+                    name: "AI SOP Assistant",
+                    desc: "Turn your story into a stronger SOP — scored from Reject Risk to Top Tier.",
+                    output: "7-dimension score + improvement plan",
+                    time: "5 minutes",
+                    cta: "Write my SOP",
                     href: "/sop-assistant",
                   },
                   {
                     icon: "📄",
-                    title: "CV Assessment & Builder",
-                    desc: "Score your CV across 6 admission dimensions, then generate a tailored admission-ready version in minutes.",
-                    badge: "Score /10 · 6 dimensions · CV generated",
-                    bg: "bg-pink-500/10 border-pink-500/20",
-                    href: "/application-check",
+                    name: "CV Assessment & Builder",
+                    desc: "Score your CV across 6 admission dimensions, then generate a tailored admission-ready version.",
+                    output: "Score /10 + admission-ready CV",
+                    time: "4 minutes",
+                    cta: "Build my CV",
+                    href: "/application-check?tab=cv",
                   },
                 ].map((tool) => (
-                  <Link href={tool.href} key={tool.title}
-                    className={`flex items-start gap-4 p-4 rounded-2xl border ${tool.bg} hover:scale-[1.02] transition-transform cursor-pointer block`}
+                  <Link
+                    href={tool.href}
+                    key={tool.name}
+                    className={`relative block p-5 rounded-2xl border bg-white/5 backdrop-blur-sm hover:bg-white/10 hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-900/20 transition-all duration-300 ${
+                      tool.hero ? "border-indigo-400/40 ring-1 ring-indigo-400/20" : "border-white/15"
+                    }`}
                   >
-                    <span className="text-2xl flex-shrink-0">{tool.icon}</span>
-                    <div>
-                      <p className="text-sm font-extrabold text-white mb-0.5">{tool.title}</p>
-                      <p className="text-xs text-slate-300 leading-snug mb-1.5">{tool.desc}</p>
-                      <span className="text-[10px] font-bold text-indigo-300 uppercase tracking-wider">{tool.badge}</span>
+                    {tool.hero && (
+                      <div className="absolute top-0 right-0 bg-gradient-to-l from-indigo-500 to-purple-600 text-white text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-bl-xl rounded-tr-2xl">
+                        ★ Most valuable before you apply
+                      </div>
+                    )}
+                    <div className="flex items-center gap-3 mb-2">
+                      <span className="text-xl flex-shrink-0">{tool.icon}</span>
+                      <h4 className="text-sm font-extrabold text-white">{tool.name}</h4>
                     </div>
+                    <p className="text-xs text-slate-300 leading-snug mb-3">{tool.desc}</p>
+                    <dl className="space-y-1 text-[11px] mb-3">
+                      <div className="flex gap-2">
+                        <dt className="font-bold text-indigo-300 uppercase tracking-wider w-14 flex-shrink-0">Output</dt>
+                        <dd className="text-slate-300">{tool.output}</dd>
+                      </div>
+                      <div className="flex gap-2">
+                        <dt className="font-bold text-indigo-300 uppercase tracking-wider w-14 flex-shrink-0">Time</dt>
+                        <dd className="text-slate-300">{tool.time}</dd>
+                      </div>
+                    </dl>
+                    <span className="inline-flex items-center gap-1.5 text-xs font-bold text-white">
+                      {tool.cta}
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </span>
                   </Link>
                 ))}
               </div>
@@ -2032,9 +2051,15 @@ export default function LandingPage() {
                     <p className="text-[11px] font-bold text-violet-500 uppercase tracking-wider mb-0.5">Compare Tool</p>
                     <p className="text-sm font-extrabold text-gray-900 mb-2">Compare 5 offers side by side</p>
                     <p className="text-xs text-gray-500 leading-relaxed mb-3">Tuition · salary · payback · safety · PSW visa — all in one table.</p>
-                    <div className="flex items-center gap-2 p-2.5 rounded-xl bg-violet-50 border border-violet-100 mb-3">
-                      <span className="text-[10px] font-bold text-violet-700">Outcome:</span>
-                      <span className="text-[10px] text-violet-600">Best-value offer, ranked</span>
+                    <div className="space-y-1.5 mb-3">
+                      <div className="flex items-center gap-2 p-2.5 rounded-xl bg-violet-50 border border-violet-100">
+                        <span className="text-[10px] font-bold text-violet-700 uppercase tracking-wider w-12 flex-shrink-0">Output</span>
+                        <span className="text-[10px] text-violet-600">Best-value offer, ranked</span>
+                      </div>
+                      <div className="flex items-center gap-2 p-2.5 rounded-xl bg-gray-50 border border-gray-100">
+                        <span className="text-[10px] font-bold text-gray-600 uppercase tracking-wider w-12 flex-shrink-0">Time</span>
+                        <span className="text-[10px] text-gray-700">3 minutes</span>
+                      </div>
                     </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-1.5 text-[11px] text-gray-400">
@@ -2063,9 +2088,15 @@ export default function LandingPage() {
                     <p className="text-[11px] font-bold text-indigo-500 uppercase tracking-wider mb-1">ROI Calculator</p>
                     <p className="text-base font-extrabold text-gray-900 mb-2">See payback period in 30 seconds</p>
                     <p className="text-sm text-gray-500 leading-relaxed mb-3">Auto-fills tuition, living costs and salary data. Instant payback period, 10-year ROI and break-even salary.</p>
-                    <div className="flex items-center gap-2 p-3 rounded-xl bg-indigo-50 border border-indigo-100 mb-4">
-                      <span className="text-xs font-bold text-indigo-700">Outcome:</span>
-                      <span className="text-xs text-indigo-600">Payback period · 10-yr ROI · break-even salary</span>
+                    <div className="space-y-2 mb-4">
+                      <div className="flex items-center gap-2 p-3 rounded-xl bg-indigo-50 border border-indigo-100">
+                        <span className="text-xs font-bold text-indigo-700 uppercase tracking-wider w-14 flex-shrink-0">Output</span>
+                        <span className="text-xs text-indigo-600">Payback period · 10-yr ROI · break-even salary</span>
+                      </div>
+                      <div className="flex items-center gap-2 p-3 rounded-xl bg-gray-50 border border-gray-100">
+                        <span className="text-xs font-bold text-gray-600 uppercase tracking-wider w-14 flex-shrink-0">Time</span>
+                        <span className="text-xs text-gray-700">30 seconds</span>
+                      </div>
                     </div>
                     <span className="inline-flex items-center gap-1 text-sm font-bold text-indigo-600 group-hover:gap-2 transition-all">Open Calculator <ArrowRight className="w-4 h-4" /></span>
                   </div>
@@ -2085,9 +2116,15 @@ export default function LandingPage() {
                     <p className="text-[11px] font-bold text-purple-500 uppercase tracking-wider mb-1">Parent Decision Tool</p>
                     <p className="text-base font-extrabold text-gray-900 mb-2">Get a verdict parents understand</p>
                     <p className="text-sm text-gray-500 leading-relaxed mb-3">Data-driven ✓/✗ across budget fit, safety, job market, ROI and more. Built for family conversations.</p>
-                    <div className="flex items-center gap-2 p-3 rounded-xl bg-purple-50 border border-purple-100 mb-4">
-                      <span className="text-xs font-bold text-purple-700">Outcome:</span>
-                      <span className="text-xs text-purple-600">Clear verdict + printable family report</span>
+                    <div className="space-y-2 mb-4">
+                      <div className="flex items-center gap-2 p-3 rounded-xl bg-purple-50 border border-purple-100">
+                        <span className="text-xs font-bold text-purple-700 uppercase tracking-wider w-14 flex-shrink-0">Output</span>
+                        <span className="text-xs text-purple-600">Clear verdict + printable family report</span>
+                      </div>
+                      <div className="flex items-center gap-2 p-3 rounded-xl bg-gray-50 border border-gray-100">
+                        <span className="text-xs font-bold text-gray-600 uppercase tracking-wider w-14 flex-shrink-0">Time</span>
+                        <span className="text-xs text-gray-700">5 minutes</span>
+                      </div>
                     </div>
                     <span className="inline-flex items-center gap-1 text-sm font-bold text-purple-600 group-hover:gap-2 transition-all">Open Tool <ArrowRight className="w-4 h-4" /></span>
                   </div>
@@ -2265,9 +2302,15 @@ export default function LandingPage() {
                     <p className="text-[11px] font-bold text-sky-500 uppercase tracking-wider mb-1">Visa Coach</p>
                     <p className="text-base font-extrabold text-gray-900 mb-2">Country-specific visa playbooks</p>
                     <p className="text-sm text-gray-500 leading-relaxed mb-3">F-1, UK Student, SDS, AUS 500, Germany D-visa and 7 more. Fees, financial proof, checklists, risk flags — every figure linked to the official government page.</p>
-                    <div className="flex items-center gap-2 p-3 rounded-xl bg-sky-50 border border-sky-100 mb-4">
-                      <span className="text-xs font-bold text-sky-700">Outcome:</span>
-                      <span className="text-xs text-sky-600">A better-prepared application with fewer avoidable gaps</span>
+                    <div className="space-y-2 mb-4">
+                      <div className="flex items-center gap-2 p-3 rounded-xl bg-sky-50 border border-sky-100">
+                        <span className="text-xs font-bold text-sky-700 uppercase tracking-wider w-14 flex-shrink-0">Output</span>
+                        <span className="text-xs text-sky-600">A better-prepared application with fewer avoidable gaps</span>
+                      </div>
+                      <div className="flex items-center gap-2 p-3 rounded-xl bg-gray-50 border border-gray-100">
+                        <span className="text-xs font-bold text-gray-600 uppercase tracking-wider w-14 flex-shrink-0">Time</span>
+                        <span className="text-xs text-gray-700">15 minutes per country</span>
+                      </div>
                     </div>
                     <span className="inline-flex items-center gap-1 text-sm font-bold text-sky-600 group-hover:gap-2 transition-all">Open Visa Coach <ArrowRight className="w-4 h-4" /></span>
                   </div>
@@ -2287,9 +2330,15 @@ export default function LandingPage() {
                     <p className="text-[11px] font-bold text-indigo-500 uppercase tracking-wider mb-1">Application Tracker</p>
                     <p className="text-base font-extrabold text-gray-900 mb-2">Kanban board for every application</p>
                     <p className="text-sm text-gray-500 leading-relaxed mb-3">Shortlisted → In Progress → Submitted → Decision. Per-program checklists, deadline countdowns, and document-version history in one place.</p>
-                    <div className="flex items-center gap-2 p-3 rounded-xl bg-indigo-50 border border-indigo-100 mb-4">
-                      <span className="text-xs font-bold text-indigo-700">Outcome:</span>
-                      <span className="text-xs text-indigo-600">Track every deadline and document version in one place</span>
+                    <div className="space-y-2 mb-4">
+                      <div className="flex items-center gap-2 p-3 rounded-xl bg-indigo-50 border border-indigo-100">
+                        <span className="text-xs font-bold text-indigo-700 uppercase tracking-wider w-14 flex-shrink-0">Output</span>
+                        <span className="text-xs text-indigo-600">Track every deadline and document version in one place</span>
+                      </div>
+                      <div className="flex items-center gap-2 p-3 rounded-xl bg-gray-50 border border-gray-100">
+                        <span className="text-xs font-bold text-gray-600 uppercase tracking-wider w-14 flex-shrink-0">Time</span>
+                        <span className="text-xs text-gray-700">2 minutes to set up</span>
+                      </div>
                     </div>
                     <span className="inline-flex items-center gap-1 text-sm font-bold text-indigo-600 group-hover:gap-2 transition-all">Open Tracker <ArrowRight className="w-4 h-4" /></span>
                   </div>
