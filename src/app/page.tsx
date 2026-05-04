@@ -536,7 +536,7 @@ export default function LandingPage() {
                   href="/application-check"
                   className="inline-flex items-center justify-center gap-2 border border-white/25 text-white/80 hover:border-white/50 hover:text-white rounded-xl px-6 py-3.5 font-bold text-base transition-colors"
                 >
-                  Check my application
+                  Check my application strength
                   <FileText className="w-4 h-4" />
                 </Link>
               </div>
@@ -565,7 +565,7 @@ export default function LandingPage() {
                 <span className="text-gray-600">·</span>
                 <span className="inline-flex items-center gap-1.5"><CheckCircle2 className="w-3 h-3 text-emerald-400" /> ROI &amp; visa included</span>
                 <span className="text-gray-600">·</span>
-                <span className="inline-flex items-center gap-1.5"><Lock className="w-3 h-3 text-emerald-400" /> your data isn&apos;t sold or shared</span>
+                <span className="inline-flex items-center gap-1.5"><Lock className="w-3 h-3 text-emerald-400" /> data not sold or shared</span>
               </div>
             </motion.div>
 
@@ -829,7 +829,7 @@ export default function LandingPage() {
                 label: "Tests & interviews",
                 title: "Prepare for your interview and English tests",
                 desc: "AI Interview Coach for AU, UK & US F-1. Full IELTS, PTE, DET & TOEFL mocks. Know your weak spots before the real thing.",
-                cta: "Interview Coach",
+                cta: "Practise my interview",
                 href: "/interview-prep",
                 gradient: "from-emerald-500 via-teal-400 to-cyan-400",
                 glow: "shadow-emerald-500/40",
@@ -1383,7 +1383,7 @@ export default function LandingPage() {
               {
                 Icon: Brain,
                 title: "AI-driven, free of agent-counselling shortcuts",
-                body: "Traditional agent counselling runs on assumptions, personal favourites, and whichever programme is easiest to push that month. Every student here gets the same data-driven analysis — no convenience counselling, no biased nudging, no \"we always send students to X.\"",
+                body: "Traditional counselling can often depend on limited information, individual judgement, or available partner options. EduvianAI gives every student the same structured, data-driven analysis — with no commission-led nudging.",
                 accent: "from-violet-100 to-violet-200/70 border-violet-300/60",
                 iconBg: "bg-violet-600 text-white",
               },
@@ -1909,7 +1909,7 @@ export default function LandingPage() {
                       <h5 className="text-sm font-extrabold text-white leading-tight">F-1 Visa Interview Coach</h5>
                     </div>
                   </div>
-                  <p className="text-xs text-white/45 leading-relaxed mb-4 flex-1">60+ F-1 consulate questions across 12 sections. AI reveals where the officer would doubt your intent and shows you exactly how to fix it.</p>
+                  <p className="text-xs text-white/45 leading-relaxed mb-4 flex-1">60+ F-1 consulate questions across 12 sections. AI highlights where your answer may raise doubts and helps you make your intent clearer in your own words.</p>
                   <div className="flex flex-wrap gap-1.5 mb-4">
                     {["60+ Q", "12 sections", "Intent clarity"].map((t) => (
                       <span key={t} className="px-2 py-0.5 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-300 text-[10px] font-semibold">{t}</span>
@@ -2058,6 +2058,66 @@ export default function LandingPage() {
               </div>
             </div>
 
+            {/* ── Sample parent-decision report preview ── */}
+            <div className="mt-10 pt-8 border-t border-amber-100">
+              <div className="grid md:grid-cols-2 gap-8 items-start">
+                <div>
+                  <span className="inline-flex items-center gap-1.5 text-purple-700 font-bold text-[11px] uppercase tracking-widest mb-3">
+                    <Users className="w-3 h-3" /> Sample report — illustrative
+                  </span>
+                  <h4 className="font-display text-xl sm:text-2xl font-bold text-gray-900 mb-3 leading-tight">
+                    What your family will actually see
+                  </h4>
+                  <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                    A one-page summary across the seven factors that matter most. Easy to share over a WhatsApp message, easy to discuss at the dinner table.
+                  </p>
+                  <Link
+                    href="/parent-decision"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white text-sm font-bold transition-colors shadow-md"
+                  >
+                    Generate family-ready report
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
+
+                <div className="bg-white rounded-2xl border border-purple-200 shadow-sm overflow-hidden">
+                  <div className="bg-gradient-to-r from-purple-50 to-pink-50 px-5 py-3 border-b border-purple-100 flex items-center justify-between">
+                    <div>
+                      <p className="text-[10px] font-bold text-purple-700 uppercase tracking-widest">Parent Decision Report</p>
+                      <p className="text-xs text-gray-500 mt-0.5">University of Toronto · MS Computer Science</p>
+                    </div>
+                    <span className="text-[9px] font-bold text-purple-600 bg-white px-2 py-1 rounded">SAMPLE</span>
+                  </div>
+                  <table className="w-full text-sm">
+                    <tbody>
+                      {[
+                        { factor: "Budget fit",       view: "Good",              tone: "good" },
+                        { factor: "Payback period",   view: "4.8 years",         tone: "neutral" },
+                        { factor: "Safety",           view: "Good",              tone: "good" },
+                        { factor: "Job market",       view: "Strong",            tone: "good" },
+                        { factor: "Visa readiness",   view: "Medium",            tone: "warn" },
+                        { factor: "Scholarship fit",  view: "Worth applying",    tone: "neutral" },
+                        { factor: "Family verdict",   view: "Worth considering", tone: "verdict" },
+                      ].map((r) => (
+                        <tr key={r.factor} className={`border-b border-gray-100 last:border-b-0 ${r.tone === "verdict" ? "bg-amber-50/50" : ""}`}>
+                          <td className="px-5 py-2.5 text-gray-600 font-medium">{r.factor}</td>
+                          <td className={`px-5 py-2.5 text-right font-bold ${
+                            r.tone === "good" ? "text-emerald-700"
+                            : r.tone === "warn" ? "text-amber-700"
+                            : r.tone === "verdict" ? "text-amber-800"
+                            : "text-gray-700"
+                          }`}>{r.view}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                  <p className="text-[10px] text-gray-400 px-5 py-2 bg-gray-50 border-t border-gray-100">
+                    Decision-support estimate. Verify final fees, eligibility and visa rules with the university before committing.
+                  </p>
+                </div>
+              </div>
+            </div>
+
             {/* ── Decide-stage dual CTAs (student-led + parent-led) ── */}
             <div className="mt-10 pt-8 border-t border-amber-100 flex flex-col sm:flex-row gap-3 justify-center">
               <Link
@@ -2179,7 +2239,7 @@ export default function LandingPage() {
                     <p className="text-sm text-gray-500 leading-relaxed mb-3">Shortlisted → In Progress → Submitted → Decision. Per-program checklists, deadline countdowns, and document-version history in one place.</p>
                     <div className="flex items-center gap-2 p-3 rounded-xl bg-indigo-50 border border-indigo-100 mb-4">
                       <span className="text-xs font-bold text-indigo-700">Outcome:</span>
-                      <span className="text-xs text-indigo-600">Every deadline met, every version saved</span>
+                      <span className="text-xs text-indigo-600">Track every deadline and document version in one place</span>
                     </div>
                     <span className="inline-flex items-center gap-1 text-sm font-bold text-indigo-600 group-hover:gap-2 transition-all">Open Tracker <ArrowRight className="w-4 h-4" /></span>
                   </div>
@@ -2371,7 +2431,7 @@ export default function LandingPage() {
                 className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl border border-white/25 text-white hover:bg-white/10 text-base font-bold transition-colors"
               >
                 <FileText className="w-5 h-5" />
-                Check my application
+                Check my application strength
               </Link>
             </div>
           </motion.div>

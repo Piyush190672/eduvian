@@ -283,7 +283,7 @@ export default function GetStartedPage() {
                   </div>
                   <h2 className="text-xl font-extrabold mb-2">Create Profile</h2>
                   <p className="text-indigo-200 text-sm leading-relaxed mb-5">
-                    Save your details, shortlist, and results. Pick up right where you left off.
+                    Best if you want to save your shortlist, ROI report, application checks, and visa tracker.
                   </p>
                   <span className="flex items-center gap-1.5 text-sm font-bold bg-white/20 rounded-xl px-4 py-2 group-hover:bg-white/30 transition-colors">
                     Get started free <ArrowRight className="w-4 h-4" />
@@ -324,7 +324,7 @@ export default function GetStartedPage() {
                   </div>
                   <h2 className="text-xl font-extrabold mb-2">Continue as Guest</h2>
                   <p className="text-slate-400 text-sm leading-relaxed mb-5">
-                    Explore matches instantly — no account needed. Your results won&apos;t be saved.
+                    Good for a quick look. Create a profile later if you want to save your results.
                   </p>
                   <span className="flex items-center gap-1.5 text-sm font-semibold text-slate-400 border border-slate-600/40 rounded-xl px-4 py-2 group-hover:border-slate-400 transition-colors">
                     Skip for now <ArrowRight className="w-4 h-4" />
