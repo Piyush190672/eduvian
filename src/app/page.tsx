@@ -807,9 +807,7 @@ export default function LandingPage() {
       <section className="py-16 sm:py-20 px-4 sm:px-6 bg-surface">
         <div className="max-w-5xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.25 }}
             className="text-center mb-12"
           >
             <p className="text-blue-600 font-semibold text-sm uppercase tracking-widest mb-3">Where are you right now?</p>
@@ -887,10 +885,7 @@ export default function LandingPage() {
             ].map((s, i) => (
               <motion.div
                 key={s.stage}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
+                initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.25, delay: i * 0.08 }}
                 className={`relative rounded-2xl bg-white border p-6 flex flex-col hover:-translate-y-1 transition-all duration-300 group overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.05)] ${"recommended" in s && s.recommended ? "border-blue-300 ring-1 ring-blue-100 shadow-md shadow-blue-100/50" : "border-gray-200 hover:border-gray-300 hover:shadow-md"}`}
               >
                 {/* Glow blob */}
@@ -1383,10 +1378,7 @@ export default function LandingPage() {
           {/* The verification card leads — it's the moat, so it gets the
               full-width hero slot above the supporting three. */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.4 }}
+            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.25 }}
             className="relative bg-gradient-to-br from-emerald-100 to-emerald-200/70 border border-emerald-300/60 rounded-2xl p-8 sm:p-10 shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all duration-300 mb-5 overflow-hidden"
           >
             <div className="absolute -top-12 -right-12 w-48 h-48 bg-emerald-300/30 rounded-full blur-3xl pointer-events-none" />
@@ -1453,10 +1445,7 @@ export default function LandingPage() {
             ].map(({ Icon, title, body, accent, iconBg }) => (
               <motion.div
                 key={title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.4 }}
+                initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.25 }}
                 className={`relative bg-gradient-to-br ${accent} border rounded-2xl p-7 shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all duration-300`}
               >
                 <div className={`w-11 h-11 rounded-xl flex items-center justify-center mb-5 shadow-md ${iconBg}`}>
@@ -1495,10 +1484,7 @@ export default function LandingPage() {
             ].map((s) => (
               <motion.li
                 key={s.n}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.35 }}
+                initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.25 }}
                 className="group flex gap-5 p-5 rounded-2xl bg-white border border-gray-200 shadow-sm hover:shadow-md hover:border-emerald-200 hover:-translate-y-0.5 transition-all duration-300"
               >
                 <div className="flex-shrink-0">
@@ -1525,8 +1511,7 @@ export default function LandingPage() {
 
           {/* ── STAGE 1: Match ── */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.25 }}
             className="relative rounded-3xl bg-gradient-to-br from-indigo-50 via-white to-violet-50 border border-indigo-100 overflow-hidden p-6 sm:p-10 md:p-14 mb-28"
           >
             {/* Blobs */}
@@ -1660,8 +1645,7 @@ export default function LandingPage() {
 
           {/* ── STEP 2: Matching Engine ── */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.25 }}
             className="relative rounded-3xl bg-gradient-to-br from-indigo-950 via-violet-900 to-slate-900 text-white overflow-hidden mb-28 p-6 sm:p-10 md:p-14"
           >
             {/* Blobs */}
@@ -1673,6 +1657,17 @@ export default function LandingPage() {
               <span className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-[11px] font-black">2</span>
               STAGE 2 · CHECK — STRENGTHEN YOUR APPLICATION
             </div>
+
+            <button
+              type="button"
+              onClick={() => toggleMobileStage(2)}
+              className="md:hidden mb-6 inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-indigo-500/20 border border-indigo-400/30 text-indigo-200 text-sm font-bold hover:bg-indigo-500/30 transition-colors"
+              aria-expanded={mobileOpenStages.has(2)}
+            >
+              {mobileOpenStages.has(2) ? "↑ Hide details" : "↓ Show Stage 2 details (SOP / CV / Pack Check)"}
+            </button>
+
+            <div className={`${mobileOpenStages.has(2) ? "block" : "hidden"} md:block`}>
 
             <div className="relative grid md:grid-cols-2 gap-12 items-center">
               {/* Left: copy */}
@@ -1779,6 +1774,7 @@ export default function LandingPage() {
                 ))}
               </div>
             </div>
+            </div>{/* end mobile-collapsible wrapper for Stage 2 */}
           </motion.div>
 
           {/* ── Stage separator 2 → 3 ── */}
@@ -1794,8 +1790,7 @@ export default function LandingPage() {
           {/* ── STAGE 3: Practice ──────────────────────────────────── */}
           <motion.div
             id="practice"
-            initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.25 }}
             className="relative rounded-3xl bg-gradient-to-br from-teal-950 via-emerald-950 to-slate-900 border border-teal-900/50 overflow-hidden p-6 sm:p-10 md:p-14 mb-10"
           >
             {/* Ambient glows */}
@@ -1946,7 +1941,7 @@ export default function LandingPage() {
 
                 {/* Australia */}
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }}
+                  initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.4 }}
                   className="group relative bg-white/8 border border-white/15 rounded-2xl p-6 flex flex-col hover:bg-white/12 hover:border-sky-500/40 hover:shadow-xl hover:shadow-sky-900/30 transition-all duration-300"
                 >
                   <div className="flex items-center gap-3 mb-4">
@@ -1970,7 +1965,7 @@ export default function LandingPage() {
 
                 {/* UK */}
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: 0.1 }}
+                  initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.4, delay: 0.1 }}
                   className="group relative bg-white/8 border border-white/15 rounded-2xl p-6 flex flex-col hover:bg-white/12 hover:border-rose-500/40 hover:shadow-xl hover:shadow-rose-900/30 transition-all duration-300"
                 >
                   <div className="flex items-center gap-3 mb-4">
@@ -1994,7 +1989,7 @@ export default function LandingPage() {
 
                 {/* USA */}
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: 0.2 }}
+                  initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.4, delay: 0.2 }}
                   className="group relative bg-white/8 border border-white/15 rounded-2xl p-6 flex flex-col hover:bg-white/12 hover:border-blue-500/40 hover:shadow-xl hover:shadow-blue-900/30 transition-all duration-300"
                 >
                   <div className="flex items-center gap-3 mb-4">
@@ -2036,8 +2031,7 @@ export default function LandingPage() {
           {/* ── STAGE 4: Decide ── */}
           <motion.div
             id="tools"
-            initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.25 }}
             className="relative rounded-3xl bg-gradient-to-br from-amber-50 via-white to-orange-50 border border-amber-100 overflow-hidden p-6 sm:p-10 md:p-14"
           >
             <div className="absolute -top-16 -right-16 w-64 h-64 bg-amber-200/30 rounded-full blur-3xl pointer-events-none" />
@@ -2048,6 +2042,17 @@ export default function LandingPage() {
               <span className="w-5 h-5 rounded-full bg-white/30 flex items-center justify-center text-[11px] font-black">4</span>
               STAGE 4 · DECIDE — MAKE THE FINAL CALL WITH DATA
             </div>
+
+            <button
+              type="button"
+              onClick={() => toggleMobileStage(4)}
+              className="md:hidden mb-6 inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-700 text-sm font-bold hover:bg-amber-500/25 transition-colors"
+              aria-expanded={mobileOpenStages.has(4)}
+            >
+              {mobileOpenStages.has(4) ? "↑ Hide details" : "↓ Show Stage 4 details (ROI / Parent Decision / sample report)"}
+            </button>
+
+            <div className={`${mobileOpenStages.has(4) ? "block" : "hidden"} md:block`}>
 
             <div className="grid md:grid-cols-2 gap-14 items-start">
               {/* Left: copy */}
@@ -2262,6 +2267,7 @@ export default function LandingPage() {
                 Create family decision report
               </Link>
             </div>
+            </div>{/* end mobile-collapsible wrapper for Stage 4 */}
           </motion.div>
 
           {/* ── Stage divider ── */}
@@ -2276,8 +2282,7 @@ export default function LandingPage() {
 
           {/* ── STAGE 5: Apply (Visa) ── */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.25 }}
             className="relative rounded-3xl bg-gradient-to-br from-sky-50 via-white to-cyan-50 border border-sky-100 overflow-hidden p-6 sm:p-10 md:p-14"
           >
             <div className="absolute -top-16 -right-16 w-64 h-64 bg-sky-200/30 rounded-full blur-3xl pointer-events-none" />
@@ -2288,6 +2293,17 @@ export default function LandingPage() {
               <span className="w-5 h-5 rounded-full bg-white/30 flex items-center justify-center text-[11px] font-black">5</span>
               STAGE 5 · APPLY — GET THE VISA RIGHT THE FIRST TIME
             </div>
+
+            <button
+              type="button"
+              onClick={() => toggleMobileStage(5)}
+              className="md:hidden mb-6 inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-sky-500/15 border border-sky-500/30 text-sky-700 text-sm font-bold hover:bg-sky-500/25 transition-colors"
+              aria-expanded={mobileOpenStages.has(5)}
+            >
+              {mobileOpenStages.has(5) ? "↑ Hide details" : "↓ Show Stage 5 details (Visa Coach + Application Tracker)"}
+            </button>
+
+            <div className={`${mobileOpenStages.has(5) ? "block" : "hidden"} md:block`}>
 
             <div className="grid md:grid-cols-2 gap-14 items-start">
               {/* Left: copy */}
@@ -2385,6 +2401,7 @@ export default function LandingPage() {
                 </Link>
               </div>
             </div>
+            </div>{/* end mobile-collapsible wrapper for Stage 5 */}
           </motion.div>
 
         </div>
@@ -2542,9 +2559,10 @@ export default function LandingPage() {
         <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-violet-600/8 rounded-full blur-[80px] pointer-events-none" />
         <div className="relative max-w-3xl mx-auto text-center text-white">
           <motion.div
-            whileInView={{ opacity: 1, y: 0 }}
-            initial={{ opacity: 0, y: 30 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.25 }}
           >
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/8 border border-white/15 text-gray-300 text-sm font-semibold mb-6">
               <Zap className="w-3.5 h-3.5 text-blue-400" />
