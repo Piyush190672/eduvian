@@ -2158,7 +2158,7 @@ export default function LandingPage() {
                       <ArrowRight className="w-4 h-4" />
                     </Link>
                     <Link
-                      href="/parent-decision?sample=1"
+                      href="/sample-parent-report"
                       className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl border border-purple-300 text-purple-700 hover:bg-purple-50 text-sm font-bold transition-colors"
                     >
                       <FileText className="w-4 h-4" />
