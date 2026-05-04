@@ -1263,7 +1263,7 @@ export default function LandingPage() {
               {/* Proof chips */}
               <div className="flex flex-wrap gap-2 mt-6">
                 {[
-                  { icon: "🎯", text: "Official-format questions" },
+                  { icon: "🎯", text: "Exam-style questions" },
                   { icon: "🤖", text: "AI-scored writing & speaking" },
                   { icon: "⏱️", text: "Real exam timings" },
                   { icon: "📊", text: "Detailed score breakdown" },
