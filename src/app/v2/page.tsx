@@ -17,8 +17,9 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { ArrowRight, ArrowUpRight, ShieldCheck } from "lucide-react";
-import { DB_STATS } from "@/data/db-stats";
+import { DB_STATS, universitiesByCountry } from "@/data/db-stats";
 import ChatWidget from "@/components/ChatWidget";
+import CountryModal from "@/components/CountryModal";
 
 const STAGES = [
   { n: "01", label: "Match",    title: "Find your best-fit programs",      one: "AI-matched shortlist from the verified database, in 2 minutes.",                href: "/get-started" },
@@ -43,8 +44,38 @@ const DEMOS = [
   { i: 4, label: "Visa Apply",           sub: "Country checklist + risk flags",      accent: "border-sky-500"     },
 ];
 
+const COUNTRIES = [
+  { flag: "🇺🇸", name: "USA",         img: "https://images.unsplash.com/photo-1568515387631-8b650bbcdb90?w=600&q=80" },
+  { flag: "🇬🇧", name: "UK",          img: "https://images.unsplash.com/photo-1526129318478-62ed807ebdf9?w=600&q=80" },
+  { flag: "🇨🇦", name: "Canada",      img: "https://images.unsplash.com/photo-1517935706615-2717063c2225?w=600&q=80" },
+  { flag: "🇦🇺", name: "Australia",   img: "https://images.unsplash.com/photo-1624138784614-87fd1b6528f8?w=600&q=80" },
+  { flag: "🇩🇪", name: "Germany",     img: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=600&q=80" },
+  { flag: "🇳🇱", name: "Netherlands", img: "https://images.unsplash.com/photo-1534351590666-13e3e96b5017?w=600&q=80" },
+  { flag: "🇮🇪", name: "Ireland",     img: "https://images.unsplash.com/photo-1549918864-48ac978761a4?w=600&q=80" },
+  { flag: "🇫🇷", name: "France",      img: "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=600&q=80" },
+  { flag: "🇳🇿", name: "New Zealand", img: "https://images.unsplash.com/photo-1507699622108-4be3abd695ad?w=600&q=80" },
+  { flag: "🇸🇬", name: "Singapore",   img: "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=600&q=80" },
+  { flag: "🇲🇾", name: "Malaysia",    img: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=600&q=80" },
+  { flag: "🇦🇪", name: "UAE",         img: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&q=80" },
+];
+
+// Editorial highlights — 8 marquee scholarships across 6 countries.
+// Full per-country list lives in the dedicated /scholarships flow on
+// the production page; this is the home-page teaser.
+const SCHOLARSHIP_HIGHLIGHTS = [
+  { flag: "🇺🇸", country: "USA",       name: "Fulbright Foreign Student Program",  cover: "Fully funded",       note: "Tuition, living stipend, travel & health insurance" },
+  { flag: "🇬🇧", country: "UK",        name: "Chevening Scholarship",              cover: "Fully funded",       note: "UK Govt — tuition, living, travel; 1-year Masters" },
+  { flag: "🇬🇧", country: "UK",        name: "Gates Cambridge Scholarship",        cover: "Fully funded",       note: "Exceptional scholars at Cambridge; highly competitive" },
+  { flag: "🇦🇺", country: "Australia", name: "Australia Awards",                   cover: "Fully funded",       note: "Australian Govt; tuition, living, travel, health" },
+  { flag: "🇨🇦", country: "Canada",    name: "Vanier Canada Graduate Scholarship", cover: "CAD 50,000 / yr",    note: "Doctoral students at Canadian universities" },
+  { flag: "🇩🇪", country: "Germany",   name: "DAAD Scholarship",                   cover: "€934 – €1,300 / mo", note: "German Govt; covers tuition, living, health" },
+  { flag: "🇸🇬", country: "Singapore", name: "Singapore International Graduate",   cover: "Fully funded",       note: "A*STAR for STEM PhD candidates" },
+  { flag: "🇮🇪", country: "Ireland",   name: "Government of Ireland International", cover: "€10,000 + fees",    note: "Postgraduate research at Irish universities" },
+];
+
 export default function V2LandingPage() {
   const [activeDemo, setActiveDemo] = useState(0);
+  const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
   useEffect(() => {
     const id = setTimeout(() => setActiveDemo((d) => (d + 1) % DEMOS.length), 5000);
     return () => clearTimeout(id);
@@ -63,9 +94,11 @@ export default function V2LandingPage() {
             <span className="text-[10px] uppercase tracking-[0.2em] text-rose-300/70 hidden sm:inline">v2 prototype</span>
           </Link>
           <div className="flex items-center gap-6">
-            <Link href="/v2#journey"    className="hidden sm:inline text-sm text-white/70 hover:text-white transition-colors">Journey</Link>
-            <Link href="/v2#outputs"    className="hidden sm:inline text-sm text-white/70 hover:text-white transition-colors">Outputs</Link>
-            <Link href="/v2#principles" className="hidden sm:inline text-sm text-white/70 hover:text-white transition-colors">Principles</Link>
+            <Link href="/v2#journey"      className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors">Journey</Link>
+            <Link href="/v2#outputs"      className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors">Outputs</Link>
+            <Link href="/v2#destinations" className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors">Destinations</Link>
+            <Link href="/v2#scholarships" className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors">Scholarships</Link>
+            <Link href="/v2#principles"   className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors">Principles</Link>
             <Link href="/" className="text-sm text-white/50 hover:text-white transition-colors">Original →</Link>
             <Link
               href="/get-started"
@@ -466,6 +499,104 @@ export default function V2LandingPage() {
       </section>
 
       {/* ─────────────────────────────────────────────
+          DESTINATIONS — 12 country tiles, editorial.
+          Click → CountryModal (same as production).
+         ───────────────────────────────────────────── */}
+      <section id="destinations" className="bg-stone-50 border-b border-stone-200">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 py-24 sm:py-32">
+          <div className="max-w-3xl mb-14 sm:mb-16">
+            <p className="text-[11px] uppercase tracking-[0.25em] text-rose-700 font-semibold mb-6">Destinations</p>
+            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.1] mb-6">
+              Twelve countries.<br />
+              One <span className="italic font-medium text-rose-700">verified-source</span> database.
+            </h2>
+            <p className="text-lg text-gray-500 leading-relaxed">
+              Every destination on EduvianAI carries the same standard: live URL fetch, no invented values, blank fields where the official page is silent. Tap any country to see universities, fees and visa rules.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5">
+            {COUNTRIES.map((c) => {
+              const uniCount = (universitiesByCountry[c.name] || []).length;
+              return (
+                <button
+                  key={c.name}
+                  onClick={() => setSelectedCountry(c.name)}
+                  className="group relative aspect-[4/5] rounded-2xl overflow-hidden bg-white border border-stone-200 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all text-left"
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={c.img}
+                    alt={c.name}
+                    loading="lazy"
+                    decoding="async"
+                    width="300"
+                    height="375"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0E1119]/80 via-[#0E1119]/15 to-transparent" />
+                  <div className="absolute bottom-0 inset-x-0 p-5 text-white">
+                    <p className="text-2xl mb-1.5">{c.flag}</p>
+                    <p className="font-display text-lg font-semibold tracking-tight leading-tight">{c.name}</p>
+                    {uniCount > 0 && (
+                      <p className="text-[11px] text-white/65 mt-0.5">{uniCount}+ universities</p>
+                    )}
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ─────────────────────────────────────────────
+          SCHOLARSHIPS — editorial highlights, compact.
+          Full per-country list lives on the production
+          page; this is the v2 teaser.
+         ───────────────────────────────────────────── */}
+      <section id="scholarships" className="bg-white border-b border-stone-200">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 py-24 sm:py-32">
+          <div className="grid lg:grid-cols-12 gap-12 mb-12 sm:mb-14">
+            <div className="lg:col-span-5">
+              <p className="text-[11px] uppercase tracking-[0.25em] text-rose-700 font-semibold mb-6">Scholarships</p>
+              <h2 className="font-display text-4xl sm:text-5xl font-bold tracking-tight leading-[1.1] mb-6">
+                Money on the<br />table you can <span className="italic font-medium text-rose-700">claim</span>.
+              </h2>
+              <p className="text-lg text-gray-500 leading-relaxed mb-6">
+                Eight marquee scholarships across our destination countries — from Fulbright and Chevening to DAAD and Australia Awards. Hundreds more sit inside individual university pages.
+              </p>
+              <Link
+                href="/"
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-gray-900 hover:text-rose-700 transition-colors"
+              >
+                See full per-country list <ArrowUpRight className="w-4 h-4" />
+              </Link>
+            </div>
+
+            <div className="lg:col-span-7">
+              <ul className="divide-y divide-stone-200 border-y border-stone-200">
+                {SCHOLARSHIP_HIGHLIGHTS.map((s) => (
+                  <li key={s.name} className="grid grid-cols-12 gap-3 sm:gap-5 py-5 items-baseline">
+                    <span className="col-span-2 sm:col-span-1 text-xl">{s.flag}</span>
+                    <div className="col-span-10 sm:col-span-7">
+                      <p className="text-[10px] uppercase tracking-widest text-gray-400 font-semibold mb-1">{s.country}</p>
+                      <p className="text-sm sm:text-base font-display font-semibold text-gray-900 leading-snug">{s.name}</p>
+                      <p className="text-xs text-gray-500 mt-1 leading-relaxed">{s.note}</p>
+                    </div>
+                    <div className="col-span-12 sm:col-span-4 sm:text-right">
+                      <span className="inline-block text-xs font-semibold text-rose-700 bg-rose-50 border border-rose-100 rounded-full px-3 py-1">
+                        {s.cover}
+                      </span>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─────────────────────────────────────────────
           FINAL CTA — light cream, NOT navy this time.
          ───────────────────────────────────────────── */}
       <section className="bg-stone-50 border-b border-stone-200">
@@ -517,6 +648,7 @@ export default function V2LandingPage() {
         </div>
       </footer>
 
+      <CountryModal countryName={selectedCountry} onClose={() => setSelectedCountry(null)} />
       <ChatWidget />
     </div>
   );
