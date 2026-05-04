@@ -125,3 +125,9 @@ nav.fixed.top-0:not(.beta-banner) {
 ::-webkit-scrollbar-thumb:hover {
   background: #818cf8;
 }
+
+/* Sample-output demo selector progress bar (drives the 5s auto-rotate visual). */
+@keyframes demoProgress {
+  from { width: 0%; }
+  to   { width: 100%; }
+}

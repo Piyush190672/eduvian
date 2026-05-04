@@ -203,7 +203,7 @@ const HOW_IT_WORKS = [
     step: "02",
     icon: Zap,
     title: "Matching Engine scores your fit",
-    desc: `Our AI engine scores ${DB_STATS.verifiedProgramsLabel} programs using 9 weighted signals — GPA, language scores, budget, backlogs, gap year, QS rankings and more.`,
+    desc: `Our AI engine scores ${DB_STATS.verifiedProgramsLabel} programs using 9 Most Important Signals — GPA, language scores, budget, backlogs, gap year, QS rankings and more.`,
     color: "from-violet-500 to-fuchsia-500",
     bg: "bg-violet-50",
   },
@@ -227,13 +227,16 @@ const FEATURES = [
 
 export default function LandingPage() {
   const [activeDemo, setActiveDemo] = useState(0);
-  // Auto-rotate the sample-output demos every 5s. The effect re-runs on each
-  // change to activeDemo, which means manual clicks reset the dwell timer —
-  // the user gets a fresh 5s on whatever they picked before auto-advancing.
+  const [demoPaused, setDemoPaused] = useState(false);
+  // Single 5s timeout for auto-advance; the visible progress bar is driven
+  // by a CSS keyframe (see global styles) keyed on activeDemo so it restarts
+  // cleanly. CSS-driven progress avoids React render throttling and tab-
+  // background timer drift, so the bar always tracks the actual 5s wait.
   useEffect(() => {
-    const id = setInterval(() => setActiveDemo((d) => (d + 1) % 5), 5000);
-    return () => clearInterval(id);
-  }, [activeDemo]);
+    if (demoPaused) return;
+    const id = setTimeout(() => setActiveDemo((d) => (d + 1) % 5), 5000);
+    return () => clearTimeout(id);
+  }, [activeDemo, demoPaused]);
   const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
   const [selectedScholarship, setSelectedScholarship] = useState<string | null>(null);
   const [aboutOpen, setAboutOpen] = useState(false);
@@ -941,8 +944,8 @@ export default function LandingPage() {
                 Sample outputs — illustrative of what each tool produces.
               </p>
 
-              {/* Demo selectors */}
-              <div className="space-y-2 mb-10">
+              {/* Demo selectors — tabbed, with auto-rotate progress + pause control */}
+              <div className="space-y-2 mb-4">
                 {[
                   { icon: "🎯", label: "University Match",   sub: "Your personalised shortlist"        },
                   { icon: "🧾", label: "SOP Check",          sub: "AI feedback on your statement"      },
@@ -953,20 +956,48 @@ export default function LandingPage() {
                   <button
                     key={i}
                     onClick={() => setActiveDemo(i)}
-                    className={`w-full flex items-center gap-3.5 px-4 py-3.5 rounded-2xl text-left transition-all duration-200 ${
+                    className={`relative w-full flex items-center gap-3.5 px-4 py-3.5 rounded-2xl text-left overflow-hidden transition-all duration-200 ${
                       activeDemo === i
-                        ? "bg-white/10 border border-white/20"
+                        ? "bg-white/10 border border-white/25 shadow-lg shadow-indigo-900/20"
                         : "border border-transparent hover:bg-white/5"
                     }`}
                   >
+                    <span className={`flex-shrink-0 w-7 h-7 rounded-lg flex items-center justify-center text-[10px] font-black transition-colors ${activeDemo === i ? "bg-indigo-500 text-white" : "bg-white/5 text-gray-500"}`}>{i + 1}</span>
                     <span className="text-xl flex-shrink-0">{tab.icon}</span>
                     <div className="min-w-0 flex-1">
                       <div className={`font-semibold text-sm ${activeDemo === i ? "text-white" : "text-gray-300"}`}>{tab.label}</div>
                       <div className="text-xs text-gray-500 truncate mt-0.5">{tab.sub}</div>
                     </div>
                     {activeDemo === i && <ChevronRight className="w-4 h-4 text-indigo-400 flex-shrink-0" />}
+                    {activeDemo === i && (
+                      <span
+                        key={`${i}-${demoPaused}`}
+                        className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-indigo-400 to-violet-400"
+                        style={{
+                          width: demoPaused ? "100%" : "0%",
+                          animation: demoPaused ? undefined : "demoProgress 5000ms linear forwards",
+                        }}
+                      />
+                    )}
                   </button>
                 ))}
+              </div>
+
+              {/* Pause / play + tab indicator */}
+              <div className="flex items-center justify-between mb-10 px-1">
+                <button
+                  onClick={() => setDemoPaused((p) => !p)}
+                  className="inline-flex items-center gap-2 text-xs font-semibold text-gray-400 hover:text-white transition-colors"
+                  aria-label={demoPaused ? "Resume auto-rotate" : "Pause auto-rotate"}
+                >
+                  <span className="w-6 h-6 rounded-full bg-white/8 hover:bg-white/15 flex items-center justify-center text-[10px] transition-colors">
+                    {demoPaused ? "▶" : "❚❚"}
+                  </span>
+                  {demoPaused ? "Resume" : "Pause"}
+                </button>
+                <span className="text-[11px] text-gray-500 font-mono tabular-nums">
+                  {activeDemo + 1} / 5
+                </span>
               </div>
 
               <div className="flex flex-col sm:flex-row lg:flex-col gap-3">
@@ -1447,7 +1478,7 @@ export default function LandingPage() {
             {[
               { n: "01", t: "We read your profile",        d: "Academic record, test scores, budget, intended field, target countries — what you give us is all we use." },
               { n: "02", t: "We match against verified data", d: `Every program in your shortlist comes from our database of ${DB_STATS.verifiedProgramsLabel} programs verified at source. No catalog scrapes, no recycled lists.` },
-              { n: "03", t: "We classify Safe / Reach / Ambitious", d: "Each match gets a transparent fit score across 9 signals — eligibility, ranking, fees, deadlines, language tests, work experience." },
+              { n: "03", t: "We classify Safe / Reach / Ambitious", d: "Each match gets a transparent fit score across 9 Most Important Signals — eligibility, ranking, fees, deadlines, language tests, work experience." },
               { n: "04", t: "We show what influenced the rank", d: "You see why a program was placed where it was — not a black-box number." },
               { n: "05", t: "We leave missing data blank, not guessed", d: "If the official page doesn't state a fee or deadline, the field stays empty. We never invent values." },
             ].map((s) => (
@@ -1496,7 +1527,7 @@ export default function LandingPage() {
                   <span className="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">get your best-fit shortlist</span>
                 </h3>
                 <p className="text-gray-500 text-base leading-relaxed mb-7">
-                  Tell us your scores, budget, and goals. Our AI matches against {DB_STATS.verifiedProgramsLabel} programs across 9 signals. You get a personalised Top 20 shortlist — Safe, Reach, and Ambitious — in under 2 minutes.
+                  Tell us your scores, budget, and goals. Our AI matches against {DB_STATS.verifiedProgramsLabel} programs across 9 Most Important Signals. You get a personalised Top 20 shortlist — Safe, Reach, and Ambitious — in under 2 minutes.
                 </p>
                 {/* Score meter */}
                 <div className="mb-8 p-4 rounded-2xl bg-white border border-indigo-100 shadow-sm">
@@ -1530,7 +1561,7 @@ export default function LandingPage() {
                     </div>
                     <div className="flex-1">
                       <p className="text-xs font-black text-gray-900 uppercase tracking-wider">Your Top 20 Shortlist</p>
-                      <p className="text-[10px] text-gray-400">Sample output · 9 signals matched</p>
+                      <p className="text-[10px] text-gray-400">Sample output · 9 Most Important Signals matched</p>
                     </div>
                     <span className="text-[10px] font-bold px-2 py-1 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-100 flex-shrink-0">AI Match</span>
                   </div>
