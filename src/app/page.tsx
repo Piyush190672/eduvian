@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import ChatWidget from "@/components/ChatWidget";
@@ -227,6 +227,13 @@ const FEATURES = [
 
 export default function LandingPage() {
   const [activeDemo, setActiveDemo] = useState(0);
+  // Auto-rotate the sample-output demos every 5s. The effect re-runs on each
+  // change to activeDemo, which means manual clicks reset the dwell timer —
+  // the user gets a fresh 5s on whatever they picked before auto-advancing.
+  useEffect(() => {
+    const id = setInterval(() => setActiveDemo((d) => (d + 1) % 5), 5000);
+    return () => clearInterval(id);
+  }, [activeDemo]);
   const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
   const [selectedScholarship, setSelectedScholarship] = useState<string | null>(null);
   const [aboutOpen, setAboutOpen] = useState(false);
