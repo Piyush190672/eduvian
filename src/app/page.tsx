@@ -365,9 +365,18 @@ export default function LandingPage() {
             <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-indigo-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-center rounded-t-full" />
           </a>
 
-          {/* Why EduvianAI */}
+          {/* Sample outputs */}
           <a
             href="#outputs"
+            className="relative h-full flex items-center px-4 text-xs font-semibold text-gray-400 hover:text-white transition-colors whitespace-nowrap group"
+          >
+            Sample outputs
+            <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-indigo-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-center rounded-t-full" />
+          </a>
+
+          {/* Why EduvianAI */}
+          <a
+            href="#why-different"
             className="relative h-full flex items-center px-4 text-xs font-semibold text-gray-400 hover:text-white transition-colors whitespace-nowrap group"
           >
             Why EduvianAI
@@ -445,7 +454,8 @@ export default function LandingPage() {
             {[
               { label: "Destinations", href: "#countries" },
               { label: "Scholarships", href: "#scholarships" },
-              { label: "Why EduvianAI", href: "#outputs" },
+              { label: "Sample outputs", href: "#outputs" },
+              { label: "Why EduvianAI", href: "#why-different" },
             ].map(item => (
               <a key={item.label} href={item.href} onClick={() => setMobileNavOpen(false)}
                 className="flex items-center px-4 py-3 rounded-xl text-sm font-semibold text-slate-300 hover:bg-white/10 hover:text-white transition-colors">
@@ -2157,7 +2167,7 @@ export default function LandingPage() {
       </section>
 
       {/* ── Why EduvianAI is different ────────────────────────────── */}
-      <section className="relative py-24 sm:py-28 px-4 sm:px-6 bg-stone-50 overflow-hidden border-t border-stone-200">
+      <section id="why-different" className="relative py-24 sm:py-28 px-4 sm:px-6 bg-stone-50 overflow-hidden border-t border-stone-200">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-indigo-200/15 rounded-full blur-[120px] pointer-events-none" />
         <div className="relative max-w-5xl mx-auto">
           <div className="text-center mb-14">
@@ -2168,7 +2178,7 @@ export default function LandingPage() {
               Why EduvianAI <span className="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">is different</span>
             </h2>
             <p className="text-gray-500 text-base max-w-2xl mx-auto leading-relaxed">
-              Four concrete things that set us apart from generic AI chat or one-off shortlist tools.
+              Developed by industry-leading study-abroad experts, powered by AI.
             </p>
           </div>
 
@@ -2212,21 +2222,28 @@ export default function LandingPage() {
             </div>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {[
               {
-                Icon: Compass,
-                title: "Built for decisions, not just discovery",
-                body: "Search is only the start. We help you shortlist, strengthen, practise, compare and prepare — every step toward a confident yes.",
-                accent: "from-blue-100 to-blue-200/70 border-blue-300/60",
-                iconBg: "bg-blue-600 text-white",
+                Icon: Users,
+                title: "Independent: we work for you, not universities",
+                body: "No university pays us a commission. No school appears in your shortlist because of a marketing deal. The recommendation is yours, not someone else's quota.",
+                accent: "from-rose-100 to-rose-200/70 border-rose-300/60",
+                iconBg: "bg-rose-600 text-white",
               },
               {
-                Icon: ListChecks,
-                title: "Structured outputs, not vague advice",
-                body: "Every tool returns specific next steps — fix this paragraph, raise this score, narrow this list — so you always know what to do next.",
+                Icon: Brain,
+                title: "AI-driven, free of agent-counselling shortcuts",
+                body: "Traditional agent counselling runs on assumptions, personal favourites, and whichever programme is easiest to push that month. Every student here gets the same data-driven analysis — no convenience counselling, no biased nudging, no \"we always send students to X.\"",
                 accent: "from-violet-100 to-violet-200/70 border-violet-300/60",
                 iconBg: "bg-violet-600 text-white",
+              },
+              {
+                Icon: Compass,
+                title: "Built to decide, not just discover",
+                body: "Search is the easy part. Shortlist → SOP review → interview prep → fee comparison → final pick. Every tool returns specific next steps, not vague advice — solving the real pain points students hit at every stage.",
+                accent: "from-blue-100 to-blue-200/70 border-blue-300/60",
+                iconBg: "bg-blue-600 text-white",
               },
               {
                 Icon: Eye,
@@ -2324,7 +2341,8 @@ export default function LandingPage() {
               <a href="#practice" className="hover:text-blue-400 transition-colors">Practice Tools</a>
               <a href="#countries" className="hover:text-blue-400 transition-colors">Destinations</a>
               <a href="#scholarships" className="hover:text-blue-400 transition-colors">Scholarships</a>
-              <a href="#outputs" className="hover:text-blue-400 transition-colors">Why EduvianAI</a>
+              <a href="#outputs" className="hover:text-blue-400 transition-colors">Sample outputs</a>
+              <a href="#why-different" className="hover:text-blue-400 transition-colors">Why EduvianAI</a>
               <button onClick={() => setAboutOpen(true)} className="hover:text-blue-400 transition-colors">About Us</button>
               <Link href="/get-started" className="hover:text-blue-400 font-medium transition-colors">Get started</Link>
             </div>
