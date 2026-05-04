@@ -529,7 +529,7 @@ export default function LandingPage() {
                   href="/get-started"
                   className="group inline-flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-600 text-white rounded-xl px-6 py-3.5 font-bold text-base transition-colors"
                 >
-                  Find my programs
+                  Find my best-fit programs
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                 </Link>
                 <Link
@@ -554,6 +554,18 @@ export default function LandingPage() {
                     <p className="text-[10px] sm:text-xs text-gray-500 mt-0.5">{s.label}</p>
                   </div>
                 ))}
+              </div>
+
+              {/* Parent-relevant trust strip — universal trust, not a separate persona path */}
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 mt-5 text-[11px] text-gray-400">
+                <span className="font-semibold text-gray-300">For families:</span>
+                <span className="inline-flex items-center gap-1.5"><CheckCircle2 className="w-3 h-3 text-emerald-400" /> verified fees &amp; deadlines</span>
+                <span className="text-gray-600">·</span>
+                <span className="inline-flex items-center gap-1.5"><CheckCircle2 className="w-3 h-3 text-emerald-400" /> ROI &amp; visa included</span>
+                <span className="text-gray-600">·</span>
+                <span className="inline-flex items-center gap-1.5"><CheckCircle2 className="w-3 h-3 text-emerald-400" /> no university commission</span>
+                <span className="text-gray-600">·</span>
+                <span className="inline-flex items-center gap-1.5"><Lock className="w-3 h-3 text-emerald-400" /> your data isn&apos;t sold or shared</span>
               </div>
             </motion.div>
 
@@ -787,7 +799,7 @@ export default function LandingPage() {
             {[
               {
                 stage: "A",
-                label: "MATCH",
+                label: "Find my fit",
                 title: "No idea where to apply",
                 desc: "AI evaluates your profile and shortlists your best-fit Universities in under 2 minutes.",
                 cta: "Start Matching",
@@ -799,7 +811,7 @@ export default function LandingPage() {
               },
               {
                 stage: "B",
-                label: "CHECK",
+                label: "Strengthen application",
                 title: "Got a shortlist — is my application strong enough?",
                 desc: "Write a standout SOP, score and rebuild your CV, and check your full application pack for gaps.",
                 cta: "Check My Application",
@@ -814,7 +826,7 @@ export default function LandingPage() {
               },
               {
                 stage: "C",
-                label: "PRACTICE",
+                label: "Tests & interviews",
                 title: "Prepare for your interview and English tests",
                 desc: "AI Interview Coach for AU, UK & US F-1. Full IELTS, PTE, DET & TOEFL mocks. Know your weak spots before the real thing.",
                 cta: "Interview Coach",
@@ -828,7 +840,7 @@ export default function LandingPage() {
               },
               {
                 stage: "D",
-                label: "DECIDE",
+                label: "Compare offers",
                 title: "Got my offer — should I accept?",
                 desc: "ROI Calculator + Parent Decision Tool. Real numbers before you commit.",
                 cta: "Run the Numbers",
@@ -840,7 +852,7 @@ export default function LandingPage() {
               },
               {
                 stage: "E",
-                label: "APPLY FOR VISA",
+                label: "Get visa-ready",
                 title: "Accepted — now the visa",
                 desc: "F-1, UK, SDS, AUS 500, Germany D & 7 more. Official checklists, financial-proof rules, risk flags, direct apply links.",
                 cta: "Open Visa Coach",
@@ -866,7 +878,7 @@ export default function LandingPage() {
 
                 {/* Stage badge */}
                 <div className="flex items-center justify-between mb-5">
-                  <span className={`text-[10px] font-black uppercase tracking-widest ${s.accent}`}>{s.label}</span>
+                  <span className={`text-[11px] font-black uppercase tracking-wide ${s.accent}`}>{s.label}</span>
                   <span className={`w-7 h-7 rounded-lg bg-gradient-to-br ${s.gradient} flex items-center justify-center text-white font-black text-xs shadow-lg ${s.glow}`}>
                     {s.stage}
                   </span>
@@ -902,869 +914,6 @@ export default function LandingPage() {
             ))}
           </div>
 
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════════════════
-           HOW IT WORKS: 3 merged steps
-          ══════════════════════════════════════════════════════════ */}
-      <section id="how-it-works" className="py-16 sm:py-28 px-4 sm:px-6 bg-white overflow-hidden">
-        <div className="max-w-6xl mx-auto">
-
-          {/* ── STAGE 1: Match ── */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="relative rounded-3xl bg-gradient-to-br from-indigo-50 via-white to-violet-50 border border-indigo-100 overflow-hidden p-10 md:p-14 mb-28"
-          >
-            {/* Blobs */}
-            <div className="absolute -top-16 -right-16 w-72 h-72 bg-indigo-200/40 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute -bottom-16 -left-16 w-64 h-64 bg-violet-200/30 rounded-full blur-3xl pointer-events-none" />
-
-            {/* Stage pill */}
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-500 to-violet-600 text-white text-xs font-black px-5 py-2 rounded-full shadow-lg shadow-indigo-200 mb-8">
-              <span className="w-5 h-5 rounded-full bg-white/30 flex items-center justify-center text-[11px] font-black">1</span>
-              STAGE 1 · MATCH — KNOW YOUR PROFILE
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-14 items-center">
-              {/* Left: copy */}
-              <div>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white text-indigo-600 text-xs font-bold uppercase tracking-wider mb-4 border border-indigo-200">
-                  <BookOpen className="w-3.5 h-3.5" /> Stage 1 · Match
-                </div>
-                <h3 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 leading-tight">
-                  Rate your profile —<br />
-                  <span className="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">get your best-fit shortlist</span>
-                </h3>
-                <p className="text-gray-500 text-base leading-relaxed mb-7">
-                  Tell us your scores, budget, and goals. Our AI matches against {DB_STATS.programsLabel} programs across 12 signals. You get a personalised Top 20 shortlist — Safe, Reach, and Ambitious — in under 2 minutes.
-                </p>
-                {/* Score meter */}
-                <div className="mb-8 p-4 rounded-2xl bg-white border border-indigo-100 shadow-sm">
-                  <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-2.5">Profile strength</p>
-                  <div className="relative h-2.5 rounded-full bg-gradient-to-r from-gray-200 via-indigo-400 via-amber-400 to-rose-500 mb-2">
-                    <div className="absolute right-[4%] top-1/2 -translate-y-1/2 w-3.5 h-3.5 rounded-full bg-white border-2 border-rose-500 shadow-md" />
-                  </div>
-                  <div className="flex justify-between text-[10px] font-semibold text-gray-400">
-                    <span>Competitive</span><span>Strong</span><span>Very Strong</span><span className="text-rose-500 font-bold">Admit Strength</span>
-                  </div>
-                </div>
-                <div className="flex flex-wrap items-center gap-3">
-                  <Link href="/get-started"
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gray-900 text-white text-sm font-bold hover:bg-indigo-600 transition-colors">
-                    Rate your profile now <ChevronRight className="w-4 h-4" />
-                  </Link>
-                  <Link href="/get-started"
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-500 to-violet-600 text-white text-sm font-bold shadow-lg shadow-indigo-200 hover:shadow-indigo-300 hover:brightness-110 transition-all">
-                    Get my customised Shortlist <ChevronRight className="w-4 h-4" />
-                  </Link>
-                </div>
-              </div>
-
-              {/* Right: product mockup — shortlist results */}
-              <div className="relative">
-                <div className="rounded-3xl overflow-hidden shadow-2xl bg-white border border-indigo-100 p-6">
-                  {/* Header */}
-                  <div className="flex items-center gap-3 mb-4 pb-3 border-b border-gray-100">
-                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center flex-shrink-0">
-                      <Target className="w-4 h-4 text-white" />
-                    </div>
-                    <div className="flex-1">
-                      <p className="text-xs font-black text-gray-900 uppercase tracking-wider">Your Top 20 Shortlist</p>
-                      <p className="text-[10px] text-gray-400">Sample output · 12 signals matched</p>
-                    </div>
-                    <span className="text-[10px] font-bold px-2 py-1 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-100 flex-shrink-0">AI Match</span>
-                  </div>
-                  {/* University rows */}
-                  {[
-                    { name: "Univ. of Leeds", program: "MSc AI & Data Science", score: 91, tier: "Safe", flag: "🇬🇧", tc: "text-emerald-700", bc: "bg-emerald-50", bar: "from-emerald-400 to-teal-400" },
-                    { name: "Univ. of Edinburgh", program: "MSc Computer Science", score: 76, tier: "Reach", flag: "🏴󠁧󠁢󠁳󠁣󠁴󠁿", tc: "text-amber-700", bc: "bg-amber-50", bar: "from-amber-400 to-orange-400" },
-                    { name: "Imperial College", program: "MSc Machine Learning", score: 63, tier: "Ambitious", flag: "🇬🇧", tc: "text-indigo-700", bc: "bg-indigo-50", bar: "from-indigo-400 to-violet-400" },
-                    { name: "TU Munich", program: "MSc Informatics", score: 79, tier: "Reach", flag: "🇩🇪", tc: "text-amber-700", bc: "bg-amber-50", bar: "from-amber-400 to-orange-400" },
-                    { name: "Univ. of Toronto", program: "MEng Computer Science", score: 88, tier: "Safe", flag: "🇨🇦", tc: "text-emerald-700", bc: "bg-emerald-50", bar: "from-emerald-400 to-teal-400" },
-                  ].map((r) => (
-                    <div key={r.name} className="flex items-center gap-3 py-2.5 border-b border-gray-50 last:border-0">
-                      <div className="w-8 h-8 rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center text-base flex-shrink-0">{r.flag}</div>
-                      <div className="flex-1 min-w-0">
-                        <p className="text-xs font-bold text-gray-900 truncate">{r.name}</p>
-                        <p className="text-[10px] text-gray-400 truncate">{r.program}</p>
-                        <div className="flex items-center gap-2 mt-1">
-                          <div className="flex-1 h-1 rounded-full bg-gray-100 overflow-hidden">
-                            <div className={`h-full rounded-full bg-gradient-to-r ${r.bar}`} style={{width: `${r.score}%`}} />
-                          </div>
-                          <span className="text-[10px] font-black text-gray-600">{r.score}%</span>
-                        </div>
-                      </div>
-                      <span className={`text-[9px] font-bold px-2 py-0.5 rounded-full ${r.bc} ${r.tc} flex-shrink-0`}>{r.tier}</span>
-                    </div>
-                  ))}
-                  <div className="mt-3 pt-3 border-t border-gray-100 flex items-center justify-between">
-                    <span className="text-[10px] text-gray-400">Showing 5 of 20 matches</span>
-                    <span className="text-[10px] font-bold text-indigo-600 flex items-center gap-1">View all <ChevronRight className="w-3 h-3" /></span>
-                  </div>
-                </div>
-                {/* Corner graduate photo */}
-                <div className="absolute -bottom-8 -right-6 w-44 h-44 rounded-2xl overflow-hidden shadow-xl border-4 border-white">
-                  <img src="/graduate-india.jpg"
-                    alt="Indian graduate" className="w-full h-full object-cover object-top" />
-                </div>
-                {/* Floating shortlist mockup */}
-                <div className="absolute top-4 -left-4 bg-white rounded-2xl shadow-xl border border-gray-100 p-3 w-52">
-                  <p className="text-[9px] font-black text-gray-400 uppercase tracking-widest mb-2">Your Top 3 Matches</p>
-                  {[
-                    { name: "Univ. of Leeds", program: "MSc AI", score: "91%", tier: "Safe", tc: "text-emerald-600", bc: "bg-emerald-50" },
-                    { name: "Univ. of Edinburgh", program: "MSc CS", score: "76%", tier: "Reach", tc: "text-amber-600", bc: "bg-amber-50" },
-                    { name: "Imperial College", program: "MSc CS", score: "63%", tier: "Ambitious", bc: "bg-indigo-50", tc: "text-indigo-600" },
-                  ].map((r) => (
-                    <div key={r.name} className="flex items-center justify-between py-1 border-b border-gray-50 last:border-0">
-                      <div>
-                        <p className="text-[10px] font-bold text-gray-800 leading-none">{r.name}</p>
-                        <p className="text-[9px] text-gray-400">{r.program}</p>
-                      </div>
-                      <div className="flex items-center gap-1.5 flex-shrink-0">
-                        <span className="text-[10px] font-black text-gray-700">{r.score}</span>
-                        <span className={`text-[8px] font-bold px-1.5 py-0.5 rounded-full ${r.bc} ${r.tc}`}>{r.tier}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* ── Stage separator 1 → 2 ── */}
-          <div className="flex items-center gap-5 mb-16 -mt-12">
-            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-indigo-200 to-indigo-300/60" />
-            <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 border border-indigo-200 shadow-sm">
-              <span className="w-4 h-4 rounded-full bg-gradient-to-br from-fuchsia-500 to-pink-500 flex items-center justify-center text-white text-[9px] font-black">2</span>
-              <span className="text-[10px] font-bold text-indigo-500 uppercase tracking-widest">Check &amp; Strengthen</span>
-            </div>
-            <div className="flex-1 h-px bg-gradient-to-l from-transparent via-indigo-200 to-indigo-300/60" />
-          </div>
-
-          {/* ── STEP 2: Matching Engine ── */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="relative rounded-3xl bg-gradient-to-br from-indigo-950 via-violet-900 to-slate-900 text-white overflow-hidden mb-28 p-10 md:p-14"
-          >
-            {/* Blobs */}
-            <div className="absolute top-0 right-0 w-80 h-80 bg-violet-500/20 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-400/15 rounded-full blur-3xl pointer-events-none" />
-
-            {/* Step pill */}
-            <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white text-xs font-black px-5 py-2 rounded-full mb-8">
-              <span className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-[11px] font-black">2</span>
-              STAGE 2 · CHECK — STRENGTHEN YOUR APPLICATION
-            </div>
-
-            <div className="relative grid md:grid-cols-2 gap-12 items-center">
-              {/* Left: copy */}
-              <div>
-                <div className="flex items-center gap-2 mb-4">
-                  <Sparkles className="w-4 h-4 text-indigo-300" />
-                  <span className="text-indigo-300 text-xs font-bold uppercase tracking-widest">Build a credible application</span>
-                </div>
-                <h3 className="text-3xl md:text-4xl font-extrabold mb-5 leading-tight">
-                  You have your shortlist.<br />
-                  <span className="text-indigo-400">Now make sure you get in.</span>
-                </h3>
-                <p className="text-slate-300 text-base leading-relaxed mb-6">
-                  Three tools to strengthen your application before you submit. Write a cliché-free SOP, score and rebuild your CV across 6 dimensions, or run a full Pack Check — SOP, CV, profile, and recommendation letters — for credibility gaps and red flags.
-                </p>
-                <div className="flex flex-wrap gap-4 mb-8">
-                  {[
-                    { val: "7", label: "SOP dimensions scored" },
-                    { val: "6", label: "CV dimensions scored" },
-                    { val: "Free", label: "always" },
-                  ].map((s) => (
-                    <div key={s.label} className="text-center">
-                      <p className="text-2xl font-black text-white">{s.val}</p>
-                      <p className="text-[11px] text-slate-400 uppercase tracking-wider">{s.label}</p>
-                    </div>
-                  ))}
-                </div>
-                <div className="flex flex-wrap gap-3">
-                  <Link href="/sop-assistant"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white text-indigo-700 text-sm font-bold hover:bg-indigo-50 transition-colors shadow-lg">
-                    Write my SOP <ArrowRight className="w-4 h-4" />
-                  </Link>
-                  <Link href="/application-check"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/10 border border-white/20 text-white text-sm font-bold hover:bg-white/20 transition-colors">
-                    Check my application
-                  </Link>
-                </div>
-              </div>
-
-              {/* Right: tool cards */}
-              <div className="space-y-3">
-                {/* Application Pack Check — hero card */}
-                <Link href="/application-check"
-                  className="relative flex items-start gap-4 p-5 rounded-2xl border border-indigo-400/40 bg-gradient-to-br from-indigo-500/20 to-purple-500/10 hover:border-indigo-400/70 hover:scale-[1.02] transition-all cursor-pointer block ring-1 ring-indigo-400/20"
-                >
-                  <div className="absolute top-0 right-0 bg-gradient-to-l from-indigo-500 to-purple-600 text-white text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-bl-xl rounded-tr-2xl">
-                    ★ Most valuable before you apply
-                  </div>
-                  <span className="text-2xl flex-shrink-0 mt-0.5">📋</span>
-                  <div>
-                    <p className="text-sm font-extrabold text-white mb-0.5 mt-0.5">Application Pack Check</p>
-                    <p className="text-xs text-slate-300 leading-snug mb-1.5">Paste your SOP, CV, profile &amp; recommendation letters. Spot contradictions, credibility gaps, and exactly what an officer would question — plus an LOR Coach link to send recommenders. With a fix list.</p>
-                    <span className="text-[10px] font-bold text-indigo-300 uppercase tracking-wider">Readiness score + fix list</span>
-                  </div>
-                </Link>
-                {/* SOP + CV cards */}
-                {[
-                  {
-                    icon: "✍️",
-                    title: "AI SOP Assistant",
-                    desc: "Write a compelling SOP from your story — scored across 7 dimensions from Reject Risk to Top Tier.",
-                    badge: "7 dimensions · instant score",
-                    bg: "bg-violet-500/10 border-violet-500/20",
-                    href: "/sop-assistant",
-                  },
-                  {
-                    icon: "📄",
-                    title: "CV Assessment & Builder",
-                    desc: "Score your CV across 6 admission dimensions, then generate a tailored admission-ready version in minutes.",
-                    badge: "Score /10 · 6 dimensions · CV generated",
-                    bg: "bg-pink-500/10 border-pink-500/20",
-                    href: "/application-check",
-                  },
-                ].map((tool) => (
-                  <Link href={tool.href} key={tool.title}
-                    className={`flex items-start gap-4 p-4 rounded-2xl border ${tool.bg} hover:scale-[1.02] transition-transform cursor-pointer block`}
-                  >
-                    <span className="text-2xl flex-shrink-0">{tool.icon}</span>
-                    <div>
-                      <p className="text-sm font-extrabold text-white mb-0.5">{tool.title}</p>
-                      <p className="text-xs text-slate-300 leading-snug mb-1.5">{tool.desc}</p>
-                      <span className="text-[10px] font-bold text-indigo-300 uppercase tracking-wider">{tool.badge}</span>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-
-          {/* ── Stage separator 2 → 3 ── */}
-          <div className="flex items-center gap-5 mb-16 -mt-12">
-            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-teal-200 to-teal-300/60" />
-            <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-teal-50 border border-teal-200 shadow-sm">
-              <span className="w-4 h-4 rounded-full bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center text-white text-[9px] font-black">3</span>
-              <span className="text-[10px] font-bold text-teal-600 uppercase tracking-widest">Practice &amp; Prepare</span>
-            </div>
-            <div className="flex-1 h-px bg-gradient-to-l from-transparent via-teal-200 to-teal-300/60" />
-          </div>
-
-          {/* ── STAGE 3: Practice ──────────────────────────────────── */}
-          <motion.div
-            id="practice"
-            initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="relative rounded-3xl bg-gradient-to-br from-teal-950 via-emerald-950 to-slate-900 border border-teal-900/50 overflow-hidden p-10 md:p-14 mb-10"
-          >
-            {/* Ambient glows */}
-            <div className="absolute -top-32 -left-32 w-96 h-96 bg-teal-400/15 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute -bottom-32 -right-32 w-80 h-80 bg-emerald-400/10 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-teal-500/8 rounded-full blur-3xl pointer-events-none" />
-
-            {/* Stage pill */}
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-teal-500 text-white text-xs font-black px-5 py-2 rounded-full shadow-lg shadow-emerald-900/50 mb-8">
-              <span className="w-5 h-5 rounded-full bg-white/25 flex items-center justify-center text-[11px] font-black">3</span>
-              STAGE 3 · PRACTICE — PREPARE FOR WHAT&apos;S COMING
-            </div>
-
-            {/* Headline */}
-            <h3 className="text-3xl md:text-5xl font-extrabold text-white mb-4 leading-tight">
-              Practice until<br />
-              <span className="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">nothing surprises you.</span>
-            </h3>
-            <p className="text-white/50 text-base leading-relaxed mb-14 max-w-2xl">
-              Two tracks, one goal: walk into your visa interview and English proficiency test already knowing your weak spots — and having fixed them.
-            </p>
-
-            {/* ─── Track A: English Test Lab ─── */}
-            <div className="mb-14">
-              <div className="flex items-start justify-between gap-4 mb-2 flex-wrap">
-                <div className="flex items-center gap-3">
-                  <div className="flex items-center justify-center w-8 h-8 rounded-xl bg-teal-500/20 border border-teal-500/30 flex-shrink-0">
-                    <BookOpen className="w-4 h-4 text-teal-400" />
-                  </div>
-                  <div>
-                    <p className="text-[10px] font-black text-teal-400 uppercase tracking-widest">Track A · Test Prep</p>
-                    <h4 className="text-lg font-extrabold text-white leading-tight">English Test Lab</h4>
-                  </div>
-                </div>
-                <Link href="/english-test-lab" className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-teal-500/20 border border-teal-500/30 text-teal-300 text-xs font-bold hover:bg-teal-500/30 transition-colors">
-                  See all tests <ArrowRight className="w-3 h-3" />
-                </Link>
-              </div>
-              <p className="text-white/75 text-sm mb-7 pl-11">
-                Full-length mocks for all four major English proficiency exams — AI-scored, exam-style practice based on published test structures, with instant results and detailed feedback.
-              </p>
-
-              <div className="grid sm:grid-cols-4 gap-3">
-
-                {/* IELTS */}
-                <Link href="/english-test-lab/ielts" className="group relative rounded-2xl bg-black/20 border border-white/25 p-5 flex flex-col hover:bg-black/30 hover:border-violet-400/50 hover:shadow-xl hover:shadow-violet-900/20 hover:-translate-y-1 transition-all duration-300">
-                  <span className="text-2xl mb-3">🎓</span>
-                  <p className="text-[10px] font-black text-violet-300 uppercase tracking-wider mb-0.5">IELTS-style</p>
-                  <p className="text-sm font-extrabold text-white mb-1">IELTS Academic</p>
-                  <p className="text-xs text-white/80 mb-1">Bands 0–9</p>
-                  <p className="text-[10px] text-white/65 mb-auto">4 sections · 3 mocks</p>
-                  <div className="mt-3 pt-3 border-t border-white/20 flex items-center justify-between">
-                    <span className="text-[10px] text-white/75 font-semibold">Start mock</span>
-                    <ChevronRight className="w-3.5 h-3.5 text-violet-300 group-hover:translate-x-0.5 transition-transform" />
-                  </div>
-                </Link>
-
-                {/* PTE */}
-                <Link href="/english-test-lab/pte" className="group relative rounded-2xl bg-black/20 border border-white/25 p-5 flex flex-col hover:bg-black/30 hover:border-indigo-400/50 hover:shadow-xl hover:shadow-indigo-900/20 hover:-translate-y-1 transition-all duration-300">
-                  <span className="text-2xl mb-3">📝</span>
-                  <p className="text-[10px] font-black text-indigo-300 uppercase tracking-wider mb-0.5">PTE-style</p>
-                  <p className="text-sm font-extrabold text-white mb-1">PTE Academic</p>
-                  <p className="text-xs text-white/80 mb-1">Score 0–90</p>
-                  <p className="text-[10px] text-white/65 mb-auto">7 task types · 3 mocks</p>
-                  <div className="mt-3 pt-3 border-t border-white/20 flex items-center justify-between">
-                    <span className="text-[10px] text-white/75 font-semibold">Start mock</span>
-                    <ChevronRight className="w-3.5 h-3.5 text-indigo-300 group-hover:translate-x-0.5 transition-transform" />
-                  </div>
-                </Link>
-
-                {/* DET */}
-                <Link href="/english-test-lab/det" className="group relative rounded-2xl bg-black/20 border border-white/25 p-5 flex flex-col hover:bg-black/30 hover:border-teal-400/50 hover:shadow-xl hover:shadow-teal-900/20 hover:-translate-y-1 transition-all duration-300">
-                  <span className="text-2xl mb-3">🦆</span>
-                  <p className="text-[10px] font-black text-teal-300 uppercase tracking-wider mb-0.5">DET-style</p>
-                  <p className="text-sm font-extrabold text-white mb-1">Duolingo English Test</p>
-                  <p className="text-xs text-white/80 mb-1">Score 10–160</p>
-                  <p className="text-[10px] text-white/65 mb-auto">6 task types · 3 mocks</p>
-                  <div className="mt-3 pt-3 border-t border-white/20 flex items-center justify-between">
-                    <span className="text-[10px] text-white/75 font-semibold">Start mock</span>
-                    <ChevronRight className="w-3.5 h-3.5 text-teal-300 group-hover:translate-x-0.5 transition-transform" />
-                  </div>
-                </Link>
-
-                {/* TOEFL */}
-                <Link href="/english-test-lab/toefl" className="group relative rounded-2xl bg-black/20 border border-white/25 p-5 flex flex-col hover:bg-black/30 hover:border-sky-400/50 hover:shadow-xl hover:shadow-sky-900/20 hover:-translate-y-1 transition-all duration-300">
-                  <span className="text-2xl mb-3">🏛️</span>
-                  <p className="text-[10px] font-black text-sky-300 uppercase tracking-wider mb-0.5">TOEFL-style</p>
-                  <p className="text-sm font-extrabold text-white mb-1">TOEFL iBT</p>
-                  <p className="text-xs text-white/80 mb-1">Score 0–120</p>
-                  <p className="text-[10px] text-white/65 mb-auto">4 sections · 3 mocks</p>
-                  <div className="mt-3 pt-3 border-t border-white/20 flex items-center justify-between">
-                    <span className="text-[10px] text-white/75 font-semibold">Start mock</span>
-                    <ChevronRight className="w-3.5 h-3.5 text-sky-300 group-hover:translate-x-0.5 transition-transform" />
-                  </div>
-                </Link>
-
-              </div>
-
-              {/* Proof chips */}
-              <div className="flex flex-wrap gap-2 mt-6">
-                {[
-                  { icon: "🎯", text: "Exam-style questions" },
-                  { icon: "🤖", text: "AI-scored writing & speaking" },
-                  { icon: "⏱️", text: "Real exam timings" },
-                  { icon: "📊", text: "Detailed score breakdown" },
-                  { icon: "🆓", text: "Completely free" },
-                ].map((c) => (
-                  <span key={c.text} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/20 border border-white/25 text-white/85 text-[11px] font-semibold">
-                    {c.icon} {c.text}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* Divider */}
-            <div className="flex items-center gap-4 mb-14">
-              <div className="flex-1 h-px bg-white/10" />
-              <span className="text-white/60 text-[11px] font-black uppercase tracking-widest px-3">Also in Stage 3</span>
-              <div className="flex-1 h-px bg-white/10" />
-            </div>
-
-            {/* ─── Track B: AI Interview Coach ─── */}
-            <div>
-              <div className="flex items-center gap-3 mb-2">
-                <div className="flex items-center justify-center w-8 h-8 rounded-xl bg-emerald-500/20 border border-emerald-500/30 flex-shrink-0">
-                  <Mic className="w-4 h-4 text-emerald-400" />
-                </div>
-                <div>
-                  <p className="text-[10px] font-black text-emerald-400 uppercase tracking-widest">Track B · Interview Prep</p>
-                  <h4 className="text-lg font-extrabold text-white leading-tight">AI Interview Coach</h4>
-                </div>
-              </div>
-              <p className="text-white/40 text-sm mb-6 pl-11">Voice &amp; text mock interviews. AI flags your weak answers and gives you the exact language to fix them — before the real thing.</p>
-
-              <div className="grid sm:grid-cols-3 gap-4">
-
-                {/* Australia */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }}
-                  className="group relative bg-white/8 border border-white/15 rounded-2xl p-6 flex flex-col hover:bg-white/12 hover:border-sky-500/40 hover:shadow-xl hover:shadow-sky-900/30 transition-all duration-300"
-                >
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-sky-400 to-blue-600 flex items-center justify-center shadow-lg shadow-sky-900/40 text-xl flex-shrink-0">🇦🇺</div>
-                    <div>
-                      <p className="text-[10px] font-bold text-sky-400 uppercase tracking-wider">Australia</p>
-                      <h5 className="text-sm font-extrabold text-white leading-tight">GS Interview Coach</h5>
-                    </div>
-                  </div>
-                  <p className="text-xs text-white/45 leading-relaxed mb-4 flex-1">19 Genuine Student questions. AI identifies which answers raise doubts and gives you the exact language to fix them.</p>
-                  <div className="flex flex-wrap gap-1.5 mb-4">
-                    {["19 Q", "Flags doubts", "Fixes reasoning"].map((t) => (
-                      <span key={t} className="px-2 py-0.5 rounded-full bg-sky-500/20 border border-sky-500/30 text-sky-300 text-[10px] font-semibold">{t}</span>
-                    ))}
-                  </div>
-                  <div className="flex gap-2">
-                    <Link href="/interview-prep?country=australia&mode=text" className="flex-1 inline-flex items-center justify-center gap-1 px-3 py-2 rounded-lg bg-sky-500/20 border border-sky-500/30 text-sky-300 text-xs font-bold hover:bg-sky-500/30 transition-colors">✍️ Text</Link>
-                    <Link href="/interview-prep?country=australia" className="flex-1 inline-flex items-center justify-center gap-1 px-3 py-2 rounded-lg bg-white/10 border border-white/20 text-white/60 text-xs font-bold hover:bg-white/20 transition-colors">🎙️ Voice</Link>
-                  </div>
-                </motion.div>
-
-                {/* UK */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: 0.1 }}
-                  className="group relative bg-white/8 border border-white/15 rounded-2xl p-6 flex flex-col hover:bg-white/12 hover:border-rose-500/40 hover:shadow-xl hover:shadow-rose-900/30 transition-all duration-300"
-                >
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-rose-500 to-red-600 flex items-center justify-center shadow-lg shadow-rose-900/40 text-xl flex-shrink-0">🇬🇧</div>
-                    <div>
-                      <p className="text-[10px] font-bold text-rose-400 uppercase tracking-wider">United Kingdom</p>
-                      <h5 className="text-sm font-extrabold text-white leading-tight">Credibility Interview Coach</h5>
-                    </div>
-                  </div>
-                  <p className="text-xs text-white/45 leading-relaxed mb-4 flex-1">14 credibility questions. AI flags answers that raise doubts and shows you how to sound convincing before it matters.</p>
-                  <div className="flex flex-wrap gap-1.5 mb-4">
-                    {["14 Q", "Credibility gaps", "Story fix"].map((t) => (
-                      <span key={t} className="px-2 py-0.5 rounded-full bg-rose-500/20 border border-rose-500/30 text-rose-300 text-[10px] font-semibold">{t}</span>
-                    ))}
-                  </div>
-                  <div className="flex gap-2">
-                    <Link href="/interview-prep?country=uk&mode=text" className="flex-1 inline-flex items-center justify-center gap-1 px-3 py-2 rounded-lg bg-rose-500/20 border border-rose-500/30 text-rose-300 text-xs font-bold hover:bg-rose-500/30 transition-colors">✍️ Text</Link>
-                    <Link href="/interview-prep?country=uk" className="flex-1 inline-flex items-center justify-center gap-1 px-3 py-2 rounded-lg bg-white/10 border border-white/20 text-white/60 text-xs font-bold hover:bg-white/20 transition-colors">🎙️ Voice</Link>
-                  </div>
-                </motion.div>
-
-                {/* USA */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: 0.2 }}
-                  className="group relative bg-white/8 border border-white/15 rounded-2xl p-6 flex flex-col hover:bg-white/12 hover:border-blue-500/40 hover:shadow-xl hover:shadow-blue-900/30 transition-all duration-300"
-                >
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-11 h-11 rounded-xl bg-gradient-to-r from-blue-600 to-red-600 flex items-center justify-center shadow-lg shadow-blue-900/40 text-xl flex-shrink-0">🇺🇸</div>
-                    <div>
-                      <p className="text-[10px] font-bold text-blue-400 uppercase tracking-wider">United States</p>
-                      <h5 className="text-sm font-extrabold text-white leading-tight">F-1 Visa Interview Coach</h5>
-                    </div>
-                  </div>
-                  <p className="text-xs text-white/45 leading-relaxed mb-4 flex-1">60+ F-1 consulate questions across 12 sections. AI reveals where the officer would doubt your intent and shows you exactly how to fix it.</p>
-                  <div className="flex flex-wrap gap-1.5 mb-4">
-                    {["60+ Q", "12 sections", "Intent clarity"].map((t) => (
-                      <span key={t} className="px-2 py-0.5 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-300 text-[10px] font-semibold">{t}</span>
-                    ))}
-                  </div>
-                  <div className="flex gap-2">
-                    <Link href="/interview-prep?country=usa&mode=text" className="flex-1 inline-flex items-center justify-center gap-1 px-3 py-2 rounded-lg bg-blue-500/20 border border-blue-500/30 text-blue-300 text-xs font-bold hover:bg-blue-500/30 transition-colors">✍️ Text</Link>
-                    <Link href="/interview-prep?country=usa" className="flex-1 inline-flex items-center justify-center gap-1 px-3 py-2 rounded-lg bg-white/10 border border-white/20 text-white/60 text-xs font-bold hover:bg-white/20 transition-colors">🎙️ Voice</Link>
-                  </div>
-                </motion.div>
-
-              </div>
-            </div>
-
-          </motion.div>
-
-          {/* ── Stage separator 3 → 4 ── */}
-          <div className="flex items-center gap-5 mb-16 mt-4">
-            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-amber-200 to-amber-300/60" />
-            <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 border border-amber-200 shadow-sm">
-              <span className="w-4 h-4 rounded-full bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center text-white text-[9px] font-black">4</span>
-              <span className="text-[10px] font-bold text-amber-600 uppercase tracking-widest">Decide with Data</span>
-            </div>
-            <div className="flex-1 h-px bg-gradient-to-l from-transparent via-amber-200 to-amber-300/60" />
-          </div>
-
-          {/* ── STAGE 4: Decide ── */}
-          <motion.div
-            id="tools"
-            initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="relative rounded-3xl bg-gradient-to-br from-amber-50 via-white to-orange-50 border border-amber-100 overflow-hidden p-10 md:p-14"
-          >
-            <div className="absolute -top-16 -right-16 w-64 h-64 bg-amber-200/30 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute -bottom-16 -left-16 w-64 h-64 bg-orange-200/30 rounded-full blur-3xl pointer-events-none" />
-
-            {/* Step pill */}
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs font-black px-5 py-2 rounded-full shadow-lg shadow-amber-200 mb-8">
-              <span className="w-5 h-5 rounded-full bg-white/30 flex items-center justify-center text-[11px] font-black">4</span>
-              STAGE 4 · DECIDE — MAKE THE FINAL CALL WITH DATA
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-14 items-start">
-              {/* Left: copy */}
-              <div>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 text-amber-600 text-xs font-bold uppercase tracking-wider mb-4 border border-amber-200">
-                  <TrendingUp className="w-3.5 h-3.5" /> Stage 4 · Decide
-                </div>
-                <h3 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 leading-tight">
-                  Got your offer?<br />
-                  <span className="bg-gradient-to-r from-amber-600 to-orange-500 bg-clip-text text-transparent">Now decide with real numbers.</span>
-                </h3>
-                <p className="text-gray-500 text-base leading-relaxed mb-6">
-                  Getting an offer is one thing. Knowing it&apos;s the right financial decision — and convincing your family — is another. Our three decision tools give you a data-backed answer before you commit.
-                </p>
-                <div className="flex flex-wrap gap-2.5 mb-6">
-                  {[
-                    { icon: "📊", text: "Real payback period" },
-                    { icon: "💰", text: "10-year ROI" },
-                    { icon: "👨‍👩‍👧", text: "Parent-ready verdict" },
-                    { icon: "↔", text: "Side-by-side compare" },
-                    { icon: "🆓", text: "100% free" },
-                  ].map((f) => (
-                    <div key={f.text} className="flex items-center gap-2 bg-white border border-gray-200 rounded-full px-4 py-2 text-sm text-gray-700 font-semibold shadow-sm">
-                      <span>{f.icon}</span>{f.text}
-                    </div>
-                  ))}
-                </div>
-
-                {/* Program Comparison Tool */}
-                <Link href="/get-started" className="block group">
-                  <div className="bg-white rounded-2xl border border-violet-100 p-5 shadow-sm hover:shadow-lg hover:border-violet-300 hover:-translate-y-1 transition-all duration-300">
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center shadow-md flex-shrink-0">
-                        <BarChart2 className="w-4 h-4 text-white" />
-                      </div>
-                      <div className="text-right">
-                        <span className="text-2xl font-black text-violet-600">5</span>
-                        <p className="text-[9px] text-gray-400 leading-none">offers</p>
-                      </div>
-                    </div>
-                    <p className="text-[11px] font-bold text-violet-500 uppercase tracking-wider mb-0.5">Compare Tool</p>
-                    <p className="text-sm font-extrabold text-gray-900 mb-2">Compare 5 offers side by side</p>
-                    <p className="text-xs text-gray-500 leading-relaxed mb-3">Tuition · salary · payback · safety · PSW visa — all in one table.</p>
-                    <div className="flex items-center gap-2 p-2.5 rounded-xl bg-violet-50 border border-violet-100 mb-3">
-                      <span className="text-[10px] font-bold text-violet-700">Outcome:</span>
-                      <span className="text-[10px] text-violet-600">Best-value offer, ranked</span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-1.5 text-[11px] text-gray-400">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0" />
-                        Built into your shortlist
-                      </div>
-                      <span className="text-xs font-bold text-violet-600 group-hover:gap-2 transition-all inline-flex items-center gap-1">Get Shortlist <ArrowRight className="w-3 h-3" /></span>
-                    </div>
-                  </div>
-                </Link>
-              </div>
-
-              {/* Right: two tool cards */}
-              <div className="space-y-4">
-                <Link href="/roi-calculator" className="block group">
-                  <div className="bg-white rounded-2xl border border-amber-100 p-6 shadow-sm hover:shadow-xl hover:border-amber-300 hover:-translate-y-1 transition-all duration-300">
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-md flex-shrink-0">
-                        <TrendingUp className="w-5 h-5 text-white" />
-                      </div>
-                      <div className="text-right">
-                        <span className="text-2xl font-black text-indigo-600">30s</span>
-                        <p className="text-[9px] text-gray-400 leading-none">to results</p>
-                      </div>
-                    </div>
-                    <p className="text-[11px] font-bold text-indigo-500 uppercase tracking-wider mb-1">ROI Calculator</p>
-                    <p className="text-base font-extrabold text-gray-900 mb-2">See payback period in 30 seconds</p>
-                    <p className="text-sm text-gray-500 leading-relaxed mb-3">Auto-fills tuition, living costs and salary data. Instant payback period, 10-year ROI and break-even salary.</p>
-                    <div className="flex items-center gap-2 p-3 rounded-xl bg-indigo-50 border border-indigo-100 mb-4">
-                      <span className="text-xs font-bold text-indigo-700">Outcome:</span>
-                      <span className="text-xs text-indigo-600">Payback period · 10-yr ROI · break-even salary</span>
-                    </div>
-                    <span className="inline-flex items-center gap-1 text-sm font-bold text-indigo-600 group-hover:gap-2 transition-all">Open Calculator <ArrowRight className="w-4 h-4" /></span>
-                  </div>
-                </Link>
-
-                <Link href="/parent-decision" className="block group">
-                  <div className="bg-white rounded-2xl border border-amber-100 p-6 shadow-sm hover:shadow-xl hover:border-amber-300 hover:-translate-y-1 transition-all duration-300">
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center shadow-md flex-shrink-0">
-                        <Users className="w-5 h-5 text-white" />
-                      </div>
-                      <div className="text-right">
-                        <span className="text-2xl font-black text-purple-600">7</span>
-                        <p className="text-[9px] text-gray-400 leading-none">factors</p>
-                      </div>
-                    </div>
-                    <p className="text-[11px] font-bold text-purple-500 uppercase tracking-wider mb-1">Parent Decision Tool</p>
-                    <p className="text-base font-extrabold text-gray-900 mb-2">Get a verdict parents understand</p>
-                    <p className="text-sm text-gray-500 leading-relaxed mb-3">Data-driven ✓/✗ across budget fit, safety, job market, ROI and more. Built for family conversations.</p>
-                    <div className="flex items-center gap-2 p-3 rounded-xl bg-purple-50 border border-purple-100 mb-4">
-                      <span className="text-xs font-bold text-purple-700">Outcome:</span>
-                      <span className="text-xs text-purple-600">Clear verdict + printable family report</span>
-                    </div>
-                    <span className="inline-flex items-center gap-1 text-sm font-bold text-purple-600 group-hover:gap-2 transition-all">Open Tool <ArrowRight className="w-4 h-4" /></span>
-                  </div>
-                </Link>
-
-              </div>
-            </div>
-          </motion.div>
-
-          {/* ── Stage divider ── */}
-          <div className="flex items-center gap-4 my-16">
-            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-sky-200 to-sky-300/60" />
-            <div className="flex items-center gap-2 text-sky-500 text-xs font-bold uppercase tracking-widest">
-              <span className="w-6 h-6 rounded-full bg-sky-100 text-sky-700 flex items-center justify-center text-[11px] font-black">5</span>
-              Then → Stage 5
-            </div>
-            <div className="flex-1 h-px bg-gradient-to-l from-transparent via-sky-200 to-sky-300/60" />
-          </div>
-
-          {/* ── STAGE 5: Apply (Visa) ── */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="relative rounded-3xl bg-gradient-to-br from-sky-50 via-white to-cyan-50 border border-sky-100 overflow-hidden p-10 md:p-14"
-          >
-            <div className="absolute -top-16 -right-16 w-64 h-64 bg-sky-200/30 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute -bottom-16 -left-16 w-64 h-64 bg-cyan-200/30 rounded-full blur-3xl pointer-events-none" />
-
-            {/* Step pill */}
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-sky-500 to-cyan-500 text-white text-xs font-black px-5 py-2 rounded-full shadow-lg shadow-sky-200 mb-8">
-              <span className="w-5 h-5 rounded-full bg-white/30 flex items-center justify-center text-[11px] font-black">5</span>
-              STAGE 5 · APPLY — GET THE VISA RIGHT THE FIRST TIME
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-14 items-start">
-              {/* Left: copy */}
-              <div>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-50 text-sky-600 text-xs font-bold uppercase tracking-wider mb-4 border border-sky-200">
-                  <span>🛂</span> Stage 5 · Apply
-                </div>
-                <h3 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 leading-tight">
-                  Accepted. Now the visa.<br />
-                  <span className="bg-gradient-to-r from-sky-600 to-cyan-500 bg-clip-text text-transparent">Get visa-ready with clarity.</span>
-                </h3>
-                <p className="text-gray-500 text-base leading-relaxed mb-6">
-                  Use country-specific checklists, financial-proof guidance, risk flags and deadline tracking to prepare more carefully. Final decisions rest with the consular officer; we help you walk in well-prepared.
-                </p>
-                <div className="flex flex-wrap gap-2.5 mb-6">
-                  {[
-                    { icon: "🛂", text: "12 countries covered" },
-                    { icon: "📄", text: "Official-source checklists" },
-                    { icon: "⚠️", text: "Risk flags" },
-                    { icon: "⏱", text: "Deadline countdowns" },
-                    { icon: "🔗", text: "Direct apply links" },
-                  ].map((f) => (
-                    <div key={f.text} className="flex items-center gap-2 bg-white border border-gray-200 rounded-full px-4 py-2 text-sm text-gray-700 font-semibold shadow-sm">
-                      <span>{f.icon}</span>{f.text}
-                    </div>
-                  ))}
-                </div>
-
-                {/* Country flag chips */}
-                <div className="grid grid-cols-6 gap-1.5">
-                  {["🇺🇸","🇬🇧","🇨🇦","🇦🇺","🇩🇪","🇮🇪","🇳🇱","🇫🇷","🇳🇿","🇸🇬","🇲🇾","🇦🇪"].map((f, i) => (
-                    <div key={i} className="aspect-square rounded-lg bg-white border border-sky-100 flex items-center justify-center text-xl shadow-sm">
-                      {f}
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Right: two tool cards */}
-              <div className="space-y-4">
-                <Link href="/visa-coach" className="block group">
-                  <div className="bg-white rounded-2xl border border-sky-100 p-6 shadow-sm hover:shadow-xl hover:border-sky-300 hover:-translate-y-1 transition-all duration-300">
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-500 to-cyan-600 flex items-center justify-center shadow-md flex-shrink-0">
-                        <span className="text-xl">🛂</span>
-                      </div>
-                      <div className="text-right">
-                        <span className="text-2xl font-black text-sky-600">12</span>
-                        <p className="text-[9px] text-gray-400 leading-none">countries</p>
-                      </div>
-                    </div>
-                    <p className="text-[11px] font-bold text-sky-500 uppercase tracking-wider mb-1">Visa Coach</p>
-                    <p className="text-base font-extrabold text-gray-900 mb-2">Country-specific visa playbooks</p>
-                    <p className="text-sm text-gray-500 leading-relaxed mb-3">F-1, UK Student, SDS, AUS 500, Germany D-visa and 7 more. Fees, financial proof, checklists, risk flags — every figure linked to the official government page.</p>
-                    <div className="flex items-center gap-2 p-3 rounded-xl bg-sky-50 border border-sky-100 mb-4">
-                      <span className="text-xs font-bold text-sky-700">Outcome:</span>
-                      <span className="text-xs text-sky-600">A filed-on-time application with minimized rejection chances</span>
-                    </div>
-                    <span className="inline-flex items-center gap-1 text-sm font-bold text-sky-600 group-hover:gap-2 transition-all">Open Visa Coach <ArrowRight className="w-4 h-4" /></span>
-                  </div>
-                </Link>
-
-                <Link href="/application-tracker" className="block group">
-                  <div className="bg-white rounded-2xl border border-sky-100 p-6 shadow-sm hover:shadow-xl hover:border-indigo-300 hover:-translate-y-1 transition-all duration-300">
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center shadow-md flex-shrink-0">
-                        <span className="text-xl">🗂️</span>
-                      </div>
-                      <div className="text-right">
-                        <span className="text-2xl font-black text-indigo-600">4</span>
-                        <p className="text-[9px] text-gray-400 leading-none">columns</p>
-                      </div>
-                    </div>
-                    <p className="text-[11px] font-bold text-indigo-500 uppercase tracking-wider mb-1">Application Tracker</p>
-                    <p className="text-base font-extrabold text-gray-900 mb-2">Kanban board for every application</p>
-                    <p className="text-sm text-gray-500 leading-relaxed mb-3">Shortlisted → In Progress → Submitted → Decision. Per-program checklists, deadline countdowns, and document-version history in one place.</p>
-                    <div className="flex items-center gap-2 p-3 rounded-xl bg-indigo-50 border border-indigo-100 mb-4">
-                      <span className="text-xs font-bold text-indigo-700">Outcome:</span>
-                      <span className="text-xs text-indigo-600">Every deadline met, every version saved</span>
-                    </div>
-                    <span className="inline-flex items-center gap-1 text-sm font-bold text-indigo-600 group-hover:gap-2 transition-all">Open Tracker <ArrowRight className="w-4 h-4" /></span>
-                  </div>
-                </Link>
-              </div>
-            </div>
-          </motion.div>
-
-        </div>
-      </section>
-
-
-      {/* ── Countries ────────────────────────────────────────────── */}
-      <section id="countries" className="py-16 sm:py-24 px-4 sm:px-6 bg-gray-50 overflow-hidden">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-10 sm:mb-14">
-            <span className="inline-flex items-center gap-1.5 text-indigo-600 font-bold text-sm uppercase tracking-widest mb-3">
-              <MapPin className="w-3.5 h-3.5" /> Destinations
-            </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mt-1">
-              {DB_STATS.countriesLabel} countries. {DB_STATS.programsLabel} programs. Endless possibilities.
-            </h2>
-            <p className="text-gray-500 mt-3 text-base max-w-xl mx-auto">
-              Study in the destinations that fit your goals, budget, and visa reality.
-            </p>
-          </div>
-          <div className="overflow-x-auto">
-            <div className="grid grid-cols-6 gap-3 min-w-[480px]">
-              {COUNTRIES.map((c, i) => (
-                <motion.div
-                  key={c.name}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.07 }}
-                  onClick={() => setSelectedCountry(c.name)}
-                  className="group relative rounded-2xl overflow-hidden aspect-[3/4] shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer"
-                >
-                  <img
-                    src={c.img}
-                    alt={c.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-3">
-                    <p className="text-xl mb-0.5">{c.flag}</p>
-                    <p className="text-white font-bold text-sm">{c.name}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Scholarships section ──────────────────────────────────── */}
-      <section id="scholarships" className="py-20 px-4 sm:px-6 bg-white">
-        <div className="max-w-5xl mx-auto">
-          {/* Section heading */}
-          <div className="text-center mb-10">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 text-blue-700 text-sm font-semibold mb-4 border border-blue-100">
-              <Award className="w-3.5 h-3.5" />
-              SCHOLARSHIPS
-            </span>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mt-1">
-              Fund your global education
-            </h2>
-            <p className="text-gray-500 mt-4 max-w-2xl mx-auto text-base leading-relaxed">
-              Thousands of scholarships are available for international students every year — many go unclaimed. Select a destination to explore key scholarships available there.
-            </p>
-            <p className="text-xs text-gray-500 mt-4 max-w-xl mx-auto bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 leading-relaxed">
-              ℹ️ Scholarship rules change by university, intake and applicant profile. Start broad, then shortlist only what you&apos;re eligible for. Always confirm current eligibility, amounts and deadlines from the official university page before applying.
-            </p>
-          </div>
-
-          {/* Country chips with teasers */}
-          {(() => {
-            const teasers: Record<string, string> = {
-              "USA": "Fulbright · RA/TA stipends",
-              "UK": "Chevening · Gates Cambridge",
-              "Australia": "Australia Awards · Destination",
-              "Canada": "Vanier · Ontario Trillium",
-              "Germany": "DAAD · free public unis",
-              "Singapore": "MOE · A*STAR",
-              "New Zealand": "NZ Excellence · NZ Aid",
-              "Ireland": "Govt 60 awards · IRC",
-              "France": "Eiffel Excellence · Erasmus+",
-              "UAE": "NYU Abu Dhabi · Khalifa",
-              "Malaysia": "Govt · Monash VC",
-            };
-            return (
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 mb-8">
-                {SCHOLARSHIPS.map((c) => (
-                  <button
-                    key={c.name}
-                    onClick={() => setSelectedScholarship(selectedScholarship === c.name ? null : c.name)}
-                    className={`text-left p-4 rounded-2xl border transition-all ${
-                      selectedScholarship === c.name
-                        ? "bg-blue-500 text-white border-blue-500 shadow-md"
-                        : "bg-white text-gray-700 border-gray-200 hover:border-blue-300 hover:shadow-md hover:-translate-y-0.5"
-                    }`}
-                  >
-                    <div className="flex items-center gap-2 mb-1.5">
-                      <span className="text-xl">{c.flag}</span>
-                      <span className="font-bold text-sm">{c.name}</span>
-                    </div>
-                    <p className={`text-[10px] leading-snug font-medium ${selectedScholarship === c.name ? "text-indigo-100" : "text-gray-400"}`}>
-                      {teasers[c.name] ?? c.scholarships[0].name}
-                    </p>
-                  </button>
-                ))}
-              </div>
-            );
-          })()}
-
-          {/* Expanded scholarship panel */}
-          {SCHOLARSHIPS.filter(c => c.name === selectedScholarship).map(c => (
-            <motion.div
-              key={c.name}
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.2 }}
-              className="bg-white rounded-2xl border border-gray-200 shadow-[0_10px_30px_rgba(0,0,0,0.05)] p-6"
-            >
-              <div className="flex items-center gap-3 mb-5">
-                <span className="text-3xl">{c.flag}</span>
-                <h3 className="font-extrabold text-gray-900 text-xl">{c.name} — Scholarships</h3>
-              </div>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {c.scholarships.map((s) => (
-                  <li key={s.name} className="flex gap-3 p-3 rounded-xl bg-gray-50 border border-gray-100 hover:-translate-y-0.5 hover:shadow-md hover:border-gray-200 transition-all duration-200">
-                    <span className="mt-1 flex-shrink-0 w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center">
-                      <span className="w-1.5 h-1.5 rounded-full bg-white" />
-                    </span>
-                    <div>
-                      <p className="text-sm font-bold text-gray-900">{s.name}</p>
-                      <p className="text-xs font-semibold text-blue-600 mt-0.5">{s.coverage}</p>
-                      {s.note && <p className="text-xs text-gray-500 mt-0.5">{s.note}</p>}
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
-
-          {!selectedScholarship && (
-            <p className="text-center text-sm text-gray-400">
-              Click a country above to see available scholarships.
-            </p>
-          )}
-
-          <p className="text-center text-xs text-gray-400 mt-6">
-            Scholarship availability and amounts change annually. Always verify directly with the awarding body.
-          </p>
         </div>
       </section>
 
@@ -2272,6 +1421,922 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* ── How recommendations are made ─────────────────────────── */}
+      <section className="py-16 sm:py-20 px-4 sm:px-6 bg-white border-t border-stone-200">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-10">
+            <span className="inline-flex items-center gap-1.5 text-emerald-700 font-bold text-xs uppercase tracking-widest mb-3">
+              <Eye className="w-3 h-3" /> How it works under the hood
+            </span>
+            <h2 className="font-display text-2xl sm:text-3xl font-bold text-gray-900 leading-tight mb-3">
+              How your shortlist is built
+            </h2>
+            <p className="text-gray-500 text-sm max-w-xl mx-auto leading-relaxed">
+              No magic. A clear, repeatable process — same answer for the same profile, every time.
+            </p>
+          </div>
+
+          <ol className="space-y-3">
+            {[
+              { n: "01", t: "We read your profile",        d: "Academic record, test scores, budget, intended field, target countries — what you give us is all we use." },
+              { n: "02", t: "We match against verified data", d: "Every program in your shortlist comes from our 4,400+ verified-at-source database. No catalog scrapes, no recycled lists." },
+              { n: "03", t: "We classify Safe / Reach / Ambitious", d: "Each match gets a transparent fit score across 9 signals — eligibility, ranking, fees, deadlines, language tests, work experience." },
+              { n: "04", t: "We show what influenced the rank", d: "You see why a program was placed where it was — not a black-box number." },
+              { n: "05", t: "We leave missing data blank, not guessed", d: "If the official page doesn't state a fee or deadline, the field stays empty. We never invent values." },
+            ].map((s) => (
+              <li key={s.n} className="flex gap-4 p-4 rounded-xl bg-stone-50 border border-stone-200">
+                <span className="flex-shrink-0 w-10 h-10 rounded-lg bg-emerald-600 text-white font-black text-sm flex items-center justify-center">{s.n}</span>
+                <div>
+                  <h3 className="font-bold text-gray-900 text-sm mb-1">{s.t}</h3>
+                  <p className="text-gray-600 text-xs leading-relaxed">{s.d}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════════
+           HOW IT WORKS: 3 merged steps
+          ══════════════════════════════════════════════════════════ */}
+      <section id="how-it-works" className="py-16 sm:py-28 px-4 sm:px-6 bg-white overflow-hidden">
+        <div className="max-w-6xl mx-auto">
+
+          {/* ── STAGE 1: Match ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="relative rounded-3xl bg-gradient-to-br from-indigo-50 via-white to-violet-50 border border-indigo-100 overflow-hidden p-10 md:p-14 mb-28"
+          >
+            {/* Blobs */}
+            <div className="absolute -top-16 -right-16 w-72 h-72 bg-indigo-200/40 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-16 -left-16 w-64 h-64 bg-violet-200/30 rounded-full blur-3xl pointer-events-none" />
+
+            {/* Stage pill */}
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-500 to-violet-600 text-white text-xs font-black px-5 py-2 rounded-full shadow-lg shadow-indigo-200 mb-8">
+              <span className="w-5 h-5 rounded-full bg-white/30 flex items-center justify-center text-[11px] font-black">1</span>
+              STAGE 1 · MATCH — KNOW YOUR PROFILE
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-14 items-center">
+              {/* Left: copy */}
+              <div>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white text-indigo-600 text-xs font-bold uppercase tracking-wider mb-4 border border-indigo-200">
+                  <BookOpen className="w-3.5 h-3.5" /> Stage 1 · Match
+                </div>
+                <h3 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 leading-tight">
+                  Rate your profile —<br />
+                  <span className="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">get your best-fit shortlist</span>
+                </h3>
+                <p className="text-gray-500 text-base leading-relaxed mb-7">
+                  Tell us your scores, budget, and goals. Our AI matches against {DB_STATS.programsLabel} programs across 12 signals. You get a personalised Top 20 shortlist — Safe, Reach, and Ambitious — in under 2 minutes.
+                </p>
+                {/* Score meter */}
+                <div className="mb-8 p-4 rounded-2xl bg-white border border-indigo-100 shadow-sm">
+                  <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-2.5">Profile strength</p>
+                  <div className="relative h-2.5 rounded-full bg-gradient-to-r from-gray-200 via-indigo-400 via-amber-400 to-rose-500 mb-2">
+                    <div className="absolute right-[4%] top-1/2 -translate-y-1/2 w-3.5 h-3.5 rounded-full bg-white border-2 border-rose-500 shadow-md" />
+                  </div>
+                  <div className="flex justify-between text-[10px] font-semibold text-gray-400">
+                    <span>Competitive</span><span>Strong</span><span>Very Strong</span><span className="text-rose-500 font-bold">Admit Strength</span>
+                  </div>
+                </div>
+                <div className="flex flex-wrap items-center gap-3">
+                  <Link href="/get-started"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gray-900 text-white text-sm font-bold hover:bg-indigo-600 transition-colors">
+                    Rate your profile now <ChevronRight className="w-4 h-4" />
+                  </Link>
+                  <Link href="/get-started"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-500 to-violet-600 text-white text-sm font-bold shadow-lg shadow-indigo-200 hover:shadow-indigo-300 hover:brightness-110 transition-all">
+                    Get my customised Shortlist <ChevronRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              </div>
+
+              {/* Right: product mockup — shortlist results */}
+              <div className="relative">
+                <div className="rounded-3xl overflow-hidden shadow-2xl bg-white border border-indigo-100 p-6">
+                  {/* Header */}
+                  <div className="flex items-center gap-3 mb-4 pb-3 border-b border-gray-100">
+                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center flex-shrink-0">
+                      <Target className="w-4 h-4 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-xs font-black text-gray-900 uppercase tracking-wider">Your Top 20 Shortlist</p>
+                      <p className="text-[10px] text-gray-400">Sample output · 12 signals matched</p>
+                    </div>
+                    <span className="text-[10px] font-bold px-2 py-1 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-100 flex-shrink-0">AI Match</span>
+                  </div>
+                  {/* University rows */}
+                  {[
+                    { name: "Univ. of Leeds", program: "MSc AI & Data Science", score: 91, tier: "Safe", flag: "🇬🇧", tc: "text-emerald-700", bc: "bg-emerald-50", bar: "from-emerald-400 to-teal-400" },
+                    { name: "Univ. of Edinburgh", program: "MSc Computer Science", score: 76, tier: "Reach", flag: "🏴󠁧󠁢󠁳󠁣󠁴󠁿", tc: "text-amber-700", bc: "bg-amber-50", bar: "from-amber-400 to-orange-400" },
+                    { name: "Imperial College", program: "MSc Machine Learning", score: 63, tier: "Ambitious", flag: "🇬🇧", tc: "text-indigo-700", bc: "bg-indigo-50", bar: "from-indigo-400 to-violet-400" },
+                    { name: "TU Munich", program: "MSc Informatics", score: 79, tier: "Reach", flag: "🇩🇪", tc: "text-amber-700", bc: "bg-amber-50", bar: "from-amber-400 to-orange-400" },
+                    { name: "Univ. of Toronto", program: "MEng Computer Science", score: 88, tier: "Safe", flag: "🇨🇦", tc: "text-emerald-700", bc: "bg-emerald-50", bar: "from-emerald-400 to-teal-400" },
+                  ].map((r) => (
+                    <div key={r.name} className="flex items-center gap-3 py-2.5 border-b border-gray-50 last:border-0">
+                      <div className="w-8 h-8 rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center text-base flex-shrink-0">{r.flag}</div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-xs font-bold text-gray-900 truncate">{r.name}</p>
+                        <p className="text-[10px] text-gray-400 truncate">{r.program}</p>
+                        <div className="flex items-center gap-2 mt-1">
+                          <div className="flex-1 h-1 rounded-full bg-gray-100 overflow-hidden">
+                            <div className={`h-full rounded-full bg-gradient-to-r ${r.bar}`} style={{width: `${r.score}%`}} />
+                          </div>
+                          <span className="text-[10px] font-black text-gray-600">{r.score}%</span>
+                        </div>
+                      </div>
+                      <span className={`text-[9px] font-bold px-2 py-0.5 rounded-full ${r.bc} ${r.tc} flex-shrink-0`}>{r.tier}</span>
+                    </div>
+                  ))}
+                  <div className="mt-3 pt-3 border-t border-gray-100 flex items-center justify-between">
+                    <span className="text-[10px] text-gray-400">Showing 5 of 20 matches</span>
+                    <span className="text-[10px] font-bold text-indigo-600 flex items-center gap-1">View all <ChevronRight className="w-3 h-3" /></span>
+                  </div>
+                </div>
+                {/* Corner graduate photo */}
+                <div className="absolute -bottom-8 -right-6 w-44 h-44 rounded-2xl overflow-hidden shadow-xl border-4 border-white">
+                  <img src="/graduate-india.jpg"
+                    alt="Indian graduate" className="w-full h-full object-cover object-top" />
+                </div>
+                {/* Floating shortlist mockup */}
+                <div className="absolute top-4 -left-4 bg-white rounded-2xl shadow-xl border border-gray-100 p-3 w-52">
+                  <p className="text-[9px] font-black text-gray-400 uppercase tracking-widest mb-2">Your Top 3 Matches</p>
+                  {[
+                    { name: "Univ. of Leeds", program: "MSc AI", score: "91%", tier: "Safe", tc: "text-emerald-600", bc: "bg-emerald-50" },
+                    { name: "Univ. of Edinburgh", program: "MSc CS", score: "76%", tier: "Reach", tc: "text-amber-600", bc: "bg-amber-50" },
+                    { name: "Imperial College", program: "MSc CS", score: "63%", tier: "Ambitious", bc: "bg-indigo-50", tc: "text-indigo-600" },
+                  ].map((r) => (
+                    <div key={r.name} className="flex items-center justify-between py-1 border-b border-gray-50 last:border-0">
+                      <div>
+                        <p className="text-[10px] font-bold text-gray-800 leading-none">{r.name}</p>
+                        <p className="text-[9px] text-gray-400">{r.program}</p>
+                      </div>
+                      <div className="flex items-center gap-1.5 flex-shrink-0">
+                        <span className="text-[10px] font-black text-gray-700">{r.score}</span>
+                        <span className={`text-[8px] font-bold px-1.5 py-0.5 rounded-full ${r.bc} ${r.tc}`}>{r.tier}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* ── Stage separator 1 → 2 ── */}
+          <div className="flex items-center gap-5 mb-16 -mt-12">
+            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-indigo-200 to-indigo-300/60" />
+            <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 border border-indigo-200 shadow-sm">
+              <span className="w-4 h-4 rounded-full bg-gradient-to-br from-fuchsia-500 to-pink-500 flex items-center justify-center text-white text-[9px] font-black">2</span>
+              <span className="text-[10px] font-bold text-indigo-500 uppercase tracking-widest">Check &amp; Strengthen</span>
+            </div>
+            <div className="flex-1 h-px bg-gradient-to-l from-transparent via-indigo-200 to-indigo-300/60" />
+          </div>
+
+          {/* ── STEP 2: Matching Engine ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="relative rounded-3xl bg-gradient-to-br from-indigo-950 via-violet-900 to-slate-900 text-white overflow-hidden mb-28 p-10 md:p-14"
+          >
+            {/* Blobs */}
+            <div className="absolute top-0 right-0 w-80 h-80 bg-violet-500/20 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-400/15 rounded-full blur-3xl pointer-events-none" />
+
+            {/* Step pill */}
+            <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white text-xs font-black px-5 py-2 rounded-full mb-8">
+              <span className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-[11px] font-black">2</span>
+              STAGE 2 · CHECK — STRENGTHEN YOUR APPLICATION
+            </div>
+
+            <div className="relative grid md:grid-cols-2 gap-12 items-center">
+              {/* Left: copy */}
+              <div>
+                <div className="flex items-center gap-2 mb-4">
+                  <Sparkles className="w-4 h-4 text-indigo-300" />
+                  <span className="text-indigo-300 text-xs font-bold uppercase tracking-widest">Build a credible application</span>
+                </div>
+                <h3 className="text-3xl md:text-4xl font-extrabold mb-5 leading-tight">
+                  You have your shortlist.<br />
+                  <span className="text-indigo-400">Now make sure you get in.</span>
+                </h3>
+                <p className="text-slate-300 text-base leading-relaxed mb-6">
+                  Three tools to strengthen your application before you submit. Write a cliché-free SOP, score and rebuild your CV across 6 dimensions, or run a full Pack Check — SOP, CV, profile, and recommendation letters — for credibility gaps and red flags.
+                </p>
+                <div className="flex flex-wrap gap-4 mb-8">
+                  {[
+                    { val: "7", label: "SOP dimensions scored" },
+                    { val: "6", label: "CV dimensions scored" },
+                    { val: "Free", label: "always" },
+                  ].map((s) => (
+                    <div key={s.label} className="text-center">
+                      <p className="text-2xl font-black text-white">{s.val}</p>
+                      <p className="text-[11px] text-slate-400 uppercase tracking-wider">{s.label}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="flex flex-wrap gap-3">
+                  <Link href="/sop-assistant"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white text-indigo-700 text-sm font-bold hover:bg-indigo-50 transition-colors shadow-lg">
+                    Write my SOP <ArrowRight className="w-4 h-4" />
+                  </Link>
+                  <Link href="/application-check"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/10 border border-white/20 text-white text-sm font-bold hover:bg-white/20 transition-colors">
+                    Check my application
+                  </Link>
+                </div>
+              </div>
+
+              {/* Right: tool cards */}
+              <div className="space-y-3">
+                {/* Application Pack Check — hero card */}
+                <Link href="/application-check"
+                  className="relative flex items-start gap-4 p-5 rounded-2xl border border-indigo-400/40 bg-gradient-to-br from-indigo-500/20 to-purple-500/10 hover:border-indigo-400/70 hover:scale-[1.02] transition-all cursor-pointer block ring-1 ring-indigo-400/20"
+                >
+                  <div className="absolute top-0 right-0 bg-gradient-to-l from-indigo-500 to-purple-600 text-white text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-bl-xl rounded-tr-2xl">
+                    ★ Most valuable before you apply
+                  </div>
+                  <span className="text-2xl flex-shrink-0 mt-0.5">📋</span>
+                  <div>
+                    <p className="text-sm font-extrabold text-white mb-0.5 mt-0.5">Application Pack Check</p>
+                    <p className="text-xs text-slate-300 leading-snug mb-1.5">Paste your SOP, CV, profile &amp; recommendation letters. Spot contradictions, credibility gaps, and exactly what an officer would question — plus an LOR Coach link to send recommenders. With a fix list.</p>
+                    <span className="text-[10px] font-bold text-indigo-300 uppercase tracking-wider">Readiness score + fix list</span>
+                  </div>
+                </Link>
+                {/* SOP + CV cards */}
+                {[
+                  {
+                    icon: "✍️",
+                    title: "AI SOP Assistant",
+                    desc: "Write a compelling SOP from your story — scored across 7 dimensions from Reject Risk to Top Tier.",
+                    badge: "7 dimensions · instant score",
+                    bg: "bg-violet-500/10 border-violet-500/20",
+                    href: "/sop-assistant",
+                  },
+                  {
+                    icon: "📄",
+                    title: "CV Assessment & Builder",
+                    desc: "Score your CV across 6 admission dimensions, then generate a tailored admission-ready version in minutes.",
+                    badge: "Score /10 · 6 dimensions · CV generated",
+                    bg: "bg-pink-500/10 border-pink-500/20",
+                    href: "/application-check",
+                  },
+                ].map((tool) => (
+                  <Link href={tool.href} key={tool.title}
+                    className={`flex items-start gap-4 p-4 rounded-2xl border ${tool.bg} hover:scale-[1.02] transition-transform cursor-pointer block`}
+                  >
+                    <span className="text-2xl flex-shrink-0">{tool.icon}</span>
+                    <div>
+                      <p className="text-sm font-extrabold text-white mb-0.5">{tool.title}</p>
+                      <p className="text-xs text-slate-300 leading-snug mb-1.5">{tool.desc}</p>
+                      <span className="text-[10px] font-bold text-indigo-300 uppercase tracking-wider">{tool.badge}</span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+
+          {/* ── Stage separator 2 → 3 ── */}
+          <div className="flex items-center gap-5 mb-16 -mt-12">
+            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-teal-200 to-teal-300/60" />
+            <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-teal-50 border border-teal-200 shadow-sm">
+              <span className="w-4 h-4 rounded-full bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center text-white text-[9px] font-black">3</span>
+              <span className="text-[10px] font-bold text-teal-600 uppercase tracking-widest">Practice &amp; Prepare</span>
+            </div>
+            <div className="flex-1 h-px bg-gradient-to-l from-transparent via-teal-200 to-teal-300/60" />
+          </div>
+
+          {/* ── STAGE 3: Practice ──────────────────────────────────── */}
+          <motion.div
+            id="practice"
+            initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="relative rounded-3xl bg-gradient-to-br from-teal-950 via-emerald-950 to-slate-900 border border-teal-900/50 overflow-hidden p-10 md:p-14 mb-10"
+          >
+            {/* Ambient glows */}
+            <div className="absolute -top-32 -left-32 w-96 h-96 bg-teal-400/15 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-32 -right-32 w-80 h-80 bg-emerald-400/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-teal-500/8 rounded-full blur-3xl pointer-events-none" />
+
+            {/* Stage pill */}
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-teal-500 text-white text-xs font-black px-5 py-2 rounded-full shadow-lg shadow-emerald-900/50 mb-8">
+              <span className="w-5 h-5 rounded-full bg-white/25 flex items-center justify-center text-[11px] font-black">3</span>
+              STAGE 3 · PRACTICE — PREPARE FOR WHAT&apos;S COMING
+            </div>
+
+            {/* Headline */}
+            <h3 className="text-3xl md:text-5xl font-extrabold text-white mb-4 leading-tight">
+              Practice until<br />
+              <span className="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">nothing surprises you.</span>
+            </h3>
+            <p className="text-white/50 text-base leading-relaxed mb-14 max-w-2xl">
+              Two tracks, one goal: walk into your visa interview and English proficiency test already knowing your weak spots — and having fixed them.
+            </p>
+
+            {/* ─── Track A: English Test Lab ─── */}
+            <div className="mb-14">
+              <div className="flex items-start justify-between gap-4 mb-2 flex-wrap">
+                <div className="flex items-center gap-3">
+                  <div className="flex items-center justify-center w-8 h-8 rounded-xl bg-teal-500/20 border border-teal-500/30 flex-shrink-0">
+                    <BookOpen className="w-4 h-4 text-teal-400" />
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-black text-teal-400 uppercase tracking-widest">Track A · Test Prep</p>
+                    <h4 className="text-lg font-extrabold text-white leading-tight">English Test Lab</h4>
+                  </div>
+                </div>
+                <Link href="/english-test-lab" className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-teal-500/20 border border-teal-500/30 text-teal-300 text-xs font-bold hover:bg-teal-500/30 transition-colors">
+                  See all tests <ArrowRight className="w-3 h-3" />
+                </Link>
+              </div>
+              <p className="text-white/75 text-sm mb-7 pl-11">
+                Full-length mocks for all four major English proficiency exams — AI-scored, exam-style practice based on published test structures, with instant results and detailed feedback.
+              </p>
+
+              <div className="grid sm:grid-cols-4 gap-3">
+
+                {/* IELTS */}
+                <Link href="/english-test-lab/ielts" className="group relative rounded-2xl bg-black/20 border border-white/25 p-5 flex flex-col hover:bg-black/30 hover:border-violet-400/50 hover:shadow-xl hover:shadow-violet-900/20 hover:-translate-y-1 transition-all duration-300">
+                  <span className="text-2xl mb-3">🎓</span>
+                  <p className="text-[10px] font-black text-violet-300 uppercase tracking-wider mb-0.5">IELTS-style</p>
+                  <p className="text-sm font-extrabold text-white mb-1">IELTS Academic</p>
+                  <p className="text-xs text-white/80 mb-1">Bands 0–9</p>
+                  <p className="text-[10px] text-white/65 mb-auto">4 sections · 3 mocks</p>
+                  <div className="mt-3 pt-3 border-t border-white/20 flex items-center justify-between">
+                    <span className="text-[10px] text-white/75 font-semibold">Start mock</span>
+                    <ChevronRight className="w-3.5 h-3.5 text-violet-300 group-hover:translate-x-0.5 transition-transform" />
+                  </div>
+                </Link>
+
+                {/* PTE */}
+                <Link href="/english-test-lab/pte" className="group relative rounded-2xl bg-black/20 border border-white/25 p-5 flex flex-col hover:bg-black/30 hover:border-indigo-400/50 hover:shadow-xl hover:shadow-indigo-900/20 hover:-translate-y-1 transition-all duration-300">
+                  <span className="text-2xl mb-3">📝</span>
+                  <p className="text-[10px] font-black text-indigo-300 uppercase tracking-wider mb-0.5">PTE-style</p>
+                  <p className="text-sm font-extrabold text-white mb-1">PTE Academic</p>
+                  <p className="text-xs text-white/80 mb-1">Score 0–90</p>
+                  <p className="text-[10px] text-white/65 mb-auto">7 task types · 3 mocks</p>
+                  <div className="mt-3 pt-3 border-t border-white/20 flex items-center justify-between">
+                    <span className="text-[10px] text-white/75 font-semibold">Start mock</span>
+                    <ChevronRight className="w-3.5 h-3.5 text-indigo-300 group-hover:translate-x-0.5 transition-transform" />
+                  </div>
+                </Link>
+
+                {/* DET */}
+                <Link href="/english-test-lab/det" className="group relative rounded-2xl bg-black/20 border border-white/25 p-5 flex flex-col hover:bg-black/30 hover:border-teal-400/50 hover:shadow-xl hover:shadow-teal-900/20 hover:-translate-y-1 transition-all duration-300">
+                  <span className="text-2xl mb-3">🦆</span>
+                  <p className="text-[10px] font-black text-teal-300 uppercase tracking-wider mb-0.5">DET-style</p>
+                  <p className="text-sm font-extrabold text-white mb-1">Duolingo English Test</p>
+                  <p className="text-xs text-white/80 mb-1">Score 10–160</p>
+                  <p className="text-[10px] text-white/65 mb-auto">6 task types · 3 mocks</p>
+                  <div className="mt-3 pt-3 border-t border-white/20 flex items-center justify-between">
+                    <span className="text-[10px] text-white/75 font-semibold">Start mock</span>
+                    <ChevronRight className="w-3.5 h-3.5 text-teal-300 group-hover:translate-x-0.5 transition-transform" />
+                  </div>
+                </Link>
+
+                {/* TOEFL */}
+                <Link href="/english-test-lab/toefl" className="group relative rounded-2xl bg-black/20 border border-white/25 p-5 flex flex-col hover:bg-black/30 hover:border-sky-400/50 hover:shadow-xl hover:shadow-sky-900/20 hover:-translate-y-1 transition-all duration-300">
+                  <span className="text-2xl mb-3">🏛️</span>
+                  <p className="text-[10px] font-black text-sky-300 uppercase tracking-wider mb-0.5">TOEFL-style</p>
+                  <p className="text-sm font-extrabold text-white mb-1">TOEFL iBT</p>
+                  <p className="text-xs text-white/80 mb-1">Score 0–120</p>
+                  <p className="text-[10px] text-white/65 mb-auto">4 sections · 3 mocks</p>
+                  <div className="mt-3 pt-3 border-t border-white/20 flex items-center justify-between">
+                    <span className="text-[10px] text-white/75 font-semibold">Start mock</span>
+                    <ChevronRight className="w-3.5 h-3.5 text-sky-300 group-hover:translate-x-0.5 transition-transform" />
+                  </div>
+                </Link>
+
+              </div>
+
+              {/* Proof chips */}
+              <div className="flex flex-wrap gap-2 mt-6">
+                {[
+                  { icon: "🎯", text: "Exam-style questions" },
+                  { icon: "🤖", text: "AI-scored writing & speaking" },
+                  { icon: "⏱️", text: "Real exam timings" },
+                  { icon: "📊", text: "Detailed score breakdown" },
+                  { icon: "🆓", text: "Completely free" },
+                ].map((c) => (
+                  <span key={c.text} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/20 border border-white/25 text-white/85 text-[11px] font-semibold">
+                    {c.icon} {c.text}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Divider */}
+            <div className="flex items-center gap-4 mb-14">
+              <div className="flex-1 h-px bg-white/10" />
+              <span className="text-white/60 text-[11px] font-black uppercase tracking-widest px-3">Also in Stage 3</span>
+              <div className="flex-1 h-px bg-white/10" />
+            </div>
+
+            {/* ─── Track B: AI Interview Coach ─── */}
+            <div>
+              <div className="flex items-center gap-3 mb-2">
+                <div className="flex items-center justify-center w-8 h-8 rounded-xl bg-emerald-500/20 border border-emerald-500/30 flex-shrink-0">
+                  <Mic className="w-4 h-4 text-emerald-400" />
+                </div>
+                <div>
+                  <p className="text-[10px] font-black text-emerald-400 uppercase tracking-widest">Track B · Interview Prep</p>
+                  <h4 className="text-lg font-extrabold text-white leading-tight">AI Interview Coach</h4>
+                </div>
+              </div>
+              <p className="text-white/40 text-sm mb-6 pl-11">Voice &amp; text mock interviews. AI flags your weak answers and helps you improve them in your own words — before the real thing.</p>
+
+              <div className="grid sm:grid-cols-3 gap-4">
+
+                {/* Australia */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }}
+                  className="group relative bg-white/8 border border-white/15 rounded-2xl p-6 flex flex-col hover:bg-white/12 hover:border-sky-500/40 hover:shadow-xl hover:shadow-sky-900/30 transition-all duration-300"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-sky-400 to-blue-600 flex items-center justify-center shadow-lg shadow-sky-900/40 text-xl flex-shrink-0">🇦🇺</div>
+                    <div>
+                      <p className="text-[10px] font-bold text-sky-400 uppercase tracking-wider">Australia</p>
+                      <h5 className="text-sm font-extrabold text-white leading-tight">GS Interview Coach</h5>
+                    </div>
+                  </div>
+                  <p className="text-xs text-white/45 leading-relaxed mb-4 flex-1">19 Genuine Student questions. AI identifies which answers raise doubts and helps you strengthen them in your own words.</p>
+                  <div className="flex flex-wrap gap-1.5 mb-4">
+                    {["19 Q", "Flags doubts", "Fixes reasoning"].map((t) => (
+                      <span key={t} className="px-2 py-0.5 rounded-full bg-sky-500/20 border border-sky-500/30 text-sky-300 text-[10px] font-semibold">{t}</span>
+                    ))}
+                  </div>
+                  <div className="flex gap-2">
+                    <Link href="/interview-prep?country=australia&mode=text" className="flex-1 inline-flex items-center justify-center gap-1 px-3 py-2 rounded-lg bg-sky-500/20 border border-sky-500/30 text-sky-300 text-xs font-bold hover:bg-sky-500/30 transition-colors">✍️ Text</Link>
+                    <Link href="/interview-prep?country=australia" className="flex-1 inline-flex items-center justify-center gap-1 px-3 py-2 rounded-lg bg-white/10 border border-white/20 text-white/60 text-xs font-bold hover:bg-white/20 transition-colors">🎙️ Voice</Link>
+                  </div>
+                </motion.div>
+
+                {/* UK */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: 0.1 }}
+                  className="group relative bg-white/8 border border-white/15 rounded-2xl p-6 flex flex-col hover:bg-white/12 hover:border-rose-500/40 hover:shadow-xl hover:shadow-rose-900/30 transition-all duration-300"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-rose-500 to-red-600 flex items-center justify-center shadow-lg shadow-rose-900/40 text-xl flex-shrink-0">🇬🇧</div>
+                    <div>
+                      <p className="text-[10px] font-bold text-rose-400 uppercase tracking-wider">United Kingdom</p>
+                      <h5 className="text-sm font-extrabold text-white leading-tight">Credibility Interview Coach</h5>
+                    </div>
+                  </div>
+                  <p className="text-xs text-white/45 leading-relaxed mb-4 flex-1">14 credibility questions. AI flags answers that raise doubts and shows you how to sound convincing before it matters.</p>
+                  <div className="flex flex-wrap gap-1.5 mb-4">
+                    {["14 Q", "Credibility gaps", "Story fix"].map((t) => (
+                      <span key={t} className="px-2 py-0.5 rounded-full bg-rose-500/20 border border-rose-500/30 text-rose-300 text-[10px] font-semibold">{t}</span>
+                    ))}
+                  </div>
+                  <div className="flex gap-2">
+                    <Link href="/interview-prep?country=uk&mode=text" className="flex-1 inline-flex items-center justify-center gap-1 px-3 py-2 rounded-lg bg-rose-500/20 border border-rose-500/30 text-rose-300 text-xs font-bold hover:bg-rose-500/30 transition-colors">✍️ Text</Link>
+                    <Link href="/interview-prep?country=uk" className="flex-1 inline-flex items-center justify-center gap-1 px-3 py-2 rounded-lg bg-white/10 border border-white/20 text-white/60 text-xs font-bold hover:bg-white/20 transition-colors">🎙️ Voice</Link>
+                  </div>
+                </motion.div>
+
+                {/* USA */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: 0.2 }}
+                  className="group relative bg-white/8 border border-white/15 rounded-2xl p-6 flex flex-col hover:bg-white/12 hover:border-blue-500/40 hover:shadow-xl hover:shadow-blue-900/30 transition-all duration-300"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-11 h-11 rounded-xl bg-gradient-to-r from-blue-600 to-red-600 flex items-center justify-center shadow-lg shadow-blue-900/40 text-xl flex-shrink-0">🇺🇸</div>
+                    <div>
+                      <p className="text-[10px] font-bold text-blue-400 uppercase tracking-wider">United States</p>
+                      <h5 className="text-sm font-extrabold text-white leading-tight">F-1 Visa Interview Coach</h5>
+                    </div>
+                  </div>
+                  <p className="text-xs text-white/45 leading-relaxed mb-4 flex-1">60+ F-1 consulate questions across 12 sections. AI reveals where the officer would doubt your intent and shows you exactly how to fix it.</p>
+                  <div className="flex flex-wrap gap-1.5 mb-4">
+                    {["60+ Q", "12 sections", "Intent clarity"].map((t) => (
+                      <span key={t} className="px-2 py-0.5 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-300 text-[10px] font-semibold">{t}</span>
+                    ))}
+                  </div>
+                  <div className="flex gap-2">
+                    <Link href="/interview-prep?country=usa&mode=text" className="flex-1 inline-flex items-center justify-center gap-1 px-3 py-2 rounded-lg bg-blue-500/20 border border-blue-500/30 text-blue-300 text-xs font-bold hover:bg-blue-500/30 transition-colors">✍️ Text</Link>
+                    <Link href="/interview-prep?country=usa" className="flex-1 inline-flex items-center justify-center gap-1 px-3 py-2 rounded-lg bg-white/10 border border-white/20 text-white/60 text-xs font-bold hover:bg-white/20 transition-colors">🎙️ Voice</Link>
+                  </div>
+                </motion.div>
+
+              </div>
+            </div>
+
+          </motion.div>
+
+          {/* ── Stage separator 3 → 4 ── */}
+          <div className="flex items-center gap-5 mb-16 mt-4">
+            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-amber-200 to-amber-300/60" />
+            <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 border border-amber-200 shadow-sm">
+              <span className="w-4 h-4 rounded-full bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center text-white text-[9px] font-black">4</span>
+              <span className="text-[10px] font-bold text-amber-600 uppercase tracking-widest">Decide with Data</span>
+            </div>
+            <div className="flex-1 h-px bg-gradient-to-l from-transparent via-amber-200 to-amber-300/60" />
+          </div>
+
+          {/* ── STAGE 4: Decide ── */}
+          <motion.div
+            id="tools"
+            initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="relative rounded-3xl bg-gradient-to-br from-amber-50 via-white to-orange-50 border border-amber-100 overflow-hidden p-10 md:p-14"
+          >
+            <div className="absolute -top-16 -right-16 w-64 h-64 bg-amber-200/30 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-16 -left-16 w-64 h-64 bg-orange-200/30 rounded-full blur-3xl pointer-events-none" />
+
+            {/* Step pill */}
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs font-black px-5 py-2 rounded-full shadow-lg shadow-amber-200 mb-8">
+              <span className="w-5 h-5 rounded-full bg-white/30 flex items-center justify-center text-[11px] font-black">4</span>
+              STAGE 4 · DECIDE — MAKE THE FINAL CALL WITH DATA
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-14 items-start">
+              {/* Left: copy */}
+              <div>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 text-amber-600 text-xs font-bold uppercase tracking-wider mb-4 border border-amber-200">
+                  <TrendingUp className="w-3.5 h-3.5" /> Stage 4 · Decide
+                </div>
+                <h3 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 leading-tight">
+                  Decide with your family,<br />
+                  <span className="bg-gradient-to-r from-amber-600 to-orange-500 bg-clip-text text-transparent">not in confusion.</span>
+                </h3>
+                <p className="text-gray-500 text-base leading-relaxed mb-6">
+                  Compare offers using cost, ROI, safety, job-market outlook, scholarship fit and long-term value. Generate a parent-ready decision report that makes the final choice easier to discuss.
+                </p>
+                <div className="flex flex-wrap gap-2.5 mb-6">
+                  {[
+                    { icon: "📊", text: "Real payback period" },
+                    { icon: "💰", text: "10-year ROI" },
+                    { icon: "👨‍👩‍👧", text: "Parent-ready verdict" },
+                    { icon: "↔", text: "Side-by-side compare" },
+                    { icon: "🆓", text: "100% free" },
+                  ].map((f) => (
+                    <div key={f.text} className="flex items-center gap-2 bg-white border border-gray-200 rounded-full px-4 py-2 text-sm text-gray-700 font-semibold shadow-sm">
+                      <span>{f.icon}</span>{f.text}
+                    </div>
+                  ))}
+                </div>
+
+                {/* Program Comparison Tool */}
+                <Link href="/get-started" className="block group">
+                  <div className="bg-white rounded-2xl border border-violet-100 p-5 shadow-sm hover:shadow-lg hover:border-violet-300 hover:-translate-y-1 transition-all duration-300">
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center shadow-md flex-shrink-0">
+                        <BarChart2 className="w-4 h-4 text-white" />
+                      </div>
+                      <div className="text-right">
+                        <span className="text-2xl font-black text-violet-600">5</span>
+                        <p className="text-[9px] text-gray-400 leading-none">offers</p>
+                      </div>
+                    </div>
+                    <p className="text-[11px] font-bold text-violet-500 uppercase tracking-wider mb-0.5">Compare Tool</p>
+                    <p className="text-sm font-extrabold text-gray-900 mb-2">Compare 5 offers side by side</p>
+                    <p className="text-xs text-gray-500 leading-relaxed mb-3">Tuition · salary · payback · safety · PSW visa — all in one table.</p>
+                    <div className="flex items-center gap-2 p-2.5 rounded-xl bg-violet-50 border border-violet-100 mb-3">
+                      <span className="text-[10px] font-bold text-violet-700">Outcome:</span>
+                      <span className="text-[10px] text-violet-600">Best-value offer, ranked</span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-1.5 text-[11px] text-gray-400">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0" />
+                        Built into your shortlist
+                      </div>
+                      <span className="text-xs font-bold text-violet-600 group-hover:gap-2 transition-all inline-flex items-center gap-1">Get Shortlist <ArrowRight className="w-3 h-3" /></span>
+                    </div>
+                  </div>
+                </Link>
+              </div>
+
+              {/* Right: two tool cards */}
+              <div className="space-y-4">
+                <Link href="/roi-calculator" className="block group">
+                  <div className="bg-white rounded-2xl border border-amber-100 p-6 shadow-sm hover:shadow-xl hover:border-amber-300 hover:-translate-y-1 transition-all duration-300">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-md flex-shrink-0">
+                        <TrendingUp className="w-5 h-5 text-white" />
+                      </div>
+                      <div className="text-right">
+                        <span className="text-2xl font-black text-indigo-600">30s</span>
+                        <p className="text-[9px] text-gray-400 leading-none">to results</p>
+                      </div>
+                    </div>
+                    <p className="text-[11px] font-bold text-indigo-500 uppercase tracking-wider mb-1">ROI Calculator</p>
+                    <p className="text-base font-extrabold text-gray-900 mb-2">See payback period in 30 seconds</p>
+                    <p className="text-sm text-gray-500 leading-relaxed mb-3">Auto-fills tuition, living costs and salary data. Instant payback period, 10-year ROI and break-even salary.</p>
+                    <div className="flex items-center gap-2 p-3 rounded-xl bg-indigo-50 border border-indigo-100 mb-4">
+                      <span className="text-xs font-bold text-indigo-700">Outcome:</span>
+                      <span className="text-xs text-indigo-600">Payback period · 10-yr ROI · break-even salary</span>
+                    </div>
+                    <span className="inline-flex items-center gap-1 text-sm font-bold text-indigo-600 group-hover:gap-2 transition-all">Open Calculator <ArrowRight className="w-4 h-4" /></span>
+                  </div>
+                </Link>
+
+                <Link href="/parent-decision" className="block group">
+                  <div className="bg-white rounded-2xl border border-amber-100 p-6 shadow-sm hover:shadow-xl hover:border-amber-300 hover:-translate-y-1 transition-all duration-300">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center shadow-md flex-shrink-0">
+                        <Users className="w-5 h-5 text-white" />
+                      </div>
+                      <div className="text-right">
+                        <span className="text-2xl font-black text-purple-600">7</span>
+                        <p className="text-[9px] text-gray-400 leading-none">factors</p>
+                      </div>
+                    </div>
+                    <p className="text-[11px] font-bold text-purple-500 uppercase tracking-wider mb-1">Parent Decision Tool</p>
+                    <p className="text-base font-extrabold text-gray-900 mb-2">Get a verdict parents understand</p>
+                    <p className="text-sm text-gray-500 leading-relaxed mb-3">Data-driven ✓/✗ across budget fit, safety, job market, ROI and more. Built for family conversations.</p>
+                    <div className="flex items-center gap-2 p-3 rounded-xl bg-purple-50 border border-purple-100 mb-4">
+                      <span className="text-xs font-bold text-purple-700">Outcome:</span>
+                      <span className="text-xs text-purple-600">Clear verdict + printable family report</span>
+                    </div>
+                    <span className="inline-flex items-center gap-1 text-sm font-bold text-purple-600 group-hover:gap-2 transition-all">Open Tool <ArrowRight className="w-4 h-4" /></span>
+                  </div>
+                </Link>
+
+              </div>
+            </div>
+
+            {/* ── Decide-stage dual CTAs (student-led + parent-led) ── */}
+            <div className="mt-10 pt-8 border-t border-amber-100 flex flex-col sm:flex-row gap-3 justify-center">
+              <Link
+                href="/get-started"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-amber-500 hover:bg-amber-600 text-white text-sm font-bold transition-colors shadow-md"
+              >
+                Compare my offers
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link
+                href="/parent-decision"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-amber-300 text-amber-700 hover:bg-amber-50 text-sm font-bold transition-colors"
+              >
+                <Users className="w-4 h-4" />
+                Create family decision report
+              </Link>
+            </div>
+          </motion.div>
+
+          {/* ── Stage divider ── */}
+          <div className="flex items-center gap-4 my-16">
+            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-sky-200 to-sky-300/60" />
+            <div className="flex items-center gap-2 text-sky-500 text-xs font-bold uppercase tracking-widest">
+              <span className="w-6 h-6 rounded-full bg-sky-100 text-sky-700 flex items-center justify-center text-[11px] font-black">5</span>
+              Then → Stage 5
+            </div>
+            <div className="flex-1 h-px bg-gradient-to-l from-transparent via-sky-200 to-sky-300/60" />
+          </div>
+
+          {/* ── STAGE 5: Apply (Visa) ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="relative rounded-3xl bg-gradient-to-br from-sky-50 via-white to-cyan-50 border border-sky-100 overflow-hidden p-10 md:p-14"
+          >
+            <div className="absolute -top-16 -right-16 w-64 h-64 bg-sky-200/30 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-16 -left-16 w-64 h-64 bg-cyan-200/30 rounded-full blur-3xl pointer-events-none" />
+
+            {/* Step pill */}
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-sky-500 to-cyan-500 text-white text-xs font-black px-5 py-2 rounded-full shadow-lg shadow-sky-200 mb-8">
+              <span className="w-5 h-5 rounded-full bg-white/30 flex items-center justify-center text-[11px] font-black">5</span>
+              STAGE 5 · APPLY — GET THE VISA RIGHT THE FIRST TIME
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-14 items-start">
+              {/* Left: copy */}
+              <div>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-50 text-sky-600 text-xs font-bold uppercase tracking-wider mb-4 border border-sky-200">
+                  <span>🛂</span> Stage 5 · Apply
+                </div>
+                <h3 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 leading-tight">
+                  Accepted. Now the visa.<br />
+                  <span className="bg-gradient-to-r from-sky-600 to-cyan-500 bg-clip-text text-transparent">Get visa-ready with clarity.</span>
+                </h3>
+                <p className="text-gray-500 text-base leading-relaxed mb-6">
+                  Use country-specific checklists, financial-proof guidance, risk flags and deadline tracking to prepare more carefully. Final decisions rest with the consular officer; we help you walk in well-prepared.
+                </p>
+                <div className="flex flex-wrap gap-2.5 mb-6">
+                  {[
+                    { icon: "🛂", text: "12 countries covered" },
+                    { icon: "📄", text: "Official-source checklists" },
+                    { icon: "⚠️", text: "Risk flags" },
+                    { icon: "⏱", text: "Deadline countdowns" },
+                    { icon: "🔗", text: "Direct apply links" },
+                  ].map((f) => (
+                    <div key={f.text} className="flex items-center gap-2 bg-white border border-gray-200 rounded-full px-4 py-2 text-sm text-gray-700 font-semibold shadow-sm">
+                      <span>{f.icon}</span>{f.text}
+                    </div>
+                  ))}
+                </div>
+
+                {/* Country flag chips */}
+                <div className="grid grid-cols-6 gap-1.5">
+                  {["🇺🇸","🇬🇧","🇨🇦","🇦🇺","🇩🇪","🇮🇪","🇳🇱","🇫🇷","🇳🇿","🇸🇬","🇲🇾","🇦🇪"].map((f, i) => (
+                    <div key={i} className="aspect-square rounded-lg bg-white border border-sky-100 flex items-center justify-center text-xl shadow-sm">
+                      {f}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Right: two tool cards */}
+              <div className="space-y-4">
+                <Link href="/visa-coach" className="block group">
+                  <div className="bg-white rounded-2xl border border-sky-100 p-6 shadow-sm hover:shadow-xl hover:border-sky-300 hover:-translate-y-1 transition-all duration-300">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-500 to-cyan-600 flex items-center justify-center shadow-md flex-shrink-0">
+                        <span className="text-xl">🛂</span>
+                      </div>
+                      <div className="text-right">
+                        <span className="text-2xl font-black text-sky-600">12</span>
+                        <p className="text-[9px] text-gray-400 leading-none">countries</p>
+                      </div>
+                    </div>
+                    <p className="text-[11px] font-bold text-sky-500 uppercase tracking-wider mb-1">Visa Coach</p>
+                    <p className="text-base font-extrabold text-gray-900 mb-2">Country-specific visa playbooks</p>
+                    <p className="text-sm text-gray-500 leading-relaxed mb-3">F-1, UK Student, SDS, AUS 500, Germany D-visa and 7 more. Fees, financial proof, checklists, risk flags — every figure linked to the official government page.</p>
+                    <div className="flex items-center gap-2 p-3 rounded-xl bg-sky-50 border border-sky-100 mb-4">
+                      <span className="text-xs font-bold text-sky-700">Outcome:</span>
+                      <span className="text-xs text-sky-600">A better-prepared application with fewer avoidable gaps</span>
+                    </div>
+                    <span className="inline-flex items-center gap-1 text-sm font-bold text-sky-600 group-hover:gap-2 transition-all">Open Visa Coach <ArrowRight className="w-4 h-4" /></span>
+                  </div>
+                </Link>
+
+                <Link href="/application-tracker" className="block group">
+                  <div className="bg-white rounded-2xl border border-sky-100 p-6 shadow-sm hover:shadow-xl hover:border-indigo-300 hover:-translate-y-1 transition-all duration-300">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center shadow-md flex-shrink-0">
+                        <span className="text-xl">🗂️</span>
+                      </div>
+                      <div className="text-right">
+                        <span className="text-2xl font-black text-indigo-600">4</span>
+                        <p className="text-[9px] text-gray-400 leading-none">columns</p>
+                      </div>
+                    </div>
+                    <p className="text-[11px] font-bold text-indigo-500 uppercase tracking-wider mb-1">Application Tracker</p>
+                    <p className="text-base font-extrabold text-gray-900 mb-2">Kanban board for every application</p>
+                    <p className="text-sm text-gray-500 leading-relaxed mb-3">Shortlisted → In Progress → Submitted → Decision. Per-program checklists, deadline countdowns, and document-version history in one place.</p>
+                    <div className="flex items-center gap-2 p-3 rounded-xl bg-indigo-50 border border-indigo-100 mb-4">
+                      <span className="text-xs font-bold text-indigo-700">Outcome:</span>
+                      <span className="text-xs text-indigo-600">Every deadline met, every version saved</span>
+                    </div>
+                    <span className="inline-flex items-center gap-1 text-sm font-bold text-indigo-600 group-hover:gap-2 transition-all">Open Tracker <ArrowRight className="w-4 h-4" /></span>
+                  </div>
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+
+        </div>
+      </section>
+
+
+      {/* ── Countries ────────────────────────────────────────────── */}
+      <section id="countries" className="py-16 sm:py-24 px-4 sm:px-6 bg-gray-50 overflow-hidden">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-10 sm:mb-14">
+            <span className="inline-flex items-center gap-1.5 text-indigo-600 font-bold text-sm uppercase tracking-widest mb-3">
+              <MapPin className="w-3.5 h-3.5" /> Destinations
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mt-1">
+              {DB_STATS.countriesLabel} countries. {DB_STATS.programsLabel} programs. Endless possibilities.
+            </h2>
+            <p className="text-gray-500 mt-3 text-base max-w-xl mx-auto">
+              Study in the destinations that fit your goals, budget, and visa reality.
+            </p>
+          </div>
+          <div className="overflow-x-auto">
+            <div className="grid grid-cols-6 gap-3 min-w-[480px]">
+              {COUNTRIES.map((c, i) => (
+                <motion.div
+                  key={c.name}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.07 }}
+                  onClick={() => setSelectedCountry(c.name)}
+                  className="group relative rounded-2xl overflow-hidden aspect-[3/4] shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+                >
+                  <img
+                    src={c.img}
+                    alt={c.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-3">
+                    <p className="text-xl mb-0.5">{c.flag}</p>
+                    <p className="text-white font-bold text-sm">{c.name}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Scholarships section ──────────────────────────────────── */}
+      <section id="scholarships" className="py-20 px-4 sm:px-6 bg-white">
+        <div className="max-w-5xl mx-auto">
+          {/* Section heading */}
+          <div className="text-center mb-10">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 text-blue-700 text-sm font-semibold mb-4 border border-blue-100">
+              <Award className="w-3.5 h-3.5" />
+              SCHOLARSHIPS
+            </span>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mt-1">
+              Fund your global education
+            </h2>
+            <p className="text-gray-500 mt-4 max-w-2xl mx-auto text-base leading-relaxed">
+              Thousands of scholarships are available for international students every year — many go unclaimed. Select a destination to explore key scholarships available there.
+            </p>
+            <p className="text-xs text-gray-500 mt-4 max-w-xl mx-auto bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 leading-relaxed">
+              ℹ️ Scholarship rules change by university, intake and applicant profile. Start broad, then shortlist only what you&apos;re eligible for. Always confirm current eligibility, amounts and deadlines from the official university page before applying.
+            </p>
+          </div>
+
+          {/* Country chips with teasers */}
+          {(() => {
+            const teasers: Record<string, string> = {
+              "USA": "Fulbright · RA/TA stipends",
+              "UK": "Chevening · Gates Cambridge",
+              "Australia": "Australia Awards · Destination",
+              "Canada": "Vanier · Ontario Trillium",
+              "Germany": "DAAD · free public unis",
+              "Singapore": "MOE · A*STAR",
+              "New Zealand": "NZ Excellence · NZ Aid",
+              "Ireland": "Govt 60 awards · IRC",
+              "France": "Eiffel Excellence · Erasmus+",
+              "UAE": "NYU Abu Dhabi · Khalifa",
+              "Malaysia": "Govt · Monash VC",
+            };
+            return (
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 mb-8">
+                {SCHOLARSHIPS.map((c) => (
+                  <button
+                    key={c.name}
+                    onClick={() => setSelectedScholarship(selectedScholarship === c.name ? null : c.name)}
+                    className={`text-left p-4 rounded-2xl border transition-all ${
+                      selectedScholarship === c.name
+                        ? "bg-blue-500 text-white border-blue-500 shadow-md"
+                        : "bg-white text-gray-700 border-gray-200 hover:border-blue-300 hover:shadow-md hover:-translate-y-0.5"
+                    }`}
+                  >
+                    <div className="flex items-center gap-2 mb-1.5">
+                      <span className="text-xl">{c.flag}</span>
+                      <span className="font-bold text-sm">{c.name}</span>
+                    </div>
+                    <p className={`text-[10px] leading-snug font-medium ${selectedScholarship === c.name ? "text-indigo-100" : "text-gray-400"}`}>
+                      {teasers[c.name] ?? c.scholarships[0].name}
+                    </p>
+                  </button>
+                ))}
+              </div>
+            );
+          })()}
+
+          {/* Expanded scholarship panel */}
+          {SCHOLARSHIPS.filter(c => c.name === selectedScholarship).map(c => (
+            <motion.div
+              key={c.name}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.2 }}
+              className="bg-white rounded-2xl border border-gray-200 shadow-[0_10px_30px_rgba(0,0,0,0.05)] p-6"
+            >
+              <div className="flex items-center gap-3 mb-5">
+                <span className="text-3xl">{c.flag}</span>
+                <h3 className="font-extrabold text-gray-900 text-xl">{c.name} — Scholarships</h3>
+              </div>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {c.scholarships.map((s) => (
+                  <li key={s.name} className="flex gap-3 p-3 rounded-xl bg-gray-50 border border-gray-100 hover:-translate-y-0.5 hover:shadow-md hover:border-gray-200 transition-all duration-200">
+                    <span className="mt-1 flex-shrink-0 w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center">
+                      <span className="w-1.5 h-1.5 rounded-full bg-white" />
+                    </span>
+                    <div>
+                      <p className="text-sm font-bold text-gray-900">{s.name}</p>
+                      <p className="text-xs font-semibold text-blue-600 mt-0.5">{s.coverage}</p>
+                      {s.note && <p className="text-xs text-gray-500 mt-0.5">{s.note}</p>}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
+
+          {!selectedScholarship && (
+            <p className="text-center text-sm text-gray-400">
+              Click a country above to see available scholarships.
+            </p>
+          )}
+
+          <p className="text-center text-xs text-gray-400 mt-6">
+            Scholarship availability and amounts change annually. Always verify directly with the awarding body.
+          </p>
+        </div>
+      </section>
+
       {/* ── Final CTA ────────────────────────────────────────────── */}
       <section className="relative py-28 sm:py-32 px-4 sm:px-6 bg-navy overflow-hidden">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[100px] pointer-events-none" />
@@ -2287,11 +2352,11 @@ export default function LandingPage() {
               Free · No account needed · 3 minutes
             </span>
             <h2 className="font-display text-4xl sm:text-5xl font-bold mb-5 leading-[1.2]">
-              From shortlist to final decision —<br />
+              From first shortlist to final visa step —<br />
               <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">do it with clarity.</span>
             </h2>
             <p className="text-gray-400 mb-10 text-lg leading-relaxed max-w-xl mx-auto">
-              Match universities, strengthen your application, clear your interview, and commit with real data. All free.
+              Find the right programs, strengthen your application, compare offers, prepare for visa, and keep your family aligned. All free.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -2491,7 +2556,7 @@ export default function LandingPage() {
                   onClick={() => setAboutOpen(false)}
                   className="inline-flex items-center gap-2 px-8 py-3.5 rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-bold text-sm hover:shadow-lg hover:shadow-indigo-200 transition-all hover:-translate-y-0.5"
                 >
-                  Find my programs — free
+                  Find my best-fit programs — free
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
