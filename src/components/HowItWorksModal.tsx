@@ -6,7 +6,7 @@ import { X, Pause, Play, ChevronLeft, ChevronRight, ArrowRight } from "lucide-re
 import Link from "next/link";
 import { DB_STATS } from "@/data/db-stats";
 
-const STAGE_DURATION = 18; // seconds per stage — 4 × 18 = ~72s total
+const STAGE_DURATION = 18; // seconds per stage — 5 × 18 = ~90s total
 
 // ── The student's journey — one cohesive narrative ─────────────────────────
 const STAGES = [
@@ -70,6 +70,21 @@ const STAGES = [
     transform: "From family tension → to a unanimous, data-backed decision",
     stat: { val: "3.2 yrs", label: "UCL payback period vs 5.8 yrs for Melbourne" },
     cta: { label: "Run the numbers", href: "/roi-calculator" },
+  },
+  {
+    num: 5,
+    label: "APPLY VISA",
+    gradient: "from-sky-500 to-cyan-500",
+    bg: "from-slate-950 via-sky-950 to-slate-950",
+    accent: "text-sky-300",
+    accentBg: "bg-sky-500/20 border-sky-500/30",
+    moment: "The visa wall",
+    before: "Priya has accepted UCL. Now the UK Student visa: 23 documents to compile, country-specific financial-proof rules, a 3-week filing window, and zero room for error. One missing field can mean refusal.",
+    quote: "\"I've got this far. I'm scared I'll mess up the visa now.\"",
+    after: "Visa Coach generates her UK Student visa checklist with the exact financial threshold (£1,483/month × 9 months for London), CAS deadline alerts, and risk flags on every step. She files complete on day one of the window.",
+    transform: "From visa anxiety → to a complete, on-time application",
+    stat: { val: "23/23", label: "documents tracked & ready in one session" },
+    cta: { label: "Open visa coach", href: "/visa-coach" },
   },
 ];
 
@@ -237,6 +252,47 @@ function EvidencePanel({ num, active }: { num: number; active: boolean }) {
           className="px-3 py-2 rounded-xl bg-white/5 border border-white/8">
           <p className="text-[8px] font-bold text-white/50 mb-0.5">👨‍👩‍👧 Parent Decision Tool</p>
           <p className="text-[9px] text-white/40">2-page family report generated · Priya&apos;s parents agreed: UCL.</p>
+        </motion.div>
+      </div>
+    );
+  }
+
+  if (num === 5) {
+    const checks = [
+      { ok: true,  label: "Passport · 6+ months validity" },
+      { ok: true,  label: "CAS letter from UCL · received" },
+      { ok: true,  label: "Financial proof · £13,347 (9 × £1,483) · held 28d+" },
+      { ok: true,  label: "Tuberculosis test certificate" },
+      { ok: false, label: "ATAS clearance · pending (apply 4 weeks before)" },
+    ];
+    return (
+      <div className="bg-white/5 border border-white/10 rounded-2xl p-3.5 space-y-2.5">
+        <div className="flex items-center justify-between">
+          <p className="text-[9px] font-black text-sky-400 uppercase tracking-widest">UK Student Visa · Checklist</p>
+          <span className="text-[8px] text-white/35">22/23 ready</span>
+        </div>
+        <div className="bg-sky-900/25 border border-sky-700/30 rounded-xl p-2.5">
+          <p className="text-[8px] font-bold text-sky-300 mb-0.5">Country rule · London</p>
+          <p className="text-[9px] text-white/65">£1,483 / month × 9 months = <span className="font-bold text-sky-300">£13,347</span> held in account for at least 28 days.</p>
+        </div>
+        <div className="space-y-1.5">
+          {checks.map((c, i) => (
+            <motion.div key={c.label}
+              initial={{ opacity: 0, x: -6 }}
+              animate={active ? { opacity: 1, x: 0 } : { opacity: 0, x: -6 }}
+              transition={{ delay: active ? i * 0.22 + 0.4 : 0, duration: 0.3 }}
+              className="flex items-center gap-2 py-1 border-b border-white/5 last:border-0"
+            >
+              <span className="text-[10px] flex-shrink-0">{c.ok ? "✅" : "⏳"}</span>
+              <span className={`text-[9px] flex-1 ${c.ok ? "text-white/65" : "text-amber-300/80"}`}>{c.label}</span>
+            </motion.div>
+          ))}
+        </div>
+        <motion.div initial={{ opacity: 0 }} animate={active ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ delay: 2.2 }}
+          className="px-3 py-2 rounded-xl bg-emerald-900/30 border border-emerald-700/30">
+          <p className="text-[8px] font-bold text-emerald-400 mb-0.5">⭐ Filing window opens</p>
+          <p className="text-[9px] text-emerald-200">Earliest: 3 weeks before course start · risk flags clear · ready to file.</p>
         </motion.div>
       </div>
     );
