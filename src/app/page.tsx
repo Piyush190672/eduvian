@@ -904,7 +904,8 @@ export default function LandingPage() {
                 )}
 
                 <h3 className="font-bold text-gray-900 text-sm leading-snug mb-2">{s.title}</h3>
-                <p className="text-gray-500 text-xs leading-relaxed flex-1 mb-5">{s.desc}</p>
+                <p className="hidden md:block text-gray-500 text-xs leading-relaxed flex-1 mb-5">{s.desc}</p>
+                <div className="md:hidden flex-1 mb-3" />{/* spacer on mobile so CTA aligns flush */}
 
                 <Link
                   href={s.href}
@@ -1563,8 +1564,11 @@ export default function LandingPage() {
                 </div>
               </div>
 
-              {/* Right: product mockup — shortlist results */}
-              <div className="relative">
+              {/* Right: product mockup — shortlist results.
+                  Mobile-hidden because the same shortlist sample lives in
+                  the 'See what you actually get' section higher up; on
+                  phones it just adds ~700px of duplicate scroll. */}
+              <div className="hidden md:block relative">
                 <div className="rounded-3xl overflow-hidden shadow-2xl bg-white border border-indigo-100 p-6">
                   {/* Header */}
                   <div className="flex items-center gap-3 mb-4 pb-3 border-b border-gray-100">
