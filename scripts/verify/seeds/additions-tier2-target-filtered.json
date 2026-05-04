@@ -1,0 +1,4386 @@
+[
+  {
+    "university": "Sciences Po",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.sciencespo.fr/ecole-affaires-publiques/en/academics/masters/policy-streams/digital-new-technology-public-policy/"
+  },
+  {
+    "university": "Sciences Po",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.sciencespo.fr/psia/academics/masters/master-technology-global-affairs/"
+  },
+  {
+    "university": "Sciences Po",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.sciencespo.fr/ecole-management-impact/en/academics/masters/master-international-business-sustainability/"
+  },
+  {
+    "university": "Sciences Po",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://www.sciencespo.fr/public/en/content/sciences-po-hec-mpa-mba.html"
+  },
+  {
+    "university": "Sciences Po",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": null,
+    "field_of_study": "Law",
+    "program_url": "https://www.sciencespo.fr/ecole-droit/en/academics/at-a-glance-the-sciences-po-law-school-programmes/"
+  },
+  {
+    "university": "Sciences Po",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.sciencespo.fr/ecole-doctorale/en/master-s-sociology.html"
+  },
+  {
+    "university": "Sciences Po",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.sciencespo.fr/ecole-management-impact/en/academics/masters/master-finance-strategy/"
+  },
+  {
+    "university": "Sciences Po",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.sciencespo.fr/ecole-management-impact/en/academics/masters/master-communications-media-creative-industries/"
+  },
+  {
+    "university": "Sciences Po",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.sciencespo.fr/paris-climate-school/en/academics/master-ecological-transition-risks-governance/"
+  },
+  {
+    "university": "\u00c9cole Normale Sup\u00e9rieure",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 50,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://diplome.di.ens.fr/index_en.html"
+  },
+  {
+    "university": "\u00c9cole Normale Sup\u00e9rieure",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 50,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://pginfo.ens.psl.eu/"
+  },
+  {
+    "university": "\u00c9cole Normale Sup\u00e9rieure",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 50,
+    "field_of_study": "Economics & Finance",
+    "program_url": "http://www.master-ape.ens.fr/?lang=en"
+  },
+  {
+    "university": "\u00c9cole Normale Sup\u00e9rieure",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 50,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://master-sciences-sociales.ens.fr/candidatures/"
+  },
+  {
+    "university": "\u00c9cole Normale Sup\u00e9rieure",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 50,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.phys.ens.fr/en/formations/master-icfp"
+  },
+  {
+    "university": "\u00c9cole Normale Sup\u00e9rieure",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 50,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.enseignement.biologie.ens.fr/spip.php?rubrique44="
+  },
+  {
+    "university": "\u00c9cole Normale Sup\u00e9rieure",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 50,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.geosciences.ens.fr/master"
+  },
+  {
+    "university": "\u00c9cole Normale Sup\u00e9rieure",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 50,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.master-humanites.ens.fr/-les-masters-.html"
+  },
+  {
+    "university": "Universit\u00e9 Paris-Saclay",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 71,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.universite-paris-saclay.fr/en/education/master/computer-science"
+  },
+  {
+    "university": "Universit\u00e9 Paris-Saclay",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 71,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.universite-paris-saclay.fr/en/education/master/computer-science/m2-artificial-intelligence"
+  },
+  {
+    "university": "Universit\u00e9 Paris-Saclay",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 71,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.universite-paris-saclay.fr/en/education/masters-degree/management-et-administration-des-entreprises"
+  },
+  {
+    "university": "Universit\u00e9 Paris-Saclay",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 71,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.universite-paris-saclay.fr/en/education/master/electrical-engineering"
+  },
+  {
+    "university": "Universit\u00e9 Paris-Saclay",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 71,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.universite-paris-saclay.fr/en/education/master/life-sciences-and-health"
+  },
+  {
+    "university": "Universit\u00e9 Paris-Saclay",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 71,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.universite-paris-saclay.fr/en/education/master/public-health"
+  },
+  {
+    "university": "Universit\u00e9 Paris-Saclay",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 71,
+    "field_of_study": "Law",
+    "program_url": "https://www.universite-paris-saclay.fr/en/education/master/business-law"
+  },
+  {
+    "university": "Universit\u00e9 Paris-Saclay",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 71,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.universite-paris-saclay.fr/en/education/master/design"
+  },
+  {
+    "university": "Universit\u00e9 Paris-Saclay",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 71,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.universite-paris-saclay.fr/en/education/masters-degree/sociology"
+  },
+  {
+    "university": "Universit\u00e9 Paris-Saclay",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 71,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.universite-paris-saclay.fr/en/education/masters-degree/economics"
+  },
+  {
+    "university": "Universit\u00e9 Paris-Saclay",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 71,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.universite-paris-saclay.fr/en/education/masters-degree/political-science/m1-politiques-de-communication-influence-et-affaires-publiques"
+  },
+  {
+    "university": "Universit\u00e9 Paris-Saclay",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 71,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.universite-paris-saclay.fr/en/education/masters-degree/science-de-la-durabilite"
+  },
+  {
+    "university": "Universit\u00e9 Paris-Saclay",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 71,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.universite-paris-saclay.fr/en/education/master/physics"
+  },
+  {
+    "university": "Universit\u00e9 Paris-Saclay",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 71,
+    "field_of_study": "Agriculture & Veterinary Sciences",
+    "program_url": "https://www.universite-paris-saclay.fr/en/education/masters-degree/agrosciences-environment-territory-landscape-forest"
+  },
+  {
+    "university": "Universit\u00e9 Paris-Saclay",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 71,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://www.universite-paris-saclay.fr/en/education/masters-degree/economie-politique-et-institutions/m2-tourisme-environnement-et-innovation-territoriale-tei"
+  },
+  {
+    "university": "ESSEC Business School",
+    "country": "France",
+    "city": "Cergy",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.essec.edu/en/program/masters/mastere-specialise-management-des-systemes-dinformation-en-reseaux/program/"
+  },
+  {
+    "university": "ESSEC Business School",
+    "country": "France",
+    "city": "Cergy",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.essec.edu/en/program/master-data-sciences-business-analytics/"
+  },
+  {
+    "university": "ESSEC Business School",
+    "country": "France",
+    "city": "Cergy",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.essec.edu/en/program/master-in-management-international/"
+  },
+  {
+    "university": "ESSEC Business School",
+    "country": "France",
+    "city": "Cergy",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://www.essec.edu/en/program/global-mba/"
+  },
+  {
+    "university": "ESSEC Business School",
+    "country": "France",
+    "city": "Cergy",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.essec.edu/en/program/master-in-finance/"
+  },
+  {
+    "university": "ESSEC Business School",
+    "country": "France",
+    "city": "Cergy",
+    "qs_ranking": null,
+    "field_of_study": "Law",
+    "program_url": "https://www.essec.edu/fr/programme/mastere-specialise-droit-affaires-internationales-management/"
+  },
+  {
+    "university": "ESSEC Business School",
+    "country": "France",
+    "city": "Cergy",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.essec.edu/en/program/msc-sustainability-transformation/"
+  },
+  {
+    "university": "ESSEC Business School",
+    "country": "France",
+    "city": "Cergy",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.essec.edu/en/program/mscs/msc-marketing-management-and-digital/program/"
+  },
+  {
+    "university": "ESSEC Business School",
+    "country": "France",
+    "city": "Cergy",
+    "qs_ranking": null,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://www.essec.edu/en/program/msc-hospitality-management/"
+  },
+  {
+    "university": "SKEMA Business School",
+    "country": "France",
+    "city": "Lille",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.skema.edu/en/programmes/msc-artificial-intelligence-business-transformation"
+  },
+  {
+    "university": "SKEMA Business School",
+    "country": "France",
+    "city": "Lille",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.skema.edu/en/programmes/grande-ecolemaster-management"
+  },
+  {
+    "university": "SKEMA Business School",
+    "country": "France",
+    "city": "Lille",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://www.skema.edu/programmes/executive-mba"
+  },
+  {
+    "university": "SKEMA Business School",
+    "country": "France",
+    "city": "Lille",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.skema.edu/en/programmes/msc-financial-markets-investments"
+  },
+  {
+    "university": "SKEMA Business School",
+    "country": "France",
+    "city": "Lille",
+    "qs_ranking": null,
+    "field_of_study": "Law",
+    "program_url": "https://www.skema.edu/en/law-school-business"
+  },
+  {
+    "university": "SKEMA Business School",
+    "country": "France",
+    "city": "Lille",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.skema.edu/en/programmes/msc-product-management-ux-design"
+  },
+  {
+    "university": "SKEMA Business School",
+    "country": "France",
+    "city": "Lille",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.skema.edu/en/programmes/msc-digital-marketing-and-artificial-intelligence"
+  },
+  {
+    "university": "SKEMA Business School",
+    "country": "France",
+    "city": "Lille",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.skema.edu/en/programmes/msc-entrepreneurship-and-design-sustainability"
+  },
+  {
+    "university": "SKEMA Business School",
+    "country": "France",
+    "city": "Lille",
+    "qs_ranking": null,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://www.skema.edu/en/programmes/msc-sport-event-tourism-management"
+  },
+  {
+    "university": "Audencia Business School",
+    "country": "France",
+    "city": "Nantes",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.audencia.com/en/our-programs/2-year-msc-in-digital-business-data-management/overview"
+  },
+  {
+    "university": "Audencia Business School",
+    "country": "France",
+    "city": "Nantes",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.audencia.com/en/our-programs/2-year-msc-in-data-science-and-ai-for-marketing/overview"
+  },
+  {
+    "university": "Audencia Business School",
+    "country": "France",
+    "city": "Nantes",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.audencia.com/en/our-programs/master-in-management-grande-ecole/overview"
+  },
+  {
+    "university": "Audencia Business School",
+    "country": "France",
+    "city": "Nantes",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://www.audencia.com/en/our-programs/international-mba/overview"
+  },
+  {
+    "university": "Audencia Business School",
+    "country": "France",
+    "city": "Nantes",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.audencia.com/en/our-programs/1-year-msc-in-corporate-finance-investment-banking/overview"
+  },
+  {
+    "university": "Audencia Business School",
+    "country": "France",
+    "city": "Nantes",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.audencia.com/en/our-programs/master-in-communication-post-bac2-curriculum/overview"
+  },
+  {
+    "university": "Audencia Business School",
+    "country": "France",
+    "city": "Nantes",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.audencia.com/en/our-programs/2-year-msc-in-management-for-sustainable-business/overview"
+  },
+  {
+    "university": "Audencia Business School",
+    "country": "France",
+    "city": "Nantes",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.audencia.com/en/our-programs/2-year-msc-in-cultural-arts-management/overview"
+  },
+  {
+    "university": "Audencia Business School",
+    "country": "France",
+    "city": "Nantes",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.audencia.com/en/our-programs/2-year-msc-in-international-management-business/overview"
+  },
+  {
+    "university": "Audencia Business School",
+    "country": "France",
+    "city": "Nantes",
+    "qs_ranking": null,
+    "field_of_study": "Agriculture & Veterinary Sciences",
+    "program_url": "https://www.audencia.com/en/our-programs/2-year-msc-in-food-and-agribusiness-management/overview"
+  },
+  {
+    "university": "Grenoble Ecole de Management",
+    "country": "France",
+    "city": "Grenoble",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.grenoble-em.com/en/programs/master-in-digital-management-and-information-system/"
+  },
+  {
+    "university": "Grenoble Ecole de Management",
+    "country": "France",
+    "city": "Grenoble",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.grenoble-em.com/en/programs/msc-managing-with-data-and-artificial-intelligence/"
+  },
+  {
+    "university": "Grenoble Ecole de Management",
+    "country": "France",
+    "city": "Grenoble",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.grenoble-em.com/en/programs/master-in-management-grande-ecole-program/"
+  },
+  {
+    "university": "Grenoble Ecole de Management",
+    "country": "France",
+    "city": "Grenoble",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://www.grenoble-em.com/en/programs/mba/"
+  },
+  {
+    "university": "Grenoble Ecole de Management",
+    "country": "France",
+    "city": "Grenoble",
+    "qs_ranking": null,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.grenoble-em.com/en/programs/advanced-master-in-biomedical-management/"
+  },
+  {
+    "university": "Grenoble Ecole de Management",
+    "country": "France",
+    "city": "Grenoble",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.grenoble-em.com/en/programs/msc-financial-markets-and-risk-management/"
+  },
+  {
+    "university": "Grenoble Ecole de Management",
+    "country": "France",
+    "city": "Grenoble",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.grenoble-em.com/en/programs/msc-digital-marketing-and-data-analytics/"
+  },
+  {
+    "university": "Grenoble Ecole de Management",
+    "country": "France",
+    "city": "Grenoble",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.grenoble-em.com/en/programs/msc-management-in-sustainability-transitions"
+  },
+  {
+    "university": "Grenoble Ecole de Management",
+    "country": "France",
+    "city": "Grenoble",
+    "qs_ranking": null,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://www.grenoble-em.com/en/programs/msc-gastronomy-hospitality-and-luxury-management/"
+  },
+  {
+    "university": "I\u00c9SEG School of Management",
+    "country": "France",
+    "city": "Lille",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.ieseg.fr/en/programs/specialized-masters/master-cybersecurity-management/"
+  },
+  {
+    "university": "I\u00c9SEG School of Management",
+    "country": "France",
+    "city": "Lille",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.ieseg.fr/en/programs/specialized-masters/master-ai-data-analytics-business/"
+  },
+  {
+    "university": "I\u00c9SEG School of Management",
+    "country": "France",
+    "city": "Lille",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.ieseg.fr/en/programs/grande-ecole-program/"
+  },
+  {
+    "university": "I\u00c9SEG School of Management",
+    "country": "France",
+    "city": "Lille",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://www.ieseg.fr/en/programs/global-mba/"
+  },
+  {
+    "university": "I\u00c9SEG School of Management",
+    "country": "France",
+    "city": "Lille",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.ieseg.fr/en/programs/specialized-masters/master-finance/"
+  },
+  {
+    "university": "I\u00c9SEG School of Management",
+    "country": "France",
+    "city": "Lille",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.ieseg.fr/en/programs/specialized-masters/master-management-sustainability/"
+  },
+  {
+    "university": "I\u00c9SEG School of Management",
+    "country": "France",
+    "city": "Lille",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.ieseg.fr/en/programs/specialized-masters/master-digital-marketing-customer-experience-management/"
+  },
+  {
+    "university": "KEDGE Business School",
+    "country": "France",
+    "city": "Bordeaux",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://student.kedge.edu/programmes/msc-in-data-analytics-for-business"
+  },
+  {
+    "university": "KEDGE Business School",
+    "country": "France",
+    "city": "Bordeaux",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://student.kedge.edu/programmes/master-in-management-grande-ecole"
+  },
+  {
+    "university": "KEDGE Business School",
+    "country": "France",
+    "city": "Bordeaux",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://executive.kedge.edu/executive-programmes/kedge-executive-mba"
+  },
+  {
+    "university": "KEDGE Business School",
+    "country": "France",
+    "city": "Bordeaux",
+    "qs_ranking": null,
+    "field_of_study": "Law",
+    "program_url": "https://student.kedge.edu/programmes/business-law"
+  },
+  {
+    "university": "KEDGE Business School",
+    "country": "France",
+    "city": "Bordeaux",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://student.kedge.edu/programmes/arts-creative-industries-management"
+  },
+  {
+    "university": "KEDGE Business School",
+    "country": "France",
+    "city": "Bordeaux",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://student.kedge.edu/programmes/banking-finance"
+  },
+  {
+    "university": "KEDGE Business School",
+    "country": "France",
+    "city": "Bordeaux",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://student.kedge.edu/programmes/digital-marketing-sales"
+  },
+  {
+    "university": "KEDGE Business School",
+    "country": "France",
+    "city": "Bordeaux",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://student.kedge.edu/programmes/business-transformation-for-sustainability"
+  },
+  {
+    "university": "KEDGE Business School",
+    "country": "France",
+    "city": "Bordeaux",
+    "qs_ranking": null,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://wine.kedge.edu/en/programmes/master-of-science-in-wine-hospitality-management"
+  },
+  {
+    "university": "EM Strasbourg Business School",
+    "country": "France",
+    "city": "Strasbourg",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.em-strasbourg.eu/formations/programme-grande-ecole/programme-grande-ecole-2543.kjsp"
+  },
+  {
+    "university": "EM Strasbourg Business School",
+    "country": "France",
+    "city": "Strasbourg",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://em-strasbourg.eu/formations/poursuivre-mes-etudes/m2-mae-cycle-etudiant-administration-des-entreprises"
+  },
+  {
+    "university": "EM Strasbourg Business School",
+    "country": "France",
+    "city": "Strasbourg",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www-english.em-strasbourg.eu/degree-programmes/programme-grande-ecole-master-degree/programme-grande-ecole-masters-degree-13005.kjsp"
+  },
+  {
+    "university": "EM Strasbourg Business School",
+    "country": "France",
+    "city": "Strasbourg",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://em-strasbourg.eu/formations/poursuivre-mes-etudes/m2-mae-ingenieur-manager-alsace-tech"
+  },
+  {
+    "university": "EM Strasbourg Business School",
+    "country": "France",
+    "city": "Strasbourg",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.em-strasbourg.eu/formations/poursuivre-mes-etudes/m1-finance"
+  },
+  {
+    "university": "EM Strasbourg Business School",
+    "country": "France",
+    "city": "Strasbourg",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.em-strasbourg.eu/formations/reprendre-mes-etudes/m2-e-marketing-et-strategie-digitale"
+  },
+  {
+    "university": "EM Strasbourg Business School",
+    "country": "France",
+    "city": "Strasbourg",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www-english.em-strasbourg.eu/degree-programmes/english-tracks/master-s-degree-in-european-management-studies/master-s-degree-in-european-management-studies-18330.kjsp"
+  },
+  {
+    "university": "EM Strasbourg Business School",
+    "country": "France",
+    "city": "Strasbourg",
+    "qs_ranking": null,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://www.em-strasbourg.eu/formations/reprendre-mes-etudes/m2-management-du-tourisme-2528.kjsp"
+  },
+  {
+    "university": "Toulouse School of Economics",
+    "country": "France",
+    "city": "Toulouse",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.tse-fr.eu/master-data-science-social-sciences"
+  },
+  {
+    "university": "Toulouse School of Economics",
+    "country": "France",
+    "city": "Toulouse",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.tse-fr.eu/master-finance"
+  },
+  {
+    "university": "Toulouse School of Economics",
+    "country": "France",
+    "city": "Toulouse",
+    "qs_ranking": null,
+    "field_of_study": "Law",
+    "program_url": "https://www.tse-fr.eu/master-economics-and-competition-law-double-degree"
+  },
+  {
+    "university": "Toulouse School of Economics",
+    "country": "France",
+    "city": "Toulouse",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.tse-fr.eu/master-ppd-international-track"
+  },
+  {
+    "university": "Toulouse School of Economics",
+    "country": "France",
+    "city": "Toulouse",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.tse-fr.eu/master-environmental-economics-and-policy"
+  },
+  {
+    "university": "Toulouse School of Economics",
+    "country": "France",
+    "city": "Toulouse",
+    "qs_ranking": null,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.tse-fr.eu/master-mathematics-and-economic-decision"
+  },
+  {
+    "university": "Centrale Lille",
+    "country": "France",
+    "city": "Lille",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://centralelille.fr/en/formation/masters/fiche-master-mias/"
+  },
+  {
+    "university": "Centrale Lille",
+    "country": "France",
+    "city": "Lille",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://centralelille.fr/en/formation/masters/fiche-master-data-science/"
+  },
+  {
+    "university": "Centrale Lille",
+    "country": "France",
+    "city": "Lille",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://iteem.centralelille.fr/en/ingenieur-manager-entrepreneur/"
+  },
+  {
+    "university": "Centrale Lille",
+    "country": "France",
+    "city": "Lille",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://centralelille.fr/en/fiche-master-genie-civil/"
+  },
+  {
+    "university": "Centrale Lille",
+    "country": "France",
+    "city": "Lille",
+    "qs_ranking": null,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://centralelille.fr/en/fiche-master-bioref/"
+  },
+  {
+    "university": "Centrale Lille",
+    "country": "France",
+    "city": "Lille",
+    "qs_ranking": null,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://centralelille.fr/en/master-biomedical-engineering/"
+  },
+  {
+    "university": "Centrale Lille",
+    "country": "France",
+    "city": "Lille",
+    "qs_ranking": null,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://centralelille.fr/en/formation/masters/fiche-master-e-tech/"
+  },
+  {
+    "university": "Centrale Lille",
+    "country": "France",
+    "city": "Lille",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://centralelille.fr/en/fiche-master-e2sd/"
+  },
+  {
+    "university": "Centrale Nantes",
+    "country": "France",
+    "city": "Nantes",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.ec-nantes.fr/engineering-programme-diplome-dingenieur/course-specialisations-yrs-23/computer-science"
+  },
+  {
+    "university": "Centrale Nantes",
+    "country": "France",
+    "city": "Nantes",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.ec-nantes.fr/study/masters/data-science-signal-and-image-processing"
+  },
+  {
+    "university": "Centrale Nantes",
+    "country": "France",
+    "city": "Nantes",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.ec-nantes.fr/study/undergraduate/bba-data-ai-management-1"
+  },
+  {
+    "university": "Centrale Nantes",
+    "country": "France",
+    "city": "Nantes",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.ec-nantes.fr/study/masters/advanced-manufacturing"
+  },
+  {
+    "university": "Centrale Nantes",
+    "country": "France",
+    "city": "Nantes",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.ec-nantes.fr/study/masters/architecture-ambiances-urbanity"
+  },
+  {
+    "university": "Centrale Nantes",
+    "country": "France",
+    "city": "Nantes",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.ec-nantes.fr/study/advanced-master-mastere-specialise-%C2%AE/advanced-master-key-player-in-energy-transition"
+  },
+  {
+    "university": "Centrale Nantes",
+    "country": "France",
+    "city": "Nantes",
+    "qs_ranking": null,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.ec-nantes.fr/study/masters/computational-mechanics"
+  },
+  {
+    "university": "EPF Engineering School",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.epf.fr/en/formations/major-smart-digital-systems"
+  },
+  {
+    "university": "EPF Engineering School",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.epf.fr/en/formations/major-data-and-ai"
+  },
+  {
+    "university": "EPF Engineering School",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.epf.fr/en/formations/major-engineering-management"
+  },
+  {
+    "university": "EPF Engineering School",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://www.epf.fr/en/formations/dba-management-innovation-nouvelles-technologies"
+  },
+  {
+    "university": "EPF Engineering School",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.epf.fr/en/formations/major-sustainable-materials-structures"
+  },
+  {
+    "university": "EPF Engineering School",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": null,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.epf.fr/en/formations/major-e-health-and-biomechanics"
+  },
+  {
+    "university": "EPF Engineering School",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.epf.fr/en/formations/major-sustainable-engineering-architecture"
+  },
+  {
+    "university": "EPF Engineering School",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.epf.fr/en/formations/major-energy-and-environment"
+  },
+  {
+    "university": "IMT Atlantique",
+    "country": "France",
+    "city": "Nantes",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.imt-atlantique.fr/en/study/masters/msc/it"
+  },
+  {
+    "university": "IMT Atlantique",
+    "country": "France",
+    "city": "Nantes",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.imt-atlantique.fr/en/study/masters/msc/it-ds"
+  },
+  {
+    "university": "IMT Atlantique",
+    "country": "France",
+    "city": "Nantes",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.imt-atlantique.fr/en/study/masters/msc/mplp-most"
+  },
+  {
+    "university": "IMT Atlantique",
+    "country": "France",
+    "city": "Nantes",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.imt-atlantique.fr/en/study/engineering"
+  },
+  {
+    "university": "IMT Atlantique",
+    "country": "France",
+    "city": "Nantes",
+    "qs_ranking": null,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.imt-atlantique.fr/en/study/masters/msc/pbpe-pm3e"
+  },
+  {
+    "university": "IMT Atlantique",
+    "country": "France",
+    "city": "Nantes",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.imt-atlantique.fr/en/study/masters/emjmd/me3plus"
+  },
+  {
+    "university": "IMT Atlantique",
+    "country": "France",
+    "city": "Nantes",
+    "qs_ranking": null,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.imt-atlantique.fr/en/study/masters/msc/ne-nepia"
+  },
+  {
+    "university": "University of Nantes",
+    "country": "France",
+    "city": "Nantes",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://sciences-techniques.univ-nantes.fr/formations/masters/master-informatique"
+  },
+  {
+    "university": "University of Nantes",
+    "country": "France",
+    "city": "Nantes",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://polytech.univ-nantes.fr/fr/les-formations/masters-internationaux/data-science-masters-degree-ds"
+  },
+  {
+    "university": "University of Nantes",
+    "country": "France",
+    "city": "Nantes",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://iae.univ-nantes.fr/nos-formations/offre-de-formation/master-management"
+  },
+  {
+    "university": "University of Nantes",
+    "country": "France",
+    "city": "Nantes",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://iae.univ-nantes.fr/nos-formations/master-mae-m2-management-double-competence-fc"
+  },
+  {
+    "university": "University of Nantes",
+    "country": "France",
+    "city": "Nantes",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://sciences-techniques.univ-nantes.fr/formations/masters/master-mecanique-1"
+  },
+  {
+    "university": "University of Nantes",
+    "country": "France",
+    "city": "Nantes",
+    "qs_ranking": null,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://sciences-techniques.univ-nantes.fr/formations/masters/graduate-programme-innocare-innovation-for-cardiovascular-metabolic-and-respiratory-diseases-masters-degree"
+  },
+  {
+    "university": "University of Nantes",
+    "country": "France",
+    "city": "Nantes",
+    "qs_ranking": null,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://medecine.univ-nantes.fr/formation-initiale/master-1-biologie-sante/master-1-biologie-sante-parcours-sciences-et-sante"
+  },
+  {
+    "university": "University of Nantes",
+    "country": "France",
+    "city": "Nantes",
+    "qs_ranking": null,
+    "field_of_study": "Law",
+    "program_url": "https://droit.univ-nantes.fr/formation/masters/master-droit-prive"
+  },
+  {
+    "university": "University of Nantes",
+    "country": "France",
+    "city": "Nantes",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://sociologie.univ-nantes.fr/master-civilisations-cultures-et-societes"
+  },
+  {
+    "university": "University of Nantes",
+    "country": "France",
+    "city": "Nantes",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://flce.univ-nantes.fr/offre-de-formation/master-ccs/humanites-environnementales"
+  },
+  {
+    "university": "University of Nantes",
+    "country": "France",
+    "city": "Nantes",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://iae.univ-nantes.fr/nos-formations/offre-de-formation/master-monnaie-banque-finance-assurance"
+  },
+  {
+    "university": "University of Nantes",
+    "country": "France",
+    "city": "Nantes",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://flce.univ-nantes.fr/offre-de-formation/master-ccs/mcci"
+  },
+  {
+    "university": "University of Nantes",
+    "country": "France",
+    "city": "Nantes",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://droit.univ-nantes.fr/formation/masters/master-droit-de-lenvironnement-et-de-lurbanisme"
+  },
+  {
+    "university": "University of Nantes",
+    "country": "France",
+    "city": "Nantes",
+    "qs_ranking": null,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://sciences-techniques.univ-nantes.fr/formations/masters/master-in-earth-planetary-and-environmental-sciences"
+  },
+  {
+    "university": "University of Nantes",
+    "country": "France",
+    "city": "Nantes",
+    "qs_ranking": null,
+    "field_of_study": "Agriculture & Veterinary Sciences",
+    "program_url": "https://medecine.univ-nantes.fr/formation-initiale/man-imal-one-health-masters-degree-from-animal-to-man-analysing-and-managing-health-and-food-risks"
+  },
+  {
+    "university": "University of Nantes",
+    "country": "France",
+    "city": "Nantes",
+    "qs_ranking": null,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://polelrsy.univ-nantes.fr/les-formations-du-campus/master-2-lea-tourisme-et-hotellerie-daffaires-a-linternational-en-alternance"
+  },
+  {
+    "university": "Aix-Marseille University",
+    "country": "France",
+    "city": "Marseille",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://polytech.univ-amu.fr/en/programs/engineering-programs/information-technology"
+  },
+  {
+    "university": "Aix-Marseille University",
+    "country": "France",
+    "city": "Marseille",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://sciences.univ-amu.fr/en/node/597"
+  },
+  {
+    "university": "Aix-Marseille University",
+    "country": "France",
+    "city": "Marseille",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://iae-aix.univ-amu.fr/en/programs/organization-msc/msc2/msc-2-management-specialite-international-business"
+  },
+  {
+    "university": "Aix-Marseille University",
+    "country": "France",
+    "city": "Marseille",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://iae-aix.univ-amu.fr/en/programmes/programmes-anglais/executive-mba"
+  },
+  {
+    "university": "Aix-Marseille University",
+    "country": "France",
+    "city": "Marseille",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://polytech.univ-amu.fr/en/programs/engineering-programs/biological-engineering"
+  },
+  {
+    "university": "Aix-Marseille University",
+    "country": "France",
+    "city": "Marseille",
+    "qs_ranking": null,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://formations.univ-amu.fr/en/master/5SMM/PRSMM5AA"
+  },
+  {
+    "university": "Aix-Marseille University",
+    "country": "France",
+    "city": "Marseille",
+    "qs_ranking": null,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://smpm.univ-amu.fr/en/training"
+  },
+  {
+    "university": "Aix-Marseille University",
+    "country": "France",
+    "city": "Marseille",
+    "qs_ranking": null,
+    "field_of_study": "Law",
+    "program_url": "https://facdedroit.univ-amu.fr/en/academics/bachelor-master-phd/master-degree-economics-law/business-law-economics-course"
+  },
+  {
+    "university": "Aix-Marseille University",
+    "country": "France",
+    "city": "Marseille",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://allsh.univ-amu.fr/fr/formation/masters/master-arts"
+  },
+  {
+    "university": "Aix-Marseille University",
+    "country": "France",
+    "city": "Marseille",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.univ-amu.fr/en/public/master"
+  },
+  {
+    "university": "Aix-Marseille University",
+    "country": "France",
+    "city": "Marseille",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://feg.univ-amu.fr/en/formation/masters/m2-finance-parcours-risques-financiers-finance-durable"
+  },
+  {
+    "university": "Aix-Marseille University",
+    "country": "France",
+    "city": "Marseille",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://ejcam.univ-amu.fr/en/degrees-certificates/master-degree-information-communication/organisational-communication-information-media-digital-technologies"
+  },
+  {
+    "university": "Aix-Marseille University",
+    "country": "France",
+    "city": "Marseille",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://formations.univ-amu.fr/en/master/5LGE"
+  },
+  {
+    "university": "Aix-Marseille University",
+    "country": "France",
+    "city": "Marseille",
+    "qs_ranking": null,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://sciences.univ-amu.fr/en/study-program/master-degree"
+  },
+  {
+    "university": "Aix-Marseille University",
+    "country": "France",
+    "city": "Marseille",
+    "qs_ranking": null,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://feg.univ-amu.fr/en/formation/masters/m2-management-commerce-international-parcours-management-international-de-lhospitalite"
+  },
+  {
+    "university": "University of Montpellier",
+    "country": "France",
+    "city": "Montpellier",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://formations-en.umontpellier.fr/fr/formations/master-XB/master-informatique-ME154.html"
+  },
+  {
+    "university": "University of Montpellier",
+    "country": "France",
+    "city": "Montpellier",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://formations-en.umontpellier.fr/fr/formations/master-XB/master-informatique-ME154/intelligence-artificielle-et-science-des-donnees-PR477.html"
+  },
+  {
+    "university": "University of Montpellier",
+    "country": "France",
+    "city": "Montpellier",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://formations-en.umontpellier.fr/fr/formations/master-XB/master-management-et-administration-des-entreprises-ME167.html"
+  },
+  {
+    "university": "University of Montpellier",
+    "country": "France",
+    "city": "Montpellier",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://iae.umontpellier.fr/formation/mba-digital-business-innovation/"
+  },
+  {
+    "university": "University of Montpellier",
+    "country": "France",
+    "city": "Montpellier",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://formations-en.umontpellier.fr/fr/formations/master-XB/master-metiers-de-l-enseignement-de-l-education-et-de-la-formation-second-degre-ME163/meef-sciences-de-l-ingenieur-colleges-lycees-et-techniques-industrielles-lycees-professionnels-J471RX8B.html"
+  },
+  {
+    "university": "University of Montpellier",
+    "country": "France",
+    "city": "Montpellier",
+    "qs_ranking": null,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://formations-en.umontpellier.fr/fr/formations/master-XB/master-biologie-agrosciences-ME147.html"
+  },
+  {
+    "university": "University of Montpellier",
+    "country": "France",
+    "city": "Montpellier",
+    "qs_ranking": null,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://formations-en.umontpellier.fr/fr/formations/master-XB/master-sante-IUQLRQE5.html"
+  },
+  {
+    "university": "University of Montpellier",
+    "country": "France",
+    "city": "Montpellier",
+    "qs_ranking": null,
+    "field_of_study": "Law",
+    "program_url": "https://formations-en.umontpellier.fr/fr/formations/master-XB/master-mention-droit-penal-et-sciences-criminelles-ITJZ790G.html"
+  },
+  {
+    "university": "University of Montpellier",
+    "country": "France",
+    "city": "Montpellier",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://facmedecine.umontpellier.fr/en/shs/"
+  },
+  {
+    "university": "University of Montpellier",
+    "country": "France",
+    "city": "Montpellier",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://formations-en.umontpellier.fr/fr/formations/master-XB/master-finance-ITVKJIL1.html"
+  },
+  {
+    "university": "University of Montpellier",
+    "country": "France",
+    "city": "Montpellier",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://formations-en.umontpellier.fr/fr/formations/master-XB/master-marketing-vente-IUJUYUJE/master-marketing-et-communication-des-organisations-mco-IUJV3B8H.html"
+  },
+  {
+    "university": "University of Montpellier",
+    "country": "France",
+    "city": "Montpellier",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://formations-en.umontpellier.fr/fr/formations/master-XB/master-gestion-de-l-environnement-KKICL68U.html"
+  },
+  {
+    "university": "University of Montpellier",
+    "country": "France",
+    "city": "Montpellier",
+    "qs_ranking": null,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://formations-en.umontpellier.fr/fr/formations/master-XB/master-mention-droit-de-l-environnement-ITJWT0ZV/master-droit-et-gestion-de-l-environnement-et-du-developpement-durable-ITJWVGDY.html"
+  },
+  {
+    "university": "University of Montpellier",
+    "country": "France",
+    "city": "Montpellier",
+    "qs_ranking": null,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://formations-en.umontpellier.fr/fr/formations/master-XB/master-management-strategique-IUJU3LMS/master-management-strategique-hotellerie-tourisme-msht-KIPQ0C68.html"
+  },
+  {
+    "university": "Universit\u00e9 Grenoble Alpes",
+    "country": "France",
+    "city": "Grenoble",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://master-informatique.univ-grenoble-alpes.fr/master-informatique/home-master-informatique-1034051.kjsp"
+  },
+  {
+    "university": "Universit\u00e9 Grenoble Alpes",
+    "country": "France",
+    "city": "Grenoble",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://master-informatique.univ-grenoble-alpes.fr/menu-principal/programme-academique/artifical-intelligence/artificial-intelligence-1507115.kjsp"
+  },
+  {
+    "university": "Universit\u00e9 Grenoble Alpes",
+    "country": "France",
+    "city": "Grenoble",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://formations.univ-grenoble-alpes.fr/fr/catalogue-2021/master-XB/master-management-et-administration-des-entreprises-IDIV4XI5.html"
+  },
+  {
+    "university": "Universit\u00e9 Grenoble Alpes",
+    "country": "France",
+    "city": "Grenoble",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://master-eecs.univ-grenoble-alpes.fr/program/program-438304.kjsp"
+  },
+  {
+    "university": "Universit\u00e9 Grenoble Alpes",
+    "country": "France",
+    "city": "Grenoble",
+    "qs_ranking": null,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://master-biologie.univ-grenoble-alpes.fr/major-biology/major-biology-1284363.kjsp"
+  },
+  {
+    "university": "Universit\u00e9 Grenoble Alpes",
+    "country": "France",
+    "city": "Grenoble",
+    "qs_ranking": null,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://licences-masters-sante.univ-grenoble-alpes.fr/licences-et-masters-du-secteur-sante/accueil-licences-masters-sante-881434.kjsp"
+  },
+  {
+    "university": "Universit\u00e9 Grenoble Alpes",
+    "country": "France",
+    "city": "Grenoble",
+    "qs_ranking": null,
+    "field_of_study": "Law",
+    "program_url": "https://formations.univ-grenoble-alpes.fr/fr/catalogue-2021/master-XB/master-droit-des-affaires-IDISZUWM.html"
+  },
+  {
+    "university": "Universit\u00e9 Grenoble Alpes",
+    "country": "France",
+    "city": "Grenoble",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://formations.univ-grenoble-alpes.fr/fr/catalogue-2021/master-XB/master-design-KITYMXI3.html"
+  },
+  {
+    "university": "Universit\u00e9 Grenoble Alpes",
+    "country": "France",
+    "city": "Grenoble",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://formations.univ-grenoble-alpes.fr/fr/catalogue-2021/master-XB/master-sciences-sociales-IDIVKDTL.html"
+  },
+  {
+    "university": "Universit\u00e9 Grenoble Alpes",
+    "country": "France",
+    "city": "Grenoble",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://formations.univ-grenoble-alpes.fr/fr/catalogue-2021/master-XB/master-finance-IDIV2HO6.html"
+  },
+  {
+    "university": "Universit\u00e9 Grenoble Alpes",
+    "country": "France",
+    "city": "Grenoble",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://formations.univ-grenoble-alpes.fr/fr/catalogue-2021/master-XB/master-information-communication-IBC8S6FT.html"
+  },
+  {
+    "university": "Universit\u00e9 Grenoble Alpes",
+    "country": "France",
+    "city": "Grenoble",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://economie.univ-grenoble-alpes.fr/formations/les-masters/master-1-economie-de-l-environnement-de-l-energie-et-des-transports-eeet-/master-1-economie-de-l-environnement-de-l-energie-et-des-transports-eeet--204682.kjsp"
+  },
+  {
+    "university": "Universit\u00e9 Grenoble Alpes",
+    "country": "France",
+    "city": "Grenoble",
+    "qs_ranking": null,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://master-nanosciences.univ-grenoble-alpes.fr/nano-grenoble/the-master-n2/the-master-n2-469413.kjsp"
+  },
+  {
+    "university": "Universit\u00e9 Grenoble Alpes",
+    "country": "France",
+    "city": "Grenoble",
+    "qs_ranking": null,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://formations.univ-grenoble-alpes.fr/fr/catalogue-2021/master-XB/master-geographie-amenagement-environnement-et-developpement-IAQKVMLV/parcours-tourisme-innovation-transition-tit-2e-annee-IBKP2GK9.html"
+  },
+  {
+    "university": "PSL Research University",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 24,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://psl.eu/en/education/masters-degree-computer-science"
+  },
+  {
+    "university": "PSL Research University",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 24,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://dauphine.psl.eu/en/training/masters-degrees/computer-science/m2-artificial-intelligence-systems-data"
+  },
+  {
+    "university": "PSL Research University",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 24,
+    "field_of_study": "Business & Management",
+    "program_url": "https://psl.eu/en/education/master-s-degree-management-and-organizations"
+  },
+  {
+    "university": "PSL Research University",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 24,
+    "field_of_study": "MBA",
+    "program_url": "https://executive-education.dauphine.psl.eu/en/programs/mba"
+  },
+  {
+    "university": "PSL Research University",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 24,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://psl.eu/en/education/engineering-mines-paris-psl"
+  },
+  {
+    "university": "PSL Research University",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 24,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://psl.eu/en/education/master-s-degree-life-sciences"
+  },
+  {
+    "university": "PSL Research University",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 24,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://psl.eu/en/education/master-s-degree-biomedical-engineering"
+  },
+  {
+    "university": "PSL Research University",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 24,
+    "field_of_study": "Law",
+    "program_url": "https://psl.eu/en/education/masters-degree-law"
+  },
+  {
+    "university": "PSL Research University",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 24,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://psl.eu/en/ecole-des-arts-decoratifs-paris"
+  },
+  {
+    "university": "PSL Research University",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 24,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://psl.eu/en/education/masters-degree-social-sciences"
+  },
+  {
+    "university": "PSL Research University",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 24,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://psl.eu/en/education/masters-degree-economics-and-finance"
+  },
+  {
+    "university": "PSL Research University",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 24,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://psl.eu/en/education/master-sustainability-science"
+  },
+  {
+    "university": "PSL Research University",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 24,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://psl.eu/en/education/masters-degree-chemistry"
+  },
+  {
+    "university": "Sorbonne Universit\u00e9",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 59,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://sciences.sorbonne-universite.fr/en/study/degree-seeking/masters/master-computer-science"
+  },
+  {
+    "university": "Sorbonne Universit\u00e9",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 59,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://sciences.sorbonne-universite.fr/en/masters/master-computer-science/mind"
+  },
+  {
+    "university": "Sorbonne Universit\u00e9",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 59,
+    "field_of_study": "Business & Management",
+    "program_url": "https://sciences.sorbonne-universite.fr/en/Masters/master-management-de-linnovation"
+  },
+  {
+    "university": "Sorbonne Universit\u00e9",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 59,
+    "field_of_study": "MBA",
+    "program_url": "https://fc.sorbonne-universite.fr/nos-offres/emba-sorbonne-universite-celsa-2/"
+  },
+  {
+    "university": "Sorbonne Universit\u00e9",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 59,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://sciences.sorbonne-universite.fr/en/masters/master-mechanical-engineering"
+  },
+  {
+    "university": "Sorbonne Universit\u00e9",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 59,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://sciences.sorbonne-universite.fr/en/study/masters/masters-degree-molecular-and-cellular-biology-bmc/m1m2-biotechnology-pathway"
+  },
+  {
+    "university": "Sorbonne Universit\u00e9",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 59,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://sante.sorbonne-universite.fr/en/courses/medical-studies"
+  },
+  {
+    "university": "Sorbonne Universit\u00e9",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 59,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://formations-lettres.sorbonne-universite.fr/fr/index/master-XB/sciences-humaines-et-sociales-SHS/master-sociologie-sociologie-contemporaine-MSOCI1L_602.html"
+  },
+  {
+    "university": "Sorbonne Universit\u00e9",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 59,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://formations-lettres.sorbonne-universite.fr/fr/index/master-XB/sciences-humaines-et-sociales-SHS/master-information-communication-management-des-medias-et-du-numerique-KLTE4P72.html"
+  },
+  {
+    "university": "Sorbonne Universit\u00e9",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 59,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://sciences.sorbonne-universite.fr/en/masters/master-ocean-atmosphere-and-climate-sciences/environmental-science-and-policy-spe-course"
+  },
+  {
+    "university": "Sorbonne Universit\u00e9",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 59,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://sciences.sorbonne-universite.fr/en/masters/master-fundamental-physics-and-applications"
+  },
+  {
+    "university": "Sorbonne Universit\u00e9",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 59,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://sante.sorbonne-universite.fr/en/nurses-ifsi"
+  },
+  {
+    "university": "Burgundy School of Business",
+    "country": "France",
+    "city": "Dijon",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.bsb-education.com/en/programme/msc-artificial-intelligence-digital-technology-management"
+  },
+  {
+    "university": "Burgundy School of Business",
+    "country": "France",
+    "city": "Dijon",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.bsb-education.com/en/programme/msc-data-science-organisational-behaviour"
+  },
+  {
+    "university": "Burgundy School of Business",
+    "country": "France",
+    "city": "Dijon",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.bsb-education.com/en/programme/master-in-management"
+  },
+  {
+    "university": "Burgundy School of Business",
+    "country": "France",
+    "city": "Dijon",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://www.bsb-education.com/en/programme/mba-wine-spirits-business"
+  },
+  {
+    "university": "Burgundy School of Business",
+    "country": "France",
+    "city": "Dijon",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.bsb-education.com/en/programme/msc-arts-cultural-management"
+  },
+  {
+    "university": "Burgundy School of Business",
+    "country": "France",
+    "city": "Dijon",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.bsb-education.com/bsb-programmes/masters-of-science-msc/msc-corporate-finance-and-investment-banking/?lang=en"
+  },
+  {
+    "university": "Burgundy School of Business",
+    "country": "France",
+    "city": "Dijon",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://global.bsb-education.com/bsbs-programmes/msc-green-tech-sustainable-societies/"
+  },
+  {
+    "university": "Burgundy School of Business",
+    "country": "France",
+    "city": "Dijon",
+    "qs_ranking": null,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://www.bsb-education.com/en/programme/msc-wine-management"
+  },
+  {
+    "university": "Rennes School of Business",
+    "country": "France",
+    "city": "Rennes",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.rennes-sb.com/programmes/master-of-science/msc-cyber-security-risk-management/"
+  },
+  {
+    "university": "Rennes School of Business",
+    "country": "France",
+    "city": "Rennes",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.rennes-sb.com/programmes/master-of-science/msc-data-business-analytics/"
+  },
+  {
+    "university": "Rennes School of Business",
+    "country": "France",
+    "city": "Rennes",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.rennes-sb.com/programmes/postgraduate/master-in-management/"
+  },
+  {
+    "university": "Rennes School of Business",
+    "country": "France",
+    "city": "Rennes",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://executive.rennes-sb.com/en/catalogue/executive-mba/"
+  },
+  {
+    "university": "Rennes School of Business",
+    "country": "France",
+    "city": "Rennes",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.rennes-sb.com/programmes/master-of-science/msc-immersive-design-management/"
+  },
+  {
+    "university": "Rennes School of Business",
+    "country": "France",
+    "city": "Rennes",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.rennes-sb.com/programmes/master-of-science/msc-geopolitics-business/"
+  },
+  {
+    "university": "Rennes School of Business",
+    "country": "France",
+    "city": "Rennes",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.rennes-sb.com/programmes/master-of-science/msc-international-finance/"
+  },
+  {
+    "university": "Rennes School of Business",
+    "country": "France",
+    "city": "Rennes",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.rennes-sb.com/programmes/master-of-science/digital-marketing-management/"
+  },
+  {
+    "university": "Rennes School of Business",
+    "country": "France",
+    "city": "Rennes",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.rennes-sb.com/programmes/postgraduate/msc/master-of-science-msc-sustainable-management-eco-innovation/"
+  },
+  {
+    "university": "Rennes School of Business",
+    "country": "France",
+    "city": "Rennes",
+    "qs_ranking": null,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://www.rennes-sb.com/msc-sports-leisure-tourism-management/"
+  },
+  {
+    "university": "ESCE International Business School",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.esce.fr/en/program/msc-in-technology-management-international-entrepreneurship/"
+  },
+  {
+    "university": "ESCE International Business School",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.esce.fr/en/program/master-of-science-in-international-management-business-intelligence/"
+  },
+  {
+    "university": "ESCE International Business School",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.esce.fr/en/program/master-in-management/"
+  },
+  {
+    "university": "ESCE International Business School",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://www.esce.fr/en/program/esce-mba-international-management-of-big-data-robots/"
+  },
+  {
+    "university": "ESCE International Business School",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.esce.fr/en/program/master-of-science-geopolitics-for-business-development/"
+  },
+  {
+    "university": "ESCE International Business School",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.esce.fr/en/program/msc-in-international-corporate-finance/"
+  },
+  {
+    "university": "ESCE International Business School",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.esce.fr/en/program/msc-in-international-marketing/"
+  },
+  {
+    "university": "American University of Sharjah",
+    "country": "UAE",
+    "city": "Sharjah",
+    "qs_ranking": 347,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.aus.edu/cen/department-of-computer-science-and-engineering/master-of-science-in-computer-engineering"
+  },
+  {
+    "university": "American University of Sharjah",
+    "country": "UAE",
+    "city": "Sharjah",
+    "qs_ranking": 347,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.aus.edu/cen/department-of-computer-science-and-engineering/master-of-science-in-machine-learning"
+  },
+  {
+    "university": "American University of Sharjah",
+    "country": "UAE",
+    "city": "Sharjah",
+    "qs_ranking": 347,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.aus.edu/sba/department-of-management-strategy-and-entrepreneurship/master-of-business-administration"
+  },
+  {
+    "university": "American University of Sharjah",
+    "country": "UAE",
+    "city": "Sharjah",
+    "qs_ranking": 347,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.aus.edu/cen/department-of-electrical-engineering/master-of-science-in-electrical-engineering"
+  },
+  {
+    "university": "American University of Sharjah",
+    "country": "UAE",
+    "city": "Sharjah",
+    "qs_ranking": 347,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.aus.edu/cen/master-of-science-in-biomedical-engineering"
+  },
+  {
+    "university": "American University of Sharjah",
+    "country": "UAE",
+    "city": "Sharjah",
+    "qs_ranking": 347,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.aus.edu/caad/department-of-architecture"
+  },
+  {
+    "university": "American University of Sharjah",
+    "country": "UAE",
+    "city": "Sharjah",
+    "qs_ranking": 347,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.aus.edu/cas/department-of-media-communication/master-of-arts-in-media-studies-and-practice-mamsp"
+  },
+  {
+    "university": "American University of Sharjah",
+    "country": "UAE",
+    "city": "Sharjah",
+    "qs_ranking": 347,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.aus.edu/sba/department-of-finance/master-of-science-in-finance"
+  },
+  {
+    "university": "American University of Sharjah",
+    "country": "UAE",
+    "city": "Sharjah",
+    "qs_ranking": 347,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.aus.edu/cas/department-of-biology-chemistry-and-environmental-sciences/bachelor-of-science-in-environmental-sciences-and-sustainability"
+  },
+  {
+    "university": "American University of Sharjah",
+    "country": "UAE",
+    "city": "Sharjah",
+    "qs_ranking": 347,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.aus.edu/cas/department-of-biology-chemistry-and-environmental-sciences/bachelor-of-science-in-chemistry-and-biochemistry"
+  },
+  {
+    "university": "American University in Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.aud.edu/aud-school/school-of-engineering/departments/department-of-electrical-and-computer-engineering/department-programs/bachelor-of-science-in-computer-engineering-bscompe/"
+  },
+  {
+    "university": "American University in Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.aud.edu/aud-school/school-of-engineering/departments/department-of-electrical-and-computer-engineering/department-programs/master-of-science-in-artificial-intelligence-msai/"
+  },
+  {
+    "university": "American University in Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.aud.edu/aud-school/school-of-business/programs/bachelor-of-business-administration-bba/"
+  },
+  {
+    "university": "American University in Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://www.aud.edu/aud-school/school-of-business/programs/master-of-business-administration-mba/"
+  },
+  {
+    "university": "American University in Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.aud.edu/aud-school/school-of-engineering/departments/department-of-civil-engineering/department-programs/bachelor-of-science-in-civil-engineering-bsce/"
+  },
+  {
+    "university": "American University in Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.aud.edu/aud-school/school-of-architecture-art-design/departments/department-of-architecture/department-programs/bachelor-of-architecture-barch/"
+  },
+  {
+    "university": "American University in Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.aud.edu/aud-school/school-of-arts-sciences/departments/department-of-international-and-middle-eastern-studies/department-programs/master-of-arts-in-international-affairs-maia/"
+  },
+  {
+    "university": "American University in Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.aud.edu/aud-school/mohammed-bin-rashid-school-for-communication/programs/master-of-arts-ma-in-leadership-and-innovation-in-contemporary-media/"
+  },
+  {
+    "university": "American University in Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.aud.edu/aud-school/school-of-arts-sciences/departments/department-of-biological-and-physical-sciences/department-programs/bachelor-of-science-in-biology/"
+  },
+  {
+    "university": "Zayed University",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.zu.ac.ae/main/en/GSD/_graduate-degree-programs/cti-msit.aspx"
+  },
+  {
+    "university": "Zayed University",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.zu.ac.ae/main/en/gsd/_graduate-degree-programs/master-of-science-in-digital-transformation-and-innovation"
+  },
+  {
+    "university": "Zayed University",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.zu.ac.ae/main/en/colleges/colleges/__college_of_business/_course_descriptions/bachelor-of-science-in-finance"
+  },
+  {
+    "university": "Zayed University",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://www.zu.ac.ae/main/en/GSD/_graduate-degree-programs/cob-emba.aspx"
+  },
+  {
+    "university": "Zayed University",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Law",
+    "program_url": "https://www.zu.ac.ae/main/en/gsd/_graduate-degree-programs/master-of-legal-and-judicial-studies"
+  },
+  {
+    "university": "Zayed University",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.zu.ac.ae/main/en/colleges/colleges/__college_of_arts_and_creative_enterprises/academic_programs/architecture"
+  },
+  {
+    "university": "Zayed University",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.zu.ac.ae/main/en/colleges/colleges/__college_of_humanities_and_social_sciences/academic-programs/index"
+  },
+  {
+    "university": "Zayed University",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.zu.ac.ae/main/en/gsd/_graduate-degree-programs/master-in-finance"
+  },
+  {
+    "university": "Zayed University",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.zu.ac.ae/main/en/gsd/_graduate-degree-programs/masters-in-communication"
+  },
+  {
+    "university": "Zayed University",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.zu.ac.ae/main/en/gsd/_graduate-degree-programs/master-in-environment-and-sustainability-sciences"
+  },
+  {
+    "university": "Zayed University",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.zu.ac.ae/main/en/colleges/colleges/__college_of_natural_and_health_sciences/_course_descriptions/bachelor-of-science-in-environmental-science-and-sustainability"
+  },
+  {
+    "university": "Zayed University",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://www.zu.ac.ae/main/en/gsd/_graduate-degree-programs/ccms-mac"
+  },
+  {
+    "university": "United Arab Emirates University",
+    "country": "UAE",
+    "city": "Al Ain",
+    "qs_ranking": 290,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.uaeu.ac.ae/en/catalog/graduate/programs/master-of-science-in-software-engineering.shtml"
+  },
+  {
+    "university": "United Arab Emirates University",
+    "country": "UAE",
+    "city": "Al Ain",
+    "qs_ranking": 290,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.uaeu.ac.ae/en/catalog/undergraduate/programs/bachelor-of-science-in-data-science-and-artificial-intelligence.shtml"
+  },
+  {
+    "university": "United Arab Emirates University",
+    "country": "UAE",
+    "city": "Al Ain",
+    "qs_ranking": 290,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.uaeu.ac.ae/en/catalog/graduate/programs/master-of-business-administration.shtml"
+  },
+  {
+    "university": "United Arab Emirates University",
+    "country": "UAE",
+    "city": "Al Ain",
+    "qs_ranking": 290,
+    "field_of_study": "MBA",
+    "program_url": "https://www.uaeu.ac.ae/en/cbe/mba/requirements.shtml"
+  },
+  {
+    "university": "United Arab Emirates University",
+    "country": "UAE",
+    "city": "Al Ain",
+    "qs_ranking": 290,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.uaeu.ac.ae/en/catalog/graduate/programs/master-of-science-in-mechanical-engineering.shtml"
+  },
+  {
+    "university": "United Arab Emirates University",
+    "country": "UAE",
+    "city": "Al Ain",
+    "qs_ranking": 290,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.uaeu.ac.ae/en/catalog/graduate/programs/master-of-science-in-molecular-biology-and-biotechnology.shtml"
+  },
+  {
+    "university": "United Arab Emirates University",
+    "country": "UAE",
+    "city": "Al Ain",
+    "qs_ranking": 290,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.uaeu.ac.ae/en/catalog/undergraduate/programs/doctor-of-medicine.shtml"
+  },
+  {
+    "university": "United Arab Emirates University",
+    "country": "UAE",
+    "city": "Al Ain",
+    "qs_ranking": 290,
+    "field_of_study": "Law",
+    "program_url": "https://www.uaeu.ac.ae/en/catalog/undergraduate/programs/bachelor-of-law.shtml"
+  },
+  {
+    "university": "United Arab Emirates University",
+    "country": "UAE",
+    "city": "Al Ain",
+    "qs_ranking": 290,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.uaeu.ac.ae/en/catalog/graduate/programs/master-of-science-in-architectural-engineering.shtml"
+  },
+  {
+    "university": "United Arab Emirates University",
+    "country": "UAE",
+    "city": "Al Ain",
+    "qs_ranking": 290,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.uaeu.ac.ae/en/catalog/graduate/programs/master-of-arts-in-communication.shtml"
+  },
+  {
+    "university": "United Arab Emirates University",
+    "country": "UAE",
+    "city": "Al Ain",
+    "qs_ranking": 290,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.uaeu.ac.ae/en/catalog/undergraduate/programs/bachelor-of-economics.shtml"
+  },
+  {
+    "university": "United Arab Emirates University",
+    "country": "UAE",
+    "city": "Al Ain",
+    "qs_ranking": 290,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.uaeu.ac.ae/en/catalog/graduate/programs/master-of-science-in-environmental-sciences-and-sustainability.shtml"
+  },
+  {
+    "university": "United Arab Emirates University",
+    "country": "UAE",
+    "city": "Al Ain",
+    "qs_ranking": 290,
+    "field_of_study": "Agriculture & Veterinary Sciences",
+    "program_url": "https://www.uaeu.ac.ae/en/catalog/undergraduate/programs/bachelor-of-veterinary-medicine.shtml"
+  },
+  {
+    "university": "United Arab Emirates University",
+    "country": "UAE",
+    "city": "Al Ain",
+    "qs_ranking": 290,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://www.uaeu.ac.ae/en/catalog/undergraduate/programs/bachelor-of-arts-in-tourism-studies.shtml"
+  },
+  {
+    "university": "Mohamed bin Zayed University of Artificial Intelligence",
+    "country": "UAE",
+    "city": "Abu Dhabi",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://mbzuai.ac.ae/study/msc-programs/master-of-science-in-computer-science/"
+  },
+  {
+    "university": "Mohamed bin Zayed University of Artificial Intelligence",
+    "country": "UAE",
+    "city": "Abu Dhabi",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://mbzuai.ac.ae/study/msc-programs/master-of-science-in-machine-learning/"
+  },
+  {
+    "university": "Mohamed bin Zayed University of Artificial Intelligence",
+    "country": "UAE",
+    "city": "Abu Dhabi",
+    "qs_ranking": null,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://mbzuai.ac.ae/study/msc-programs/master-of-science-in-computational-biology/"
+  },
+  {
+    "university": "Mohamed bin Zayed University of Artificial Intelligence",
+    "country": "UAE",
+    "city": "Abu Dhabi",
+    "qs_ranking": null,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://mbzuai.ac.ae/study/msc-programs/master-of-science-in-statistics-and-data-science/"
+  },
+  {
+    "university": "Middlesex University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.mdx.ac.ae/courses/course-list/course-detail/bsc-honours-information-technology"
+  },
+  {
+    "university": "Middlesex University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.mdx.ac.ae/courses/msc-data-science-and-artificial-intelligence"
+  },
+  {
+    "university": "Middlesex University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.mdx.ac.ae/courses/msc-global-business-management"
+  },
+  {
+    "university": "Middlesex University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://www.mdx.ac.ae/courses/course-list/course-detail/mba-daytime"
+  },
+  {
+    "university": "Middlesex University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.mdx.ac.ae/courses/course-list/course-detail/msc-engineering-management"
+  },
+  {
+    "university": "Middlesex University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Law",
+    "program_url": "https://www.mdx.ac.ae/courses/course-list/course-detail/llm-law"
+  },
+  {
+    "university": "Middlesex University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.mdx.ac.ae/courses/course-list/course-detail/ba-honours-graphic-design"
+  },
+  {
+    "university": "Middlesex University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.mdx.ac.ae/courses/course-list/course-detail/msc-applied-psychology"
+  },
+  {
+    "university": "Middlesex University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.mdx.ac.ae/courses/course-list/course-detail/ba-honours-accounting-and-finance"
+  },
+  {
+    "university": "Middlesex University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.mdx.ac.ae/courses/course-list/course-detail/ba-honours-digital-media"
+  },
+  {
+    "university": "Middlesex University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.mdx.ac.ae/courses/course-list/course-detail/ma-global-governance-and-sustainable-development"
+  },
+  {
+    "university": "Murdoch University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.murdochuniversitydubai.com/study/undergraduate/computer-science/"
+  },
+  {
+    "university": "Murdoch University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.murdochuniversitydubai.com/study/undergraduate/artificial-intelligence-and-autonomous-systems/"
+  },
+  {
+    "university": "Murdoch University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.murdochuniversitydubai.com/study/undergraduate/management/"
+  },
+  {
+    "university": "Murdoch University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://www.murdochuniversitydubai.com/study/postgraduate/mba/"
+  },
+  {
+    "university": "Murdoch University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.murdochuniversitydubai.com/study/undergraduate/psychology/"
+  },
+  {
+    "university": "Murdoch University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.murdochuniversitydubai.com/study/undergraduate/accounting/"
+  },
+  {
+    "university": "Murdoch University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.murdochuniversitydubai.com/study/undergraduate/digital-communication/"
+  },
+  {
+    "university": "University of Wollongong in Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.uowdubai.ac.ae/degrees/masters/information-technology/master-information-technology-management"
+  },
+  {
+    "university": "University of Wollongong in Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.uowdubai.ac.ae/degrees/masters/computer-science/master-applied-artificial-intelligence"
+  },
+  {
+    "university": "University of Wollongong in Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.uowdubai.ac.ae/degrees/masters/business/master-international-business"
+  },
+  {
+    "university": "University of Wollongong in Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://www.uowdubai.ac.ae/degrees/masters/business/master-business-administration"
+  },
+  {
+    "university": "University of Wollongong in Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.uowdubai.ac.ae/degrees/masters/engineering/master-engineering-management"
+  },
+  {
+    "university": "University of Wollongong in Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.uowdubai.ac.ae/degrees/masters/business/master-applied-finance-investing"
+  },
+  {
+    "university": "University of Wollongong in Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.uowdubai.ac.ae/degrees/masters/media/master-media-and-communication"
+  },
+  {
+    "university": "University of Wollongong in Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.uowdubai.ac.ae/degrees/masters/political-science/master-international-relations"
+  },
+  {
+    "university": "University of Wollongong in Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.uowdubai.ac.ae/degrees/bachelors/media/bachelor-communication-media-visual-communication-design"
+  },
+  {
+    "university": "University of Wollongong in Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.uowdubai.ac.ae/degrees/masters/healthcare/master-nursing"
+  },
+  {
+    "university": "Manipal Academy of Higher Education Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.manipaldubai.com/programs/b-tech-computer-science-engineering"
+  },
+  {
+    "university": "Manipal Academy of Higher Education Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.manipaldubai.com/soeit/programs/program-list/pg-diploma-data-science.html"
+  },
+  {
+    "university": "Manipal Academy of Higher Education Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.manipaldubai.com/programs/bachelor-of-business-administration"
+  },
+  {
+    "university": "Manipal Academy of Higher Education Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://www.manipaldubai.com/sob/programs/program-list/mba.html"
+  },
+  {
+    "university": "Manipal Academy of Higher Education Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.manipaldubai.com/soeit/programs/program-list/btech-Mechanical-engineering.html"
+  },
+  {
+    "university": "Manipal Academy of Higher Education Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.manipaldubai.com/sols/programs/programs-list/msc-medical-biotechnology.html"
+  },
+  {
+    "university": "Manipal Academy of Higher Education Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.manipaldubai.com/programs/bachelor-of-architecture"
+  },
+  {
+    "university": "Manipal Academy of Higher Education Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.manipaldubai.com/programs/ba-in-english-psychology-sociology-filmmaking-media"
+  },
+  {
+    "university": "Manipal Academy of Higher Education Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.manipaldubai.com/programs/b-com-professional"
+  },
+  {
+    "university": "Manipal Academy of Higher Education Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.manipaldubai.com/programs/ma-in-media-and-communication"
+  },
+  {
+    "university": "Manipal Academy of Higher Education Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.manipaldubai.com/soda/programs/program-list/ma-in-sustainable-design.html"
+  },
+  {
+    "university": "Manipal Academy of Higher Education Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.manipaldubai.com/programs/bsc-food-and-nutrition-science"
+  },
+  {
+    "university": "BITS Pilani Dubai Campus",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.bits-dubai.ac.ae/admissions/be/"
+  },
+  {
+    "university": "BITS Pilani Dubai Campus",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.bits-dubai.ac.ae/admissions/higher-degree-m-e/"
+  },
+  {
+    "university": "BITS Pilani Dubai Campus",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.bits-dubai.ac.ae/admissions/bachelor-of-business-administration-honours/"
+  },
+  {
+    "university": "BITS Pilani Dubai Campus",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://www.bits-dubai.ac.ae/admissions/mba/"
+  },
+  {
+    "university": "Modul University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.modul.ac.ae/academic-programmes/undergraduate-programmes/bachelor-of-science"
+  },
+  {
+    "university": "Modul University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://www.modul.ac.ae/academic-programmes/postgraduate-mba"
+  },
+  {
+    "university": "Modul University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.modul.ac.ae/academic-programmes/graduate-msc"
+  },
+  {
+    "university": "Modul University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://www.modul.ac.ae/academic-programmes/undergraduate-programmes/bachelor-of-business-administration"
+  },
+  {
+    "university": "Modul University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.modul.ac.ae/academic-programmes/postgraduate-mba/major-tourism-hotel-development"
+  },
+  {
+    "university": "Canadian University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.cud.ac.ae/programs/undergraduate/engineering-applied-science-and-technology/bachelor-of-science-in-computer-science"
+  },
+  {
+    "university": "Canadian University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.cud.ac.ae/programs/masters/engineering/master-of-science-in-artificial-intelligence"
+  },
+  {
+    "university": "Canadian University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.cud.ac.ae/programs/undergraduate/management/bachelor-of-business-administration-in-management"
+  },
+  {
+    "university": "Canadian University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://www.cud.ac.ae/programs/masters/management/master-of-business-administration"
+  },
+  {
+    "university": "Canadian University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.cud.ac.ae/programs/undergraduate/electrical-engineering/bachelor-of-science-in-electrical-engineering-mechatronics"
+  },
+  {
+    "university": "Canadian University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.cud.ac.ae/programs/masters/public-health/master-of-public-health"
+  },
+  {
+    "university": "Canadian University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.cud.ac.ae/programs/undergraduate/architecture/bachelor-of-architecture"
+  },
+  {
+    "university": "Canadian University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.cud.ac.ae/programs/undergraduate/social-sciences/bachelor-of-arts-in-psychology"
+  },
+  {
+    "university": "Canadian University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.cud.ac.ae/programs/undergraduate/management/bachelor-of-business-administration-in-accounting-and-finance"
+  },
+  {
+    "university": "Canadian University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.cud.ac.ae/programs/undergraduate/communication/bachelor-of-arts-in-communication-digital-media-and-journalism"
+  },
+  {
+    "university": "Canadian University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.cud.ac.ae/programs/undergraduate/public-health/bachelor-of-science-in-public-health-environmental-health-management"
+  },
+  {
+    "university": "Universiti Putra Malaysia",
+    "country": "Malaysia",
+    "city": "Serdang",
+    "qs_ranking": 148,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://fsktm.upm.edu.my/academic/postgraduate/programme_of_study-437?L=en"
+  },
+  {
+    "university": "Universiti Putra Malaysia",
+    "country": "Malaysia",
+    "city": "Serdang",
+    "qs_ranking": 148,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://fsktm.upm.edu.my/academic/postgraduate/programme_overview-88871"
+  },
+  {
+    "university": "Universiti Putra Malaysia",
+    "country": "Malaysia",
+    "city": "Serdang",
+    "qs_ranking": 148,
+    "field_of_study": "Business & Management",
+    "program_url": "https://econ.upm.edu.my/programme/masters/master_by_coursework-64281"
+  },
+  {
+    "university": "Universiti Putra Malaysia",
+    "country": "Malaysia",
+    "city": "Serdang",
+    "qs_ranking": 148,
+    "field_of_study": "MBA",
+    "program_url": "https://econ.upm.edu.my/programme-3992"
+  },
+  {
+    "university": "Universiti Putra Malaysia",
+    "country": "Malaysia",
+    "city": "Serdang",
+    "qs_ranking": 148,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://eng.upm.edu.my/academic/postgraduate/master_by_coursework-2294"
+  },
+  {
+    "university": "Universiti Putra Malaysia",
+    "country": "Malaysia",
+    "city": "Serdang",
+    "qs_ranking": 148,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://biotech.upm.edu.my/academic/post_graduate/msc_biotechnology_with_bioentrepreneurship-64134?L=en"
+  },
+  {
+    "university": "Universiti Putra Malaysia",
+    "country": "Malaysia",
+    "city": "Serdang",
+    "qs_ranking": 148,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://medic.upm.edu.my/academic/postgraduate_medicine/master_of_public_health-1782?L=en"
+  },
+  {
+    "university": "Universiti Putra Malaysia",
+    "country": "Malaysia",
+    "city": "Serdang",
+    "qs_ranking": 148,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://frsb.upm.edu.my/academic/undergraduate/bachelor_of_science_in_architecture_with_honours-77863"
+  },
+  {
+    "university": "Universiti Putra Malaysia",
+    "country": "Malaysia",
+    "city": "Serdang",
+    "qs_ranking": 148,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://eco1.upm.edu.my/academic/postgraduate/list_of_postgraduate_fields_of_study_offered-695"
+  },
+  {
+    "university": "Universiti Putra Malaysia",
+    "country": "Malaysia",
+    "city": "Serdang",
+    "qs_ranking": 148,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://fbmk.upm.edu.my/kandungan/master_of_corporate_communication-2956"
+  },
+  {
+    "university": "Universiti Putra Malaysia",
+    "country": "Malaysia",
+    "city": "Serdang",
+    "qs_ranking": 148,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://forenv.upm.edu.my/academic/postgraduate/master_of_environment-56585"
+  },
+  {
+    "university": "Universiti Putra Malaysia",
+    "country": "Malaysia",
+    "city": "Serdang",
+    "qs_ranking": 148,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://science.upm.edu.my/academic/postgraduate/master_by_coursework-56429"
+  },
+  {
+    "university": "Universiti Putra Malaysia",
+    "country": "Malaysia",
+    "city": "Serdang",
+    "qs_ranking": 148,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://medic.upm.edu.my/academic/undergraduate/bachelor_of_nursing_with_honors-827"
+  },
+  {
+    "university": "Universiti Putra Malaysia",
+    "country": "Malaysia",
+    "city": "Serdang",
+    "qs_ranking": 148,
+    "field_of_study": "Agriculture & Veterinary Sciences",
+    "program_url": "https://vet.upm.edu.my/academic/postgraduate/master_in_veterinary_medicine-38141"
+  },
+  {
+    "university": "Universiti Kebangsaan Malaysia",
+    "country": "Malaysia",
+    "city": "Bangi",
+    "qs_ranking": 138,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.ukm.my/studyukm/master-of-computer-science/"
+  },
+  {
+    "university": "Universiti Kebangsaan Malaysia",
+    "country": "Malaysia",
+    "city": "Bangi",
+    "qs_ranking": 138,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.ukm.my/studyukm/master-of-computer-science-artificial-intelligence/"
+  },
+  {
+    "university": "Universiti Kebangsaan Malaysia",
+    "country": "Malaysia",
+    "city": "Bangi",
+    "qs_ranking": 138,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.ukm.my/portalukm/undergraduate/business-management/"
+  },
+  {
+    "university": "Universiti Kebangsaan Malaysia",
+    "country": "Malaysia",
+    "city": "Bangi",
+    "qs_ranking": 138,
+    "field_of_study": "MBA",
+    "program_url": "https://www.ukm.my/portalukm/mba-dba/"
+  },
+  {
+    "university": "Universiti Kebangsaan Malaysia",
+    "country": "Malaysia",
+    "city": "Bangi",
+    "qs_ranking": 138,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.ukm.my/jurutera/en/civil-eng-msc/"
+  },
+  {
+    "university": "Universiti Kebangsaan Malaysia",
+    "country": "Malaysia",
+    "city": "Bangi",
+    "qs_ranking": 138,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.ukm.my/portalukm/undergraduate/plant-biotechnology/"
+  },
+  {
+    "university": "Universiti Kebangsaan Malaysia",
+    "country": "Malaysia",
+    "city": "Bangi",
+    "qs_ranking": 138,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.ukm.my/portalukm/master/master-medicine/"
+  },
+  {
+    "university": "Universiti Kebangsaan Malaysia",
+    "country": "Malaysia",
+    "city": "Bangi",
+    "qs_ranking": 138,
+    "field_of_study": "Law",
+    "program_url": "https://www.ukm.my/portalukm/master/master-law/"
+  },
+  {
+    "university": "Universiti Kebangsaan Malaysia",
+    "country": "Malaysia",
+    "city": "Bangi",
+    "qs_ranking": 138,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.ukm.my/jurutera/en/architecture-master/"
+  },
+  {
+    "university": "Universiti Kebangsaan Malaysia",
+    "country": "Malaysia",
+    "city": "Bangi",
+    "qs_ranking": 138,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.ukm.my/portalukm/master/master-social-science-and-humanities/"
+  },
+  {
+    "university": "Universiti Kebangsaan Malaysia",
+    "country": "Malaysia",
+    "city": "Bangi",
+    "qs_ranking": 138,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.ukm.my/portalukm/master/master-economic-and-management/"
+  },
+  {
+    "university": "Universiti Kebangsaan Malaysia",
+    "country": "Malaysia",
+    "city": "Bangi",
+    "qs_ranking": 138,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.ukm.my/portalukm/undergraduate/media-communications/"
+  },
+  {
+    "university": "Universiti Kebangsaan Malaysia",
+    "country": "Malaysia",
+    "city": "Bangi",
+    "qs_ranking": 138,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.ukm.my/portalukm/master/master-environment-and-development/"
+  },
+  {
+    "university": "Universiti Kebangsaan Malaysia",
+    "country": "Malaysia",
+    "city": "Bangi",
+    "qs_ranking": 138,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.ukm.my/portalukm/master/master-science-and-technology/"
+  },
+  {
+    "university": "Universiti Kebangsaan Malaysia",
+    "country": "Malaysia",
+    "city": "Bangi",
+    "qs_ranking": 138,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.ukm.my/portalukm/master/master-health-sciences/"
+  },
+  {
+    "university": "Universiti Kebangsaan Malaysia",
+    "country": "Malaysia",
+    "city": "Bangi",
+    "qs_ranking": 138,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://www.ukm.my/gsbukm/master-of-management/"
+  },
+  {
+    "university": "Universiti Teknologi Malaysia",
+    "country": "Malaysia",
+    "city": "Johor Bahru",
+    "qs_ranking": 181,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://comp.utm.my/master-cs/"
+  },
+  {
+    "university": "Universiti Teknologi Malaysia",
+    "country": "Malaysia",
+    "city": "Johor Bahru",
+    "qs_ranking": 181,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://comp.utm.my/master-of-science-ds/"
+  },
+  {
+    "university": "Universiti Teknologi Malaysia",
+    "country": "Malaysia",
+    "city": "Johor Bahru",
+    "qs_ranking": 181,
+    "field_of_study": "Business & Management",
+    "program_url": "https://management.utm.my/programs/master/technology-management/"
+  },
+  {
+    "university": "Universiti Teknologi Malaysia",
+    "country": "Malaysia",
+    "city": "Johor Bahru",
+    "qs_ranking": 181,
+    "field_of_study": "MBA",
+    "program_url": "https://business.utm.my/programs/mba-latest/"
+  },
+  {
+    "university": "Universiti Teknologi Malaysia",
+    "country": "Malaysia",
+    "city": "Johor Bahru",
+    "qs_ranking": 181,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://mech.utm.my/mkmm/"
+  },
+  {
+    "university": "Universiti Teknologi Malaysia",
+    "country": "Malaysia",
+    "city": "Johor Bahru",
+    "qs_ranking": 181,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://science.utm.my/pg/master-of-science-biotechnology/"
+  },
+  {
+    "university": "Universiti Teknologi Malaysia",
+    "country": "Malaysia",
+    "city": "Johor Bahru",
+    "qs_ranking": 181,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://builtsurvey.utm.my/academic/master-of-architecture/"
+  },
+  {
+    "university": "Universiti Teknologi Malaysia",
+    "country": "Malaysia",
+    "city": "Johor Bahru",
+    "qs_ranking": 181,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://humanities.utm.my/education/master-programme/"
+  },
+  {
+    "university": "Universiti Teknologi Malaysia",
+    "country": "Malaysia",
+    "city": "Johor Bahru",
+    "qs_ranking": 181,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://business.utm.my/islamic"
+  },
+  {
+    "university": "Universiti Teknologi Malaysia",
+    "country": "Malaysia",
+    "city": "Johor Bahru",
+    "qs_ranking": 181,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://civil.utm.my/postgraduate/meak/"
+  },
+  {
+    "university": "Universiti Teknologi Malaysia",
+    "country": "Malaysia",
+    "city": "Johor Bahru",
+    "qs_ranking": 181,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://science.utm.my/pg/msk/"
+  },
+  {
+    "university": "International Islamic University Malaysia",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.iium.edu.my/programme/show/master-of-computer-science"
+  },
+  {
+    "university": "International Islamic University Malaysia",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://kulliyyah.iium.edu.my/kict/master-of-computer-science-2/"
+  },
+  {
+    "university": "International Islamic University Malaysia",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://gsm.iium.edu.my/master-of-management/"
+  },
+  {
+    "university": "International Islamic University Malaysia",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://gsm.iium.edu.my/master-of-business-administration/"
+  },
+  {
+    "university": "International Islamic University Malaysia",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.iium.edu.my/kulliyyah/koe/postgraduate"
+  },
+  {
+    "university": "International Islamic University Malaysia",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": null,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.iium.edu.my/programme/show/bachelor-of-biotechnology-honours"
+  },
+  {
+    "university": "International Islamic University Malaysia",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": null,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://kulliyyah.iium.edu.my/kom/bachelor-of-medicine-and-bachelor-of-surgery/"
+  },
+  {
+    "university": "International Islamic University Malaysia",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": null,
+    "field_of_study": "Law",
+    "program_url": "https://www.iium.edu.my/programme/show/master-of-laws-llm-in-international-law-1"
+  },
+  {
+    "university": "International Islamic University Malaysia",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://kulliyyah.iium.edu.my/kaed/master-of-architecture/"
+  },
+  {
+    "university": "International Islamic University Malaysia",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.iium.edu.my/programme/show/master-of-human-science-in-communication"
+  },
+  {
+    "university": "International Islamic University Malaysia",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.iium.edu.my/programme/show/master-of-science-finance"
+  },
+  {
+    "university": "International Islamic University Malaysia",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://centre.iium.edu.my/sejahtera/?page_id=1893"
+  },
+  {
+    "university": "International Islamic University Malaysia",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": null,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://kulliyyah.iium.edu.my/kos/biotech/"
+  },
+  {
+    "university": "International Islamic University Malaysia",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": null,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.iium.edu.my/programme/show/bachelor-of-nursing-honours"
+  },
+  {
+    "university": "International Islamic University Malaysia",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": null,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://kulliyyah.iium.edu.my/kstcl/tmgt/"
+  },
+  {
+    "university": "Monash University Malaysia",
+    "country": "Malaysia",
+    "city": "Subang Jaya",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.monash.edu.my/study/undergraduate/information-technology/bachelor-computer-science"
+  },
+  {
+    "university": "Monash University Malaysia",
+    "country": "Malaysia",
+    "city": "Subang Jaya",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.monash.edu.my/study/postgraduate-and-research/information-technology/master-of-artificial-intelligence"
+  },
+  {
+    "university": "Monash University Malaysia",
+    "country": "Malaysia",
+    "city": "Subang Jaya",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.monash.edu.my/study/undergraduate/business/bachelor-business-commerce"
+  },
+  {
+    "university": "Monash University Malaysia",
+    "country": "Malaysia",
+    "city": "Subang Jaya",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.monash.edu.my/study/undergraduate/engineering/bachelor-of-engineering-honours-in-mechanical-engineering"
+  },
+  {
+    "university": "Monash University Malaysia",
+    "country": "Malaysia",
+    "city": "Subang Jaya",
+    "qs_ranking": null,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.monash.edu.my/study/postgraduate-and-research/medicine-health-sciences/master-of-biotechnology"
+  },
+  {
+    "university": "Monash University Malaysia",
+    "country": "Malaysia",
+    "city": "Subang Jaya",
+    "qs_ranking": null,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.monash.edu.my/study/undergraduate/jeffrey-cheah-school-medicine-health-sciences/bachelor-medical-science-doctor-medicine"
+  },
+  {
+    "university": "Monash University Malaysia",
+    "country": "Malaysia",
+    "city": "Subang Jaya",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.monash.edu.my/study/undergraduate/arts-social-sciences/bachelor-arts-social-sciences"
+  },
+  {
+    "university": "Monash University Malaysia",
+    "country": "Malaysia",
+    "city": "Subang Jaya",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.monash.edu.my/study/postgraduate-and-research/arts-social-sciences/master-communications-media-studies"
+  },
+  {
+    "university": "Monash University Malaysia",
+    "country": "Malaysia",
+    "city": "Subang Jaya",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.monash.edu.my/study/postgraduate-and-research/business/master-international-business"
+  },
+  {
+    "university": "Monash University Malaysia",
+    "country": "Malaysia",
+    "city": "Subang Jaya",
+    "qs_ranking": null,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.monash.edu.my/study/undergraduate/science/bachelor-science"
+  },
+  {
+    "university": "University of Nottingham Malaysia",
+    "country": "Malaysia",
+    "city": "Semenyih",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.nottingham.edu.my/pgstudy/course/taught/computer-science-msc"
+  },
+  {
+    "university": "University of Nottingham Malaysia",
+    "country": "Malaysia",
+    "city": "Semenyih",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.nottingham.edu.my/ugstudy/course/computer-science-with-artificial-intelligence-bsc-hons"
+  },
+  {
+    "university": "University of Nottingham Malaysia",
+    "country": "Malaysia",
+    "city": "Semenyih",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.nottingham.edu.my/pgstudy/course/taught/business-international-management-msc"
+  },
+  {
+    "university": "University of Nottingham Malaysia",
+    "country": "Malaysia",
+    "city": "Semenyih",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://www.nottingham.edu.my/pgstudy/course/taught/executive-master-of-business-administration-emba"
+  },
+  {
+    "university": "University of Nottingham Malaysia",
+    "country": "Malaysia",
+    "city": "Semenyih",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.nottingham.edu.my/ugstudy/course/mechanical-engineering-meng-hons"
+  },
+  {
+    "university": "University of Nottingham Malaysia",
+    "country": "Malaysia",
+    "city": "Semenyih",
+    "qs_ranking": null,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.nottingham.edu.my/ugstudy/course/biotechnology-bsc-hons"
+  },
+  {
+    "university": "University of Nottingham Malaysia",
+    "country": "Malaysia",
+    "city": "Semenyih",
+    "qs_ranking": null,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.nottingham.edu.my/ugstudy/course/pharmaceutical-and-health-sciences-bsc-hons"
+  },
+  {
+    "university": "University of Nottingham Malaysia",
+    "country": "Malaysia",
+    "city": "Semenyih",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.nottingham.edu.my/ugstudy/course/international-communication-studies-ba-hons"
+  },
+  {
+    "university": "University of Nottingham Malaysia",
+    "country": "Malaysia",
+    "city": "Semenyih",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.nottingham.edu.my/ugstudy/course/economics-bsc-hons"
+  },
+  {
+    "university": "University of Nottingham Malaysia",
+    "country": "Malaysia",
+    "city": "Semenyih",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.nottingham.edu.my/pgstudy/course/taught/media-communications-and-culture-ma"
+  },
+  {
+    "university": "University of Nottingham Malaysia",
+    "country": "Malaysia",
+    "city": "Semenyih",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.nottingham.edu.my/ugstudy/course/environmental-science-bsc-hons"
+  },
+  {
+    "university": "University of Nottingham Malaysia",
+    "country": "Malaysia",
+    "city": "Semenyih",
+    "qs_ranking": null,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.nottingham.edu.my/ugstudy/course/biomedical-science-bsc-hons"
+  },
+  {
+    "university": "Heriot-Watt University Malaysia",
+    "country": "Malaysia",
+    "city": "Putrajaya",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.hw.ac.uk/malaysia/study/undergraduate/computing-science"
+  },
+  {
+    "university": "Heriot-Watt University Malaysia",
+    "country": "Malaysia",
+    "city": "Putrajaya",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.hw.ac.uk/malaysia/study/undergraduate/statistical-data-science"
+  },
+  {
+    "university": "Heriot-Watt University Malaysia",
+    "country": "Malaysia",
+    "city": "Putrajaya",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.hw.ac.uk/malaysia/study/undergraduate/business-management-ma"
+  },
+  {
+    "university": "Heriot-Watt University Malaysia",
+    "country": "Malaysia",
+    "city": "Putrajaya",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://www.hw.ac.uk/malaysia/study/postgraduate/master-business-administration-mba"
+  },
+  {
+    "university": "Heriot-Watt University Malaysia",
+    "country": "Malaysia",
+    "city": "Putrajaya",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.hw.ac.uk/malaysia/study/undergraduate/mechanical-engineering-meng"
+  },
+  {
+    "university": "Heriot-Watt University Malaysia",
+    "country": "Malaysia",
+    "city": "Putrajaya",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.hw.ac.uk/malaysia/study/undergraduate/accounting-and-business-finance-ma"
+  },
+  {
+    "university": "Heriot-Watt University Malaysia",
+    "country": "Malaysia",
+    "city": "Putrajaya",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.hw.ac.uk/malaysia/study/undergraduate/psychology"
+  },
+  {
+    "university": "Heriot-Watt University Malaysia",
+    "country": "Malaysia",
+    "city": "Putrajaya",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.hw.ac.uk/malaysia/study/undergraduate/quantity-surveying-bsc-hons"
+  },
+  {
+    "university": "Curtin University Malaysia",
+    "country": "Malaysia",
+    "city": "Miri",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://curtin.edu.my/study/undergraduate/bachelor-software-engineering/"
+  },
+  {
+    "university": "Curtin University Malaysia",
+    "country": "Malaysia",
+    "city": "Miri",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://curtin.edu.my/study/undergraduate/bachelor-business-administration/"
+  },
+  {
+    "university": "Curtin University Malaysia",
+    "country": "Malaysia",
+    "city": "Miri",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://curtin.edu.my/study/postgraduate/master-international-business/"
+  },
+  {
+    "university": "Curtin University Malaysia",
+    "country": "Malaysia",
+    "city": "Miri",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://curtin.edu.my/study/undergraduate/bachelor-engineering-mechanical/"
+  },
+  {
+    "university": "Curtin University Malaysia",
+    "country": "Malaysia",
+    "city": "Miri",
+    "qs_ranking": null,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://curtin.edu.my/study/postgraduate/master-public-health/"
+  },
+  {
+    "university": "Curtin University Malaysia",
+    "country": "Malaysia",
+    "city": "Miri",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://curtin.edu.my/study/undergraduate/bachelor-psychological-science/"
+  },
+  {
+    "university": "Curtin University Malaysia",
+    "country": "Malaysia",
+    "city": "Miri",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://curtin.edu.my/study/undergraduate/bachelor-commerce-finance/"
+  },
+  {
+    "university": "Curtin University Malaysia",
+    "country": "Malaysia",
+    "city": "Miri",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://curtin.edu.my/study/undergraduate/bachelor-communications/"
+  },
+  {
+    "university": "Curtin University Malaysia",
+    "country": "Malaysia",
+    "city": "Miri",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://curtin.edu.my/study/undergraduate/bachelor-engineering-environmental/"
+  },
+  {
+    "university": "Curtin University Malaysia",
+    "country": "Malaysia",
+    "city": "Miri",
+    "qs_ranking": null,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://curtin.edu.my/study/undergraduate/bachelor-applied-geology/"
+  },
+  {
+    "university": "Curtin University Malaysia",
+    "country": "Malaysia",
+    "city": "Miri",
+    "qs_ranking": null,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://curtin.edu.my/study/undergraduate/bachelor-commerce-tourism-hospitality/"
+  },
+  {
+    "university": "Swinburne University of Technology Sarawak",
+    "country": "Malaysia",
+    "city": "Kuching",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.swinburne.edu.my/courses/master-of-information-technology/"
+  },
+  {
+    "university": "Swinburne University of Technology Sarawak",
+    "country": "Malaysia",
+    "city": "Kuching",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.swinburne.edu.my/courses/bachelor-of-data-science/"
+  },
+  {
+    "university": "Swinburne University of Technology Sarawak",
+    "country": "Malaysia",
+    "city": "Kuching",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.swinburne.edu.my/courses/bachelor-of-business-management/"
+  },
+  {
+    "university": "Swinburne University of Technology Sarawak",
+    "country": "Malaysia",
+    "city": "Kuching",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://www.swinburne.edu.my/courses/master-of-business-administration-international/"
+  },
+  {
+    "university": "Swinburne University of Technology Sarawak",
+    "country": "Malaysia",
+    "city": "Kuching",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.swinburne.edu.my/courses/bachelor-of-engineering-mechanical-honours/"
+  },
+  {
+    "university": "Swinburne University of Technology Sarawak",
+    "country": "Malaysia",
+    "city": "Kuching",
+    "qs_ranking": null,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.swinburne.edu.my/courses/bachelor-of-science-biotechnology/"
+  },
+  {
+    "university": "Swinburne University of Technology Sarawak",
+    "country": "Malaysia",
+    "city": "Kuching",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.swinburne.edu.my/courses/bachelor-of-design-multimedia-design/"
+  },
+  {
+    "university": "Swinburne University of Technology Sarawak",
+    "country": "Malaysia",
+    "city": "Kuching",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.swinburne.edu.my/courses/bachelor-of-business-finance.php"
+  },
+  {
+    "university": "Swinburne University of Technology Sarawak",
+    "country": "Malaysia",
+    "city": "Kuching",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.swinburne.edu.my/courses/bachelor-media-communication/"
+  },
+  {
+    "university": "Swinburne University of Technology Sarawak",
+    "country": "Malaysia",
+    "city": "Kuching",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.swinburne.edu.my/courses/bachelor-science-environmental-science/"
+  },
+  {
+    "university": "Swinburne University of Technology Sarawak",
+    "country": "Malaysia",
+    "city": "Kuching",
+    "qs_ranking": null,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.swinburne.edu.my/courses/bachelor-of-engineering-chemical-honours/"
+  },
+  {
+    "university": "SEGi University",
+    "country": "Malaysia",
+    "city": "Petaling Jaya",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.segi.edu.my/msc-in-information-technology-coursework/"
+  },
+  {
+    "university": "SEGi University",
+    "country": "Malaysia",
+    "city": "Petaling Jaya",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://new.segi.edu.my/bachelor-of-computer-science-hons-1/"
+  },
+  {
+    "university": "SEGi University",
+    "country": "Malaysia",
+    "city": "Petaling Jaya",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.segi.edu.my/course/bachelor-of-business-management-honours/"
+  },
+  {
+    "university": "SEGi University",
+    "country": "Malaysia",
+    "city": "Petaling Jaya",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://new.segi.edu.my/master-of-business-administration/"
+  },
+  {
+    "university": "SEGi University",
+    "country": "Malaysia",
+    "city": "Petaling Jaya",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.segi.edu.my/bachelor-of-mechanical-engineering-with-hons/"
+  },
+  {
+    "university": "SEGi University",
+    "country": "Malaysia",
+    "city": "Petaling Jaya",
+    "qs_ranking": null,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://new.segi.edu.my/biomedical-science/"
+  },
+  {
+    "university": "SEGi University",
+    "country": "Malaysia",
+    "city": "Petaling Jaya",
+    "qs_ranking": null,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.segi.edu.my/bachelor-of-medicine-bachelor-of-surgery-mbbs/"
+  },
+  {
+    "university": "SEGi University",
+    "country": "Malaysia",
+    "city": "Petaling Jaya",
+    "qs_ranking": null,
+    "field_of_study": "Law",
+    "program_url": "https://www.segi.edu.my/master-of-laws-2/"
+  },
+  {
+    "university": "SEGi University",
+    "country": "Malaysia",
+    "city": "Petaling Jaya",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.segi.edu.my/course/bachelor-of-art-in-interior-architecture-hons/"
+  },
+  {
+    "university": "SEGi University",
+    "country": "Malaysia",
+    "city": "Petaling Jaya",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://new.segi.edu.my/master-of-social-science-in-psychology/"
+  },
+  {
+    "university": "SEGi University",
+    "country": "Malaysia",
+    "city": "Petaling Jaya",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://university.segi.edu.my/course/bachelor-of-accounting-and-finance-honours/"
+  },
+  {
+    "university": "SEGi University",
+    "country": "Malaysia",
+    "city": "Petaling Jaya",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.segi.edu.my/course/bachelor-of-mass-communication-hons/"
+  },
+  {
+    "university": "SEGi University",
+    "country": "Malaysia",
+    "city": "Petaling Jaya",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.segi.edu.my/course/master-of-science-in-environmental-sustainability-with-artificial-intelligence/"
+  },
+  {
+    "university": "SEGi University",
+    "country": "Malaysia",
+    "city": "Petaling Jaya",
+    "qs_ranking": null,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://new.segi.edu.my/bach-in-nursing-hons-collaboration-with-usm/"
+  },
+  {
+    "university": "SEGi University",
+    "country": "Malaysia",
+    "city": "Petaling Jaya",
+    "qs_ranking": null,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://www.segi.edu.my/course/bachelor-of-hospitality-management-hons/"
+  },
+  {
+    "university": "Asia Pacific University of Technology & Innovation",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.apu.edu.my/course/msc-of-science-computing"
+  },
+  {
+    "university": "Asia Pacific University of Technology & Innovation",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.apu.edu.my/course/msc-in-artificial-intelligence"
+  },
+  {
+    "university": "Asia Pacific University of Technology & Innovation",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.apu.edu.my/course/bachelor-of-arts-business-management"
+  },
+  {
+    "university": "Asia Pacific University of Technology & Innovation",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://www.apu.edu.my/course/msc-of-business-administration"
+  },
+  {
+    "university": "Asia Pacific University of Technology & Innovation",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.apu.edu.my/course/bachelor-of-electrical-and-electronic-engineering"
+  },
+  {
+    "university": "Asia Pacific University of Technology & Innovation",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.apu.edu.my/course/bachelor-of-science-architecture"
+  },
+  {
+    "university": "Asia Pacific University of Technology & Innovation",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.apu.edu.my/course/msc-of-finance"
+  },
+  {
+    "university": "Asia Pacific University of Technology & Innovation",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.apu.edu.my/course/bachelor-of-arts-media-and-communication-studies"
+  },
+  {
+    "university": "Asia Pacific University of Technology & Innovation",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.apu.edu.my/course/mba-sustainability-leadership-odl"
+  },
+  {
+    "university": "Asia Pacific University of Technology & Innovation",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": null,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://www.apu.edu.my/course/msc-of-business-administration-hospitality-and-tourism"
+  },
+  {
+    "university": "Universiti Tunku Abdul Rahman",
+    "country": "Malaysia",
+    "city": "Kampar",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://ipsr.utar.edu.my/MScCS.php"
+  },
+  {
+    "university": "Universiti Tunku Abdul Rahman",
+    "country": "Malaysia",
+    "city": "Kampar",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://study.utar.edu.my/industrial-intelligent-systems.php"
+  },
+  {
+    "university": "Universiti Tunku Abdul Rahman",
+    "country": "Malaysia",
+    "city": "Kampar",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://fbf.utar.edu.my/Programme-Structure.php"
+  },
+  {
+    "university": "Universiti Tunku Abdul Rahman",
+    "country": "Malaysia",
+    "city": "Kampar",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://fbf.utar.edu.my/MBA-CM--Education-Objective--and--Outcome.php"
+  },
+  {
+    "university": "Universiti Tunku Abdul Rahman",
+    "country": "Malaysia",
+    "city": "Kampar",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://study.utar.edu.my/mechanical-engineering.php"
+  },
+  {
+    "university": "Universiti Tunku Abdul Rahman",
+    "country": "Malaysia",
+    "city": "Kampar",
+    "qs_ranking": null,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://study.utar.edu.my/biotechnology.php"
+  },
+  {
+    "university": "Universiti Tunku Abdul Rahman",
+    "country": "Malaysia",
+    "city": "Kampar",
+    "qs_ranking": null,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://study.utar.edu.my/mbbs.php"
+  },
+  {
+    "university": "Universiti Tunku Abdul Rahman",
+    "country": "Malaysia",
+    "city": "Kampar",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://study.utar.edu.my/architecture.php"
+  },
+  {
+    "university": "Universiti Tunku Abdul Rahman",
+    "country": "Malaysia",
+    "city": "Kampar",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://study.utar.edu.my/corporate-communication.php"
+  },
+  {
+    "university": "Universiti Tunku Abdul Rahman",
+    "country": "Malaysia",
+    "city": "Kampar",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://study.utar.edu.my/finance.php"
+  },
+  {
+    "university": "Universiti Tunku Abdul Rahman",
+    "country": "Malaysia",
+    "city": "Kampar",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://study.utar.edu.my/media-creative-studies.php"
+  },
+  {
+    "university": "Universiti Tunku Abdul Rahman",
+    "country": "Malaysia",
+    "city": "Kampar",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://study.utar.edu.my/environmental-engineering.php"
+  },
+  {
+    "university": "Universiti Tunku Abdul Rahman",
+    "country": "Malaysia",
+    "city": "Kampar",
+    "qs_ranking": null,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://study.utar.edu.my/biochemistry.php"
+  },
+  {
+    "university": "Universiti Tunku Abdul Rahman",
+    "country": "Malaysia",
+    "city": "Kampar",
+    "qs_ranking": null,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://study.utar.edu.my/nursing.php"
+  },
+  {
+    "university": "Universiti Tunku Abdul Rahman",
+    "country": "Malaysia",
+    "city": "Kampar",
+    "qs_ranking": null,
+    "field_of_study": "Agriculture & Veterinary Sciences",
+    "program_url": "https://study.utar.edu.my/Structure-ag.php"
+  },
+  {
+    "university": "Universiti Tunku Abdul Rahman",
+    "country": "Malaysia",
+    "city": "Kampar",
+    "qs_ranking": null,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://study.utar.edu.my/programme-structure-tourism-destination-marketing.php"
+  },
+  {
+    "university": "Singapore Management University",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": 545,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://computing.smu.edu.sg/mscomputing"
+  },
+  {
+    "university": "Singapore Management University",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": 545,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://masters.smu.edu.sg/programme/master-of-it-in-business"
+  },
+  {
+    "university": "Singapore Management University",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": 545,
+    "field_of_study": "Business & Management",
+    "program_url": "https://masters.smu.edu.sg/programme/msc-in-management"
+  },
+  {
+    "university": "Singapore Management University",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": 545,
+    "field_of_study": "MBA",
+    "program_url": "https://masters.smu.edu.sg/programme/master-of-business-administration"
+  },
+  {
+    "university": "Singapore Management University",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": 545,
+    "field_of_study": "Law",
+    "program_url": "https://masters.smu.edu.sg/programme/master-of-laws"
+  },
+  {
+    "university": "Singapore Management University",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": 545,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://socsc.smu.edu.sg/bachelor-social-science"
+  },
+  {
+    "university": "Singapore Management University",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": 545,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://masters.smu.edu.sg/programme/master-in-financial-economics"
+  },
+  {
+    "university": "Singapore Management University",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": 545,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://masters.smu.edu.sg/programme/msc-in-communication-management"
+  },
+  {
+    "university": "Singapore Management University",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": 545,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://masters.smu.edu.sg/programme/master-of-sustainability"
+  },
+  {
+    "university": "Singapore University of Technology and Design",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.sutd.edu.sg/istd/education/undergraduate/curriculum/"
+  },
+  {
+    "university": "Singapore University of Technology and Design",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.sutd.edu.sg/programme-listing/master-of-science-in-design-and-artificial-intelligence-for-enterprise/"
+  },
+  {
+    "university": "Singapore University of Technology and Design",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.sutd.edu.sg/programme-listing/mibd/about/programme-overview"
+  },
+  {
+    "university": "Singapore University of Technology and Design",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.sutd.edu.sg/epd/education/undergraduate/curriculum/"
+  },
+  {
+    "university": "Singapore University of Technology and Design",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.sutd.edu.sg/programme-listing/master-of-architecture-programme/"
+  },
+  {
+    "university": "Singapore University of Technology and Design",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.sutd.edu.sg/programme-listing/mtd-human-centred-design/"
+  },
+  {
+    "university": "Singapore University of Technology and Design",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.sutd.edu.sg/programme-listing/mtd-ai-and-technology-in-finance/"
+  },
+  {
+    "university": "Singapore University of Technology and Design",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.sutd.edu.sg/programme-listing/mtd-sustainable-urban-design/"
+  },
+  {
+    "university": "Singapore Institute of Technology",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.singaporetech.edu.sg/undergraduate-programmes/computing-science"
+  },
+  {
+    "university": "Singapore Institute of Technology",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.singaporetech.edu.sg/undergraduate-programmes/applied-artificial-intelligence"
+  },
+  {
+    "university": "Singapore Institute of Technology",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.singaporetech.edu.sg/undergraduate-programmes/accountancy"
+  },
+  {
+    "university": "Singapore Institute of Technology",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.singaporetech.edu.sg/postgraduate-programmes/master-science-mechanical-engineering"
+  },
+  {
+    "university": "Singapore Institute of Technology",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.singaporetech.edu.sg/undergraduate-programmes/food-technology"
+  },
+  {
+    "university": "Singapore Institute of Technology",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.singaporetech.edu.sg/postgraduate-programmes/master-of-health-sciences"
+  },
+  {
+    "university": "Singapore Institute of Technology",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.singaporetech.edu.sg/undergraduate-programmes/interior-design"
+  },
+  {
+    "university": "Singapore Institute of Technology",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.singaporetech.edu.sg/undergraduate-programmes/communication-and-digital-media"
+  },
+  {
+    "university": "Singapore Institute of Technology",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.singaporetech.edu.sg/undergraduate-programmes/nursing"
+  },
+  {
+    "university": "Singapore Institute of Technology",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://www.singaporetech.edu.sg/undergraduate-programmes/hospitality-and-tourism-management"
+  },
+  {
+    "university": "James Cook University Singapore",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.jcu.edu.sg/courses-and-study/courses/course/master-of-information-technology-majoring-in-software-engineering"
+  },
+  {
+    "university": "James Cook University Singapore",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.jcu.edu.sg/courses-and-study/courses/course/master-of-information-technology-majoring-in-artificial-intelligence"
+  },
+  {
+    "university": "James Cook University Singapore",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.jcu.edu.sg/courses-and-study/courses/course/bachelor-of-business-management"
+  },
+  {
+    "university": "James Cook University Singapore",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://www.jcu.edu.sg/courses-and-study/courses/course/master-of-business-administration"
+  },
+  {
+    "university": "James Cook University Singapore",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.jcu.edu.sg/courses-and-study/courses/course/master-of-information-technology-interactive-technologies-And-games-design"
+  },
+  {
+    "university": "James Cook University Singapore",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.jcu.edu.sg/courses-and-study/courses/course/bachelor-of-psychological-science"
+  },
+  {
+    "university": "James Cook University Singapore",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.jcu.edu.sg/courses-and-study/courses/course/bachelor-of-commerce-majoring-in-banking-and-finance"
+  },
+  {
+    "university": "James Cook University Singapore",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.jcu.edu.sg/courses-and-study/courses/course/bachelor-of-business-And-environmental-science"
+  },
+  {
+    "university": "James Cook University Singapore",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.jcu.edu.sg/courses-and-study/courses/course/bachelor-of-science-majoring-in-data-science"
+  },
+  {
+    "university": "James Cook University Singapore",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "field_of_study": "Agriculture & Veterinary Sciences",
+    "program_url": "https://www.jcu.edu.sg/courses-and-study/courses/course/bachelor-of-science-majoring-in-aquaculture-science-and-technology"
+  },
+  {
+    "university": "James Cook University Singapore",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://www.jcu.edu.sg/courses-and-study/courses/course/master-of-international-tourism-and-hospitality-management"
+  },
+  {
+    "university": "Curtin University Singapore",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.curtin.edu.sg/courses/postgraduate/master-of-computing/computer-science/"
+  },
+  {
+    "university": "Curtin University Singapore",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.curtin.edu.sg/courses/postgraduate/master-of-artificial-intelligence/"
+  },
+  {
+    "university": "Curtin University Singapore",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.curtin.edu.sg/courses/postgraduate/master-of-international-business-2/"
+  },
+  {
+    "university": "Curtin University Singapore",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://curtin.edu.sg/courses/postgraduate/master-of-business-administration-mba/mba-leadership-specialisation/"
+  },
+  {
+    "university": "Curtin University Singapore",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/finance/"
+  },
+  {
+    "university": "Curtin University Singapore",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.curtin.edu.sg/courses/undergraduate/communications/"
+  },
+  {
+    "university": "Curtin University Singapore",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.curtin.edu.sg/courses/undergraduate/nursing-conversion-program-for-registered-nurses/"
+  },
+  {
+    "university": "S P Jain School of Global Management Singapore",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.spjain.sg/programs/postgraduate/mgb"
+  },
+  {
+    "university": "S P Jain School of Global Management Singapore",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://www.spjain.sg/programs/postgraduate/gmba"
+  },
+  {
+    "university": "S P Jain School of Global Management Singapore",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.spjain.sg/programs/postgraduate/master-of-artificial-intelligence-in-business/program-structure"
+  },
+  {
+    "university": "S P Jain School of Global Management Singapore",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.spjain.sg/programs/undergraduate/bba"
+  },
+  {
+    "university": "S P Jain School of Global Management Singapore",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.spjain.sg/programs/undergraduate/bachelor-of-economics"
+  },
+  {
+    "university": "ESSEC Asia-Pacific Singapore",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://www.essec.edu/en/program/executive-mba-singapore-track/"
+  },
+  {
+    "university": "ESSEC Asia-Pacific Singapore",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.essec.edu/en/program/msc-marketing-management-digital/"
+  }
+]
