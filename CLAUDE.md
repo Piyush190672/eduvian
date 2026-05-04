@@ -4,7 +4,7 @@ This file is loaded automatically. The full project state, decisions, and ration
 
 ## What this is
 
-Next.js 14 (App Router) study-abroad platform deployed to Vercel at https://www.eduvianai.com. Postgres + RLS in Supabase Cloud (US, Pro plan). Anthropic Claude for AI features, Resend for transactional mail, Sentry for errors. 12 destination countries, **4,622 programs / 4,413 verified at the source / 425 universities (381 with verified programs)** as of 3 May 2026, beta-gated to 100 users/month. Email OTP gates register/login.
+Next.js 14 (App Router) study-abroad platform deployed to Vercel at https://www.eduvianai.com. Postgres + RLS in Supabase Cloud (US, Pro plan). Anthropic Claude for AI features, Resend for transactional mail, Sentry for errors. 12 destination countries, **5,595 programs / 5,532 verified at the source (98.9%) / 506 universities (485 with verified programs)** as of 4 May 2026, beta-gated to 100 users/month. Email OTP gates register/login.
 
 ## Hard rules — never do without explicit user approval
 
@@ -39,7 +39,7 @@ User separates "commit" from "deploy" (push). Defaults:
 
 ## Verification pipeline (programs.ts)
 
-The 4,295-program database in `src/data/programs.ts` is built only by `scripts/verify/`. Hard rules:
+The 5,595-program database in `src/data/programs.ts` is built only by `scripts/verify/`. Hard rules:
 
 1. **No hand-authored entries.** Adds go through the pipeline.
 2. **No invented values.** If the live URL doesn't state a fee/deadline/cutoff, the field is `null`.
@@ -47,6 +47,7 @@ The 4,295-program database in `src/data/programs.ts` is built only by `scripts/v
 4. `field_of_study` must be one of the 17 in `FIELDS_OF_STUDY`.
 5. For high-stakes programs.ts edits, prefer `repair-corruption.ts`-style parse-and-emit over inline regex. Brace walkers must track strings (history: see snapshot §4.10).
 6. `verify-program.ts` stays on Opus 4.7 (audited; Haiku/Sonnet fabricate).
+7. **Fresh seeds via `websearch-seed-finder.ts` (Sonnet + web_search) hit ~75% verify pass-rate.** Stale `tier-N-auto.json` seeds (older crawler runs) hit ~5% — they're full of catalog/listing URLs. For new uni additions, always run seed-finder over a curated catalog first; don't reuse old auto-seeds.
 
 Tier chain runner: `nohup ./scripts/verify/chain-tiers.sh tier-N > /tmp/chain-tN.log 2>&1 &`.
 
@@ -88,8 +89,9 @@ When working on `submissions`, both `profile` (plaintext) and `profile_encrypted
 
 | Path | What |
 |---|---|
-| `src/data/programs.ts` | THE database. **4,622 entries / 4,413 verified.** `@ts-nocheck` (large data file). |
-| `src/data/db-stats.ts` | Computed counts. Now also exports `verifiedProgramsLabel` (4,413+) and `verifiedUniversitiesLabel` (381+). |
+| `src/data/programs.ts` | THE database. **5,595 entries / 5,532 verified.** `@ts-nocheck` (large data file). |
+| `src/data/db-stats.ts` | Computed counts. Public surfaces standardise on `verifiedProgramsLabel` (5,532+) and `verifiedUniversitiesLabel` (485+) — `programsLabel` (the unverified-tail total) is internal-only. Don't reintroduce dual numbers in copy. |
+| `src/app/sample-parent-report/page.tsx` | Static, illustrative parent-decision report at `/sample-parent-report`. Print-friendly (Save-as-PDF button). Linked from the Decide-stage 'See sample family report' CTA. |
 | `src/lib/types.ts` | Single source of truth. `TARGET_COUNTRIES` (12), `FIELDS_OF_STUDY` (17). |
 | `src/lib/scoring.ts` | 9-signal `recommendPrograms()`. Tiers: Safe 75-100, Reach 50-74, Ambitious <50. |
 | `src/lib/format-fee.ts` | Null-safe tuition rendering. **Never show $0.** |
@@ -118,6 +120,15 @@ When working on `submissions`, both `profile` (plaintext) and `profile_encrypted
 - `instrumentation.ts` doesn't reliably fire on Vercel — eager `Sentry.init()` in `api-error.ts` is the actual capture path. Don't remove it.
 - `NEXT_PUBLIC_*` vars are visible in the browser — never put secrets there.
 - After deleting any `src/app/...` route, `rm -rf .next/types/app/<that-path>` before re-running `chain-tiers.sh` or it'll fail at type-check.
+- `npx next build` clobbers the dev `.next/` cache — the `npm run dev` server then serves 404s for `/_next/static/*`. Always `rm -rf .next && (restart dev)` after running a production build, or the dev preview will silently SSR-only with no React hydration.
+- Vercel coalesces back-to-back pushes into a single deployment if the second arrives mid-build. If a deploy doesn't trigger after a push, an empty `git commit --allow-empty` + push retriggers cleanly. (`vercel --prod --yes` from CLI hits a free-tier upload-rate limit, so the empty-commit trick is the fallback.)
+
+## Mobile rules of thumb (learned the hard way)
+
+- **Decorative `blur-3xl` / `blur-2xl` / `blur-[Xpx]` blobs cripple mobile GPU compositing.** Each one repaints as it scrolls into view. We had 23 of these on the homepage and they were the root cause of the section-flash-on-scroll bug. Fix: every decorative blur (any div with `pointer-events-none` + `blur-*`) carries `hidden md:block` so it only renders from md+. Don't add new mobile-visible blur blobs.
+- **`whileInView` from framer-motion attaches an IntersectionObserver per element AND fires a re-render** when triggered, even with `transition={{ duration: 0 }}`. With 40+ motion elements that's perceptible jank. Use plain `motion.div` (no whileInView/initial/viewport/transition props) for entrance fades. The `<MotionConfig transition={{ duration: 0 }}>` wrapper around `LandingPage` is a belt-and-suspenders for any motion props that slip back in.
+- Always set explicit `width="X" height="Y" loading="lazy" decoding="async"` on user-visible `<img>` tags — Unsplash images otherwise cause CLS as they resolve.
+- Per-stage mobile accordions (`mobileOpenStages` Set state in `LandingPage`) collapse Stage 2/3/4/5 detail behind a 'Show Stage X details' toggle. Stage 1 always shows. Use the same pattern for any new long detail blocks.
 
 ## Skills available
 
@@ -128,21 +139,24 @@ The legal/security/pricing Word docs were generated with `docx`. Pricing Excel v
 
 ## Open work for the next session
 
-Pinned in priority order. Snapshot §5.3 + §20 has full detail.
+Pinned in priority order. Snapshot §20 has full detail.
 
-1. **Run re-verify on the 209 unverified entries.** `re-verify.ts` was patched with `--only-unverified` (commit landed before this snapshot). Recipe:
-   ```bash
-   set -a; source .env.local; set +a
-   nohup npx tsx scripts/verify/re-verify.ts --only-unverified --concurrency 5 \
-     > /tmp/reverify-unverified.log 2>&1 &
-   # ~30-60 min. Then apply stamps:
-   npx tsx scripts/verify/stamp-verified.ts
-   ```
-   Goal: shrink the 209 unverified gap so `verifiedProgramsLabel` on the homepage rises toward `programsLabel`.
-2. **H7 Phase C**: drop plaintext `submissions.profile`. Wait at least 24-48h after Phase B has been live (Phase B shipped 3 May 2026 evening). Take a fresh `pg_dump` or use the Supabase Pro scheduled backup as the safety net first.
-3. **Homepage items 2 + 8 (deferred from the homepage trust pass)**: section reorder + density cut, destinations advisory rewrite. My read at the time: cut, don't reorder. See snapshot §22 for the full discussion.
-4. **Marketing email opt-in flow**: Privacy Policy §11 promises this; not yet built.
-5. **Visible unsubscribe link in email body**: header is in, body link missing.
+1. **H7 Phase C** — drop plaintext `submissions.profile`. Phase B shipped evening of 3 May 2026; the 24h window opens later today (4 May). Migration SQL + runbook are committed at `src/lib/migrations/20260505-h7-phase-c-drop-plaintext.sql` (NOT yet executed — destructive `DROP COLUMN` only runs when pasted into Supabase SQL Editor). Defensive `DO` block in the migration aborts if any row is still missing `profile_encrypted`. Before running:
+   - Take a fresh `pg_dump` of `public.submissions` (or confirm Supabase Pro scheduled backup ≤12h old).
+   - Update three code paths to stop selecting `profile`:
+     - `src/lib/submissions-decrypt.ts` — drop `profile` from `SUBMISSION_PROFILE_COLUMNS`, remove plaintext fallback in `decryptProfile()`.
+     - `src/app/api/admin/leads/route.ts:13` — drop `profile` from explicit SELECT.
+   - Deploy the code change first, verify `/admin/leads` and `/results/[token]` work, then run the migration.
+2. **Field-mismatch + persistent fetch-error cleanup** — 63 entries from the re-verify pass still aren't verified: 31 `field_mismatch` (24 of them are catalog/listing URLs from older seeds — strip with `audit-strip --include field_mismatch`) and 32 `fetch_or_api_error` (28 are DNS-unresolvable from the build network, 2 De Montfort 404s, 2 succeed in browser → strip the De Montfort, retry the working pair, replace the 28 catalog URLs with real program-detail URLs OR strip them).
+3. **Marketing email opt-in flow** — Privacy Policy §11 promises this; not yet built.
+4. **Visible unsubscribe link in email body** — `List-Unsubscribe` header is in; in-body link still missing.
+5. **Real downloadable Sample Parent Report PDF** — current `/sample-parent-report` is HTML + Save-as-PDF. A static rendered PDF asset would feel more 'official'. Generate via the existing `/api/pdf/*` infrastructure with a `?sample=1` param.
+
+Done in the 4 May session (no longer pending — for context):
+- Re-verify on the 209 unverified entries (now 63 still unverified after applying stamps + strips).
+- 63 new universities + 582 verified programs added across UK / Germany / Canada / Australia.
+- 57 new universities + 465 verified programs added across France / UAE / Malaysia / Singapore.
+- Homepage SWOT-driven restructure: section reorder, parent-aware copy, single-source-of-truth program count, sample parent report page, modal 5-stage parity (A/B/C/D → 1/2/3/4/5), tool-card 5-line standardisation, 'How shortlist is built' premium card treatment, dual-CTA Decide stage, mobile compaction (~3500-4500px shorter), mobile flash fix (kill blur blobs).
 
 ## When unsure: ask
 

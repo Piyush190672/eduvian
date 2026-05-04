@@ -1,9 +1,11 @@
 # EduvianAI — Comprehensive State Snapshot for Session Handoff
 
-**Last updated:** 3 May 2026 (evening — second handoff of the day; first was after Phase 2 of the security audit)
+**Last updated:** 4 May 2026 (after the homepage UX + tier-2 verify session — this is handoff #3)
 **Purpose:** Zero-loss handoff between Claude Code sessions. A new session reading this should be able to continue *every* in-flight workstream correctly, respect all user preferences, and avoid all known gotchas.
 
-> **Pinned next-session priority: §20.** First task is `npx tsx scripts/verify/re-verify.ts --only-unverified --concurrency 5` to verify the 209 entries that don't yet carry a `verified_at` stamp. Patched and ready.
+> **Pinned next-session priority: H7 Phase C.** Phase B has been live since evening of 3 May 2026 — the 24h safety window opens later today (4 May). Migration SQL is committed and ready at `src/lib/migrations/20260505-h7-phase-c-drop-plaintext.sql`. Three small code changes need to deploy first (drop `profile` from SELECTs, kill plaintext fallback in `decryptProfile`); then take a fresh `pg_dump`; then run the SQL in Supabase Studio. Full runbook in §20.
+>
+> Secondary: clean up the 63 still-unverified entries in `programs.ts` (31 field_mismatch + 32 fetch_or_api_error). Audit details in §3.
 
 > **Read this top-to-bottom before doing anything.** Then run the verification commands in §0 to confirm reality matches this document.
 
@@ -15,15 +17,13 @@
 cd /Users/piyushkumar/Playground/eduvian
 
 # 1. Where is the codebase?
-git log --oneline -5
+git log --oneline -10
 git status --short
 
-# 2. What's running in the background?
-ps -p 74973 -o etime= 2>/dev/null   # Tier-10 chain runner
-ps aux | grep -E "verify-program|verify-batch|websearch-seed|seed-crawler" | grep -v grep
-tail -8 /tmp/chain-t10.log 2>/dev/null
+# 2. What's running in the background? (no tier chain currently expected)
+ps aux | grep -E "verify-program|verify-batch|websearch-seed|seed-crawler|re-verify" | grep -v grep
 
-# 3. Database scale check
+# 3. Database scale check (expected: 5,595 programs, 5,532 verified, 12 countries)
 python3 -c "
 import re
 from collections import Counter
@@ -31,13 +31,19 @@ with open('src/data/programs.ts') as f: t=f.read()
 n = len(re.findall(r'program_name:', t))
 v = len(re.findall(r'verified_at:', t))
 c = Counter(re.findall(r'country:\s*\"([^\"]+)\"', t))
-print(f'Programs: {n}, verified: {v}, countries: {len(c)}')"
+print(f'Programs: {n}, verified: {v}, countries: {len(c)}')
+print('Per-country:', dict(c.most_common()))"
 
-# 4. Any open processes consuming API budget?
+# 4. Verify the live deploy matches the latest commit
+git log --oneline -1
+curl -s https://www.eduvianai.com/ | grep -oE 'main-app-[a-f0-9]+\.js' | head -1
+# (different chunk hash from local build is fine — same hash means deploy is current)
+
+# 5. Any open processes consuming API budget?
 # Check Anthropic Console for current month spend if uncertain.
 ```
 
-If counts deviate significantly from this document's numbers, the document is stale — refresh first by reading the most recent commits and `/tmp/chain-*.log` files.
+If counts deviate significantly from this document's numbers, the document is stale — refresh first by reading the most recent commits.
 
 ---
 
@@ -260,45 +266,52 @@ USA, UK, Australia, Canada, New Zealand, Ireland, Germany, France, UAE, Singapor
 
 | | Value |
 |---|---:|
-| Last commit on main | (latest after this handoff push) — re-verify patch + doc updates |
-| Programs in DB | **4,622** |
-| Verified at source | **4,413** (~95%) |
-| Universities | **425** total / **381** with at least one verified program |
+| Last commit on main | `cce57e0a` — kill all decorative blur filters on mobile (final scroll-flash attack) |
+| Programs in DB | **5,595** |
+| Verified at source | **5,532** (98.9%) |
+| Universities | **506** total / **485** with at least one verified program |
 | Countries | 12 |
 | Build | green |
 | Branch | main |
-| Working tree | clean after handoff commit |
+| Working tree | clean |
 | Supabase plan | Pro (since 3 May 2026) |
-| Live security posture | C1–C4 + H1–H6 closed; **H7 Phase A + Phase B both live**; H7 Phase C is the only deferred audit item — see §5 |
+| Live security posture | C1–C4 + H1–H6 closed; **H7 Phase A + Phase B both live**; H7 Phase C is the only deferred audit item — runbook ready for execution today (4 May), see §20 |
 | Email OTP on register/login | live |
 | Admin TOTP MFA | enrolled and verified — `/admin` login challenges for code |
 | Logout button | live on `/profile` and `/results/[token]` |
-| Homepage trust pass | shipped — verified counts, in-context disclaimers, "Why EduvianAI is different" lead-card, off-white differentiation section |
+| Homepage SWOT-driven restructure | shipped — section reorder, parent-aware copy, single-source-of-truth count, sample parent report (`/sample-parent-report`), 5-stage modal parity, tool-card 5-line standardisation, 'How shortlist is built' premium cards, dual-CTA Decide stage |
+| Mobile UX | shipped — ~3500-4500px shorter homepage via stage selector compaction, Stage 1 mockup hidden, 4 stage accordions (Show Stage X details), test-lab grid 2-up, decorative blur blobs hidden (root cause of GPU-compositing scroll-flash) |
 | Google Postmaster Tools | verified for `eduvianai.com` — dashboards stay sparse at beta volume |
 
-### 3.1 Country breakdown (post-tier-10)
+### 3.1 Country breakdown (post-tier-2 expansion, 4 May 2026)
 
-Verified against `programs.ts` at the time of writing. Use §0 verification commands to refresh:
+Verified against `programs.ts` at the time of writing. Use §0 verification commands to refresh.
 
-| Country | Programs |
-|---|---:|
-| USA | 1,680 |
-| UK | 1,150 |
-| Australia | 363 |
-| Canada | 339 |
-| Germany | 262 |
-| Netherlands | 140 |
-| New Zealand | 81 |
-| France | 74 |
-| Ireland | 66 |
-| UAE | 57 |
-| Malaysia | 54 |
-| Singapore | 29 |
-| **Total** | **4,295** |
+| Country | Universities | (verified) | Programs | (verified) |
+|---|---:|---:|---:|---:|
+| USA | 130 | 124 | 1,676 | 1,645 |
+| UK | 110 | 109 | 1,355 | 1,347 |
+| Canada | 67 | 59 | 585 | 571 |
+| Germany | 52 | 52 | 545 | 543 |
+| Australia | 39 | 38 | 457 | 456 |
+| France | 36 | 34 | 281 | 279 |
+| Malaysia | 18 | 17 | 174 | 173 |
+| UAE | 18 | 16 | 145 | 142 |
+| Netherlands | 10 | 10 | 140 | 140 |
+| Ireland | 9 | 9 | 82 | 82 |
+| New Zealand | 7 | 7 | 81 | 81 |
+| Singapore | 10 | 10 | 74 | 73 |
+| **Total** | **506** | **485** | **5,595** | **5,532** |
+
+### 3.1.1 Still-unverified breakdown (63 entries — cleanup queued in §20)
+
+After two re-verify passes today, 63 entries lack `verified_at`:
+- **31 field_mismatch** — page doesn't describe the stated field. 24 of those are catalog/listing URLs (e.g., `<uni>.edu/graduate`) inherited from older auto-seeds; should be stripped via `audit-strip --include field_mismatch`. The remaining 7 are specific-page URLs pointing to wrong topics — manual review.
+- **32 fetch_or_api_error** — playwright fetch failed. Of these: 2 are confirmed dead (De Montfort 404s, strip), 2 actually load in browser (Miami Comm + Utah BME, retry), 28 are DNS-unresolvable from the build network and are mostly catalog `<dept>.<edu>/graduate` placeholders (replace with real program URLs OR strip).
 
 ### 3.2 Running background processes
 
-None. Tier-10 chain finished and pushed (`bbb450e9`) on 2 May 2026. No verify-batch / chain-tiers / websearch-seed-finder processes are running. Re-confirm via `ps aux | grep -E "verify-program|chain-tiers"`.
+None. The 4 May verify-batch run (`PID 34840`) finished with 465 OK / 60 rejected / 23 errors at 85% pass rate; merged via `006ed0cd`. No verify-batch / chain-tiers / websearch-seed-finder processes are running. Re-confirm via `ps aux | grep -E "verify-program|chain-tiers|verify-batch"`.
 
 ---
 
@@ -1236,94 +1249,105 @@ Both implement the same 2-step UX: collect details (name + email + phone) → re
 
 These are concrete, ready-to-pick-up tasks. In priority order.
 
-### 20.1 Run re-verify on the 209 unverified entries
+### 20.1 H7 Phase C — drop plaintext `submissions.profile`  [TOP PRIORITY]
 
-`re-verify.ts` was patched this session with a `--only-unverified` flag that filters to entries lacking a `verified_at` stamp. Patch is committed; the run is for the next session.
+Phase B has been live in prod since evening of 3 May 2026. The 24-48h safety window opens later today (4 May 2026). Watch Sentry for any `decryptProfile` warnings before pulling the trigger.
 
-**The 209 entries:**
-| Country | Programs | Top concentrations |
-|---|---:|---|
-| USA | 75 | Miami, Connecticut, GW, Tennessee, Delaware, FSU, NCSU |
-| Canada | 49 | Centennial, Conestoga, BCIT, Douglas (mostly polytechnic colleges) |
-| UK | 32 | Sussex, De Montfort, Bath Spa |
-| Germany | 28 | **Tübingen alone has 23** — likely a tier-9 batch that failed |
-| Australia | 12 | mixed |
-| UAE | 4 |   |
-| Singapore | 3 |   |
-| France | 3 |   |
-| Ireland | 2 |   |
-| Malaysia | 1 |   |
+**The migration SQL is committed and ready** at `src/lib/migrations/20260505-h7-phase-c-drop-plaintext.sql`. It contains a defensive `DO $$ ... RAISE EXCEPTION` block that aborts the whole transaction if ANY row still lacks `profile_encrypted`. Reading the file gives you the full safety preamble and the post-migration verification query.
 
-**Recipe:**
-```bash
-cd /Users/piyushkumar/Playground/eduvian
-set -a; source .env.local; set +a
-nohup npx tsx scripts/verify/re-verify.ts \
-  --only-unverified --concurrency 5 \
-  > /tmp/reverify-unverified.log 2>&1 &
-echo "PID: $!"
-```
+**Runbook (in this exact order):**
 
-ETA ~30-60 min. Then apply stamps:
-
-```bash
-npx tsx scripts/verify/stamp-verified.ts
-git diff --stat src/data/programs.ts | head -3
-# expect ~150-200 lines changed
-```
-
-If some entries still fail (404s, dead URLs), inspect `scripts/verify/reverify-report.jsonl` and consider `audit-strip.ts` for the genuine dead ones.
-
-### 20.2 H7 Phase C — drop plaintext `submissions.profile`
-
-Wait at least 24-48h after Phase B has been clean in prod (Phase B shipped 3 May 2026 evening). Watch Sentry for any `decryptProfile` warnings.
-
-When ready:
-
-1. Take the safety net: Supabase Studio → Database → Backups → confirm the latest scheduled backup timestamp covers post-Phase-A data, or run a fresh `pg_dump`.
-2. SQL migration in `src/lib/migrations/20260504-h7-phase-c-drop-plaintext.sql` (write it):
-   ```sql
-   BEGIN;
-   UPDATE public.submissions SET profile = {}::jsonb
-     WHERE profile_encrypted IS NOT NULL;
-   -- After 1 week of clean operation:
-   -- ALTER TABLE public.submissions DROP COLUMN profile;
-   COMMIT;
+1. **Backup first.** Either:
+   ```bash
+   pg_dump "$SUPABASE_DB_URL" --table=public.submissions \
+     > ~/Desktop/submissions-backup-$(date +%Y%m%d).sql
    ```
-3. Update writers to stop dual-writing `profile` (they currently still INSERT the plaintext alongside encrypted).
-4. Update readers to remove the plaintext fallback (or keep it for resilience).
+   …or confirm a Supabase Pro scheduled backup from within the last 12h (Database → Backups in Supabase Studio).
 
-### 20.3 Homepage items 2 + 8 (deferred from the trust pass)
+2. **Sanity-check encryption coverage** (Supabase SQL Editor):
+   ```sql
+   SELECT count(*) FILTER (WHERE profile_encrypted IS NULL) AS unencrypted,
+          count(*) FILTER (WHERE email_hash IS NULL)        AS unhashed,
+          count(*)                                          AS total
+   FROM public.submissions;
+   ```
+   Both `unencrypted` and `unhashed` must be **0**. If not, run the H7 backfill script before continuing.
 
-User originally asked for 9 changes; we shipped 1 + 3-7 + 9 in commit `26a62df8` and item 7 ("Why EduvianAI is different") + the moat lead-card in `2afb528a` / `700bfb9f`. **Items 2 and 8 deliberately deferred** — see §22 below.
+3. **Three small code edits to drop `profile` from SELECTs and the plaintext fallback** (deploy this BEFORE the migration so SELECTs don't break the moment the column drops):
+   - `src/lib/submissions-decrypt.ts`:
+     - `SUBMISSION_PROFILE_COLUMNS`: drop `"profile, "` prefix → `"profile_encrypted, email_hash"`.
+     - `decryptProfile()`: remove the `if (row?.profile && typeof row.profile === "object") return row.profile as StudentProfile;` fallback (lines 38-39 currently). The function then unconditionally decrypts from `profile_encrypted`.
+   - `src/app/api/admin/leads/route.ts:13`: drop `profile, ` from the explicit SELECT list — keep `profile_encrypted, email_hash`.
 
-### 20.4 Marketing email opt-in flow
+4. Push, wait for Vercel deploy, verify `/admin/leads` and `/results/[token]` load cleanly with no Sentry errors.
+
+5. **Run the migration** in Supabase SQL Editor:
+   ```bash
+   cat src/lib/migrations/20260505-h7-phase-c-drop-plaintext.sql
+   ```
+   Paste the BEGIN…COMMIT block. The defensive DO block aborts on any row without `profile_encrypted`.
+
+6. **Post-verify** the column is gone:
+   ```sql
+   SELECT column_name FROM information_schema.columns
+   WHERE table_schema = 'public' AND table_name = 'submissions'
+   ORDER BY ordinal_position;
+   -- `profile` should NOT appear.
+   ```
+
+### 20.2 Clean up the 63 still-unverified entries in `programs.ts`
+
+Two re-verify passes today brought the unverified gap from 209 → 63. The remaining 63 are categorised in §3.1.1.
+
+**Suggested cleanup pass (~$0 — no fresh verify calls; just stripping):**
+
+```bash
+# 1. Strip the 24 catalog-URL field_mismatch entries (the 24 obvious ones)
+npx tsx scripts/verify/audit-strip.ts --include field_mismatch
+# Inspect dry-run output first; the 7 specific-page mismatches need manual eyeball.
+
+# 2. Manually strip the 2 De Montfort 404s (cyber-security-msc + software-engineering-bsc)
+#    via a small ad-hoc python edit on programs.ts.
+
+# 3. The 28 catalog-URL fetch_or_api_error entries (DNS-unresolvable from build network):
+#    Either re-seed real program-detail URLs via websearch-seed-finder, or strip.
+#    Stripping is the simpler call — the QS-tier seed-finder didn't find better URLs
+#    for these on the 4 May run, and these are mostly low-value sub-departmental
+#    `/graduate` placeholders.
+```
+
+After cleanup, the unverified gap should drop from 63 → ~5-10 (the survivors are real specific-page mismatches and the 2 retry candidates).
+
+### 20.3 Marketing email opt-in flow
 
 Privacy Policy §11 promises this; not yet built. Meaningful for DPDPA / GDPR alignment if we ever start sending non-transactional newsletters.
 
-### 20.5 Visible unsubscribe link in email body
+### 20.4 Visible unsubscribe link in email body
 
 `List-Unsubscribe` header is in (commit `b9291a88`); a clickable unsubscribe link in the body itself is missing.
 
+### 20.5 Real downloadable Sample Parent Report PDF
+
+The current `/sample-parent-report` (committed in `6bf0eb8e`) is a static HTML page with a Save-as-PDF button (`window.print()`). For a more 'official' feel, generate an actual static PDF asset via the existing `/api/pdf/*` route infrastructure with a `?sample=1` param, store at `/public/sample-parent-report.pdf`, and update the homepage CTA to `<a href="/sample-parent-report.pdf" download>`.
+
 ---
 
-## §21 Latest dataset shape (3 May 2026 night)
+## §21 Latest dataset shape (4 May 2026 night)
 
 | | Count |
 |---|---:|
-| Programs total | **4,622** |
-| Programs verified at source | **4,413** (95%) |
-| Universities total | **425** |
-| Universities with at least one verified program | **381** (89%) |
+| Programs total | **5,595** |
+| Programs verified at source | **5,532** (98.9%) |
+| Universities total | **506** |
+| Universities with at least one verified program | **485** (96%) |
 | Countries | 12 |
 | Fields of study | 17 |
 
-DB_STATS now exposes both totals AND verified counts. Use:
-- `DB_STATS.verifiedProgramsLabel` ("4,413+") — for the "Verified Programs" stat
-- `DB_STATS.verifiedUniversitiesLabel` ("381+") — for the "Verified Global Universities" stat
-- `DB_STATS.programsLabel` ("4,622+") — total, used in copy that explicitly says "across our database"
+`DB_STATS` exposes both totals AND verified counts, but **all public-facing surfaces now standardise on `verifiedProgramsLabel`** (commit `f2cf997b`). The dual-number inconsistency that surfaced earlier in this session (one section showing 4,485+, another 4,866+ from a stale cached deploy) is closed: there is one number on the homepage now, and it's the verified one.
 
-After re-verify (§20.1) lands, the gap closes; both labels rise toward parity with the totals.
+- `DB_STATS.verifiedProgramsLabel` ("5,532+") — used everywhere user-visible.
+- `DB_STATS.verifiedUniversitiesLabel` ("485+") — for the "Verified Global Universities" stat.
+- `DB_STATS.programsLabel` ("5,595+") — internal-only; only `src/app/api/chat/route.ts` (the AISA system prompt) references it now, for accuracy when the AI answers "how many programs do you have?". **Don't reintroduce this in copy.**
 
 ---
 
@@ -1344,5 +1368,58 @@ User shared 9 brand+UX items mid-session. My read was: ship 5 clean wins now, de
 | 9 | In-context disclaimers across tools | ✅ — new `DecisionDisclaimer` component with 5 variants wired into ROI Calculator, Visa Coach, English Test Lab, results page, scholarships section. | `26a62df8` |
 
 **Deferred-on-purpose discussion (items 2 + 8):** my brand+UX read was that the pages real problem is *density*, not order. Reordering 8 sections wont make it feel premium; cutting 2-3 will. And the destinations advisory needs full per-country depth, not 6-word taglines. Both are bigger decisions than copy swaps and warrant a fresh look at the live page first.
+
+**4 May update on items 2 + 8:** Item 2 was effectively executed in commit `0d6c1dc5` after a fresh SWOT-driven look at the live page. New section order: Hero → Stage selector → Sample outputs → Why different → How shortlist is built (NEW) → Five-stage detail → Destinations → Scholarships → Final CTA. Density also cut substantially in the same and follow-up commits. Item 8 (destinations advisory) still deferred — same reasoning still holds.
+
+---
+
+## §23 Session log — 4 May 2026 (homepage UX + tier-2 verify)
+
+This session shipped 26 commits. Major themes:
+
+**Verification pipeline:**
+- `6054aad2` re-verify pass on the 209 unverified — net 95 verified, 74 dead URLs stripped → 4,548/4,485.
+- `6022523a` +63 universities + 582 programs across UK / Germany / Canada / Australia (Edinburgh, Manchester, Kings, LSE, Leeds, Warwick, Nottingham, Durham, Bath; Monash, Adelaide; plus Fachhochschulen and polytechnics) → 5,130/5,067. **75% verify pass-rate** with fresh websearch-seed-finder seeds vs 5% with stale auto-seeds. **This is the new default for adding unis** — see CLAUDE.md verify-pipeline §7.
+- `006ed0cd` +57 universities + 465 programs across France / UAE / Malaysia / Singapore (Sciences Po, ENS Paris, Paris-Saclay, ESSEC, SKEMA, etc.; AUS, AUD, MBZUAI; Monash Malaysia, Nottingham Malaysia; SMU, SUTD, SIT) → 5,595/5,532. **85% pass-rate.**
+
+**Homepage SWOT-driven restructure (multi-pass):**
+- `4ab44902` Why-different refocused on independence + agent-counselling contrast (4 cards: verified → independent → AI-driven → built-to-decide → transparent).
+- `04f5cb6c` ETL chip 'Official-format' → 'Exam-style'.
+- `0d6c1dc5` Section reorder (trust above stage detail), parent trust strip in hero, NEW 'How your shortlist is built' module, softer Visa Coach + Interview Coach copy, action-led stage labels, dual-CTA Decide stage with parent-aware framing, final CTA mentions visa.
+- `f2cf997b` Single source of truth: all public surfaces standardise on `verifiedProgramsLabel`. Trust strip relabeled 'For students and families' + reordered.
+- `9e501f18` SWOT round 2: softer 'agent-counselling' tone (heading 'Structured guidance, not guesswork'), F-1 interview line softer, tracker outcome line softer, sample Parent Decision Report card with 7-factor table inside Stage 4, dual section CTAs (Compare my offers / Create family decision report), CTA personalisation (Find my best-fit programs, Check my application strength, Practise my interview), Get-Started page copy refresh.
+- `148cb94b` Auto-rotate 'See what you actually get' demos every 5s (5 tools, manual click resets dwell timer).
+- `4966dd5e` Stage selector labels action-led (Find my best-fit programs / Strengthen my application / Practise tests & interviews / Compare offers with ROI / Get visa-ready).
+- `94f0d578` Modals 5-stage parity: About + How It Works modals had 4 stages labelled A/B/C/D — now 1/2/3/4/5 with the missing Apply Visa stage added (incl. matching evidence panel for Stage 5 in the How It Works modal — UK Student visa story with £1,483/month × 9 months financial proof).
+- `6bf0eb8e` `/sample-parent-report` page (static, illustrative, print-friendly Save-as-PDF). Linked from the Decide-stage 'See sample family report' CTA.
+- `305f8b70` Standardise tool cards across stages 2/4/5 with the 5-line scan pattern (name / description / Output / Time / CTA). Stage 3 left compact (already 4-line scannable grids).
+- `b5c6966d` Polished sample-output tabs: numbered (1-5), CSS-keyframe progress bar driving the 5s auto-rotate (CSS-driven to avoid React render throttling), Pause/Resume + 'X / 5' indicator.
+- `17f420d0` Data-consistency + tone polish (5,067 → 5,532; 9 'signals' (was 12) → '9 Most Important Signals'; 'Our moat' → 'Why this is reliable'; parent report card tagline + secondary CTA).
+- `6a6fb9a5` 'How your shortlist is built' premium card treatment (white card, gradient badge, hover-lift, Step 01 · Profile labels).
+
+**Mobile compaction (5 passes, ending with the GPU fix):**
+- `9018bcb9` Tightened section padding on mobile, hero trust strip 4-col → 2-col, stage detail card padding `p-10` → `p-6 sm:p-10 md:p-14`.
+- `beae883b` Hide stage selector descriptions on mobile (5 cards), hide Stage 1's product mockup on mobile (~700px savings).
+- `2cb73cc2` English Test Lab grid 2-up on mobile (was 1-col stack), Stage 5 country flag chips hidden on mobile.
+- `859d244b` Hide chip strips in stages 4 + 5 on mobile, hide Interview Coach descriptions on mobile.
+- `a4a6b188` Stage 3 mobile accordion (collapse English Test Lab + Interview Coach behind 'Show Stage 3 details' toggle).
+- `eb60bbc7` Stages 2 + 4 + 5 mobile accordions (same pattern).
+- `608f60af` Drop framer-motion `y: 30` translate, switch viewport `margin: "-80px"`, MotionConfig wrapper for `transition: { duration: 0 }` globally — *did not fix the scroll-flash*.
+- `6e0a49b8` Strip ALL `whileInView` triggers + lazy-load destination images — *still didn't fix it*.
+- `cce57e0a` **The actual fix: `hidden md:block` on all 23 decorative blur blobs.** Root cause was GPU compositing of `blur-3xl` filters, not React/animation overhead. CLAUDE.md updated with this lesson.
+
+**Other:**
+- `43218c71` empty-commit retrigger because Vercel coalesced two back-to-back pushes into one deployment. Vercel CLI's `--prod --yes` hit a free-tier upload limit, so empty-commit-and-push is the fallback. (Lesson added to CLAUDE.md environment quirks.)
+- `src/lib/migrations/20260505-h7-phase-c-drop-plaintext.sql` written (committed via `006ed0cd` along with seed JSON files — see §20.1 for the runbook).
+
+**Numbers shipped:**
+| | Start of session | End of session |
+|---|---:|---:|
+| Programs total | 4,622 | **5,595** (+973) |
+| Programs verified | 4,413 | **5,532** (+1,119) |
+| Universities total | 425 | **506** (+81) |
+| Universities verified | 381 | **485** (+104) |
+
+**Estimated session API spend:** ~$170 (Strategy A killed = $7, seed-finder × 2 batches = $27, verify-batch UK/AUS/CAN/GER = $56, verify-batch FR/UAE/MY/SG = $44, plus re-verify earlier in session = ~$30+).
 
 
