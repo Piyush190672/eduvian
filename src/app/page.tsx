@@ -806,7 +806,7 @@ export default function LandingPage() {
             {[
               {
                 stage: "A",
-                label: "Find my fit",
+                label: "Find my best-fit programs",
                 title: "No idea where to apply",
                 desc: "AI evaluates your profile and shortlists your best-fit Universities in under 2 minutes.",
                 cta: "Start Matching",
@@ -818,7 +818,7 @@ export default function LandingPage() {
               },
               {
                 stage: "B",
-                label: "Strengthen application",
+                label: "Strengthen my application",
                 title: "Got a shortlist — is my application strong enough?",
                 desc: "Write a standout SOP, score and rebuild your CV, and check your full application pack for gaps.",
                 cta: "Check My Application",
@@ -833,7 +833,7 @@ export default function LandingPage() {
               },
               {
                 stage: "C",
-                label: "Tests & interviews",
+                label: "Practise tests & interviews",
                 title: "Prepare for your interview and English tests",
                 desc: "AI Interview Coach for AU, UK & US F-1. Full IELTS, PTE, DET & TOEFL mocks. Know your weak spots before the real thing.",
                 cta: "Practise my interview",
@@ -847,7 +847,7 @@ export default function LandingPage() {
               },
               {
                 stage: "D",
-                label: "Compare offers",
+                label: "Compare offers with ROI",
                 title: "Got my offer — should I accept?",
                 desc: "ROI Calculator + Parent Decision Tool. Real numbers before you commit.",
                 cta: "Run the Numbers",
