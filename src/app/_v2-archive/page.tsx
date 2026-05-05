@@ -24,51 +24,74 @@ import { DB_STATS, universitiesByCountry } from "@/data/db-stats";
 import ChatWidget from "@/components/ChatWidget";
 import CountryModal from "@/components/CountryModal";
 
-const STAGES = [
+// Stage copy ported from the original homepage; keeps the v2 5-line card design.
+type StageSampleSpec =
+  | { kind: "tier";  safe: number; reach: number; ambitious: number }
+  | { kind: "score"; a: { label: string; v: number }; b: { label: string; v: number } }
+  | { kind: "stat";  v: string; l: string };
+
+interface Stage {
+  n: string;
+  label: string;
+  title: string;
+  benefit: string;
+  sample: StageSampleSpec;
+  cta: string;
+  trust: string;
+  href: string;
+  secondary?: { cta: string; href: string };
+}
+
+const STAGES: Stage[] = [
   {
-    n: "01", label: "Match",
-    title: "Find your best-fit programs",
-    benefit: "AI-matched shortlist from the verified database, in 2 minutes.",
+    n: "01", label: "Find my best-fit programs",
+    title: "No idea where to apply",
+    benefit: "AI evaluates your profile and shortlists your best-fit Universities in under 2 minutes.",
     sample: { kind: "tier", safe: 6, reach: 9, ambitious: 5 },
-    cta: "Find my programs",
-    trust: "Match is built only on verified-at-source program data.",
+    cta: "Evaluate my Profile",
+    trust: "Verified against each university's official program page (e.g. ox.ac.uk, mit.edu, daad.de) — fees, deadlines and English cutoffs read live from source.",
     href: "/get-started",
+    secondary: { cta: "Find my best-fit match", href: "/get-started" },
   },
   {
-    n: "02", label: "Check",
-    title: "Strengthen your application",
-    benefit: "SOP scored, CV rebuilt, pack-checked for credibility gaps.",
+    n: "02", label: "Strengthen my application",
+    title: "Got a shortlist — is my application strong enough?",
+    benefit: "Write a standout SOP, score and rebuild your CV, draft strong LORs, and check your full application pack for gaps.",
     sample: { kind: "score", a: { label: "Before", v: 61 }, b: { label: "After", v: 84 } },
-    cta: "Check my application",
-    trust: "Scoring rubric is the same one universities use.",
+    cta: "Check My Application",
+    trust: "Scored across 7 SOP dimensions and 6 CV dimensions — story arc, specificity, goal alignment, credibility flags. Feedback is paragraph-level, not generic.",
     href: "/application-check",
+    secondary: { cta: "Write my SOP", href: "/sop-assistant" },
   },
   {
-    n: "03", label: "Practice",
-    title: "Walk in already prepared",
-    benefit: "Mock visa interviews for AU, UK, US — plus IELTS, PTE, DET, TOEFL.",
+    n: "03", label: "Practise tests & interviews",
+    title: "Prepare for your interview and English tests",
+    benefit: "AI Interview Coach for AU and UK university interviews, plus the US F-1 visa interview. Full IELTS, PTE, DET & TOEFL mocks. Know your weak spots before the real thing.",
     sample: { kind: "stat", v: "14 / 14", l: "UK credibility questions coached" },
     cta: "Practise my interview",
-    trust: "Question banks built from current consulate guidance.",
+    trust: "Exam-style practice based on published test structures: IELTS band descriptors and TOEFL ETS guidelines.",
     href: "/interview-prep",
+    secondary: { cta: "English Test Lab", href: "/english-test-lab" },
   },
   {
-    n: "04", label: "Decide",
-    title: "Choose with your family",
-    benefit: "ROI, payback, safety, scholarships — and a one-page parent-ready report.",
+    n: "04", label: "Compare offers with ROI",
+    title: "Got my offer — should I accept?",
+    benefit: "ROI Calculator + Parent Decision Tool. Real numbers before you commit.",
     sample: { kind: "stat", v: "4.8 yrs", l: "Median payback period" },
-    cta: "Compare offers",
-    trust: "Salary + cost data sourced from official statistics offices.",
+    cta: "Run the Numbers",
+    trust: "Salary benchmarks drawn from HESA LEO, Russell Group Graduate Outcomes, QS Top Universities Salary Reports, OECD and LinkedIn Salary Insights.",
     href: "/roi-calculator",
+    secondary: { cta: "Parent Decision Report", href: "/parent-decision" },
   },
   {
-    n: "05", label: "Apply",
-    title: "File the visa, first time right",
-    benefit: "Country-specific checklists, financial-proof rules, deadline countdowns.",
+    n: "05", label: "Get visa-ready",
+    title: "Accepted — now the visa",
+    benefit: "F-1, UK, SDS, AUS 500, Germany D & 7 more. Official checklists, financial-proof rules, risk flags, direct apply links.",
     sample: { kind: "stat", v: "12", l: "Visa playbooks (F-1 · UK · SDS · 500 · D · 7 more)" },
     cta: "Open Visa Coach",
-    trust: "Every figure linked to the official government page.",
+    trust: "Visa playbooks link out to the official government source page (travel.state.gov, gov.uk, Canada IRCC, immi.gov.au and equivalents).",
     href: "/visa-coach",
+    secondary: { cta: "Track applications (Kanban)", href: "/application-tracker" },
   },
 ];
 
@@ -76,15 +99,15 @@ const PRINCIPLES = [
   { n: "01", t: "Verified at source",          p: `Every fee, deadline and cutoff fetched live from the official university page. ${DB_STATS.verifiedProgramsLabel} programs.` },
   { n: "02", t: "Independent",                 p: "No university commissions. No marketing deals. The recommendation is yours, not someone else's quota." },
   { n: "03", t: "Structured, not guesswork",   p: "Same data-driven analysis for every student. Fit, budget, requirements, outcomes — not convenience." },
-  { n: "04", t: "Transparent by design",       p: "Decision-support estimates. Always verify final figures with the university before committing." },
+  { n: "04", t: "Built to decide, not just discover", p: "Search is the easy part. Shortlist → SOP review → interview prep → fee comparison → final pick. Every tool returns specific next steps, not vague advice — solving the real pain points students hit at every stage." },
 ];
 
 const DEMOS = [
   { i: 0, label: "University Match",     sub: "Your personalised Top 20 shortlist",  accent: "border-violet-500"  },
-  { i: 1, label: "SOP Check",            sub: "AI feedback across 7 dimensions",     accent: "border-indigo-500"  },
+  { i: 1, label: "SOP Check",            sub: "AI feedback across 7 dimensions",     accent: "border-violet-400"  },
   { i: 2, label: "Interview Coach",      sub: "Voice + text mock with AI scoring",   accent: "border-emerald-500" },
   { i: 3, label: "ROI Analysis",         sub: "Payback period and 10-year ROI",      accent: "border-amber-500"   },
-  { i: 4, label: "Visa Apply",           sub: "Country checklist + risk flags",      accent: "border-sky-500"     },
+  { i: 4, label: "Visa Apply",           sub: "Country checklist + risk flags",      accent: "border-rose-500"    },
 ];
 
 const COUNTRIES = [
@@ -123,7 +146,7 @@ const SAMPLE_SHORTLIST = [
 ];
 
 // Stage-card sample-output renderer. Tiny, restrained, uses semantic palette only.
-function StageSample({ s }: { s: typeof STAGES[number]["sample"] }) {
+function StageSample({ s }: { s: StageSampleSpec }) {
   if (s.kind === "tier") {
     const pills = [
       { k: "Safe",      v: s.safe,      cls: "text-emerald-700 bg-emerald-50 border-emerald-100" },
@@ -188,7 +211,7 @@ export default function V2LandingPage() {
             <span className="text-[10px] uppercase tracking-[0.2em] text-violet-300/70 hidden sm:inline">v2 prototype</span>
           </Link>
           <div className="flex items-center gap-6">
-            <Link href="/v2#journey"      className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors">Journey</Link>
+            <Link href="/v2#journey"      className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors">Stages</Link>
             <Link href="/v2#outputs"      className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors">Outputs</Link>
             <Link href="/v2#destinations" className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors">Destinations</Link>
             <Link href="/v2#scholarships" className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors">Scholarships</Link>
@@ -216,10 +239,10 @@ export default function V2LandingPage() {
               <Sparkles className="w-3 h-3" /> Independent · verified · AI-driven
             </p>
             <h1 className="font-display font-bold text-[2.25rem] leading-[1.08] sm:text-5xl md:text-[3.75rem] tracking-tight mb-7">
-              Choose your <span className="italic font-medium text-violet-300">study abroad path</span> with verified data you can trust.
+              Choose your study abroad path with <span className="italic font-medium text-violet-300">verified data you can trust</span>.
             </h1>
             <p className="text-lg sm:text-xl text-white/65 leading-relaxed max-w-2xl mb-10">
-              EduvianAI gives students and families an independent, data-backed layer of clarity before they make high-stakes study abroad decisions.
+              EduvianAI gives students and families an AI-powered, independent, data-backed layer of clarity before they make high-stakes study abroad decisions.
             </p>
             <div className="flex flex-wrap items-center gap-x-3 gap-y-3">
               <Link
@@ -230,71 +253,231 @@ export default function V2LandingPage() {
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
               </Link>
               <Link
-                href="/parent-decision"
+                href="/application-check"
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-white/20 text-white/85 text-sm font-semibold hover:border-white/40 hover:text-white transition-colors"
               >
-                Generate the family report
+                Check my application strength
               </Link>
             </div>
           </div>
 
-          {/* RHS: sample shortlist dashboard (no photograph) */}
-          <div className="lg:col-span-5">
-            <div className="bg-white text-gray-900 rounded-2xl shadow-2xl shadow-black/40 border border-stone-200 overflow-hidden">
-              <div className="px-5 py-4 border-b border-stone-200 flex items-center justify-between">
-                <div>
-                  <p className="text-[10px] uppercase tracking-[0.2em] font-bold text-violet-700">AI Shortlist · sample output</p>
-                  <p className="text-sm font-display font-semibold text-gray-900 mt-0.5">Top 20 personalised programs</p>
+          {/* RHS: stacked sample-output cards (Shortlist + App Score + ROI + Visa)
+              ported from the original homepage, retuned to the v2 palette
+              (violet accent + emerald/amber/rose semantic only). */}
+          <div className="lg:col-span-5 min-w-0">
+            <p className="lg:hidden text-[10px] uppercase tracking-widest text-white/40 font-bold mb-3 px-1">
+              Sample outputs — illustrative
+            </p>
+
+            {/* MOBILE: horizontal snap-scroll strip */}
+            <div className="lg:hidden -mx-6 px-6 overflow-x-auto flex gap-3 pb-4 snap-x snap-mandatory">
+              {/* Card M1 — Shortlist */}
+              <div className="flex-shrink-0 w-[272px] snap-start bg-white rounded-2xl p-4 shadow-[0_12px_40px_rgba(0,0,0,0.28)]">
+                <div className="flex items-center justify-between mb-3">
+                  <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">AI Shortlist · sample</p>
+                  <span className="text-[8px] font-bold px-1.5 py-0.5 rounded-full bg-violet-50 text-violet-700 border border-violet-100">20 matches</span>
                 </div>
-                <span className="text-[10px] font-bold px-2 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-100">9 signals matched</span>
-              </div>
-              <div className="px-5 py-3">
-                {SAMPLE_SHORTLIST.map((r) => {
-                  const tierCls = r.tier === "safe" ? "text-emerald-700 bg-emerald-50 border-emerald-100"
-                              : r.tier === "reach" ? "text-amber-700 bg-amber-50 border-amber-100"
-                                                    : "text-rose-700 bg-rose-50 border-rose-100";
-                  const barCls  = r.tier === "safe" ? "bg-emerald-500"
-                              : r.tier === "reach" ? "bg-amber-500"
-                                                    : "bg-rose-500";
-                  return (
-                    <div key={r.name} className="flex items-center gap-3 py-2.5 border-b border-stone-100 last:border-0">
-                      <span className="text-base flex-shrink-0">{r.flag}</span>
-                      <div className="flex-1 min-w-0">
-                        <p className="text-xs font-semibold text-gray-900 truncate">{r.name}</p>
-                        <p className="text-[11px] text-gray-500 truncate">{r.prog}</p>
-                        <div className="flex items-center gap-2 mt-1.5">
-                          <div className="flex-1 h-1 rounded-full bg-stone-200 overflow-hidden">
-                            <div className={`h-full rounded-full ${barCls}`} style={{ width: `${r.pct}%` }} />
-                          </div>
-                          <span className="text-[10px] tabular-nums font-bold text-gray-700">{r.pct}%</span>
-                        </div>
+                <div className="space-y-2">
+                  {[
+                    { flag: "🇺🇸", uni: "Carnegie Mellon",     score: 69, tier: "Ambitious", tc: "text-rose-700",    bg: "bg-rose-50 border-rose-200"       },
+                    { flag: "🏴󠁧󠁢󠁳󠁣󠁴󠁿", uni: "Univ. of Edinburgh",   score: 78, tier: "Reach",     tc: "text-amber-700",   bg: "bg-amber-50 border-amber-200"     },
+                    { flag: "🇬🇧", uni: "Univ. of Leeds",      score: 88, tier: "Safe",      tc: "text-emerald-700", bg: "bg-emerald-50 border-emerald-200" },
+                  ].map((r) => (
+                    <div key={r.uni} className="flex items-center gap-2 py-1 border-b border-gray-50 last:border-0">
+                      <span className="text-sm flex-shrink-0">{r.flag}</span>
+                      <p className="text-[11px] font-bold text-gray-900 flex-1 truncate">{r.uni}</p>
+                      <div className="flex items-center gap-1 flex-shrink-0">
+                        <span className="text-[10px] font-bold text-gray-600 tabular-nums">{r.score}%</span>
+                        <span className={`text-[8px] font-bold px-1.5 py-0.5 rounded-full border ${r.bg} ${r.tc}`}>{r.tier}</span>
                       </div>
-                      <span className={`text-[9px] font-bold px-2 py-0.5 rounded-full border ${tierCls} flex-shrink-0`}>
-                        {r.tier === "safe" ? "Safe" : r.tier === "reach" ? "Reach" : "Ambitious"}
-                      </span>
                     </div>
-                  );
-                })}
+                  ))}
+                </div>
+                <p className="text-[9px] text-gray-400 mt-2 pt-2 border-t border-gray-50">3 of 20 · Safe, Reach &amp; Ambitious</p>
               </div>
-              <div className="px-5 py-3 bg-stone-50 border-t border-stone-200 flex items-center justify-between">
-                <p className="text-[11px] text-gray-500">Showing 5 of 20 · {DB_STATS.verifiedProgramsLabel} verified-source programs</p>
-                <Link href="/get-started" className="text-[11px] font-bold text-violet-700 inline-flex items-center gap-1">
-                  View all <ArrowUpRight className="w-3 h-3" />
-                </Link>
+
+              {/* Card M2 — App Score */}
+              <div className="flex-shrink-0 w-[200px] snap-start bg-white rounded-2xl p-4 shadow-[0_12px_40px_rgba(0,0,0,0.22)]">
+                <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-3">Application Score</p>
+                {[
+                  { label: "Before",   pct: 61, color: "bg-rose-400"   },
+                  { label: "After AI", pct: 84, color: "bg-violet-500" },
+                ].map((b) => (
+                  <div key={b.label} className="mb-2.5">
+                    <div className="flex justify-between items-center mb-1">
+                      <span className="text-[9px] text-gray-500">{b.label}</span>
+                      <span className="text-[10px] font-bold text-gray-700 tabular-nums">{b.pct}%</span>
+                    </div>
+                    <div className="h-1.5 rounded-full bg-gray-100 overflow-hidden">
+                      <div className={`h-full rounded-full ${b.color}`} style={{ width: `${b.pct}%` }} />
+                    </div>
+                  </div>
+                ))}
+                <div className="mt-3 pt-2 border-t border-gray-50">
+                  <p className="text-[10px] font-bold text-violet-700">+23 pts (sample)</p>
+                  <p className="text-[8px] text-gray-400 mt-0.5">Illustrative example only</p>
+                </div>
+              </div>
+
+              {/* Card M3 — ROI */}
+              <div className="flex-shrink-0 w-[200px] snap-start bg-white rounded-2xl p-4 shadow-[0_12px_40px_rgba(0,0,0,0.22)]">
+                <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-3">ROI · Payback</p>
+                {[
+                  { label: "UCL London", yrs: "3.2 yrs", pct: 32, color: "bg-emerald-500", best: true  },
+                  { label: "Melbourne",  yrs: "5.8 yrs", pct: 58, color: "bg-rose-400",    best: false },
+                  { label: "Edinburgh",  yrs: "4.8 yrs", pct: 48, color: "bg-amber-400",   best: false },
+                ].map((b) => (
+                  <div key={b.label} className="mb-2">
+                    <div className="flex justify-between items-center mb-0.5">
+                      <span className={`text-[9px] ${b.best ? "font-bold text-gray-900" : "text-gray-400"}`}>{b.label}</span>
+                      <span className={`text-[9px] font-bold ${b.best ? "text-emerald-700" : "text-gray-400"}`}>{b.yrs}</span>
+                    </div>
+                    <div className="h-1.5 rounded-full bg-gray-100 overflow-hidden">
+                      <div className={`h-full rounded-full ${b.color}`} style={{ width: `${b.pct}%` }} />
+                    </div>
+                  </div>
+                ))}
+                <p className="text-[9px] font-bold text-emerald-700 mt-2">★ UCL recommended</p>
+              </div>
+
+              {/* Card M4 — Visa */}
+              <div className="flex-shrink-0 w-[220px] snap-start bg-white rounded-2xl p-4 shadow-[0_12px_40px_rgba(0,0,0,0.22)]">
+                <div className="flex items-center justify-between mb-3">
+                  <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Visa Coach</p>
+                  <span className="text-[8px] font-bold px-1.5 py-0.5 rounded-full bg-violet-50 text-violet-700 border border-violet-100">12 countries</span>
+                </div>
+                {[
+                  { flag: "🇺🇸", name: "F-1 (USA)",   fee: "$185",    risk: "low", rc: "text-emerald-700", rb: "bg-emerald-50 border-emerald-200" },
+                  { flag: "🇬🇧", name: "UK Student",  fee: "£558",    risk: "low", rc: "text-emerald-700", rb: "bg-emerald-50 border-emerald-200" },
+                  { flag: "🇨🇦", name: "SDS (Canada)", fee: "CAD 150", risk: "med", rc: "text-amber-700",   rb: "bg-amber-50 border-amber-200"     },
+                ].map((v) => (
+                  <div key={v.name} className="flex items-center gap-2 py-1 border-b border-gray-50 last:border-0">
+                    <span className="text-sm flex-shrink-0">{v.flag}</span>
+                    <p className="text-[10px] font-bold text-gray-900 flex-1 truncate">{v.name}</p>
+                    <span className="text-[9px] text-gray-500 flex-shrink-0">{v.fee}</span>
+                    <span className={`text-[8px] font-bold px-1.5 py-0.5 rounded-full border ${v.rb} ${v.rc}`}>{v.risk}</span>
+                  </div>
+                ))}
+                <p className="text-[9px] font-bold text-violet-700 mt-2 pt-2 border-t border-gray-50">Official-source checklists</p>
+              </div>
+            </div>
+
+            {/* DESKTOP: vertical stacked cards */}
+            <div className="hidden lg:flex flex-col gap-3">
+              {/* Card 1 — Shortlist */}
+              <div className="bg-white rounded-2xl p-4 shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
+                <div className="flex items-center justify-between mb-3">
+                  <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">AI Shortlist · 90s</p>
+                  <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-violet-50 text-violet-700 border border-violet-100">20 matches</span>
+                </div>
+                <div className="space-y-2">
+                  {[
+                    { flag: "🇺🇸", uni: "Carnegie Mellon",     prog: "MSML",                 score: 69, tier: "Ambitious", tc: "text-rose-700",    bg: "bg-rose-50 border-rose-200"       },
+                    { flag: "🏴󠁧󠁢󠁳󠁣󠁴󠁿", uni: "Univ. of Edinburgh",   prog: "MSc Computer Science", score: 78, tier: "Reach",     tc: "text-amber-700",   bg: "bg-amber-50 border-amber-200"     },
+                    { flag: "🇩🇪", uni: "TU Munich",           prog: "MSc Informatics",      score: 74, tier: "Reach",     tc: "text-amber-700",   bg: "bg-amber-50 border-amber-200"     },
+                    { flag: "🇬🇧", uni: "Univ. of Leeds",      prog: "MSc AI & Data Science", score: 88, tier: "Safe",      tc: "text-emerald-700", bg: "bg-emerald-50 border-emerald-200" },
+                  ].map((r) => (
+                    <div key={r.uni} className="flex items-center gap-2.5 py-1.5 border-b border-gray-50 last:border-0">
+                      <span className="text-sm flex-shrink-0">{r.flag}</span>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-[11px] font-bold text-gray-900 truncate">{r.uni}</p>
+                        <p className="text-[10px] text-gray-400 truncate">{r.prog}</p>
+                      </div>
+                      <div className="flex items-center gap-1.5 flex-shrink-0">
+                        <span className="text-[11px] font-bold text-gray-600 tabular-nums">{r.score}%</span>
+                        <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded-full border ${r.bg} ${r.tc}`}>{r.tier}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <p className="text-[9px] text-gray-400 mt-2.5 pt-2 border-t border-gray-50">Showing 4 of 20 · Safe, Reach &amp; Ambitious</p>
+              </div>
+
+              {/* Cards 2 + 3 — side by side */}
+              <div className="grid grid-cols-2 gap-3">
+                {/* App Score */}
+                <div className="bg-white rounded-2xl p-4 shadow-[0_10px_40px_rgba(0,0,0,0.2)]">
+                  <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-3">App Score</p>
+                  {[
+                    { label: "Before",   pct: 61, color: "bg-rose-400"   },
+                    { label: "After AI", pct: 84, color: "bg-violet-500" },
+                  ].map((b) => (
+                    <div key={b.label} className="mb-2">
+                      <div className="flex justify-between items-center mb-1">
+                        <span className="text-[9px] text-gray-500">{b.label}</span>
+                        <span className="text-[10px] font-bold text-gray-700 tabular-nums">{b.pct}%</span>
+                      </div>
+                      <div className="h-1.5 rounded-full bg-gray-100 overflow-hidden">
+                        <div className={`h-full rounded-full ${b.color}`} style={{ width: `${b.pct}%` }} />
+                      </div>
+                    </div>
+                  ))}
+                  <p className="text-[10px] font-bold text-violet-700 mt-1">+23 pts ↑</p>
+                </div>
+
+                {/* ROI */}
+                <div className="bg-white rounded-2xl p-4 shadow-[0_10px_40px_rgba(0,0,0,0.2)]">
+                  <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-3">ROI</p>
+                  {[
+                    { label: "UCL London", yrs: "3.2 yrs", pct: 32, color: "bg-emerald-500", best: true  },
+                    { label: "Melbourne",  yrs: "5.8 yrs", pct: 58, color: "bg-rose-400",    best: false },
+                  ].map((b) => (
+                    <div key={b.label} className="mb-2">
+                      <div className="flex justify-between items-center mb-1">
+                        <span className={`text-[9px] ${b.best ? "font-bold text-gray-900" : "text-gray-400"}`}>{b.label}</span>
+                        <span className={`text-[9px] font-bold ${b.best ? "text-emerald-700" : "text-gray-400"}`}>{b.yrs}</span>
+                      </div>
+                      <div className="h-1.5 rounded-full bg-gray-100 overflow-hidden">
+                        <div className={`h-full rounded-full ${b.color}`} style={{ width: `${b.pct}%` }} />
+                      </div>
+                    </div>
+                  ))}
+                  <p className="text-[9px] font-bold text-emerald-700 mt-1">★ UCL wins</p>
+                </div>
+              </div>
+
+              {/* Card 4 — Visa */}
+              <div className="bg-white rounded-2xl p-4 shadow-[0_10px_40px_rgba(0,0,0,0.2)]">
+                <div className="flex items-center justify-between mb-3">
+                  <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Visa Coach · 12 countries</p>
+                  <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-violet-50 text-violet-700 border border-violet-100">F-1 · UK · SDS · 500 +8</span>
+                </div>
+                <div className="grid grid-cols-3 gap-2">
+                  {[
+                    { flag: "🇺🇸", label: "F-1",        detail: "$185 · I-20 ready"  },
+                    { flag: "🇬🇧", label: "UK Student",  detail: "£558 · CAS"         },
+                    { flag: "🇨🇦", label: "SDS",        detail: "CAD 22,895 GIC"     },
+                  ].map((v) => (
+                    <div key={v.label} className="rounded-lg border border-gray-100 p-2">
+                      <div className="flex items-center gap-1 mb-0.5">
+                        <span className="text-sm">{v.flag}</span>
+                        <span className="text-[10px] font-bold text-gray-900 truncate">{v.label}</span>
+                      </div>
+                      <p className="text-[9px] text-gray-500 leading-tight truncate">{v.detail}</p>
+                    </div>
+                  ))}
+                </div>
+                <p className="text-[9px] text-violet-700 font-bold mt-2.5 pt-2 border-t border-gray-50">Official-source checklists · risk flags · apply links</p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom trust strip — single editorial line */}
+        {/* Bottom trust strip — single editorial line per §24.4 */}
         <div className="border-t border-white/8">
-          <div className="max-w-7xl mx-auto px-6 sm:px-10 py-5 flex flex-wrap items-center justify-between gap-x-8 gap-y-3 text-[12px] text-white/55">
-            <div className="flex items-center gap-2">
-              <ShieldCheck className="w-4 h-4 text-emerald-400/80" />
-              <span>Independent · no university commission</span>
-            </div>
-            <span className="hidden sm:inline">{DB_STATS.verifiedProgramsLabel} programs · {DB_STATS.verifiedUniversitiesLabel} universities · {DB_STATS.countriesLabel} countries</span>
-            <span className="hidden sm:inline text-white/45">Decision-support estimates · always confirm with the university</span>
+          <div className="max-w-7xl mx-auto px-6 sm:px-10 py-5 flex flex-wrap items-center gap-x-3 gap-y-2 text-[12px] text-white/60">
+            <ShieldCheck className="w-4 h-4 text-emerald-400/80 flex-shrink-0" />
+            <span>Independent</span>
+            <span className="text-white/30">·</span>
+            <span>no university commission</span>
+            <span className="text-white/30">·</span>
+            <span>{DB_STATS.verifiedProgramsLabel} programs</span>
+            <span className="text-white/30">·</span>
+            <span>{DB_STATS.verifiedUniversitiesLabel} universities</span>
+            <span className="text-white/30">·</span>
+            <span>{DB_STATS.countriesLabel} countries</span>
+            <span className="text-white/30 hidden sm:inline">·</span>
+            <span className="text-white/45 hidden sm:inline">Decision-support estimates</span>
           </div>
         </div>
       </section>
@@ -302,13 +485,15 @@ export default function V2LandingPage() {
       {/* ───── PARENT/STUDENT STRIP — directly under hero ───── */}
       <section className="bg-stone-50 border-b border-stone-200">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 py-12 sm:py-16 grid sm:grid-cols-2 gap-6 sm:gap-10">
-          <div className="rounded-2xl bg-white border border-stone-200 p-6 sm:p-8">
+          <div className="group relative rounded-2xl bg-white border border-stone-200 p-6 sm:p-8 shadow-[0_18px_40px_-12px_rgba(15,23,42,0.18)] hover:shadow-[0_28px_56px_-12px_rgba(15,23,42,0.25)] hover:-translate-y-0.5 transition-all duration-300">
+            <span aria-hidden className="pointer-events-none absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-violet-300/70 to-transparent" />
             <p className="text-[11px] uppercase tracking-[0.25em] text-violet-700 font-semibold mb-3">For students</p>
             <p className="font-display text-lg sm:text-xl text-gray-900 leading-snug">
               Find the right-fit course, improve your application, prepare for interviews.
             </p>
           </div>
-          <div className="rounded-2xl bg-white border border-stone-200 p-6 sm:p-8">
+          <div className="group relative rounded-2xl bg-white border border-stone-200 p-6 sm:p-8 shadow-[0_18px_40px_-12px_rgba(15,23,42,0.18)] hover:shadow-[0_28px_56px_-12px_rgba(15,23,42,0.25)] hover:-translate-y-0.5 transition-all duration-300">
+            <span aria-hidden className="pointer-events-none absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-emerald-300/70 to-transparent" />
             <p className="text-[11px] uppercase tracking-[0.25em] text-emerald-700 font-semibold mb-3">For parents</p>
             <p className="font-display text-lg sm:text-xl text-gray-900 leading-snug">
               Compare cost, ROI, safety, visa readiness, and long-term value.
@@ -317,18 +502,18 @@ export default function V2LandingPage() {
         </div>
       </section>
 
-      {/* ───── STAT BAND ───── */}
+      {/* ───── BY THE NUMBERS — Programs · Universities · Countries ───── */}
       <section className="bg-white border-b border-stone-200">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 py-20 sm:py-28">
           <p className="text-[11px] uppercase tracking-[0.25em] text-violet-700 font-semibold mb-8">By the numbers</p>
           <div className="grid sm:grid-cols-3 gap-y-10 gap-x-12">
             {[
-              { v: DB_STATS.verifiedProgramsLabel, l: "Verified programs",      sub: "Every figure fetched live from the official university page." },
-              { v: "9",                            l: "Most Important Signals", sub: "Academic, budget, English, intake, scholarship, work-ex, std test, backlogs, gap." },
-              { v: DB_STATS.countriesLabel,        l: "Destination countries",  sub: "USA, UK, Canada, Australia, Germany, NL, Ireland, France, NZ, Singapore, Malaysia, UAE." },
+              { v: DB_STATS.verifiedProgramsLabel,     l: "Verified programs",   sub: "Every figure fetched live from the official university page." },
+              { v: DB_STATS.verifiedUniversitiesLabel, l: "Verified universities", sub: "Institutions with at least one program confirmed at source." },
+              { v: DB_STATS.countriesLabel,            l: "Destination countries", sub: "USA, UK, Canada, Australia, Germany, NL, Ireland, France, NZ, Singapore, Malaysia, UAE." },
             ].map((s) => (
               <div key={s.l} className="border-l-2 border-violet-600 pl-6">
-                <p className="font-display text-5xl sm:text-6xl font-bold tracking-tight text-gray-900 mb-2 leading-none">{s.v}</p>
+                <p className="font-display text-5xl sm:text-6xl font-bold tracking-tight text-gray-900 mb-2 leading-none tabular-nums">{s.v}</p>
                 <p className="text-sm font-semibold text-gray-900 mb-2">{s.l}</p>
                 <p className="text-sm text-gray-500 leading-relaxed">{s.sub}</p>
               </div>
@@ -368,11 +553,19 @@ export default function V2LandingPage() {
                 </div>
                 <Link
                   href={s.href}
-                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-violet-700 group-hover:gap-2 transition-all mb-3"
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-violet-700 group-hover:gap-2 transition-all mb-2"
                 >
                   {s.cta}
                   <ArrowUpRight className="w-4 h-4" />
                 </Link>
+                {s.secondary && (
+                  <Link
+                    href={s.secondary.href}
+                    className="inline-flex items-center gap-1 text-xs font-semibold text-gray-500 hover:text-violet-700 transition-colors mb-3"
+                  >
+                    {s.secondary.cta} →
+                  </Link>
+                )}
                 <div className="pt-3 mt-auto border-t border-stone-100 flex items-start gap-2">
                   <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0 mt-0.5" />
                   <p className="text-[11px] text-gray-500 leading-snug">{s.trust}</p>
@@ -380,6 +573,7 @@ export default function V2LandingPage() {
               </div>
             ))}
           </div>
+
         </div>
       </section>
 
@@ -446,23 +640,44 @@ export default function V2LandingPage() {
                 )}
 
                 {activeDemo === 1 && (
-                  <div className="space-y-4">
-                    {[
-                      { dim: "Story arc",          v: "Strong",      tone: "good" },
-                      { dim: "Specificity",        v: "Needs work",  tone: "warn" },
-                      { dim: "Cliché check",       v: "2 flagged",   tone: "warn" },
-                      { dim: "Goal alignment",     v: "Strong",      tone: "good" },
-                      { dim: "Overall tier",       v: "Top 30%",     tone: "verdict" },
-                    ].map((r) => (
-                      <div key={r.dim} className="flex items-center justify-between py-3 border-b border-stone-200/70 last:border-0">
-                        <span className="text-sm text-gray-600">{r.dim}</span>
-                        <span className={`text-sm font-bold ${
-                          r.tone === "good" ? "text-emerald-700" :
-                          r.tone === "warn" ? "text-amber-700"   :
-                                              "text-violet-700"
-                        }`}>{r.v}</span>
+                  <div className="bg-white rounded-2xl shadow-[0_28px_64px_-12px_rgba(0,0,0,0.25)] overflow-hidden border border-stone-200">
+                    <div className="h-1 bg-violet-500" />
+                    <div className="flex items-center justify-between px-6 pt-5 pb-4 border-b border-stone-100">
+                      <div className="flex items-center gap-2.5">
+                        <div className="w-8 h-8 rounded-xl bg-violet-500/10 flex items-center justify-center">
+                          <span className="text-violet-700 text-sm font-bold">SOP</span>
+                        </div>
+                        <span className="font-bold text-gray-900">SOP Feedback</span>
                       </div>
-                    ))}
+                      <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-violet-50 text-violet-700 border border-violet-100 uppercase tracking-wide">Application Check</span>
+                    </div>
+                    <div className="px-6 py-5 space-y-4">
+                      <div>
+                        <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3">Your opening paragraph</p>
+                        <div className="rounded-2xl bg-rose-50 border border-rose-100 p-4">
+                          <p className="text-[15px] text-gray-600 italic leading-relaxed">&ldquo;I have always been passionate about technology and computers since my childhood days growing up...&rdquo;</p>
+                          <div className="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-rose-700 bg-rose-100 px-3 py-1 rounded-full">
+                            ⚠ Weak hook — reviewers stop reading
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3">AI suggested rewrite</p>
+                        <div className="rounded-2xl bg-emerald-50 border border-emerald-100 p-4">
+                          <p className="text-[15px] text-gray-700 leading-relaxed">&ldquo;At 22, I shipped a search feature used by 40,000 users. That week taught me more about systems design than three semesters of coursework.&rdquo;</p>
+                          <div className="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 bg-emerald-100 px-3 py-1 rounded-full">
+                            ✓ Specific · Memorable · Reviewers stop here
+                          </div>
+                        </div>
+                      </div>
+                      <div className="rounded-2xl bg-violet-50 border border-violet-100 p-4">
+                        <p className="text-[10px] font-bold text-violet-700 uppercase tracking-widest mb-2">2 more issues flagged</p>
+                        <div className="space-y-2">
+                          <div className="flex items-center gap-2 text-sm text-gray-600"><span className="w-1.5 h-1.5 rounded-full bg-amber-400 flex-shrink-0" />Career goal paragraph is vague — no measurable outcome stated</div>
+                          <div className="flex items-center gap-2 text-sm text-gray-600"><span className="w-1.5 h-1.5 rounded-full bg-amber-400 flex-shrink-0" />Why-this-university section feels templated — add specific faculty</div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 )}
 
@@ -485,47 +700,139 @@ export default function V2LandingPage() {
                 )}
 
                 {activeDemo === 3 && (
-                  <div className="space-y-4">
-                    {[
-                      { l: "UCL London",         yrs: "3.2 yrs", best: true },
-                      { l: "Univ. of Edinburgh", yrs: "4.8 yrs" },
-                      { l: "Univ. of Melbourne", yrs: "5.8 yrs" },
-                    ].map((b) => (
-                      <div key={b.l}>
-                        <div className="flex items-baseline justify-between mb-1">
-                          <span className={`text-sm ${b.best ? "font-bold text-gray-900" : "text-gray-600"}`}>{b.best ? "★ " : ""}{b.l}</span>
-                          <span className={`text-sm font-semibold tabular-nums ${b.best ? "text-emerald-700" : "text-gray-500"}`}>{b.yrs}</span>
+                  <div className="bg-white rounded-2xl shadow-[0_28px_64px_-12px_rgba(0,0,0,0.25)] overflow-hidden border border-stone-200">
+                    <div className="h-1 bg-amber-400" />
+                    <div className="flex items-center justify-between px-6 pt-5 pb-4 border-b border-stone-100">
+                      <div className="flex items-center gap-2.5">
+                        <div className="w-8 h-8 rounded-xl bg-amber-500/10 flex items-center justify-center">
+                          <span className="text-amber-600 text-sm font-bold">$</span>
                         </div>
-                        <div className="h-2 rounded-full bg-stone-200 overflow-hidden">
-                          <div className={`h-full rounded-full ${b.best ? "bg-emerald-500" : "bg-stone-400"}`} style={{ width: b.best ? "32%" : b.l.includes("Edinburgh") ? "48%" : "58%" }} />
+                        <span className="font-bold text-gray-900">ROI Analysis</span>
+                      </div>
+                      <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-amber-50 text-amber-700 border border-amber-100 uppercase tracking-wide">ROI Calculator</span>
+                    </div>
+                    <div className="px-6 py-2.5 bg-stone-50 border-b border-stone-100">
+                      <p className="text-xs text-gray-400 font-mono">MS Data Science · 2 offers compared</p>
+                    </div>
+                    <div className="px-6 py-5 grid grid-cols-2 gap-4 mb-2">
+                      <div className="rounded-2xl border border-stone-200 p-4">
+                        <div className="flex items-center gap-2 mb-3">
+                          <span className="text-lg">🇬🇧</span>
+                          <div>
+                            <p className="font-bold text-gray-900 text-sm">UCL</p>
+                            <p className="text-xs text-gray-400">London, UK</p>
+                          </div>
+                        </div>
+                        <div className="space-y-2 text-sm">
+                          <div className="flex justify-between"><span className="text-gray-500">Cost</span><span className="font-mono text-gray-800">£42K</span></div>
+                          <div className="flex justify-between"><span className="text-gray-500">Yr 1 salary</span><span className="font-mono text-gray-800">£55K</span></div>
+                          <div className="flex justify-between"><span className="text-gray-500">Break-even</span><span className="font-mono text-gray-800">2.3 yrs</span></div>
+                          <div className="flex justify-between"><span className="text-gray-500">5-yr gain</span><span className="font-mono text-gray-800">+£233K</span></div>
                         </div>
                       </div>
-                    ))}
-                    <div className="rounded-xl bg-emerald-50/60 border border-emerald-200/70 p-4 mt-4">
-                      <p className="text-[10px] uppercase tracking-widest text-emerald-700 font-bold mb-1">★ EduvianAI recommendation</p>
-                      <p className="text-sm text-gray-800">UCL London — pays back 2.6 years faster than Melbourne.</p>
+                      <div className="rounded-2xl border-2 border-emerald-400 bg-emerald-50/40 p-4 relative">
+                        <div className="absolute -top-2.5 left-1/2 -translate-x-1/2">
+                          <span className="text-[10px] font-black text-white bg-emerald-600 px-3 py-0.5 rounded-full uppercase tracking-wide">Best ROI</span>
+                        </div>
+                        <div className="flex items-center gap-2 mb-3">
+                          <span className="text-lg">🇺🇸</span>
+                          <div>
+                            <p className="font-bold text-gray-900 text-sm">UIUC</p>
+                            <p className="text-xs text-gray-400">Illinois, USA</p>
+                          </div>
+                        </div>
+                        <div className="space-y-2 text-sm">
+                          <div className="flex justify-between"><span className="text-gray-500">Cost</span><span className="font-mono text-gray-800">$68K</span></div>
+                          <div className="flex justify-between"><span className="text-gray-500">Yr 1 salary</span><span className="font-mono font-bold text-emerald-700">$120K</span></div>
+                          <div className="flex justify-between"><span className="text-gray-500">Break-even</span><span className="font-mono font-bold text-emerald-700">1.8 yrs</span></div>
+                          <div className="flex justify-between"><span className="text-gray-500">5-yr gain</span><span className="font-mono font-bold text-emerald-700">+$532K</span></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="mx-6 mb-5 rounded-2xl bg-emerald-50 border border-emerald-100 px-4 py-3.5">
+                      <p className="text-sm font-semibold text-emerald-800">✓ UIUC recovers 22% faster and yields $299K more over 5 years</p>
                     </div>
                   </div>
                 )}
 
                 {activeDemo === 4 && (
-                  <div className="space-y-3">
-                    <div className="bg-sky-50/70 rounded-xl border border-sky-200/70 p-4 mb-4">
-                      <p className="text-[10px] uppercase tracking-widest text-sky-700 font-bold mb-1">UK Student visa · London</p>
-                      <p className="text-sm text-gray-800">£1,483 / month × 9 months = <span className="font-bold">£13,347</span> held for 28+ days.</p>
-                    </div>
-                    {[
-                      { ok: true,  l: "Passport · 6+ months validity" },
-                      { ok: true,  l: "CAS letter from UCL" },
-                      { ok: true,  l: "Financial proof in account" },
-                      { ok: true,  l: "TB test certificate" },
-                      { ok: false, l: "ATAS clearance · pending" },
-                    ].map((c) => (
-                      <div key={c.l} className="flex items-center gap-3 py-2 border-b border-stone-200/70 last:border-0">
-                        <span className="text-base flex-shrink-0">{c.ok ? "✅" : "⏳"}</span>
-                        <span className={`text-sm ${c.ok ? "text-gray-700" : "text-amber-700"}`}>{c.l}</span>
+                  <div className="bg-white rounded-2xl shadow-[0_28px_64px_-12px_rgba(0,0,0,0.25)] overflow-hidden border border-stone-200">
+                    <div className="h-1 bg-violet-500" />
+                    <div className="flex items-center justify-between px-6 pt-5 pb-4 border-b border-stone-100">
+                      <div className="flex items-center gap-2.5">
+                        <div className="w-8 h-8 rounded-xl bg-violet-500/10 flex items-center justify-center">
+                          <span className="text-base">🛂</span>
+                        </div>
+                        <span className="font-bold text-gray-900">Visa Apply — F-1 (USA)</span>
                       </div>
-                    ))}
+                      <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-violet-50 text-violet-700 border border-violet-100 uppercase tracking-wide">Visa Coach</span>
+                    </div>
+                    <div className="px-6 py-2.5 bg-stone-50 border-b border-stone-100">
+                      <p className="text-xs text-gray-400 font-mono">Carnegie Mellon · MS · I-20 received · Apply window open</p>
+                    </div>
+
+                    <div className="px-6 py-5 grid grid-cols-3 gap-3">
+                      <div className="rounded-2xl border border-stone-100 p-3">
+                        <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">SEVIS I-901</p>
+                        <p className="text-lg font-black text-gray-900 tabular-nums">$350</p>
+                        <p className="text-[10px] text-gray-400 mt-0.5">Pay before DS-160</p>
+                      </div>
+                      <div className="rounded-2xl border border-stone-100 p-3">
+                        <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">MRV Fee</p>
+                        <p className="text-lg font-black text-gray-900 tabular-nums">$185</p>
+                        <p className="text-[10px] text-gray-400 mt-0.5">Non-refundable</p>
+                      </div>
+                      <div className="rounded-2xl border border-violet-200 bg-violet-50/60 p-3">
+                        <p className="text-[10px] font-bold text-violet-700 uppercase tracking-widest mb-1">Funds to show</p>
+                        <p className="text-lg font-black text-violet-700 tabular-nums">$89,420</p>
+                        <p className="text-[10px] text-violet-700 mt-0.5">Yr 1 tuition + living</p>
+                      </div>
+                    </div>
+
+                    <div className="px-6 pb-2">
+                      <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Personalised checklist</p>
+                      <div className="space-y-2">
+                        {[
+                          { label: "I-20 from Carnegie Mellon",                    status: "done"    },
+                          { label: "SEVIS I-901 payment receipt",                  status: "done"    },
+                          { label: "DS-160 confirmation (barcode page)",           status: "pending" },
+                          { label: "Bank statements — 6 months, ≥ $89,420 cover",   status: "flag"    },
+                          { label: "Sponsor affidavit (if applicable)",            status: "pending" },
+                          { label: "Visa interview slot — Mumbai consulate",       status: "pending" },
+                        ].map((c) => {
+                          const cfg =
+                            c.status === "done"
+                              ? { dot: "bg-emerald-500", text: "text-gray-700",            badge: "bg-emerald-50 text-emerald-700 border-emerald-200", label: "Done" }
+                              : c.status === "flag"
+                              ? { dot: "bg-rose-500",    text: "text-gray-800 font-semibold", badge: "bg-rose-50 text-rose-700 border-rose-200",          label: "Risk flag" }
+                              : { dot: "bg-amber-400",   text: "text-gray-600",            badge: "bg-amber-50 text-amber-700 border-amber-200",      label: "Pending" };
+                          return (
+                            <div key={c.label} className="flex items-center gap-3 py-1.5 border-b border-stone-100 last:border-0">
+                              <span className={`w-2 h-2 rounded-full ${cfg.dot} flex-shrink-0`} />
+                              <p className={`text-sm leading-snug flex-1 ${cfg.text}`}>{c.label}</p>
+                              <span className={`text-[9px] font-bold px-2 py-0.5 rounded-full border ${cfg.badge} uppercase tracking-wider flex-shrink-0`}>
+                                {cfg.label}
+                              </span>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+
+                    <div className="mx-6 mt-4 mb-3 rounded-2xl bg-rose-50 border border-rose-100 p-4">
+                      <div className="flex items-start gap-2">
+                        <span className="text-rose-500 mt-0.5 flex-shrink-0">⚠</span>
+                        <div>
+                          <p className="text-sm font-bold text-rose-700 mb-0.5">Funds risk flag</p>
+                          <p className="text-xs text-rose-700/85 leading-relaxed">Your current statement shows $71,200 — $18,220 short of the 1-year coverage USCIS officers expect for Pittsburgh. Add sponsor affidavit or top-up before the interview.</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="mx-6 mb-5 rounded-2xl bg-violet-50 border border-violet-100 px-4 py-3.5 flex items-center justify-between gap-3">
+                      <p className="text-sm font-semibold text-violet-800">🔗 Direct apply link: travel.state.gov · DS-160 form</p>
+                      <span className="text-[10px] font-bold text-violet-700 bg-white border border-violet-200 rounded-full px-2 py-0.5 uppercase tracking-wider">Official</span>
+                    </div>
                   </div>
                 )}
               </div>
@@ -573,10 +880,10 @@ export default function V2LandingPage() {
           <div className="lg:col-span-6">
             <p className="text-[11px] uppercase tracking-[0.25em] text-emerald-700 font-semibold mb-6">For families</p>
             <h2 className="font-display text-4xl sm:text-5xl font-bold tracking-tight leading-[1.1] mb-6">
-              The same facts<br />on both sides of the table.
+              Cost, ROI, safety, visa —<br />answered on <span className="italic font-medium text-violet-700">one page</span>.
             </h2>
             <p className="text-lg text-gray-600 leading-relaxed mb-8 max-w-xl">
-              The Parent Decision Report is one page. Seven factors. Color-coded verdicts. Easy to share over WhatsApp; easier to discuss at the dinner table.
+              The Parent Decision Report covers the seven factors parents actually ask about. Color-coded verdicts. Easy to share over WhatsApp; easier to discuss at the dinner table.
             </p>
             <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
               <Link
@@ -625,7 +932,7 @@ export default function V2LandingPage() {
         </div>
       </section>
 
-      {/* ───── DESTINATIONS ───── */}
+      {/* ───── DESTINATIONS — 12 country cards (deep page at /destinations) ───── */}
       <section id="destinations" className="bg-stone-50 border-b border-stone-200">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 py-24 sm:py-32">
           <div className="max-w-3xl mb-14 sm:mb-16">
@@ -670,10 +977,16 @@ export default function V2LandingPage() {
               );
             })}
           </div>
+
+          <div className="mt-10 flex justify-center">
+            <Link href="/destinations" className="inline-flex items-center gap-1.5 text-sm font-semibold text-violet-700 hover:gap-2 transition-all">
+              See full destinations page <ArrowUpRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* ───── SCHOLARSHIPS ───── */}
+      {/* ───── SCHOLARSHIPS — 8 marquee picks (deep page at /scholarships) ───── */}
       <section id="scholarships" className="bg-white border-b border-stone-200">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 py-24 sm:py-32">
           <div className="grid lg:grid-cols-12 gap-12 mb-12 sm:mb-14">
@@ -686,7 +999,7 @@ export default function V2LandingPage() {
                 Eight marquee scholarships across our destination countries — from Fulbright and Chevening to DAAD and Australia Awards. Hundreds more sit inside individual university pages.
               </p>
               <Link
-                href="/"
+                href="/scholarships"
                 className="inline-flex items-center gap-1.5 text-sm font-semibold text-gray-900 hover:text-violet-700 transition-colors"
               >
                 See full per-country list <ArrowUpRight className="w-4 h-4" />
@@ -754,12 +1067,12 @@ export default function V2LandingPage() {
           </div>
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs sm:justify-end">
             <Link href="/" className="hover:text-gray-900 transition-colors">Original homepage →</Link>
-            <Link href="/v2#journey"      className="hover:text-gray-900 transition-colors">Journey</Link>
+            <Link href="/v2#journey"      className="hover:text-gray-900 transition-colors">Stages</Link>
             <Link href="/v2#outputs"      className="hover:text-gray-900 transition-colors">Outputs</Link>
             <Link href="/v2#destinations" className="hover:text-gray-900 transition-colors">Destinations</Link>
             <Link href="/v2#scholarships" className="hover:text-gray-900 transition-colors">Scholarships</Link>
             <Link href="/v2#principles"   className="hover:text-gray-900 transition-colors">Principles</Link>
-            <Link href="/get-started"     className="hover:text-gray-900 transition-colors">Get started</Link>
+            <Link href="/match"         className="hover:text-gray-900 transition-colors">Find my programs</Link>
             <span className="hidden sm:inline">·</span>
             <span className="text-gray-400 text-[11px]">Decision-support · not professional advice</span>
           </div>

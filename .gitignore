@@ -27,6 +27,9 @@
 *.tsbuildinfo
 next-env.d.ts
 
+# local backup of pre-v2-swap homepage; not shipped
+_archive/
+
 # misc
 .DS_Store
 *.pem

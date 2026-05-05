@@ -92,7 +92,7 @@ When working on `submissions`, both `profile` (plaintext) and `profile_encrypted
 | `src/data/programs.ts` | THE database. **5,595 entries / 5,532 verified.** `@ts-nocheck` (large data file). |
 | `src/data/db-stats.ts` | Computed counts. Public surfaces standardise on `verifiedProgramsLabel` (5,532+) and `verifiedUniversitiesLabel` (485+) — `programsLabel` (the unverified-tail total) is internal-only. Don't reintroduce dual numbers in copy. |
 | `src/app/sample-parent-report/page.tsx` | Static, illustrative parent-decision report at `/sample-parent-report`. Print-friendly (Save-as-PDF button). Linked from the Decide-stage 'See sample family report' CTA. |
-| `src/app/v2/page.tsx` | **Brand-redesign prototype at /v2** (5 May 2026). Editorial / Crimson-Coursera-Lovable influenced. User has approved this as the next homepage. Pending: apply the user's final 8-section structure (see snapshot §24), then swap v2 → /. Production / homepage stays untouched until the swap. |
+| `src/app/page.tsx` | **The homepage** (post v2 → / swap, 5 May 2026). v2 brand redesign + 8-section structure now serves at `/`. Pre-swap homepage backed up at `_archive/page-pre-v2-swap.tsx.bak`; pre-swap `src/app/v2/` preserved (un-routed) at `src/app/_v2-archive/page.tsx` for reference. |
 | `src/lib/types.ts` | Single source of truth. `TARGET_COUNTRIES` (12), `FIELDS_OF_STUDY` (17). |
 | `src/lib/scoring.ts` | 9-signal `recommendPrograms()`. Tiers: Safe 75-100, Reach 50-74, Ambitious <50. |
 | `src/lib/format-fee.ts` | Null-safe tuition rendering. **Never show $0.** |
