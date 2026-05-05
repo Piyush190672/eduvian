@@ -10,8 +10,11 @@ const securityHeaders = [
   { key: "X-XSS-Protection", value: "1; mode=block" },
   // Don't leak full referrer URL to third parties
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
-  // Restrict browser features the page can use
-  { key: "Permissions-Policy", value: "geolocation=(), microphone=(), camera=(), payment=()" },
+  // Restrict browser features the page can use. Microphone allowed for
+  // same-origin only — the Interview Prep tool needs it for SpeechRecognition.
+  // Empty `()` would deny it on our own origin too, which is what was
+  // silently breaking voice capture before.
+  { key: "Permissions-Policy", value: "geolocation=(), microphone=(self), camera=(), payment=()" },
   // Force HTTPS for 1 year (only applies when served over HTTPS)
   { key: "Strict-Transport-Security", value: "max-age=31536000; includeSubDomains; preload" },
   // Content Security Policy — allows same-origin resources + trusted CDNs
