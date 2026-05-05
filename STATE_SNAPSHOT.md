@@ -275,7 +275,8 @@ USA, UK, Australia, Canada, New Zealand, Ireland, Germany, France, UAE, Singapor
 | Branch | main |
 | Working tree | clean |
 | Supabase plan | Pro (since 3 May 2026) |
-| Live security posture | C1–C4 + H1–H6 closed; **H7 Phase A + Phase B both live**; H7 Phase C is the only deferred audit item — runbook ready for execution today (4 May), see §20 |
+| Live security posture | C1–C4 + H1–H6 closed; **H7 Phase A + Phase B both live**; H7 Phase C is the only deferred audit item — runbook ready (24h safety window has been open since 4 May), see §20.1 |
+| Brand redesign | v2 prototype at `/v2`, locked direction (palette · card pattern · hard avoids) and 8-section homepage structure live in §24. Swap `/v2 → /` is the top next-session priority. |
 | Email OTP on register/login | live |
 | Admin TOTP MFA | enrolled and verified — `/admin` login challenges for code |
 | Logout button | live on `/profile` and `/results/[token]` |
@@ -974,8 +975,8 @@ These have been issued at various points and remain binding:
 
 | Path | What |
 |---|---|
-| `src/data/programs.ts` | THE database. 4,295 entries. Has `// @ts-nocheck` directive (large data file). |
-| `src/data/db-stats.ts` | Auto-computes counts from PROGRAMS. Don't edit; recomputed on load. |
+| `src/data/programs.ts` | THE database. **5,595 entries / 5,532 verified at source**. Has `// @ts-nocheck` directive (large data file). |
+| `src/data/db-stats.ts` | Auto-computes counts from PROGRAMS. Don't edit; recomputed on load. Public surfaces standardise on `verifiedProgramsLabel` (5,532+) and `verifiedUniversitiesLabel` (485+). |
 | `src/lib/types.ts` | Single source of truth for types. `TARGET_COUNTRIES` (12), `FIELDS_OF_STUDY` (17), `Program`, `StudentProfile`, `ScoredProgram`. |
 | `src/lib/scoring.ts` | The 9-signal `recommendPrograms()`. Tier thresholds: Safe 75-100, Reach 50-74, Ambitious <50. |
 | `src/lib/format-fee.ts` | The fee-unavailable rendering helpers. NEVER show $0. |
@@ -1249,7 +1250,10 @@ Both implement the same 2-step UX: collect details (name + email + phone) → re
 
 These are concrete, ready-to-pick-up tasks. In priority order.
 
-### 20.1 H7 Phase C — drop plaintext `submissions.profile`  [TOP PRIORITY]
+### 20.1 H7 Phase C — drop plaintext `submissions.profile`
+
+> Note: top-priority slot has moved to **§24 — implement v2 final-homepage structure and swap /v2 → /**. H7 Phase C is still ready to run any time the user greenlights it; the runbook below is unchanged.
+
 
 Phase B has been live in prod since evening of 3 May 2026. The 24-48h safety window opens later today (4 May 2026). Watch Sentry for any `decryptProfile` warnings before pulling the trigger.
 
