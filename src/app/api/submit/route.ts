@@ -3,7 +3,7 @@ import { recommendPrograms } from "@/lib/scoring";
 import { PROGRAMS } from "@/data/programs";
 import { submissionStore } from "@/lib/store";
 import type { Program, StudentProfile } from "@/lib/types";
-import { apiErrorResponse } from "@/lib/api-error";
+import { apiErrorResponse, captureApiError } from "@/lib/api-error";
 import { scoreStudentProfile } from "@/lib/profile-score";
 import { v4 as uuidv4 } from "uuid";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
@@ -144,10 +144,13 @@ export async function POST(req: NextRequest) {
     const token = uuidv4();
     const id = uuidv4();
 
-    // Build the encrypted shadow payload alongside the plaintext profile.
-    // We dual-write through Phase A so any reader still works against the
-    // plaintext column. Skips silently if PII_ENCRYPTION_KEY isn't set —
-    // useful in local/dev where the key isn't provisioned.
+    // H7 Phase C: the plaintext profile column is gone. Without
+    // PII_ENCRYPTION_KEY + PII_HASH_SECRET we have no place to put the
+    // user's data — refuse loudly in production rather than silently
+    // writing a row with nulls and producing a "Could not load your
+    // results" page downstream. Local/dev (NODE_ENV !== "production")
+    // still falls through quietly so the in-memory store carries the
+    // submission for the session.
     let pii_email_hash: string | null = null;
     let pii_profile_encrypted: string | null = null;
     let pii_profile_enc_version: number | null = null;
@@ -157,10 +160,23 @@ export async function POST(req: NextRequest) {
         pii_profile_encrypted = encryptJson(profile);
         pii_profile_enc_version = 1;
       } catch (e) {
-        // Don't block the user's submit on a crypto config issue — fall back
-        // to plaintext-only and surface the error in Sentry.
-        console.error("PII encryption failed; saving plaintext only:", e);
+        console.error("PII encryption failed:", e);
+        if (process.env.NODE_ENV === "production") {
+          captureApiError(e, { route: "submit", extra: { stage: "submit/encrypt", token } });
+          return NextResponse.json(
+            { error: "We couldn't save your submission securely. Please try again in a minute." },
+            { status: 503 }
+          );
+        }
       }
+    } else if (process.env.NODE_ENV === "production") {
+      const err = new Error("PII encryption not configured (PII_ENCRYPTION_KEY / PII_HASH_SECRET missing)");
+      console.error(err.message);
+      captureApiError(err, { route: "submit", extra: { stage: "submit/precheck" } });
+      return NextResponse.json(
+        { error: "Submissions are temporarily unavailable while we restore secure storage. Please try again shortly." },
+        { status: 503 }
+      );
     }
 
     // Try Supabase persistence
