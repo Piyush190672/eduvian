@@ -2,12 +2,14 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { ArrowRight, ArrowUpRight, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowRight, ArrowUpRight, GraduationCap, ShieldCheck, Sparkles, Users } from "lucide-react";
 import { DB_STATS, universitiesByCountry } from "@/data/db-stats";
 import ChatWidget from "@/components/ChatWidget";
 import CountryModal from "@/components/CountryModal";
 
-// Stage copy ported from the original homepage; keeps the v2 5-line card design.
+// Each stage card carries: stage name + user situation + one-line benefit
+// + one sample output + one primary CTA. Methodology / data-source notes
+// surface inside a "Why this is reliable" disclosure rather than inline.
 type StageSampleSpec =
   | { kind: "tier";  safe: number; reach: number; ambitious: number }
   | { kind: "score"; a: { label: string; v: number }; b: { label: string; v: number } }
@@ -27,29 +29,27 @@ interface Stage {
 
 const STAGES: Stage[] = [
   {
-    n: "01", label: "Find my best-fit programs",
-    title: "No idea where to apply",
-    benefit: "AI evaluates your profile and shortlists your best-fit Universities in under 2 minutes.",
+    n: "01", label: "Match",
+    title: "No idea where to apply?",
+    benefit: "Get a Safe, Reach and Ambitious shortlist based on your profile.",
     sample: { kind: "tier", safe: 6, reach: 9, ambitious: 5 },
-    cta: "Evaluate my Profile",
+    cta: "Find my best-fit programs",
     trust: "Verified against each university's official program page (e.g. ox.ac.uk, mit.edu, daad.de) — fees, deadlines and English cutoffs read live from source.",
     href: "/get-started",
-    secondary: { cta: "Find my best-fit match", href: "/get-started" },
   },
   {
-    n: "02", label: "Strengthen my application",
+    n: "02", label: "Check",
     title: "Got a shortlist — is my application strong enough?",
-    benefit: "Write a standout SOP, score and rebuild your CV, draft strong LORs, and check your full application pack for gaps.",
+    benefit: "Score and rebuild your SOP, CV and LORs across structured dimensions.",
     sample: { kind: "score", a: { label: "Before", v: 61 }, b: { label: "After", v: 84 } },
-    cta: "Check My Application",
+    cta: "Check my application",
     trust: "Scored across 7 SOP dimensions and 6 CV dimensions — story arc, specificity, goal alignment, credibility flags. Feedback is paragraph-level, not generic.",
     href: "/application-check",
-    secondary: { cta: "Write my SOP", href: "/sop-assistant" },
   },
   {
-    n: "03", label: "Practise tests & interviews",
-    title: "Prepare for your interview and English tests",
-    benefit: "AI Interview Coach for AU and UK university interviews, plus the US F-1 visa interview. Full IELTS, PTE, DET & TOEFL mocks. Know your weak spots before the real thing.",
+    n: "03", label: "Practice",
+    title: "Need to prepare for interviews and English tests?",
+    benefit: "Mock AU/UK admissions and US F-1 visa interviews, plus IELTS / TOEFL / PTE / DET practice.",
     sample: { kind: "stat", v: "14 / 14", l: "UK credibility questions coached" },
     cta: "Practise my interview",
     trust: "Exam-style practice based on published test structures: IELTS band descriptors and TOEFL ETS guidelines.",
@@ -57,19 +57,18 @@ const STAGES: Stage[] = [
     secondary: { cta: "English Test Lab", href: "/english-test-lab" },
   },
   {
-    n: "04", label: "Compare offers with ROI",
+    n: "04", label: "Decide",
     title: "Got my offer — should I accept?",
-    benefit: "ROI Calculator + Parent Decision Tool. Real numbers before you commit.",
+    benefit: "Compare offers on payback, 10-year ROI and total cost.",
     sample: { kind: "stat", v: "4.8 yrs", l: "Median payback period" },
-    cta: "Run the Numbers",
+    cta: "Run the numbers",
     trust: "Salary benchmarks drawn from HESA LEO, Russell Group Graduate Outcomes, QS Top Universities Salary Reports, OECD and LinkedIn Salary Insights.",
     href: "/roi-calculator",
-    secondary: { cta: "Parent Decision Report", href: "/parent-decision" },
   },
   {
-    n: "05", label: "Get visa-ready",
-    title: "Accepted — now the visa",
-    benefit: "F-1, UK, SDS, AUS 500, Germany D & 7 more. Official checklists, financial-proof rules, risk flags, direct apply links.",
+    n: "05", label: "Apply",
+    title: "Accepted — what about the visa?",
+    benefit: "Country-specific checklists, financial-proof rules and risk flags for 12 student visas.",
     sample: { kind: "stat", v: "12", l: "Visa playbooks (F-1 · UK · SDS · 500 · D · 7 more)" },
     cta: "Open Visa Coach",
     trust: "Visa playbooks link out to the official government source page (travel.state.gov, gov.uk, Canada IRCC, immi.gov.au and equivalents).",
@@ -80,7 +79,7 @@ const STAGES: Stage[] = [
 
 const PRINCIPLES = [
   { n: "01", t: "Verified at source",          p: `Every fee, deadline and cutoff fetched live from the official university page. ${DB_STATS.verifiedProgramsLabel} programs.` },
-  { n: "02", t: "Independent",                 p: "No university commissions. No marketing deals. The recommendation is yours, not someone else's quota." },
+  { n: "02", t: "Independent",                 p: "No university commissions. No marketing deals. Recommendations are based on your profile, goals, budget, and fit — not commercial preference." },
   { n: "03", t: "Structured, not guesswork",   p: "Same data-driven analysis for every student. Fit, budget, requirements, outcomes — not convenience." },
   { n: "04", t: "Built to decide, not just discover", p: "Search is the easy part. Shortlist → SOP review → interview prep → fee comparison → final pick. Every tool returns specific next steps, not vague advice — solving the real pain points students hit at every stage." },
 ];
@@ -93,20 +92,50 @@ const DEMOS = [
   { i: 4, label: "Visa Apply",           sub: "Country checklist + risk flags",      accent: "border-rose-500"    },
 ];
 
-const COUNTRIES = [
-  { flag: "🇺🇸", name: "USA",         img: "https://images.unsplash.com/photo-1568515387631-8b650bbcdb90?w=600&q=80" },
-  { flag: "🇬🇧", name: "UK",          img: "https://images.unsplash.com/photo-1526129318478-62ed807ebdf9?w=600&q=80" },
-  { flag: "🇨🇦", name: "Canada",      img: "https://images.unsplash.com/photo-1517935706615-2717063c2225?w=600&q=80" },
-  { flag: "🇦🇺", name: "Australia",   img: "https://images.unsplash.com/photo-1624138784614-87fd1b6528f8?w=600&q=80" },
-  { flag: "🇩🇪", name: "Germany",     img: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=600&q=80" },
-  { flag: "🇳🇱", name: "Netherlands", img: "https://images.unsplash.com/photo-1534351590666-13e3e96b5017?w=600&q=80" },
-  { flag: "🇮🇪", name: "Ireland",     img: "https://images.unsplash.com/photo-1549918864-48ac978761a4?w=600&q=80" },
-  { flag: "🇫🇷", name: "France",      img: "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=600&q=80" },
-  { flag: "🇳🇿", name: "New Zealand", img: "https://images.unsplash.com/photo-1507699622108-4be3abd695ad?w=600&q=80" },
-  { flag: "🇸🇬", name: "Singapore",   img: "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=600&q=80" },
-  { flag: "🇲🇾", name: "Malaysia",    img: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=600&q=80" },
-  { flag: "🇦🇪", name: "UAE",         img: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&q=80" },
+type Level = "Low" | "Medium" | "High";
+type PSWLevel = "Strong" | "Medium" | "Limited";
+
+interface CountryCard {
+  flag: string;
+  name: string;
+  img: string;
+  cost: Level;
+  psw: PSWLevel;
+  visa: Level;
+  bestFor: string;
+}
+
+const COUNTRIES: CountryCard[] = [
+  { flag: "🇺🇸", name: "USA",         img: "https://images.unsplash.com/photo-1568515387631-8b650bbcdb90?w=600&q=80", cost: "High",   psw: "Strong",  visa: "Medium", bestFor: "AI · CS · Finance · Engineering" },
+  { flag: "🇬🇧", name: "UK",          img: "https://images.unsplash.com/photo-1526129318478-62ed807ebdf9?w=600&q=80", cost: "High",   psw: "Strong",  visa: "Medium", bestFor: "Business · AI · Finance · Health" },
+  { flag: "🇨🇦", name: "Canada",      img: "https://images.unsplash.com/photo-1517935706615-2717063c2225?w=600&q=80", cost: "Medium", psw: "Strong",  visa: "Medium", bestFor: "CS · Healthcare · Engineering · Business" },
+  { flag: "🇦🇺", name: "Australia",   img: "https://images.unsplash.com/photo-1624138784614-87fd1b6528f8?w=600&q=80", cost: "High",   psw: "Strong",  visa: "Medium", bestFor: "Healthcare · Engineering · Business · Education" },
+  { flag: "🇩🇪", name: "Germany",     img: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=600&q=80", cost: "Low",    psw: "Strong",  visa: "Medium", bestFor: "Engineering · AI · Automotive · CS" },
+  { flag: "🇳🇱", name: "Netherlands", img: "https://images.unsplash.com/photo-1534351590666-13e3e96b5017?w=600&q=80", cost: "Medium", psw: "Strong",  visa: "Low",    bestFor: "Engineering · AI · Agri-tech · Business" },
+  { flag: "🇮🇪", name: "Ireland",     img: "https://images.unsplash.com/photo-1549918864-48ac978761a4?w=600&q=80", cost: "Medium", psw: "Strong",  visa: "Low",    bestFor: "AI · CS · Pharma · Finance" },
+  { flag: "🇫🇷", name: "France",      img: "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=600&q=80", cost: "Medium", psw: "Strong",  visa: "Medium", bestFor: "Business · Fashion · AI · Engineering" },
+  { flag: "🇳🇿", name: "New Zealand", img: "https://images.unsplash.com/photo-1507699622108-4be3abd695ad?w=600&q=80", cost: "Medium", psw: "Strong",  visa: "Low",    bestFor: "Healthcare · Agri-tech · Engineering · IT" },
+  { flag: "🇸🇬", name: "Singapore",   img: "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=600&q=80", cost: "High",   psw: "Limited", visa: "Low",    bestFor: "Finance · AI · CS · Business" },
+  { flag: "🇲🇾", name: "Malaysia",    img: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=600&q=80", cost: "Low",    psw: "Limited", visa: "Low",    bestFor: "Engineering · Business · Medicine · IT" },
+  { flag: "🇦🇪", name: "UAE",         img: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&q=80", cost: "Medium", psw: "Limited", visa: "Low",    bestFor: "Business · Engineering · Hospitality · Aviation" },
 ];
+
+// Semantic colour for each decision-signal level. For cost / visa: Low is good
+// (lower friction), High is bad. For post-study work: Strong is good, Limited
+// is bad. Tailwind picks these literal class strings up at build time.
+function levelClass(kind: "cost" | "visa", val: Level): string;
+function levelClass(kind: "psw", val: PSWLevel): string;
+function levelClass(kind: "cost" | "visa" | "psw", val: string): string {
+  if (kind === "psw") {
+    if (val === "Strong")  return "text-emerald-700 bg-emerald-50 border-emerald-200";
+    if (val === "Medium")  return "text-amber-700 bg-amber-50 border-amber-200";
+    return "text-rose-700 bg-rose-50 border-rose-200"; // Limited
+  }
+  // cost or visa: Low → good, Medium → warn, High → bad
+  if (val === "Low")    return "text-emerald-700 bg-emerald-50 border-emerald-200";
+  if (val === "Medium") return "text-amber-700 bg-amber-50 border-amber-200";
+  return "text-rose-700 bg-rose-50 border-rose-200";
+}
 
 const SCHOLARSHIP_HIGHLIGHTS = [
   { flag: "🇺🇸", country: "USA",       name: "Fulbright Foreign Student Program",   cover: "Fully funded",       note: "Tuition, living stipend, travel & health insurance" },
@@ -178,10 +207,17 @@ function StageSample({ s }: { s: StageSampleSpec }) {
 export default function V2LandingPage() {
   const [activeDemo, setActiveDemo] = useState(0);
   const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
+  // Hero RHS shows one sample card at a time, auto-rotating every 3s.
+  const [heroCard, setHeroCard] = useState(0);
+  const HERO_CARD_COUNT = 4;
   useEffect(() => {
     const id = setTimeout(() => setActiveDemo((d) => (d + 1) % DEMOS.length), 5000);
     return () => clearTimeout(id);
   }, [activeDemo]);
+  useEffect(() => {
+    const id = setInterval(() => setHeroCard((c) => (c + 1) % HERO_CARD_COUNT), 3000);
+    return () => clearInterval(id);
+  }, []);
 
   return (
     <div className="min-h-screen bg-white font-sans antialiased text-gray-900">
@@ -217,7 +253,7 @@ export default function V2LandingPage() {
         <div className="max-w-7xl mx-auto px-6 sm:px-10 pt-28 sm:pt-36 pb-16 sm:pb-20 grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           <div className="lg:col-span-7">
             <p className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.25em] text-violet-300/85 mb-8 font-semibold">
-              <Sparkles className="w-3 h-3" /> Independent · verified · AI-driven
+              <Sparkles className="w-3 h-3" /> Independent · source-verified · AI-powered
             </p>
             <h1 className="font-display font-bold text-[2.25rem] leading-[1.08] sm:text-5xl md:text-[3.75rem] tracking-tight mb-7">
               Choose your study abroad path with <span className="italic font-medium text-violet-300">verified data you can trust</span>.
@@ -242,204 +278,154 @@ export default function V2LandingPage() {
             </div>
           </div>
 
-          {/* RHS: stacked sample-output cards (Shortlist + App Score + ROI + Visa)
-              ported from the original homepage, retuned to the v2 palette
-              (violet accent + emerald/amber/rose semantic only). */}
+          {/* RHS: ONE sample card at a time, auto-rotating every 3s.
+              Same 4 cards as before (Shortlist · App Score · ROI · Visa)
+              but only one renders at any moment. Palette stays violet +
+              emerald/amber/rose semantic per the v2 spec. */}
           <div className="lg:col-span-5 min-w-0">
-            <p className="lg:hidden text-[10px] uppercase tracking-widest text-white/40 font-bold mb-3 px-1">
-              Sample outputs — illustrative
+            <p className="text-[10px] uppercase tracking-widest text-white/40 font-bold mb-3 px-1">
+              Sample output {heroCard + 1} of {HERO_CARD_COUNT} · illustrative
             </p>
 
-            {/* MOBILE: horizontal snap-scroll strip */}
-            <div className="lg:hidden -mx-6 px-6 overflow-x-auto flex gap-3 pb-4 snap-x snap-mandatory">
-              {/* Card M1 — Shortlist */}
-              <div className="flex-shrink-0 w-[272px] snap-start bg-white rounded-2xl p-4 shadow-[0_12px_40px_rgba(0,0,0,0.28)]">
-                <div className="flex items-center justify-between mb-3">
-                  <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">AI Shortlist · sample</p>
-                  <span className="text-[8px] font-bold px-1.5 py-0.5 rounded-full bg-violet-50 text-violet-700 border border-violet-100">20 matches</span>
-                </div>
-                <div className="space-y-2">
-                  {[
-                    { flag: "🇺🇸", uni: "Carnegie Mellon",     score: 69, tier: "Ambitious", tc: "text-rose-700",    bg: "bg-rose-50 border-rose-200"       },
-                    { flag: "🏴󠁧󠁢󠁳󠁣󠁴󠁿", uni: "Univ. of Edinburgh",   score: 78, tier: "Reach",     tc: "text-amber-700",   bg: "bg-amber-50 border-amber-200"     },
-                    { flag: "🇬🇧", uni: "Univ. of Leeds",      score: 88, tier: "Safe",      tc: "text-emerald-700", bg: "bg-emerald-50 border-emerald-200" },
-                  ].map((r) => (
-                    <div key={r.uni} className="flex items-center gap-2 py-1 border-b border-gray-50 last:border-0">
-                      <span className="text-sm flex-shrink-0">{r.flag}</span>
-                      <p className="text-[11px] font-bold text-gray-900 flex-1 truncate">{r.uni}</p>
-                      <div className="flex items-center gap-1 flex-shrink-0">
-                        <span className="text-[10px] font-bold text-gray-600 tabular-nums">{r.score}%</span>
-                        <span className={`text-[8px] font-bold px-1.5 py-0.5 rounded-full border ${r.bg} ${r.tc}`}>{r.tier}</span>
+            <div className="relative min-h-[340px] sm:min-h-[360px]">
+              {heroCard === 0 && (
+                <div key="card-shortlist" className="bg-white rounded-2xl p-5 shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
+                  <div className="flex items-center justify-between mb-3">
+                    <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">AI Shortlist · 90s</p>
+                    <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-violet-50 text-violet-700 border border-violet-100">20 matches</span>
+                  </div>
+                  <div className="space-y-2">
+                    {[
+                      { flag: "🇺🇸", uni: "Carnegie Mellon",     prog: "MSML",                 score: 69, tier: "Ambitious", tc: "text-rose-700",    bg: "bg-rose-50 border-rose-200"       },
+                      { flag: "🏴󠁧󠁢󠁳󠁣󠁴󠁿", uni: "Univ. of Edinburgh",   prog: "MSc Computer Science", score: 78, tier: "Reach",     tc: "text-amber-700",   bg: "bg-amber-50 border-amber-200"     },
+                      { flag: "🇩🇪", uni: "TU Munich",           prog: "MSc Informatics",      score: 74, tier: "Reach",     tc: "text-amber-700",   bg: "bg-amber-50 border-amber-200"     },
+                      { flag: "🇬🇧", uni: "Univ. of Leeds",      prog: "MSc AI & Data Science", score: 88, tier: "Safe",      tc: "text-emerald-700", bg: "bg-emerald-50 border-emerald-200" },
+                    ].map((r) => (
+                      <div key={r.uni} className="flex items-center gap-2.5 py-1.5 border-b border-gray-50 last:border-0">
+                        <span className="text-sm flex-shrink-0">{r.flag}</span>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-[11px] font-bold text-gray-900 truncate">{r.uni}</p>
+                          <p className="text-[10px] text-gray-400 truncate">{r.prog}</p>
+                        </div>
+                        <div className="flex items-center gap-1.5 flex-shrink-0">
+                          <span className="text-[11px] font-bold text-gray-600 tabular-nums">{r.score}%</span>
+                          <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded-full border ${r.bg} ${r.tc}`}>{r.tier}</span>
+                        </div>
                       </div>
-                    </div>
-                  ))}
-                </div>
-                <p className="text-[9px] text-gray-400 mt-2 pt-2 border-t border-gray-50">3 of 20 · Safe, Reach &amp; Ambitious</p>
-              </div>
-
-              {/* Card M2 — App Score */}
-              <div className="flex-shrink-0 w-[200px] snap-start bg-white rounded-2xl p-4 shadow-[0_12px_40px_rgba(0,0,0,0.22)]">
-                <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-3">Application Score</p>
-                {[
-                  { label: "Before",   pct: 61, color: "bg-rose-400"   },
-                  { label: "After AI", pct: 84, color: "bg-violet-500" },
-                ].map((b) => (
-                  <div key={b.label} className="mb-2.5">
-                    <div className="flex justify-between items-center mb-1">
-                      <span className="text-[9px] text-gray-500">{b.label}</span>
-                      <span className="text-[10px] font-bold text-gray-700 tabular-nums">{b.pct}%</span>
-                    </div>
-                    <div className="h-1.5 rounded-full bg-gray-100 overflow-hidden">
-                      <div className={`h-full rounded-full ${b.color}`} style={{ width: `${b.pct}%` }} />
-                    </div>
+                    ))}
                   </div>
-                ))}
-                <div className="mt-3 pt-2 border-t border-gray-50">
-                  <p className="text-[10px] font-bold text-violet-700">+23 pts (sample)</p>
-                  <p className="text-[8px] text-gray-400 mt-0.5">Illustrative example only</p>
+                  <p className="text-[9px] text-gray-400 mt-2.5 pt-2 border-t border-gray-50">Showing 4 of 20 · Safe, Reach &amp; Ambitious</p>
                 </div>
-              </div>
+              )}
 
-              {/* Card M3 — ROI */}
-              <div className="flex-shrink-0 w-[200px] snap-start bg-white rounded-2xl p-4 shadow-[0_12px_40px_rgba(0,0,0,0.22)]">
-                <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-3">ROI · Payback</p>
-                {[
-                  { label: "UCL London", yrs: "3.2 yrs", pct: 32, color: "bg-emerald-500", best: true  },
-                  { label: "Melbourne",  yrs: "5.8 yrs", pct: 58, color: "bg-rose-400",    best: false },
-                  { label: "Edinburgh",  yrs: "4.8 yrs", pct: 48, color: "bg-amber-400",   best: false },
-                ].map((b) => (
-                  <div key={b.label} className="mb-2">
-                    <div className="flex justify-between items-center mb-0.5">
-                      <span className={`text-[9px] ${b.best ? "font-bold text-gray-900" : "text-gray-400"}`}>{b.label}</span>
-                      <span className={`text-[9px] font-bold ${b.best ? "text-emerald-700" : "text-gray-400"}`}>{b.yrs}</span>
-                    </div>
-                    <div className="h-1.5 rounded-full bg-gray-100 overflow-hidden">
-                      <div className={`h-full rounded-full ${b.color}`} style={{ width: `${b.pct}%` }} />
-                    </div>
+              {heroCard === 1 && (
+                <div key="card-appscore" className="bg-white rounded-2xl p-5 shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
+                  <div className="flex items-center justify-between mb-3">
+                    <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Application Score</p>
+                    <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-violet-50 text-violet-700 border border-violet-100">+23 pts ↑</span>
                   </div>
-                ))}
-                <p className="text-[9px] font-bold text-emerald-700 mt-2">★ UCL recommended</p>
-              </div>
-
-              {/* Card M4 — Visa */}
-              <div className="flex-shrink-0 w-[220px] snap-start bg-white rounded-2xl p-4 shadow-[0_12px_40px_rgba(0,0,0,0.22)]">
-                <div className="flex items-center justify-between mb-3">
-                  <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Visa Coach</p>
-                  <span className="text-[8px] font-bold px-1.5 py-0.5 rounded-full bg-violet-50 text-violet-700 border border-violet-100">12 countries</span>
+                  <div className="space-y-3 mt-4">
+                    {[
+                      { label: "Before",   pct: 61, color: "bg-rose-400"   },
+                      { label: "After AI", pct: 84, color: "bg-violet-500" },
+                    ].map((b) => (
+                      <div key={b.label}>
+                        <div className="flex justify-between items-center mb-1.5">
+                          <span className="text-xs text-gray-500 font-semibold">{b.label}</span>
+                          <span className="text-xs font-bold text-gray-700 tabular-nums">{b.pct}%</span>
+                        </div>
+                        <div className="h-2 rounded-full bg-gray-100 overflow-hidden">
+                          <div className={`h-full rounded-full ${b.color}`} style={{ width: `${b.pct}%` }} />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="mt-5 pt-3 border-t border-gray-50 grid grid-cols-3 gap-2 text-center">
+                    {[
+                      { l: "Story arc",     v: "Strong",     tone: "good" },
+                      { l: "Specificity",   v: "Needs work", tone: "warn" },
+                      { l: "Goal alignment", v: "Strong",    tone: "good" },
+                    ].map((d) => (
+                      <div key={d.l}>
+                        <p className="text-[8px] font-bold text-gray-400 uppercase tracking-wider mb-1">{d.l}</p>
+                        <p className={`text-[10px] font-bold ${d.tone === "good" ? "text-emerald-700" : "text-amber-700"}`}>{d.v}</p>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="text-[10px] text-gray-400 mt-3 pt-3 border-t border-gray-50">7 SOP dimensions + 6 CV dimensions scored</p>
                 </div>
-                {[
-                  { flag: "🇺🇸", name: "F-1 (USA)",   fee: "$185",    risk: "low", rc: "text-emerald-700", rb: "bg-emerald-50 border-emerald-200" },
-                  { flag: "🇬🇧", name: "UK Student",  fee: "£558",    risk: "low", rc: "text-emerald-700", rb: "bg-emerald-50 border-emerald-200" },
-                  { flag: "🇨🇦", name: "SDS (Canada)", fee: "CAD 150", risk: "med", rc: "text-amber-700",   rb: "bg-amber-50 border-amber-200"     },
-                ].map((v) => (
-                  <div key={v.name} className="flex items-center gap-2 py-1 border-b border-gray-50 last:border-0">
-                    <span className="text-sm flex-shrink-0">{v.flag}</span>
-                    <p className="text-[10px] font-bold text-gray-900 flex-1 truncate">{v.name}</p>
-                    <span className="text-[9px] text-gray-500 flex-shrink-0">{v.fee}</span>
-                    <span className={`text-[8px] font-bold px-1.5 py-0.5 rounded-full border ${v.rb} ${v.rc}`}>{v.risk}</span>
+              )}
+
+              {heroCard === 2 && (
+                <div key="card-roi" className="bg-white rounded-2xl p-5 shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
+                  <div className="flex items-center justify-between mb-3">
+                    <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">ROI · Payback period</p>
+                    <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 border border-amber-100">2 offers compared</span>
                   </div>
-                ))}
-                <p className="text-[9px] font-bold text-violet-700 mt-2 pt-2 border-t border-gray-50">Official-source checklists</p>
-              </div>
+                  <div className="space-y-3 mt-3">
+                    {[
+                      { label: "UCL London",         yrs: "3.2 yrs", pct: 32, color: "bg-emerald-500", best: true  },
+                      { label: "Univ. of Edinburgh", yrs: "4.8 yrs", pct: 48, color: "bg-amber-400",   best: false },
+                      { label: "Univ. of Melbourne", yrs: "5.8 yrs", pct: 58, color: "bg-rose-400",    best: false },
+                    ].map((b) => (
+                      <div key={b.label}>
+                        <div className="flex justify-between items-center mb-1">
+                          <span className={`text-xs ${b.best ? "font-bold text-gray-900" : "text-gray-500"}`}>{b.best ? "★ " : ""}{b.label}</span>
+                          <span className={`text-xs font-bold tabular-nums ${b.best ? "text-emerald-700" : "text-gray-500"}`}>{b.yrs}</span>
+                        </div>
+                        <div className="h-2 rounded-full bg-gray-100 overflow-hidden">
+                          <div className={`h-full rounded-full ${b.color}`} style={{ width: `${b.pct}%` }} />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="mt-4 rounded-xl bg-emerald-50 border border-emerald-100 p-3">
+                    <p className="text-xs font-semibold text-emerald-800">★ UCL recovers 2.6 years faster than Melbourne</p>
+                  </div>
+                </div>
+              )}
+
+              {heroCard === 3 && (
+                <div key="card-visa" className="bg-white rounded-2xl p-5 shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
+                  <div className="flex items-center justify-between mb-3">
+                    <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Visa Coach · 12 countries</p>
+                    <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-violet-50 text-violet-700 border border-violet-100">F-1 · UK · SDS · 500 +8</span>
+                  </div>
+                  <div className="space-y-2 mt-3">
+                    {[
+                      { flag: "🇺🇸", name: "F-1 (USA)",     detail: "I-20 ready · $185 MRV",      risk: "low",  rc: "text-emerald-700", rb: "bg-emerald-50 border-emerald-200" },
+                      { flag: "🇬🇧", name: "UK Student",    detail: "CAS · £558 IHS",             risk: "low",  rc: "text-emerald-700", rb: "bg-emerald-50 border-emerald-200" },
+                      { flag: "🇨🇦", name: "SDS (Canada)",  detail: "CAD 22,895 GIC",             risk: "med",  rc: "text-amber-700",   rb: "bg-amber-50 border-amber-200"     },
+                      { flag: "🇦🇺", name: "AUS 500",       detail: "GTE statement required",      risk: "flag", rc: "text-rose-700",    rb: "bg-rose-50 border-rose-200"       },
+                    ].map((v) => (
+                      <div key={v.name} className="flex items-center gap-2 py-1.5 border-b border-gray-50 last:border-0">
+                        <span className="text-base flex-shrink-0">{v.flag}</span>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-[11px] font-bold text-gray-900 truncate">{v.name}</p>
+                          <p className="text-[10px] text-gray-400 truncate">{v.detail}</p>
+                        </div>
+                        <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded-full border ${v.rb} ${v.rc}`}>{v.risk}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="text-[9px] font-bold text-violet-700 mt-3 pt-2 border-t border-gray-50">Official-source checklists · risk flags · apply links</p>
+                </div>
+              )}
             </div>
 
-            {/* DESKTOP: vertical stacked cards */}
-            <div className="hidden lg:flex flex-col gap-3">
-              {/* Card 1 — Shortlist */}
-              <div className="bg-white rounded-2xl p-4 shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
-                <div className="flex items-center justify-between mb-3">
-                  <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">AI Shortlist · 90s</p>
-                  <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-violet-50 text-violet-700 border border-violet-100">20 matches</span>
-                </div>
-                <div className="space-y-2">
-                  {[
-                    { flag: "🇺🇸", uni: "Carnegie Mellon",     prog: "MSML",                 score: 69, tier: "Ambitious", tc: "text-rose-700",    bg: "bg-rose-50 border-rose-200"       },
-                    { flag: "🏴󠁧󠁢󠁳󠁣󠁴󠁿", uni: "Univ. of Edinburgh",   prog: "MSc Computer Science", score: 78, tier: "Reach",     tc: "text-amber-700",   bg: "bg-amber-50 border-amber-200"     },
-                    { flag: "🇩🇪", uni: "TU Munich",           prog: "MSc Informatics",      score: 74, tier: "Reach",     tc: "text-amber-700",   bg: "bg-amber-50 border-amber-200"     },
-                    { flag: "🇬🇧", uni: "Univ. of Leeds",      prog: "MSc AI & Data Science", score: 88, tier: "Safe",      tc: "text-emerald-700", bg: "bg-emerald-50 border-emerald-200" },
-                  ].map((r) => (
-                    <div key={r.uni} className="flex items-center gap-2.5 py-1.5 border-b border-gray-50 last:border-0">
-                      <span className="text-sm flex-shrink-0">{r.flag}</span>
-                      <div className="flex-1 min-w-0">
-                        <p className="text-[11px] font-bold text-gray-900 truncate">{r.uni}</p>
-                        <p className="text-[10px] text-gray-400 truncate">{r.prog}</p>
-                      </div>
-                      <div className="flex items-center gap-1.5 flex-shrink-0">
-                        <span className="text-[11px] font-bold text-gray-600 tabular-nums">{r.score}%</span>
-                        <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded-full border ${r.bg} ${r.tc}`}>{r.tier}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <p className="text-[9px] text-gray-400 mt-2.5 pt-2 border-t border-gray-50">Showing 4 of 20 · Safe, Reach &amp; Ambitious</p>
-              </div>
-
-              {/* Cards 2 + 3 — side by side */}
-              <div className="grid grid-cols-2 gap-3">
-                {/* App Score */}
-                <div className="bg-white rounded-2xl p-4 shadow-[0_10px_40px_rgba(0,0,0,0.2)]">
-                  <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-3">App Score</p>
-                  {[
-                    { label: "Before",   pct: 61, color: "bg-rose-400"   },
-                    { label: "After AI", pct: 84, color: "bg-violet-500" },
-                  ].map((b) => (
-                    <div key={b.label} className="mb-2">
-                      <div className="flex justify-between items-center mb-1">
-                        <span className="text-[9px] text-gray-500">{b.label}</span>
-                        <span className="text-[10px] font-bold text-gray-700 tabular-nums">{b.pct}%</span>
-                      </div>
-                      <div className="h-1.5 rounded-full bg-gray-100 overflow-hidden">
-                        <div className={`h-full rounded-full ${b.color}`} style={{ width: `${b.pct}%` }} />
-                      </div>
-                    </div>
-                  ))}
-                  <p className="text-[10px] font-bold text-violet-700 mt-1">+23 pts ↑</p>
-                </div>
-
-                {/* ROI */}
-                <div className="bg-white rounded-2xl p-4 shadow-[0_10px_40px_rgba(0,0,0,0.2)]">
-                  <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-3">ROI</p>
-                  {[
-                    { label: "UCL London", yrs: "3.2 yrs", pct: 32, color: "bg-emerald-500", best: true  },
-                    { label: "Melbourne",  yrs: "5.8 yrs", pct: 58, color: "bg-rose-400",    best: false },
-                  ].map((b) => (
-                    <div key={b.label} className="mb-2">
-                      <div className="flex justify-between items-center mb-1">
-                        <span className={`text-[9px] ${b.best ? "font-bold text-gray-900" : "text-gray-400"}`}>{b.label}</span>
-                        <span className={`text-[9px] font-bold ${b.best ? "text-emerald-700" : "text-gray-400"}`}>{b.yrs}</span>
-                      </div>
-                      <div className="h-1.5 rounded-full bg-gray-100 overflow-hidden">
-                        <div className={`h-full rounded-full ${b.color}`} style={{ width: `${b.pct}%` }} />
-                      </div>
-                    </div>
-                  ))}
-                  <p className="text-[9px] font-bold text-emerald-700 mt-1">★ UCL wins</p>
-                </div>
-              </div>
-
-              {/* Card 4 — Visa */}
-              <div className="bg-white rounded-2xl p-4 shadow-[0_10px_40px_rgba(0,0,0,0.2)]">
-                <div className="flex items-center justify-between mb-3">
-                  <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Visa Coach · 12 countries</p>
-                  <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-violet-50 text-violet-700 border border-violet-100">F-1 · UK · SDS · 500 +8</span>
-                </div>
-                <div className="grid grid-cols-3 gap-2">
-                  {[
-                    { flag: "🇺🇸", label: "F-1",        detail: "$185 · I-20 ready"  },
-                    { flag: "🇬🇧", label: "UK Student",  detail: "£558 · CAS"         },
-                    { flag: "🇨🇦", label: "SDS",        detail: "CAD 22,895 GIC"     },
-                  ].map((v) => (
-                    <div key={v.label} className="rounded-lg border border-gray-100 p-2">
-                      <div className="flex items-center gap-1 mb-0.5">
-                        <span className="text-sm">{v.flag}</span>
-                        <span className="text-[10px] font-bold text-gray-900 truncate">{v.label}</span>
-                      </div>
-                      <p className="text-[9px] text-gray-500 leading-tight truncate">{v.detail}</p>
-                    </div>
-                  ))}
-                </div>
-                <p className="text-[9px] text-violet-700 font-bold mt-2.5 pt-2 border-t border-gray-50">Official-source checklists · risk flags · apply links</p>
-              </div>
+            {/* dot indicators */}
+            <div className="mt-4 flex items-center gap-2 px-1">
+              {Array.from({ length: HERO_CARD_COUNT }).map((_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  onClick={() => setHeroCard(i)}
+                  aria-label={`Show sample ${i + 1}`}
+                  className={`h-1.5 rounded-full transition-all ${
+                    i === heroCard ? "w-8 bg-violet-400" : "w-3 bg-white/20 hover:bg-white/30"
+                  }`}
+                />
+              ))}
             </div>
           </div>
         </div>
@@ -463,22 +449,67 @@ export default function V2LandingPage() {
         </div>
       </section>
 
-      {/* ───── PARENT/STUDENT STRIP — directly under hero ───── */}
+      {/* ───── BUILT FOR BOTH SIDES — directly under hero ───── */}
       <section className="bg-stone-50 border-b border-stone-200">
-        <div className="max-w-7xl mx-auto px-6 sm:px-10 py-12 sm:py-16 grid sm:grid-cols-2 gap-6 sm:gap-10">
-          <div className="group relative rounded-2xl bg-white border border-stone-200 p-6 sm:p-8 shadow-[0_18px_40px_-12px_rgba(15,23,42,0.18)] hover:shadow-[0_28px_56px_-12px_rgba(15,23,42,0.25)] hover:-translate-y-0.5 transition-all duration-300">
-            <span aria-hidden className="pointer-events-none absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-violet-300/70 to-transparent" />
-            <p className="text-[11px] uppercase tracking-[0.25em] text-violet-700 font-semibold mb-3">For students</p>
-            <p className="font-display text-lg sm:text-xl text-gray-900 leading-snug">
-              Find the right-fit course, improve your application, prepare for interviews.
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 py-20 sm:py-28">
+          <div className="max-w-3xl mb-12 sm:mb-16">
+            <p className="text-[11px] uppercase tracking-[0.25em] text-violet-700 font-semibold mb-4">Built for both sides of the table</p>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-[1.1] mb-5">
+              One platform. <span className="italic font-medium text-violet-700">Two audiences.</span> Same verified data.
+            </h2>
+            <p className="text-base sm:text-lg text-gray-500 leading-relaxed">
+              Students choose their best-fit path. Parents decide if it's worth the cost. EduvianAI answers the questions each side is actually asking — from the same source-verified dataset.
             </p>
           </div>
-          <div className="group relative rounded-2xl bg-white border border-stone-200 p-6 sm:p-8 shadow-[0_18px_40px_-12px_rgba(15,23,42,0.18)] hover:shadow-[0_28px_56px_-12px_rgba(15,23,42,0.25)] hover:-translate-y-0.5 transition-all duration-300">
-            <span aria-hidden className="pointer-events-none absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-emerald-300/70 to-transparent" />
-            <p className="text-[11px] uppercase tracking-[0.25em] text-emerald-700 font-semibold mb-3">For parents</p>
-            <p className="font-display text-lg sm:text-xl text-gray-900 leading-snug">
-              Compare cost, ROI, safety, visa readiness, and long-term value.
-            </p>
+
+          <div className="grid md:grid-cols-2 gap-5 md:gap-6">
+            {/* For students */}
+            <div className="group relative flex flex-col rounded-3xl bg-white border border-stone-200 p-8 sm:p-10 shadow-[0_24px_48px_-16px_rgba(15,23,42,0.22)] hover:shadow-[0_36px_64px_-16px_rgba(124,58,237,0.25)] hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+              <span aria-hidden className="pointer-events-none absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-violet-300 to-transparent" />
+              <span aria-hidden className="hidden md:block pointer-events-none absolute -top-12 -right-12 w-40 h-40 rounded-full bg-violet-100/60 blur-2xl" />
+              <div className="relative flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 rounded-2xl bg-violet-600 text-white flex items-center justify-center shadow-md shadow-violet-200">
+                  <GraduationCap className="w-6 h-6" />
+                </div>
+                <p className="text-[11px] uppercase tracking-[0.25em] text-violet-700 font-bold">For students</p>
+              </div>
+              <h3 className="relative font-display text-2xl sm:text-3xl font-semibold tracking-tight text-gray-900 leading-snug mb-5">
+                Find the right course. File a stronger application. Walk into the interview prepared.
+              </h3>
+              <p className="relative text-base text-gray-500 leading-relaxed mb-7 max-w-md">
+                AI-matched shortlist, paragraph-level feedback on your SOP and CV, and exam-style practice for every interview and English test.
+              </p>
+              <Link
+                href="/get-started"
+                className="relative inline-flex items-center gap-2 text-sm font-semibold text-violet-700 hover:gap-3 transition-all"
+              >
+                Start with my profile <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+
+            {/* For parents */}
+            <div className="group relative flex flex-col rounded-3xl bg-white border border-stone-200 p-8 sm:p-10 shadow-[0_24px_48px_-16px_rgba(15,23,42,0.22)] hover:shadow-[0_36px_64px_-16px_rgba(5,150,105,0.22)] hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+              <span aria-hidden className="pointer-events-none absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-emerald-300 to-transparent" />
+              <span aria-hidden className="hidden md:block pointer-events-none absolute -top-12 -right-12 w-40 h-40 rounded-full bg-emerald-100/60 blur-2xl" />
+              <div className="relative flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 rounded-2xl bg-emerald-600 text-white flex items-center justify-center shadow-md shadow-emerald-200">
+                  <Users className="w-6 h-6" />
+                </div>
+                <p className="text-[11px] uppercase tracking-[0.25em] text-emerald-700 font-bold">For parents</p>
+              </div>
+              <h3 className="relative font-display text-2xl sm:text-3xl font-semibold tracking-tight text-gray-900 leading-snug mb-5">
+                Cost, ROI, safety, visa readiness, and long-term value — on one page.
+              </h3>
+              <p className="relative text-base text-gray-500 leading-relaxed mb-7 max-w-md">
+                A one-page Parent Decision Report with payback period, visa risk flags by country, and a colour-coded family verdict — easy to share, easier to discuss.
+              </p>
+              <Link
+                href="/sample-parent-report"
+                className="relative inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 hover:gap-3 transition-all"
+              >
+                See a sample report <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -499,6 +530,14 @@ export default function V2LandingPage() {
                 <p className="text-sm text-gray-500 leading-relaxed">{s.sub}</p>
               </div>
             ))}
+          </div>
+          <div className="mt-12 sm:mt-14">
+            <Link
+              href="/methodology"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-violet-700 hover:gap-2 transition-all"
+            >
+              How we verify program data <ArrowUpRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </section>
@@ -542,15 +581,19 @@ export default function V2LandingPage() {
                 {s.secondary && (
                   <Link
                     href={s.secondary.href}
-                    className="inline-flex items-center gap-1 text-xs font-semibold text-gray-500 hover:text-violet-700 transition-colors mb-3"
+                    className="inline-flex items-center gap-1 text-[12px] text-gray-400 hover:text-violet-700 transition-colors mb-4"
                   >
-                    {s.secondary.cta} →
+                    or {s.secondary.cta} →
                   </Link>
                 )}
-                <div className="pt-3 mt-auto border-t border-stone-100 flex items-start gap-2">
-                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                  <p className="text-[11px] text-gray-500 leading-snug">{s.trust}</p>
-                </div>
+                {!s.secondary && <div className="mb-4" />}
+                <details className="mt-auto pt-3 border-t border-stone-100 group/why">
+                  <summary className="cursor-pointer list-none inline-flex items-center gap-1.5 text-[11px] font-semibold text-gray-400 hover:text-violet-700 transition-colors">
+                    <ShieldCheck className="w-3 h-3 text-emerald-600/80" />
+                    Why this is reliable
+                  </summary>
+                  <p className="mt-2 text-[11px] text-gray-500 leading-snug">{s.trust}</p>
+                </details>
               </div>
             ))}
           </div>
@@ -871,7 +914,7 @@ export default function V2LandingPage() {
                 href="/parent-decision"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gray-900 text-white text-sm font-semibold hover:bg-gray-800 transition-colors"
               >
-                Generate the report
+                Create a parent-ready decision report
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
@@ -927,32 +970,58 @@ export default function V2LandingPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
             {COUNTRIES.map((c) => {
               const uniCount = (universitiesByCountry[c.name] || []).length;
+              const signals: { k: string; v: string; cls: string }[] = [
+                { k: "Cost",            v: c.cost, cls: levelClass("cost", c.cost) },
+                { k: "Post-study work", v: c.psw,  cls: levelClass("psw",  c.psw)  },
+                { k: "Visa complexity", v: c.visa, cls: levelClass("visa", c.visa) },
+              ];
               return (
                 <button
                   key={c.name}
                   onClick={() => setSelectedCountry(c.name)}
-                  className="group relative aspect-[4/5] rounded-2xl overflow-hidden bg-white border border-stone-200 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all text-left"
+                  className="group flex flex-col rounded-2xl overflow-hidden bg-white border border-stone-200 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:border-violet-200 transition-all text-left"
                 >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={c.img}
-                    alt={c.name}
-                    loading="lazy"
-                    decoding="async"
-                    width="300"
-                    height="375"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0E1119]/80 via-[#0E1119]/15 to-transparent" />
-                  <div className="absolute bottom-0 inset-x-0 p-5 text-white">
-                    <p className="text-2xl mb-1.5">{c.flag}</p>
-                    <p className="font-display text-lg font-semibold tracking-tight leading-tight">{c.name}</p>
-                    {uniCount > 0 && (
-                      <p className="text-[11px] text-white/65 mt-0.5">{uniCount}+ universities</p>
-                    )}
+                  {/* image header */}
+                  <div className="relative aspect-[16/9] overflow-hidden">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={c.img}
+                      alt={c.name}
+                      loading="lazy"
+                      decoding="async"
+                      width="400"
+                      height="225"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0E1119]/70 via-[#0E1119]/15 to-transparent" />
+                    <div className="absolute bottom-0 inset-x-0 p-4 text-white flex items-end justify-between">
+                      <div>
+                        <p className="text-xl mb-0.5">{c.flag}</p>
+                        <p className="font-display text-lg font-semibold tracking-tight leading-tight">{c.name}</p>
+                      </div>
+                      {uniCount > 0 && (
+                        <span className="text-[11px] font-bold text-white/85 tabular-nums bg-white/15 backdrop-blur-sm px-2 py-1 rounded-full border border-white/20">
+                          {uniCount}+ unis
+                        </span>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* decision-signals panel */}
+                  <div className="flex-1 p-5 space-y-3">
+                    {signals.map((s) => (
+                      <div key={s.k} className="flex items-center justify-between gap-3">
+                        <span className="text-[11px] uppercase tracking-wider text-gray-400 font-semibold">{s.k}</span>
+                        <span className={`text-[11px] font-bold px-2 py-0.5 rounded-full border ${s.cls}`}>{s.v}</span>
+                      </div>
+                    ))}
+                    <div className="pt-3 border-t border-stone-100">
+                      <p className="text-[10px] uppercase tracking-wider text-gray-400 font-semibold mb-1">Best for</p>
+                      <p className="text-xs text-gray-700 leading-snug">{c.bestFor}</p>
+                    </div>
                   </div>
                 </button>
               );
@@ -1033,7 +1102,7 @@ export default function V2LandingPage() {
               href="/parent-decision"
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-gray-300 text-gray-900 text-sm font-semibold hover:border-gray-500 transition-colors"
             >
-              Generate the family report
+              Create a parent-ready decision report
             </Link>
           </div>
         </div>
