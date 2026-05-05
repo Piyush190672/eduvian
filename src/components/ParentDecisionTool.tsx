@@ -329,24 +329,13 @@ export default function ParentDecisionTool() {
   }
 
   return (
-    <section id="parent-decision-tool" className="py-24 px-6 bg-gradient-to-br from-slate-50 via-white to-purple-50/40">
+    <section id="parent-decision-tool" className="py-12 sm:py-16 px-6 bg-stone-50 border-b border-stone-200">
       <div className="max-w-5xl mx-auto">
-
-        {/* Header */}
-        <div className="text-center mb-12">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-100 text-purple-700 text-sm font-semibold mb-4">
-            <Users className="w-3.5 h-3.5" /> FOR PARENTS
-          </span>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mt-1">Parent Decision Tool</h2>
-          <p className="text-gray-500 mt-4 max-w-2xl mx-auto text-base leading-relaxed">
-            Select the university and program — all costs auto-fill from our database. Get a clear, data-driven verdict in seconds.
-          </p>
-        </div>
 
         <div className="grid lg:grid-cols-5 gap-6">
 
           {/* ── Input panel ── */}
-          <div className="lg:col-span-2 bg-white rounded-3xl border border-gray-100 shadow-sm p-6 space-y-6">
+          <div className="lg:col-span-2 bg-white rounded-3xl border border-stone-300 shadow-md p-6 space-y-6">
 
             {/* Step 1 — University */}
             <div>

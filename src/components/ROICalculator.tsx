@@ -44,9 +44,9 @@ function fmtYears(y: number) {
 }
 
 function paybackColor(years: number) {
-  if (!isFinite(years) || years > 15) return { text: "text-rose-400", bg: "bg-rose-500/10", bar: "bg-rose-400", label: "Long payback" };
-  if (years > 8) return { text: "text-amber-400", bg: "bg-amber-500/10", bar: "bg-amber-400", label: "Moderate return" };
-  return { text: "text-emerald-400", bg: "bg-emerald-500/10", bar: "bg-emerald-500", label: "Excellent return ✓" };
+  if (!isFinite(years) || years > 15) return { text: "text-rose-600", bg: "bg-rose-50", bar: "bg-rose-400", label: "Long payback" };
+  if (years > 8) return { text: "text-amber-700", bg: "bg-amber-50", bar: "bg-amber-400", label: "Moderate return" };
+  return { text: "text-emerald-600", bg: "bg-emerald-50", bar: "bg-emerald-500", label: "Excellent return ✓" };
 }
 
 // Salary range hint for a given country + field
@@ -62,7 +62,7 @@ function salaryHint(country: SalaryCountry, field: FieldOfStudy): string {
 
 function AutoTag() {
   return (
-    <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 text-[10px] font-bold border border-indigo-500/30">
+    <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-violet-100 text-violet-700 text-[10px] font-bold border border-violet-200">
       <Zap className="w-2.5 h-2.5" /> auto
     </span>
   );
@@ -73,10 +73,10 @@ function AutoTag() {
 function StepLabel({ n, label, done }: { n: number; label: string; done: boolean }) {
   return (
     <div className="flex items-center gap-2 mb-2">
-      <div className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-black flex-shrink-0 transition-colors ${done ? "bg-indigo-500 text-white" : "bg-white/10 text-slate-400"}`}>
+      <div className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-black flex-shrink-0 transition-colors ${done ? "bg-violet-600 text-white" : "bg-stone-100 text-gray-500"}`}>
         {done ? <CheckCircle2 className="w-3 h-3" /> : n}
       </div>
-      <span className="text-xs font-semibold text-slate-400 uppercase tracking-wide">{label}</span>
+      <span className="text-xs font-semibold text-gray-500 uppercase tracking-wide">{label}</span>
     </div>
   );
 }
@@ -87,12 +87,12 @@ function AutoFilledRow({
   icon: Icon, label, value, sub,
 }: { icon: React.ComponentType<{ className?: string }>; label: string; value: string; sub?: string }) {
   return (
-    <div className="flex items-center gap-3 px-3.5 py-2.5 bg-indigo-500/10 border border-indigo-500/20 rounded-xl">
-      <Icon className="w-4 h-4 text-indigo-400 flex-shrink-0" />
+    <div className="flex items-center gap-3 px-3.5 py-2.5 bg-violet-50 border border-indigo-500/20 rounded-xl">
+      <Icon className="w-4 h-4 text-violet-700 flex-shrink-0" />
       <div className="min-w-0 flex-1">
-        <p className="text-[10px] font-semibold text-indigo-300 uppercase tracking-wide leading-none mb-0.5">{label}</p>
-        <p className="text-sm font-semibold text-white truncate">{value}</p>
-        {sub && <p className="text-[10px] text-slate-500 leading-snug">{sub}</p>}
+        <p className="text-[10px] font-semibold text-violet-700 uppercase tracking-wide leading-none mb-0.5">{label}</p>
+        <p className="text-sm font-semibold text-gray-900 truncate">{value}</p>
+        {sub && <p className="text-[10px] text-gray-400 leading-snug">{sub}</p>}
       </div>
       <AutoTag />
     </div>
@@ -300,18 +300,15 @@ export default function ROICalculator() {
   const scholarshipOptions = [0, 5000, 10000, 15000, 20000, 30000, 50000];
 
   return (
-    <section id="roi-calculator" className="py-24 px-4 bg-gradient-to-br from-slate-900 via-indigo-950 to-purple-950 relative overflow-hidden">
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-indigo-500/15 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-purple-500/15 rounded-full blur-3xl pointer-events-none" />
-
-      <div className="max-w-6xl mx-auto relative">
+    <section id="roi-calculator" className="py-12 sm:py-16 px-4 bg-white">
+      <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-          <span className="inline-flex items-center gap-1.5 text-indigo-400 font-bold text-sm uppercase tracking-widest mb-3">
+          <span className="inline-flex items-center gap-1.5 text-violet-700 font-bold text-sm uppercase tracking-widest mb-3">
             <Sparkles className="w-3.5 h-3.5" /> ROI Calculator
           </span>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight">Is your degree worth it?</h2>
-          <p className="text-slate-400 mt-3 text-lg max-w-xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">Is your degree worth it?</h2>
+          <p className="text-gray-500 mt-3 text-lg max-w-xl mx-auto">
             3 steps — university, field, program. Everything else fills itself.
           </p>
         </motion.div>
@@ -321,7 +318,7 @@ export default function ROICalculator() {
           {/* ── Left: Guided input panel ── */}
           <motion.div
             initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
-            className="lg:col-span-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-6 space-y-6"
+            className="lg:col-span-2 bg-white border border-stone-200 shadow-sm rounded-3xl p-6 space-y-6"
           >
 
             {/* ── STEP 1: University ── */}
@@ -329,7 +326,7 @@ export default function ROICalculator() {
               <StepLabel n={1} label="University" done={step1Done} />
               <div ref={uniRef} className="relative">
                 <div className="relative">
-                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" />
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none" />
                   <input
                     type="text"
                     value={uniQuery}
@@ -340,29 +337,29 @@ export default function ROICalculator() {
                       if (!e.target.value.trim()) { setMatchedUni(null); setField(""); setSelectedProgram(null); }
                     }}
                     onFocus={() => { if (uniQuery.length >= 2) setShowSugg(true); }}
-                    className="w-full bg-white/10 border border-white/20 rounded-xl pl-9 pr-3.5 py-2.5 text-white text-sm placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="w-full bg-white border border-gray-200 rounded-xl pl-9 pr-3.5 py-2.5 text-gray-900 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-violet-500"
                   />
                 </div>
                 {!matchedUni && !uniQuery && (
-                  <p className="text-[11px] text-slate-500 mt-1.5">e.g. "Toronto", "MIT", "Melbourne"</p>
+                  <p className="text-[11px] text-gray-400 mt-1.5">e.g. "Toronto", "MIT", "Melbourne"</p>
                 )}
                 <AnimatePresence>
                   {showSugg && suggestions.length > 0 && (
                     <motion.div
                       initial={{ opacity: 0, y: -4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -4 }} transition={{ duration: 0.12 }}
-                      className="absolute z-50 mt-1 w-full bg-slate-800 border border-white/10 rounded-xl shadow-2xl overflow-hidden"
+                      className="absolute z-50 mt-1 w-full bg-white border border-stone-200 rounded-xl shadow-2xl overflow-hidden"
                     >
                       {suggestions.map((u) => (
                         <button key={u.name} onMouseDown={() => selectUniversity(u)}
-                          className="w-full flex items-center gap-3 px-4 py-2.5 hover:bg-white/10 transition-colors text-left"
+                          className="w-full flex items-center gap-3 px-4 py-2.5 hover:bg-stone-50 transition-colors text-left"
                         >
                           <span className="text-lg flex-shrink-0">{u.flag}</span>
                           <div className="min-w-0 flex-1">
-                            <p className="text-sm font-semibold text-white truncate">{u.name}</p>
-                            <p className="text-xs text-slate-400">{u.country}{u.qs_ranking ? ` · QS #${u.qs_ranking}` : " · Specialist"}</p>
+                            <p className="text-sm font-semibold text-gray-900 truncate">{u.name}</p>
+                            <p className="text-xs text-gray-500">{u.country}{u.qs_ranking ? ` · QS #${u.qs_ranking}` : " · Specialist"}</p>
                           </div>
                           {u.qs_ranking && u.qs_ranking <= 100 && (
-                            <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-bold flex-shrink-0">Top 100</span>
+                            <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-amber-100 text-amber-700 font-bold flex-shrink-0">Top 100</span>
                           )}
                         </button>
                       ))}
@@ -375,17 +372,17 @@ export default function ROICalculator() {
               <AnimatePresence>
                 {matchedUni && (
                   <motion.div initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
-                    className="mt-2 flex items-center gap-3 px-3.5 py-2.5 bg-white/5 border border-white/10 rounded-xl"
+                    className="mt-2 flex items-center gap-3 px-3.5 py-2.5 bg-stone-50 border border-stone-200 rounded-xl"
                   >
                     <span className="text-2xl">{matchedUni.flag}</span>
                     <div className="min-w-0">
-                      <p className="text-xs font-bold text-white truncate">{matchedUni.name}</p>
-                      <p className="text-[11px] text-slate-400">
+                      <p className="text-xs font-bold text-gray-900 truncate">{matchedUni.name}</p>
+                      <p className="text-[11px] text-gray-500">
                         {matchedUni.country}{matchedUni.qs_ranking ? ` · QS Rank #${matchedUni.qs_ranking}` : ""}
                         {uniPrograms.length > 0 ? ` · ${uniPrograms.length} programs` : ""}
                       </p>
                     </div>
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0 ml-auto" />
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 ml-auto" />
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -400,17 +397,17 @@ export default function ROICalculator() {
                     <button
                       onClick={() => setFieldOpen((o) => !o)}
                       className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl border text-sm transition-colors text-left ${
-                        field ? "bg-white/10 border-white/20 text-white" : "bg-white/5 border-white/15 text-slate-400"
-                      } focus:outline-none focus:ring-2 focus:ring-indigo-500`}
+                        field ? "bg-white border-gray-200 text-gray-900" : "bg-stone-50 border-stone-200 text-gray-500"
+                      } focus:outline-none focus:ring-2 focus:ring-violet-500`}
                     >
                       <span className="flex items-center gap-2">
-                        <BookOpen className="w-3.5 h-3.5 text-indigo-400 flex-shrink-0" />
+                        <BookOpen className="w-3.5 h-3.5 text-violet-700 flex-shrink-0" />
                         {field || "Select your field of study…"}
                       </span>
-                      <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform flex-shrink-0 ${fieldOpen ? "rotate-180" : ""}`} />
+                      <ChevronDown className={`w-4 h-4 text-gray-500 transition-transform flex-shrink-0 ${fieldOpen ? "rotate-180" : ""}`} />
                     </button>
                     {!field && (
-                      <p className="text-[11px] text-slate-500 mt-1.5">
+                      <p className="text-[11px] text-gray-400 mt-1.5">
                         {availableFields.length} fields available at {matchedUni?.name.split(" ")[0]}
                       </p>
                     )}
@@ -418,16 +415,16 @@ export default function ROICalculator() {
                       {fieldOpen && (
                         <motion.div
                           initial={{ opacity: 0, y: -4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -4 }} transition={{ duration: 0.12 }}
-                          className="absolute z-40 mt-1 w-full bg-slate-800 border border-white/10 rounded-xl shadow-2xl overflow-hidden max-h-56 overflow-y-auto"
+                          className="absolute z-40 mt-1 w-full bg-white border border-stone-200 rounded-xl shadow-2xl overflow-hidden max-h-56 overflow-y-auto"
                         >
                           {availableFields.map((f) => {
                             const count = uniPrograms.filter((p) => p.field_of_study === f).length;
                             return (
                               <button key={f} onMouseDown={() => selectField(f)}
-                                className={`w-full flex items-center justify-between px-4 py-2.5 hover:bg-white/10 transition-colors text-left ${field === f ? "bg-indigo-600/30" : ""}`}
+                                className={`w-full flex items-center justify-between px-4 py-2.5 hover:bg-stone-50 transition-colors text-left ${field === f ? "bg-violet-100" : ""}`}
                               >
-                                <span className="text-sm text-white">{f}</span>
-                                <span className="text-xs text-slate-500 flex-shrink-0 ml-2">{count} program{count !== 1 ? "s" : ""}</span>
+                                <span className="text-sm text-gray-900">{f}</span>
+                                <span className="text-xs text-gray-400 flex-shrink-0 ml-2">{count} program{count !== 1 ? "s" : ""}</span>
                               </button>
                             );
                           })}
@@ -438,7 +435,7 @@ export default function ROICalculator() {
 
                   {/* Salary range hint for chosen field */}
                   {field && matchedUni && (
-                    <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-[11px] text-indigo-300/70 mt-1.5 flex items-center gap-1">
+                    <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-[11px] text-violet-700/70 mt-1.5 flex items-center gap-1">
                       <DollarSign className="w-3 h-3" />
                       {salaryHint(matchedUni.country as SalaryCountry, field)}
                     </motion.p>
@@ -456,17 +453,17 @@ export default function ROICalculator() {
                     <button
                       onClick={() => setProgramOpen((o) => !o)}
                       className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl border text-sm transition-colors text-left ${
-                        selectedProgram ? "bg-white/10 border-white/20 text-white" : "bg-white/5 border-white/15 text-slate-400"
-                      } focus:outline-none focus:ring-2 focus:ring-indigo-500`}
+                        selectedProgram ? "bg-white border-gray-200 text-gray-900" : "bg-stone-50 border-stone-200 text-gray-500"
+                      } focus:outline-none focus:ring-2 focus:ring-violet-500`}
                     >
                       <span className="flex items-center gap-2 min-w-0">
-                        <GraduationCap className="w-3.5 h-3.5 text-indigo-400 flex-shrink-0" />
+                        <GraduationCap className="w-3.5 h-3.5 text-violet-700 flex-shrink-0" />
                         <span className="truncate">{selectedProgram?.program_name || "Select program…"}</span>
                       </span>
-                      <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform flex-shrink-0 ml-2 ${programOpen ? "rotate-180" : ""}`} />
+                      <ChevronDown className={`w-4 h-4 text-gray-500 transition-transform flex-shrink-0 ml-2 ${programOpen ? "rotate-180" : ""}`} />
                     </button>
                     {!selectedProgram && (
-                      <p className="text-[11px] text-slate-500 mt-1.5">
+                      <p className="text-[11px] text-gray-400 mt-1.5">
                         {filteredPrograms.length} {field} program{filteredPrograms.length !== 1 ? "s" : ""} available
                       </p>
                     )}
@@ -474,14 +471,14 @@ export default function ROICalculator() {
                       {programOpen && (
                         <motion.div
                           initial={{ opacity: 0, y: -4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -4 }} transition={{ duration: 0.12 }}
-                          className="absolute z-40 mt-1 w-full bg-slate-800 border border-white/10 rounded-xl shadow-2xl overflow-hidden max-h-64 overflow-y-auto"
+                          className="absolute z-40 mt-1 w-full bg-white border border-stone-200 rounded-xl shadow-2xl overflow-hidden max-h-64 overflow-y-auto"
                         >
                           {filteredPrograms.map((p, i) => (
                             <button key={i} onMouseDown={() => selectProgram(p)}
-                              className={`w-full flex flex-col px-4 py-3 hover:bg-white/10 transition-colors text-left border-b border-white/5 last:border-0 ${selectedProgram?.program_name === p.program_name ? "bg-indigo-600/30" : ""}`}
+                              className={`w-full flex flex-col px-4 py-3 hover:bg-stone-50 transition-colors text-left border-b border-stone-100 last:border-0 ${selectedProgram?.program_name === p.program_name ? "bg-violet-100" : ""}`}
                             >
-                              <span className="text-sm font-semibold text-white leading-tight">{p.program_name}</span>
-                              <span className="text-xs text-slate-400 mt-0.5">
+                              <span className="text-sm font-semibold text-gray-900 leading-tight">{p.program_name}</span>
+                              <span className="text-xs text-gray-500 mt-0.5">
                                 {p.degree_level} · {p.duration_months} mo · {p.annual_tuition_usd ? `${fmtK(p.annual_tuition_usd)}/yr tuition` : "fee unavailable"}
                               </span>
                             </button>
@@ -498,8 +495,8 @@ export default function ROICalculator() {
             <AnimatePresence>
               {step3Done && selectedProgram && (
                 <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="space-y-2.5">
-                  <p className="text-xs font-semibold text-slate-400 uppercase tracking-wide flex items-center gap-1.5">
-                    <Zap className="w-3 h-3 text-indigo-400" /> Auto-filled from database
+                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide flex items-center gap-1.5">
+                    <Zap className="w-3 h-3 text-violet-700" /> Auto-filled from database
                   </p>
 
                   <div className="grid grid-cols-2 gap-2">
@@ -512,17 +509,17 @@ export default function ROICalculator() {
                   {/* Salary — editable */}
                   <div>
                     <div className="flex items-center justify-between mb-1.5">
-                      <label className="text-xs font-semibold text-slate-400 uppercase tracking-wide">Expected Salary / yr</label>
+                      <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Expected Salary / yr</label>
                       <AutoTag />
                     </div>
                     <div className="relative">
-                      <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">$</span>
+                      <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-sm">$</span>
                       <input type="number" value={salary || ""} placeholder="0"
                         onChange={(e) => setSalary(Number(e.target.value))}
-                        className="w-full bg-white/10 border border-indigo-500/30 rounded-xl pl-7 pr-3 py-2.5 text-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 [appearance:textfield]"
+                        className="w-full bg-white border border-gray-200 rounded-xl pl-7 pr-3 py-2.5 text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-violet-500 [appearance:textfield]"
                       />
                     </div>
-                    <p className="text-[11px] text-indigo-300/70 mt-1 flex items-center gap-1">
+                    <p className="text-[11px] text-violet-700/70 mt-1 flex items-center gap-1">
                       <DollarSign className="w-3 h-3" />
                       {field && matchedUni ? salaryHint(matchedUni.country as SalaryCountry, field as FieldOfStudy) : "Adjust to match your expectations"}
                     </p>
@@ -530,11 +527,11 @@ export default function ROICalculator() {
 
                   {/* Scholarship */}
                   <div>
-                    <label className="block text-xs font-semibold text-slate-400 uppercase tracking-wide mb-1.5">Scholarship / Grant (USD)</label>
+                    <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5">Scholarship / Grant (USD)</label>
                     <div className="flex flex-wrap gap-1.5">
                       {scholarshipOptions.map((v) => (
                         <button key={v} onClick={() => setScholarship(v)}
-                          className={`px-2.5 py-1 rounded-lg text-xs font-semibold transition-colors ${scholarship === v ? "bg-indigo-500 text-white" : "bg-white/10 text-slate-300 hover:bg-white/20"}`}
+                          className={`px-2.5 py-1 rounded-lg text-xs font-semibold transition-colors ${scholarship === v ? "bg-violet-600 text-white" : "bg-stone-100 text-gray-700 hover:bg-stone-100"}`}
                         >
                           {v === 0 ? "None" : `$${v / 1000}K`}
                         </button>
@@ -545,8 +542,8 @@ export default function ROICalculator() {
                   {/* Savings rate */}
                   <div>
                     <div className="flex items-center justify-between mb-1.5">
-                      <label className="text-xs font-semibold text-slate-400 uppercase tracking-wide">Savings Rate</label>
-                      <span className="text-sm font-bold text-indigo-400">{savingsRate}%</span>
+                      <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Savings Rate</label>
+                      <span className="text-sm font-bold text-violet-700">{savingsRate}%</span>
                     </div>
                     <input type="range" min={5} max={50} step={5} value={savingsRate}
                       onChange={(e) => setSavingsRate(Number(e.target.value))}
@@ -567,12 +564,12 @@ export default function ROICalculator() {
             className="lg:col-span-3 space-y-4"
           >
             {!results ? (
-              <div className="h-full flex flex-col items-center justify-center py-16 bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl text-center px-8 min-h-[400px]">
-                <div className="w-16 h-16 rounded-2xl bg-indigo-500/20 border border-indigo-500/30 flex items-center justify-center mb-5">
-                  <TrendingUp className="w-8 h-8 text-indigo-400" />
+              <div className="h-full flex flex-col items-center justify-center py-16 bg-white border border-stone-200 shadow-sm rounded-3xl text-center px-8 min-h-[400px]">
+                <div className="w-16 h-16 rounded-2xl bg-violet-100 border border-violet-200 flex items-center justify-center mb-5">
+                  <TrendingUp className="w-8 h-8 text-violet-700" />
                 </div>
-                <p className="text-white font-bold text-lg mb-2">Your ROI appears here</p>
-                <p className="text-slate-400 text-sm max-w-xs mb-8">
+                <p className="text-gray-900 font-bold text-lg mb-2">Your ROI appears here</p>
+                <p className="text-gray-500 text-sm max-w-xs mb-8">
                   Complete the 3 steps on the left — university, field, and program — and we&apos;ll calculate your full financial picture.
                 </p>
                 {/* Progress indicator */}
@@ -583,8 +580,8 @@ export default function ROICalculator() {
                     { label: "Program", done: step3Done },
                   ].map((s, i) => (
                     <div key={i} className="flex items-center gap-2">
-                      {i > 0 && <div className={`w-8 h-px ${s.done || (i === 1 && step1Done) ? "bg-indigo-500" : "bg-white/10"}`} />}
-                      <div className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-colors ${s.done ? "bg-indigo-500 text-white" : step1Done && i === 1 ? "bg-white/10 text-white" : step2Done && i === 2 ? "bg-white/10 text-white" : "bg-white/5 text-slate-500"}`}>
+                      {i > 0 && <div className={`w-8 h-px ${s.done || (i === 1 && step1Done) ? "bg-violet-600" : "bg-stone-100"}`} />}
+                      <div className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-colors ${s.done ? "bg-violet-600 text-white" : step1Done && i === 1 ? "bg-stone-100 text-gray-900" : step2Done && i === 2 ? "bg-stone-100 text-gray-900" : "bg-stone-50 text-gray-400"}`}>
                         {s.done ? <CheckCircle2 className="w-3 h-3" /> : <span className="w-3.5 h-3.5 rounded-full border border-current flex items-center justify-center text-[9px]">{i + 1}</span>}
                         {s.label}
                       </div>
@@ -600,11 +597,11 @@ export default function ROICalculator() {
                   className="space-y-4"
                 >
                   {/* Header */}
-                  <div className="bg-white/5 border border-white/10 rounded-2xl px-5 py-4 flex items-center gap-3">
+                  <div className="bg-stone-50 border border-stone-200 rounded-2xl px-5 py-4 flex items-center gap-3">
                     <span className="text-2xl flex-shrink-0">{matchedUni?.flag ?? "🎓"}</span>
                     <div className="min-w-0 flex-1">
-                      <p className="font-bold text-white truncate">{matchedUni?.name}</p>
-                      <p className="text-xs text-slate-400">
+                      <p className="font-bold text-gray-900 truncate">{matchedUni?.name}</p>
+                      <p className="text-xs text-gray-500">
                         {selectedProgram?.program_name} · {city || matchedUni?.country}
                         {matchedUni?.qs_ranking ? ` · QS #${matchedUni.qs_ranking}` : ""}
                       </p>
@@ -613,36 +610,36 @@ export default function ROICalculator() {
 
                   {/* Total investment + Payback */}
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-white/5 border border-white/10 rounded-2xl p-5">
-                      <p className="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-1">Total Investment</p>
-                      <p className="text-3xl font-black text-white">{formatCurrency(results.total_investment_usd)}</p>
-                      <div className="mt-3 space-y-1.5 text-xs text-slate-400">
+                    <div className="bg-stone-50 border border-stone-200 rounded-2xl p-5">
+                      <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Total Investment</p>
+                      <p className="text-3xl font-black text-gray-900">{formatCurrency(results.total_investment_usd)}</p>
+                      <div className="mt-3 space-y-1.5 text-xs text-gray-500">
                         <div className="flex justify-between">
                           <span>Tuition ({durationYears.toFixed(1)} yr)</span>
-                          <span className="text-white font-medium">{formatCurrency(results.total_tuition_usd)}</span>
+                          <span className="text-gray-900 font-medium">{formatCurrency(results.total_tuition_usd)}</span>
                         </div>
                         <div className="flex justify-between">
                           <span>Living costs</span>
-                          <span className="text-white font-medium">{formatCurrency(results.total_living_usd)}</span>
+                          <span className="text-gray-900 font-medium">{formatCurrency(results.total_living_usd)}</span>
                         </div>
                         {scholarship > 0 && (
-                          <div className="flex justify-between text-emerald-400 font-semibold">
+                          <div className="flex justify-between text-emerald-600 font-semibold">
                             <span>Scholarship saving</span>
                             <span>−{formatCurrency(scholarship)}</span>
                           </div>
                         )}
-                        <div className="flex justify-between border-t border-white/10 pt-1.5">
-                          <span className="font-semibold text-slate-300">Net cost</span>
-                          <span className="text-white font-bold">{formatCurrency(results.total_investment_usd)}</span>
+                        <div className="flex justify-between border-t border-stone-200 pt-1.5">
+                          <span className="font-semibold text-gray-700">Net cost</span>
+                          <span className="text-gray-900 font-bold">{formatCurrency(results.total_investment_usd)}</span>
                         </div>
                       </div>
                     </div>
 
-                    <div className={`border border-white/10 rounded-2xl p-5 ${pb!.bg}`}>
-                      <p className="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-1">Payback Period</p>
+                    <div className={`border border-stone-200 rounded-2xl p-5 ${pb!.bg}`}>
+                      <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Payback Period</p>
                       <p className={`text-3xl font-black ${pb!.text}`}>{fmtYears(results.payback_years)}</p>
-                      <p className="text-xs text-slate-400 mt-1">At {savingsRate}% savings on {fmtK(salary)}/yr</p>
-                      <div className="mt-3 bg-white/10 rounded-full h-1.5 overflow-hidden">
+                      <p className="text-xs text-gray-500 mt-1">At {savingsRate}% savings on {fmtK(salary)}/yr</p>
+                      <div className="mt-3 bg-stone-100 rounded-full h-1.5 overflow-hidden">
                         <motion.div className={`h-full rounded-full ${pb!.bar}`} initial={{ width: 0 }}
                           animate={{ width: `${Math.min(100, (results.payback_years / 20) * 100)}%` }} transition={{ duration: 0.8 }} />
                       </div>
@@ -653,50 +650,50 @@ export default function ROICalculator() {
                   {/* 4-up */}
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                     {[
-                      { label: "10-Year ROI", value: `${results.ten_year_roi_pct > 0 ? "+" : ""}${Math.round(results.ten_year_roi_pct)}%`, color: results.ten_year_roi_pct >= 0 ? "text-emerald-400" : "text-rose-400" },
-                      { label: "Monthly Budget", value: fmtK(results.monthly_budget_usd), sub: "during study", color: "text-white" },
-                      { label: "Monthly Savings", value: fmtK(results.monthly_savings_usd), sub: "post-grad", color: "text-indigo-400" },
-                      { label: "10-yr Net Gain", value: `${results.net_earnings_10yr_usd >= 0 ? "+" : ""}${fmtK(results.net_earnings_10yr_usd)}`, color: results.net_earnings_10yr_usd >= 0 ? "text-emerald-400" : "text-rose-400" },
+                      { label: "10-Year ROI", value: `${results.ten_year_roi_pct > 0 ? "+" : ""}${Math.round(results.ten_year_roi_pct)}%`, color: results.ten_year_roi_pct >= 0 ? "text-emerald-600" : "text-rose-600" },
+                      { label: "Monthly Budget", value: fmtK(results.monthly_budget_usd), sub: "during study", color: "text-gray-900" },
+                      { label: "Monthly Savings", value: fmtK(results.monthly_savings_usd), sub: "post-grad", color: "text-violet-700" },
+                      { label: "10-yr Net Gain", value: `${results.net_earnings_10yr_usd >= 0 ? "+" : ""}${fmtK(results.net_earnings_10yr_usd)}`, color: results.net_earnings_10yr_usd >= 0 ? "text-emerald-600" : "text-rose-600" },
                     ].map((m) => (
-                      <div key={m.label} className="bg-white/5 border border-white/10 rounded-2xl p-4 text-center">
-                        <p className="text-xs text-slate-400 mb-1">{m.label}</p>
+                      <div key={m.label} className="bg-stone-50 border border-stone-200 rounded-2xl p-4 text-center">
+                        <p className="text-xs text-gray-500 mb-1">{m.label}</p>
                         <p className={`text-xl font-black ${m.color}`}>{m.value}</p>
-                        {m.sub && <p className="text-[10px] text-slate-500">{m.sub}</p>}
+                        {m.sub && <p className="text-[10px] text-gray-400">{m.sub}</p>}
                       </div>
                     ))}
                   </div>
 
                   {/* Break-even insight */}
-                  <div className="bg-white/5 border border-white/10 rounded-2xl p-5">
+                  <div className="bg-stone-50 border border-stone-200 rounded-2xl p-5">
                     <div className="flex items-start gap-3">
-                      <Info className="w-4 h-4 text-indigo-400 flex-shrink-0 mt-0.5" />
+                      <Info className="w-4 h-4 text-violet-700 flex-shrink-0 mt-0.5" />
                       <div className="flex-1">
-                        <p className="text-sm font-semibold text-white mb-1">Break-even Salary</p>
-                        <p className="text-xs text-slate-400 leading-relaxed">
-                          You need at least <span className="text-white font-bold">{formatCurrency(results.breakeven_salary_usd)}/yr</span> (at {savingsRate}% savings) to recover your investment in 5 years.{" "}
+                        <p className="text-sm font-semibold text-gray-900 mb-1">Break-even Salary</p>
+                        <p className="text-xs text-gray-500 leading-relaxed">
+                          You need at least <span className="text-gray-900 font-bold">{formatCurrency(results.breakeven_salary_usd)}/yr</span> (at {savingsRate}% savings) to recover your investment in 5 years.{" "}
                           {salary >= results.breakeven_salary_usd
-                            ? <span className="text-emerald-400 font-semibold">✓ Your expected salary clears this.</span>
-                            : <span className="text-amber-400 font-semibold">⚠ Gap of {formatCurrency(results.breakeven_salary_usd - salary)}/yr — consider scholarships.</span>}
+                            ? <span className="text-emerald-600 font-semibold">✓ Your expected salary clears this.</span>
+                            : <span className="text-amber-700 font-semibold">⚠ Gap of {formatCurrency(results.breakeven_salary_usd - salary)}/yr — consider scholarships.</span>}
                         </p>
                       </div>
                       <div className="text-right flex-shrink-0">
-                        <p className="text-lg font-black text-white">{formatCurrency(results.breakeven_salary_usd)}</p>
-                        <p className="text-[10px] text-slate-500">min/yr needed</p>
+                        <p className="text-lg font-black text-gray-900">{formatCurrency(results.breakeven_salary_usd)}</p>
+                        <p className="text-[10px] text-gray-400">min/yr needed</p>
                       </div>
                     </div>
                   </div>
 
                   {/* ── Export bar ── */}
-                  <div className="bg-white/5 border border-white/10 rounded-2xl p-4">
-                    <p className="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-3 flex items-center gap-1.5">
-                      <FileDown className="w-3.5 h-3.5 text-indigo-400" /> Save or Share Results
+                  <div className="bg-stone-50 border border-stone-200 rounded-2xl p-4">
+                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3 flex items-center gap-1.5">
+                      <FileDown className="w-3.5 h-3.5 text-violet-700" /> Save or Share Results
                     </p>
                     <div className="flex flex-wrap gap-2.5">
                       {/* PDF button */}
                       <button
                         onClick={handleDownloadPDF}
                         disabled={pdfLoading}
-                        className="flex items-center gap-2 px-4 py-2 rounded-xl bg-indigo-500/20 border border-indigo-500/30 text-indigo-300 text-sm font-semibold hover:bg-indigo-500/30 transition-all disabled:opacity-50"
+                        className="flex items-center gap-2 px-4 py-2 rounded-xl bg-violet-100 border border-violet-200 text-violet-700 text-sm font-semibold hover:bg-violet-100 transition-all disabled:opacity-50"
                       >
                         {pdfLoading
                           ? <><span className="w-3.5 h-3.5 border-2 border-indigo-400/40 border-t-indigo-400 rounded-full animate-spin" /> Generating…</>
@@ -707,12 +704,12 @@ export default function ROICalculator() {
                       {!showEmailForm ? (
                         <button
                           onClick={() => { setShowEmailForm(true); setEmailSent(false); setEmailError(null); }}
-                          className="flex items-center gap-2 px-4 py-2 rounded-xl bg-violet-500/20 border border-violet-500/30 text-violet-300 text-sm font-semibold hover:bg-violet-500/30 transition-all"
+                          className="flex items-center gap-2 px-4 py-2 rounded-xl bg-violet-100 border border-violet-200 text-violet-700 text-sm font-semibold hover:bg-violet-100 transition-all"
                         >
                           <Mail className="w-3.5 h-3.5" /> Email Results
                         </button>
                       ) : emailSent ? (
-                        <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-500/20 border border-emerald-500/30 text-emerald-300 text-sm font-semibold">
+                        <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-100 border border-emerald-500/30 text-emerald-700 text-sm font-semibold">
                           <CheckCircle2 className="w-3.5 h-3.5" /> Sent!
                         </div>
                       ) : (
@@ -724,42 +721,42 @@ export default function ROICalculator() {
                             placeholder="your@email.com"
                             required
                             autoFocus
-                            className="flex-1 min-w-0 bg-white/10 border border-white/20 rounded-xl px-3 py-2 text-white text-sm placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500"
+                            className="flex-1 min-w-0 bg-white border border-gray-200 rounded-xl px-3 py-2 text-gray-900 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-violet-500"
                           />
                           <button type="submit" disabled={emailLoading}
-                            className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-violet-500 text-white text-sm font-semibold hover:bg-violet-600 transition-all disabled:opacity-50 flex-shrink-0"
+                            className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-violet-600 text-white text-sm font-semibold hover:bg-violet-700 transition-all disabled:opacity-50 flex-shrink-0"
                           >
                             {emailLoading
                               ? <span className="w-3.5 h-3.5 border-2 border-white/40 border-t-white rounded-full animate-spin" />
                               : <Send className="w-3.5 h-3.5" />}
                           </button>
                           <button type="button" onClick={() => { setShowEmailForm(false); setEmailError(null); }}
-                            className="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-white/10 transition-all flex-shrink-0"
+                            className="p-2 rounded-xl text-gray-500 hover:text-gray-900 hover:bg-stone-50 transition-all flex-shrink-0"
                           >
                             <X className="w-3.5 h-3.5" />
                           </button>
                         </form>
                       )}
                     </div>
-                    {emailError && <p className="mt-2 text-xs text-rose-400">{emailError}</p>}
+                    {emailError && <p className="mt-2 text-xs text-rose-600">{emailError}</p>}
                   </div>
 
                   {/* CTA */}
-                  <div className="bg-gradient-to-r from-indigo-600/30 to-purple-600/30 border border-indigo-500/30 rounded-2xl p-5 flex items-center justify-between gap-4">
+                  <div className="bg-violet-50 border border-violet-200 rounded-2xl p-5 flex items-center justify-between gap-4">
                     <div>
-                      <p className="font-bold text-white text-sm">Find programs that maximise your ROI</p>
-                      <p className="text-xs text-slate-400 mt-0.5">Our AI matching engine ranks {DB_STATS.verifiedProgramsLabel} programs by fit and financial return.</p>
+                      <p className="font-bold text-gray-900 text-sm">Find programs that maximise your ROI</p>
+                      <p className="text-xs text-gray-500 mt-0.5">Our AI matching engine ranks {DB_STATS.verifiedProgramsLabel} programs by fit and financial return.</p>
                     </div>
-                    <a href="/get-started" className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-bold hover:shadow-lg transition-all whitespace-nowrap flex-shrink-0">
+                    <a href="/get-started" className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-violet-600 text-white text-sm font-bold hover:shadow-lg transition-all whitespace-nowrap flex-shrink-0">
                       Get My Matches <ArrowRight className="w-3.5 h-3.5" />
                     </a>
                   </div>
 
                   {/* Visa Coach deep-link with pre-filled budget + country */}
-                  <div className="bg-gradient-to-r from-sky-600/20 to-cyan-600/20 border border-cyan-500/30 rounded-2xl p-5 flex items-center justify-between gap-4 mt-3">
+                  <div className="bg-sky-50 border border-sky-200 rounded-2xl p-5 flex items-center justify-between gap-4 mt-3">
                     <div>
-                      <p className="font-bold text-white text-sm">🛂 Check your visa readiness</p>
-                      <p className="text-xs text-slate-400 mt-0.5">
+                      <p className="font-bold text-gray-900 text-sm">🛂 Check your visa readiness</p>
+                      <p className="text-xs text-gray-500 mt-0.5">
                         Open the Visa Coach pre-filled with your{matchedUni?.country ? ` ${matchedUni.country}` : ""} checklist
                         {results ? ` and your $${Math.round((results.total_investment_usd || 0) / Math.max(1, durationYears)).toLocaleString()} / year funding pool` : ""}.
                       </p>
@@ -769,7 +766,7 @@ export default function ROICalculator() {
                         matchedUni?.country ? `country=${encodeURIComponent(matchedUni.country)}` : "",
                         results ? `funding=${Math.round((results.total_investment_usd || 0) / Math.max(1, durationYears))}` : "",
                       ].filter(Boolean).join("&")}`}
-                      className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-sky-500 to-cyan-500 text-white text-sm font-bold hover:shadow-lg transition-all whitespace-nowrap flex-shrink-0"
+                      className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-sky-600 text-white text-sm font-bold hover:shadow-lg transition-all whitespace-nowrap flex-shrink-0"
                     >
                       Open Visa Coach <ArrowRight className="w-3.5 h-3.5" />
                     </a>
@@ -783,7 +780,7 @@ export default function ROICalculator() {
         <div className="mt-8">
           <DecisionDisclaimer
             variant="roi"
-            className="flex items-start gap-2.5 text-[11px] leading-relaxed text-slate-400 bg-white/5 border border-white/10 rounded-xl px-3.5 py-2.5"
+            className="flex items-start gap-2.5 text-[11px] leading-relaxed text-gray-500 bg-stone-50 border border-stone-200 rounded-xl px-3.5 py-2.5"
           />
           <p className="text-center text-[10px] text-slate-600 mt-3">
             Salary estimates are median figures from publicly available graduate salary surveys. Tuition and living costs are from eduvianAI&apos;s verified program database. All amounts in USD.
