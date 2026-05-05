@@ -1595,3 +1595,53 @@ The migration file `src/lib/migrations/20260505-h7-phase-c-drop-plaintext.sql` w
 
 **Estimated session API spend:** ~$5 (no verify-batch runs; just code generation + edits).
 
+---
+
+## §26 Post-swap polish increment — 5 May 2026 (commits `3c4d4929` + `259639da`)
+
+§24.4 captured the *brief* as locked. The polish pass and nav-restoration commits diverged from / extended that brief in concrete ways. What actually shipped on `/`:
+
+### 26.1 Hero
+
+| Change | What landed |
+|---|---|
+| Hero badge | New top badge: *"Independent · source-verified · AI-powered"* |
+| Audience split | New "**One platform. Two audiences.**" headline introducing two larger student/parent cards with icons and per-card CTAs (student → `/get-started`, parent → `/sample-parent-report`). Replaces the §24.4 "parent strip" of two flat copy cards. |
+| Hero RHS | Single auto-rotating sample-output card with **4 dot indicators**, "**SAMPLE OUTPUT N OF 4 · ILLUSTRATIVE**" eyebrow, 3-second instant swap. Replaces §24.4 "real sample-dashboard mockup". |
+| "How we verify" link | New inline link from hero / proof strip → `/methodology`. |
+
+### 26.2 CTA copy
+
+`Generate the report` / `Generate the family report` → **`Create a parent-ready decision report`** (2 instances replaced). When updating CTAs in deep pages, match this string.
+
+### 26.3 Stage cards (Five-stage journey)
+
+Per-card pattern locked at: stage name → user situation (e.g., *"No idea where to apply?"*) → benefit → sample → **1 primary CTA + "Why this is reliable" disclosure** (no secondary CTA). Stage 01 keeps a subordinate "*or Evaluate my Profile →*" link below the primary CTA.
+
+This replaces the §24.3 "5-line card pattern" — disclosures are an addition; secondary CTAs were dropped.
+
+### 26.4 Destination cards
+
+New structure not in §24.4: **image header + 4 decision signals** (COST / POST-STUDY WORK / VISA COMPLEXITY, semantic colours emerald/amber/rose) + **"Best for"** line summarising fit.
+
+Example: USA → COST=High (rose), POST-STUDY WORK=Strong (emerald), VISA COMPLEXITY=Medium (amber), Best for = *"AI · CS · Finance · Engineering"*.
+
+### 26.5 "Why trust EduvianAI" — Independent principle copy
+
+Replaced with: *"No university commissions. No marketing deals. Recommendations are based on your profile, goals, budget…"* (carry the verbatim phrasing if extending across deep pages).
+
+### 26.6 Nav + footer
+
+- **"How it works"** button in both top nav and footer → opens `HowItWorksModal` (`src/components/HowItWorksModal.tsx`).
+- **"Principles" → "Why choose us"** rename in both top nav and footer.
+- **Discreet admin link** added to footer pointing to `/admin`.
+- **Back-to-home pill** in nav of `/destinations`, `/scholarships`, `/methodology`.
+
+### 26.7 AuthGate
+
+`AuthGate` (`src/components/AuthGate.tsx`) login-screen Back-to-home moved from bottom-center → **top-right**.
+
+### 26.8 What this means for the open work
+
+Open work item #1 (port v2 brand to the 7 deep tool pages) must mirror **§26 patterns**, not just §24.4. Specifically: stage-card disclosure pattern, destination-card 4-signal pattern, locked CTA copy, "How it works" modal accessibility, and AuthGate top-right back link. The HowItWorksModal already exists and can be reused on tool pages where appropriate.
+
