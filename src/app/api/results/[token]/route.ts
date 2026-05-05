@@ -37,12 +37,19 @@ export async function GET(
     return NextResponse.json({ error: "Submission not found" }, { status: 404 });
   }
 
-  // H7: prefer encrypted profile, fall back to plaintext. Replace the
-  // submission.profile field on the response so downstream code (and the
-  // client) sees the canonical plaintext shape; never ship the encrypted
-  // blob to the browser.
-  const decryptedProfile = decryptProfile(submission as { profile?: unknown; profile_encrypted?: string | null });
-  if (decryptedProfile) submission.profile = decryptedProfile;
+  // H7 Phase C: plaintext profile column is gone. The only source of
+  // profile data is profile_encrypted. If decryption returns null, the
+  // row is unservable — return 410 Gone rather than passing undefined
+  // into the scoring pipeline (which crashed on qs_ranking_preference
+  // before this guard, Sentry 8bfc0387).
+  const decryptedProfile = decryptProfile(submission as { profile_encrypted?: string | null });
+  if (!decryptedProfile) {
+    return NextResponse.json(
+      { error: "This submission's profile data is unavailable. Please re-submit your profile." },
+      { status: 410 }
+    );
+  }
+  submission.profile = decryptedProfile;
   if ("profile_encrypted" in (submission as Record<string, unknown>)) {
     delete (submission as Record<string, unknown>).profile_encrypted;
   }
