@@ -141,16 +141,20 @@ function StageSample({ s }: { s: typeof STAGES[number]["sample"] }) {
     );
   }
   if (s.kind === "score") {
+    const rows = [
+      { ...s.a, barCls: "bg-stone-400",  textCls: "text-gray-500"   },
+      { ...s.b, barCls: "bg-emerald-500", textCls: "text-emerald-700" },
+    ];
     return (
       <div className="space-y-2">
-        {[s.a, s.b].map((row, i) => (
+        {rows.map((row) => (
           <div key={row.label}>
             <div className="flex justify-between text-[11px] mb-1">
               <span className="text-gray-500">{row.label}</span>
-              <span className={`tabular-nums font-semibold ${i === 0 ? "text-gray-500" : "text-emerald-700"}`}>{row.v}%</span>
+              <span className={`tabular-nums font-semibold ${row.textCls}`}>{row.v}%</span>
             </div>
             <div className="h-1.5 rounded-full bg-stone-200 overflow-hidden">
-              <div className={`h-full rounded-full ${i === 0 ? "bg-stone-400" : "bg-emerald-500"}`} style={{ width: `${row.v}%` }} />
+              <div className={`h-full rounded-full ${row.barCls}`} style={{ width: `${row.v}%` }} />
             </div>
           </div>
         ))}
