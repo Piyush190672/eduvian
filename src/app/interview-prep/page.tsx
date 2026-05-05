@@ -15,11 +15,15 @@ interface SpeechRecognitionEventShim extends Event {
   readonly resultIndex: number;
   readonly results: SpeechRecognitionResultList;
 }
+interface SpeechRecognitionErrorEventShim extends Event {
+  readonly error: string;
+  readonly message?: string;
+}
 interface SpeechRecognitionShim extends EventTarget {
   continuous: boolean; interimResults: boolean; lang: string;
   start(): void; stop(): void; abort(): void;
   onresult: ((event: SpeechRecognitionEventShim) => void) | null;
-  onerror: ((event: Event) => void) | null;
+  onerror: ((event: SpeechRecognitionErrorEventShim) => void) | null;
   onend: (() => void) | null;
 }
 interface SpeechRecognitionCtor { new(): SpeechRecognitionShim; }
@@ -1221,6 +1225,7 @@ function InterviewSession({
 
   const [muted, setMuted] = useState(false);
   const [sttSupported, setSttSupported] = useState(true);
+  const [sttError, setSttError] = useState<string | null>(null);
   const [nameListening, setNameListening] = useState(false);
   const [yesListening, setYesListening] = useState(false);
 
@@ -1351,14 +1356,36 @@ function InterviewSession({
       // so we don't fire mid-sentence
       if (interim) clearSilence();
     };
-    recog.onerror = () => { clearSilence(); };
+    recog.onerror = (event: SpeechRecognitionErrorEventShim) => {
+      clearSilence();
+      // Browser SpeechRecognition error codes: not-allowed, service-not-allowed,
+      // audio-capture, no-speech, network, aborted, language-not-supported.
+      // Surface them so the user knows mic isn't actually being captured.
+      const code = event?.error || "unknown";
+      console.warn("[interview-prep] STT error:", code, event?.message ?? "");
+      // no-speech is benign — it just means silence; don't alarm the user.
+      if (code !== "no-speech" && code !== "aborted") {
+        setSttError(code);
+      }
+    };
     recog.onend = () => {
       clearSilence();
       transcriptRef.current = final.trim();
       setTranscript(final.trim());
     };
     recogRef.current = recog;
-    recog.start();
+    setSttError(null);
+    try {
+      recog.start();
+    } catch (e) {
+      // Throws on InvalidStateError (already started) or NotAllowedError (no
+      // mic permission, on some browsers this surfaces synchronously rather
+      // than via onerror). Either way the user needs to know listening failed.
+      console.warn("[interview-prep] recog.start() threw:", e);
+      setSttError(e instanceof Error ? e.name : "start-failed");
+      recogRef.current = null;
+      return;
+    }
     elapsedRef.current = 0;
     setElapsed(0);
     timerRef.current = setInterval(() => { elapsedRef.current += 1; setElapsed(elapsedRef.current); }, 1000);
@@ -1465,9 +1492,12 @@ function InterviewSession({
         }
       }
     };
-    recog.onerror = () => {
+    recog.onerror = (event: SpeechRecognitionErrorEventShim) => {
       if (stableTimer) clearTimeout(stableTimer);
       clearTimeout(safetyTimer);
+      const code = event?.error || "unknown";
+      console.warn("[interview-prep] name-STT error:", code, event?.message ?? "");
+      if (code !== "no-speech" && code !== "aborted") setSttError(code);
       onStateChange(false);
     };
     recog.onend = () => {
@@ -1481,7 +1511,15 @@ function InterviewSession({
       }
     };
     nameRecogRef.current = recog;
-    recog.start();
+    setSttError(null);
+    try {
+      recog.start();
+    } catch (e) {
+      console.warn("[interview-prep] name recog.start() threw:", e);
+      setSttError(e instanceof Error ? e.name : "start-failed");
+      onStateChange(false);
+      nameRecogRef.current = null;
+    }
   }, [sttSupported, cancel]);
 
   // ── Fetch AI feedback ───────────────────────────────────────────────────────
@@ -2101,6 +2139,16 @@ function InterviewSession({
                 </div>
                 {transcript ? (
                   <p className="text-sm text-gray-700 leading-relaxed">{transcript}</p>
+                ) : sttError && phase === "listening" ? (
+                  <p className="text-sm text-rose-600 leading-relaxed">
+                    {sttError === "not-allowed" || sttError === "service-not-allowed" || sttError === "NotAllowedError"
+                      ? "Microphone permission was denied. Click the lock icon in your address bar → allow microphone, then refresh. Or type your answer below."
+                      : sttError === "audio-capture"
+                      ? "We couldn't reach a microphone. Check your device and browser, then refresh — or type your answer below."
+                      : sttError === "network"
+                      ? "Speech recognition couldn't reach the network. Check your connection — or type your answer below."
+                      : `Speech recognition error: ${sttError}. Type your answer below.`}
+                  </p>
                 ) : (
                   <p className="text-sm text-gray-400 italic">
                     {phase === "listening"
@@ -2109,7 +2157,7 @@ function InterviewSession({
                   </p>
                 )}
               </div>
-              {!sttSupported && phase === "listening" && (
+              {(!sttSupported || sttError) && phase === "listening" && (
                 <textarea
                   className="mt-3 w-full border border-gray-200 rounded-2xl px-4 py-3 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-300 resize-none"
                   rows={3} placeholder="Type your answer here…"
