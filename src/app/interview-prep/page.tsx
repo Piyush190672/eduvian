@@ -560,7 +560,15 @@ function useTTS(country: Country) {
       onEnd?.();
       return;
     }
-    window.speechSynthesis.cancel();
+    // Chrome bug: speechSynthesis.cancel() immediately followed by speak()
+    // can put the engine in a "cancelling" state where the new utterance
+    // is silently dropped (no audio, onend never fires). Only cancel if
+    // there's actually something speaking, and give the engine a tick to
+    // settle before queueing the new utterance.
+    const wasSpeaking = window.speechSynthesis.speaking || window.speechSynthesis.pending;
+    if (wasSpeaking) {
+      window.speechSynthesis.cancel();
+    }
 
     const doSpeak = (voices: SpeechSynthesisVoice[]) => {
       const voice = pickVoice(voices, country);
@@ -580,26 +588,59 @@ function useTTS(country: Country) {
           // 650ms natural pause between segments — like a breath between thoughts
           setTimeout(speakNext, 650);
         };
+        utter.onerror = (e) => {
+          console.warn("[interview-prep] TTS utter.onerror:", (e as SpeechSynthesisErrorEvent).error ?? e);
+          // Don't strand the caller — advance as if it ended so the phase
+          // transitions and the user isn't stuck on "reading question…"
+          setTimeout(speakNext, 100);
+        };
+        // Some Chrome builds leave the synth paused after a previous cancel;
+        // resume() is a no-op when not paused.
+        try { window.speechSynthesis.resume(); } catch { /* ignore */ }
         window.speechSynthesis.speak(utter);
       };
 
-      speakNext();
+      // If we just called cancel(), give the engine ~80ms to clear before
+      // queueing — this is the documented workaround for the Chrome bug.
+      if (wasSpeaking) {
+        setTimeout(speakNext, 80);
+      } else {
+        speakNext();
+      }
     };
 
     const voices = window.speechSynthesis.getVoices();
     if (voices.length > 0) {
       _voicesCache = voices;
       doSpeak(voices);
+    } else if (_voicesCache.length > 0) {
+      // Use the module-level cache populated at module init — covers the
+      // case where a fresh context returns [] but voices were already loaded.
+      doSpeak(_voicesCache);
     } else {
+      let started = false;
       const handler = () => {
+        if (started) return;
+        started = true;
         const v2 = window.speechSynthesis.getVoices();
         _voicesCache = v2;
         doSpeak(v2);
       };
       window.speechSynthesis.addEventListener("voiceschanged", handler, { once: true });
       setTimeout(() => {
+        if (started) return;
         const v3 = window.speechSynthesis.getVoices();
-        if (v3.length > 0 && !_voicesCache.length) doSpeak(v3);
+        if (v3.length > 0) {
+          started = true;
+          _voicesCache = v3;
+          doSpeak(v3);
+        } else {
+          // Last-resort fallback: speak with no explicit voice (browser default)
+          // rather than stranding the caller.
+          console.warn("[interview-prep] TTS voices never loaded; speaking with default voice");
+          started = true;
+          doSpeak([]);
+        }
       }, 600);
     }
   }, [country]);
