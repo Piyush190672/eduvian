@@ -1,11 +1,13 @@
 # EduvianAI — Comprehensive State Snapshot for Session Handoff
 
-**Last updated:** 5 May 2026 (after the brand-redesign-prototype session — this is handoff #4)
+**Last updated:** 5 May 2026 evening (after the v2 → / swap, deep-pages build, and H7 Phase C code-deploy — this is handoff #5)
 **Purpose:** Zero-loss handoff between Claude Code sessions. A new session reading this should be able to continue *every* in-flight workstream correctly, respect all user preferences, and avoid all known gotchas.
 
-> **Pinned next-session priority: implement the v2 final-homepage structure and swap /v2 → /.** User has approved v2 as the next homepage and locked the exact 8-section structure on 5 May 2026 (see §24). Working file: `src/app/v2/page.tsx`. Production / homepage stays untouched until the swap. Brand direction (palette, card pattern, positioning statement, hard 'avoids') is locked in CLAUDE.md and §24.
+> **Pinned next-session priority: run the H7 Phase C destructive SQL in Supabase Studio.** Phase C code (reader + writer) shipped today (`6ae64c39` + `5e8e664b`) — the app no longer touches the plaintext `submissions.profile` column. Only step left is to paste `src/lib/migrations/20260505-h7-phase-c-drop-plaintext.sql` into Supabase Studio after taking a fresh `pg_dump`. Full runbook in §20.1.
 >
-> Secondary in priority order: build the deep pages the new homepage will link to (§24.5), then H7 Phase C (24h window has been open since 4 May — full runbook in §20.1), then field-mismatch + fetch-error cleanup (§20.2).
+> The earlier top priority (implement v2 + swap /v2 → /) **landed today** (`66135a13` + post-swap polish in `3c4d4929` + `259639da`). Deep pages `/match`, `/parent-report`, `/destinations`, `/scholarships`, `/methodology` all created. Pre-swap homepage backed up at `_archive/page-pre-v2-swap.tsx.bak`; pre-swap v2 prototype preserved un-routed at `src/app/_v2-archive/page.tsx`.
+>
+> Secondary in priority order: visual update for the existing tool pages to match v2 brand language (§24.5 table — they all still wear pre-swap visuals), then field-mismatch + fetch-error cleanup (§20.2), then marketing-opt-in / unsubscribe / sample-parent-report PDF.
 
 > **Read this top-to-bottom before doing anything.** Then run the verification commands in §0 to confirm reality matches this document.
 
@@ -266,7 +268,7 @@ USA, UK, Australia, Canada, New Zealand, Ireland, Germany, France, UAE, Singapor
 
 | | Value |
 |---|---:|
-| Last commit on main | `63b17ba8` — v2: add Destinations + Scholarships sections + nav links (5 May) |
+| Last commit on main | `5e8e664b` — H7 Phase C writer side: refuse plaintext on encryption failure (5 May evening) |
 | Programs in DB | **5,595** |
 | Verified at source | **5,532** (98.9%) |
 | Universities | **506** total / **485** with at least one verified program |
@@ -275,8 +277,9 @@ USA, UK, Australia, Canada, New Zealand, Ireland, Germany, France, UAE, Singapor
 | Branch | main |
 | Working tree | clean |
 | Supabase plan | Pro (since 3 May 2026) |
-| Live security posture | C1–C4 + H1–H6 closed; **H7 Phase A + Phase B both live**; H7 Phase C is the only deferred audit item — runbook ready (24h safety window has been open since 4 May), see §20.1 |
-| Brand redesign | v2 prototype at `/v2`, locked direction (palette · card pattern · hard avoids) and 8-section homepage structure live in §24. Swap `/v2 → /` is the top next-session priority. |
+| Live security posture | C1–C4 + H1–H6 closed; **H7 Phase A + Phase B + Phase C code all live** (reader `6ae64c39` + writer `5e8e664b`). The destructive `DROP COLUMN` SQL is the only remaining step — runbook in §20.1 |
+| Brand redesign | **Live at /** (swapped from /v2 on 5 May, `66135a13`). Locked direction (palette · card pattern · hard avoids) and 8-section homepage structure live in §24. Pre-swap homepage backed up at `_archive/page-pre-v2-swap.tsx.bak`; pre-swap v2 preserved un-routed at `src/app/_v2-archive/page.tsx`. |
+| Deep pages | All 5 created (5 May): `/match`, `/parent-report`, `/destinations`, `/scholarships`, `/methodology`. Existing tool pages (`/application-check`, `/interview-prep`, `/english-test-lab`, `/roi-calculator`, `/visa-coach`, `/parent-decision`, `/get-started`) still wear pre-swap visuals — visual update is open work item #2. |
 | Email OTP on register/login | live |
 | Admin TOTP MFA | enrolled and verified — `/admin` login challenges for code |
 | Logout button | live on `/profile` and `/results/[token]` |
@@ -1250,16 +1253,24 @@ Both implement the same 2-step UX: collect details (name + email + phone) → re
 
 These are concrete, ready-to-pick-up tasks. In priority order.
 
-### 20.1 H7 Phase C — drop plaintext `submissions.profile`
+### 20.1 H7 Phase C — run the destructive SQL  [TOP PRIORITY]
 
-> Note: top-priority slot has moved to **§24 — implement v2 final-homepage structure and swap /v2 → /**. H7 Phase C is still ready to run any time the user greenlights it; the runbook below is unchanged.
+**All four code-change steps are DONE** (5 May evening). Reader side shipped in `6ae64c39`, writer side in `5e8e664b`. The app no longer reads from or writes to the plaintext `submissions.profile` column. Only the destructive SQL run remains.
 
+**The migration SQL is committed and ready** at `src/lib/migrations/20260505-h7-phase-c-drop-plaintext.sql`. It now wraps three statements inside a single transaction:
 
-Phase B has been live in prod since evening of 3 May 2026. The 24-48h safety window opens later today (4 May 2026). Watch Sentry for any `decryptProfile` warnings before pulling the trigger.
+1. Defensive `DO $$ ... RAISE EXCEPTION` that aborts if any row still lacks `profile_encrypted`.
+2. `ALTER TABLE submissions ALTER COLUMN profile DROP NOT NULL` — belt-and-suspenders to protect any in-flight INSERT racing this transaction.
+3. `ALTER TABLE submissions DROP COLUMN IF EXISTS profile`.
 
-**The migration SQL is committed and ready** at `src/lib/migrations/20260505-h7-phase-c-drop-plaintext.sql`. It contains a defensive `DO $$ ... RAISE EXCEPTION` block that aborts the whole transaction if ANY row still lacks `profile_encrypted`. Reading the file gives you the full safety preamble and the post-migration verification query.
+A failure on any step rolls back cleanly.
 
-**Runbook (in this exact order):**
+**Pre-deploy code changes — already shipped:**
+- ✅ `src/lib/submissions-decrypt.ts`: `SUBMISSION_PROFILE_COLUMNS` no longer references `profile`; `decryptProfile()` plaintext fallback removed (`6ae64c39`).
+- ✅ `src/app/api/admin/leads/route.ts`: `profile` removed from the explicit SELECT (`6ae64c39`).
+- ✅ `src/app/api/submit/route.ts`: writer no longer dual-writes plaintext. In production, returns 503 if encryption is unavailable (key missing OR encrypt throws). Local/dev still falls through to the in-memory store. (`5e8e664b`).
+
+**Runbook to finish (just two steps remaining):**
 
 1. **Backup first.** Either:
    ```bash
@@ -1277,27 +1288,21 @@ Phase B has been live in prod since evening of 3 May 2026. The 24-48h safety win
    ```
    Both `unencrypted` and `unhashed` must be **0**. If not, run the H7 backfill script before continuing.
 
-3. **Three small code edits to drop `profile` from SELECTs and the plaintext fallback** (deploy this BEFORE the migration so SELECTs don't break the moment the column drops):
-   - `src/lib/submissions-decrypt.ts`:
-     - `SUBMISSION_PROFILE_COLUMNS`: drop `"profile, "` prefix → `"profile_encrypted, email_hash"`.
-     - `decryptProfile()`: remove the `if (row?.profile && typeof row.profile === "object") return row.profile as StudentProfile;` fallback (lines 38-39 currently). The function then unconditionally decrypts from `profile_encrypted`.
-   - `src/app/api/admin/leads/route.ts:13`: drop `profile, ` from the explicit SELECT list — keep `profile_encrypted, email_hash`.
-
-4. Push, wait for Vercel deploy, verify `/admin/leads` and `/results/[token]` load cleanly with no Sentry errors.
-
-5. **Run the migration** in Supabase SQL Editor:
+3. **Run the migration** in Supabase SQL Editor:
    ```bash
    cat src/lib/migrations/20260505-h7-phase-c-drop-plaintext.sql
    ```
-   Paste the BEGIN…COMMIT block. The defensive DO block aborts on any row without `profile_encrypted`.
+   Paste the entire BEGIN…COMMIT block. The defensive DO block aborts on any row without `profile_encrypted`. The transaction relaxes the NOT NULL constraint and drops the column atomically.
 
-6. **Post-verify** the column is gone:
+4. **Post-verify** the column is gone:
    ```sql
    SELECT column_name FROM information_schema.columns
    WHERE table_schema = 'public' AND table_name = 'submissions'
    ORDER BY ordinal_position;
    -- `profile` should NOT appear.
    ```
+
+5. **Watch Sentry for ~1 hour** after the SQL run. Any `decryptProfile` errors mean a code path I missed — but the writer-side 503 should mean even the failure mode is graceful (no silent data loss).
 
 ### 20.2 Clean up the 63 still-unverified entries in `programs.ts`
 
@@ -1446,11 +1451,12 @@ Plus: Linear (cited later) — monochrome with one electric accent, generous edi
 
 Goal: make v2 the new homepage, retire the dense production homepage as a *content source* for deep pages.
 
-### 24.2 Where v2 lives
+### 24.2 Where v2 lives — **SWAPPED to / on 5 May 2026**
 
-- File: `src/app/v2/page.tsx` (~660 lines after round 3, single client component)
-- Route: `/v2` — committed and live on production (it's a separate route, doesn't replace `/`)
-- Three rounds of iteration committed: `6cff501f` (round 1) → `daff6839` (round 2) → `63b17ba8` (round 3 — current). A fourth uncommitted round implements user feedback from late 5 May (heading change, parent strip, dashboard hero, violet accent, semantic palette, card 5-line pattern, bias-free statement).
+- **Production homepage now serves the v2 design at `/`** (swap commit `66135a13`, post-swap polish in `3c4d4929` + `259639da`).
+- Pre-swap homepage backed up at `_archive/page-pre-v2-swap.tsx.bak` (in repo root, not under src/) — content source for any deep pages still to be extracted.
+- Pre-swap v2 prototype preserved un-routed at `src/app/_v2-archive/page.tsx` (the underscore prefix keeps Next.js from creating a route for it).
+- Iteration history: `6cff501f` (round 1) → `daff6839` (round 2) → `63b17ba8` (round 3) → `a75fc4c1` + `d77f2e06` (round 4 — heading change, parent strip, dashboard hero, violet accent, semantic palette, card 5-line pattern, bias-free statement) → `66135a13` (swap to /) → `3c4d4929` (post-swap polish + /methodology) → `259639da` (nav restoration + back-button placement).
 
 ### 24.3 Locked brand direction
 
@@ -1548,32 +1554,80 @@ This is the structure the user signed off on. Apply to `src/app/v2/page.tsx`, th
 
 8. **Final CTA** — light cream section (stone-50), single italic accent, two clean CTAs.
 
-### 24.5 Deep pages required
+### 24.5 Deep pages — current status
 
-Homepage CTAs route here. Most exist; some need creating or aliasing.
+All routes the homepage links to. Updated post-swap.
 
 | Path | Status | Notes |
 |---|---|---|
-| `/match` | **Needs creating** | Currently `/get-started` serves this flow. Either rename `/get-started` → `/match` (with redirect for backwards-compat) or keep both. |
-| `/application-check` | ✅ Exists | Visual update to v2 design language pending. |
-| `/interview-prep` | ✅ Exists | Visual update pending. |
-| `/english-test-lab` | ✅ Exists | Visual update pending. |
-| `/roi-calculator` | ✅ Exists | Visual update pending. |
-| `/parent-report` | **Needs creating** | Currently `/parent-decision`. Either rename or alias. |
-| `/visa-coach` | ✅ Exists | Visual update pending. |
-| `/destinations` | **Needs creating** | Currently a section on the production `/`. Extract content into a dedicated route. |
-| `/scholarships` | **Needs creating** | Currently a section on the production `/`. Extract into a dedicated route. The full per-country `SCHOLARSHIPS` array (lines 39+ of production `page.tsx`) is the content source. |
+| `/` | ✅ v2 brand language | Live, swap landed `66135a13` + post-swap polish `3c4d4929` + `259639da`. |
+| `/match` | ✅ Created (5 May) | New route with v2 brand language. |
+| `/parent-report` | ✅ Created (5 May) | New route. `/parent-decision` still exists (functional tool surface). |
+| `/destinations` | ✅ Created (5 May) | New dedicated page; pre-swap homepage section content extracted here. |
+| `/scholarships` | ✅ Created (5 May) | New dedicated page; pulls from the `SCHOLARSHIPS` array (was at `_archive/page-pre-v2-swap.tsx.bak` lines 39+, content source preserved). |
+| `/methodology` | ✅ Created (5 May) | New page documenting the verification pipeline + 9-signal scoring — added during the post-swap polish pass. |
+| `/application-check` | ⚠️ Exists, **pre-swap visuals** | Visual update to v2 brand language pending — open work item #2. |
+| `/interview-prep` | ⚠️ Exists, **pre-swap visuals** | Same — open work item #2. |
+| `/english-test-lab` | ⚠️ Exists, **pre-swap visuals** | Same. |
+| `/roi-calculator` | ⚠️ Exists, **pre-swap visuals** | Same. |
+| `/visa-coach` | ⚠️ Exists, **pre-swap visuals** | Same. |
+| `/parent-decision` | ⚠️ Exists, **pre-swap visuals** | The full parent-decision tool. `/parent-report` is the new branded entry; this is the deep-tool surface. Visual update pending. |
+| `/get-started` | ⚠️ Exists, **pre-swap visuals** | The match flow's actual entry. `/match` is the new branded entry; this is the deep-tool surface. |
+| `/sample-parent-report` | ⚠️ Exists, **pre-swap visuals** | Static illustrative report. |
+| `/application-tracker` | ⚠️ Exists, **pre-swap visuals** | Kanban board for managing applications. |
+| `/sop-assistant`, `/lor-coach`, `/profile` | ⚠️ Exist, **pre-swap visuals** | Subordinate tool routes. |
 
-### 24.6 Swap procedure (when implementing)
+### 24.6 Swap procedure — **DONE**
 
-1. Verify the v2 file at `src/app/v2/page.tsx` matches §24.4 exactly.
-2. Walk through the file on phone + desktop. Confirm every CTA links to a working route.
-3. **Backup**: copy `src/app/page.tsx` → `src/app/page-archive-pre-v2.tsx` (don't ship; gitignore if needed) so the content source for deep-page extraction is preserved locally.
-4. **Swap**: `cp src/app/v2/page.tsx src/app/page.tsx`. Then either:
-   - Delete `src/app/v2/page.tsx` (clean), OR
-   - Rename to `src/app/v2-archive/page.tsx` (kept for comparison).
-5. Update the v2 footer's `Original →` link — there is no original after the swap. Remove it.
-6. Update `src/app/page.tsx` nav: drop the `v2 prototype` micro-label next to the logo.
-7. Update CLAUDE.md `Key code paths` table to reflect that `/v2` no longer exists.
-8. `tsc --noEmit` + `next build` + commit + push.
+The swap landed on 5 May 2026. Recorded for posterity (also useful as a reference for the next big visual rework).
+
+1. ✅ v2 file matched §24.4 (post round-4 fixes in `a75fc4c1` + `d77f2e06`).
+2. ✅ Walk-through on phone + desktop verified.
+3. ✅ Pre-swap homepage backed up to `_archive/page-pre-v2-swap.tsx.bak` (repo root).
+4. ✅ Swap: `src/app/v2/page.tsx` content moved to `src/app/page.tsx`. v2 prototype preserved un-routed at `src/app/_v2-archive/page.tsx`.
+5. ✅ Footer `Original →` link removed.
+6. ✅ Nav `v2 prototype` micro-label dropped.
+7. ✅ CLAUDE.md `Key code paths` table updated.
+8. ✅ tsc + next build + commit + push (commits `66135a13`, `3c4d4929`, `259639da`).
+
+
+---
+
+## §25 Session log — 5 May 2026 evening (v2 swap, deep pages, H7 Phase C code)
+
+This session shipped 6 commits. The session crashed on an API image-limit error (too many large screenshots accumulated in context); a follow-up turn from a fresh session shipped commit #6 (writer-side Phase C) and refreshed the docs. Major themes:
+
+**Brand redesign — swap landed:**
+- `66135a13` homepage: swap v2 brand redesign onto `/` · add deep pages (`/match`, `/parent-report`, `/destinations`, `/scholarships`).
+- `3c4d4929` homepage: post-swap polish pass + new `/methodology` page.
+- `259639da` homepage + auth: nav restoration + back-button placement.
+
+Pre-swap homepage backed up at `_archive/page-pre-v2-swap.tsx.bak`. Pre-swap v2 prototype preserved un-routed at `src/app/_v2-archive/page.tsx`. Both retained as content sources for the visual update of the deep tool pages.
+
+**H7 Phase C code-deploy:**
+- `6ae64c39` reader side: `decryptProfile()` plaintext fallback removed; `SUBMISSION_PROFILE_COLUMNS` no longer references `profile`; `admin/leads` SELECT cleaned.
+- `5e8e664b` writer side: `submit/route.ts` no longer dual-writes plaintext. In production, returns a 503 with a user-readable message if encryption is unavailable (key missing OR encrypt throws). Local/dev still falls through quietly so `npm run dev` keeps working without Vercel env vars. The race window between code-deploy and SQL-run is now safe — any submission during that window either succeeds (encrypted) or 503s; never lands as plaintext.
+
+**Migration SQL update:**
+The migration file `src/lib/migrations/20260505-h7-phase-c-drop-plaintext.sql` was updated to:
+- Add a 4th item to the pre-deploy checklist (writer side: remove `profile` from `submit/route.ts` INSERT).
+- Add a coordination note about the deploy-vs-SQL timing window.
+- Add `ALTER COLUMN profile DROP NOT NULL` belt-and-suspenders inside the same transaction as the `DROP COLUMN`.
+
+**Docs refresh (this turn):**
+- CLAUDE.md `Open work` rewritten: top priority is now "run the H7 Phase C SQL"; v2-swap and deep-pages tasks moved to the "Done" list with commit references.
+- STATE_SNAPSHOT.md header date / pinned-priority block / §3 current-state table / §3.1 country breakdown / §20.1 H7 runbook / §24.2 'where v2 lives' / §24.5 deep-pages table / §24.6 swap procedure all updated to reflect post-swap reality.
+
+**Numbers:**
+
+| | Start of 5 May session | End of 5 May session |
+|---|---:|---:|
+| Programs total | 5,595 | **5,595** (no change) |
+| Programs verified | 5,532 | **5,532** (no change) |
+| Universities | 506 | **506** (no change) |
+| Routes in `src/app/` | 21 | **26** (+5 deep pages: /match, /parent-report, /destinations, /scholarships, /methodology) |
+| Production homepage design | v1 (dense, multi-stage) | **v2 brand language** (8-section, low-density, editorial) |
+| H7 Phase C status | Code pending, SQL pending | **Code shipped, SQL pending** |
+
+**Estimated session API spend:** ~$5 (no verify-batch runs; just code generation + edits).
 

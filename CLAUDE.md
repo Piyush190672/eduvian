@@ -142,19 +142,16 @@ The legal/security/pricing Word docs were generated with `docx`. Pricing Excel v
 
 Pinned in priority order. Snapshot §20 + §24 have full detail.
 
-1. **Implement the v2 final-homepage structure and swap /v2 → /** — user has approved v2 as the new homepage (5 May 2026 session). The exact 8-section structure they want is committed in snapshot §24. Working file: `src/app/v2/page.tsx` already at round 3. Implementation steps:
-   - Apply §24's 8-section structure to `src/app/v2/page.tsx` (Hero / Proof strip / 5-stage journey / See actual outputs / Why trust / For families / Explore tools / Final CTA).
-   - Verify on phone + desktop.
-   - **Swap**: copy v2/page.tsx content over `src/app/page.tsx`; either delete v2/ or keep as backup `/v2-prototype-archive`. Production homepage links to /v2 (footer "Original →") need cleanup.
-   - The current 1,400-line `src/app/page.tsx` becomes the **content source for deep pages** (don't delete it before extracting).
-2. **Build deep pages** — homepage CTAs route here. Most exist; some need creating.
-   - Already exist: `/application-check`, `/interview-prep`, `/english-test-lab`, `/roi-calculator`, `/visa-coach`. Visual update to v2 design language pending.
-   - **Need creating**: `/match` (currently /get-started serves this — alias or rename), `/parent-report` (currently /parent-decision — alias or rename), `/destinations` (currently a section on the production homepage — extract), `/scholarships` (currently a section — extract).
-3. **H7 Phase C — SQL run only** (code is deployed). All readers and writers are off the plaintext `profile` column. Last step is to run `src/lib/migrations/20260505-h7-phase-c-drop-plaintext.sql` in Supabase Studio. Before running: take a fresh `pg_dump` of `public.submissions` (or confirm Supabase Pro scheduled backup ≤12h old). Coordinate timing — between code-deploy completion and the SQL running, new submissions fail on the column's NOT NULL constraint. The migration is wrapped in a single transaction that relaxes the constraint and drops the column atomically.
-4. **Field-mismatch + persistent fetch-error cleanup** — 63 entries from the re-verify pass still aren't verified: 31 `field_mismatch` (24 of them are catalog/listing URLs from older seeds — strip with `audit-strip --include field_mismatch`) and 32 `fetch_or_api_error` (28 are DNS-unresolvable from the build network, 2 De Montfort 404s, 2 succeed in browser → strip the De Montfort, retry the working pair, replace the 28 catalog URLs with real program-detail URLs OR strip them).
-5. **Marketing email opt-in flow** — Privacy Policy §11 promises this; not yet built.
-6. **Visible unsubscribe link in email body** — `List-Unsubscribe` header is in; in-body link still missing.
-7. **Real downloadable Sample Parent Report PDF** — current `/sample-parent-report` is HTML + Save-as-PDF. A static rendered PDF asset would feel more 'official'.
+1. **H7 Phase C — run the destructive SQL** (code is deployed end-to-end). Both readers (`6ae64c39`) and writers (`5e8e664b`) are off the plaintext `submissions.profile` column. The only remaining step is to paste `src/lib/migrations/20260505-h7-phase-c-drop-plaintext.sql` into Supabase Studio. Before running:
+   - Confirm Supabase Pro scheduled backup ≤12h old, OR run a fresh `pg_dump` of `public.submissions`.
+   - Sanity-check encryption coverage: `SELECT count(*) FILTER (WHERE profile_encrypted IS NULL) FROM public.submissions;` must return 0.
+   - The migration runs `ALTER COLUMN profile DROP NOT NULL` and `DROP COLUMN profile` inside one transaction, with a defensive `DO $$` block that aborts if any row still lacks `profile_encrypted`.
+   - The race window between code-deploy and SQL-run is now safe: the writer side returns 503 if encryption fails, never falling back to plaintext, so an unconstrained `profile` column wouldn't be written to anyway.
+2. **Visual update for the existing tool pages to match the v2 brand language** (homepage swap landed `66135a13`; the deep pages still wear the pre-swap visuals). Affected: `/application-check`, `/interview-prep`, `/english-test-lab`, `/roi-calculator`, `/visa-coach`, `/parent-decision`, `/get-started`. Apply the locked palette + card pattern + typography from the Brand direction section below.
+3. **Field-mismatch + persistent fetch-error cleanup** — 63 entries from the re-verify pass still aren't verified: 31 `field_mismatch` (24 of them are catalog/listing URLs from older seeds — strip with `audit-strip --include field_mismatch`) and 32 `fetch_or_api_error` (28 are DNS-unresolvable from the build network, 2 De Montfort 404s, 2 succeed in browser → strip the De Montfort, retry the working pair, replace the 28 catalog URLs with real program-detail URLs OR strip them).
+4. **Marketing email opt-in flow** — Privacy Policy §11 promises this; not yet built.
+5. **Visible unsubscribe link in email body** — `List-Unsubscribe` header is in; in-body link still missing.
+6. **Real downloadable Sample Parent Report PDF** — current `/sample-parent-report` is HTML + Save-as-PDF. A static rendered PDF asset would feel more 'official'.
 
 ## Brand direction (locked by user, 5 May 2026)
 
@@ -184,7 +181,9 @@ Done in the 4 May / 5 May sessions (no longer pending — for context):
 - 63 new universities + 582 verified programs added across UK / Germany / Canada / Australia.
 - 57 new universities + 465 verified programs added across France / UAE / Malaysia / Singapore.
 - Homepage SWOT-driven restructure (4 May): section reorder, parent-aware copy, single-source-of-truth program count, sample parent report page, modal 5-stage parity (A/B/C/D → 1/2/3/4/5), tool-card 5-line standardisation, 'How shortlist is built' premium card treatment, dual-CTA Decide stage, mobile compaction (~3500-4500px shorter), mobile flash fix (kill blur blobs).
-- Brand-redesign prototype at /v2 (5 May): three rounds. User approved direction in round 3. Final structure now locked (see §24).
+- Brand-redesign prototype at /v2 (5 May, three rounds; user approved round 3). **Swapped /v2 → / (5 May, `66135a13`).** Pre-swap homepage backed up at `_archive/page-pre-v2-swap.tsx.bak`. Pre-swap v2 prototype preserved un-routed at `src/app/_v2-archive/page.tsx`.
+- Deep pages built (5 May, `66135a13` + `3c4d4929` + `259639da`): `/match`, `/parent-report`, `/destinations`, `/scholarships`, `/methodology`. (Visuals on the existing tool pages — `/application-check`, `/interview-prep`, etc. — still wear the pre-swap design; brand-language port is open work item #2.)
+- H7 Phase C code shipped (5 May): reader (`6ae64c39`) and writer (`5e8e664b`) sides both off the plaintext `profile` column. Only the destructive SQL run in Supabase Studio remains (open work item #1).
 
 ## When unsure: ask
 
