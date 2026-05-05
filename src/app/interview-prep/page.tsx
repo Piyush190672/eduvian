@@ -560,53 +560,55 @@ function useTTS(country: Country) {
       onEnd?.();
       return;
     }
-    // Chrome bug: speechSynthesis.cancel() immediately followed by speak()
-    // can put the engine in a "cancelling" state where the new utterance
-    // is silently dropped (no audio, onend never fires). Only cancel if
-    // there's actually something speaking, and give the engine a tick to
-    // settle before queueing the new utterance.
-    const wasSpeaking = window.speechSynthesis.speaking || window.speechSynthesis.pending;
-    if (wasSpeaking) {
-      window.speechSynthesis.cancel();
-    }
+    // Don't pre-call cancel() here. The original purpose was to clear stale
+    // queued speech from a prior call, but it raced with the first utterance
+    // and produced an "interrupted" error before any audio played. Callers
+    // that explicitly want to stop TTS use the `cancel` callback returned
+    // from useTTS — that path is for user-driven interruption (Mute toggle,
+    // listenOnce, etc.) and is fine to call separately.
 
     const doSpeak = (voices: SpeechSynthesisVoice[]) => {
       const voice = pickVoice(voices, country);
       let i = 0;
+      let didRetry = false;
 
       const speakNext = () => {
         if (i >= segments.length) { onEnd?.(); return; }
         const seg = segments[i++];
         if (!seg.trim()) { speakNext(); return; }
+        utterAndAdvance(seg);
+      };
 
+      const utterAndAdvance = (seg: string) => {
         const utter = new SpeechSynthesisUtterance(seg);
-        utter.rate  = country === "usa" ? 1.05 : 1.0;  // slightly brisker for US = more energy
-        utter.pitch = country === "usa" ? 1.0  : 1.12; // natural pitch for US (was 0.9 = dull)
+        utter.rate  = country === "usa" ? 1.05 : 1.0;
+        utter.pitch = country === "usa" ? 1.0  : 1.12;
         utter.volume = 1;
         if (voice) utter.voice = voice;
         utter.onend = () => {
-          // 650ms natural pause between segments — like a breath between thoughts
+          didRetry = false;
           setTimeout(speakNext, 650);
         };
         utter.onerror = (e) => {
-          console.warn("[interview-prep] TTS utter.onerror:", (e as SpeechSynthesisErrorEvent).error ?? e);
-          // Don't strand the caller — advance as if it ended so the phase
-          // transitions and the user isn't stuck on "reading question…"
+          const code = (e as SpeechSynthesisErrorEvent).error ?? "unknown";
+          console.warn("[interview-prep] TTS utter.onerror:", code);
+          // 'interrupted' / 'canceled' usually means another speak() or
+          // cancel() raced this one. Retry once with a small delay before
+          // giving up — this rescues the first-utterance race that can
+          // happen on initial mount in Chrome.
+          if ((code === "interrupted" || code === "canceled") && !didRetry) {
+            didRetry = true;
+            i--; // rewind so speakNext re-pops this segment
+            setTimeout(speakNext, 250);
+            return;
+          }
           setTimeout(speakNext, 100);
         };
-        // Some Chrome builds leave the synth paused after a previous cancel;
-        // resume() is a no-op when not paused.
         try { window.speechSynthesis.resume(); } catch { /* ignore */ }
         window.speechSynthesis.speak(utter);
       };
 
-      // If we just called cancel(), give the engine ~80ms to clear before
-      // queueing — this is the documented workaround for the Chrome bug.
-      if (wasSpeaking) {
-        setTimeout(speakNext, 80);
-      } else {
-        speakNext();
-      }
+      speakNext();
     };
 
     const voices = window.speechSynthesis.getVoices();
