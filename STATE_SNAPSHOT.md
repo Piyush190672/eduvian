@@ -1,13 +1,13 @@
 # EduvianAI — Comprehensive State Snapshot for Session Handoff
 
-**Last updated:** 5 May 2026 evening (after the v2 → / swap, deep-pages build, and H7 Phase C code-deploy — this is handoff #5)
+**Last updated:** 5 May 2026 late evening (handoff #6 — H7 Phase C fully closed, including a writer-side dev/preview gap discovered during cleanup)
 **Purpose:** Zero-loss handoff between Claude Code sessions. A new session reading this should be able to continue *every* in-flight workstream correctly, respect all user preferences, and avoid all known gotchas.
 
-> **Pinned next-session priority: run the H7 Phase C destructive SQL in Supabase Studio.** Phase C code (reader + writer) shipped today (`6ae64c39` + `5e8e664b`) — the app no longer touches the plaintext `submissions.profile` column. Only step left is to paste `src/lib/migrations/20260505-h7-phase-c-drop-plaintext.sql` into Supabase Studio after taking a fresh `pg_dump`. Full runbook in §20.1.
+> **H7 Phase C is now FULLY DONE.** Schema check (5 May late evening) showed the plaintext `profile` column was already absent — the destructive SQL had been run in the prior crashed session. Coverage check found 2 zombie rows (`profile_encrypted=NULL` AND `email_hash=NULL`) — both inserted today via a non-prod NODE_ENV path, deleted manually. **Writer patched** to skip the Supabase insert entirely when encryption inputs are missing (option 2B), closing the dev/preview hole regardless of NODE_ENV. Live submissions table is now clean: 5 rows, all encrypted + hashed.
 >
-> The earlier top priority (implement v2 + swap /v2 → /) **landed today** (`66135a13` + post-swap polish in `3c4d4929` + `259639da`). Deep pages `/match`, `/parent-report`, `/destinations`, `/scholarships`, `/methodology` all created. Pre-swap homepage backed up at `_archive/page-pre-v2-swap.tsx.bak`; pre-swap v2 prototype preserved un-routed at `src/app/_v2-archive/page.tsx`.
+> **Pinned next-session priority:** (b) port v2 brand language to the deep tool pages — `/application-check`, `/interview-prep`, `/english-test-lab`, `/roi-calculator`, `/visa-coach`, `/parent-decision`, `/get-started`. They still wear the pre-swap visuals. Brand spec is locked in CLAUDE.md "Brand direction" section.
 >
-> Secondary in priority order: visual update for the existing tool pages to match v2 brand language (§24.5 table — they all still wear pre-swap visuals), then field-mismatch + fetch-error cleanup (§20.2), then marketing-opt-in / unsubscribe / sample-parent-report PDF.
+> Secondary: (c) clean up the 63 still-unverified entries in `programs.ts` (§20.2 below has the recipe). Then marketing-opt-in / unsubscribe / sample-parent-report PDF.
 
 > **Read this top-to-bottom before doing anything.** Then run the verification commands in §0 to confirm reality matches this document.
 
@@ -1253,56 +1253,20 @@ Both implement the same 2-step UX: collect details (name + email + phone) → re
 
 These are concrete, ready-to-pick-up tasks. In priority order.
 
-### 20.1 H7 Phase C — run the destructive SQL  [TOP PRIORITY]
+### 20.1 H7 Phase C — DONE  [closed 5 May late evening]
 
-**All four code-change steps are DONE** (5 May evening). Reader side shipped in `6ae64c39`, writer side in `5e8e664b`. The app no longer reads from or writes to the plaintext `submissions.profile` column. Only the destructive SQL run remains.
+All four code-change steps shipped (`6ae64c39` reader, `5e8e664b` writer), and the destructive SQL had already been run during the earlier crashed session. The 5 May late-evening verification confirmed:
 
-**The migration SQL is committed and ready** at `src/lib/migrations/20260505-h7-phase-c-drop-plaintext.sql`. It now wraps three statements inside a single transaction:
+- Schema: `profile` column absent. Only `profile_encrypted`, `email_hash`, `profile_enc_version` remain for PII.
+- Coverage: 5/5 live rows have both `profile_encrypted` and `email_hash` set.
 
-1. Defensive `DO $$ ... RAISE EXCEPTION` that aborts if any row still lacks `profile_encrypted`.
-2. `ALTER TABLE submissions ALTER COLUMN profile DROP NOT NULL` — belt-and-suspenders to protect any in-flight INSERT racing this transaction.
-3. `ALTER TABLE submissions DROP COLUMN IF EXISTS profile`.
+**Writer-side gap discovered + patched.** Two zombie rows (`099afd25...` + `2e10fe35...`, both 5 May 2026) were inserted with `profile_encrypted=NULL` AND `email_hash=NULL`. Root cause: the writer at `src/app/api/submit/route.ts` only enforced encryption when `process.env.NODE_ENV === "production"`. A dev or Vercel-preview environment connected to prod Supabase via the shared service-role key could insert null-encrypted rows. Plaintext was unrecoverable (column already dropped).
 
-A failure on any step rolls back cleanly.
+Cleanup done:
+1. Manually deleted both rows in Supabase Studio (`DELETE … WHERE id IN (…) AND profile_encrypted IS NULL AND email_hash IS NULL RETURNING …`).
+2. Patched the writer to **skip the Supabase insert when `pii_profile_encrypted` or `pii_email_hash` is null**, regardless of NODE_ENV. The in-memory store is still populated so dev flows keep working without keys.
 
-**Pre-deploy code changes — already shipped:**
-- ✅ `src/lib/submissions-decrypt.ts`: `SUBMISSION_PROFILE_COLUMNS` no longer references `profile`; `decryptProfile()` plaintext fallback removed (`6ae64c39`).
-- ✅ `src/app/api/admin/leads/route.ts`: `profile` removed from the explicit SELECT (`6ae64c39`).
-- ✅ `src/app/api/submit/route.ts`: writer no longer dual-writes plaintext. In production, returns 503 if encryption is unavailable (key missing OR encrypt throws). Local/dev still falls through to the in-memory store. (`5e8e664b`).
-
-**Runbook to finish (just two steps remaining):**
-
-1. **Backup first.** Either:
-   ```bash
-   pg_dump "$SUPABASE_DB_URL" --table=public.submissions \
-     > ~/Desktop/submissions-backup-$(date +%Y%m%d).sql
-   ```
-   …or confirm a Supabase Pro scheduled backup from within the last 12h (Database → Backups in Supabase Studio).
-
-2. **Sanity-check encryption coverage** (Supabase SQL Editor):
-   ```sql
-   SELECT count(*) FILTER (WHERE profile_encrypted IS NULL) AS unencrypted,
-          count(*) FILTER (WHERE email_hash IS NULL)        AS unhashed,
-          count(*)                                          AS total
-   FROM public.submissions;
-   ```
-   Both `unencrypted` and `unhashed` must be **0**. If not, run the H7 backfill script before continuing.
-
-3. **Run the migration** in Supabase SQL Editor:
-   ```bash
-   cat src/lib/migrations/20260505-h7-phase-c-drop-plaintext.sql
-   ```
-   Paste the entire BEGIN…COMMIT block. The defensive DO block aborts on any row without `profile_encrypted`. The transaction relaxes the NOT NULL constraint and drops the column atomically.
-
-4. **Post-verify** the column is gone:
-   ```sql
-   SELECT column_name FROM information_schema.columns
-   WHERE table_schema = 'public' AND table_name = 'submissions'
-   ORDER BY ordinal_position;
-   -- `profile` should NOT appear.
-   ```
-
-5. **Watch Sentry for ~1 hour** after the SQL run. Any `decryptProfile` errors mean a code path I missed — but the writer-side 503 should mean even the failure mode is graceful (no silent data loss).
+> **Lesson for the snapshot:** any future API route that writes encrypted PII should guard the `.insert()` on the encrypted-fields-present invariant, not on `NODE_ENV`. The shared service-role key means dev and prod hit the same DB, so prod-only guards leak.
 
 ### 20.2 Clean up the 63 still-unverified entries in `programs.ts`
 

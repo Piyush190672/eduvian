@@ -73,9 +73,9 @@ Audit document: `~/Desktop/EduvianAI-Security-Architecture-Risk-Assessment.docx`
   - H1 admin TOTP MFA: enrolled and verified — login flow now challenges for the 6-digit code.
   - H2 opaque sessions, H3 CSRF gate, H4 DPDPA endpoints, H6 output encoding — closed.
   - H5 service-role overuse — closed-with-rationale (subsumed by C2).
-  - **H7 PII encryption: Phase A + Phase B + Phase C code all live.** Readers and writers no longer touch the plaintext `profile` column. The destructive SQL (`src/lib/migrations/20260505-h7-phase-c-drop-plaintext.sql`) drops the column itself — coordinate with code deploy: between deploy completion and SQL run, new submissions fail on the column's NOT NULL constraint. Take a fresh `pg_dump` first.
+  - **H7 PII encryption: ALL phases done.** Phase A + B + C code all live; Phase C destructive SQL was run; `profile` column dropped. Two zombie rows (5 May 2026) inserted with null encryption via a NODE_ENV-gated dev/preview hole — deleted manually, writer patched to skip the Supabase insert when encryption inputs are missing (regardless of NODE_ENV). Live `submissions` table is clean.
 
-As of the Phase C code-deploy, `submissions` rows carry only `profile_encrypted` + `email_hash` (no plaintext column). Lookup by email goes through `email_hash` only.
+`submissions` rows carry only `profile_encrypted` + `email_hash` for PII. Lookup by email goes through `email_hash` only. The writer guard now refuses to insert any row without both fields set — no NODE_ENV exemption.
 
 ## Authentication
 
@@ -142,16 +142,11 @@ The legal/security/pricing Word docs were generated with `docx`. Pricing Excel v
 
 Pinned in priority order. Snapshot §20 + §24 have full detail.
 
-1. **H7 Phase C — run the destructive SQL** (code is deployed end-to-end). Both readers (`6ae64c39`) and writers (`5e8e664b`) are off the plaintext `submissions.profile` column. The only remaining step is to paste `src/lib/migrations/20260505-h7-phase-c-drop-plaintext.sql` into Supabase Studio. Before running:
-   - Confirm Supabase Pro scheduled backup ≤12h old, OR run a fresh `pg_dump` of `public.submissions`.
-   - Sanity-check encryption coverage: `SELECT count(*) FILTER (WHERE profile_encrypted IS NULL) FROM public.submissions;` must return 0.
-   - The migration runs `ALTER COLUMN profile DROP NOT NULL` and `DROP COLUMN profile` inside one transaction, with a defensive `DO $$` block that aborts if any row still lacks `profile_encrypted`.
-   - The race window between code-deploy and SQL-run is now safe: the writer side returns 503 if encryption fails, never falling back to plaintext, so an unconstrained `profile` column wouldn't be written to anyway.
-2. **Visual update for the existing tool pages to match the v2 brand language** (homepage swap landed `66135a13`; the deep pages still wear the pre-swap visuals). Affected: `/application-check`, `/interview-prep`, `/english-test-lab`, `/roi-calculator`, `/visa-coach`, `/parent-decision`, `/get-started`. Apply the locked palette + card pattern + typography from the Brand direction section below.
-3. **Field-mismatch + persistent fetch-error cleanup** — 63 entries from the re-verify pass still aren't verified: 31 `field_mismatch` (24 of them are catalog/listing URLs from older seeds — strip with `audit-strip --include field_mismatch`) and 32 `fetch_or_api_error` (28 are DNS-unresolvable from the build network, 2 De Montfort 404s, 2 succeed in browser → strip the De Montfort, retry the working pair, replace the 28 catalog URLs with real program-detail URLs OR strip them).
-4. **Marketing email opt-in flow** — Privacy Policy §11 promises this; not yet built.
-5. **Visible unsubscribe link in email body** — `List-Unsubscribe` header is in; in-body link still missing.
-6. **Real downloadable Sample Parent Report PDF** — current `/sample-parent-report` is HTML + Save-as-PDF. A static rendered PDF asset would feel more 'official'.
+1. **Visual update for the existing tool pages to match the v2 brand language** (homepage swap landed `66135a13`; the deep pages still wear the pre-swap visuals). Affected: `/application-check`, `/interview-prep`, `/english-test-lab`, `/roi-calculator`, `/visa-coach`, `/parent-decision`, `/get-started`. Apply the locked palette + card pattern + typography from the Brand direction section below.
+2. **Field-mismatch + persistent fetch-error cleanup** — 63 entries from the re-verify pass still aren't verified: 31 `field_mismatch` (24 of them are catalog/listing URLs from older seeds — strip with `audit-strip --include field_mismatch`) and 32 `fetch_or_api_error` (28 are DNS-unresolvable from the build network, 2 De Montfort 404s, 2 succeed in browser → strip the De Montfort, retry the working pair, replace the 28 catalog URLs with real program-detail URLs OR strip them).
+3. **Marketing email opt-in flow** — Privacy Policy §11 promises this; not yet built.
+4. **Visible unsubscribe link in email body** — `List-Unsubscribe` header is in; in-body link still missing.
+5. **Real downloadable Sample Parent Report PDF** — current `/sample-parent-report` is HTML + Save-as-PDF. A static rendered PDF asset would feel more 'official'.
 
 ## Brand direction (locked by user, 5 May 2026)
 

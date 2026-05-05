@@ -179,29 +179,32 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Try Supabase persistence
+    // Try Supabase persistence — only when we have encrypted PII to
+    // write. Without both fields the row is unservable (decryptProfile
+    // returns null) and pollutes the table. This guard closes the
+    // dev/preview hole that produced the 5 May zombie rows.
     let savedToDb = false;
-    try {
-      const { createServiceClient } = await import("@/lib/supabase");
-      const supabase = createServiceClient();
-      if (supabase) {
-        // H7 Phase C: plaintext `profile` column was dropped. Persist
-        // only the encrypted blob + email_hash for lookups.
-        const { error } = await supabase.from("submissions").insert({
-          id,
-          token,
-          shortlisted_ids: [],
-          email_sent: false,
-          profile_category,
-          total_matched,
-          email_hash: pii_email_hash,
-          profile_encrypted: pii_profile_encrypted,
-          profile_enc_version: pii_profile_enc_version,
-        });
-        if (!error) savedToDb = true;
+    if (pii_profile_encrypted && pii_email_hash) {
+      try {
+        const { createServiceClient } = await import("@/lib/supabase");
+        const supabase = createServiceClient();
+        if (supabase) {
+          const { error } = await supabase.from("submissions").insert({
+            id,
+            token,
+            shortlisted_ids: [],
+            email_sent: false,
+            profile_category,
+            total_matched,
+            email_hash: pii_email_hash,
+            profile_encrypted: pii_profile_encrypted,
+            profile_enc_version: pii_profile_enc_version,
+          });
+          if (!error) savedToDb = true;
+        }
+      } catch {
+        // Fall through to in-memory
       }
-    } catch {
-      // Fall through to in-memory
     }
 
     // Always save to in-memory store (serves as cache for results API)
