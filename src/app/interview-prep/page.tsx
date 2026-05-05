@@ -1305,11 +1305,32 @@ function InterviewSession({
   // Silence detection: we only start the 3-second countdown AFTER we receive
   // a FINAL result (not interim). This prevents triggering mid-sentence when
   // the browser briefly pauses between words.
-  const startListening = useCallback(() => {
+  const startListening = useCallback(async () => {
     if (!sttSupported || typeof window === "undefined") return;
     const win = window as typeof window & { SpeechRecognition?: SpeechRecognitionCtor; webkitSpeechRecognition?: SpeechRecognitionCtor };
     const Ctor = win.SpeechRecognition || win.webkitSpeechRecognition;
     if (!Ctor) return;
+
+    // Explicitly request mic permission first. SpeechRecognition does not
+    // reliably trigger the permission prompt on its own — and on a site
+    // that previously had Permissions-Policy: microphone=() the browser
+    // may have cached the denial. getUserMedia surfaces a clean prompt
+    // (or a clean rejection if permission is already blocked at the site
+    // level), and we route either outcome into sttError.
+    if (navigator?.mediaDevices?.getUserMedia) {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        // Permission granted. SpeechRecognition has its own mic access
+        // path; close the stream so we don't hold the device open twice.
+        stream.getTracks().forEach((t) => t.stop());
+      } catch (e) {
+        const name = e instanceof Error ? e.name : "mic-error";
+        console.warn("[interview-prep] getUserMedia denied/failed:", name, e);
+        setSttError(name === "NotAllowedError" ? "not-allowed" : name === "NotFoundError" ? "audio-capture" : name);
+        return;
+      }
+    }
+
     const recog = new Ctor();
     recog.continuous = true;
     recog.interimResults = true;
@@ -1416,7 +1437,7 @@ function InterviewSession({
   // even if the "final" event is slow or never fires on some browsers/devices.
   // nameMode=true: disables interim results, enables maxAlternatives=3, and tries
   // all alternatives to find a non-empty transcript — ideal for short name utterances.
-  const listenOnce = useCallback((
+  const listenOnce = useCallback(async (
     onResult: (text: string) => void,
     onStateChange: (active: boolean) => void,
     nameMode = false,
@@ -1424,6 +1445,23 @@ function InterviewSession({
     if (!sttSupported || typeof window === "undefined") return;
     cancel(); // stop TTS before listening
     if (nameRecogRef.current) { try { nameRecogRef.current.abort(); } catch { /* ignore */ } }
+
+    // Same explicit-prompt pattern as startListening — surface mic
+    // permission prompt cleanly instead of relying on SpeechRecognition
+    // to do it implicitly (which is unreliable across browsers).
+    if (navigator?.mediaDevices?.getUserMedia) {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        stream.getTracks().forEach((t) => t.stop());
+      } catch (e) {
+        const name = e instanceof Error ? e.name : "mic-error";
+        console.warn("[interview-prep] name getUserMedia denied/failed:", name, e);
+        setSttError(name === "NotAllowedError" ? "not-allowed" : name === "NotFoundError" ? "audio-capture" : name);
+        onStateChange(false);
+        return;
+      }
+    }
+
     const win = window as typeof window & { SpeechRecognition?: SpeechRecognitionCtor; webkitSpeechRecognition?: SpeechRecognitionCtor };
     const Ctor = win.SpeechRecognition || win.webkitSpeechRecognition;
     if (!Ctor) return;
