@@ -1525,11 +1525,12 @@ All routes the homepage links to. Updated post-swap.
 | Path | Status | Notes |
 |---|---|---|
 | `/` | ✅ v2 brand language | Live, swap landed `66135a13` + post-swap polish `3c4d4929` + `259639da`. |
-| `/match` | ✅ Created (5 May) | New route with v2 brand language. |
-| `/parent-report` | ✅ Created (5 May) | New route. `/parent-decision` still exists (functional tool surface). |
+| `/match` | ✅ 307 redirect → `/get-started` | Brand-locked alias only. `src/app/match/page.tsx` is a one-liner that calls `redirect("/get-started")`. Real flow is unchanged. |
+| `/parent-report` | ✅ 307 redirect → `/parent-decision` | Brand-locked alias only. Same pattern — `src/app/parent-report/page.tsx` redirects to the existing tool surface. |
 | `/destinations` | ✅ Created (5 May) | New dedicated page; pre-swap homepage section content extracted here. |
 | `/scholarships` | ✅ Created (5 May) | New dedicated page; pulls from the `SCHOLARSHIPS` array (was at `_archive/page-pre-v2-swap.tsx.bak` lines 39+, content source preserved). |
 | `/methodology` | ✅ Created (5 May) | New page documenting the verification pipeline + 9-signal scoring — added during the post-swap polish pass. |
+| `/v2` | ✅ 404 (intentional) | Old prototype route un-routed after the swap; pre-swap content preserved at `src/app/_v2-archive/page.tsx` for reference (not exported as a route). |
 | `/application-check` | ⚠️ Exists, **pre-swap visuals** | Visual update to v2 brand language pending — open work item #2. |
 | `/interview-prep` | ⚠️ Exists, **pre-swap visuals** | Same — open work item #2. |
 | `/english-test-lab` | ⚠️ Exists, **pre-swap visuals** | Same. |
@@ -1644,4 +1645,18 @@ Replaced with: *"No university commissions. No marketing deals. Recommendations 
 ### 26.8 What this means for the open work
 
 Open work item #1 (port v2 brand to the 7 deep tool pages) must mirror **§26 patterns**, not just §24.4. Specifically: stage-card disclosure pattern, destination-card 4-signal pattern, locked CTA copy, "How it works" modal accessibility, and AuthGate top-right back link. The HowItWorksModal already exists and can be reused on tool pages where appropriate.
+
+### 26.9 Swap audit summary (post-deploy verification)
+
+| Route status | Count |
+|---|---:|
+| 200 OK | 19 (public tool pages + `/admin` + `/profile` + `/sample-parent-report`) |
+| 307 redirect | 3 — `/match → /get-started`, `/parent-report → /parent-decision`, `/lor-coach` (pre-existing auth gate, untouched) |
+| 404 (intentional) | 1 — `/v2` |
+
+**Internal-link coverage:** every route the pre-swap homepage linked to remains reachable from the new homepage (mapped via Hero CTAs, the 5 stage cards, For-families section, and Final CTA). `/admin` is reachable directly + via the new footer admin link.
+
+**Cross-codebase integrity (verified):** zero files outside `src/app/_v2-archive/` reference `src/app/v2/...`; zero stray `/v2#` anchors, prototype badges, or "Original →" links anywhere. tsc + next build clean.
+
+**Untouched by the swap:** all 22 API routes, `/admin/*` sub-routes, auth flow, profile editor, `/results/[token]`, `/lor-coach` + token route, the verification pipeline (`scripts/verify/*`), DB schema, every shared component (ChatWidget, CountryModal, ROICalculator, ParentDecisionTool, LogoutButton, EduvianLogo, AuthGate, DecisionDisclaimer, HowItWorksModal, multi-step form Steps).
 
