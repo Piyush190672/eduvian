@@ -1,32 +1,75 @@
 "use client";
 
 /**
- * /v2 — design-language prototype, round 2.
+ * /v2 — design-language prototype, round 3.
  *
- * User feedback applied:
- *   1. 'Pick your stage' compacted — 1-line description + 'Click to know more'
- *      button. Detail flows from the dedicated tool page each card links to.
- *   2. More white / off-white throughout. Only the hero stays navy for impact;
- *      everything else is white or stone-50.
- *   3. 'Why EduvianAI is different' — punchier per-principle text, 2x2 grid
- *      with bigger numerals, way less text density.
- *   4. NEW 'See what you actually get' on white background, with one accent
- *      border per demo (was missing in round 1).
+ * User direction:
+ *   Premium AI advisor + youthful student energy + parent-grade credibility.
+ *   Clean white/off-white base, deep navy/charcoal selectively, electric
+ *   purple accent for AI feel (selective). Semantic palette enforced:
+ *   emerald=safe, amber=medium risk, rose=risk. Real dashboard outputs.
+ *
+ * Card pattern (every stage card on the homepage follows this):
+ *   1. Title
+ *   2. One-line benefit
+ *   3. Sample output (a small concrete example, not a description)
+ *   4. CTA
+ *   5. Trust cue (one short line that says why this is reliable)
  */
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { ArrowRight, ArrowUpRight, ShieldCheck } from "lucide-react";
+import { ArrowRight, ArrowUpRight, ShieldCheck, Sparkles } from "lucide-react";
 import { DB_STATS, universitiesByCountry } from "@/data/db-stats";
 import ChatWidget from "@/components/ChatWidget";
 import CountryModal from "@/components/CountryModal";
 
 const STAGES = [
-  { n: "01", label: "Match",    title: "Find your best-fit programs",      one: "AI-matched shortlist from the verified database, in 2 minutes.",                href: "/get-started" },
-  { n: "02", label: "Check",    title: "Strengthen your application",      one: "SOP scored, CV rebuilt, pack-checked for credibility gaps.",                    href: "/application-check" },
-  { n: "03", label: "Practice", title: "Walk in already prepared",         one: "Mock visa interviews for AU, UK, US — plus IELTS, PTE, DET, TOEFL.",            href: "/interview-prep" },
-  { n: "04", label: "Decide",   title: "Choose with your family",          one: "ROI, payback, safety, scholarships — and a one-page parent-ready report.",     href: "/roi-calculator" },
-  { n: "05", label: "Apply",    title: "File the visa, first time right",  one: "Country-specific checklists, financial-proof rules, deadline countdowns.",      href: "/visa-coach" },
+  {
+    n: "01", label: "Match",
+    title: "Find your best-fit programs",
+    benefit: "AI-matched shortlist from the verified database, in 2 minutes.",
+    sample: { kind: "tier", safe: 6, reach: 9, ambitious: 5 },
+    cta: "Find my programs",
+    trust: "Match is built only on verified-at-source program data.",
+    href: "/get-started",
+  },
+  {
+    n: "02", label: "Check",
+    title: "Strengthen your application",
+    benefit: "SOP scored, CV rebuilt, pack-checked for credibility gaps.",
+    sample: { kind: "score", a: { label: "Before", v: 61 }, b: { label: "After", v: 84 } },
+    cta: "Check my application",
+    trust: "Scoring rubric is the same one universities use.",
+    href: "/application-check",
+  },
+  {
+    n: "03", label: "Practice",
+    title: "Walk in already prepared",
+    benefit: "Mock visa interviews for AU, UK, US — plus IELTS, PTE, DET, TOEFL.",
+    sample: { kind: "stat", v: "14 / 14", l: "UK credibility questions coached" },
+    cta: "Practise my interview",
+    trust: "Question banks built from current consulate guidance.",
+    href: "/interview-prep",
+  },
+  {
+    n: "04", label: "Decide",
+    title: "Choose with your family",
+    benefit: "ROI, payback, safety, scholarships — and a one-page parent-ready report.",
+    sample: { kind: "stat", v: "4.8 yrs", l: "Median payback period" },
+    cta: "Compare offers",
+    trust: "Salary + cost data sourced from official statistics offices.",
+    href: "/roi-calculator",
+  },
+  {
+    n: "05", label: "Apply",
+    title: "File the visa, first time right",
+    benefit: "Country-specific checklists, financial-proof rules, deadline countdowns.",
+    sample: { kind: "stat", v: "12", l: "Visa playbooks (F-1 · UK · SDS · 500 · D · 7 more)" },
+    cta: "Open Visa Coach",
+    trust: "Every figure linked to the official government page.",
+    href: "/visa-coach",
+  },
 ];
 
 const PRINCIPLES = [
@@ -37,8 +80,8 @@ const PRINCIPLES = [
 ];
 
 const DEMOS = [
-  { i: 0, label: "University Match",     sub: "Your personalised Top 20 shortlist",  accent: "border-rose-500"    },
-  { i: 1, label: "SOP Check",            sub: "AI feedback across 7 dimensions",     accent: "border-orange-400"  },
+  { i: 0, label: "University Match",     sub: "Your personalised Top 20 shortlist",  accent: "border-violet-500"  },
+  { i: 1, label: "SOP Check",            sub: "AI feedback across 7 dimensions",     accent: "border-indigo-500"  },
   { i: 2, label: "Interview Coach",      sub: "Voice + text mock with AI scoring",   accent: "border-emerald-500" },
   { i: 3, label: "ROI Analysis",         sub: "Payback period and 10-year ROI",      accent: "border-amber-500"   },
   { i: 4, label: "Visa Apply",           sub: "Country checklist + risk flags",      accent: "border-sky-500"     },
@@ -59,19 +102,68 @@ const COUNTRIES = [
   { flag: "🇦🇪", name: "UAE",         img: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&q=80" },
 ];
 
-// Editorial highlights — 8 marquee scholarships across 6 countries.
-// Full per-country list lives in the dedicated /scholarships flow on
-// the production page; this is the home-page teaser.
 const SCHOLARSHIP_HIGHLIGHTS = [
-  { flag: "🇺🇸", country: "USA",       name: "Fulbright Foreign Student Program",  cover: "Fully funded",       note: "Tuition, living stipend, travel & health insurance" },
-  { flag: "🇬🇧", country: "UK",        name: "Chevening Scholarship",              cover: "Fully funded",       note: "UK Govt — tuition, living, travel; 1-year Masters" },
-  { flag: "🇬🇧", country: "UK",        name: "Gates Cambridge Scholarship",        cover: "Fully funded",       note: "Exceptional scholars at Cambridge; highly competitive" },
-  { flag: "🇦🇺", country: "Australia", name: "Australia Awards",                   cover: "Fully funded",       note: "Australian Govt; tuition, living, travel, health" },
-  { flag: "🇨🇦", country: "Canada",    name: "Vanier Canada Graduate Scholarship", cover: "CAD 50,000 / yr",    note: "Doctoral students at Canadian universities" },
-  { flag: "🇩🇪", country: "Germany",   name: "DAAD Scholarship",                   cover: "€934 – €1,300 / mo", note: "German Govt; covers tuition, living, health" },
-  { flag: "🇸🇬", country: "Singapore", name: "Singapore International Graduate",   cover: "Fully funded",       note: "A*STAR for STEM PhD candidates" },
-  { flag: "🇮🇪", country: "Ireland",   name: "Government of Ireland International", cover: "€10,000 + fees",    note: "Postgraduate research at Irish universities" },
+  { flag: "🇺🇸", country: "USA",       name: "Fulbright Foreign Student Program",   cover: "Fully funded",       note: "Tuition, living stipend, travel & health insurance" },
+  { flag: "🇬🇧", country: "UK",        name: "Chevening Scholarship",               cover: "Fully funded",       note: "UK Govt — tuition, living, travel; 1-year Masters" },
+  { flag: "🇬🇧", country: "UK",        name: "Gates Cambridge Scholarship",         cover: "Fully funded",       note: "Exceptional scholars at Cambridge; highly competitive" },
+  { flag: "🇦🇺", country: "Australia", name: "Australia Awards",                    cover: "Fully funded",       note: "Australian Govt; tuition, living, travel, health" },
+  { flag: "🇨🇦", country: "Canada",    name: "Vanier Canada Graduate Scholarship",  cover: "CAD 50,000 / yr",    note: "Doctoral students at Canadian universities" },
+  { flag: "🇩🇪", country: "Germany",   name: "DAAD Scholarship",                    cover: "€934 – €1,300 / mo", note: "German Govt; covers tuition, living, health" },
+  { flag: "🇸🇬", country: "Singapore", name: "Singapore International Graduate",    cover: "Fully funded",       note: "A*STAR for STEM PhD candidates" },
+  { flag: "🇮🇪", country: "Ireland",   name: "Government of Ireland International", cover: "€10,000 + fees",     note: "Postgraduate research at Irish universities" },
 ];
+
+// Sample shortlist rows for the hero dashboard mockup
+const SAMPLE_SHORTLIST = [
+  { name: "University of Leeds",     prog: "MSc AI & Data Science",  pct: 91, tier: "safe",      flag: "🇬🇧" },
+  { name: "University of Toronto",   prog: "MEng Computer Science",  pct: 88, tier: "safe",      flag: "🇨🇦" },
+  { name: "TU Munich",               prog: "MSc Informatics",        pct: 79, tier: "reach",     flag: "🇩🇪" },
+  { name: "University of Edinburgh", prog: "MSc Computer Science",   pct: 76, tier: "reach",     flag: "🏴󠁧󠁢󠁳󠁣󠁴󠁿" },
+  { name: "Imperial College London", prog: "MSc Machine Learning",   pct: 63, tier: "ambitious", flag: "🇬🇧" },
+];
+
+// Stage-card sample-output renderer. Tiny, restrained, uses semantic palette only.
+function StageSample({ s }: { s: typeof STAGES[number]["sample"] }) {
+  if (s.kind === "tier") {
+    const pills = [
+      { k: "Safe",      v: s.safe,      cls: "text-emerald-700 bg-emerald-50 border-emerald-100" },
+      { k: "Reach",     v: s.reach,     cls: "text-amber-700 bg-amber-50 border-amber-100"      },
+      { k: "Ambitious", v: s.ambitious, cls: "text-rose-700 bg-rose-50 border-rose-100"          },
+    ];
+    return (
+      <div className="flex flex-wrap gap-2">
+        {pills.map((p) => (
+          <span key={p.k} className={`inline-flex items-baseline gap-1.5 text-[11px] font-semibold px-2.5 py-1 rounded-full border ${p.cls}`}>
+            <span className="font-bold tabular-nums">{p.v}</span> {p.k}
+          </span>
+        ))}
+      </div>
+    );
+  }
+  if (s.kind === "score") {
+    return (
+      <div className="space-y-2">
+        {[s.a, s.b].map((row, i) => (
+          <div key={row.label}>
+            <div className="flex justify-between text-[11px] mb-1">
+              <span className="text-gray-500">{row.label}</span>
+              <span className={`tabular-nums font-semibold ${i === 0 ? "text-gray-500" : "text-emerald-700"}`}>{row.v}%</span>
+            </div>
+            <div className="h-1.5 rounded-full bg-stone-200 overflow-hidden">
+              <div className={`h-full rounded-full ${i === 0 ? "bg-stone-400" : "bg-emerald-500"}`} style={{ width: `${row.v}%` }} />
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  }
+  return (
+    <div className="flex items-baseline gap-2">
+      <span className="font-display text-2xl font-semibold text-gray-900 tabular-nums">{s.v}</span>
+      <span className="text-xs text-gray-500">{s.l}</span>
+    </div>
+  );
+}
 
 export default function V2LandingPage() {
   const [activeDemo, setActiveDemo] = useState(0);
@@ -84,14 +176,12 @@ export default function V2LandingPage() {
   return (
     <div className="min-h-screen bg-white font-sans antialiased text-gray-900">
 
-      {/* ─────────────────────────────────────────────
-          NAV
-         ───────────────────────────────────────────── */}
+      {/* ───── NAV ───── */}
       <nav className="absolute top-0 inset-x-0 z-50">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 h-16 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 text-white">
             <span className="font-display text-lg font-bold tracking-tight">eduvianAI</span>
-            <span className="text-[10px] uppercase tracking-[0.2em] text-rose-300/70 hidden sm:inline">v2 prototype</span>
+            <span className="text-[10px] uppercase tracking-[0.2em] text-violet-300/70 hidden sm:inline">v2 prototype</span>
           </Link>
           <div className="flex items-center gap-6">
             <Link href="/v2#journey"      className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors">Journey</Link>
@@ -110,94 +200,130 @@ export default function V2LandingPage() {
         </div>
       </nav>
 
-      {/* ─────────────────────────────────────────────
-          HERO — only dark section. Sets the tone, then
-          lets the rest of the page breathe in light.
-         ───────────────────────────────────────────── */}
+      {/* ───── HERO ─────
+          Heading = the user-supplied positioning sentence.
+          RHS    = real sample-dashboard mockup (no photo).
+          Below  = parent strip with For-students / For-parents.
+       */}
       <section className="relative bg-[#0E1119] text-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 sm:px-10 pt-32 sm:pt-40 pb-20 sm:pb-28 grid lg:grid-cols-12 gap-12 items-end">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 pt-28 sm:pt-36 pb-16 sm:pb-20 grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           <div className="lg:col-span-7">
-            <p className="text-[11px] uppercase tracking-[0.25em] text-rose-300/80 mb-8 font-semibold">
-              Study abroad, de-risked.
+            <p className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.25em] text-violet-300/85 mb-8 font-semibold">
+              <Sparkles className="w-3 h-3" /> Independent · verified · AI-driven
             </p>
-            <h1 className="font-display font-bold text-[2.5rem] leading-[1.05] sm:text-6xl md:text-7xl tracking-tight mb-8">
-              Make the right call —<br />
-              with{" "}
-              <span className="italic font-medium text-rose-300">verified data</span>
-              ,<br />
-              not advice from{" "}
-              <span className="italic font-medium text-stone-300">someone&apos;s quota</span>.
+            <h1 className="font-display font-bold text-[2.25rem] leading-[1.08] sm:text-5xl md:text-[3.75rem] tracking-tight mb-7">
+              Choose your <span className="italic font-medium text-violet-300">study abroad path</span> with verified data you can trust.
             </h1>
-            <p className="text-lg sm:text-xl text-white/60 leading-relaxed max-w-2xl mb-12">
-              From shortlist to visa, one platform that fetches every fee, deadline and cutoff from the live university page.
-              No commissions. No invented numbers.
+            <p className="text-lg sm:text-xl text-white/65 leading-relaxed max-w-2xl mb-10">
+              EduvianAI gives students and families an independent, data-backed layer of clarity before they make high-stakes study abroad decisions.
             </p>
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-3">
               <Link
                 href="/get-started"
-                className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white text-gray-900 text-sm font-semibold hover:bg-stone-100 transition-colors"
+                className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-violet-500 hover:bg-violet-600 text-white text-sm font-semibold transition-colors shadow-lg shadow-violet-900/30"
               >
                 Find my best-fit programs
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
               </Link>
               <Link
-                href="/application-check"
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-white/15 text-white/85 text-sm font-semibold hover:border-white/35 hover:text-white transition-colors"
+                href="/parent-decision"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-white/20 text-white/85 text-sm font-semibold hover:border-white/40 hover:text-white transition-colors"
               >
-                Check my application strength
+                Generate the family report
               </Link>
             </div>
           </div>
 
-          <div className="lg:col-span-5 relative">
-            <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-stone-200 relative">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/graduate-india.jpg"
-                alt="EduvianAI student"
-                width="600"
-                height="750"
-                className="w-full h-full object-cover object-top grayscale-[30%] contrast-[1.05]"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0E1119] via-transparent to-transparent" />
-            </div>
-            <div className="absolute -bottom-6 -left-6 sm:-left-10 bg-white text-gray-900 rounded-2xl px-6 py-4 shadow-2xl shadow-black/40 max-w-[280px]">
-              <p className="text-[10px] uppercase tracking-widest text-rose-600 font-bold mb-1">Verified moat</p>
-              <p className="text-sm font-display font-semibold leading-snug">
-                {DB_STATS.verifiedProgramsLabel} programs verified at the source —
-                <span className="text-gray-500"> the largest in Indian-origin study-abroad tooling.</span>
-              </p>
+          {/* RHS: sample shortlist dashboard (no photograph) */}
+          <div className="lg:col-span-5">
+            <div className="bg-white text-gray-900 rounded-2xl shadow-2xl shadow-black/40 border border-stone-200 overflow-hidden">
+              <div className="px-5 py-4 border-b border-stone-200 flex items-center justify-between">
+                <div>
+                  <p className="text-[10px] uppercase tracking-[0.2em] font-bold text-violet-700">AI Shortlist · sample output</p>
+                  <p className="text-sm font-display font-semibold text-gray-900 mt-0.5">Top 20 personalised programs</p>
+                </div>
+                <span className="text-[10px] font-bold px-2 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-100">9 signals matched</span>
+              </div>
+              <div className="px-5 py-3">
+                {SAMPLE_SHORTLIST.map((r) => {
+                  const tierCls = r.tier === "safe" ? "text-emerald-700 bg-emerald-50 border-emerald-100"
+                              : r.tier === "reach" ? "text-amber-700 bg-amber-50 border-amber-100"
+                                                    : "text-rose-700 bg-rose-50 border-rose-100";
+                  const barCls  = r.tier === "safe" ? "bg-emerald-500"
+                              : r.tier === "reach" ? "bg-amber-500"
+                                                    : "bg-rose-500";
+                  return (
+                    <div key={r.name} className="flex items-center gap-3 py-2.5 border-b border-stone-100 last:border-0">
+                      <span className="text-base flex-shrink-0">{r.flag}</span>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-xs font-semibold text-gray-900 truncate">{r.name}</p>
+                        <p className="text-[11px] text-gray-500 truncate">{r.prog}</p>
+                        <div className="flex items-center gap-2 mt-1.5">
+                          <div className="flex-1 h-1 rounded-full bg-stone-200 overflow-hidden">
+                            <div className={`h-full rounded-full ${barCls}`} style={{ width: `${r.pct}%` }} />
+                          </div>
+                          <span className="text-[10px] tabular-nums font-bold text-gray-700">{r.pct}%</span>
+                        </div>
+                      </div>
+                      <span className={`text-[9px] font-bold px-2 py-0.5 rounded-full border ${tierCls} flex-shrink-0`}>
+                        {r.tier === "safe" ? "Safe" : r.tier === "reach" ? "Reach" : "Ambitious"}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+              <div className="px-5 py-3 bg-stone-50 border-t border-stone-200 flex items-center justify-between">
+                <p className="text-[11px] text-gray-500">Showing 5 of 20 · {DB_STATS.verifiedProgramsLabel} verified-source programs</p>
+                <Link href="/get-started" className="text-[11px] font-bold text-violet-700 inline-flex items-center gap-1">
+                  View all <ArrowUpRight className="w-3 h-3" />
+                </Link>
+              </div>
             </div>
           </div>
         </div>
 
+        {/* Bottom trust strip — single editorial line */}
         <div className="border-t border-white/8">
-          <div className="max-w-7xl mx-auto px-6 sm:px-10 py-6 flex flex-wrap items-center justify-between gap-x-8 gap-y-3 text-[13px] text-white/50">
+          <div className="max-w-7xl mx-auto px-6 sm:px-10 py-5 flex flex-wrap items-center justify-between gap-x-8 gap-y-3 text-[12px] text-white/55">
             <div className="flex items-center gap-2">
               <ShieldCheck className="w-4 h-4 text-emerald-400/80" />
               <span>Independent · no university commission</span>
             </div>
-            <div className="hidden sm:block w-px h-4 bg-white/10" />
-            <span>{DB_STATS.verifiedUniversitiesLabel} universities · {DB_STATS.countriesLabel} countries · {DB_STATS.fieldsLabel} fields</span>
-            <div className="hidden sm:block w-px h-4 bg-white/10" />
-            <span>Outputs are decision-support estimates · always confirm with the university</span>
+            <span className="hidden sm:inline">{DB_STATS.verifiedProgramsLabel} programs · {DB_STATS.verifiedUniversitiesLabel} universities · {DB_STATS.countriesLabel} countries</span>
+            <span className="hidden sm:inline text-white/45">Decision-support estimates · always confirm with the university</span>
           </div>
         </div>
       </section>
 
-      {/* ─────────────────────────────────────────────
-          STAT BAND — pure white, three numbers.
-         ───────────────────────────────────────────── */}
+      {/* ───── PARENT/STUDENT STRIP — directly under hero ───── */}
+      <section className="bg-stone-50 border-b border-stone-200">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 py-12 sm:py-16 grid sm:grid-cols-2 gap-6 sm:gap-10">
+          <div className="rounded-2xl bg-white border border-stone-200 p-6 sm:p-8">
+            <p className="text-[11px] uppercase tracking-[0.25em] text-violet-700 font-semibold mb-3">For students</p>
+            <p className="font-display text-lg sm:text-xl text-gray-900 leading-snug">
+              Find the right-fit course, improve your application, prepare for interviews.
+            </p>
+          </div>
+          <div className="rounded-2xl bg-white border border-stone-200 p-6 sm:p-8">
+            <p className="text-[11px] uppercase tracking-[0.25em] text-emerald-700 font-semibold mb-3">For parents</p>
+            <p className="font-display text-lg sm:text-xl text-gray-900 leading-snug">
+              Compare cost, ROI, safety, visa readiness, and long-term value.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ───── STAT BAND ───── */}
       <section className="bg-white border-b border-stone-200">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 py-20 sm:py-28">
-          <p className="text-[11px] uppercase tracking-[0.25em] text-rose-700 font-semibold mb-8">By the numbers</p>
+          <p className="text-[11px] uppercase tracking-[0.25em] text-violet-700 font-semibold mb-8">By the numbers</p>
           <div className="grid sm:grid-cols-3 gap-y-10 gap-x-12">
             {[
               { v: DB_STATS.verifiedProgramsLabel, l: "Verified programs",      sub: "Every figure fetched live from the official university page." },
               { v: "9",                            l: "Most Important Signals", sub: "Academic, budget, English, intake, scholarship, work-ex, std test, backlogs, gap." },
               { v: DB_STATS.countriesLabel,        l: "Destination countries",  sub: "USA, UK, Canada, Australia, Germany, NL, Ireland, France, NZ, Singapore, Malaysia, UAE." },
             ].map((s) => (
-              <div key={s.l} className="border-l-2 border-rose-600 pl-6">
+              <div key={s.l} className="border-l-2 border-violet-600 pl-6">
                 <p className="font-display text-5xl sm:text-6xl font-bold tracking-tight text-gray-900 mb-2 leading-none">{s.v}</p>
                 <p className="text-sm font-semibold text-gray-900 mb-2">{s.l}</p>
                 <p className="text-sm text-gray-500 leading-relaxed">{s.sub}</p>
@@ -207,56 +333,59 @@ export default function V2LandingPage() {
         </div>
       </section>
 
-      {/* ─────────────────────────────────────────────
-          1.  PICK YOUR STAGE — compact cards. One line
-              + 'Click to know more'. Detail lives on
-              the tool page each card links to.
-         ───────────────────────────────────────────── */}
+      {/* ───── PICK YOUR STAGE — cards w/ Title / Benefit / Sample / CTA / Trust cue ───── */}
       <section id="journey" className="bg-stone-50 border-b border-stone-200">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 py-24 sm:py-32">
           <div className="max-w-3xl mb-14 sm:mb-16">
-            <p className="text-[11px] uppercase tracking-[0.25em] text-rose-700 font-semibold mb-6">Pick your stage</p>
+            <p className="text-[11px] uppercase tracking-[0.25em] text-violet-700 font-semibold mb-6">Pick your stage</p>
             <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.1] mb-6">
-              From <span className="italic font-medium text-rose-700">first shortlist</span> to <span className="italic font-medium text-rose-700">final visa step</span>.
+              From <span className="italic font-medium text-violet-700">first shortlist</span> to <span className="italic font-medium text-violet-700">final visa step</span>.
             </h2>
             <p className="text-lg text-gray-500 leading-relaxed">
-              Five stages. Tap any card to open the dedicated tool — that&apos;s where the detail lives.
+              Five stages. Each card shows a real sample of what the tool produces — open the dedicated page when you want to use it.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
             {STAGES.map((s) => (
-              <Link
+              <div
                 key={s.n}
-                href={s.href}
-                className="group flex flex-col p-6 sm:p-7 rounded-2xl bg-white border border-stone-200 hover:border-rose-300 hover:shadow-lg hover:shadow-rose-100 hover:-translate-y-0.5 transition-all"
+                className="group flex flex-col p-6 rounded-2xl bg-white border border-stone-200 hover:border-violet-300 hover:shadow-lg hover:shadow-violet-100 transition-all"
               >
-                <div className="flex items-baseline justify-between mb-6">
-                  <span className="font-display text-3xl font-light text-rose-600 tabular-nums">{s.n}</span>
+                <div className="flex items-baseline justify-between mb-5">
+                  <span className="font-display text-2xl font-light text-violet-600 tabular-nums">{s.n}</span>
                   <span className="text-[10px] uppercase tracking-[0.25em] text-gray-400 font-semibold">{s.label}</span>
                 </div>
-                <h3 className="font-display text-xl font-semibold tracking-tight text-gray-900 mb-3 leading-snug">{s.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed mb-8 flex-1">{s.one}</p>
-                <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-gray-900 group-hover:text-rose-700 group-hover:gap-2 transition-all">
-                  Click to know more
-                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </span>
-              </Link>
+                <h3 className="font-display text-lg font-semibold tracking-tight text-gray-900 mb-2 leading-snug">{s.title}</h3>
+                <p className="text-sm text-gray-500 leading-relaxed mb-5">{s.benefit}</p>
+                <div className="rounded-xl bg-stone-50 border border-stone-100 px-4 py-3.5 mb-5">
+                  <p className="text-[10px] uppercase tracking-widest text-gray-400 font-semibold mb-2">Sample output</p>
+                  <StageSample s={s.sample} />
+                </div>
+                <Link
+                  href={s.href}
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-violet-700 group-hover:gap-2 transition-all mb-3"
+                >
+                  {s.cta}
+                  <ArrowUpRight className="w-4 h-4" />
+                </Link>
+                <div className="pt-3 mt-auto border-t border-stone-100 flex items-start gap-2">
+                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <p className="text-[11px] text-gray-500 leading-snug">{s.trust}</p>
+                </div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ─────────────────────────────────────────────
-          4.  SEE WHAT YOU ACTUALLY GET — light bg,
-              colored left-border per demo.
-         ───────────────────────────────────────────── */}
+      {/* ───── SEE WHAT YOU ACTUALLY GET — light bg, colored borders ───── */}
       <section id="outputs" className="bg-white border-b border-stone-200">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 py-24 sm:py-32">
           <div className="max-w-3xl mb-14 sm:mb-16">
-            <p className="text-[11px] uppercase tracking-[0.25em] text-rose-700 font-semibold mb-6">Sample outputs — illustrative</p>
+            <p className="text-[11px] uppercase tracking-[0.25em] text-violet-700 font-semibold mb-6">Sample outputs — illustrative</p>
             <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.1] mb-6">
-              See what you <span className="italic font-medium text-rose-700">actually get</span>.
+              See what you <span className="italic font-medium text-violet-700">actually get</span>.
             </h2>
             <p className="text-lg text-gray-500 leading-relaxed">
               Every tool produces a structured output. Here&apos;s a flavour of each — auto-cycling every 5 seconds, or click any band to focus.
@@ -264,7 +393,6 @@ export default function V2LandingPage() {
           </div>
 
           <div className="grid lg:grid-cols-12 gap-8">
-            {/* Left: tab list with colored borders */}
             <div className="lg:col-span-5 space-y-2">
               {DEMOS.map((d) => {
                 const active = activeDemo === d.i;
@@ -286,23 +414,16 @@ export default function V2LandingPage() {
               })}
             </div>
 
-            {/* Right: demo preview surface */}
             <div className="lg:col-span-7">
               <div className={`rounded-2xl bg-stone-50 border-l-4 ${DEMOS[activeDemo].accent} border-y border-r border-stone-200 p-8 sm:p-10 min-h-[420px]`}>
                 <div className="flex items-baseline justify-between mb-6">
                   <p className="text-[11px] uppercase tracking-[0.25em] text-gray-500 font-bold">{DEMOS[activeDemo].label} — sample output</p>
-                  <p className="text-[10px] uppercase tracking-widest text-rose-600 font-bold">illustrative</p>
+                  <p className="text-[10px] uppercase tracking-widest text-violet-700 font-bold">illustrative</p>
                 </div>
 
                 {activeDemo === 0 && (
                   <div className="space-y-3">
-                    {[
-                      { name: "University of Leeds",         prog: "MSc AI & Data Science",   pct: 91, tier: "Safe",      flag: "🇬🇧" },
-                      { name: "University of Edinburgh",     prog: "MSc Computer Science",    pct: 76, tier: "Reach",     flag: "🏴󠁧󠁢󠁳󠁣󠁴󠁿" },
-                      { name: "Imperial College London",     prog: "MSc Machine Learning",    pct: 63, tier: "Ambitious", flag: "🇬🇧" },
-                      { name: "Technical University Munich", prog: "MSc Informatics",         pct: 79, tier: "Reach",     flag: "🇩🇪" },
-                      { name: "University of Toronto",       prog: "MEng Computer Science",   pct: 88, tier: "Safe",      flag: "🇨🇦" },
-                    ].map((r) => (
+                    {SAMPLE_SHORTLIST.map((r) => (
                       <div key={r.name} className="flex items-center gap-3 py-2 border-b border-stone-200/70 last:border-0">
                         <span className="text-base flex-shrink-0">{r.flag}</span>
                         <div className="flex-1 min-w-0">
@@ -311,10 +432,10 @@ export default function V2LandingPage() {
                         </div>
                         <span className="text-sm font-bold text-gray-900 tabular-nums">{r.pct}%</span>
                         <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full border ${
-                          r.tier === "Safe"      ? "border-emerald-200 text-emerald-700 bg-emerald-50" :
-                          r.tier === "Reach"     ? "border-amber-200 text-amber-700 bg-amber-50" :
+                          r.tier === "safe"      ? "border-emerald-200 text-emerald-700 bg-emerald-50" :
+                          r.tier === "reach"     ? "border-amber-200 text-amber-700 bg-amber-50" :
                                                    "border-rose-200 text-rose-700 bg-rose-50"
-                        }`}>{r.tier}</span>
+                        }`}>{r.tier === "safe" ? "Safe" : r.tier === "reach" ? "Reach" : "Ambitious"}</span>
                       </div>
                     ))}
                   </div>
@@ -334,7 +455,7 @@ export default function V2LandingPage() {
                         <span className={`text-sm font-bold ${
                           r.tone === "good" ? "text-emerald-700" :
                           r.tone === "warn" ? "text-amber-700"   :
-                                              "text-rose-700"
+                                              "text-violet-700"
                         }`}>{r.v}</span>
                       </div>
                     ))}
@@ -409,42 +530,44 @@ export default function V2LandingPage() {
         </div>
       </section>
 
-      {/* ─────────────────────────────────────────────
-          3.  PRINCIPLES — punchy 2x2 grid, way less
-              text per card. White background.
-         ───────────────────────────────────────────── */}
+      {/* ───── PRINCIPLES — 2x2 grid + bias-free statement ───── */}
       <section id="principles" className="bg-stone-50 border-b border-stone-200">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 py-24 sm:py-32">
           <div className="max-w-3xl mb-14 sm:mb-16">
-            <p className="text-[11px] uppercase tracking-[0.25em] text-rose-700 font-semibold mb-6">Why this is reliable</p>
+            <p className="text-[11px] uppercase tracking-[0.25em] text-violet-700 font-semibold mb-6">Why this is reliable</p>
             <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.1] mb-6">
               Four things that make <br />
-              EduvianAI <span className="italic font-medium text-rose-700">different</span>.
+              EduvianAI <span className="italic font-medium text-violet-700">different</span>.
             </h2>
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-5">
+          <div className="grid sm:grid-cols-2 gap-5 mb-12">
             {PRINCIPLES.map((p) => (
               <div
                 key={p.n}
-                className="group flex flex-col p-8 sm:p-10 rounded-2xl bg-white border border-stone-200 hover:border-rose-300 hover:shadow-lg hover:shadow-rose-100 transition-all"
+                className="group flex flex-col p-8 sm:p-10 rounded-2xl bg-white border border-stone-200 hover:border-violet-300 hover:shadow-lg hover:shadow-violet-100 transition-all"
               >
-                <span className="font-display text-4xl font-light text-rose-600 tabular-nums mb-6">{p.n}</span>
+                <span className="font-display text-4xl font-light text-violet-600 tabular-nums mb-6">{p.n}</span>
                 <h3 className="font-display text-2xl sm:text-3xl font-semibold tracking-tight text-gray-900 mb-3 leading-tight">{p.t}</h3>
                 <p className="text-base text-gray-500 leading-relaxed">{p.p}</p>
               </div>
             ))}
           </div>
+
+          {/* Bias-free editorial line — the user's specific copy */}
+          <div className="border-t border-stone-200 pt-8">
+            <p className="font-display text-xl sm:text-2xl text-gray-900 leading-snug max-w-3xl">
+              Built to reduce <span className="italic font-medium text-violet-700">individual bias</span>, <span className="italic font-medium text-violet-700">guesswork</span>, and <span className="italic font-medium text-violet-700">commission-led</span> recommendations.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* ─────────────────────────────────────────────
-          FOR FAMILIES — sample report, off-white
-         ───────────────────────────────────────────── */}
+      {/* ───── PARENT REPORT ───── */}
       <section className="bg-white border-b border-stone-200">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 py-24 sm:py-32 grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-6">
-            <p className="text-[11px] uppercase tracking-[0.25em] text-rose-700 font-semibold mb-6">For families</p>
+            <p className="text-[11px] uppercase tracking-[0.25em] text-emerald-700 font-semibold mb-6">For families</p>
             <h2 className="font-display text-4xl sm:text-5xl font-bold tracking-tight leading-[1.1] mb-6">
               The same facts<br />on both sides of the table.
             </h2>
@@ -461,7 +584,7 @@ export default function V2LandingPage() {
               </Link>
               <Link
                 href="/sample-parent-report"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-gray-900 hover:text-rose-700 transition-colors"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-gray-900 hover:text-violet-700 transition-colors"
               >
                 See a sample report <ArrowUpRight className="w-4 h-4" />
               </Link>
@@ -472,18 +595,18 @@ export default function V2LandingPage() {
             <div className="bg-stone-50 border border-stone-200 rounded-2xl p-6 sm:p-8 shadow-sm">
               <div className="flex items-baseline justify-between mb-5">
                 <p className="text-[11px] uppercase tracking-[0.25em] text-gray-400 font-bold">Parent Decision Report</p>
-                <p className="text-[10px] uppercase tracking-widest text-rose-600 font-bold">Sample</p>
+                <p className="text-[10px] uppercase tracking-widest text-violet-700 font-bold">Sample</p>
               </div>
               <table className="w-full text-sm">
                 <tbody className="divide-y divide-stone-200/70">
                   {[
-                    { k: "Budget fit",      v: "Good",            t: "text-emerald-700" },
-                    { k: "Payback period",  v: "4.8 years",       t: "text-gray-700"    },
-                    { k: "Safety",          v: "Good",            t: "text-emerald-700" },
-                    { k: "Job market",      v: "Strong",          t: "text-emerald-700" },
-                    { k: "Visa readiness",  v: "Medium",          t: "text-amber-700"   },
-                    { k: "Scholarship fit", v: "Worth applying",  t: "text-gray-700"    },
-                    { k: "Family verdict",  v: "Worth considering", t: "text-rose-700 font-semibold" },
+                    { k: "Budget fit",      v: "Good",              t: "text-emerald-700" },
+                    { k: "Payback period",  v: "4.8 years",         t: "text-gray-700"    },
+                    { k: "Safety",          v: "Good",              t: "text-emerald-700" },
+                    { k: "Job market",      v: "Strong",            t: "text-emerald-700" },
+                    { k: "Visa readiness",  v: "Medium",            t: "text-amber-700"   },
+                    { k: "Scholarship fit", v: "Worth applying",    t: "text-gray-700"    },
+                    { k: "Family verdict",  v: "Worth considering", t: "text-violet-700 font-semibold" },
                   ].map((r) => (
                     <tr key={r.k}>
                       <td className="py-3 text-gray-600">{r.k}</td>
@@ -498,17 +621,14 @@ export default function V2LandingPage() {
         </div>
       </section>
 
-      {/* ─────────────────────────────────────────────
-          DESTINATIONS — 12 country tiles, editorial.
-          Click → CountryModal (same as production).
-         ───────────────────────────────────────────── */}
+      {/* ───── DESTINATIONS ───── */}
       <section id="destinations" className="bg-stone-50 border-b border-stone-200">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 py-24 sm:py-32">
           <div className="max-w-3xl mb-14 sm:mb-16">
-            <p className="text-[11px] uppercase tracking-[0.25em] text-rose-700 font-semibold mb-6">Destinations</p>
+            <p className="text-[11px] uppercase tracking-[0.25em] text-violet-700 font-semibold mb-6">Destinations</p>
             <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.1] mb-6">
               Twelve countries.<br />
-              One <span className="italic font-medium text-rose-700">verified-source</span> database.
+              One <span className="italic font-medium text-violet-700">verified-source</span> database.
             </h2>
             <p className="text-lg text-gray-500 leading-relaxed">
               Every destination on EduvianAI carries the same standard: live URL fetch, no invented values, blank fields where the official page is silent. Tap any country to see universities, fees and visa rules.
@@ -549,25 +669,21 @@ export default function V2LandingPage() {
         </div>
       </section>
 
-      {/* ─────────────────────────────────────────────
-          SCHOLARSHIPS — editorial highlights, compact.
-          Full per-country list lives on the production
-          page; this is the v2 teaser.
-         ───────────────────────────────────────────── */}
+      {/* ───── SCHOLARSHIPS ───── */}
       <section id="scholarships" className="bg-white border-b border-stone-200">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 py-24 sm:py-32">
           <div className="grid lg:grid-cols-12 gap-12 mb-12 sm:mb-14">
             <div className="lg:col-span-5">
-              <p className="text-[11px] uppercase tracking-[0.25em] text-rose-700 font-semibold mb-6">Scholarships</p>
+              <p className="text-[11px] uppercase tracking-[0.25em] text-violet-700 font-semibold mb-6">Scholarships</p>
               <h2 className="font-display text-4xl sm:text-5xl font-bold tracking-tight leading-[1.1] mb-6">
-                Money on the<br />table you can <span className="italic font-medium text-rose-700">claim</span>.
+                Money on the<br />table you can <span className="italic font-medium text-violet-700">claim</span>.
               </h2>
               <p className="text-lg text-gray-500 leading-relaxed mb-6">
                 Eight marquee scholarships across our destination countries — from Fulbright and Chevening to DAAD and Australia Awards. Hundreds more sit inside individual university pages.
               </p>
               <Link
                 href="/"
-                className="inline-flex items-center gap-1.5 text-sm font-semibold text-gray-900 hover:text-rose-700 transition-colors"
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-gray-900 hover:text-violet-700 transition-colors"
               >
                 See full per-country list <ArrowUpRight className="w-4 h-4" />
               </Link>
@@ -584,7 +700,7 @@ export default function V2LandingPage() {
                       <p className="text-xs text-gray-500 mt-1 leading-relaxed">{s.note}</p>
                     </div>
                     <div className="col-span-12 sm:col-span-4 sm:text-right">
-                      <span className="inline-block text-xs font-semibold text-rose-700 bg-rose-50 border border-rose-100 rounded-full px-3 py-1">
+                      <span className="inline-block text-xs font-semibold text-violet-700 bg-violet-50 border border-violet-100 rounded-full px-3 py-1">
                         {s.cover}
                       </span>
                     </div>
@@ -596,15 +712,13 @@ export default function V2LandingPage() {
         </div>
       </section>
 
-      {/* ─────────────────────────────────────────────
-          FINAL CTA — light cream, NOT navy this time.
-         ───────────────────────────────────────────── */}
+      {/* ───── FINAL CTA ───── */}
       <section className="bg-stone-50 border-b border-stone-200">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 py-28 sm:py-40 text-center">
-          <p className="text-[11px] uppercase tracking-[0.25em] text-rose-700 font-semibold mb-8">Free to try · no account needed</p>
+          <p className="text-[11px] uppercase tracking-[0.25em] text-violet-700 font-semibold mb-8">Free to try · no account needed</p>
           <h2 className="font-display text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-[1.05] mb-8 max-w-4xl mx-auto text-gray-900">
             From your first shortlist<br />
-            to your <span className="italic font-medium text-rose-700">final visa step</span>.
+            to your <span className="italic font-medium text-violet-700">final visa step</span>.
           </h2>
           <p className="text-lg sm:text-xl text-gray-500 leading-relaxed max-w-2xl mx-auto mb-12">
             Match programs, strengthen your application, prepare for the interview, compare offers, and file the visa — with verified data at every step.
@@ -612,7 +726,7 @@ export default function V2LandingPage() {
           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-3">
             <Link
               href="/get-started"
-              className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gray-900 text-white text-sm font-semibold hover:bg-gray-800 transition-colors"
+              className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-violet-600 hover:bg-violet-700 text-white text-sm font-semibold transition-colors shadow-lg shadow-violet-200"
             >
               Find my best-fit programs
               <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
@@ -627,21 +741,21 @@ export default function V2LandingPage() {
         </div>
       </section>
 
-      {/* ─────────────────────────────────────────────
-          FOOTER
-         ───────────────────────────────────────────── */}
+      {/* ───── FOOTER ───── */}
       <footer className="bg-white">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 py-12 grid sm:grid-cols-2 gap-6 items-center text-gray-500">
           <div className="flex items-center gap-3">
             <span className="font-display text-base font-bold text-gray-900">eduvianAI</span>
-            <span className="text-[10px] uppercase tracking-[0.2em] text-rose-600">v2 prototype</span>
+            <span className="text-[10px] uppercase tracking-[0.2em] text-violet-700">v2 prototype</span>
           </div>
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs sm:justify-end">
             <Link href="/" className="hover:text-gray-900 transition-colors">Original homepage →</Link>
-            <Link href="/v2#journey"    className="hover:text-gray-900 transition-colors">Journey</Link>
-            <Link href="/v2#outputs"    className="hover:text-gray-900 transition-colors">Outputs</Link>
-            <Link href="/v2#principles" className="hover:text-gray-900 transition-colors">Principles</Link>
-            <Link href="/get-started"   className="hover:text-gray-900 transition-colors">Get started</Link>
+            <Link href="/v2#journey"      className="hover:text-gray-900 transition-colors">Journey</Link>
+            <Link href="/v2#outputs"      className="hover:text-gray-900 transition-colors">Outputs</Link>
+            <Link href="/v2#destinations" className="hover:text-gray-900 transition-colors">Destinations</Link>
+            <Link href="/v2#scholarships" className="hover:text-gray-900 transition-colors">Scholarships</Link>
+            <Link href="/v2#principles"   className="hover:text-gray-900 transition-colors">Principles</Link>
+            <Link href="/get-started"     className="hover:text-gray-900 transition-colors">Get started</Link>
             <span className="hidden sm:inline">·</span>
             <span className="text-gray-400 text-[11px]">Decision-support · not professional advice</span>
           </div>

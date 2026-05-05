@@ -1,11 +1,11 @@
 # EduvianAI — Comprehensive State Snapshot for Session Handoff
 
-**Last updated:** 4 May 2026 (after the homepage UX + tier-2 verify session — this is handoff #3)
+**Last updated:** 5 May 2026 (after the brand-redesign-prototype session — this is handoff #4)
 **Purpose:** Zero-loss handoff between Claude Code sessions. A new session reading this should be able to continue *every* in-flight workstream correctly, respect all user preferences, and avoid all known gotchas.
 
-> **Pinned next-session priority: H7 Phase C.** Phase B has been live since evening of 3 May 2026 — the 24h safety window opens later today (4 May). Migration SQL is committed and ready at `src/lib/migrations/20260505-h7-phase-c-drop-plaintext.sql`. Three small code changes need to deploy first (drop `profile` from SELECTs, kill plaintext fallback in `decryptProfile`); then take a fresh `pg_dump`; then run the SQL in Supabase Studio. Full runbook in §20.
+> **Pinned next-session priority: implement the v2 final-homepage structure and swap /v2 → /.** User has approved v2 as the next homepage and locked the exact 8-section structure on 5 May 2026 (see §24). Working file: `src/app/v2/page.tsx`. Production / homepage stays untouched until the swap. Brand direction (palette, card pattern, positioning statement, hard 'avoids') is locked in CLAUDE.md and §24.
 >
-> Secondary: clean up the 63 still-unverified entries in `programs.ts` (31 field_mismatch + 32 fetch_or_api_error). Audit details in §3.
+> Secondary in priority order: build the deep pages the new homepage will link to (§24.5), then H7 Phase C (24h window has been open since 4 May — full runbook in §20.1), then field-mismatch + fetch-error cleanup (§20.2).
 
 > **Read this top-to-bottom before doing anything.** Then run the verification commands in §0 to confirm reality matches this document.
 
@@ -266,7 +266,7 @@ USA, UK, Australia, Canada, New Zealand, Ireland, Germany, France, UAE, Singapor
 
 | | Value |
 |---|---:|
-| Last commit on main | `cce57e0a` — kill all decorative blur filters on mobile (final scroll-flash attack) |
+| Last commit on main | `63b17ba8` — v2: add Destinations + Scholarships sections + nav links (5 May) |
 | Programs in DB | **5,595** |
 | Verified at source | **5,532** (98.9%) |
 | Universities | **506** total / **485** with at least one verified program |
@@ -1422,4 +1422,154 @@ This session shipped 26 commits. Major themes:
 
 **Estimated session API spend:** ~$170 (Strategy A killed = $7, seed-finder × 2 batches = $27, verify-batch UK/AUS/CAN/GER = $56, verify-batch FR/UAE/MY/SG = $44, plus re-verify earlier in session = ~$30+).
 
+
+
+---
+
+## §24 v2 prototype + final homepage structure (locked 5 May 2026)
+
+This section captures the brand-redesign work from the 5 May session and the final homepage structure the user has signed off on. All future homepage work follows this brief — don't reinvent.
+
+### 24.1 Why we did v2
+
+User feedback after the 4 May SWOT-driven restructure: production homepage at `/` was *immensely useful* but felt cluttered, dense, and not premium enough for Tier-1 Indian metro target audience. User asked for a brand-UX redesign with three reference points:
+
+- **Crimson Education** — premium ed-tech, restrained palette, charcoal + crimson, editorial photography, low density.
+- **Coursera** — white-dominant, single-accent, generous whitespace, trust-through-clarity.
+- **Lovable** — near-black hero with a warm accent, big italic-emphasis editorial type, design-forward SaaS feel.
+
+Plus: Linear (cited later) — monochrome with one electric accent, generous editorial type scale, restrained motion.
+
+Goal: make v2 the new homepage, retire the dense production homepage as a *content source* for deep pages.
+
+### 24.2 Where v2 lives
+
+- File: `src/app/v2/page.tsx` (~660 lines after round 3, single client component)
+- Route: `/v2` — committed and live on production (it's a separate route, doesn't replace `/`)
+- Three rounds of iteration committed: `6cff501f` (round 1) → `daff6839` (round 2) → `63b17ba8` (round 3 — current). A fourth uncommitted round implements user feedback from late 5 May (heading change, parent strip, dashboard hero, violet accent, semantic palette, card 5-line pattern, bias-free statement).
+
+### 24.3 Locked brand direction
+
+**Positioning statement** (use across the website):
+
+> EduvianAI gives students and families an independent, data-backed layer of clarity before they make high-stakes study abroad decisions.
+
+**Visual style**: Premium AI advisor + youthful student energy + parent-grade credibility.
+
+**Palette** (semantic, not decorative):
+
+| Use | Colour |
+|---|---|
+| Page base | white + stone-50 alternating |
+| Hero / dark moments only | `#0E1119` (warm near-black) |
+| AI accent — selective | `violet-600` (`#7C3AED`) |
+| Safe / approved / good fit | `emerald-600` |
+| Medium risk / caution | `amber-600` |
+| Risk flag / refusal | `rose-600` |
+
+**Typography**: keep v2 pair — Space Grotesk (display) + Inter (body). Don't reintroduce display-script or decorative fonts. Italic emphasis on key 1–3 word phrases is on-brand (Linear-style); keep it sparing.
+
+**Card pattern** — every tool / stage card on the homepage carries these 5 elements in this order:
+
+1. Title
+2. One-line benefit
+3. Sample output (a real concrete example, not a description)
+4. CTA
+5. Trust cue
+
+Example: AI Shortlist · "Find 20 best-fit programs from verified university data." · `6 Safe · 9 Reach · 5 Ambitious` · `Find my programs` · "Match is built only on verified-at-source program data."
+
+**Imagery**: real dashboard mockups in the hero. No graduate photograph (round 1 had this, removed in round 4). Photography is allowed in Destinations section only.
+
+**Hard avoids** (do not reintroduce):
+
+- ❌ Superlatives that aren't independently verifiable: 'largest', 'best', 'most popular', 'top-rated', 'leading'.
+- ❌ Decorative blur blobs on mobile (root cause of the 4 May scroll-flash bug — every `blur-3xl` / `blur-[Xpx]` div with `pointer-events-none` carries `hidden md:block`).
+- ❌ Dual numbers for the same metric — `verifiedProgramsLabel` everywhere, `programsLabel` is internal-only.
+- ❌ Per-stage rainbow gradients — single accent (violet) + semantic colours only.
+- ❌ Emoji-as-icon overuse in headings; lucide icons single-weight, sparingly.
+- ❌ `whileInView` framer-motion entrance animations — cause IntersectionObserver overhead per element. The page wraps the return in `<MotionConfig transition={{ duration: 0 }}>` as a safety net.
+
+**Bias-free editorial line** (place under trust principles, exact wording locked):
+
+> Built to reduce individual bias, guesswork, and commission-led recommendations.
+
+### 24.4 Locked homepage structure (8 sections)
+
+This is the structure the user signed off on. Apply to `src/app/v2/page.tsx`, then swap `/v2 → /`.
+
+1. **Hero**
+   - Headline: *"Choose your study abroad path with verified data you can trust."*
+   - Subtext: the positioning statement (24.3).
+   - Two CTAs: `Find my best-fit programs` (primary, violet) → `/get-started`. `Generate the family report` (secondary, ghost) → `/parent-decision`.
+   - RHS: real sample-dashboard mockup (Top 20 shortlist with 5 sample rows, Safe/Reach/Ambitious tier pills using the semantic palette). NOT a photograph.
+   - Bottom: thin trust strip — `Independent · no university commission · 5,532+ programs · 485+ universities · 12 countries · Decision-support estimates`.
+   - **Directly under hero**: parent strip in stone-50 with two cards:
+     - For students: *"Find the right-fit course, improve your application, prepare for interviews."*
+     - For parents: *"Compare cost, ROI, safety, visa readiness, and long-term value."*
+
+2. **Proof strip**
+   - 5,532+ verified programs · 485+ universities · 12 countries · No university commission · Official-source data.
+   - Editorial layout (large numbers + short description). White background, violet vertical accent bars on each stat.
+
+3. **Five-stage journey** — each card linking to relevant deeper page.
+   - Match → `/match` (alias of `/get-started` until /match exists)
+   - Check → `/application-check`
+   - Practice → `/interview-prep`
+   - Decide → `/roi-calculator` (or `/parent-decision` for the family-decision flow)
+   - Apply → `/visa-coach`
+   - Each card uses the locked 5-line pattern (24.3).
+
+4. **See actual outputs** — auto-rotating sample-output showcase on white background, colored left-borders per demo.
+   - AI shortlist
+   - SOP score
+   - Visa interview feedback
+   - ROI report
+   - Parent decision report
+   - 5s auto-rotate, click-to-focus, CSS-keyframe progress bar (carry the implementation pattern from production `/`).
+
+5. **Why trust EduvianAI** — 4 principles in a 2x2 grid, big numerals.
+   - Verified at source
+   - Independent
+   - Structured scoring
+   - Transparent estimates
+   - Followed by the bias-free editorial line (24.3).
+
+6. **For families** — Parent Decision Report sample card (white background) with left column: positioning copy + dual CTAs (`Generate the report` → `/parent-decision`, `See sample report` → `/sample-parent-report`). Right column: 7-row sample table with colour-coded verdicts (Budget fit / Payback period / Safety / Job market / Visa readiness / Scholarship fit / Family verdict).
+
+7. **Explore tools** — tool cards linking to deeper pages.
+   - Same 5-line card pattern as journey cards (24.3).
+   - Cards link to: `/match`, `/application-check`, `/interview-prep`, `/english-test-lab`, `/roi-calculator`, `/parent-report`, `/visa-coach`, `/destinations`, `/scholarships`.
+   - This is the section that drives users to the deep pages instead of overloading the homepage with detail.
+
+8. **Final CTA** — light cream section (stone-50), single italic accent, two clean CTAs.
+
+### 24.5 Deep pages required
+
+Homepage CTAs route here. Most exist; some need creating or aliasing.
+
+| Path | Status | Notes |
+|---|---|---|
+| `/match` | **Needs creating** | Currently `/get-started` serves this flow. Either rename `/get-started` → `/match` (with redirect for backwards-compat) or keep both. |
+| `/application-check` | ✅ Exists | Visual update to v2 design language pending. |
+| `/interview-prep` | ✅ Exists | Visual update pending. |
+| `/english-test-lab` | ✅ Exists | Visual update pending. |
+| `/roi-calculator` | ✅ Exists | Visual update pending. |
+| `/parent-report` | **Needs creating** | Currently `/parent-decision`. Either rename or alias. |
+| `/visa-coach` | ✅ Exists | Visual update pending. |
+| `/destinations` | **Needs creating** | Currently a section on the production `/`. Extract content into a dedicated route. |
+| `/scholarships` | **Needs creating** | Currently a section on the production `/`. Extract into a dedicated route. The full per-country `SCHOLARSHIPS` array (lines 39+ of production `page.tsx`) is the content source. |
+
+### 24.6 Swap procedure (when implementing)
+
+1. Verify the v2 file at `src/app/v2/page.tsx` matches §24.4 exactly.
+2. Walk through the file on phone + desktop. Confirm every CTA links to a working route.
+3. **Backup**: copy `src/app/page.tsx` → `src/app/page-archive-pre-v2.tsx` (don't ship; gitignore if needed) so the content source for deep-page extraction is preserved locally.
+4. **Swap**: `cp src/app/v2/page.tsx src/app/page.tsx`. Then either:
+   - Delete `src/app/v2/page.tsx` (clean), OR
+   - Rename to `src/app/v2-archive/page.tsx` (kept for comparison).
+5. Update the v2 footer's `Original →` link — there is no original after the swap. Remove it.
+6. Update `src/app/page.tsx` nav: drop the `v2 prototype` micro-label next to the logo.
+7. Update CLAUDE.md `Key code paths` table to reflect that `/v2` no longer exists.
+8. `tsc --noEmit` + `next build` + commit + push.
 

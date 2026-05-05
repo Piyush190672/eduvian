@@ -92,6 +92,7 @@ When working on `submissions`, both `profile` (plaintext) and `profile_encrypted
 | `src/data/programs.ts` | THE database. **5,595 entries / 5,532 verified.** `@ts-nocheck` (large data file). |
 | `src/data/db-stats.ts` | Computed counts. Public surfaces standardise on `verifiedProgramsLabel` (5,532+) and `verifiedUniversitiesLabel` (485+) — `programsLabel` (the unverified-tail total) is internal-only. Don't reintroduce dual numbers in copy. |
 | `src/app/sample-parent-report/page.tsx` | Static, illustrative parent-decision report at `/sample-parent-report`. Print-friendly (Save-as-PDF button). Linked from the Decide-stage 'See sample family report' CTA. |
+| `src/app/v2/page.tsx` | **Brand-redesign prototype at /v2** (5 May 2026). Editorial / Crimson-Coursera-Lovable influenced. User has approved this as the next homepage. Pending: apply the user's final 8-section structure (see snapshot §24), then swap v2 → /. Production / homepage stays untouched until the swap. |
 | `src/lib/types.ts` | Single source of truth. `TARGET_COUNTRIES` (12), `FIELDS_OF_STUDY` (17). |
 | `src/lib/scoring.ts` | 9-signal `recommendPrograms()`. Tiers: Safe 75-100, Reach 50-74, Ambitious <50. |
 | `src/lib/format-fee.ts` | Null-safe tuition rendering. **Never show $0.** |
@@ -139,24 +140,56 @@ The legal/security/pricing Word docs were generated with `docx`. Pricing Excel v
 
 ## Open work for the next session
 
-Pinned in priority order. Snapshot §20 has full detail.
+Pinned in priority order. Snapshot §20 + §24 have full detail.
 
-1. **H7 Phase C** — drop plaintext `submissions.profile`. Phase B shipped evening of 3 May 2026; the 24h window opens later today (4 May). Migration SQL + runbook are committed at `src/lib/migrations/20260505-h7-phase-c-drop-plaintext.sql` (NOT yet executed — destructive `DROP COLUMN` only runs when pasted into Supabase SQL Editor). Defensive `DO` block in the migration aborts if any row is still missing `profile_encrypted`. Before running:
+1. **Implement the v2 final-homepage structure and swap /v2 → /** — user has approved v2 as the new homepage (5 May 2026 session). The exact 8-section structure they want is committed in snapshot §24. Working file: `src/app/v2/page.tsx` already at round 3. Implementation steps:
+   - Apply §24's 8-section structure to `src/app/v2/page.tsx` (Hero / Proof strip / 5-stage journey / See actual outputs / Why trust / For families / Explore tools / Final CTA).
+   - Verify on phone + desktop.
+   - **Swap**: copy v2/page.tsx content over `src/app/page.tsx`; either delete v2/ or keep as backup `/v2-prototype-archive`. Production homepage links to /v2 (footer "Original →") need cleanup.
+   - The current 1,400-line `src/app/page.tsx` becomes the **content source for deep pages** (don't delete it before extracting).
+2. **Build deep pages** — homepage CTAs route here. Most exist; some need creating.
+   - Already exist: `/application-check`, `/interview-prep`, `/english-test-lab`, `/roi-calculator`, `/visa-coach`. Visual update to v2 design language pending.
+   - **Need creating**: `/match` (currently /get-started serves this — alias or rename), `/parent-report` (currently /parent-decision — alias or rename), `/destinations` (currently a section on the production homepage — extract), `/scholarships` (currently a section — extract).
+3. **H7 Phase C** — drop plaintext `submissions.profile`. Phase B shipped evening of 3 May 2026; the 24h window has been open since 4 May 2026. Migration SQL + runbook are committed at `src/lib/migrations/20260505-h7-phase-c-drop-plaintext.sql` (NOT yet executed). Before running:
    - Take a fresh `pg_dump` of `public.submissions` (or confirm Supabase Pro scheduled backup ≤12h old).
    - Update three code paths to stop selecting `profile`:
      - `src/lib/submissions-decrypt.ts` — drop `profile` from `SUBMISSION_PROFILE_COLUMNS`, remove plaintext fallback in `decryptProfile()`.
      - `src/app/api/admin/leads/route.ts:13` — drop `profile` from explicit SELECT.
    - Deploy the code change first, verify `/admin/leads` and `/results/[token]` work, then run the migration.
-2. **Field-mismatch + persistent fetch-error cleanup** — 63 entries from the re-verify pass still aren't verified: 31 `field_mismatch` (24 of them are catalog/listing URLs from older seeds — strip with `audit-strip --include field_mismatch`) and 32 `fetch_or_api_error` (28 are DNS-unresolvable from the build network, 2 De Montfort 404s, 2 succeed in browser → strip the De Montfort, retry the working pair, replace the 28 catalog URLs with real program-detail URLs OR strip them).
-3. **Marketing email opt-in flow** — Privacy Policy §11 promises this; not yet built.
-4. **Visible unsubscribe link in email body** — `List-Unsubscribe` header is in; in-body link still missing.
-5. **Real downloadable Sample Parent Report PDF** — current `/sample-parent-report` is HTML + Save-as-PDF. A static rendered PDF asset would feel more 'official'. Generate via the existing `/api/pdf/*` infrastructure with a `?sample=1` param.
+4. **Field-mismatch + persistent fetch-error cleanup** — 63 entries from the re-verify pass still aren't verified: 31 `field_mismatch` (24 of them are catalog/listing URLs from older seeds — strip with `audit-strip --include field_mismatch`) and 32 `fetch_or_api_error` (28 are DNS-unresolvable from the build network, 2 De Montfort 404s, 2 succeed in browser → strip the De Montfort, retry the working pair, replace the 28 catalog URLs with real program-detail URLs OR strip them).
+5. **Marketing email opt-in flow** — Privacy Policy §11 promises this; not yet built.
+6. **Visible unsubscribe link in email body** — `List-Unsubscribe` header is in; in-body link still missing.
+7. **Real downloadable Sample Parent Report PDF** — current `/sample-parent-report` is HTML + Save-as-PDF. A static rendered PDF asset would feel more 'official'.
 
-Done in the 4 May session (no longer pending — for context):
+## Brand direction (locked by user, 5 May 2026)
+
+Apply across the v2 homepage and all deep pages.
+
+- **Positioning statement** (use across the website): *"EduvianAI gives students and families an independent, data-backed layer of clarity before they make high-stakes study abroad decisions."*
+- **Visual style**: Premium AI advisor + youthful student energy + parent-grade credibility.
+- **Palette**:
+  - White / off-white base
+  - Deep navy / charcoal (`#0E1119`) — used selectively (hero only)
+  - Electric purple accent (`violet-600`) for the AI feel — used selectively
+  - Semantic only: emerald = safe / approved / good fit · amber = medium risk · rose = risk flag
+- **Typography**: keep v2 type pair (Space Grotesk display + Inter body). Don't reintroduce display-script or decorative fonts.
+- **Cards**: every tool/stage card carries 5 elements in this order — Title · One-line benefit · Sample output · CTA · Trust cue.
+- **Imagery**: real dashboard mockups in the hero (not photographs).
+- **Hard 'avoids'**:
+  - **No superlatives** that aren't independently verifiable ('largest', 'best', 'most popular', etc.).
+  - **No decorative blur blobs on mobile** (root cause of the 4 May scroll-flash bug).
+  - **No dual numbers** for the same metric — use `verifiedProgramsLabel` everywhere.
+  - **No gradient rainbow per stage** — single accent (violet) + semantic colours only.
+  - **No emoji-as-icon overuse** in headings — lucide icons, single weight, sparingly.
+- **Bias-free editorial line** (place under the trust principles section, exact wording locked):
+  *"Built to reduce individual bias, guesswork, and commission-led recommendations."*
+
+Done in the 4 May / 5 May sessions (no longer pending — for context):
 - Re-verify on the 209 unverified entries (now 63 still unverified after applying stamps + strips).
 - 63 new universities + 582 verified programs added across UK / Germany / Canada / Australia.
 - 57 new universities + 465 verified programs added across France / UAE / Malaysia / Singapore.
-- Homepage SWOT-driven restructure: section reorder, parent-aware copy, single-source-of-truth program count, sample parent report page, modal 5-stage parity (A/B/C/D → 1/2/3/4/5), tool-card 5-line standardisation, 'How shortlist is built' premium card treatment, dual-CTA Decide stage, mobile compaction (~3500-4500px shorter), mobile flash fix (kill blur blobs).
+- Homepage SWOT-driven restructure (4 May): section reorder, parent-aware copy, single-source-of-truth program count, sample parent report page, modal 5-stage parity (A/B/C/D → 1/2/3/4/5), tool-card 5-line standardisation, 'How shortlist is built' premium card treatment, dual-CTA Decide stage, mobile compaction (~3500-4500px shorter), mobile flash fix (kill blur blobs).
+- Brand-redesign prototype at /v2 (5 May): three rounds. User approved direction in round 3. Final structure now locked (see §24).
 
 ## When unsure: ask
 
