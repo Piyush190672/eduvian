@@ -6,6 +6,7 @@ import { ArrowRight, ArrowUpRight, GraduationCap, ShieldCheck, Sparkles, Users }
 import { DB_STATS, universitiesByCountry } from "@/data/db-stats";
 import ChatWidget from "@/components/ChatWidget";
 import CountryModal from "@/components/CountryModal";
+import HowItWorksModal from "@/components/HowItWorksModal";
 
 // Each stage card carries: stage name + user situation + one-line benefit
 // + one sample output + one primary CTA. Methodology / data-source notes
@@ -36,6 +37,7 @@ const STAGES: Stage[] = [
     cta: "Find my best-fit programs",
     trust: "Verified against each university's official program page (e.g. ox.ac.uk, mit.edu, daad.de) — fees, deadlines and English cutoffs read live from source.",
     href: "/get-started",
+    secondary: { cta: "Evaluate my Profile", href: "/get-started" },
   },
   {
     n: "02", label: "Check",
@@ -207,6 +209,7 @@ function StageSample({ s }: { s: StageSampleSpec }) {
 export default function V2LandingPage() {
   const [activeDemo, setActiveDemo] = useState(0);
   const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
+  const [howItWorksOpen, setHowItWorksOpen] = useState(false);
   // Hero RHS shows one sample card at a time, auto-rotating every 3s.
   const [heroCard, setHeroCard] = useState(0);
   const HERO_CARD_COUNT = 4;
@@ -229,11 +232,18 @@ export default function V2LandingPage() {
             <span className="font-display text-lg font-bold tracking-tight">eduvianAI</span>
           </Link>
           <div className="flex items-center gap-6">
+            <button
+              type="button"
+              onClick={() => setHowItWorksOpen(true)}
+              className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors"
+            >
+              How it works
+            </button>
             <Link href="#journey"      className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors">Stages</Link>
             <Link href="#outputs"      className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors">Outputs</Link>
             <Link href="#destinations" className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors">Destinations</Link>
             <Link href="#scholarships" className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors">Scholarships</Link>
-            <Link href="#principles"   className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors">Principles</Link>
+            <Link href="#principles"   className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors">Why choose us</Link>
             <Link
               href="/get-started"
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-gray-900 text-sm font-semibold hover:bg-stone-100 transition-colors"
@@ -1115,19 +1125,33 @@ export default function V2LandingPage() {
             <span className="font-display text-base font-bold text-gray-900">eduvianAI</span>
           </div>
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs sm:justify-end">
+            <button
+              type="button"
+              onClick={() => setHowItWorksOpen(true)}
+              className="hover:text-gray-900 transition-colors"
+            >
+              How it works
+            </button>
             <Link href="#journey"      className="hover:text-gray-900 transition-colors">Stages</Link>
             <Link href="#outputs"      className="hover:text-gray-900 transition-colors">Outputs</Link>
             <Link href="#destinations" className="hover:text-gray-900 transition-colors">Destinations</Link>
             <Link href="#scholarships" className="hover:text-gray-900 transition-colors">Scholarships</Link>
-            <Link href="#principles"   className="hover:text-gray-900 transition-colors">Principles</Link>
+            <Link href="#principles"   className="hover:text-gray-900 transition-colors">Why choose us</Link>
             <Link href="/match"        className="hover:text-gray-900 transition-colors">Find my programs</Link>
             <span className="hidden sm:inline">·</span>
             <span className="text-gray-400 text-[11px]">Decision-support · not professional advice</span>
+            <Link
+              href="/admin"
+              className="ml-2 text-[10px] font-mono text-gray-400 hover:text-violet-700 transition-colors opacity-40 hover:opacity-100 select-none"
+            >
+              admin
+            </Link>
           </div>
         </div>
       </footer>
 
       <CountryModal countryName={selectedCountry} onClose={() => setSelectedCountry(null)} />
+      <HowItWorksModal open={howItWorksOpen} onClose={() => setHowItWorksOpen(false)} />
       <ChatWidget />
     </div>
   );

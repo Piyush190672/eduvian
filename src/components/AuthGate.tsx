@@ -239,7 +239,14 @@ export default function AuthGate({ stage, toolName, source, children }: AuthGate
       </div>
 
       {/* ─── Right panel: form ─── */}
-      <div className="flex-1 flex items-center justify-center px-6 py-12 bg-white">
+      <div className="relative flex-1 flex items-center justify-center px-6 py-12 bg-white">
+        {/* Top-right back-to-home shortcut */}
+        <Link
+          href="/"
+          className="absolute top-5 right-6 inline-flex items-center gap-1.5 text-xs font-semibold text-gray-400 hover:text-gray-700 transition-colors"
+        >
+          ← Back to home
+        </Link>
         <div className="w-full max-w-md">
 
           {/* Tabs (hidden during OTP step to avoid accidental cancel) */}
@@ -434,11 +441,6 @@ export default function AuthGate({ stage, toolName, source, children }: AuthGate
             )}
           </motion.div>
 
-          <div className="mt-8 pt-6 border-t border-gray-100 text-center">
-            <Link href="/" className="text-xs text-gray-400 hover:text-gray-600 transition-colors inline-flex items-center gap-1.5">
-              ← Back to home
-            </Link>
-          </div>
         </div>
       </div>
     </div>

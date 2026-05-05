@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { ArrowRight, ArrowUpRight, ShieldCheck } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, ShieldCheck } from "lucide-react";
 import { DB_STATS } from "@/data/db-stats";
 import ChatWidget from "@/components/ChatWidget";
 
@@ -152,7 +152,10 @@ export default function ScholarshipsPage() {
           <Link href="/" className="flex items-center gap-2 text-white">
             <span className="font-display text-lg font-bold tracking-tight">eduvianAI</span>
           </Link>
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-3 sm:gap-6">
+            <Link href="/" className="inline-flex items-center gap-1.5 text-sm text-white/70 hover:text-white transition-colors">
+              <ArrowLeft className="w-4 h-4" /> Back to home
+            </Link>
             <Link href="/destinations" className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors">Destinations</Link>
             <Link href="/get-started" className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-gray-900 text-sm font-semibold hover:bg-stone-100 transition-colors">
               Find my programs
