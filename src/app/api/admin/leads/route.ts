@@ -7,10 +7,11 @@ export async function GET() {
     const { createServiceClient } = await import("@/lib/supabase");
     const supabase = createServiceClient();
     if (supabase) {
-      // Fetch full-profile submissions (include H7 shadow columns).
+      // Fetch full-profile submissions. Plaintext `profile` was dropped
+      // in H7 Phase C — read profile_encrypted only and decrypt below.
       const { data: submissions, error: subErr } = await supabase
         .from("submissions")
-        .select("id, token, profile, profile_encrypted, email_hash, profile_category, total_matched, shortlisted_ids, email_sent, created_at")
+        .select("id, token, profile_encrypted, email_hash, profile_category, total_matched, shortlisted_ids, email_sent, created_at")
         .order("created_at", { ascending: false });
 
       // Fetch all registered students
@@ -24,7 +25,7 @@ export async function GET() {
         // strip the encrypted blob from the wire payload — admin doesn't
         // need it, and we never want it in the browser.
         const decryptedSubmissions = (submissions ?? []).map((s: Record<string, unknown>) => {
-          const decrypted = decryptProfile(s as { profile?: unknown; profile_encrypted?: string | null });
+          const decrypted = decryptProfile(s as { profile_encrypted?: string | null });
           const out: Record<string, unknown> = { ...s, profile: decrypted };
           delete out.profile_encrypted;
           return out;

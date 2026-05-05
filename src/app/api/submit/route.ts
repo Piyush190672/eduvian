@@ -169,10 +169,11 @@ export async function POST(req: NextRequest) {
       const { createServiceClient } = await import("@/lib/supabase");
       const supabase = createServiceClient();
       if (supabase) {
+        // H7 Phase C: plaintext `profile` column was dropped. Persist
+        // only the encrypted blob + email_hash for lookups.
         const { error } = await supabase.from("submissions").insert({
           id,
           token,
-          profile,
           shortlisted_ids: [],
           email_sent: false,
           profile_category,

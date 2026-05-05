@@ -73,9 +73,9 @@ Audit document: `~/Desktop/EduvianAI-Security-Architecture-Risk-Assessment.docx`
   - H1 admin TOTP MFA: enrolled and verified — login flow now challenges for the 6-digit code.
   - H2 opaque sessions, H3 CSRF gate, H4 DPDPA endpoints, H6 output encoding — closed.
   - H5 service-role overuse — closed-with-rationale (subsumed by C2).
-  - **H7 PII encryption: Phase A + Phase B both live.** Readers prefer `profile_encrypted` and fall back to plaintext. Phase C (drop plaintext column) is the last open item; **wait at least 24-48h after Phase B ships before doing it**, take a fresh `pg_dump` first.
+  - **H7 PII encryption: Phase A + Phase B + Phase C code all live.** Readers and writers no longer touch the plaintext `profile` column. The destructive SQL (`src/lib/migrations/20260505-h7-phase-c-drop-plaintext.sql`) drops the column itself — coordinate with code deploy: between deploy completion and SQL run, new submissions fail on the column's NOT NULL constraint. Take a fresh `pg_dump` first.
 
-When working on `submissions`, both `profile` (plaintext) and `profile_encrypted` exist. Phase B is shipping; Phase C drops plaintext.
+As of the Phase C code-deploy, `submissions` rows carry only `profile_encrypted` + `email_hash` (no plaintext column). Lookup by email goes through `email_hash` only.
 
 ## Authentication
 
@@ -101,7 +101,7 @@ When working on `submissions`, both `profile` (plaintext) and `profile_encrypted
 | `src/lib/user-cookie.ts` | Opaque server-side sessions (H2). |
 | `src/lib/pii-crypto.ts` | AES-256-GCM + emailHash for H7. |
 | `src/lib/otp.ts` | OTP generate / hash (HMAC) / verify (timing-safe). |
-| `src/lib/submissions-decrypt.ts` | H7 Phase B reader helper. `decryptProfile()` prefers encrypted, falls back to plaintext. Use everywhere submissions are read. |
+| `src/lib/submissions-decrypt.ts` | H7 reader helper. `decryptProfile()` decrypts `profile_encrypted` only — plaintext fallback was removed in Phase C. Use everywhere submissions are read. |
 | `src/lib/html-escape.ts` | `escHtml` / `escHtmlBounded` / `safeUrl`. Use for any user-content interpolation. |
 | `src/lib/llm-safety.ts` | `wrapUserInput`, `JAILBREAK_GUARDRAILS`, `MAX_OUTPUT_TOKENS`. Append guardrails to every system prompt. |
 | `src/lib/api-error.ts` | Sentry-flushed error response. Eager Sentry init lives here. |
@@ -150,12 +150,7 @@ Pinned in priority order. Snapshot §20 + §24 have full detail.
 2. **Build deep pages** — homepage CTAs route here. Most exist; some need creating.
    - Already exist: `/application-check`, `/interview-prep`, `/english-test-lab`, `/roi-calculator`, `/visa-coach`. Visual update to v2 design language pending.
    - **Need creating**: `/match` (currently /get-started serves this — alias or rename), `/parent-report` (currently /parent-decision — alias or rename), `/destinations` (currently a section on the production homepage — extract), `/scholarships` (currently a section — extract).
-3. **H7 Phase C** — drop plaintext `submissions.profile`. Phase B shipped evening of 3 May 2026; the 24h window has been open since 4 May 2026. Migration SQL + runbook are committed at `src/lib/migrations/20260505-h7-phase-c-drop-plaintext.sql` (NOT yet executed). Before running:
-   - Take a fresh `pg_dump` of `public.submissions` (or confirm Supabase Pro scheduled backup ≤12h old).
-   - Update three code paths to stop selecting `profile`:
-     - `src/lib/submissions-decrypt.ts` — drop `profile` from `SUBMISSION_PROFILE_COLUMNS`, remove plaintext fallback in `decryptProfile()`.
-     - `src/app/api/admin/leads/route.ts:13` — drop `profile` from explicit SELECT.
-   - Deploy the code change first, verify `/admin/leads` and `/results/[token]` work, then run the migration.
+3. **H7 Phase C — SQL run only** (code is deployed). All readers and writers are off the plaintext `profile` column. Last step is to run `src/lib/migrations/20260505-h7-phase-c-drop-plaintext.sql` in Supabase Studio. Before running: take a fresh `pg_dump` of `public.submissions` (or confirm Supabase Pro scheduled backup ≤12h old). Coordinate timing — between code-deploy completion and the SQL running, new submissions fail on the column's NOT NULL constraint. The migration is wrapped in a single transaction that relaxes the constraint and drops the column atomically.
 4. **Field-mismatch + persistent fetch-error cleanup** — 63 entries from the re-verify pass still aren't verified: 31 `field_mismatch` (24 of them are catalog/listing URLs from older seeds — strip with `audit-strip --include field_mismatch`) and 32 `fetch_or_api_error` (28 are DNS-unresolvable from the build network, 2 De Montfort 404s, 2 succeed in browser → strip the De Montfort, retry the working pair, replace the 28 catalog URLs with real program-detail URLs OR strip them).
 5. **Marketing email opt-in flow** — Privacy Policy §11 promises this; not yet built.
 6. **Visible unsubscribe link in email body** — `List-Unsubscribe` header is in; in-body link still missing.

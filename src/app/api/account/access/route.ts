@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getUserFromRequest } from "@/lib/user-cookie";
 import { createServiceClient } from "@/lib/supabase";
 import { apiErrorResponse } from "@/lib/api-error";
-import { emailHash, isEncryptionConfigured } from "@/lib/pii-crypto";
+import { emailHash } from "@/lib/pii-crypto";
 import { decryptProfile } from "@/lib/submissions-decrypt";
 
 // Reads the session cookie — must be evaluated per-request, never statically.
@@ -24,21 +24,14 @@ export async function GET(req: NextRequest) {
     }
 
     const email = user.email;
-    const useHash = isEncryptionConfigured();
-    const hash = useHash ? emailHash(email) : null;
+    const hash = emailHash(email);
 
-    // Submissions query: H7 prefers email_hash; falls back to JSONB filter
-    // for legacy rows without a hash. Encrypted rows naturally have hashes
-    // post-backfill, so this is mostly hot-path.
-    const submissionsQuery = useHash && hash
-      ? supabase
-          .from("submissions")
-          .select("token, profile, profile_encrypted, email_hash, profile_category, total_matched, created_at, updated_at")
-          .eq("email_hash", hash)
-      : supabase
-          .from("submissions")
-          .select("token, profile, profile_encrypted, email_hash, profile_category, total_matched, created_at, updated_at")
-          .filter("profile->>email", "eq", email);
+    // H7 Phase C: plaintext `profile` column was dropped. Lookup is by
+    // email_hash only — every row carries one post-backfill.
+    const submissionsQuery = supabase
+      .from("submissions")
+      .select("token, profile_encrypted, email_hash, profile_category, total_matched, created_at, updated_at")
+      .eq("email_hash", hash);
 
     const [studentRes, submissionsRes, toolUsageRes] = await Promise.all([
       supabase.from("students").select("*").eq("email", email),

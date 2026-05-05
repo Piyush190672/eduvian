@@ -11,6 +11,10 @@
 --        b. Remove the plaintext fallback inside decryptProfile()
 --        c. Remove `profile` from the explicit SELECT in
 --           src/app/api/admin/leads/route.ts
+--        d. Remove `profile` from the INSERT in
+--           src/app/api/submit/route.ts (writer side — without this,
+--           every new submission fails on the NOT NULL constraint
+--           between code-deploy and migration-run)
 --      …and that code is deployed on Vercel and verified live.
 --   4. Sanity check on prod data — every row has profile_encrypted set:
 --        SELECT count(*) FILTER (WHERE profile_encrypted IS NULL) AS unencrypted,
@@ -23,6 +27,11 @@
 --
 -- This migration is destructive — once the column is dropped, the
 -- plaintext data is gone forever. The pg_dump is the only undo path.
+--
+-- Coordination note: between deploy-completion and this SQL running,
+-- new submissions will fail on the NOT NULL constraint. Run within a
+-- minute of deploy. Both ALTER statements live inside the same
+-- transaction, so a failure rolls back cleanly.
 --
 -- Run in Supabase SQL Editor.
 
@@ -41,6 +50,12 @@ BEGIN
     RAISE EXCEPTION 'Aborting: % submission row(s) still lack profile_encrypted. Run the backfill script first.', unencrypted_count;
   END IF;
 END $$;
+
+-- Belt-and-suspenders: relax NOT NULL before the drop. Pointless once
+-- the column is gone, but documents intent and protects any in-flight
+-- INSERT that races this transaction.
+ALTER TABLE public.submissions
+  ALTER COLUMN profile DROP NOT NULL;
 
 ALTER TABLE public.submissions
   DROP COLUMN IF EXISTS profile;

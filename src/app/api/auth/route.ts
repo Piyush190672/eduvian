@@ -3,7 +3,7 @@ import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 import { createUserToken, USER_COOKIE_NAME, USER_COOKIE_OPTS } from "@/lib/user-cookie";
 import { apiErrorResponse } from "@/lib/api-error";
 import { verifyOtpCode, OTP_CONFIG } from "@/lib/otp";
-import { emailHash, isEncryptionConfigured } from "@/lib/pii-crypto";
+import { emailHash } from "@/lib/pii-crypto";
 import { decryptProfile, SUBMISSION_PROFILE_COLUMNS } from "@/lib/submissions-decrypt";
 
 /** Build a JSON response with the opaque session cookie attached. */
@@ -153,29 +153,17 @@ export async function POST(req: NextRequest) {
       .eq("id", challenge.id);
 
     /**
-     * Find the user's most recent submission token. Primary path uses the
-     * H7 `email_hash` column (works for encrypted rows); falls back to the
-     * legacy JSONB filter for rows older than the H7 backfill that never
-     * received a hash (shouldn't exist in practice — backfill covered all
-     * existing rows on 3 May 2026 — but the fallback costs nothing and
-     * survives a partial restore from an old backup).
+     * Find the user's most recent submission token. H7 Phase C dropped
+     * the plaintext `profile` JSONB column; the only way to look up a
+     * submission by email is the `email_hash` column, which the backfill
+     * covered for every existing row.
      */
     async function getLatestToken(sb: NonNullable<typeof supabase>): Promise<string | null> {
       try {
-        if (isEncryptionConfigured()) {
-          const { data } = await sb
-            .from("submissions")
-            .select("token, created_at")
-            .eq("email_hash", emailHash(normalizedEmail))
-            .order("created_at", { ascending: false })
-            .limit(1);
-          if (data?.[0]?.token) return data[0].token as string;
-        }
-        // Legacy / fallback — JSONB filter on plaintext profile.
         const { data } = await sb
           .from("submissions")
           .select("token, created_at")
-          .filter("profile->>email", "eq", normalizedEmail)
+          .eq("email_hash", emailHash(normalizedEmail))
           .order("created_at", { ascending: false })
           .limit(1);
         return data?.[0]?.token ?? null;

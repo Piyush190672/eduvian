@@ -33,12 +33,14 @@ CREATE TABLE IF NOT EXISTS programs (
 );
 
 -- ─── Submissions table ────────────────────────────────────────────────────────
--- email_hash + profile_encrypted are H7 shadow columns; populated by the
--- writer and the backfill script (lib/migrations/20260503-h7-...sql).
+-- profile_encrypted holds the AES-256-GCM blob of the StudentProfile.
+-- email_hash is the HMAC-SHA256 of the email for lookup without
+-- decrypting the blob. The plaintext `profile` JSONB column existed
+-- prior to H7 Phase C (migration 20260505-h7-phase-c-drop-plaintext.sql)
+-- and was dropped after the encrypted backfill landed.
 CREATE TABLE IF NOT EXISTS submissions (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   token UUID UNIQUE NOT NULL DEFAULT gen_random_uuid(),
-  profile JSONB NOT NULL,
   shortlisted_ids TEXT[] DEFAULT '{}',
   email_sent BOOLEAN DEFAULT false,
   profile_category TEXT,
@@ -56,7 +58,6 @@ CREATE TABLE IF NOT EXISTS submissions (
 
 -- Indexes
 CREATE INDEX IF NOT EXISTS idx_submissions_token ON submissions(token);
-CREATE INDEX IF NOT EXISTS idx_submissions_email ON submissions((profile->>'email'));
 CREATE INDEX IF NOT EXISTS idx_submissions_email_hash ON submissions(email_hash);
 CREATE INDEX IF NOT EXISTS idx_programs_country ON programs(country);
 CREATE INDEX IF NOT EXISTS idx_programs_field ON programs(field_of_study);
