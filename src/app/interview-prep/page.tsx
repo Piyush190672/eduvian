@@ -1279,6 +1279,16 @@ function InterviewSession({
   const nameInputRef = useRef<HTMLInputElement>(null);
   // transcriptRef mirrors the transcript state but is always current (avoids stale closures)
   const transcriptRef = useRef<string>("");
+  // Cache the first successful mic permission grant so subsequent
+  // recog.start() calls don't have to grab and immediately release the mic
+  // each time. The grab/release race on every attempt was making the FIRST
+  // recognition attempt drop audio (mic warm-up), which is what the user
+  // experienced as "takes multiple attempts before audio is recognised".
+  const micPermissionGrantedRef = useRef<boolean>(false);
+  // Start-guard so two concurrent startListening calls (which can happen if
+  // a re-render fires the listening useEffect twice while getUserMedia is
+  // still awaiting) don't both create recogs and abort each other.
+  const startingRef = useRef<boolean>(false);
 
   // ── Check STT support ───────────────────────────────────────────────────────
   useEffect(() => {
@@ -1350,26 +1360,41 @@ function InterviewSession({
   // the browser briefly pauses between words.
   const startListening = useCallback(async () => {
     if (!sttSupported || typeof window === "undefined") return;
+    if (startingRef.current) return; // coalesce concurrent starts
+    startingRef.current = true;
     const win = window as typeof window & { SpeechRecognition?: SpeechRecognitionCtor; webkitSpeechRecognition?: SpeechRecognitionCtor };
     const Ctor = win.SpeechRecognition || win.webkitSpeechRecognition;
-    if (!Ctor) return;
+    if (!Ctor) { startingRef.current = false; return; }
 
-    // Explicitly request mic permission first. SpeechRecognition does not
-    // reliably trigger the permission prompt on its own — and on a site
-    // that previously had Permissions-Policy: microphone=() the browser
-    // may have cached the denial. getUserMedia surfaces a clean prompt
-    // (or a clean rejection if permission is already blocked at the site
-    // level), and we route either outcome into sttError.
-    if (navigator?.mediaDevices?.getUserMedia) {
+    // Wait for any previous recog to fully end before starting a new one.
+    // recog.start() throws InvalidStateError if a previous one is still
+    // alive, which on some Chrome builds also poisons the new attempt.
+    if (recogRef.current) {
+      try { recogRef.current.abort(); } catch { /* ignore */ }
+      recogRef.current = null;
+      // Give the engine ~120ms to actually release the audio device.
+      await new Promise((r) => setTimeout(r, 120));
+    }
+
+    // Explicitly request mic permission ONCE, on the first listening attempt
+    // of the session. Subsequent calls skip getUserMedia entirely — the
+    // grab/release on every attempt was racing with SpeechRecognition's own
+    // mic acquisition and dropping audio on the first try ("takes multiple
+    // attempts before audio is recognised"). Once the permission is granted
+    // for the origin, SpeechRecognition can grab the mic directly.
+    if (!micPermissionGrantedRef.current && navigator?.mediaDevices?.getUserMedia) {
       try {
         const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-        // Permission granted. SpeechRecognition has its own mic access
-        // path; close the stream so we don't hold the device open twice.
         stream.getTracks().forEach((t) => t.stop());
+        micPermissionGrantedRef.current = true;
+        // Brief settle before SR grabs the mic — without this, on cold-start
+        // the first utterance is still occasionally dropped.
+        await new Promise((r) => setTimeout(r, 150));
       } catch (e) {
         const name = e instanceof Error ? e.name : "mic-error";
         console.warn("[interview-prep] getUserMedia denied/failed:", name, e);
         setSttError(name === "NotAllowedError" ? "not-allowed" : name === "NotFoundError" ? "audio-capture" : name);
+        startingRef.current = false;
         return;
       }
     }
@@ -1448,8 +1473,10 @@ function InterviewSession({
       console.warn("[interview-prep] recog.start() threw:", e);
       setSttError(e instanceof Error ? e.name : "start-failed");
       recogRef.current = null;
+      startingRef.current = false;
       return;
     }
+    startingRef.current = false;
     elapsedRef.current = 0;
     setElapsed(0);
     timerRef.current = setInterval(() => { elapsedRef.current += 1; setElapsed(elapsedRef.current); }, 1000);
@@ -1487,15 +1514,22 @@ function InterviewSession({
   ) => {
     if (!sttSupported || typeof window === "undefined") return;
     cancel(); // stop TTS before listening
-    if (nameRecogRef.current) { try { nameRecogRef.current.abort(); } catch { /* ignore */ } }
+    if (nameRecogRef.current) {
+      try { nameRecogRef.current.abort(); } catch { /* ignore */ }
+      nameRecogRef.current = null;
+      // Let the engine release before grabbing again.
+      await new Promise((r) => setTimeout(r, 120));
+    }
 
-    // Same explicit-prompt pattern as startListening — surface mic
-    // permission prompt cleanly instead of relying on SpeechRecognition
-    // to do it implicitly (which is unreliable across browsers).
-    if (navigator?.mediaDevices?.getUserMedia) {
+    // First-attempt only: explicitly prompt for mic permission. Subsequent
+    // calls skip getUserMedia — the grab/release race was the cause of
+    // "takes multiple attempts before audio is recognised".
+    if (!micPermissionGrantedRef.current && navigator?.mediaDevices?.getUserMedia) {
       try {
         const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
         stream.getTracks().forEach((t) => t.stop());
+        micPermissionGrantedRef.current = true;
+        await new Promise((r) => setTimeout(r, 150));
       } catch (e) {
         const name = e instanceof Error ? e.name : "mic-error";
         console.warn("[interview-prep] name getUserMedia denied/failed:", name, e);
