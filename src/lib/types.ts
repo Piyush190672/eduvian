@@ -173,6 +173,7 @@ export const FIELDS_OF_STUDY = [
   "Business & Management",
   "MBA",
   "Engineering (Mechanical/Civil/Electrical)",
+  "Architecture",
   "Biotechnology & Life Sciences",
   "Medicine & Public Health",
   "Law",

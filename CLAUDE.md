@@ -44,7 +44,7 @@ The 5,595-program database in `src/data/programs.ts` is built only by `scripts/v
 1. **No hand-authored entries.** Adds go through the pipeline.
 2. **No invented values.** If the live URL doesn't state a fee/deadline/cutoff, the field is `null`.
 3. **`verified_at` is sacred** — set only by the pipeline after a live fetch.
-4. `field_of_study` must be one of the 17 in `FIELDS_OF_STUDY`.
+4. `field_of_study` must be one of the 18 in `FIELDS_OF_STUDY`.
 5. For high-stakes programs.ts edits, prefer `repair-corruption.ts`-style parse-and-emit over inline regex. Brace walkers must track strings (history: see snapshot §4.10).
 6. `verify-program.ts` stays on Opus 4.7 (audited; Haiku/Sonnet fabricate).
 7. **Fresh seeds via `websearch-seed-finder.ts` (Sonnet + web_search) hit ~75% verify pass-rate.** Stale `tier-N-auto.json` seeds (older crawler runs) hit ~5% — they're full of catalog/listing URLs. For new uni additions, always run seed-finder over a curated catalog first; don't reuse old auto-seeds.
@@ -93,7 +93,7 @@ Audit document: `~/Desktop/EduvianAI-Security-Architecture-Risk-Assessment.docx`
 | `src/data/db-stats.ts` | Computed counts. Public surfaces standardise on `verifiedProgramsLabel` (5,532+) and `verifiedUniversitiesLabel` (485+) — `programsLabel` (the unverified-tail total) is internal-only. Don't reintroduce dual numbers in copy. |
 | `src/app/sample-parent-report/page.tsx` | Static, illustrative parent-decision report at `/sample-parent-report`. Print-friendly (Save-as-PDF button). Linked from the Decide-stage 'See sample family report' CTA. |
 | `src/app/page.tsx` | **The homepage** (post v2 → / swap, 5 May 2026). v2 brand redesign + 8-section structure now serves at `/`. Pre-swap homepage backed up at `_archive/page-pre-v2-swap.tsx.bak`; pre-swap `src/app/v2/` preserved (un-routed) at `src/app/_v2-archive/page.tsx` for reference. |
-| `src/lib/types.ts` | Single source of truth. `TARGET_COUNTRIES` (12), `FIELDS_OF_STUDY` (17). |
+| `src/lib/types.ts` | Single source of truth. `TARGET_COUNTRIES` (12), `FIELDS_OF_STUDY` (18). |
 | `src/lib/scoring.ts` | 9-signal `recommendPrograms()`. Tiers: Safe 75-100, Reach 50-74, Ambitious <50. |
 | `src/lib/format-fee.ts` | Null-safe tuition rendering. **Never show $0.** |
 | `src/lib/beta-gate.ts` | Per-tool monthly caps + global $50 spend cap. |

@@ -160,7 +160,7 @@ EduvianAI is a Next.js 14 (App Router) study-abroad recommendation platform depl
 │   │   ├── ParentDecisionTool.tsx
 │   │   └── ...
 │   ├── lib/
-│   │   ├── types.ts           # Program, ScoredProgram, StudentProfile, FIELDS_OF_STUDY (17), TARGET_COUNTRIES (12)
+│   │   ├── types.ts           # Program, ScoredProgram, StudentProfile, FIELDS_OF_STUDY (18), TARGET_COUNTRIES (12)
 │   │   ├── scoring.ts         # 9-signal recommendPrograms()
 │   │   ├── format-fee.ts      # null-safe tuition rendering ("Verified fee not available")
 │   │   ├── beta-gate.ts       # per-tool monthly caps + global $50 spend cap
@@ -234,26 +234,34 @@ PII_HASH_SECRET                      server-only — H7 + OTP HMAC secret (32-by
 
 `.env.local` mirrors these for development. **Database password rotated 3 May 2026** (separate from the env vars above).
 
-### 2.5 17 Fields of Study (`FIELDS_OF_STUDY` in `src/lib/types.ts`)
+### 2.5 18 Fields of Study (`FIELDS_OF_STUDY` in `src/lib/types.ts`)
 
 ```
-1. Computer Science & IT
-2. Artificial Intelligence & Data Science
-3. Business & Management
-4. MBA
-5. Engineering (Mechanical/Civil/Electrical)
-6. Biotechnology & Life Sciences
-7. Medicine & Public Health
-8. Law
-9. Arts, Design & Architecture
-10. Social Sciences & Humanities
-11. Economics & Finance
-12. Media & Communications
-13. Environmental & Sustainability Studies
-14. Natural Sciences
-15. Nursing & Allied Health
-16. Agriculture & Veterinary Sciences
-17. Hospitality & Tourism
+1.  Computer Science & IT
+2.  Artificial Intelligence & Data Science
+3.  Business & Management
+4.  MBA
+5.  Engineering (Mechanical/Civil/Electrical)
+6.  Architecture                              ← split out 6 May 2026
+7.  Biotechnology & Life Sciences
+8.  Medicine & Public Health
+9.  Law
+10. Arts, Design & Architecture               ← legacy compound; ~340 programs
+                                                 still tagged here (architecture +
+                                                 design + fine arts mixed). New
+                                                 "Architecture" entry above is the
+                                                 user-facing pick; scoring's
+                                                 RELATED_FIELDS pulls existing
+                                                 tagged programs in until they're
+                                                 re-classified.
+11. Social Sciences & Humanities
+12. Economics & Finance
+13. Media & Communications
+14. Environmental & Sustainability Studies
+15. Natural Sciences
+16. Nursing & Allied Health
+17. Agriculture & Veterinary Sciences
+18. Hospitality & Tourism
 ```
 
 ### 2.6 12 target countries (`TARGET_COUNTRIES`)
@@ -331,7 +339,7 @@ In April 2026, an audit discovered 6,222 synthetic placeholder programs in the d
 2. **No invented values.** If the official page doesn't state a fee/deadline/cutoff, the field is `null`.
 3. **`verified_at` is sacred.** Set only by the pipeline after a successful live fetch.
 4. **Re-verify every 6 months.** Admissions cycles roll over.
-5. **`field_of_study` must be one of the 17 in `FIELDS_OF_STUDY`.**
+5. **`field_of_study` must be one of the 18 in `FIELDS_OF_STUDY`.**
 
 ### 4.3 Pipeline scripts (`scripts/verify/`)
 
@@ -980,7 +988,7 @@ These have been issued at various points and remain binding:
 |---|---|
 | `src/data/programs.ts` | THE database. **5,595 entries / 5,532 verified at source**. Has `// @ts-nocheck` directive (large data file). |
 | `src/data/db-stats.ts` | Auto-computes counts from PROGRAMS. Don't edit; recomputed on load. Public surfaces standardise on `verifiedProgramsLabel` (5,532+) and `verifiedUniversitiesLabel` (485+). |
-| `src/lib/types.ts` | Single source of truth for types. `TARGET_COUNTRIES` (12), `FIELDS_OF_STUDY` (17), `Program`, `StudentProfile`, `ScoredProgram`. |
+| `src/lib/types.ts` | Single source of truth for types. `TARGET_COUNTRIES` (12), `FIELDS_OF_STUDY` (18), `Program`, `StudentProfile`, `ScoredProgram`. |
 | `src/lib/scoring.ts` | The 9-signal `recommendPrograms()`. Tier thresholds: Safe 75-100, Reach 50-74, Ambitious <50. |
 | `src/lib/format-fee.ts` | The fee-unavailable rendering helpers. NEVER show $0. |
 | `src/lib/beta-gate.ts` | Per-tool monthly caps + global spend cap. Uses tool_usage table. |

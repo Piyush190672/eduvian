@@ -53,8 +53,14 @@ const RELATED_FIELDS: Record<string, string[]> = {
   "Medicine & Public Health":                ["Nursing & Allied Health", "Biotechnology & Life Sciences"],
   "Nursing & Allied Health":                 ["Medicine & Public Health"],
   "Environmental & Sustainability Studies":  ["Natural Sciences"],
-  "Media & Communications":                  ["Arts, Design & Architecture", "Social Sciences & Humanities"],
-  "Arts, Design & Architecture":             ["Media & Communications"],
+  "Media & Communications":                  ["Arts, Design & Architecture", "Architecture", "Social Sciences & Humanities"],
+  "Arts, Design & Architecture":             ["Architecture", "Media & Communications"],
+  // Architecture was split out as its own stream after the legacy compound
+  // "Arts, Design & Architecture" tag had accumulated ~340 programs. The
+  // related-set pulls in both the legacy compound and Engineering so that
+  // students who pick the new "Architecture" stream still match against
+  // existing tagged programs until they're re-classified.
+  "Architecture":                            ["Arts, Design & Architecture", "Engineering (Mechanical/Civil/Electrical)"],
   "Social Sciences & Humanities":            ["Media & Communications"],
   "Agriculture & Veterinary Sciences":       ["Natural Sciences"],
   "Hospitality & Tourism":                   ["Business & Management"],
