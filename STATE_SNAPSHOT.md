@@ -1,13 +1,13 @@
 # EduvianAI — Comprehensive State Snapshot for Session Handoff
 
-**Last updated:** 5 May 2026 late evening (handoff #6 — H7 Phase C fully closed, including a writer-side dev/preview gap discovered during cleanup)
+**Last updated:** 5 May 2026 night (handoff #7 — partial brand port, interview-prep voice cascade)
 **Purpose:** Zero-loss handoff between Claude Code sessions. A new session reading this should be able to continue *every* in-flight workstream correctly, respect all user preferences, and avoid all known gotchas.
 
-> **H7 Phase C is now FULLY DONE.** Schema check (5 May late evening) showed the plaintext `profile` column was already absent — the destructive SQL had been run in the prior crashed session. Coverage check found 2 zombie rows (`profile_encrypted=NULL` AND `email_hash=NULL`) — both inserted today via a non-prod NODE_ENV path, deleted manually. **Writer patched** to skip the Supabase insert entirely when encryption inputs are missing (option 2B), closing the dev/preview hole regardless of NODE_ENV. Live submissions table is now clean: 5 rows, all encrypted + hashed.
+> **Pinned next-session priority:** **(1) verify interview-prep voice end-to-end on the live deploy** — last commit `e3b719c5` was the 4th iteration; user ended the day before confirming. If it still fails, console will show `[interview-prep] TTS utter.onerror: <code>` or `[interview-prep] STT error: <code>` — those error codes drive the next fix. **(2) clean up the 63 still-unverified entries** in `programs.ts` (§20.2 has the recipe).
 >
-> **Pinned next-session priority:** (b) port v2 brand language to the deep tool pages — `/application-check`, `/interview-prep`, `/english-test-lab`, `/roi-calculator`, `/visa-coach`, `/parent-decision`, `/get-started`. They still wear the pre-swap visuals. Brand spec is locked in CLAUDE.md "Brand direction" section.
+> H7 Phase C is fully closed (schema dropped + writer patched against dev/preview hole + Sentry `8bfc0387` results-route 410 guard). Brand port partially done: 3 thin-wrapper pages (`/roi-calculator`, `/parent-decision`, `/visa-coach`) ported via new `BrandNav` + `BrandHero` primitives (commit `0c24dc4c`); ROI Calculator + ParentDecisionTool components retheme-flipped from dark/glass to light/white (`cbf6c3d8`). User then said the **remaining 4 pages need no change** — so item is closed at 3-of-7, not 7-of-7. Snapshot §26 is the locked as-shipped reference for any future page port.
 >
-> Secondary: (c) clean up the 63 still-unverified entries in `programs.ts` (§20.2 below has the recipe). Then marketing-opt-in / unsubscribe / sample-parent-report PDF.
+> Outstanding for next session in priority order: (1) interview-prep voice verification, (2) 63-entry cleanup, (3) marketing-opt-in flow, (4) visible unsubscribe link in email body, (5) downloadable Sample Parent Report PDF, (6) DB password rotation (user pasted live password in chat on 5 May — should reset in Studio → Project Settings → Database).
 
 > **Read this top-to-bottom before doing anything.** Then run the verification commands in §0 to confirm reality matches this document.
 
@@ -1659,4 +1659,56 @@ Open work item #1 (port v2 brand to the 7 deep tool pages) must mirror **§26 pa
 **Cross-codebase integrity (verified):** zero files outside `src/app/_v2-archive/` reference `src/app/v2/...`; zero stray `/v2#` anchors, prototype badges, or "Original →" links anywhere. tsc + next build clean.
 
 **Untouched by the swap:** all 22 API routes, `/admin/*` sub-routes, auth flow, profile editor, `/results/[token]`, `/lor-coach` + token route, the verification pipeline (`scripts/verify/*`), DB schema, every shared component (ChatWidget, CountryModal, ROICalculator, ParentDecisionTool, LogoutButton, EduvianLogo, AuthGate, DecisionDisclaimer, HowItWorksModal, multi-step form Steps).
+
+---
+
+## §27 Session log — 5 May 2026 night (handoff #7)
+
+This session shipped 9 commits. Three workstreams: H7 Phase C close-out, partial brand port, and a 4-iteration interview-prep voice fix that the user did not get to verify before ending the day.
+
+### 27.1 H7 Phase C close-out (3 commits)
+
+| Commit | What |
+|---|---|
+| `dace04fa` | Close-out: schema check confirmed `profile` column already absent (dropped in prior crashed session). Coverage check found 2 zombie rows (`profile_encrypted=NULL` AND `email_hash=NULL`, both 5 May, unservable) — user deleted via Studio. **Writer patched (option 2B):** `/api/submit` now skips the Supabase insert entirely when `pii_profile_encrypted` or `pii_email_hash` is null, regardless of NODE_ENV. The original gate had a `process.env.NODE_ENV === "production"` check that let dev/preview environments connected to prod Supabase via the shared service-role key insert null-encrypted rows. Closes the leak. |
+| `18c47658` | Sentry `8bfc0387` fix: `/api/results/[token]` was passing `submission.profile` (undefined when decryption fails) to `recommendPrograms()`, which crashed reading `qs_ranking_preference`. Now returns 410 Gone when `decryptProfile()` returns null. Stale "fall back to plaintext" comment also removed. |
+| `d01ac551` + `335573af` | Docs: §26 captures post-swap polish + nav-restoration deltas (badge / audience-split cards / rotating RHS / stage disclosures / destination 4-signals / "How it works" modal / "Why choose us" rename / footer admin link / back-to-home pills / AuthGate top-right). §24.5 corrected (/match + /parent-report are 307 alias redirects, not new pages). §26.9 added: post-swap audit summary (19×200, 3×307, 1×404 intentional). |
+
+**Lesson captured (CLAUDE.md):** any future API route that writes encrypted PII should guard the `.insert()` on the encrypted-fields-present invariant, not on `NODE_ENV`. The shared service-role key means dev and prod hit the same DB, so prod-only guards leak.
+
+### 27.2 Brand port (2 commits, 3 of 7 pages)
+
+| Commit | What |
+|---|---|
+| `0c24dc4c` | Created `src/components/BrandNav.tsx` + `src/components/BrandHero.tsx` (extracted from `/destinations` + `/methodology` patterns). Ported the three thin-wrapper pages to use them: `/roi-calculator`, `/parent-decision`, `/visa-coach`. Each gets a brand-locked dark hero with eyebrow + italic-violet-300 accent + trust strip, replacing the legacy `bg-gradient slate→indigo` nav. Visa Coach also dropped its forbidden indigo→violet→pink gradient headline. |
+| `cbf6c3d8` | Per user feedback ("ROI section below hero should be in white", "Parent left card needs to be darker for readability"): full dark→light retheme of `ROICalculator` (was `bg-gradient-to-br from-slate-900 via-indigo-950 to-purple-950` with white text + glass cards; now `bg-white` with `bg-stone-50` nested cards, gray-900 text, indigo→violet recolor). Decorative violet-100 blur blobs removed (mobile rule). `text-white` preserved on `bg-violet-600` / `bg-sky-600` buttons. ParentDecisionTool: dropped the in-tool header (page wrapper now provides BrandHero), section bg → `bg-stone-50`, left input card → `border-stone-300 + shadow-md` for contrast. |
+
+**User decision (post-feedback):** the remaining 4 pages (`/get-started`, `/application-check`, `/interview-prep`, `/english-test-lab`) **need no change**. Item closed at 3-of-7. New `BrandNav` + `BrandHero` primitives remain available if a future change is wanted.
+
+### 27.3 Interview-prep voice cascade (4 commits, USER NOT YET VERIFIED)
+
+User reported "the tool is not catching the user voice" → became multi-layer debug.
+
+| Commit | Layer | What |
+|---|---|---|
+| `19c230c8` | Diagnostics | `recog.onerror` was reduced to `clearSilence()` with no logging or UI signal. `recog.start()` was outside any try/catch. Now both fire `console.warn("[interview-prep] STT error: <code>")` (ignoring benign `no-speech` / `aborted`), set `sttError` state, and listening UI shows a code-keyed message ("Microphone permission was denied…") with the textarea fallback so the user can still answer. Also added `SpeechRecognitionErrorEventShim` interface. |
+| `f168123e` | **ROOT CAUSE** | `next.config.mjs` had `Permissions-Policy: …microphone=()…` — empty parens deny the feature on the page's own origin. Browser correctly refused SR before any JS could run. Changed `microphone=()` → `microphone=(self)`. Geolocation, camera, payment stay locked. |
+| `2adbaa9f` | Permission UX | Even after policy fix, no mic prompt appeared on Chrome (likely because Chrome had cached the prior denial). Both `startListening` and `listenOnce` now `await navigator.mediaDevices.getUserMedia({ audio: true })` first to surface a clean prompt; on grant, throwaway stream is closed and `recog.start()` runs. Routes `NotAllowedError` / `NotFoundError` into `sttError`. Functions are now async; useEffect call site fires-and-forgets the Promise. |
+| `710d57a5` | TTS race | User confirmed via console (`speechSynthesis.speak(new SpeechSynthesisUtterance("hello"))` audible) that the bug was in our wrapper, not the browser. Chrome's synth engine puts itself in a "cancelling" state when `cancel()` is followed too quickly by `speak()`. Gated `cancel()` on `.speaking || .pending`, added 80ms delay before queue, added `utter.onerror` handler that advances the chain so the phase transition is never stranded, `resume()` before each speak (no-op when not paused), hardened voice-loading fallback. |
+| `e3b719c5` | TTS race v2 | After 710d57a5 deployed, user still saw `[interview-prep] TTS utter.onerror: interrupted` on the very first greeting utterance. Removed the unconditional `cancel()` from the top of `speakSegments` entirely (its purpose was clearing stale queues that don't exist at greeting/question/feedback entry points). Added one-shot retry on `interrupted` / `canceled` codes (rewinds segment index, 250ms delay). Other error codes still advance. |
+
+**Where this stands:** `e3b719c5` is live (chunk hash flipped from `page-80f14e2…` → `page-b8021e8f…`). User ended the session before testing it.
+
+**If still broken when next session starts:** console will surface the exact code via the diagnostic logging from `19c230c8`. Do NOT add more TTS/STT layers without seeing the new error code first — the bug-fix layers are already deep.
+
+### 27.4 What ended pending
+
+1. **Interview-prep voice end-to-end test** on `e3b719c5`. If it works: the cascade closes. If not: read the console code and target it.
+2. **63 unverified entries cleanup** — recipe in §20.2 untouched.
+3. **DB password rotation** — user pasted the live password (`Uyb93H0r9di9N3ib`) in chat during the H7 backup walkthrough. Studio → Project Settings → Database → Reset database password. Resetting will not break Vercel (which uses service-role JWT, not DB password).
+4. Marketing email opt-in, in-body unsubscribe link, sample-parent-report PDF (all unchanged from §20).
+
+**Total commits this session:** 9.
+**Estimated session API spend:** ~$5 (no verify-batch runs).
+
 

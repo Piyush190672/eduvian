@@ -73,7 +73,7 @@ Audit document: `~/Desktop/EduvianAI-Security-Architecture-Risk-Assessment.docx`
   - H1 admin TOTP MFA: enrolled and verified — login flow now challenges for the 6-digit code.
   - H2 opaque sessions, H3 CSRF gate, H4 DPDPA endpoints, H6 output encoding — closed.
   - H5 service-role overuse — closed-with-rationale (subsumed by C2).
-  - **H7 PII encryption: ALL phases done.** Phase A + B + C code all live; Phase C destructive SQL was run; `profile` column dropped. Two zombie rows (5 May 2026) inserted with null encryption via a NODE_ENV-gated dev/preview hole — deleted manually, writer patched to skip the Supabase insert when encryption inputs are missing (regardless of NODE_ENV). Live `submissions` table is clean.
+  - **H7 PII encryption: ALL phases done.** Phase A + B + C code all live; Phase C destructive SQL was run; `profile` column dropped. Two zombie rows (5 May 2026) inserted with null encryption via a NODE_ENV-gated dev/preview hole — deleted manually, writer patched to skip the Supabase insert when encryption inputs are missing (regardless of NODE_ENV, commit `dace04fa`). Sentry `8bfc0387` (`/api/results/[token]` crash on null profile) closed by 410-on-decrypt-fail in `18c47658`. Live `submissions` table is clean.
 
 `submissions` rows carry only `profile_encrypted` + `email_hash` for PII. Lookup by email goes through `email_hash` only. The writer guard now refuses to insert any row without both fields set — no NODE_ENV exemption.
 
@@ -110,6 +110,8 @@ Audit document: `~/Desktop/EduvianAI-Security-Architecture-Risk-Assessment.docx`
 | `src/components/DecisionDisclaimer.tsx` | In-context disclaimers on tool pages — five variants (roi, visa, english-test, shortlist, scholarship). |
 | `src/components/HowItWorksModal.tsx` | Video walkthrough modal triggered from "How it works" buttons in nav + footer. Reuse on deep tool pages. |
 | `src/components/AuthGate.tsx` | Wraps tool pages that need login. Back-to-home pill is **top-right** (moved 5 May), not bottom-center. |
+| `src/components/BrandNav.tsx` | Reusable v2-brand top nav (dark variant for over-hero, light for over-content). Used by ported deep pages; reuse on any future page port. |
+| `src/components/BrandHero.tsx` | Reusable dark-navy hero block matching `/destinations` + `/methodology`. Exports `accent(text)` helper for italic violet-300 emphasis inside titles. |
 
 ## Email deliverability monitoring
 
@@ -142,13 +144,16 @@ The legal/security/pricing Word docs were generated with `docx`. Pricing Excel v
 
 ## Open work for the next session
 
-Pinned in priority order. Snapshot §20 + §24 have full detail.
+Pinned in priority order. Snapshot §20 + §27 have full detail.
 
-1. **Visual update for the existing tool pages to match the v2 brand language** (homepage swap landed `66135a13`; the deep pages still wear the pre-swap visuals). Affected: `/application-check`, `/interview-prep`, `/english-test-lab`, `/roi-calculator`, `/visa-coach`, `/parent-decision`, `/get-started`. Apply the locked palette + card pattern + typography from the Brand direction section below.
+1. **Verify interview-prep voice end-to-end on the live deploy** (commit `e3b719c5`). User ended 5 May session before testing the 4th iteration of the voice fix. Test path: hard-refresh `/interview-prep` → start interview → listen for greeting voice → mic prompt should appear → speak name. If it fails, console will surface `[interview-prep] TTS utter.onerror: <code>` or `[interview-prep] STT error: <code>` — do NOT add more layers without seeing the new code first; the cascade is already deep (§27.3 in snapshot).
 2. **Field-mismatch + persistent fetch-error cleanup** — 63 entries from the re-verify pass still aren't verified: 31 `field_mismatch` (24 of them are catalog/listing URLs from older seeds — strip with `audit-strip --include field_mismatch`) and 32 `fetch_or_api_error` (28 are DNS-unresolvable from the build network, 2 De Montfort 404s, 2 succeed in browser → strip the De Montfort, retry the working pair, replace the 28 catalog URLs with real program-detail URLs OR strip them).
-3. **Marketing email opt-in flow** — Privacy Policy §11 promises this; not yet built.
-4. **Visible unsubscribe link in email body** — `List-Unsubscribe` header is in; in-body link still missing.
-5. **Real downloadable Sample Parent Report PDF** — current `/sample-parent-report` is HTML + Save-as-PDF. A static rendered PDF asset would feel more 'official'.
+3. **DB password rotation** — user pasted the live DB password into chat during the 5 May H7 backup walkthrough. Reset in Studio → Project Settings → Database → Reset database password. Vercel uses service-role JWT, not the DB password, so reset is non-breaking.
+4. **Marketing email opt-in flow** — Privacy Policy §11 promises this; not yet built.
+5. **Visible unsubscribe link in email body** — `List-Unsubscribe` header is in; in-body link still missing.
+6. **Real downloadable Sample Parent Report PDF** — current `/sample-parent-report` is HTML + Save-as-PDF. A static rendered PDF asset would feel more 'official'.
+
+> Brand port note: 5 May session ported 3 of 7 deep tool pages (`/roi-calculator`, `/parent-decision`, `/visa-coach`) using new `BrandNav` + `BrandHero` primitives (commits `0c24dc4c` + `cbf6c3d8`). User decided the remaining 4 (`/get-started`, `/application-check`, `/interview-prep`, `/english-test-lab`) need no change. Item closed at 3-of-7. Primitives stay available if a future change is wanted.
 
 ## Brand direction (locked by user, 5 May 2026)
 
