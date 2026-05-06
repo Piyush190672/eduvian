@@ -7,7 +7,7 @@
 >
 > H7 Phase C is fully closed (schema dropped + writer patched against dev/preview hole + Sentry `8bfc0387` results-route 410 guard). Brand port partially done: 3 thin-wrapper pages (`/roi-calculator`, `/parent-decision`, `/visa-coach`) ported via new `BrandNav` + `BrandHero` primitives (commit `0c24dc4c`); ROI Calculator + ParentDecisionTool components retheme-flipped from dark/glass to light/white (`cbf6c3d8`). User then said the **remaining 4 pages need no change** — so item is closed at 3-of-7, not 7-of-7. Snapshot §26 is the locked as-shipped reference for any future page port.
 >
-> Outstanding for next session in priority order: (1) interview-prep voice verification, (2) 63-entry cleanup, (3) marketing-opt-in flow, (4) visible unsubscribe link in email body, (5) downloadable Sample Parent Report PDF, (6) DB password rotation (user pasted live password in chat on 5 May — should reset in Studio → Project Settings → Database).
+> Outstanding for next session in priority order: (1) interview-prep voice verification, (2) Architecture stream Phase 2, (3) 63-entry cleanup, (4) marketing-opt-in flow, (5) visible unsubscribe link in email body, (6) downloadable Sample Parent Report PDF. (DB password rotation done by user 5 May.)
 
 > **Read this top-to-bottom before doing anything.** Then run the verification commands in §0 to confirm reality matches this document.
 
