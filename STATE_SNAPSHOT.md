@@ -1,9 +1,9 @@
 # EduvianAI — Comprehensive State Snapshot for Session Handoff
 
-**Last updated:** 5 May 2026 night (handoff #7 — partial brand port, interview-prep voice cascade)
+**Last updated:** 6 May 2026 (handoff #8 — Architecture stream split + Phase-1 retag)
 **Purpose:** Zero-loss handoff between Claude Code sessions. A new session reading this should be able to continue *every* in-flight workstream correctly, respect all user preferences, and avoid all known gotchas.
 
-> **Pinned next-session priority:** **(1) verify interview-prep voice end-to-end on the live deploy** — last commit `e3b719c5` was the 4th iteration; user ended the day before confirming. If it still fails, console will show `[interview-prep] TTS utter.onerror: <code>` or `[interview-prep] STT error: <code>` — those error codes drive the next fix. **(2) clean up the 63 still-unverified entries** in `programs.ts` (§20.2 has the recipe).
+> **Pinned next-session priority:** **(1) verify interview-prep voice end-to-end on the live deploy** — last commit `e3b719c5` was the 4th iteration of the voice cascade; user ended 5 May before confirming. If it still fails, console will show `[interview-prep] TTS utter.onerror: <code>` or `[interview-prep] STT error: <code>` — those error codes drive the next fix. Do NOT add more TTS/STT layers without first reading the new code. **(2) Architecture stream Phase 2 (deferred by user 6 May)** — add new programs from QS Top-250 unis not yet represented. ~$10-25 in API spend (Sonnet seed-finder + Opus verify-program). Plan + recipe in §27.5. **(3) clean up the 63 still-unverified entries** in `programs.ts` (§20.2 has the recipe).
 >
 > H7 Phase C is fully closed (schema dropped + writer patched against dev/preview hole + Sentry `8bfc0387` results-route 410 guard). Brand port partially done: 3 thin-wrapper pages (`/roi-calculator`, `/parent-decision`, `/visa-coach`) ported via new `BrandNav` + `BrandHero` primitives (commit `0c24dc4c`); ROI Calculator + ParentDecisionTool components retheme-flipped from dark/glass to light/white (`cbf6c3d8`). User then said the **remaining 4 pages need no change** — so item is closed at 3-of-7, not 7-of-7. Snapshot §26 is the locked as-shipped reference for any future page port.
 >
@@ -1718,5 +1718,18 @@ User reported "the tool is not catching the user voice" → became multi-layer d
 
 **Total commits this session:** 9.
 **Estimated session API spend:** ~$5 (no verify-batch runs).
+
+---
+
+### 27.5 Architecture stream split (6 May 2026 morning, 2 commits)
+
+User asked: "Architecture should be shown as a separate stream" → then "add more programs in Architecture from Top 250 QS ranked Universities" → after Phase 1 results, "close out as of now" (Phase 2 deferred).
+
+| Commit | What |
+|---|---|
+| `5a4fff7f` | Added "Architecture" to `FIELDS_OF_STUDY` (between Engineering and Biotechnology) — 17 → 18 entries. Legacy compound `"Arts, Design & Architecture"` left intact so the ~340 programs already tagged with it don't fall out of scoring. `RELATED_FIELDS` in `scoring.ts` gets a new `"Architecture"` key whose related-set is `["Arts, Design & Architecture", "Engineering (Mechanical/Civil/Electrical)"]` so a student selecting the new stream still matches existing tagged programs until they're re-classified. The compound entry's own related-set adds `"Architecture"` so legacy-tagged programs surface for the new stream. CLAUDE.md count + key-paths count updated to 18. STATE_SNAPSHOT.md §2.5 list expanded with annotations. |
+| `ae0f6d6f` | Phase 1 — `scripts/verify/retag-architecture.ts` (parse-and-emit per CLAUDE.md hard rule #5; brace walker that tracks strings, no inline regex) flipped `field_of_study` to `"Architecture"` for entries where `program_name` OR `specialization` matched `/[Aa]rchitect/` AND the existing tag was the legacy compound. Result: 171 programs re-tagged. Counts: Architecture = 171, legacy compound = 169 (was 340), total = 5,595 (unchanged), verified = 5,532 (unchanged — `verified_at` not touched, only the classifier string moved). |
+
+**Phase 2 — DEFERRED by user.** Plan if/when revived: curate QS Top-250 unis not yet represented in Architecture (the 171 already covers a lot of ground), use `websearch-seed-finder.ts` (Sonnet + web_search) with a single-field focus or post-filter, then `verify-program.ts` (Opus 4.7) on the seeds, then `merge.ts`. Estimated cost ~$10-25, time ~30-60 min. Existing `scripts/verify/catalogs/qs-2026-tier-*.json` cover the QS Top-250 across tiers 1-6 (~200 unis); start there.
 
 
