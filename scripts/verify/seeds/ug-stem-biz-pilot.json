@@ -1,0 +1,1865 @@
+[
+  {
+    "university": "Massachusetts Institute of Technology",
+    "country": "USA",
+    "city": "Cambridge, MA",
+    "qs_ranking": 1,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.eecs.mit.edu/academics/undergraduate-programs/curriculum/6-3-computer-science-and-engineering/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Massachusetts Institute of Technology",
+    "country": "USA",
+    "city": "Cambridge, MA",
+    "qs_ranking": 1,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.eecs.mit.edu/academics/undergraduate-programs/curriculum/6-4-artificial-intelligence-and-decision-making/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Massachusetts Institute of Technology",
+    "country": "USA",
+    "city": "Cambridge, MA",
+    "qs_ranking": 1,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://meche.mit.edu/education/undergraduate",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Massachusetts Institute of Technology",
+    "country": "USA",
+    "city": "Cambridge, MA",
+    "qs_ranking": 1,
+    "field_of_study": "Architecture",
+    "program_url": "https://architecture.mit.edu/undergraduate-programs",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Massachusetts Institute of Technology",
+    "country": "USA",
+    "city": "Cambridge, MA",
+    "qs_ranking": 1,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://catalog.mit.edu/schools/engineering/biological-engineering/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Massachusetts Institute of Technology",
+    "country": "USA",
+    "city": "Cambridge, MA",
+    "qs_ranking": 1,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://catalog.mit.edu/degree-charts/physics-course-8/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Massachusetts Institute of Technology",
+    "country": "USA",
+    "city": "Cambridge, MA",
+    "qs_ranking": 1,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://catalog.mit.edu/interdisciplinary/undergraduate-programs/degrees/climate-system-science-engineering/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Massachusetts Institute of Technology",
+    "country": "USA",
+    "city": "Cambridge, MA",
+    "qs_ranking": 1,
+    "field_of_study": "Business & Management",
+    "program_url": "https://mitsloan.mit.edu/programs/undergraduate/15-1-management",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Massachusetts Institute of Technology",
+    "country": "USA",
+    "city": "Cambridge, MA",
+    "qs_ranking": 1,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://economics.mit.edu/academic-programs/undergraduate-programs",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Oxford",
+    "country": "UK",
+    "city": "Oxford",
+    "qs_ranking": 4,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.ox.ac.uk/admissions/undergraduate/courses/course-listing/computer-science",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Oxford",
+    "country": "UK",
+    "city": "Oxford",
+    "qs_ranking": 4,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.ox.ac.uk/admissions/undergraduate/courses/course-listing/engineering-science",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Oxford",
+    "country": "UK",
+    "city": "Oxford",
+    "qs_ranking": 4,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.ox.ac.uk/admissions/undergraduate/courses/course-listing/biomedical-sciences",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Oxford",
+    "country": "UK",
+    "city": "Oxford",
+    "qs_ranking": 4,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.ox.ac.uk/admissions/undergraduate/courses/course-listing/biology",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Oxford",
+    "country": "UK",
+    "city": "Oxford",
+    "qs_ranking": 4,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.ox.ac.uk/admissions/undergraduate/courses/course-listing/economics-and-management",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Oxford",
+    "country": "UK",
+    "city": "Oxford",
+    "qs_ranking": 4,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.ox.ac.uk/admissions/undergraduate/courses/course-listing/economics-and-management",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Harvard University",
+    "country": "USA",
+    "city": "Cambridge, MA",
+    "qs_ranking": 5,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://seas.harvard.edu/computer-science/bachelors-degree-computer-science",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Harvard University",
+    "country": "USA",
+    "city": "Cambridge, MA",
+    "qs_ranking": 5,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://seas.harvard.edu/materials-science-mechanical-engineering/bachelors-materials-science-and-mechanical-engineering",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Harvard University",
+    "country": "USA",
+    "city": "Cambridge, MA",
+    "qs_ranking": 5,
+    "field_of_study": "Architecture",
+    "program_url": "https://www.architecturestudies-undergrad.harvard.edu/about",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Harvard University",
+    "country": "USA",
+    "city": "Cambridge, MA",
+    "qs_ranking": 5,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://science.fas.harvard.edu/pages/life-sciences",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Harvard University",
+    "country": "USA",
+    "city": "Cambridge, MA",
+    "qs_ranking": 5,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://seas.harvard.edu/environmental-science-engineering/bachelors-environmental-science-and-engineering",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Harvard University",
+    "country": "USA",
+    "city": "Cambridge, MA",
+    "qs_ranking": 5,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.economics.harvard.edu/concentrating-economics",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Cambridge",
+    "country": "UK",
+    "city": "Cambridge",
+    "qs_ranking": 6,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.undergraduate.study.cam.ac.uk/courses/computer-science-ba-hons-meng",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Cambridge",
+    "country": "UK",
+    "city": "Cambridge",
+    "qs_ranking": 6,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.undergraduate.study.cam.ac.uk/courses/engineering-ba-hons-meng",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Cambridge",
+    "country": "UK",
+    "city": "Cambridge",
+    "qs_ranking": 6,
+    "field_of_study": "Architecture",
+    "program_url": "https://www.undergraduate.study.cam.ac.uk/courses/architecture-ba-hons-march",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Cambridge",
+    "country": "UK",
+    "city": "Cambridge",
+    "qs_ranking": 6,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.undergraduate.study.cam.ac.uk/courses/natural-sciences-ba-hons-msci",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Cambridge",
+    "country": "UK",
+    "city": "Cambridge",
+    "qs_ranking": 6,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.undergraduate.study.cam.ac.uk/courses/economics-ba-hons",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "National University of Singapore",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": 8,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.comp.nus.edu.sg/programmes/ug/cs/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "National University of Singapore",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": 8,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.comp.nus.edu.sg/programmes/ug/ai/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "National University of Singapore",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": 8,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://cde.nus.edu.sg/me/undergraduate/beng-me/overview/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "National University of Singapore",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": 8,
+    "field_of_study": "Architecture",
+    "program_url": "https://cde.nus.edu.sg/arch/programmes/bachelor-of-arts-in-architecture/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "National University of Singapore",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": 8,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.dbs.nus.edu.sg/lifesciences/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "National University of Singapore",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": 8,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.science.nus.edu.sg/undergraduates/academic-programmes/majors/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "National University of Singapore",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": 8,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://envstudies.nus.edu.sg/programme/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "National University of Singapore",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": 8,
+    "field_of_study": "Business & Management",
+    "program_url": "https://bba.nus.edu.sg/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "National University of Singapore",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": 8,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://fass.nus.edu.sg/ecs/undergraduate-overview/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "UCL",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 9,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.ucl.ac.uk/prospective-students/undergraduate/degrees/computer-science-bsc/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "UCL",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 9,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.ucl.ac.uk/prospective-students/undergraduate/degrees/data-science-bsc-2026",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "UCL",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 9,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.ucl.ac.uk/prospective-students/undergraduate/degrees/mechanical-engineering-beng-2026",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "UCL",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 9,
+    "field_of_study": "Architecture",
+    "program_url": "https://www.ucl.ac.uk/prospective-students/undergraduate/degrees/architecture-bsc",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "UCL",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 9,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.ucl.ac.uk/prospective-students/undergraduate/degrees/biological-sciences-bsc-2026",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "UCL",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 9,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.ucl.ac.uk/prospective-students/undergraduate/degrees/natural-sciences-bsc-2026",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "UCL",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 9,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.ucl.ac.uk/prospective-students/undergraduate/degrees/sustainable-built-environments-energy-and-resources-bsc",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "UCL",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 9,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.ucl.ac.uk/prospective-students/undergraduate/degrees/international-management-bsc",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "UCL",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 9,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.ucl.ac.uk/prospective-students/undergraduate/degrees/economics-bsc-econ-2026",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Pennsylvania",
+    "country": "USA",
+    "city": "Philadelphia, PA",
+    "qs_ranking": 11,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://catalog.upenn.edu/undergraduate/programs/computer-science-bse/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Pennsylvania",
+    "country": "USA",
+    "city": "Philadelphia, PA",
+    "qs_ranking": 11,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://catalog.upenn.edu/undergraduate/programs/artificial-intelligence-bse/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Pennsylvania",
+    "country": "USA",
+    "city": "Philadelphia, PA",
+    "qs_ranking": 11,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://catalog.upenn.edu/undergraduate/programs/mechanical-engineering-applied-mechanics-bse/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Pennsylvania",
+    "country": "USA",
+    "city": "Philadelphia, PA",
+    "qs_ranking": 11,
+    "field_of_study": "Architecture",
+    "program_url": "https://catalog.upenn.edu/undergraduate/programs/architecture-design-ba/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Pennsylvania",
+    "country": "USA",
+    "city": "Philadelphia, PA",
+    "qs_ranking": 11,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://ugradadm.seas.upenn.edu/majors-program-options/bachelor-of-science-in-engineering-bse/bioengineering/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Pennsylvania",
+    "country": "USA",
+    "city": "Philadelphia, PA",
+    "qs_ranking": 11,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.bio.upenn.edu/undergraduate",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Pennsylvania",
+    "country": "USA",
+    "city": "Philadelphia, PA",
+    "qs_ranking": 11,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://catalog.upenn.edu/undergraduate/programs/environmental-studies-sustainability-management-ba/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Pennsylvania",
+    "country": "USA",
+    "city": "Philadelphia, PA",
+    "qs_ranking": 11,
+    "field_of_study": "Business & Management",
+    "program_url": "https://catalog.upenn.edu/undergraduate/programs/management-general-track-bs/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Pennsylvania",
+    "country": "USA",
+    "city": "Philadelphia, PA",
+    "qs_ranking": 11,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://catalog.upenn.edu/undergraduate/programs/finance-bs/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Cornell University",
+    "country": "USA",
+    "city": "Ithaca, NY",
+    "qs_ranking": 16,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://catalog.cornell.edu/programs/computer-science-bs/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Cornell University",
+    "country": "USA",
+    "city": "Ithaca, NY",
+    "qs_ranking": 16,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://infosci.cornell.edu/undergraduate/info-sci-majors/bs-information-science-systems-and-technology/degree-requirements-0-1",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Cornell University",
+    "country": "USA",
+    "city": "Ithaca, NY",
+    "qs_ranking": 16,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://courses.cornell.edu/programs/mechanical-engineering-bs/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Cornell University",
+    "country": "USA",
+    "city": "Ithaca, NY",
+    "qs_ranking": 16,
+    "field_of_study": "Architecture",
+    "program_url": "https://aap.cornell.edu/academics/architecture/undergraduate",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Cornell University",
+    "country": "USA",
+    "city": "Ithaca, NY",
+    "qs_ranking": 16,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://courses.cornell.edu/programs/biological-sciences-bs/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Cornell University",
+    "country": "USA",
+    "city": "Ithaca, NY",
+    "qs_ranking": 16,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://courses.cornell.edu/programs/earth-atmospheric-sciences-easen-bs/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Cornell University",
+    "country": "USA",
+    "city": "Ithaca, NY",
+    "qs_ranking": 16,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://courses.cornell.edu/programs/environment-sustainability-bs/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Cornell University",
+    "country": "USA",
+    "city": "Ithaca, NY",
+    "qs_ranking": 16,
+    "field_of_study": "Business & Management",
+    "program_url": "https://dyson.cornell.edu/programs/undergraduate/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Cornell University",
+    "country": "USA",
+    "city": "Ithaca, NY",
+    "qs_ranking": 16,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://courses.cornell.edu/programs/economics-ba/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Michigan",
+    "country": "USA",
+    "city": "Ann Arbor, MI",
+    "qs_ranking": 17,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://cse.engin.umich.edu/academics/undergraduate/programs/computer-science-eng/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Michigan",
+    "country": "USA",
+    "city": "Ann Arbor, MI",
+    "qs_ranking": 17,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://cse.engin.umich.edu/academics/undergraduate/majors-and-minors/data-science-eng-major/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Michigan",
+    "country": "USA",
+    "city": "Ann Arbor, MI",
+    "qs_ranking": 17,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://me.engin.umich.edu/academics/undergrad/handbook/bachelors/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Michigan",
+    "country": "USA",
+    "city": "Ann Arbor, MI",
+    "qs_ranking": 17,
+    "field_of_study": "Architecture",
+    "program_url": "https://taubmancollege.umich.edu/academics/architecture/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Michigan",
+    "country": "USA",
+    "city": "Ann Arbor, MI",
+    "qs_ranking": 17,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://bme.umich.edu/academics/undergraduate/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Michigan",
+    "country": "USA",
+    "city": "Ann Arbor, MI",
+    "qs_ranking": 17,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://lsa.umich.edu/biology/undergraduates/majors---minors.html",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Michigan",
+    "country": "USA",
+    "city": "Ann Arbor, MI",
+    "qs_ranking": 17,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://seas.umich.edu/academics/undergraduate-program",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Michigan",
+    "country": "USA",
+    "city": "Ann Arbor, MI",
+    "qs_ranking": 17,
+    "field_of_study": "Business & Management",
+    "program_url": "https://michiganross.umich.edu/undergraduate/bba",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Michigan",
+    "country": "USA",
+    "city": "Ann Arbor, MI",
+    "qs_ranking": 17,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://lsa.umich.edu/lsa/academics/majors-minors/economics-major.html",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "UNSW Sydney",
+    "country": "Australia",
+    "city": "Sydney",
+    "qs_ranking": 19,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.unsw.edu.au/study/undergraduate/bachelor-of-computer-science",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "UNSW Sydney",
+    "country": "Australia",
+    "city": "Sydney",
+    "qs_ranking": 19,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.unsw.edu.au/study/undergraduate/bachelor-of-data-science-and-decisions",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "UNSW Sydney",
+    "country": "Australia",
+    "city": "Sydney",
+    "qs_ranking": 19,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.unsw.edu.au/study/undergraduate/bachelor-of-engineering-honours-mechanical",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "UNSW Sydney",
+    "country": "Australia",
+    "city": "Sydney",
+    "qs_ranking": 19,
+    "field_of_study": "Architecture",
+    "program_url": "https://www.unsw.edu.au/study/undergraduate/bachelor-of-architectural-studies",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "UNSW Sydney",
+    "country": "Australia",
+    "city": "Sydney",
+    "qs_ranking": 19,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.unsw.edu.au/study/undergraduate/bachelor-of-biotechnology-honours",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "UNSW Sydney",
+    "country": "Australia",
+    "city": "Sydney",
+    "qs_ranking": 19,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.unsw.edu.au/study/undergraduate/bachelor-of-science",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "UNSW Sydney",
+    "country": "Australia",
+    "city": "Sydney",
+    "qs_ranking": 19,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.unsw.edu.au/study/undergraduate/bachelor-of-environmental-management",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "UNSW Sydney",
+    "country": "Australia",
+    "city": "Sydney",
+    "qs_ranking": 19,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.unsw.edu.au/study/undergraduate/bachelor-of-commerce",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "UNSW Sydney",
+    "country": "Australia",
+    "city": "Sydney",
+    "qs_ranking": 19,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.unsw.edu.au/study/undergraduate/bachelor-of-economics",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Chicago",
+    "country": "USA",
+    "city": "Chicago, IL",
+    "qs_ranking": 21,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://collegecatalog.uchicago.edu/thecollege/computerscience/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Chicago",
+    "country": "USA",
+    "city": "Chicago, IL",
+    "qs_ranking": 21,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://collegecatalog.uchicago.edu/thecollege/datascience/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Chicago",
+    "country": "USA",
+    "city": "Chicago, IL",
+    "qs_ranking": 21,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://pme.uchicago.edu/academics/undergraduate-program-molecular-engineering",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Chicago",
+    "country": "USA",
+    "city": "Chicago, IL",
+    "qs_ranking": 21,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://collegecatalog.uchicago.edu/thecollege/biologicalsciences/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Chicago",
+    "country": "USA",
+    "city": "Chicago, IL",
+    "qs_ranking": 21,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://collegecatalog.uchicago.edu/thecollege/environmentalscience/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Chicago",
+    "country": "USA",
+    "city": "Chicago, IL",
+    "qs_ranking": 21,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://collegecatalog.uchicago.edu/thecollege/economics/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Princeton University",
+    "country": "USA",
+    "city": "Princeton, NJ",
+    "qs_ranking": 22,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://ua.princeton.edu/fields-study/departmental-majors-degree-bachelor-arts/computer-science",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Princeton University",
+    "country": "USA",
+    "city": "Princeton, NJ",
+    "qs_ranking": 22,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://mae.princeton.edu/undergraduate/degree-program",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Princeton University",
+    "country": "USA",
+    "city": "Princeton, NJ",
+    "qs_ranking": 22,
+    "field_of_study": "Architecture",
+    "program_url": "https://soa.princeton.edu/content/undergraduate-program-architecture",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Princeton University",
+    "country": "USA",
+    "city": "Princeton, NJ",
+    "qs_ranking": 22,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://ua.princeton.edu/fields-study/departmental-majors-degree-bachelor-arts/molecular-biology",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Princeton University",
+    "country": "USA",
+    "city": "Princeton, NJ",
+    "qs_ranking": 22,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://eeb.princeton.edu/undergraduate",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Princeton University",
+    "country": "USA",
+    "city": "Princeton, NJ",
+    "qs_ranking": 22,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://ua.princeton.edu/fields-study/departmental-majors-degree-bachelor-arts/economics",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Johns Hopkins University",
+    "country": "USA",
+    "city": "Baltimore, MD",
+    "qs_ranking": 23,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://e-catalogue.jhu.edu/engineering/full-time-residential-programs/degree-programs/computer-science/computer-science-bs/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Johns Hopkins University",
+    "country": "USA",
+    "city": "Baltimore, MD",
+    "qs_ranking": 23,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://e-catalogue.jhu.edu/engineering/full-time-residential-programs/degree-programs/mechanical-engineering/mechanical-engineering-bachelor-science/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Johns Hopkins University",
+    "country": "USA",
+    "city": "Baltimore, MD",
+    "qs_ranking": 23,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://e-catalogue.jhu.edu/arts-sciences/full-time-residential-programs/degree-programs/biology/molecular-cellular-biology-bachelor-science/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Johns Hopkins University",
+    "country": "USA",
+    "city": "Baltimore, MD",
+    "qs_ranking": 23,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://e-catalogue.jhu.edu/arts-sciences/full-time-residential-programs/degree-programs/natural-sciences-area/natural-sciences-area-bachelor-arts/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Johns Hopkins University",
+    "country": "USA",
+    "city": "Baltimore, MD",
+    "qs_ranking": 23,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://e-catalogue.jhu.edu/arts-sciences/full-time-residential-programs/degree-programs/earth-planetary-science/environmental-science-bachelor-science/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Johns Hopkins University",
+    "country": "USA",
+    "city": "Baltimore, MD",
+    "qs_ranking": 23,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://e-catalogue.jhu.edu/arts-sciences/full-time-residential-programs/degree-programs/economics/economics-bachelor-arts/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "École Normale Supérieure (ENS)",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 26,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://diplome.di.ens.fr/index_en.html",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "École Normale Supérieure (ENS)",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 26,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.phys.ens.fr/en/formations/bachelor",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "École Normale Supérieure (ENS)",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 26,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://enseignement.biologie.ens.fr/spip.php?article118=&lang=en",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "École Normale Supérieure (ENS)",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 26,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://economie.ens.fr/category/departement/admission-frdepartementendepartment/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "McGill University",
+    "country": "Canada",
+    "city": "Montreal, QC",
+    "qs_ranking": 29,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://coursecatalogue.mcgill.ca/en/undergraduate/science/programs/computer-science/computer-science-major-bsc/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "McGill University",
+    "country": "Canada",
+    "city": "Montreal, QC",
+    "qs_ranking": 29,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://coursecatalogue.mcgill.ca/en/undergraduate/science/programs/computer-science/computer-science-artificial-intelligence-major-bsc/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "McGill University",
+    "country": "Canada",
+    "city": "Montreal, QC",
+    "qs_ranking": 29,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.mcgill.ca/study/2024-2025/faculties/engineering/undergraduate/programs/bachelor-engineering-beng-mechanical-engineering",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "McGill University",
+    "country": "Canada",
+    "city": "Montreal, QC",
+    "qs_ranking": 29,
+    "field_of_study": "Architecture",
+    "program_url": "https://www.mcgill.ca/architecture/programs/bachelor-science-architecture",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "McGill University",
+    "country": "Canada",
+    "city": "Montreal, QC",
+    "qs_ranking": 29,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.mcgill.ca/macdonald/programs/life-sciences",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "McGill University",
+    "country": "Canada",
+    "city": "Montreal, QC",
+    "qs_ranking": 29,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.mcgill.ca/study/2024-2025/faculties/science/undergraduate/programs/bachelor-science-bsc-major-biology",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "McGill University",
+    "country": "Canada",
+    "city": "Montreal, QC",
+    "qs_ranking": 29,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.mcgill.ca/environment/undergraduate-studies/undergraduate-programs/bscandbsc-ag-env-sc",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "McGill University",
+    "country": "Canada",
+    "city": "Montreal, QC",
+    "qs_ranking": 29,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.mcgill.ca/desautels/programs/bcom",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "McGill University",
+    "country": "Canada",
+    "city": "Montreal, QC",
+    "qs_ranking": 29,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://coursecatalogue.mcgill.ca/en/undergraduate/arts/programs/economics/economics-finance-joint-honours-component-ba/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Australian National University",
+    "country": "Australia",
+    "city": "Canberra",
+    "qs_ranking": 30,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://programsandcourses.anu.edu.au/program/bcomp",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Australian National University",
+    "country": "Australia",
+    "city": "Canberra",
+    "qs_ranking": 30,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://programsandcourses.anu.edu.au/program/badan",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Australian National University",
+    "country": "Australia",
+    "city": "Canberra",
+    "qs_ranking": 30,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://programsandcourses.anu.edu.au/program/aengi",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Australian National University",
+    "country": "Australia",
+    "city": "Canberra",
+    "qs_ranking": 30,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://programsandcourses.anu.edu.au/program/bbiot",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Australian National University",
+    "country": "Australia",
+    "city": "Canberra",
+    "qs_ranking": 30,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://programsandcourses.anu.edu.au/program/bsc",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Australian National University",
+    "country": "Australia",
+    "city": "Canberra",
+    "qs_ranking": 30,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://programsandcourses.anu.edu.au/program/bensu",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Australian National University",
+    "country": "Australia",
+    "city": "Canberra",
+    "qs_ranking": 30,
+    "field_of_study": "Business & Management",
+    "program_url": "https://programsandcourses.anu.edu.au/program/bbusa",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Australian National University",
+    "country": "Australia",
+    "city": "Canberra",
+    "qs_ranking": 30,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://programsandcourses.anu.edu.au/program/becon",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Manchester",
+    "country": "UK",
+    "city": "Manchester",
+    "qs_ranking": 34,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.manchester.ac.uk/study/undergraduate/courses/2026/00560/bsc-computer-science/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Manchester",
+    "country": "UK",
+    "city": "Manchester",
+    "qs_ranking": 34,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.manchester.ac.uk/study/undergraduate/courses/2026/03389/beng-mechanical-engineering/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Manchester",
+    "country": "UK",
+    "city": "Manchester",
+    "qs_ranking": 34,
+    "field_of_study": "Architecture",
+    "program_url": "https://www.manchester.ac.uk/study/undergraduate/courses/2026/00178/ba-architecture/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Manchester",
+    "country": "UK",
+    "city": "Manchester",
+    "qs_ranking": 34,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.manchester.ac.uk/study/undergraduate/courses/2026/08662/bsc-biotechnology/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Manchester",
+    "country": "UK",
+    "city": "Manchester",
+    "qs_ranking": 34,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.manchester.ac.uk/study/undergraduate/courses/2026/12124/bsc-environmental-science/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Manchester",
+    "country": "UK",
+    "city": "Manchester",
+    "qs_ranking": 34,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.manchester.ac.uk/study/undergraduate/courses/2026/03519/bsc-management/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Manchester",
+    "country": "UK",
+    "city": "Manchester",
+    "qs_ranking": 34,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.manchester.ac.uk/study/undergraduate/courses/2026/10224/bsc-economics/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Monash University",
+    "country": "Australia",
+    "city": "Melbourne",
+    "qs_ranking": 36,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.monash.edu/study/courses/find-a-course/computer-science-c2001",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Monash University",
+    "country": "Australia",
+    "city": "Melbourne",
+    "qs_ranking": 36,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://handbook.monash.edu/2025/courses/s2010",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Monash University",
+    "country": "Australia",
+    "city": "Melbourne",
+    "qs_ranking": 36,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.monash.edu/study/courses/find-a-course/engineering-e3001",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Monash University",
+    "country": "Australia",
+    "city": "Melbourne",
+    "qs_ranking": 36,
+    "field_of_study": "Architecture",
+    "program_url": "https://www.monash.edu/study/courses/find-a-course/architectural-design-f2001",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Monash University",
+    "country": "Australia",
+    "city": "Melbourne",
+    "qs_ranking": 36,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.monash.edu/study/courses/find-a-course/science-s2000",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Monash University",
+    "country": "Australia",
+    "city": "Melbourne",
+    "qs_ranking": 36,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.monash.edu/engineering/future-students/undergraduate-study/specialisations/environmental",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Monash University",
+    "country": "Australia",
+    "city": "Melbourne",
+    "qs_ranking": 36,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.monash.edu/study/courses/find-a-course/business-b2000",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Monash University",
+    "country": "Australia",
+    "city": "Melbourne",
+    "qs_ranking": 36,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.monash.edu/study/courses/find-a-course/economics-b2031",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Monash University Malaysia",
+    "country": "Malaysia",
+    "city": "Subang Jaya",
+    "qs_ranking": 36,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.monash.edu.my/study/undergraduate/information-technology/bachelor-computer-science",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Monash University Malaysia",
+    "country": "Malaysia",
+    "city": "Subang Jaya",
+    "qs_ranking": 36,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.monash.edu.my/study/undergraduate/information-technology/bachelor-of-computer-science-in-data-science",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Monash University Malaysia",
+    "country": "Malaysia",
+    "city": "Subang Jaya",
+    "qs_ranking": 36,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.monash.edu.my/study/undergraduate/engineering/bachelor-of-engineering-honours-in-mechanical-engineering",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Monash University Malaysia",
+    "country": "Malaysia",
+    "city": "Subang Jaya",
+    "qs_ranking": 36,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.monash.edu.my/study/undergraduate/science/bachelor-science",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Monash University Malaysia",
+    "country": "Malaysia",
+    "city": "Subang Jaya",
+    "qs_ranking": 36,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.monash.edu.my/study/undergraduate/science/bachelor-science",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Monash University Malaysia",
+    "country": "Malaysia",
+    "city": "Subang Jaya",
+    "qs_ranking": 36,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.monash.edu.my/study/undergraduate/business/bachelor-business-commerce",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Monash University Malaysia",
+    "country": "Malaysia",
+    "city": "Subang Jaya",
+    "qs_ranking": 36,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.monash.edu.my/study/undergraduate/business/bachelor-business-commerce",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "New York University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 39,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://engineering.nyu.edu/academics/programs/computer-science-bs",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "New York University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 39,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://bulletins.nyu.edu/undergraduate/arts-science/programs/data-science-ba/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "New York University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 39,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://engineering.nyu.edu/academics/programs/mechanical-engineering-bs",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "New York University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 39,
+    "field_of_study": "Architecture",
+    "program_url": "https://bulletins.nyu.edu/undergraduate/arts-science/programs/urban-design-architecture-studies-ba/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "New York University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 39,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://engineering.nyu.edu/academics/programs/biomolecular-science-bs",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "New York University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 39,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://bulletins.nyu.edu/undergraduate/arts-science/programs/environmental-studies-ba/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "New York University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 39,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.stern.nyu.edu/programs-admissions/undergraduate/academics/bs-degree-business",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "New York University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 39,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://bulletins.nyu.edu/undergraduate/arts-science/programs/economics-ba/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Sorbonne University",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 41,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://sciences.sorbonne-universite.fr/formation-sciences/licences/licences-generales-l2-l3/licence-dinformatique",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Sorbonne University",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 41,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://sciences.sorbonne-universite.fr/en/courses-taught-english/life-sciences/l-bio",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Sorbonne University",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 41,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://sciences.sorbonne-universite.fr/en/courses-taught-english/chemistry/l-chemistry",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of California, Los Angeles",
+    "country": "USA",
+    "city": "Los Angeles, CA",
+    "qs_ranking": 42,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://catalog.registrar.ucla.edu/major/2021/ComputerScienceBS",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of California, Los Angeles",
+    "country": "USA",
+    "city": "Los Angeles, CA",
+    "qs_ranking": 42,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://catalog.registrar.ucla.edu/major/2023/statisticsanddatasciencebs",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of California, Los Angeles",
+    "country": "USA",
+    "city": "Los Angeles, CA",
+    "qs_ranking": 42,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://catalog.registrar.ucla.edu/major/2023/mechanicalengineeringbs",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of California, Los Angeles",
+    "country": "USA",
+    "city": "Los Angeles, CA",
+    "qs_ranking": 42,
+    "field_of_study": "Architecture",
+    "program_url": "https://aud.ucla.edu/academics/undergraduate",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of California, Los Angeles",
+    "country": "USA",
+    "city": "Los Angeles, CA",
+    "qs_ranking": 42,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://catalog.registrar.ucla.edu/major/2021/biologybs",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of California, Los Angeles",
+    "country": "USA",
+    "city": "Los Angeles, CA",
+    "qs_ranking": 42,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://catalog.registrar.ucla.edu/major/2024/ChemistryBS",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of California, Los Angeles",
+    "country": "USA",
+    "city": "Los Angeles, CA",
+    "qs_ranking": 42,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.ioes.ucla.edu/envisci/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of California, Los Angeles",
+    "country": "USA",
+    "city": "Los Angeles, CA",
+    "qs_ranking": 42,
+    "field_of_study": "Business & Management",
+    "program_url": "https://economics.ucla.edu/undergraduate/current-students/majors-and-minors/business-economics",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of California, Los Angeles",
+    "country": "USA",
+    "city": "Los Angeles, CA",
+    "qs_ranking": 42,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://economics.ucla.edu/undergraduate/current-students/majors-and-minors/economics",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Duke University",
+    "country": "USA",
+    "city": "Durham, NC",
+    "qs_ranking": 50,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://cs.duke.edu/undergraduate/degrees/BS",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Duke University",
+    "country": "USA",
+    "city": "Durham, NC",
+    "qs_ranking": 50,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://cs.duke.edu/undergraduate/degrees/BS/concentrations/ai-ml",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Duke University",
+    "country": "USA",
+    "city": "Durham, NC",
+    "qs_ranking": 50,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://mems.duke.edu/academics/undergrad/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Duke University",
+    "country": "USA",
+    "city": "Durham, NC",
+    "qs_ranking": 50,
+    "field_of_study": "Architecture",
+    "program_url": "https://aahvs.duke.edu/undergraduate/majors/art-history-architecture",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Duke University",
+    "country": "USA",
+    "city": "Durham, NC",
+    "qs_ranking": 50,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://biology.duke.edu/undergraduate/majors-minor",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Duke University",
+    "country": "USA",
+    "city": "Durham, NC",
+    "qs_ranking": 50,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://nicholas.duke.edu/academics/undergraduate-programs",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Duke University",
+    "country": "USA",
+    "city": "Durham, NC",
+    "qs_ranking": 50,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://econ.duke.edu/undergraduate/bs-economics",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "London School of Economics",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 50,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/degree-programmes-2024/BSc-Data-Science",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "London School of Economics",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 50,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-environment-and-sustainable-development",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "London School of Economics",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 50,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-management",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "London School of Economics",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 50,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-economics",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Northwestern University",
+    "country": "USA",
+    "city": "Evanston, IL",
+    "qs_ranking": 50,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.mccormick.northwestern.edu/computer-science/academics/undergraduate/cs-major/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Northwestern University",
+    "country": "USA",
+    "city": "Evanston, IL",
+    "qs_ranking": 50,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://statistics.northwestern.edu/undergraduate/data_science_major/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Northwestern University",
+    "country": "USA",
+    "city": "Evanston, IL",
+    "qs_ranking": 50,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.mccormick.northwestern.edu/mechanical/academics/undergraduate/prospective/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Northwestern University",
+    "country": "USA",
+    "city": "Evanston, IL",
+    "qs_ranking": 50,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://biosci.northwestern.edu/undergraduate/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Northwestern University",
+    "country": "USA",
+    "city": "Evanston, IL",
+    "qs_ranking": 50,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://catalogs.northwestern.edu/undergraduate/arts-sciences/integrated-science/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Northwestern University",
+    "country": "USA",
+    "city": "Evanston, IL",
+    "qs_ranking": 50,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://catalogs.northwestern.edu/undergraduate/arts-sciences/environmental-sciences/environmental-sciences-major/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Northwestern University",
+    "country": "USA",
+    "city": "Evanston, IL",
+    "qs_ranking": 50,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://economics.northwestern.edu/undergraduate/major/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Bristol",
+    "country": "UK",
+    "city": "Bristol",
+    "qs_ranking": 54,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.bristol.ac.uk/study/undergraduate/2027/computer-science/bsc-computer-science/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Bristol",
+    "country": "UK",
+    "city": "Bristol",
+    "qs_ranking": 54,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.bristol.ac.uk/study/undergraduate/2027/artificial-intelligence/beng-artificial-intelligence/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Bristol",
+    "country": "UK",
+    "city": "Bristol",
+    "qs_ranking": 54,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.bristol.ac.uk/study/undergraduate/2026/mechanical-engineering/beng-mechanical-engineering/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Bristol",
+    "country": "UK",
+    "city": "Bristol",
+    "qs_ranking": 54,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.bristol.ac.uk/study/undergraduate/2026/biochemistry/bsc-biochemistry-with-molecular-biology-and-biotechnology/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Bristol",
+    "country": "UK",
+    "city": "Bristol",
+    "qs_ranking": 54,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.bristol.ac.uk/study/undergraduate/2027/biological-sciences/bsc-biology-with-professional-placement/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Bristol",
+    "country": "UK",
+    "city": "Bristol",
+    "qs_ranking": 54,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.bristol.ac.uk/study/undergraduate/2025/geoscience/bsc-environmental-geoscience/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Bristol",
+    "country": "UK",
+    "city": "Bristol",
+    "qs_ranking": 54,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.bristol.ac.uk/study/undergraduate/2026/business-and-management/bsc-business-and-management/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Bristol",
+    "country": "UK",
+    "city": "Bristol",
+    "qs_ranking": 54,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.bristol.ac.uk/study/undergraduate/2026/economics/bsc-economics-and-finance/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Mines ParisTech (PSL)",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 56,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.minesparis.psl.eu/en/education/i-be3/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Mines ParisTech (PSL)",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 56,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.minesparis.psl.eu/en/education/licenses/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Mines ParisTech (PSL)",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 56,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.minesparis.psl.eu/en/education/mines-paris-albert-school-joint-degrees/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Texas at Austin",
+    "country": "USA",
+    "city": "Austin, TX",
+    "qs_ranking": 56,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://catalog.utexas.edu/undergraduate/natural-sciences/degrees-and-programs/bs-computer-science/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Texas at Austin",
+    "country": "USA",
+    "city": "Austin, TX",
+    "qs_ranking": 56,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://catalog.utexas.edu/undergraduate/natural-sciences/degrees-and-programs/bs-statistics-and-data-sciences/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Texas at Austin",
+    "country": "USA",
+    "city": "Austin, TX",
+    "qs_ranking": 56,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://catalog.utexas.edu/undergraduate/engineering/degrees-and-programs/bs-mechanical-engineering/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Texas at Austin",
+    "country": "USA",
+    "city": "Austin, TX",
+    "qs_ranking": 56,
+    "field_of_study": "Architecture",
+    "program_url": "https://catalog.utexas.edu/undergraduate/architecture/degrees-and-programs/bachelor-of-architecture/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Texas at Austin",
+    "country": "USA",
+    "city": "Austin, TX",
+    "qs_ranking": 56,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://catalog.utexas.edu/undergraduate/natural-sciences/degrees-and-programs/bs-biochemistry/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Texas at Austin",
+    "country": "USA",
+    "city": "Austin, TX",
+    "qs_ranking": 56,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://catalog.utexas.edu/undergraduate/natural-sciences/degrees-and-programs/bs-biology/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Texas at Austin",
+    "country": "USA",
+    "city": "Austin, TX",
+    "qs_ranking": 56,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://catalog.utexas.edu/undergraduate/natural-sciences/degrees-and-programs/bs-environmental-science/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Texas at Austin",
+    "country": "USA",
+    "city": "Austin, TX",
+    "qs_ranking": 56,
+    "field_of_study": "Business & Management",
+    "program_url": "https://catalog.utexas.edu/undergraduate/business/degrees-and-programs/bachelor-of-business-administration/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Texas at Austin",
+    "country": "USA",
+    "city": "Austin, TX",
+    "qs_ranking": 56,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://catalog.utexas.edu/undergraduate/liberal-arts/degrees-and-programs/bs-economics/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Universiti Malaya",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": 60,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://fsktm.um.edu.my/bachelor-of-computer-science-software-engineering",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Universiti Malaya",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": 60,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://fsktm.um.edu.my/bachelor-of-computer-science-artificial-intelligence",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Universiti Malaya",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": 60,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://engine.um.edu.my/bachelor-of-mechanical-engineering",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Universiti Malaya",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": 60,
+    "field_of_study": "Architecture",
+    "program_url": "https://fbe.um.edu.my/bachelor-of-science-in-architecture",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Universiti Malaya",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": 60,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://fs.um.edu.my/bachelor-of-science-biotechnology",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Universiti Malaya",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": 60,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://fass.um.edu.my/bachelor-of-environmental-studies",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Universiti Malaya",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": 60,
+    "field_of_study": "Business & Management",
+    "program_url": "https://fpe.um.edu.my/bachelor-of-business-administration-bba",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Universiti Malaya",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": 60,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://fpe.um.edu.my/bachelor-of-economics",
+    "degree_level": "undergraduate"
+  }
+]
