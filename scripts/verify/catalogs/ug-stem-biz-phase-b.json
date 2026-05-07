@@ -1,0 +1,716 @@
+[
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67
+  },
+  {
+    "university": "Brown University",
+    "country": "USA",
+    "city": "Providence, RI",
+    "qs_ranking": 73
+  },
+  {
+    "university": "University of Washington",
+    "country": "USA",
+    "city": "Seattle, WA",
+    "qs_ranking": 76
+  },
+  {
+    "university": "University of Glasgow",
+    "country": "UK",
+    "city": "Glasgow",
+    "qs_ranking": 78
+  },
+  {
+    "university": "University of Birmingham",
+    "country": "UK",
+    "city": "Birmingham",
+    "qs_ranking": 79
+  },
+  {
+    "university": "University of Southampton",
+    "country": "UK",
+    "city": "Southampton",
+    "qs_ranking": 80
+  },
+  {
+    "university": "Penn State University",
+    "country": "USA",
+    "city": "University Park, PA",
+    "qs_ranking": 81
+  },
+  {
+    "university": "Trinity College Dublin",
+    "country": "Ireland",
+    "city": "Dublin",
+    "qs_ranking": 81
+  },
+  {
+    "university": "Pennsylvania State University",
+    "country": "USA",
+    "city": "University Park, PA",
+    "qs_ranking": 81
+  },
+  {
+    "university": "University of Adelaide",
+    "country": "Australia",
+    "city": "Adelaide",
+    "qs_ranking": 82
+  },
+  {
+    "university": "Heidelberg University",
+    "country": "Germany",
+    "city": "Heidelberg",
+    "qs_ranking": 84
+  },
+  {
+    "university": "University of Wisconsin-Madison",
+    "country": "USA",
+    "city": "Madison, WI",
+    "qs_ranking": 87
+  },
+  {
+    "university": "University of Technology Sydney",
+    "country": "Australia",
+    "city": "Sydney",
+    "qs_ranking": 88
+  },
+  {
+    "university": "Purdue University",
+    "country": "USA",
+    "city": "West Lafayette, IN",
+    "qs_ranking": 89
+  },
+  {
+    "university": "Ohio State University",
+    "country": "USA",
+    "city": "Columbus, OH",
+    "qs_ranking": 92
+  },
+  {
+    "university": "University of North Carolina at Chapel Hill",
+    "country": "USA",
+    "city": "Chapel Hill, NC",
+    "qs_ranking": 95
+  },
+  {
+    "university": "University of St Andrews",
+    "country": "UK",
+    "city": "St Andrews",
+    "qs_ranking": 95
+  },
+  {
+    "university": "Free University of Berlin",
+    "country": "Germany",
+    "city": "Berlin",
+    "qs_ranking": 96
+  },
+  {
+    "university": "University of Alberta",
+    "country": "Canada",
+    "city": "Edmonton, AB",
+    "qs_ranking": 96
+  },
+  {
+    "university": "RWTH Aachen University",
+    "country": "Germany",
+    "city": "Aachen",
+    "qs_ranking": 99
+  },
+  {
+    "university": "Boston University",
+    "country": "USA",
+    "city": "Boston, MA",
+    "qs_ranking": 109
+  },
+  {
+    "university": "Western University",
+    "country": "Canada",
+    "city": "London, ON",
+    "qs_ranking": 109
+  },
+  {
+    "university": "University of Sheffield",
+    "country": "UK",
+    "city": "Sheffield",
+    "qs_ranking": 110
+  },
+  {
+    "university": "University of Waterloo",
+    "country": "Canada",
+    "city": "Waterloo, ON",
+    "qs_ranking": 115
+  },
+  {
+    "university": "University of Montreal",
+    "country": "Canada",
+    "city": "Montreal, QC",
+    "qs_ranking": 116
+  },
+  {
+    "university": "University of Southern California",
+    "country": "USA",
+    "city": "Los Angeles, CA",
+    "qs_ranking": 116
+  },
+  {
+    "university": "Karlsruhe Institute of Technology",
+    "country": "Germany",
+    "city": "Karlsruhe",
+    "qs_ranking": 119
+  },
+  {
+    "university": "RMIT University",
+    "country": "Australia",
+    "city": "Melbourne",
+    "qs_ranking": 123
+  },
+  {
+    "university": "University College Dublin",
+    "country": "Ireland",
+    "city": "Dublin",
+    "qs_ranking": 124
+  },
+  {
+    "university": "Macquarie University",
+    "country": "Australia",
+    "city": "Sydney",
+    "qs_ranking": 130
+  },
+  {
+    "university": "Queen Mary University of London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 130
+  },
+  {
+    "university": "University of Maryland",
+    "country": "USA",
+    "city": "College Park, MD",
+    "qs_ranking": 138
+  },
+  {
+    "university": "University of Minnesota",
+    "country": "USA",
+    "city": "Minneapolis, MN",
+    "qs_ranking": 144
+  },
+  {
+    "university": "Rice University",
+    "country": "USA",
+    "city": "Houston, TX",
+    "qs_ranking": 145
+  },
+  {
+    "university": "Universiti Sains Malaysia",
+    "country": "Malaysia",
+    "city": "Penang",
+    "qs_ranking": 146
+  },
+  {
+    "university": "Texas A&M University",
+    "country": "USA",
+    "city": "College Station, TX",
+    "qs_ranking": 152
+  },
+  {
+    "university": "University of Calgary",
+    "country": "Canada",
+    "city": "Calgary, AB",
+    "qs_ranking": 154
+  },
+  {
+    "university": "Emory University",
+    "country": "USA",
+    "city": "Atlanta, GA",
+    "qs_ranking": 159
+  },
+  {
+    "university": "University of Florida",
+    "country": "USA",
+    "city": "Gainesville, FL",
+    "qs_ranking": 162
+  },
+  {
+    "university": "University of Liverpool",
+    "country": "UK",
+    "city": "Liverpool",
+    "qs_ranking": 165
+  },
+  {
+    "university": "University of Wollongong",
+    "country": "Australia",
+    "city": "Wollongong",
+    "qs_ranking": 167
+  },
+  {
+    "university": "Newcastle University",
+    "country": "UK",
+    "city": "Newcastle",
+    "qs_ranking": 168
+  },
+  {
+    "university": "Lancaster University",
+    "country": "UK",
+    "city": "Lancaster",
+    "qs_ranking": 169
+  },
+  {
+    "university": "University of Exeter",
+    "country": "UK",
+    "city": "Exeter",
+    "qs_ranking": 169
+  },
+  {
+    "university": "Technical University of Berlin",
+    "country": "Germany",
+    "city": "Berlin",
+    "qs_ranking": 174
+  },
+  {
+    "university": "McMaster University",
+    "country": "Canada",
+    "city": "Hamilton, ON",
+    "qs_ranking": 176
+  },
+  {
+    "university": "Arizona State University",
+    "country": "USA",
+    "city": "Tempe, AZ",
+    "qs_ranking": 191
+  },
+  {
+    "university": "University of Hamburg",
+    "country": "Germany",
+    "city": "Hamburg",
+    "qs_ranking": 191
+  },
+  {
+    "university": "University of Ottawa",
+    "country": "Canada",
+    "city": "Ottawa, ON",
+    "qs_ranking": 191
+  },
+  {
+    "university": "University of Colorado Boulder",
+    "country": "USA",
+    "city": "Boulder, CO",
+    "qs_ranking": 196
+  },
+  {
+    "university": "Cardiff University",
+    "country": "UK",
+    "city": "Cardiff",
+    "qs_ranking": 197
+  },
+  {
+    "university": "Deakin University",
+    "country": "Australia",
+    "city": "Melbourne",
+    "qs_ranking": 197
+  },
+  {
+    "university": "Queen's University Belfast",
+    "country": "UK",
+    "city": "Belfast",
+    "qs_ranking": 197
+  },
+  {
+    "university": "University of Otago",
+    "country": "New Zealand",
+    "city": "Dunedin",
+    "qs_ranking": 197
+  },
+  {
+    "university": "Dartmouth College",
+    "country": "USA",
+    "city": "Hanover, NH",
+    "qs_ranking": 198
+  },
+  {
+    "university": "Northeastern University",
+    "country": "USA",
+    "city": "Boston, MA",
+    "qs_ranking": 210
+  },
+  {
+    "university": "Queen's University",
+    "country": "Canada",
+    "city": "Kingston, ON",
+    "qs_ranking": 213
+  },
+  {
+    "university": "University of Freiburg",
+    "country": "Germany",
+    "city": "Freiburg",
+    "qs_ranking": 213
+  },
+  {
+    "university": "University of T\u00fcbingen",
+    "country": "Germany",
+    "city": "T\u00fcbingen",
+    "qs_ranking": 213
+  },
+  {
+    "university": "Technical University of Darmstadt",
+    "country": "Germany",
+    "city": "Darmstadt",
+    "qs_ranking": 224
+  },
+  {
+    "university": "Khalifa University",
+    "country": "UAE",
+    "city": "Abu Dhabi",
+    "qs_ranking": 230
+  },
+  {
+    "university": "La Trobe University",
+    "country": "Australia",
+    "city": "Melbourne",
+    "qs_ranking": 230
+  },
+  {
+    "university": "Rutgers University",
+    "country": "USA",
+    "city": "New Brunswick, NJ",
+    "qs_ranking": 231
+  },
+  {
+    "university": "University of Bonn",
+    "country": "Germany",
+    "city": "Bonn",
+    "qs_ranking": 232
+  },
+  {
+    "university": "Tufts University",
+    "country": "USA",
+    "city": "Medford, MA",
+    "qs_ranking": 233
+  },
+  {
+    "university": "CentraleSup\u00e9lec",
+    "country": "France",
+    "city": "Gif-sur-Yvette",
+    "qs_ranking": 234
+  },
+  {
+    "university": "Massey University",
+    "country": "New Zealand",
+    "city": "Palmerston North",
+    "qs_ranking": 239
+  },
+  {
+    "university": "University of Massachusetts Amherst",
+    "country": "USA",
+    "city": "Amherst, MA",
+    "qs_ranking": 240
+  },
+  {
+    "university": "Victoria University of Wellington",
+    "country": "New Zealand",
+    "city": "Wellington",
+    "qs_ranking": 240
+  },
+  {
+    "university": "Indiana University Bloomington",
+    "country": "USA",
+    "city": "Bloomington, IN",
+    "qs_ranking": 243
+  },
+  {
+    "university": "University of Notre Dame",
+    "country": "USA",
+    "city": "Notre Dame, IN",
+    "qs_ranking": 248
+  },
+  {
+    "university": "Friedrich-Alexander University Erlangen-N\u00fcrnberg",
+    "country": "Germany",
+    "city": "Erlangen",
+    "qs_ranking": 254
+  },
+  {
+    "university": "University of Connecticut",
+    "country": "USA",
+    "city": "Storrs, CT",
+    "qs_ranking": 256
+  },
+  {
+    "university": "University of Sussex",
+    "country": "UK",
+    "city": "Brighton",
+    "qs_ranking": 256
+  },
+  {
+    "university": "University of Waikato",
+    "country": "New Zealand",
+    "city": "Hamilton",
+    "qs_ranking": 261
+  },
+  {
+    "university": "University of Aberdeen",
+    "country": "UK",
+    "city": "Aberdeen",
+    "qs_ranking": 264
+  },
+  {
+    "university": "Griffith University",
+    "country": "Australia",
+    "city": "Brisbane",
+    "qs_ranking": 270
+  },
+  {
+    "university": "Sciences Po",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 273
+  },
+  {
+    "university": "University of Galway",
+    "country": "Ireland",
+    "city": "Galway",
+    "qs_ranking": 273
+  },
+  {
+    "university": "Royal College of Surgeons in Ireland",
+    "country": "Ireland",
+    "city": "Dublin",
+    "qs_ranking": 273
+  },
+  {
+    "university": "Heriot-Watt University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": 274
+  },
+  {
+    "university": "University at Buffalo, SUNY",
+    "country": "USA",
+    "city": "Buffalo, NY",
+    "qs_ranking": 290
+  },
+  {
+    "university": "Virginia Tech",
+    "country": "USA",
+    "city": "Blacksburg, VA",
+    "qs_ranking": 297
+  },
+  {
+    "university": "Simon Fraser University",
+    "country": "Canada",
+    "city": "Burnaby, BC",
+    "qs_ranking": 298
+  },
+  {
+    "university": "Dalhousie University",
+    "country": "Canada",
+    "city": "Halifax, NS",
+    "qs_ranking": 308
+  },
+  {
+    "university": "University of Cologne",
+    "country": "Germany",
+    "city": "Cologne",
+    "qs_ranking": 308
+  },
+  {
+    "university": "North Carolina State University",
+    "country": "USA",
+    "city": "Raleigh, NC",
+    "qs_ranking": 311
+  },
+  {
+    "university": "Swansea University",
+    "country": "UK",
+    "city": "Swansea",
+    "qs_ranking": 312
+  },
+  {
+    "university": "University of Stuttgart",
+    "country": "Germany",
+    "city": "Stuttgart",
+    "qs_ranking": 312
+  },
+  {
+    "university": "University of M\u00fcnster",
+    "country": "Germany",
+    "city": "M\u00fcnster",
+    "qs_ranking": 314
+  },
+  {
+    "university": "University of Tasmania",
+    "country": "Australia",
+    "city": "Hobart",
+    "qs_ranking": 318
+  },
+  {
+    "university": "Ulm University",
+    "country": "Germany",
+    "city": "Ulm",
+    "qs_ranking": 339
+  },
+  {
+    "university": "City, University of London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 348
+  },
+  {
+    "university": "University of Victoria",
+    "country": "Canada",
+    "city": "Victoria, BC",
+    "qs_ranking": 359
+  },
+  {
+    "university": "Goethe University Frankfurt",
+    "country": "Germany",
+    "city": "Frankfurt",
+    "qs_ranking": 360
+  },
+  {
+    "university": "George Washington University",
+    "country": "USA",
+    "city": "Washington, DC",
+    "qs_ranking": 371
+  },
+  {
+    "university": "Flinders University",
+    "country": "Australia",
+    "city": "Adelaide",
+    "qs_ranking": 374
+  },
+  {
+    "university": "University of Cincinnati",
+    "country": "USA",
+    "city": "Cincinnati, OH",
+    "qs_ranking": 380
+  },
+  {
+    "university": "Lincoln University NZ",
+    "country": "New Zealand",
+    "city": "Christchurch",
+    "qs_ranking": 387
+  },
+  {
+    "university": "University of South Florida",
+    "country": "USA",
+    "city": "Tampa, FL",
+    "qs_ranking": 388
+  },
+  {
+    "university": "University of Strasbourg",
+    "country": "France",
+    "city": "Strasbourg",
+    "qs_ranking": 408
+  },
+  {
+    "university": "Universit\u00e9 de Lyon",
+    "country": "France",
+    "city": "Lyon",
+    "qs_ranking": 410
+  },
+  {
+    "university": "Johannes Gutenberg University Mainz",
+    "country": "Germany",
+    "city": "Mainz",
+    "qs_ranking": 410
+  },
+  {
+    "university": "Iowa State University",
+    "country": "USA",
+    "city": "Ames, IA",
+    "qs_ranking": 411
+  },
+  {
+    "university": "University of Essex",
+    "country": "UK",
+    "city": "Colchester",
+    "qs_ranking": 412
+  },
+  {
+    "university": "University of Mannheim",
+    "country": "Germany",
+    "city": "Mannheim",
+    "qs_ranking": 412
+  },
+  {
+    "university": "Auckland University of Technology",
+    "country": "New Zealand",
+    "city": "Auckland",
+    "qs_ranking": 412
+  },
+  {
+    "university": "University of Missouri",
+    "country": "USA",
+    "city": "Columbia, MO",
+    "qs_ranking": 437
+  },
+  {
+    "university": "Aston University",
+    "country": "UK",
+    "city": "Birmingham",
+    "qs_ranking": 446
+  },
+  {
+    "university": "Universit\u00e9 Laval",
+    "country": "Canada",
+    "city": "Quebec City, QC",
+    "qs_ranking": 451
+  },
+  {
+    "university": "University of Bordeaux",
+    "country": "France",
+    "city": "Bordeaux",
+    "qs_ranking": 461
+  },
+  {
+    "university": "University of Kansas",
+    "country": "USA",
+    "city": "Lawrence, KS",
+    "qs_ranking": 462
+  },
+  {
+    "university": "University of Konstanz",
+    "country": "Germany",
+    "city": "Konstanz",
+    "qs_ranking": 467
+  },
+  {
+    "university": "University of Kent",
+    "country": "UK",
+    "city": "Canterbury",
+    "qs_ranking": 470
+  },
+  {
+    "university": "Concordia University",
+    "country": "Canada",
+    "city": "Montreal, QC",
+    "qs_ranking": 487
+  },
+  {
+    "university": "University of Bremen",
+    "country": "Germany",
+    "city": "Bremen",
+    "qs_ranking": 487
+  },
+  {
+    "university": "Yeshiva University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 488
+  },
+  {
+    "university": "Leibniz University Hannover",
+    "country": "Germany",
+    "city": "Hannover",
+    "qs_ranking": 491
+  },
+  {
+    "university": "Universit\u00e9 Toulouse III",
+    "country": "France",
+    "city": "Toulouse",
+    "qs_ranking": 491
+  }
+]
