@@ -94,7 +94,14 @@ export interface Program {
   field_of_study: string;
   specialization: string;
   annual_tuition_usd: number;
+  /** Tuition as literally stated on the official program page, in the page's
+   *  own currency. Surface this primarily; treat USD as a derived view. */
+  annual_tuition_amount?: number | null;
+  /** ISO 4217 currency code matching annual_tuition_amount (GBP, EUR, USD…). */
+  annual_tuition_currency?: string | null;
   avg_living_cost_usd: number;
+  avg_living_cost_amount?: number | null;
+  avg_living_cost_currency?: string | null;
   intake_semesters: string[]; // ["fall", "spring", etc.]
   application_deadline: string | null; // ISO date or "rolling"
   min_gpa: number | null;

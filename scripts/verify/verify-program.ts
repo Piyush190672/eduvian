@@ -40,7 +40,11 @@ interface VerifiedProgram {
   field_of_study: string;
   specialization: string | null;
   annual_tuition_usd: number | null;
+  annual_tuition_amount: number | null;
+  annual_tuition_currency: string | null;
   avg_living_cost_usd: number | null;
+  avg_living_cost_amount: number | null;
+  avg_living_cost_currency: string | null;
   intake_semesters: string[];
   application_deadline: string | null;
   min_gpa: number | null;
@@ -223,7 +227,10 @@ Return a single JSON object with these exact keys. For every field, return null 
   "degree_level": "undergraduate" | "postgraduate" | null,
   "duration_months": integer | null,              // convert years/semesters to months
   "specialization": string | null,                // sub-field if stated, else null
-  "annual_tuition_usd": integer | null,           // convert from local currency at the rate stated on page; if no rate, null
+  "annual_tuition_amount": number | null,         // INTERNATIONAL / OVERSEAS / NON-RESIDENT student tuition only. NEVER pick the domestic/home/EU/in-state fee — those don't apply to our users. UK pages: pick "Overseas" or "International" (NOT "Home"/"UK/EU"). USA pages: pick "Out-of-state" or "International" (NOT "In-state" / "Resident"). Canada pages: "International" (NOT "Domestic"). Australia: "International" (NOT "Commonwealth supported" / "Domestic"). Germany / France / NL / EU: "Non-EU" / "International" if a separate higher fee exists; otherwise the single stated fee is fine. If a page only lists a domestic fee with no international figure, return null. For multi-year totals, divide by number of years to get the annual figure. Stated literally on the page in the page's own currency.
+  "annual_tuition_currency": string | null,       // 3-letter ISO code (USD, GBP, EUR, CAD, AUD, NZD, INR, SGD, MYR, AED, CNY, JPY, CHF). Null only when annual_tuition_amount is null.
+  "annual_living_cost_amount": number | null,     // estimated annual living cost as literally stated on page, in page's own currency. Null if not stated.
+  "annual_living_cost_currency": string | null,   // 3-letter ISO code matching annual_living_cost_amount. Null only when amount is null.
   "intake_semesters": string[],                   // any of "fall","spring","summer","winter"; [] if not stated
   "application_deadline": "YYYY-MM-DD" | "rolling" | null,
   "min_gpa": number | null,                       // 0–4.0 scale
@@ -322,6 +329,30 @@ async function main() {
     process.exit(3);
   }
 
+  // Convert local-currency amount → USD using a static FX table. Pages
+  // virtually never state their own USD conversion rate, so the prior
+  // schema (which required USD on the page) was returning null for ~95%
+  // of programs across all non-USD countries — a major data-completeness
+  // gap noticed by the user 8 May. Static rates are honest: the unit
+  // conversion is documented in code, not invented per program.
+  // Mid-market reference rates as of 8 May 2026. Update periodically.
+  const FX_TO_USD: Record<string, number> = {
+    USD: 1.00, GBP: 1.27, EUR: 1.08,
+    CAD: 0.73, AUD: 0.65, NZD: 0.60,
+    SGD: 0.74, MYR: 0.21, AED: 0.27,
+    INR: 0.012, CHF: 1.13, JPY: 0.0064, CNY: 0.14,
+  };
+  const toUsd = (amount: unknown, currency: unknown): number | null => {
+    if (typeof amount !== "number" || amount <= 0) return null;
+    if (typeof currency !== "string") return null;
+    const code = currency.toUpperCase();
+    const rate = FX_TO_USD[code];
+    if (rate === undefined) return null;
+    return Math.round(amount * rate);
+  };
+  const tuitionUsd = toUsd(extracted.annual_tuition_amount, extracted.annual_tuition_currency);
+  const livingUsd = toUsd(extracted.annual_living_cost_amount, extracted.annual_living_cost_currency);
+
   const verified: VerifiedProgram = {
     university_name: args.university,
     country: args.country,
@@ -332,8 +363,12 @@ async function main() {
     duration_months: extracted.duration_months as number | null,
     field_of_study: args.field,
     specialization: extracted.specialization as string | null,
-    annual_tuition_usd: extracted.annual_tuition_usd as number | null,
-    avg_living_cost_usd: null, // not extracted from program page
+    annual_tuition_usd: tuitionUsd,
+    annual_tuition_amount: (typeof extracted.annual_tuition_amount === "number" ? extracted.annual_tuition_amount : null),
+    annual_tuition_currency: (typeof extracted.annual_tuition_currency === "string" ? (extracted.annual_tuition_currency as string).toUpperCase() : null),
+    avg_living_cost_usd: livingUsd,
+    avg_living_cost_amount: (typeof extracted.annual_living_cost_amount === "number" ? extracted.annual_living_cost_amount : null),
+    avg_living_cost_currency: (typeof extracted.annual_living_cost_currency === "string" ? (extracted.annual_living_cost_currency as string).toUpperCase() : null),
     intake_semesters: (extracted.intake_semesters as string[]) ?? [],
     application_deadline: extracted.application_deadline as string | null,
     min_gpa: extracted.min_gpa as number | null,
