@@ -41,18 +41,22 @@ interface SeedOut {
 }
 
 // stream label → { field_of_study tag, prompt-language hint }
+// Inclusion rule (per user direction 8 May 2026): programs that mention the
+// stream IN THE PROGRAM NAME are accepted, even if it's a combined degree
+// like "MSc Computer Science with Cybersecurity". Only reject when the
+// stream is a hidden track / elective inside a generic-titled degree.
 const STREAM_MAP: Record<string, { field: string; hint: string }> = {
-  "Cybersecurity":       { field: "Computer Science & IT",                       hint: "MSc / MS in Cybersecurity / Information Security / Cyber Defense (a distinct degree, not a CS master's with a security elective)" },
-  "Machine Learning":    { field: "Artificial Intelligence & Data Science",      hint: "MSc / MS in Machine Learning (a distinct degree titled Machine Learning, not a generic CS master's)" },
-  "AI":                  { field: "Artificial Intelligence & Data Science",      hint: "MSc / MS in Artificial Intelligence (a distinct AI master's degree)" },
-  "Data Science":        { field: "Artificial Intelligence & Data Science",      hint: "MSc / MS in Data Science (a distinct degree titled Data Science)" },
-  "Business Analytics":  { field: "Business & Management",                       hint: "MS / MSc / Master's in Business Analytics or MS Analytics (a distinct degree)" },
-  "Healthcare":          { field: "Medicine & Public Health",                    hint: "Master of Public Health (MPH) OR Master's in Healthcare Administration / Health Informatics / Health Policy / Health Management" },
-  "Fine Arts":           { field: "Arts, Design & Architecture",                 hint: "Master of Fine Arts (MFA) — studio art, visual arts, creative writing, theatre/film MFA — NOT design or architecture" },
-  "MBA":                 { field: "MBA",                                         hint: "the flagship full-time MBA program (Master of Business Administration)" },
-  "Business":            { field: "Business & Management",                       hint: "MS / MSc in Management OR Master in International Business (a flagship master's-level Business degree, NOT MBA)" },
-  "Economics & Finance": { field: "Economics & Finance",                         hint: "MSc / MS in Economics OR MSc in Finance (a flagship Economics or Finance master's)" },
-  "Law (UK)":            { field: "Law",                                         hint: "LLM (Master of Laws) — the flagship postgraduate law degree (UK universities only)" },
+  "Cybersecurity":       { field: "Computer Science & IT",                       hint: "Any master's degree whose program name contains Cybersecurity / Information Security / Cyber Defense — including combined degrees like 'MSc Computer Science with Cybersecurity'." },
+  "Machine Learning":    { field: "Artificial Intelligence & Data Science",      hint: "Any master's degree whose program name contains Machine Learning — including combined degrees like 'MSc CS with Machine Learning'." },
+  "AI":                  { field: "Artificial Intelligence & Data Science",      hint: "Any master's degree whose program name contains Artificial Intelligence / AI — including combined degrees like 'MSc CS with AI'." },
+  "Data Science":        { field: "Artificial Intelligence & Data Science",      hint: "Any master's degree whose program name contains Data Science — including combined degrees like 'MSc Statistics with Data Science'." },
+  "Business Analytics":  { field: "Business & Management",                       hint: "Any master's degree whose program name contains Business Analytics or Analytics — including 'MS Analytics', 'MSc Business Analytics', or 'MBA Business Analytics specialization'." },
+  "Healthcare":          { field: "Medicine & Public Health",                    hint: "Any healthcare-related master's: MPH (Public Health), Master's in Healthcare Administration / Health Informatics / Health Policy / Health Management / Clinical Research." },
+  "Fine Arts":           { field: "Arts, Design & Architecture",                 hint: "Master of Fine Arts (MFA) — studio art, visual arts, creative writing, theatre/film MFA — NOT design or architecture." },
+  "MBA":                 { field: "MBA",                                         hint: "The flagship full-time MBA program (Master of Business Administration)." },
+  "Business":            { field: "Business & Management",                       hint: "MS / MSc in Management OR Master in International Business (a flagship master's-level Business degree, NOT MBA)." },
+  "Economics & Finance": { field: "Economics & Finance",                         hint: "MSc / MS in Economics OR MSc in Finance (a flagship Economics or Finance master's)." },
+  "Law (UK)":            { field: "Law",                                         hint: "LLM (Master of Laws) — the flagship postgraduate law degree (UK universities only)." },
 };
 
 const PROMPT = (uni: UniInput) => {
@@ -74,11 +78,12 @@ STREAMS:
 ${lines.join("\n")}
 
 Rules:
-- Skip a stream if the university doesn't have a clear flagship master's-level program matching the definition. Empty result is far better than a wrong URL.
+- Skip a stream if the university doesn't have a master's-level program whose NAME contains the stream. Empty result is far better than a wrong URL.
+- INCLUDE combined / specialization-named degrees: "MSc Computer Science with Cybersecurity", "MSc Engineering with AI", "MSc Statistics and Data Science" all qualify if the stream is in the program name.
+- REJECT only when the stream is a hidden elective / track inside a generic-titled degree (e.g., a "MSc Computer Science" page that lists Cybersecurity as one of several optional modules — but the program itself isn't titled with Cybersecurity).
 - Bachelor's, PhD-only, certificate, diploma, and short-course pages are REJECTED.
 - One URL per stream. The URL must point to a SPECIFIC postgraduate program detail page — not a department landing, not a graduate-school catalog index.
 - Only return URLs whose host belongs to the university (e.g., *.mit.edu for MIT).
-- If a stream's definition mentions "distinct degree", the program title must clearly match the definition (e.g., "MS Cybersecurity" qualifies; "MS Computer Science with security track" does NOT).
 
 Return ONLY a JSON array of objects, no prose, no code fences:
 [

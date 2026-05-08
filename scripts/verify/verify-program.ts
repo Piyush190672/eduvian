@@ -71,11 +71,46 @@ function parseArgs(): Record<string, string> {
 }
 
 // Single shared browser instance per process — much faster than launching per page.
+// playwright-extra + stealth plugin adds the full set of bot-detection masks
+// (navigator.webdriver, navigator.plugins, navigator.languages, chrome runtime
+// presence, permissions API, WebGL/canvas fingerprint, etc.) that Cloudflare,
+// Akamai, and most JS-based bot defenses check. Without this, ox.ac.uk and
+// columbia.edu serve the verification interstitial only.
 let _browser: Browser | null = null;
 async function getBrowser(): Promise<Browser> {
   if (_browser) return _browser;
-  _browser = await chromium.launch({ headless: true });
+  // Dynamic import keeps the original chromium import path valid for type
+  // checking and avoids ESM/CJS interop issues at module-load time.
+  const { chromium: chromiumExtra } = await import("playwright-extra");
+  const stealth = (await import("puppeteer-extra-plugin-stealth")).default();
+  // Stealth plugin is puppeteer-namespaced but the API is browser-agnostic;
+  // playwright-extra accepts it.
+  (chromiumExtra as unknown as { use(p: unknown): void }).use(stealth);
+  _browser = (await chromiumExtra.launch({
+    headless: true,
+    args: [
+      "--disable-blink-features=AutomationControlled",
+      "--disable-features=IsolateOrigins,site-per-process",
+    ],
+  })) as Browser;
   return _browser;
+}
+
+/** Anti-bot interstitial / under-rendered detection. Real program pages
+ *  carry several KB of content; anything under 800 chars after strip is
+ *  almost certainly an interstitial, an empty SPA shell, or a 403/blocked
+ *  body. Either way, a retry-after-wait is worth trying. */
+function looksLikeUnderRendered(text: string): boolean {
+  if (text.length < 800) return true;
+  const lower = text.toLowerCase();
+  return (
+    lower.includes("just a moment") ||
+    lower.includes("checking your browser") ||
+    lower.includes("cloudflare") ||
+    lower.includes("verifying you are human") ||
+    lower.includes("ddos protection") ||
+    lower.includes("enable javascript")
+  );
 }
 
 /**
@@ -94,6 +129,21 @@ async function fetchPage(url: string): Promise<string> {
       "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
     viewport: { width: 1280, height: 1800 },
     locale: "en-US",
+    // Plausible header set so Cloudflare doesn't immediately fingerprint us.
+    extraHTTPHeaders: {
+      "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+      "Accept-Language": "en-US,en;q=0.9",
+      "Sec-Ch-Ua": '"Chromium";v="127", "Not)A;Brand";v="99"',
+      "Sec-Ch-Ua-Mobile": "?0",
+      "Sec-Ch-Ua-Platform": '"macOS"',
+      "Upgrade-Insecure-Requests": "1",
+    },
+  });
+  // Mask navigator.webdriver — Cloudflare's first-line bot signal.
+  await ctx.addInitScript(() => {
+    Object.defineProperty(navigator, "webdriver", { get: () => false });
+    // @ts-expect-error - non-standard: chrome obj presence is checked by some bot fingerprints
+    window.chrome = { runtime: {} };
   });
   const page = await ctx.newPage();
   // Block heavy resources we don't need — speeds things up significantly.
@@ -102,19 +152,8 @@ async function fetchPage(url: string): Promise<string> {
     if (t === "image" || t === "media" || t === "font") return route.abort();
     return route.continue();
   });
-  try {
-    // Tightened timeouts: networkidle 8s (was 20s), domcontentloaded fallback 12s,
-    // post-load wait 500ms (was 1500ms). The verifier never invents data — it only
-    // extracts values literally on the page — so less render time just means more
-    // honest `null`s, not fabrication. Authenticity floor unchanged.
-    try {
-      await page.goto(url, { waitUntil: "networkidle", timeout: 8_000 });
-    } catch {
-      await page.goto(url, { waitUntil: "domcontentloaded", timeout: 12_000 });
-    }
-    await page.waitForTimeout(500);
-    const html = await page.content();
-    const stripped = html
+  const stripHtml = (html: string) =>
+    html
       .replace(/<script[\s\S]*?<\/script>/gi, "")
       .replace(/<style[\s\S]*?<\/style>/gi, "")
       .replace(/<nav[\s\S]*?<\/nav>/gi, "")
@@ -123,11 +162,31 @@ async function fetchPage(url: string): Promise<string> {
       .replace(/<!--[\s\S]*?-->/g, "")
       .replace(/<[^>]+>/g, " ")
       .replace(/\s+/g, " ")
-      .trim();
+      .trim()
+      .slice(0, 60_000);
+  try {
+    try {
+      await page.goto(url, { waitUntil: "networkidle", timeout: 8_000 });
+    } catch {
+      await page.goto(url, { waitUntil: "domcontentloaded", timeout: 12_000 });
+    }
+    await page.waitForTimeout(500);
+    let stripped = stripHtml(await page.content());
+    // Cloudflare retry: if the page is just an interstitial, wait for the
+    // challenge to clear (up to 8s) and re-strip. The challenge typically
+    // resolves once JS finishes evaluating — masking webdriver above is
+    // usually enough to make CF return the real page on retry.
+    if (looksLikeUnderRendered(stripped)) {
+      try { await page.waitForTimeout(5_000); } catch { /* ignore */ }
+      try {
+        await page.waitForLoadState("networkidle", { timeout: 5_000 });
+      } catch { /* ignore */ }
+      stripped = stripHtml(await page.content());
+    }
     // Cap to ~60K chars: program detail pages have all the important fields
     // (name, fees, deadlines, IELTS) in the first half. The rest is footer /
     // FAQ / sidebar / unrelated marketing. Trimming saves ~50% of input tokens.
-    return stripped.slice(0, 60_000);
+    return stripped;
   } finally {
     await page.close();
     await ctx.close();
