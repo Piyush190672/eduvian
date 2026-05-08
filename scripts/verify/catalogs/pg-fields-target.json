@@ -1,0 +1,2852 @@
+[
+  {
+    "university": "Massachusetts Institute of Technology",
+    "country": "USA",
+    "city": "Cambridge, MA",
+    "qs_ranking": 1,
+    "missing_fields": [
+      "Artificial Intelligence & Data Science",
+      "Hospitality & Tourism",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Imperial College London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 2,
+    "missing_fields": [
+      "Architecture",
+      "Business & Management",
+      "Hospitality & Tourism",
+      "Medicine & Public Health",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Stanford University",
+    "country": "USA",
+    "city": "Stanford, CA",
+    "qs_ranking": 3,
+    "missing_fields": [
+      "Architecture",
+      "Hospitality & Tourism",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Oxford",
+    "country": "UK",
+    "city": "Oxford",
+    "qs_ranking": 4,
+    "missing_fields": [
+      "Architecture",
+      "Artificial Intelligence & Data Science",
+      "Business & Management",
+      "Computer Science & IT",
+      "Economics & Finance",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Harvard University",
+    "country": "USA",
+    "city": "Cambridge, MA",
+    "qs_ranking": 5,
+    "missing_fields": [
+      "Business & Management",
+      "Economics & Finance",
+      "Hospitality & Tourism",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Cambridge",
+    "country": "UK",
+    "city": "Cambridge",
+    "qs_ranking": 6,
+    "missing_fields": [
+      "Architecture",
+      "Business & Management",
+      "Economics & Finance",
+      "Hospitality & Tourism",
+      "MBA",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "National University of Singapore",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": 8,
+    "missing_fields": [
+      "Hospitality & Tourism",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "UCL",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 9,
+    "missing_fields": [
+      "Hospitality & Tourism"
+    ]
+  },
+  {
+    "university": "California Institute of Technology",
+    "country": "USA",
+    "city": "Pasadena, CA",
+    "qs_ranking": 10,
+    "missing_fields": [
+      "Architecture",
+      "Business & Management",
+      "Economics & Finance",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Pennsylvania",
+    "country": "USA",
+    "city": "Philadelphia, PA",
+    "qs_ranking": 11,
+    "missing_fields": [
+      "Artificial Intelligence & Data Science",
+      "Business & Management",
+      "Hospitality & Tourism"
+    ]
+  },
+  {
+    "university": "Nanyang Technological University",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": 12,
+    "missing_fields": [
+      "Architecture",
+      "Business & Management",
+      "Hospitality & Tourism",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of California, Berkeley",
+    "country": "USA",
+    "city": "Berkeley, CA",
+    "qs_ranking": 12,
+    "missing_fields": [
+      "Hospitality & Tourism",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Cornell University",
+    "country": "USA",
+    "city": "Ithaca, NY",
+    "qs_ranking": 16,
+    "missing_fields": [
+      "Artificial Intelligence & Data Science",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Michigan",
+    "country": "USA",
+    "city": "Ann Arbor, MI",
+    "qs_ranking": 17,
+    "missing_fields": [
+      "Business & Management",
+      "Computer Science & IT",
+      "Economics & Finance",
+      "Hospitality & Tourism",
+      "MBA"
+    ]
+  },
+  {
+    "university": "University of Sydney",
+    "country": "Australia",
+    "city": "Sydney",
+    "qs_ranking": 18,
+    "missing_fields": [
+      "Architecture",
+      "Artificial Intelligence & Data Science",
+      "Computer Science & IT",
+      "Economics & Finance",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of New South Wales",
+    "country": "Australia",
+    "city": "Sydney",
+    "qs_ranking": 19,
+    "missing_fields": [
+      "Hospitality & Tourism",
+      "Natural Sciences"
+    ]
+  },
+  {
+    "university": "University of Melbourne",
+    "country": "Australia",
+    "city": "Melbourne",
+    "qs_ranking": 19,
+    "missing_fields": [
+      "Architecture",
+      "Business & Management",
+      "Economics & Finance",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA",
+      "Natural Sciences"
+    ]
+  },
+  {
+    "university": "UNSW Sydney",
+    "country": "Australia",
+    "city": "Sydney",
+    "qs_ranking": 19,
+    "missing_fields": [
+      "Architecture",
+      "Artificial Intelligence & Data Science",
+      "Business & Management",
+      "Computer Science & IT",
+      "Economics & Finance",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Columbia University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 20,
+    "missing_fields": [
+      "Economics & Finance",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA"
+    ]
+  },
+  {
+    "university": "University of Chicago",
+    "country": "USA",
+    "city": "Chicago, IL",
+    "qs_ranking": 21,
+    "missing_fields": [
+      "Architecture",
+      "Hospitality & Tourism",
+      "Medicine & Public Health",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Technical University of Munich",
+    "country": "Germany",
+    "city": "Munich",
+    "qs_ranking": 22,
+    "missing_fields": [
+      "Business & Management",
+      "Economics & Finance",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Princeton University",
+    "country": "USA",
+    "city": "Princeton, NJ",
+    "qs_ranking": 22,
+    "missing_fields": [
+      "Business & Management",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "missing_fields": [
+      "Hospitality & Tourism",
+      "MBA"
+    ]
+  },
+  {
+    "university": "Johns Hopkins University",
+    "country": "USA",
+    "city": "Baltimore, MD",
+    "qs_ranking": 23,
+    "missing_fields": [
+      "Architecture",
+      "Economics & Finance",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Toronto",
+    "country": "Canada",
+    "city": "Toronto, ON",
+    "qs_ranking": 25,
+    "missing_fields": [
+      "Architecture",
+      "Artificial Intelligence & Data Science",
+      "Business & Management",
+      "Economics & Finance",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "\u00c9cole Normale Sup\u00e9rieure (ENS)",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 26,
+    "missing_fields": [
+      "Architecture",
+      "Artificial Intelligence & Data Science",
+      "Business & Management",
+      "Economics & Finance",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Edinburgh",
+    "country": "UK",
+    "city": "Edinburgh",
+    "qs_ranking": 27,
+    "missing_fields": [
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "Medicine & Public Health",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "McGill University",
+    "country": "Canada",
+    "city": "Montreal, QC",
+    "qs_ranking": 29,
+    "missing_fields": [
+      "Architecture",
+      "Artificial Intelligence & Data Science",
+      "Business & Management",
+      "Computer Science & IT",
+      "Economics & Finance",
+      "Hospitality & Tourism",
+      "MBA",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Australian National University",
+    "country": "Australia",
+    "city": "Canberra",
+    "qs_ranking": 30,
+    "missing_fields": [
+      "Architecture",
+      "Artificial Intelligence & Data Science",
+      "Business & Management",
+      "Economics & Finance",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Manchester",
+    "country": "UK",
+    "city": "Manchester",
+    "qs_ranking": 34,
+    "missing_fields": [
+      "Hospitality & Tourism"
+    ]
+  },
+  {
+    "university": "Monash University",
+    "country": "Australia",
+    "city": "Melbourne",
+    "qs_ranking": 36,
+    "missing_fields": [
+      "Architecture",
+      "Artificial Intelligence & Data Science",
+      "Business & Management",
+      "Computer Science & IT",
+      "Economics & Finance",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Monash University Malaysia",
+    "country": "Malaysia",
+    "city": "Subang Jaya",
+    "qs_ranking": 36,
+    "missing_fields": [
+      "Architecture",
+      "Artificial Intelligence & Data Science",
+      "Business & Management",
+      "Computer Science & IT",
+      "Economics & Finance",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of British Columbia",
+    "country": "Canada",
+    "city": "Vancouver, BC",
+    "qs_ranking": 38,
+    "missing_fields": [
+      "Architecture",
+      "Artificial Intelligence & Data Science",
+      "Business & Management",
+      "Computer Science & IT",
+      "Economics & Finance",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "New York University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 39,
+    "missing_fields": [
+      "Architecture",
+      "Business & Management",
+      "Computer Science & IT",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "King's College London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 40,
+    "missing_fields": [
+      "Architecture",
+      "Hospitality & Tourism",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Queensland",
+    "country": "Australia",
+    "city": "Brisbane",
+    "qs_ranking": 40,
+    "missing_fields": [
+      "Artificial Intelligence & Data Science",
+      "Business & Management",
+      "Computer Science & IT",
+      "Economics & Finance",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Natural Sciences"
+    ]
+  },
+  {
+    "university": "Sorbonne University",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 41,
+    "missing_fields": [
+      "Architecture",
+      "Artificial Intelligence & Data Science",
+      "Business & Management",
+      "Computer Science & IT",
+      "Economics & Finance",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of California, Los Angeles",
+    "country": "USA",
+    "city": "Los Angeles, CA",
+    "qs_ranking": 42,
+    "missing_fields": [
+      "Architecture",
+      "Artificial Intelligence & Data Science",
+      "Business & Management",
+      "Computer Science & IT",
+      "Economics & Finance",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "London School of Economics",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 50,
+    "missing_fields": [
+      "Architecture",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Northwestern University",
+    "country": "USA",
+    "city": "Evanston, IL",
+    "qs_ranking": 50,
+    "missing_fields": [
+      "Architecture",
+      "Economics & Finance",
+      "Hospitality & Tourism",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Duke University",
+    "country": "USA",
+    "city": "Durham, NC",
+    "qs_ranking": 50,
+    "missing_fields": [
+      "Architecture",
+      "Artificial Intelligence & Data Science",
+      "Business & Management",
+      "Computer Science & IT",
+      "Economics & Finance",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Bristol",
+    "country": "UK",
+    "city": "Bristol",
+    "qs_ranking": 54,
+    "missing_fields": [
+      "Architecture",
+      "Artificial Intelligence & Data Science",
+      "Business & Management",
+      "Computer Science & IT",
+      "Economics & Finance",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Texas at Austin",
+    "country": "USA",
+    "city": "Austin, TX",
+    "qs_ranking": 56,
+    "missing_fields": [
+      "Hospitality & Tourism",
+      "Medicine & Public Health"
+    ]
+  },
+  {
+    "university": "\u00c9cole Polytechnique",
+    "country": "France",
+    "city": "Palaiseau",
+    "qs_ranking": 56,
+    "missing_fields": [
+      "Architecture",
+      "Business & Management",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Mines ParisTech (PSL)",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 56,
+    "missing_fields": [
+      "Architecture",
+      "Business & Management",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Carnegie Mellon University",
+    "country": "USA",
+    "city": "Pittsburgh, PA",
+    "qs_ranking": 58,
+    "missing_fields": [
+      "Hospitality & Tourism",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Universiti Malaya",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": 60,
+    "missing_fields": [
+      "Architecture",
+      "Artificial Intelligence & Data Science",
+      "Business & Management",
+      "Economics & Finance",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Auckland",
+    "country": "New Zealand",
+    "city": "Auckland",
+    "qs_ranking": 65,
+    "missing_fields": [
+      "Hospitality & Tourism"
+    ]
+  },
+  {
+    "university": "University of Warwick",
+    "country": "UK",
+    "city": "Coventry",
+    "qs_ranking": 67,
+    "missing_fields": [
+      "Architecture",
+      "Hospitality & Tourism",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "missing_fields": [
+      "Architecture",
+      "Hospitality & Tourism",
+      "MBA",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Brown University",
+    "country": "USA",
+    "city": "Providence, RI",
+    "qs_ranking": 73,
+    "missing_fields": [
+      "Architecture",
+      "Business & Management",
+      "Hospitality & Tourism",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Washington",
+    "country": "USA",
+    "city": "Seattle, WA",
+    "qs_ranking": 76,
+    "missing_fields": [
+      "Economics & Finance",
+      "Hospitality & Tourism"
+    ]
+  },
+  {
+    "university": "University of Western Australia",
+    "country": "Australia",
+    "city": "Perth",
+    "qs_ranking": 77,
+    "missing_fields": [
+      "Computer Science & IT",
+      "Hospitality & Tourism",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Glasgow",
+    "country": "UK",
+    "city": "Glasgow",
+    "qs_ranking": 78,
+    "missing_fields": [
+      "Architecture",
+      "Artificial Intelligence & Data Science",
+      "Business & Management",
+      "Computer Science & IT",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Birmingham",
+    "country": "UK",
+    "city": "Birmingham",
+    "qs_ranking": 79,
+    "missing_fields": [
+      "Architecture",
+      "Artificial Intelligence & Data Science",
+      "Business & Management",
+      "Computer Science & IT",
+      "Hospitality & Tourism",
+      "MBA",
+      "Natural Sciences"
+    ]
+  },
+  {
+    "university": "University of Southampton",
+    "country": "UK",
+    "city": "Southampton",
+    "qs_ranking": 80,
+    "missing_fields": [
+      "Architecture",
+      "Artificial Intelligence & Data Science",
+      "Business & Management",
+      "Economics & Finance",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Georgia Institute of Technology",
+    "country": "USA",
+    "city": "Atlanta, GA",
+    "qs_ranking": 80,
+    "missing_fields": [
+      "Hospitality & Tourism",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Trinity College Dublin",
+    "country": "Ireland",
+    "city": "Dublin",
+    "qs_ranking": 81,
+    "missing_fields": [
+      "Architecture",
+      "Artificial Intelligence & Data Science",
+      "Business & Management",
+      "Economics & Finance",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Pennsylvania State University",
+    "country": "USA",
+    "city": "University Park, PA",
+    "qs_ranking": 81,
+    "missing_fields": [
+      "Architecture",
+      "Artificial Intelligence & Data Science",
+      "Business & Management",
+      "Computer Science & IT",
+      "Economics & Finance",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Adelaide",
+    "country": "Australia",
+    "city": "Adelaide",
+    "qs_ranking": 82,
+    "missing_fields": [
+      "Architecture",
+      "Artificial Intelligence & Data Science",
+      "Business & Management",
+      "Computer Science & IT",
+      "Economics & Finance",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Heidelberg University",
+    "country": "Germany",
+    "city": "Heidelberg",
+    "qs_ranking": 84,
+    "missing_fields": [
+      "Architecture",
+      "Business & Management",
+      "Hospitality & Tourism",
+      "MBA",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Wisconsin-Madison",
+    "country": "USA",
+    "city": "Madison, WI",
+    "qs_ranking": 87,
+    "missing_fields": [
+      "Architecture",
+      "Artificial Intelligence & Data Science",
+      "Business & Management",
+      "Computer Science & IT",
+      "Economics & Finance",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Leeds",
+    "country": "UK",
+    "city": "Leeds",
+    "qs_ranking": 89,
+    "missing_fields": [
+      "Architecture",
+      "Hospitality & Tourism",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Purdue University",
+    "country": "USA",
+    "city": "West Lafayette, IN",
+    "qs_ranking": 89,
+    "missing_fields": [
+      "Architecture",
+      "Artificial Intelligence & Data Science",
+      "Business & Management",
+      "Economics & Finance",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Durham University",
+    "country": "UK",
+    "city": "Durham",
+    "qs_ranking": 90,
+    "missing_fields": [
+      "Architecture",
+      "Hospitality & Tourism",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of North Carolina at Chapel Hill",
+    "country": "USA",
+    "city": "Chapel Hill, NC",
+    "qs_ranking": 95,
+    "missing_fields": [
+      "Architecture",
+      "Business & Management",
+      "Computer Science & IT",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of St Andrews",
+    "country": "UK",
+    "city": "St Andrews",
+    "qs_ranking": 95,
+    "missing_fields": [
+      "Architecture",
+      "Business & Management",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Free University of Berlin",
+    "country": "Germany",
+    "city": "Berlin",
+    "qs_ranking": 96,
+    "missing_fields": [
+      "Architecture",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Alberta",
+    "country": "Canada",
+    "city": "Edmonton, AB",
+    "qs_ranking": 96,
+    "missing_fields": [
+      "Architecture",
+      "Hospitality & Tourism",
+      "Medicine & Public Health"
+    ]
+  },
+  {
+    "university": "RWTH Aachen University",
+    "country": "Germany",
+    "city": "Aachen",
+    "qs_ranking": 99,
+    "missing_fields": [
+      "Hospitality & Tourism",
+      "Medicine & Public Health",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Nottingham",
+    "country": "UK",
+    "city": "Nottingham",
+    "qs_ranking": 108,
+    "missing_fields": [
+      "Natural Sciences"
+    ]
+  },
+  {
+    "university": "Boston University",
+    "country": "USA",
+    "city": "Boston, MA",
+    "qs_ranking": 109,
+    "missing_fields": [
+      "Architecture",
+      "Hospitality & Tourism"
+    ]
+  },
+  {
+    "university": "Western University",
+    "country": "Canada",
+    "city": "London, ON",
+    "qs_ranking": 109,
+    "missing_fields": [
+      "Architecture",
+      "Hospitality & Tourism"
+    ]
+  },
+  {
+    "university": "University of Sheffield",
+    "country": "UK",
+    "city": "Sheffield",
+    "qs_ranking": 110,
+    "missing_fields": [
+      "Architecture",
+      "Business & Management",
+      "Computer Science & IT",
+      "Economics & Finance",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Waterloo",
+    "country": "Canada",
+    "city": "Waterloo, ON",
+    "qs_ranking": 115,
+    "missing_fields": [
+      "Architecture",
+      "Business & Management",
+      "Computer Science & IT",
+      "Economics & Finance",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Southern California",
+    "country": "USA",
+    "city": "Los Angeles, CA",
+    "qs_ranking": 116,
+    "missing_fields": [
+      "Medicine & Public Health",
+      "Natural Sciences"
+    ]
+  },
+  {
+    "university": "University of Montreal",
+    "country": "Canada",
+    "city": "Montreal, QC",
+    "qs_ranking": 116,
+    "missing_fields": [
+      "Hospitality & Tourism",
+      "Medicine & Public Health"
+    ]
+  },
+  {
+    "university": "Karlsruhe Institute of Technology",
+    "country": "Germany",
+    "city": "Karlsruhe",
+    "qs_ranking": 119,
+    "missing_fields": [
+      "Hospitality & Tourism",
+      "Medicine & Public Health",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "RMIT University",
+    "country": "Australia",
+    "city": "Melbourne",
+    "qs_ranking": 123,
+    "missing_fields": [
+      "Hospitality & Tourism",
+      "Medicine & Public Health"
+    ]
+  },
+  {
+    "university": "University College Dublin",
+    "country": "Ireland",
+    "city": "Dublin",
+    "qs_ranking": 124,
+    "missing_fields": [
+      "Architecture",
+      "Artificial Intelligence & Data Science",
+      "Business & Management",
+      "Computer Science & IT",
+      "Economics & Finance",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Humboldt University Berlin",
+    "country": "Germany",
+    "city": "Berlin",
+    "qs_ranking": 130,
+    "missing_fields": [
+      "Architecture",
+      "Artificial Intelligence & Data Science",
+      "Computer Science & IT",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Macquarie University",
+    "country": "Australia",
+    "city": "Sydney",
+    "qs_ranking": 130,
+    "missing_fields": [
+      "Architecture",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Queen Mary University of London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 130,
+    "missing_fields": [
+      "Architecture",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health"
+    ]
+  },
+  {
+    "university": "Universiti Kebangsaan Malaysia",
+    "country": "Malaysia",
+    "city": "Bangi",
+    "qs_ranking": 138,
+    "missing_fields": [
+      "Architecture",
+      "Business & Management",
+      "Engineering (Mechanical/Civil/Electrical)"
+    ]
+  },
+  {
+    "university": "University of Maryland",
+    "country": "USA",
+    "city": "College Park, MD",
+    "qs_ranking": 138,
+    "missing_fields": [
+      "Architecture",
+      "Artificial Intelligence & Data Science",
+      "Business & Management",
+      "Computer Science & IT",
+      "Economics & Finance",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Minnesota",
+    "country": "USA",
+    "city": "Minneapolis, MN",
+    "qs_ranking": 144,
+    "missing_fields": [
+      "Business & Management",
+      "Hospitality & Tourism"
+    ]
+  },
+  {
+    "university": "Rice University",
+    "country": "USA",
+    "city": "Houston, TX",
+    "qs_ranking": 145,
+    "missing_fields": [
+      "Business & Management",
+      "Hospitality & Tourism",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Universiti Sains Malaysia",
+    "country": "Malaysia",
+    "city": "Penang",
+    "qs_ranking": 146,
+    "missing_fields": [
+      "Architecture",
+      "Artificial Intelligence & Data Science",
+      "Business & Management",
+      "Computer Science & IT",
+      "Economics & Finance",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Universiti Putra Malaysia",
+    "country": "Malaysia",
+    "city": "Serdang",
+    "qs_ranking": 148,
+    "missing_fields": [
+      "Architecture",
+      "Business & Management",
+      "Computer Science & IT",
+      "Economics & Finance",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Bath",
+    "country": "UK",
+    "city": "Bath",
+    "qs_ranking": 150,
+    "missing_fields": [
+      "Architecture",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Texas A&M University",
+    "country": "USA",
+    "city": "College Station, TX",
+    "qs_ranking": 152,
+    "missing_fields": [
+      "Architecture",
+      "Artificial Intelligence & Data Science",
+      "Business & Management",
+      "Computer Science & IT",
+      "Economics & Finance",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Calgary",
+    "country": "Canada",
+    "city": "Calgary, AB",
+    "qs_ranking": 154,
+    "missing_fields": [
+      "Hospitality & Tourism",
+      "Medicine & Public Health"
+    ]
+  },
+  {
+    "university": "Emory University",
+    "country": "USA",
+    "city": "Atlanta, GA",
+    "qs_ranking": 159,
+    "missing_fields": [
+      "Architecture",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Florida",
+    "country": "USA",
+    "city": "Gainesville, FL",
+    "qs_ranking": 162,
+    "missing_fields": [
+      "Natural Sciences"
+    ]
+  },
+  {
+    "university": "University of Liverpool",
+    "country": "UK",
+    "city": "Liverpool",
+    "qs_ranking": 165,
+    "missing_fields": [
+      "Business & Management",
+      "Hospitality & Tourism",
+      "MBA",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Wollongong",
+    "country": "Australia",
+    "city": "Wollongong",
+    "qs_ranking": 167,
+    "missing_fields": [
+      "Architecture",
+      "Hospitality & Tourism"
+    ]
+  },
+  {
+    "university": "University of York",
+    "country": "UK",
+    "city": "York",
+    "qs_ranking": 168,
+    "missing_fields": [
+      "Architecture",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism"
+    ]
+  },
+  {
+    "university": "Newcastle University",
+    "country": "UK",
+    "city": "Newcastle",
+    "qs_ranking": 168,
+    "missing_fields": [
+      "Artificial Intelligence & Data Science",
+      "Hospitality & Tourism",
+      "Natural Sciences"
+    ]
+  },
+  {
+    "university": "Lancaster University",
+    "country": "UK",
+    "city": "Lancaster",
+    "qs_ranking": 169,
+    "missing_fields": [
+      "Architecture",
+      "Business & Management",
+      "Hospitality & Tourism",
+      "Medicine & Public Health",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Exeter",
+    "country": "UK",
+    "city": "Exeter",
+    "qs_ranking": 169,
+    "missing_fields": [
+      "Architecture",
+      "Hospitality & Tourism",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Vanderbilt University",
+    "country": "USA",
+    "city": "Nashville, TN",
+    "qs_ranking": 174,
+    "missing_fields": [
+      "Hospitality & Tourism"
+    ]
+  },
+  {
+    "university": "Curtin University",
+    "country": "Australia",
+    "city": "Perth",
+    "qs_ranking": 174,
+    "missing_fields": [
+      "Economics & Finance",
+      "Hospitality & Tourism",
+      "MBA"
+    ]
+  },
+  {
+    "university": "Technical University of Berlin",
+    "country": "Germany",
+    "city": "Berlin",
+    "qs_ranking": 174,
+    "missing_fields": [
+      "Business & Management",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "McMaster University",
+    "country": "Canada",
+    "city": "Hamilton, ON",
+    "qs_ranking": 176,
+    "missing_fields": [
+      "Architecture",
+      "Artificial Intelligence & Data Science",
+      "Business & Management",
+      "Computer Science & IT",
+      "Economics & Finance",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Newcastle",
+    "country": "Australia",
+    "city": "Newcastle",
+    "qs_ranking": 179,
+    "missing_fields": [
+      "Architecture",
+      "Business & Management",
+      "Hospitality & Tourism",
+      "Natural Sciences"
+    ]
+  },
+  {
+    "university": "Arizona State University",
+    "country": "USA",
+    "city": "Tempe, AZ",
+    "qs_ranking": 191,
+    "missing_fields": [
+      "Hospitality & Tourism"
+    ]
+  },
+  {
+    "university": "University of Hamburg",
+    "country": "Germany",
+    "city": "Hamburg",
+    "qs_ranking": 191,
+    "missing_fields": [
+      "Architecture",
+      "Computer Science & IT",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Ottawa",
+    "country": "Canada",
+    "city": "Ottawa, ON",
+    "qs_ranking": 191,
+    "missing_fields": [
+      "Architecture",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "Medicine & Public Health"
+    ]
+  },
+  {
+    "university": "University of Pittsburgh",
+    "country": "USA",
+    "city": "Pittsburgh, PA",
+    "qs_ranking": 196,
+    "missing_fields": [
+      "Architecture",
+      "Hospitality & Tourism",
+      "Natural Sciences"
+    ]
+  },
+  {
+    "university": "University of Colorado Boulder",
+    "country": "USA",
+    "city": "Boulder, CO",
+    "qs_ranking": 196,
+    "missing_fields": [
+      "Hospitality & Tourism",
+      "Medicine & Public Health",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Otago",
+    "country": "New Zealand",
+    "city": "Dunedin",
+    "qs_ranking": 197,
+    "missing_fields": [
+      "Architecture",
+      "Artificial Intelligence & Data Science",
+      "Business & Management",
+      "Computer Science & IT",
+      "Economics & Finance",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Cardiff University",
+    "country": "UK",
+    "city": "Cardiff",
+    "qs_ranking": 197,
+    "missing_fields": [
+      "Hospitality & Tourism"
+    ]
+  },
+  {
+    "university": "Deakin University",
+    "country": "Australia",
+    "city": "Melbourne",
+    "qs_ranking": 197,
+    "missing_fields": [
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA"
+    ]
+  },
+  {
+    "university": "Queen's University Belfast",
+    "country": "UK",
+    "city": "Belfast",
+    "qs_ranking": 197,
+    "missing_fields": [
+      "Hospitality & Tourism",
+      "Natural Sciences"
+    ]
+  },
+  {
+    "university": "Dartmouth College",
+    "country": "USA",
+    "city": "Hanover, NH",
+    "qs_ranking": 198,
+    "missing_fields": [
+      "Architecture",
+      "Artificial Intelligence & Data Science",
+      "Business & Management",
+      "Hospitality & Tourism",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Northeastern University",
+    "country": "USA",
+    "city": "Boston, MA",
+    "qs_ranking": 210,
+    "missing_fields": [
+      "Hospitality & Tourism"
+    ]
+  },
+  {
+    "university": "Queen's University",
+    "country": "Canada",
+    "city": "Kingston, ON",
+    "qs_ranking": 213,
+    "missing_fields": [
+      "Architecture",
+      "Business & Management",
+      "Hospitality & Tourism",
+      "Medicine & Public Health",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Freiburg",
+    "country": "Germany",
+    "city": "Freiburg",
+    "qs_ranking": 213,
+    "missing_fields": [
+      "Architecture",
+      "Artificial Intelligence & Data Science",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of T\u00fcbingen",
+    "country": "Germany",
+    "city": "T\u00fcbingen",
+    "qs_ranking": 213,
+    "missing_fields": [
+      "Architecture",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA"
+    ]
+  },
+  {
+    "university": "Case Western Reserve University",
+    "country": "USA",
+    "city": "Cleveland, OH",
+    "qs_ranking": 220,
+    "missing_fields": [
+      "Architecture",
+      "Business & Management",
+      "Hospitality & Tourism"
+    ]
+  },
+  {
+    "university": "Technical University of Darmstadt",
+    "country": "Germany",
+    "city": "Darmstadt",
+    "qs_ranking": 224,
+    "missing_fields": [
+      "Architecture",
+      "Artificial Intelligence & Data Science",
+      "Business & Management",
+      "Computer Science & IT",
+      "Economics & Finance",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Washington University in St. Louis",
+    "country": "USA",
+    "city": "St. Louis, MO",
+    "qs_ranking": 224,
+    "missing_fields": [
+      "Hospitality & Tourism",
+      "Medicine & Public Health",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Khalifa University",
+    "country": "UAE",
+    "city": "Abu Dhabi",
+    "qs_ranking": 230,
+    "missing_fields": [
+      "Architecture",
+      "Business & Management",
+      "Computer Science & IT",
+      "Economics & Finance",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "La Trobe University",
+    "country": "Australia",
+    "city": "Melbourne",
+    "qs_ranking": 230,
+    "missing_fields": [
+      "Architecture",
+      "Artificial Intelligence & Data Science",
+      "Business & Management",
+      "Computer Science & IT",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "Natural Sciences"
+    ]
+  },
+  {
+    "university": "Rutgers University",
+    "country": "USA",
+    "city": "New Brunswick, NJ",
+    "qs_ranking": 231,
+    "missing_fields": [
+      "Architecture",
+      "Hospitality & Tourism"
+    ]
+  },
+  {
+    "university": "University of Bonn",
+    "country": "Germany",
+    "city": "Bonn",
+    "qs_ranking": 232,
+    "missing_fields": [
+      "Architecture",
+      "Hospitality & Tourism",
+      "MBA",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Tufts University",
+    "country": "USA",
+    "city": "Medford, MA",
+    "qs_ranking": 233,
+    "missing_fields": [
+      "Architecture",
+      "Hospitality & Tourism",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Loughborough University",
+    "country": "UK",
+    "city": "Loughborough",
+    "qs_ranking": 234,
+    "missing_fields": [
+      "Hospitality & Tourism",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "CentraleSup\u00e9lec",
+    "country": "France",
+    "city": "Gif-sur-Yvette",
+    "qs_ranking": 234,
+    "missing_fields": [
+      "Architecture",
+      "Computer Science & IT",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Massey University",
+    "country": "New Zealand",
+    "city": "Palmerston North",
+    "qs_ranking": 239,
+    "missing_fields": [
+      "Architecture",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism"
+    ]
+  },
+  {
+    "university": "University of Massachusetts Amherst",
+    "country": "USA",
+    "city": "Amherst, MA",
+    "qs_ranking": 240,
+    "missing_fields": [
+      "Hospitality & Tourism",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Victoria University of Wellington",
+    "country": "New Zealand",
+    "city": "Wellington",
+    "qs_ranking": 240,
+    "missing_fields": [
+      "Economics & Finance",
+      "Hospitality & Tourism"
+    ]
+  },
+  {
+    "university": "Indiana University Bloomington",
+    "country": "USA",
+    "city": "Bloomington, IN",
+    "qs_ranking": 243,
+    "missing_fields": [
+      "Architecture",
+      "Medicine & Public Health",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Notre Dame",
+    "country": "USA",
+    "city": "Notre Dame, IN",
+    "qs_ranking": 248,
+    "missing_fields": [
+      "Architecture",
+      "Artificial Intelligence & Data Science",
+      "Business & Management",
+      "Computer Science & IT",
+      "Economics & Finance",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Surrey",
+    "country": "UK",
+    "city": "Guildford",
+    "qs_ranking": 251,
+    "missing_fields": [
+      "Architecture",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Taylor's University",
+    "country": "Malaysia",
+    "city": "Subang Jaya",
+    "qs_ranking": 251,
+    "missing_fields": [
+      "Economics & Finance",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Friedrich-Alexander University Erlangen-N\u00fcrnberg",
+    "country": "Germany",
+    "city": "Erlangen",
+    "qs_ranking": 254,
+    "missing_fields": [
+      "Architecture",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Connecticut",
+    "country": "USA",
+    "city": "Storrs, CT",
+    "qs_ranking": 256,
+    "missing_fields": [
+      "Architecture",
+      "Hospitality & Tourism"
+    ]
+  },
+  {
+    "university": "University of Sussex",
+    "country": "UK",
+    "city": "Brighton",
+    "qs_ranking": 256,
+    "missing_fields": [
+      "Architecture",
+      "Hospitality & Tourism",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "TU Dresden",
+    "country": "Germany",
+    "city": "Dresden",
+    "qs_ranking": 256,
+    "missing_fields": [
+      "Architecture",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "United Arab Emirates University",
+    "country": "UAE",
+    "city": "Al Ain",
+    "qs_ranking": 261,
+    "missing_fields": [
+      "Artificial Intelligence & Data Science",
+      "Business & Management",
+      "Economics & Finance",
+      "Hospitality & Tourism",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Canterbury",
+    "country": "New Zealand",
+    "city": "Christchurch",
+    "qs_ranking": 261,
+    "missing_fields": [
+      "Hospitality & Tourism"
+    ]
+  },
+  {
+    "university": "University of Waikato",
+    "country": "New Zealand",
+    "city": "Hamilton",
+    "qs_ranking": 261,
+    "missing_fields": [
+      "Architecture"
+    ]
+  },
+  {
+    "university": "University of Aberdeen",
+    "country": "UK",
+    "city": "Aberdeen",
+    "qs_ranking": 264,
+    "missing_fields": [
+      "Architecture",
+      "Hospitality & Tourism"
+    ]
+  },
+  {
+    "university": "University of Strathclyde",
+    "country": "UK",
+    "city": "Glasgow",
+    "qs_ranking": 269,
+    "missing_fields": [
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Griffith University",
+    "country": "Australia",
+    "city": "Brisbane",
+    "qs_ranking": 270,
+    "missing_fields": [
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "UCSI University",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": 271,
+    "missing_fields": [
+      "Architecture",
+      "Artificial Intelligence & Data Science",
+      "Business & Management",
+      "Economics & Finance",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Royal College of Surgeons in Ireland",
+    "country": "Ireland",
+    "city": "Dublin",
+    "qs_ranking": 273,
+    "missing_fields": [
+      "Architecture",
+      "Artificial Intelligence & Data Science",
+      "Business & Management",
+      "Computer Science & IT",
+      "Economics & Finance",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Sciences Po",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 273,
+    "missing_fields": [
+      "Architecture",
+      "Artificial Intelligence & Data Science",
+      "Business & Management",
+      "Economics & Finance",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Galway",
+    "country": "Ireland",
+    "city": "Galway",
+    "qs_ranking": 273,
+    "missing_fields": [
+      "Architecture"
+    ]
+  },
+  {
+    "university": "Heriot-Watt University",
+    "country": "UK",
+    "city": "Edinburgh",
+    "qs_ranking": 274,
+    "missing_fields": [
+      "Hospitality & Tourism",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Heriot-Watt University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": 274,
+    "missing_fields": [
+      "Hospitality & Tourism",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University at Buffalo, SUNY",
+    "country": "USA",
+    "city": "Buffalo, NY",
+    "qs_ranking": 290,
+    "missing_fields": [
+      "Hospitality & Tourism"
+    ]
+  },
+  {
+    "university": "Virginia Tech",
+    "country": "USA",
+    "city": "Blacksburg, VA",
+    "qs_ranking": 297,
+    "missing_fields": [
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Simon Fraser University",
+    "country": "Canada",
+    "city": "Burnaby, BC",
+    "qs_ranking": 298,
+    "missing_fields": [
+      "Architecture",
+      "Business & Management",
+      "Computer Science & IT",
+      "Hospitality & Tourism",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Florida State University",
+    "country": "USA",
+    "city": "Tallahassee, FL",
+    "qs_ranking": 308,
+    "missing_fields": [
+      "Architecture",
+      "Hospitality & Tourism"
+    ]
+  },
+  {
+    "university": "University of Cologne",
+    "country": "Germany",
+    "city": "Cologne",
+    "qs_ranking": 308,
+    "missing_fields": [
+      "Architecture",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "Medicine & Public Health",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Dalhousie University",
+    "country": "Canada",
+    "city": "Halifax, NS",
+    "qs_ranking": 308,
+    "missing_fields": [
+      "Artificial Intelligence & Data Science",
+      "Hospitality & Tourism"
+    ]
+  },
+  {
+    "university": "North Carolina State University",
+    "country": "USA",
+    "city": "Raleigh, NC",
+    "qs_ranking": 311,
+    "missing_fields": [
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Stuttgart",
+    "country": "Germany",
+    "city": "Stuttgart",
+    "qs_ranking": 312,
+    "missing_fields": [
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Swansea University",
+    "country": "UK",
+    "city": "Swansea",
+    "qs_ranking": 312,
+    "missing_fields": [
+      "Architecture",
+      "Hospitality & Tourism",
+      "MBA"
+    ]
+  },
+  {
+    "university": "University of East Anglia",
+    "country": "UK",
+    "city": "Norwich",
+    "qs_ranking": 313,
+    "missing_fields": [
+      "Architecture",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "Natural Sciences"
+    ]
+  },
+  {
+    "university": "University of M\u00fcnster",
+    "country": "Germany",
+    "city": "M\u00fcnster",
+    "qs_ranking": 314,
+    "missing_fields": [
+      "Architecture",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "Medicine & Public Health",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Tasmania",
+    "country": "Australia",
+    "city": "Hobart",
+    "qs_ranking": 318,
+    "missing_fields": [
+      "Business & Management",
+      "Computer Science & IT",
+      "Economics & Finance",
+      "Hospitality & Tourism",
+      "Natural Sciences"
+    ]
+  },
+  {
+    "university": "Brunel University London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 333,
+    "missing_fields": [
+      "Architecture",
+      "Computer Science & IT",
+      "Hospitality & Tourism",
+      "Natural Sciences"
+    ]
+  },
+  {
+    "university": "University of Reading",
+    "country": "UK",
+    "city": "Reading",
+    "qs_ranking": 335,
+    "missing_fields": [
+      "Architecture",
+      "Business & Management",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "Medicine & Public Health",
+      "Natural Sciences"
+    ]
+  },
+  {
+    "university": "Ulm University",
+    "country": "Germany",
+    "city": "Ulm",
+    "qs_ranking": 339,
+    "missing_fields": [
+      "Architecture",
+      "Business & Management",
+      "Computer Science & IT",
+      "Economics & Finance",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "City, University of London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 348,
+    "missing_fields": [
+      "Architecture",
+      "Business & Management",
+      "Computer Science & IT",
+      "Economics & Finance",
+      "Hospitality & Tourism",
+      "Natural Sciences"
+    ]
+  },
+  {
+    "university": "University of Leicester",
+    "country": "UK",
+    "city": "Leicester",
+    "qs_ranking": 348,
+    "missing_fields": [
+      "Architecture",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Tulane University",
+    "country": "USA",
+    "city": "New Orleans, LA",
+    "qs_ranking": 351,
+    "missing_fields": [
+      "Architecture",
+      "Hospitality & Tourism",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Iowa",
+    "country": "USA",
+    "city": "Iowa City, IA",
+    "qs_ranking": 357,
+    "missing_fields": [
+      "Architecture",
+      "Business & Management",
+      "Hospitality & Tourism",
+      "Natural Sciences"
+    ]
+  },
+  {
+    "university": "University of Victoria",
+    "country": "Canada",
+    "city": "Victoria, BC",
+    "qs_ranking": 359,
+    "missing_fields": [
+      "Architecture",
+      "Hospitality & Tourism"
+    ]
+  },
+  {
+    "university": "Western Sydney University",
+    "country": "Australia",
+    "city": "Sydney",
+    "qs_ranking": 360,
+    "missing_fields": [
+      "Business & Management"
+    ]
+  },
+  {
+    "university": "Goethe University Frankfurt",
+    "country": "Germany",
+    "city": "Frankfurt",
+    "qs_ranking": 360,
+    "missing_fields": [
+      "Architecture",
+      "Artificial Intelligence & Data Science",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "York University",
+    "country": "Canada",
+    "city": "Toronto, ON",
+    "qs_ranking": 363,
+    "missing_fields": [
+      "Architecture",
+      "Hospitality & Tourism"
+    ]
+  },
+  {
+    "university": "American University of Sharjah",
+    "country": "UAE",
+    "city": "Sharjah",
+    "qs_ranking": 364,
+    "missing_fields": [
+      "Architecture",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "George Washington University",
+    "country": "USA",
+    "city": "Washington, DC",
+    "qs_ranking": 371,
+    "missing_fields": [
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Flinders University",
+    "country": "Australia",
+    "city": "Adelaide",
+    "qs_ranking": 374,
+    "missing_fields": [
+      "Architecture",
+      "Hospitality & Tourism"
+    ]
+  },
+  {
+    "university": "Stony Brook University",
+    "country": "USA",
+    "city": "Stony Brook, NY",
+    "qs_ranking": 379,
+    "missing_fields": [
+      "Architecture",
+      "Hospitality & Tourism",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Cincinnati",
+    "country": "USA",
+    "city": "Cincinnati, OH",
+    "qs_ranking": 380,
+    "missing_fields": [
+      "Hospitality & Tourism",
+      "Natural Sciences"
+    ]
+  },
+  {
+    "university": "University of Saskatchewan",
+    "country": "Canada",
+    "city": "Saskatoon, SK",
+    "qs_ranking": 387,
+    "missing_fields": [
+      "Architecture",
+      "Artificial Intelligence & Data Science",
+      "Hospitality & Tourism"
+    ]
+  },
+  {
+    "university": "Lincoln University NZ",
+    "country": "New Zealand",
+    "city": "Christchurch",
+    "qs_ranking": 387,
+    "missing_fields": [
+      "Architecture",
+      "Artificial Intelligence & Data Science",
+      "Computer Science & IT",
+      "Economics & Finance",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Royal Holloway, University of London",
+    "country": "UK",
+    "city": "Egham",
+    "qs_ranking": 391,
+    "missing_fields": [
+      "Architecture",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Strasbourg",
+    "country": "France",
+    "city": "Strasbourg",
+    "qs_ranking": 408,
+    "missing_fields": [
+      "Architecture",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Johannes Gutenberg University Mainz",
+    "country": "Germany",
+    "city": "Mainz",
+    "qs_ranking": 410,
+    "missing_fields": [
+      "Architecture",
+      "Artificial Intelligence & Data Science",
+      "Business & Management",
+      "Computer Science & IT",
+      "Economics & Finance",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Universit\u00e9 de Lyon",
+    "country": "France",
+    "city": "Lyon",
+    "qs_ranking": 410,
+    "missing_fields": [
+      "Architecture",
+      "Artificial Intelligence & Data Science",
+      "Business & Management",
+      "Computer Science & IT",
+      "Economics & Finance",
+      "Hospitality & Tourism",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Iowa State University",
+    "country": "USA",
+    "city": "Ames, IA",
+    "qs_ranking": 411,
+    "missing_fields": [
+      "Business & Management",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Auckland University of Technology",
+    "country": "New Zealand",
+    "city": "Auckland",
+    "qs_ranking": 412,
+    "missing_fields": [
+      "Architecture",
+      "Artificial Intelligence & Data Science",
+      "Business & Management",
+      "Computer Science & IT",
+      "Economics & Finance",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Dundee",
+    "country": "UK",
+    "city": "Dundee",
+    "qs_ranking": 412,
+    "missing_fields": [
+      "Architecture",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Essex",
+    "country": "UK",
+    "city": "Colchester",
+    "qs_ranking": 412,
+    "missing_fields": [
+      "Architecture",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of W\u00fcrzburg",
+    "country": "Germany",
+    "city": "W\u00fcrzburg",
+    "qs_ranking": 412,
+    "missing_fields": [
+      "Architecture",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Mannheim",
+    "country": "Germany",
+    "city": "Mannheim",
+    "qs_ranking": 412,
+    "missing_fields": [
+      "Architecture",
+      "Computer Science & IT",
+      "Economics & Finance",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "Medicine & Public Health",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "James Cook University",
+    "country": "Australia",
+    "city": "Townsville",
+    "qs_ranking": 415,
+    "missing_fields": [
+      "Architecture"
+    ]
+  },
+  {
+    "university": "University of Sharjah",
+    "country": "UAE",
+    "city": "Sharjah",
+    "qs_ranking": 426,
+    "missing_fields": [
+      "Business & Management",
+      "Hospitality & Tourism",
+      "Natural Sciences"
+    ]
+  },
+  {
+    "university": "University of Missouri",
+    "country": "USA",
+    "city": "Columbia, MO",
+    "qs_ranking": 437,
+    "missing_fields": [
+      "Hospitality & Tourism"
+    ]
+  },
+  {
+    "university": "Oregon State University",
+    "country": "USA",
+    "city": "Corvallis, OR",
+    "qs_ranking": 437,
+    "missing_fields": [
+      "Architecture",
+      "Business & Management",
+      "Economics & Finance",
+      "Hospitality & Tourism",
+      "MBA",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Edith Cowan University",
+    "country": "Australia",
+    "city": "Perth",
+    "qs_ranking": 446,
+    "missing_fields": [
+      "Architecture",
+      "Business & Management",
+      "Natural Sciences"
+    ]
+  },
+  {
+    "university": "Aston University",
+    "country": "UK",
+    "city": "Birmingham",
+    "qs_ranking": 446,
+    "missing_fields": [
+      "Architecture",
+      "Artificial Intelligence & Data Science",
+      "Computer Science & IT",
+      "Hospitality & Tourism",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Universit\u00e9 Laval",
+    "country": "Canada",
+    "city": "Quebec City, QC",
+    "qs_ranking": 451,
+    "missing_fields": [
+      "Hospitality & Tourism",
+      "Natural Sciences"
+    ]
+  },
+  {
+    "university": "Rensselaer Polytechnic Institute",
+    "country": "USA",
+    "city": "Troy, NY",
+    "qs_ranking": 451,
+    "missing_fields": [
+      "Artificial Intelligence & Data Science",
+      "Hospitality & Tourism",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Bordeaux",
+    "country": "France",
+    "city": "Bordeaux",
+    "qs_ranking": 461,
+    "missing_fields": [
+      "Architecture",
+      "Artificial Intelligence & Data Science",
+      "Business & Management",
+      "Computer Science & IT",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "MBA",
+      "Medicine & Public Health",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Canberra",
+    "country": "Australia",
+    "city": "Canberra",
+    "qs_ranking": 461,
+    "missing_fields": [
+      "Economics & Finance",
+      "Hospitality & Tourism",
+      "Natural Sciences"
+    ]
+  },
+  {
+    "university": "University of Kansas",
+    "country": "USA",
+    "city": "Lawrence, KS",
+    "qs_ranking": 462,
+    "missing_fields": [
+      "Business & Management",
+      "Hospitality & Tourism"
+    ]
+  },
+  {
+    "university": "University of Konstanz",
+    "country": "Germany",
+    "city": "Konstanz",
+    "qs_ranking": 467,
+    "missing_fields": [
+      "Architecture",
+      "Business & Management",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Brandeis University",
+    "country": "USA",
+    "city": "Waltham, MA",
+    "qs_ranking": 470,
+    "missing_fields": [
+      "Architecture",
+      "Business & Management",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Texas at Dallas",
+    "country": "USA",
+    "city": "Richardson, TX",
+    "qs_ranking": 470,
+    "missing_fields": [
+      "Architecture",
+      "Business & Management",
+      "Hospitality & Tourism",
+      "Medicine & Public Health",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Kent",
+    "country": "UK",
+    "city": "Canterbury",
+    "qs_ranking": 470,
+    "missing_fields": [
+      "Architecture",
+      "Economics & Finance",
+      "Hospitality & Tourism",
+      "Medicine & Public Health",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Central Florida",
+    "country": "USA",
+    "city": "Orlando, FL",
+    "qs_ranking": 477,
+    "missing_fields": [
+      "Architecture",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "Murdoch University",
+    "country": "Australia",
+    "city": "Perth",
+    "qs_ranking": 481,
+    "missing_fields": [
+      "Architecture",
+      "Economics & Finance",
+      "Hospitality & Tourism",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Concordia University",
+    "country": "Canada",
+    "city": "Montreal, QC",
+    "qs_ranking": 487,
+    "missing_fields": [
+      "Architecture",
+      "Hospitality & Tourism",
+      "Medicine & Public Health",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Stirling",
+    "country": "UK",
+    "city": "Stirling",
+    "qs_ranking": 487,
+    "missing_fields": [
+      "Architecture",
+      "Computer Science & IT",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA",
+      "Natural Sciences"
+    ]
+  },
+  {
+    "university": "Bond University",
+    "country": "Australia",
+    "city": "Gold Coast",
+    "qs_ranking": 487,
+    "missing_fields": [
+      "Artificial Intelligence & Data Science",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Bremen",
+    "country": "Germany",
+    "city": "Bremen",
+    "qs_ranking": 487,
+    "missing_fields": [
+      "Architecture",
+      "Business & Management",
+      "Economics & Finance",
+      "Hospitality & Tourism",
+      "MBA"
+    ]
+  },
+  {
+    "university": "Yeshiva University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 488,
+    "missing_fields": [
+      "Architecture",
+      "Artificial Intelligence & Data Science",
+      "Business & Management",
+      "Computer Science & IT",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Boston College",
+    "country": "USA",
+    "city": "Chestnut Hill, MA",
+    "qs_ranking": 488,
+    "missing_fields": [
+      "Architecture",
+      "Computer Science & IT",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "Medicine & Public Health"
+    ]
+  },
+  {
+    "university": "Universit\u00e9 Toulouse III",
+    "country": "France",
+    "city": "Toulouse",
+    "qs_ranking": 491,
+    "missing_fields": [
+      "Architecture",
+      "Artificial Intelligence & Data Science",
+      "Business & Management",
+      "Computer Science & IT",
+      "Economics & Finance",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Leibniz University Hannover",
+    "country": "Germany",
+    "city": "Hannover",
+    "qs_ranking": 491,
+    "missing_fields": [
+      "Hospitality & Tourism",
+      "MBA",
+      "Medicine & Public Health",
+      "Nursing & Allied Health"
+    ]
+  }
+]
