@@ -1,9 +1,9 @@
 # EduvianAI — Comprehensive State Snapshot for Session Handoff
 
-**Last updated:** 6 May 2026 (handoff #8 — Architecture stream split + Phase-1 retag)
+**Last updated:** 8 May 2026 (handoff #9 — UG + PG sweeps over QS Top-500 added 1,395 verified programs)
 **Purpose:** Zero-loss handoff between Claude Code sessions. A new session reading this should be able to continue *every* in-flight workstream correctly, respect all user preferences, and avoid all known gotchas.
 
-> **Pinned next-session priority:** **(1) verify interview-prep voice end-to-end on the live deploy** — last commit `e3b719c5` was the 4th iteration of the voice cascade; user ended 5 May before confirming. If it still fails, console will show `[interview-prep] TTS utter.onerror: <code>` or `[interview-prep] STT error: <code>` — those error codes drive the next fix. Do NOT add more TTS/STT layers without first reading the new code. **(2) Architecture stream Phase 2 (deferred by user 6 May)** — add new programs from QS Top-250 unis not yet represented. ~$10-25 in API spend (Sonnet seed-finder + Opus verify-program). Plan + recipe in §27.5. **(3) clean up the 63 still-unverified entries** in `programs.ts` (§20.2 has the recipe).
+> **Pinned next-session priority:** **(1) Phase 2 Architecture** — add new architecture programs from QS Top-500 unis not yet represented (recipe in §27.5; user said "go ahead" on 8 May). ~$10-25 API spend. **(2) Clean up still-unverified entries** (count smaller after the recent sweeps; re-run §20.2 audit-strip recipe to get current number). **(3) Confirm interview-prep voice on live deploy** (commit `53ba42cb` cached mic permission + start-guard; user confirmed working 7 May, but capture quality should be re-checked end-to-end). **(4) Marketing-opt-in / unsubscribe link / sample-PDF.**
 >
 > H7 Phase C is fully closed (schema dropped + writer patched against dev/preview hole + Sentry `8bfc0387` results-route 410 guard). Brand port partially done: 3 thin-wrapper pages (`/roi-calculator`, `/parent-decision`, `/visa-coach`) ported via new `BrandNav` + `BrandHero` primitives (commit `0c24dc4c`); ROI Calculator + ParentDecisionTool components retheme-flipped from dark/glass to light/white (`cbf6c3d8`). User then said the **remaining 4 pages need no change** — so item is closed at 3-of-7, not 7-of-7. Snapshot §26 is the locked as-shipped reference for any future page port.
 >
@@ -25,7 +25,7 @@ git status --short
 # 2. What's running in the background? (no tier chain currently expected)
 ps aux | grep -E "verify-program|verify-batch|websearch-seed|seed-crawler|re-verify" | grep -v grep
 
-# 3. Database scale check (expected: 5,595 programs, 5,532 verified, 12 countries)
+# 3. Database scale check (expected: 6,990 programs, 6,927 verified, 12 countries)
 python3 -c "
 import re
 from collections import Counter
@@ -276,10 +276,10 @@ USA, UK, Australia, Canada, New Zealand, Ireland, Germany, France, UAE, Singapor
 
 | | Value |
 |---|---:|
-| Last commit on main | `5e8e664b` — H7 Phase C writer side: refuse plaintext on encryption failure (5 May evening) |
-| Programs in DB | **5,595** |
-| Verified at source | **5,532** (98.9%) |
-| Universities | **506** total / **485** with at least one verified program |
+| Last commit on main | `86478401` — PG sweep · 428 verified Master's programs across 11 fields × QS Top-500 (8 May) |
+| Programs in DB | **6,990** |
+| Verified at source | **6,927** (99.1%) |
+| Universities | **521** total / **503** with at least one verified program |
 | Countries | 12 |
 | Build | green |
 | Branch | main |
@@ -295,25 +295,25 @@ USA, UK, Australia, Canada, New Zealand, Ireland, Germany, France, UAE, Singapor
 | Mobile UX | shipped — ~3500-4500px shorter homepage via stage selector compaction, Stage 1 mockup hidden, 4 stage accordions (Show Stage X details), test-lab grid 2-up, decorative blur blobs hidden (root cause of GPU-compositing scroll-flash) |
 | Google Postmaster Tools | verified for `eduvianai.com` — dashboards stay sparse at beta volume |
 
-### 3.1 Country breakdown (post-tier-2 expansion, 4 May 2026)
+### 3.1 Country breakdown (post-UG sweep + PG sweep, 8 May 2026)
 
 Verified against `programs.ts` at the time of writing. Use §0 verification commands to refresh.
 
-| Country | Universities | (verified) | Programs | (verified) |
-|---|---:|---:|---:|---:|
-| USA | 130 | 124 | 1,676 | 1,645 |
-| UK | 110 | 109 | 1,355 | 1,347 |
-| Canada | 67 | 59 | 585 | 571 |
-| Germany | 52 | 52 | 545 | 543 |
-| Australia | 39 | 38 | 457 | 456 |
-| France | 36 | 34 | 281 | 279 |
-| Malaysia | 18 | 17 | 174 | 173 |
-| UAE | 18 | 16 | 145 | 142 |
-| Netherlands | 10 | 10 | 140 | 140 |
-| Ireland | 9 | 9 | 82 | 82 |
-| New Zealand | 7 | 7 | 81 | 81 |
-| Singapore | 10 | 10 | 74 | 73 |
-| **Total** | **506** | **485** | **5,595** | **5,532** |
+| Country | Programs |
+|---|---:|
+| USA | 2,162 |
+| UK | 1,614 |
+| Canada | 738 |
+| Germany | 685 |
+| Australia | 592 |
+| France | 337 |
+| Malaysia | 217 |
+| UAE | 161 |
+| New Zealand | 146 |
+| Netherlands | 140 (legacy — not in TARGET_COUNTRIES; merge.ts allowlist still includes it) |
+| Ireland | 113 |
+| Singapore | 85 |
+| **Total** | **6,990** |
 
 ### 3.1.1 Still-unverified breakdown (63 entries — cleanup queued in §20)
 
@@ -986,8 +986,8 @@ These have been issued at various points and remain binding:
 
 | Path | What |
 |---|---|
-| `src/data/programs.ts` | THE database. **5,595 entries / 5,532 verified at source**. Has `// @ts-nocheck` directive (large data file). |
-| `src/data/db-stats.ts` | Auto-computes counts from PROGRAMS. Don't edit; recomputed on load. Public surfaces standardise on `verifiedProgramsLabel` (5,532+) and `verifiedUniversitiesLabel` (485+). |
+| `src/data/programs.ts` | THE database. **6,990 entries / 6,927 verified at source**. Has `// @ts-nocheck` directive (large data file). |
+| `src/data/db-stats.ts` | Auto-computes counts from PROGRAMS. Don't edit; recomputed on load. Public surfaces standardise on `verifiedProgramsLabel` (6,927+) and `verifiedUniversitiesLabel` (503+). |
 | `src/lib/types.ts` | Single source of truth for types. `TARGET_COUNTRIES` (12), `FIELDS_OF_STUDY` (18), `Program`, `StudentProfile`, `ScoredProgram`. |
 | `src/lib/scoring.ts` | The 9-signal `recommendPrograms()`. Tier thresholds: Safe 75-100, Reach 50-74, Ambitious <50. |
 | `src/lib/format-fee.ts` | The fee-unavailable rendering helpers. NEVER show $0. |
@@ -1313,22 +1313,24 @@ The current `/sample-parent-report` (committed in `6bf0eb8e`) is a static HTML p
 
 ---
 
-## §21 Latest dataset shape (4 May 2026 night)
+## §21 Latest dataset shape (8 May 2026 — post UG + PG sweeps)
 
 | | Count |
 |---|---:|
-| Programs total | **5,595** |
-| Programs verified at source | **5,532** (98.9%) |
-| Universities total | **506** |
-| Universities with at least one verified program | **485** (96%) |
+| Programs total | **6,990** |
+| Programs verified at source | **6,927** (99.1%) |
+| Universities total | **521** |
+| Universities with at least one verified program | **503** (97%) |
 | Countries | 12 |
-| Fields of study | 17 |
+| Fields of study | 18 |
+| Postgraduate share | 67.6% (4,727) |
+| Undergraduate share | 30.1% (2,103) |
 
 `DB_STATS` exposes both totals AND verified counts, but **all public-facing surfaces now standardise on `verifiedProgramsLabel`** (commit `f2cf997b`). The dual-number inconsistency that surfaced earlier in this session (one section showing 4,485+, another 4,866+ from a stale cached deploy) is closed: there is one number on the homepage now, and it's the verified one.
 
-- `DB_STATS.verifiedProgramsLabel` ("5,532+") — used everywhere user-visible.
-- `DB_STATS.verifiedUniversitiesLabel` ("485+") — for the "Verified Global Universities" stat.
-- `DB_STATS.programsLabel` ("5,595+") — internal-only; only `src/app/api/chat/route.ts` (the AISA system prompt) references it now, for accuracy when the AI answers "how many programs do you have?". **Don't reintroduce this in copy.**
+- `DB_STATS.verifiedProgramsLabel` ("6,927+") — used everywhere user-visible.
+- `DB_STATS.verifiedUniversitiesLabel` ("503+") — for the "Verified Global Universities" stat.
+- `DB_STATS.programsLabel` ("6,990+") — internal-only; only `src/app/api/chat/route.ts` (the AISA system prompt) references it now, for accuracy when the AI answers "how many programs do you have?". **Don't reintroduce this in copy.**
 
 ---
 
@@ -1485,13 +1487,13 @@ This is the structure the user signed off on. Apply to `src/app/v2/page.tsx`, th
    - Subtext: the positioning statement (24.3).
    - Two CTAs: `Find my best-fit programs` (primary, violet) → `/get-started`. `Generate the family report` (secondary, ghost) → `/parent-decision`.
    - RHS: real sample-dashboard mockup (Top 20 shortlist with 5 sample rows, Safe/Reach/Ambitious tier pills using the semantic palette). NOT a photograph.
-   - Bottom: thin trust strip — `Independent · no university commission · 5,532+ programs · 485+ universities · 12 countries · Decision-support estimates`.
+   - Bottom: thin trust strip — `Independent · no university commission · 6,927+ programs · 503+ universities · 12 countries · Decision-support estimates`.
    - **Directly under hero**: parent strip in stone-50 with two cards:
      - For students: *"Find the right-fit course, improve your application, prepare for interviews."*
      - For parents: *"Compare cost, ROI, safety, visa readiness, and long-term value."*
 
 2. **Proof strip**
-   - 5,532+ verified programs · 485+ universities · 12 countries · No university commission · Official-source data.
+   - 6,927+ verified programs · 503+ universities · 12 countries · No university commission · Official-source data.
    - Editorial layout (large numbers + short description). White background, violet vertical accent bars on each stat.
 
 3. **Five-stage journey** — each card linking to relevant deeper page.
@@ -1730,6 +1732,65 @@ User asked: "Architecture should be shown as a separate stream" → then "add mo
 | `5a4fff7f` | Added "Architecture" to `FIELDS_OF_STUDY` (between Engineering and Biotechnology) — 17 → 18 entries. Legacy compound `"Arts, Design & Architecture"` left intact so the ~340 programs already tagged with it don't fall out of scoring. `RELATED_FIELDS` in `scoring.ts` gets a new `"Architecture"` key whose related-set is `["Arts, Design & Architecture", "Engineering (Mechanical/Civil/Electrical)"]` so a student selecting the new stream still matches existing tagged programs until they're re-classified. The compound entry's own related-set adds `"Architecture"` so legacy-tagged programs surface for the new stream. CLAUDE.md count + key-paths count updated to 18. STATE_SNAPSHOT.md §2.5 list expanded with annotations. |
 | `ae0f6d6f` | Phase 1 — `scripts/verify/retag-architecture.ts` (parse-and-emit per CLAUDE.md hard rule #5; brace walker that tracks strings, no inline regex) flipped `field_of_study` to `"Architecture"` for entries where `program_name` OR `specialization` matched `/[Aa]rchitect/` AND the existing tag was the legacy compound. Result: 171 programs re-tagged. Counts: Architecture = 171, legacy compound = 169 (was 340), total = 5,595 (unchanged), verified = 5,532 (unchanged — `verified_at` not touched, only the classifier string moved). |
 
-**Phase 2 — DEFERRED by user.** Plan if/when revived: curate QS Top-250 unis not yet represented in Architecture (the 171 already covers a lot of ground), use `websearch-seed-finder.ts` (Sonnet + web_search) with a single-field focus or post-filter, then `verify-program.ts` (Opus 4.7) on the seeds, then `merge.ts`. Estimated cost ~$10-25, time ~30-60 min. Existing `scripts/verify/catalogs/qs-2026-tier-*.json` cover the QS Top-250 across tiers 1-6 (~200 unis); start there.
+**Phase 2 — DEFERRED by user 6 May, revisited 8 May after the PG sweep added 51 architecture entries.** Current Architecture-tagged count: 274 (was 0 → 171 after Phase 1 retag → 274 after the 7-8 May UG + PG sweeps that included Architecture as one of their target fields). Plan if/when revived: curate QS Top-250 unis not yet represented in Architecture, use `websearch-seed-finder.ts` (Sonnet + web_search) with a single-field focus or post-filter, then `verify-program.ts` (Opus 4.7) on the seeds, then `merge.ts`. Estimated cost ~$10-25, time ~30-60 min.
+
+---
+
+## §28 Session log — 6-8 May 2026 (Architecture stream + UG + PG sweeps over QS Top-500)
+
+Three-day window across handoffs #8 + #9. Five workstreams shipped 9 commits and added **1,395 verified programs** to the database.
+
+### 28.1 Architecture stream split (6 May, 2 commits)
+
+Covered in §27.5. `5a4fff7f` added `"Architecture"` to `FIELDS_OF_STUDY` (17 → 18), wired scoring's `RELATED_FIELDS` to cross-link with the legacy compound. `ae0f6d6f` Phase-1 retag re-classified 171 programs from `"Arts, Design & Architecture"` → `"Architecture"` via the parse-and-emit pattern.
+
+### 28.2 Interview-prep voice cascade closure (7 May, 1 commit)
+
+After 4 iterations the previous session left the voice feature partially working but flaky ("takes multiple attempts before audio is recognised"). `53ba42cb` cached the first mic-permission grant for the session (so subsequent recog.start() calls don't have to grab and immediately release the mic), added a `startingRef` guard so concurrent `startListening` / `listenOnce` calls coalesce instead of aborting each other, and waits 120ms for any prior recog to release before starting a new one. User confirmed first-attempt capture working.
+
+### 28.3 UG STEM/Biz pilot (7 May, 1 commit)
+
+`d24bd508` — pilot run over the 30 highest-ranked in-scope QS Top-500 unis missing UG STEM/Biz coverage. Pipeline: `ug-stem-biz-seed-finder.ts` (new — UG-focused variant with the 9 STEM + Business/Commerce/Economics fields) → 207 seeds → `verify-batch.ts` at concurrency 5 → 170/207 verified (82% pass-rate) → `merge.ts` inserted 172. Programs: 5,595 → 5,767 (+172). UG share: 20.6% → 22.8%.
+
+### 28.4 UG STEM/Biz Phase B (7-8 May, 1 commit)
+
+`51ffb668` — full sweep over the remaining 119 in-scope unis (QS rank ~60-500). Pipeline: 893 seeds → first verify attempt was killed by a ~1-hour network drop (cliff-to-100%-errors pattern matched perfectly) → second attempt with `--skip-existing`: 767/852 verified (90% pass-rate) → merge inserted 795. Programs: 5,767 → 6,562 (+795). UG share: 22.8% → 32.0%.
+
+**Lesson:** verify-batch passes `stdio: ["ignore", "ignore", "ignore"]` to spawned children — child stderr is silently discarded. When the batch starts producing 100% errors, that's the symptom of either the parent losing connectivity OR the children losing the ANTHROPIC_API_KEY env var. Both happened to me on this run.
+
+### 28.5 PG sweep across 11 fields (8 May, 1 commit)
+
+`86478401` — full sweep over 217 in-scope QS Top-500 unis with PG gaps. New `pg-fields-seed-finder.ts` accepts a per-uni `missing_fields` list and only asks Sonnet for those — saves ~50% of web_search budget vs. the original 18-field finder. For Business & Management, the prompt explicitly asks for an additional Sports Management master's URL when the uni offers one (per user direction: bucket sports management under Business & Management, no new field). Output: 638 seeds → 436/574 fresh verified (76%) → merge inserted 428.
+
+Programs: 6,562 → 6,990 (+428). PG: 4,308 → 4,727 (+419). Architecture-tagged: 222 → 274 (+52, since Architecture was one of the 11 target fields).
+
+### 28.6 Combined impact (5-8 May)
+
+| | Before (5 May) | Now (8 May) | Δ |
+|---|---:|---:|---:|
+| Programs total | 5,595 | **6,990** | +1,395 |
+| Verified at source | 5,532 | **6,927** | +1,395 |
+| UG | 1,150 | **2,103** | +953 |
+| PG | 4,297 | **4,727** | +430 |
+| UG share | 20.6% | **30.1%** | +9.5pp |
+| Universities (total / verified) | 506 / 485 | **521 / 503** | +15 / +18 |
+| Architecture-tagged | 0 → 171 | **274** | — |
+
+### 28.7 New seed-finder variants
+
+Both kept in `scripts/verify/`. Reusable:
+
+- **`ug-stem-biz-seed-finder.ts`** — UG-only, hardcoded 9-field set (STEM + Business/Commerce/Economics). Use for UG gap-filling on a uni catalog.
+- **`pg-fields-seed-finder.ts`** — PG-only, takes `missing_fields` per uni. Use for surgical PG gap-filling once a gap-analysis script has identified which (uni, field) pairs need adding. Sports-management hint baked in.
+
+For other workstreams that don't fit either, the original `websearch-seed-finder.ts` still works as the catch-all.
+
+### 28.8 What this didn't fix
+
+- The 63 unverified entries from older runs still need cleanup (count is likely smaller now since some got re-verified through the new sweeps; re-run audit to confirm).
+- Phase 2 Architecture still pending — user said "go ahead" 8 May, will run next.
+- Doc inconsistency: `merge.ts` still has Netherlands in its TARGET_COUNTRIES allowlist; types.ts has 11 countries (no Netherlands). 140 Netherlands programs are in the DB. Real fix is a follow-up task.
+
+**Estimated cumulative API spend across 28.3 + 28.4 + 28.5:** ~$200-280.
 
 
