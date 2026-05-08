@@ -1,0 +1,1064 @@
+[
+  {
+    "university": "Imperial College London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 2,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/business-analytics/",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Stanford University",
+    "country": "USA",
+    "city": "Stanford, CA",
+    "qs_ranking": 3,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://med.stanford.edu/education/masters-programs.html",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Oxford",
+    "country": "UK",
+    "city": "Oxford",
+    "qs_ranking": 4,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.ox.ac.uk/admissions/graduate/courses/msc-AI-Business",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Oxford",
+    "country": "UK",
+    "city": "Oxford",
+    "qs_ranking": 4,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.ox.ac.uk/admissions/graduate/courses/msc-software-and-systems-security",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Oxford",
+    "country": "UK",
+    "city": "Oxford",
+    "qs_ranking": 4,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.ox.ac.uk/admissions/graduate/courses/msc-financial-economics",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Harvard University",
+    "country": "USA",
+    "city": "Cambridge, MA",
+    "qs_ranking": 5,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://extension.harvard.edu/academics/programs/cybersecurity-graduate-program/",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Cambridge",
+    "country": "UK",
+    "city": "Cambridge",
+    "qs_ranking": 6,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.postgraduate.study.cam.ac.uk/courses/directory/egegmpmsl",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Cambridge",
+    "country": "UK",
+    "city": "Cambridge",
+    "qs_ranking": 6,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.postgraduate.study.cam.ac.uk/courses/directory/cvphmpphs",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Cambridge",
+    "country": "UK",
+    "city": "Cambridge",
+    "qs_ranking": 6,
+    "field_of_study": "Law",
+    "program_url": "https://www.postgraduate.study.cam.ac.uk/courses/directory/lwlwllll",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "National University of Singapore",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": 8,
+    "field_of_study": "Business & Management",
+    "program_url": "https://masters.nus.edu.sg/programmes/master-of-science-in-business-analytics",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "UCL",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 9,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/business-analytics-msc",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "UCL",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 9,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/information-security-msc",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "UCL",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 9,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/fine-art-mfa",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Nanyang Technological University",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": 12,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.ntu.edu.sg/education/graduate-programme/master-of-science-in-business-analytics",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Nanyang Technological University",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": 12,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.ntu.edu.sg/education/graduate-programme/master-of-science-in-cyber-security-(mscs)",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Nanyang Technological University",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": 12,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.ntu.edu.sg/education/graduate-programme/master-of-science-in-data-science-(msds)",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of California, Berkeley",
+    "country": "USA",
+    "city": "Berkeley, CA",
+    "qs_ranking": 12,
+    "field_of_study": "Business & Management",
+    "program_url": "https://analytics.berkeley.edu/our-program/",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of California, Berkeley",
+    "country": "USA",
+    "city": "Berkeley, CA",
+    "qs_ranking": 12,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.ischool.berkeley.edu/programs/mics-online",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of California, Berkeley",
+    "country": "USA",
+    "city": "Berkeley, CA",
+    "qs_ranking": 12,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://art.berkeley.edu/degrees/master-fine-arts-mfa-degree",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Cornell University",
+    "country": "USA",
+    "city": "Ithaca, NY",
+    "qs_ranking": 16,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.johnson.cornell.edu/programs/specialized-masters/ms-in-business-analytics/",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Cornell University",
+    "country": "USA",
+    "city": "Ithaca, NY",
+    "qs_ranking": 16,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://aap.cornell.edu/art/master-of-fine-arts-in-creative-visual-arts/",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Cornell University",
+    "country": "USA",
+    "city": "Ithaca, NY",
+    "qs_ranking": 16,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://publichealth.cornell.edu/",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Michigan",
+    "country": "USA",
+    "city": "Ann Arbor, MI",
+    "qs_ranking": 17,
+    "field_of_study": "Business & Management",
+    "program_url": "https://michiganross.umich.edu/graduate/master-of-business-analytics",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Michigan",
+    "country": "USA",
+    "city": "Ann Arbor, MI",
+    "qs_ranking": 17,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://stamps.umich.edu/graduate-programs/mfa",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Michigan",
+    "country": "USA",
+    "city": "Ann Arbor, MI",
+    "qs_ranking": 17,
+    "field_of_study": "MBA",
+    "program_url": "https://michiganross.umich.edu/graduate/full-time-mba",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Sydney",
+    "country": "Australia",
+    "city": "Sydney",
+    "qs_ranking": 18,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.sydney.edu.au/courses/courses/pc/master-of-cybersecurity.html",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Sydney",
+    "country": "Australia",
+    "city": "Sydney",
+    "qs_ranking": 18,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.sydney.edu.au/courses/courses/pr/master-of-fine-arts0.html",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of New South Wales",
+    "country": "Australia",
+    "city": "Sydney",
+    "qs_ranking": 19,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.unsw.edu.au/study/postgraduate/master-of-cyber-security-canberra",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of New South Wales",
+    "country": "Australia",
+    "city": "Sydney",
+    "qs_ranking": 19,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://artdesign.unsw.edu.au/future-students/postgraduate-research-degrees/master-fine-arts",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Melbourne",
+    "country": "Australia",
+    "city": "Melbourne",
+    "qs_ranking": 19,
+    "field_of_study": "Business & Management",
+    "program_url": "https://study.unimelb.edu.au/find/courses/graduate/master-of-business-analytics/",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Melbourne",
+    "country": "Australia",
+    "city": "Melbourne",
+    "qs_ranking": 19,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://study.unimelb.edu.au/find/courses/graduate/master-of-fine-arts/",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "UNSW Sydney",
+    "country": "Australia",
+    "city": "Sydney",
+    "qs_ranking": 19,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.unsw.edu.au/study/postgraduate/master-of-cyber-security-canberra",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "UNSW Sydney",
+    "country": "Australia",
+    "city": "Sydney",
+    "qs_ranking": 19,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.unsw.edu.au/study/postgraduate/master-of-finance",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "UNSW Sydney",
+    "country": "Australia",
+    "city": "Sydney",
+    "qs_ranking": 19,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://artdesign.unsw.edu.au/future-students/postgraduate-research-degrees/master-fine-arts",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "UNSW Sydney",
+    "country": "Australia",
+    "city": "Sydney",
+    "qs_ranking": 19,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.unsw.edu.au/study/postgraduate/master-of-public-health",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "UNSW Sydney",
+    "country": "Australia",
+    "city": "Sydney",
+    "qs_ranking": 19,
+    "field_of_study": "MBA",
+    "program_url": "https://www.unsw.edu.au/study/postgraduate/agsm-mba-master-of-business-administration",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Columbia University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 20,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.engineering.columbia.edu/academics/programs/masters-programs/master-science-programs/artificial-intelligence-ms",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Columbia University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 20,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.engineering.columbia.edu/academics/programs/masters-programs/master-science-programs/business-analytics-ms",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Columbia University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 20,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://academics.business.columbia.edu/msfe",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Columbia University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 20,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://arts.columbia.edu/visual-arts-sound-art",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Columbia University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 20,
+    "field_of_study": "MBA",
+    "program_url": "https://academics.business.columbia.edu/mba",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Technical University of Munich",
+    "country": "Germany",
+    "city": "Munich",
+    "qs_ranking": 22,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.tum.de/en/studies/degree-programs/detail/ai-in-society",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Technical University of Munich",
+    "country": "Germany",
+    "city": "Munich",
+    "qs_ranking": 22,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.tum.de/en/studies/degree-programs/detail/health-science-prevention-and-health-promotion-master-of-science-msc",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.art.yale.edu/apply/graduate-admission",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Johns Hopkins University",
+    "country": "USA",
+    "city": "Baltimore, MD",
+    "qs_ranking": 23,
+    "field_of_study": "Business & Management",
+    "program_url": "https://carey.jhu.edu/programs/master-science-programs/ms-business-analytics-artificial-intelligence",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Johns Hopkins University",
+    "country": "USA",
+    "city": "Baltimore, MD",
+    "qs_ranking": 23,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://ep.jhu.edu/programs/cybersecurity/",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Johns Hopkins University",
+    "country": "USA",
+    "city": "Baltimore, MD",
+    "qs_ranking": 23,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://engineering.jhu.edu/ams/academics/graduate-studies/masters-data-science/",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Johns Hopkins University",
+    "country": "USA",
+    "city": "Baltimore, MD",
+    "qs_ranking": 23,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://advanced.jhu.edu/academics/graduate/ms-financial-economics/",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Johns Hopkins University",
+    "country": "USA",
+    "city": "Baltimore, MD",
+    "qs_ranking": 23,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://writingseminars.jhu.edu/graduate/",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Johns Hopkins University",
+    "country": "USA",
+    "city": "Baltimore, MD",
+    "qs_ranking": 23,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://publichealth.jhu.edu/academics/mph",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Johns Hopkins University",
+    "country": "USA",
+    "city": "Baltimore, MD",
+    "qs_ranking": 23,
+    "field_of_study": "MBA",
+    "program_url": "https://carey.jhu.edu/programs/mba-programs/mba-full-time",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Toronto",
+    "country": "Canada",
+    "city": "Toronto, ON",
+    "qs_ranking": 25,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.rotman.utoronto.ca/programs/specialized-programs/master-of-management-analytics/",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "École Normale Supérieure (ENS)",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 26,
+    "field_of_study": "Economics & Finance",
+    "program_url": "http://www.master-ape.ens.fr/?lang=en",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Edinburgh",
+    "country": "UK",
+    "city": "Edinburgh",
+    "qs_ranking": 27,
+    "field_of_study": "Business & Management",
+    "program_url": "https://study.ed.ac.uk/programmes/postgraduate-taught/929-business-analytics",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Edinburgh",
+    "country": "UK",
+    "city": "Edinburgh",
+    "qs_ranking": 27,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://study.ed.ac.uk/programmes/postgraduate-taught/971-cyber-security-privacy-and-trust",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Edinburgh",
+    "country": "UK",
+    "city": "Edinburgh",
+    "qs_ranking": 27,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://study.ed.ac.uk/programmes/postgraduate-taught/902-data-science",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Edinburgh",
+    "country": "UK",
+    "city": "Edinburgh",
+    "qs_ranking": 27,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://study.ed.ac.uk/programmes/postgraduate-taught/1148-film-art",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "McGill University",
+    "country": "Canada",
+    "city": "Montreal, QC",
+    "qs_ranking": 29,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.mcgill.ca/desautels/programs/mma",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "McGill University",
+    "country": "Canada",
+    "city": "Montreal, QC",
+    "qs_ranking": 29,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.mcgill.ca/epi-biostat-occh/education/grad/mscph",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Australian National University",
+    "country": "Australia",
+    "city": "Canberra",
+    "qs_ranking": 30,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://programsandcourses.anu.edu.au/program/mcsrm",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Australian National University",
+    "country": "Australia",
+    "city": "Canberra",
+    "qs_ranking": 30,
+    "field_of_study": "MBA",
+    "program_url": "https://programsandcourses.anu.edu.au/program/mbadm",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Manchester",
+    "country": "UK",
+    "city": "Manchester",
+    "qs_ranking": 34,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.manchester.ac.uk/study/masters/courses/list/09454/msc-business-analytics-operational-research-and-risk-analysis/",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Manchester",
+    "country": "UK",
+    "city": "Manchester",
+    "qs_ranking": 34,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.manchester.ac.uk/study/masters/courses/list/21575/msc-cyber-security/",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Manchester",
+    "country": "UK",
+    "city": "Manchester",
+    "qs_ranking": 34,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.manchester.ac.uk/study/masters/courses/list/11552/msc-data-science-computer-science-data-informatics/",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Manchester",
+    "country": "UK",
+    "city": "Manchester",
+    "qs_ranking": 34,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.manchester.ac.uk/study/masters/courses/list/21576/msc-machine-learning/",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Monash University",
+    "country": "Australia",
+    "city": "Melbourne",
+    "qs_ranking": 36,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.monash.edu/study/courses/find-a-course/artificial-intelligence-c6007",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Monash University",
+    "country": "Australia",
+    "city": "Melbourne",
+    "qs_ranking": 36,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.monash.edu/study/courses/find-a-course/international-business-b6008",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Monash University",
+    "country": "Australia",
+    "city": "Melbourne",
+    "qs_ranking": 36,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.monash.edu/study/courses/find-a-course/business-analytics-b6022",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Monash University",
+    "country": "Australia",
+    "city": "Melbourne",
+    "qs_ranking": 36,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.monash.edu/study/courses/find-a-course/cybersecurity-c6002",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Monash University",
+    "country": "Australia",
+    "city": "Melbourne",
+    "qs_ranking": 36,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.monash.edu/study/courses/find-a-course/economics-b6030",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Monash University",
+    "country": "Australia",
+    "city": "Melbourne",
+    "qs_ranking": 36,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.monash.edu/study/courses/find-a-course/fine-art-2953",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Monash University",
+    "country": "Australia",
+    "city": "Melbourne",
+    "qs_ranking": 36,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.monash.edu/study/courses/find-a-course/public-health-m6024",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Monash University",
+    "country": "Australia",
+    "city": "Melbourne",
+    "qs_ranking": 36,
+    "field_of_study": "MBA",
+    "program_url": "https://www.monash.edu/study/courses/find-a-course/business-administration-b6016",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Monash University Malaysia",
+    "country": "Malaysia",
+    "city": "Subang Jaya",
+    "qs_ranking": 36,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.monash.edu.my/study/postgraduate-and-research/information-technology/master-of-artificial-intelligence",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Monash University Malaysia",
+    "country": "Malaysia",
+    "city": "Subang Jaya",
+    "qs_ranking": 36,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.monash.edu.my/study/postgraduate-and-research/business/master-international-business",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Monash University Malaysia",
+    "country": "Malaysia",
+    "city": "Subang Jaya",
+    "qs_ranking": 36,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.monash.edu.my/study/postgraduate-and-research/information-technology/master-of-data-science",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of British Columbia",
+    "country": "Canada",
+    "city": "Vancouver, BC",
+    "qs_ranking": 38,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-business-analytics",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of British Columbia",
+    "country": "Canada",
+    "city": "Vancouver, BC",
+    "qs_ranking": 38,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-fine-arts-visual-art",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "New York University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 39,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.stern.nyu.edu/programs-admissions/ms-business-analytics-ai",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "New York University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 39,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://engineering.nyu.edu/academics/programs/cybersecurity-ms-campus",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "New York University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 39,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://steinhardt.nyu.edu/degree/mfa-studio-art",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "New York University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 39,
+    "field_of_study": "MBA",
+    "program_url": "https://www.stern.nyu.edu/programs-admissions/full-time-mba",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "King's College London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 40,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/cyber-security-msc",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "King's College London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 40,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/data-science-msc",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Queensland",
+    "country": "Australia",
+    "city": "Brisbane",
+    "qs_ranking": 40,
+    "field_of_study": "Business & Management",
+    "program_url": "https://study.uq.edu.au/study-options/programs/master-business-analytics-5188",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Queensland",
+    "country": "Australia",
+    "city": "Brisbane",
+    "qs_ranking": 40,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://study.uq.edu.au/study-options/programs/master-cyber-security-5257",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Sorbonne University",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 41,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://master-sante.sorbonne-universite.fr/mention-sante-publique/mention-sante-publique-m1/",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of California, Los Angeles",
+    "country": "USA",
+    "city": "Los Angeles, CA",
+    "qs_ranking": 42,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.art.ucla.edu/graduate-admissions/",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Northwestern University",
+    "country": "USA",
+    "city": "Evanston, IL",
+    "qs_ranking": 50,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.mccormick.northwestern.edu/artificial-intelligence/",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Northwestern University",
+    "country": "USA",
+    "city": "Evanston, IL",
+    "qs_ranking": 50,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://art.northwestern.edu/graduate-about",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Duke University",
+    "country": "USA",
+    "city": "Durham, NC",
+    "qs_ranking": 50,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.fuqua.duke.edu/programs/mms-foundations-of-business",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Duke University",
+    "country": "USA",
+    "city": "Durham, NC",
+    "qs_ranking": 50,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.fuqua.duke.edu/programs/mqm-business-analytics",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Duke University",
+    "country": "USA",
+    "city": "Durham, NC",
+    "qs_ranking": 50,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://masters.pratt.duke.edu/cybersecurity/",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Duke University",
+    "country": "USA",
+    "city": "Durham, NC",
+    "qs_ranking": 50,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://datascience.duke.edu/",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Duke University",
+    "country": "USA",
+    "city": "Durham, NC",
+    "qs_ranking": 50,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://mfaeda.duke.edu/",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Duke University",
+    "country": "USA",
+    "city": "Durham, NC",
+    "qs_ranking": 50,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://populationhealth.duke.edu/education/ms-population-health-sciences",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Bristol",
+    "country": "UK",
+    "city": "Bristol",
+    "qs_ranking": 54,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.bristol.ac.uk/study/postgraduate/taught/msc-business-analytics/",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Bristol",
+    "country": "UK",
+    "city": "Bristol",
+    "qs_ranking": 54,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.bristol.ac.uk/study/postgraduate/taught/msc-cyber-security-infrastructures-security/",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Bristol",
+    "country": "UK",
+    "city": "Bristol",
+    "qs_ranking": 54,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.bristol.ac.uk/study/postgraduate/taught/msc-data-science/",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Bristol",
+    "country": "UK",
+    "city": "Bristol",
+    "qs_ranking": 54,
+    "field_of_study": "Law",
+    "program_url": "https://www.bristol.ac.uk/study/postgraduate/taught/llm-law---general-legal-studies/",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Texas at Austin",
+    "country": "USA",
+    "city": "Austin, TX",
+    "qs_ranking": 56,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://cdso.utexas.edu/msai",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Texas at Austin",
+    "country": "USA",
+    "city": "Austin, TX",
+    "qs_ranking": 56,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://msisp.ischool.utexas.edu/",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Texas at Austin",
+    "country": "USA",
+    "city": "Austin, TX",
+    "qs_ranking": 56,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://art.utexas.edu/academics/graduate/studio-art",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "École Polytechnique",
+    "country": "France",
+    "city": "Palaiseau",
+    "qs_ranking": 56,
+    "field_of_study": "Business & Management",
+    "program_url": "https://programmes.polytechnique.edu/en/master/programs/data-science-for-business-joint-degree-with-hec",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "École Polytechnique",
+    "country": "France",
+    "city": "Palaiseau",
+    "qs_ranking": 56,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://programmes.polytechnique.edu/en/master/all-msct-programs/cybersecurity-threats-and-defenses-master",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Carnegie Mellon University",
+    "country": "USA",
+    "city": "Pittsburgh, PA",
+    "qs_ranking": 58,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.cmu.edu/tepper/programs/master-business-analytics",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Carnegie Mellon University",
+    "country": "USA",
+    "city": "Pittsburgh, PA",
+    "qs_ranking": 58,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.cmu.edu/ini/academics/msis/",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Carnegie Mellon University",
+    "country": "USA",
+    "city": "Pittsburgh, PA",
+    "qs_ranking": 58,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://art.cmu.edu/mfa/overview/",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Carnegie Mellon University",
+    "country": "USA",
+    "city": "Pittsburgh, PA",
+    "qs_ranking": 58,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.heinz.cmu.edu/programs/health-care-analytics-master/",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Universiti Malaya",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": 60,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://fsktm.um.edu.my/master-of-cyber-security-coursework",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Universiti Malaya",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": 60,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://fsktm.um.edu.my/master-of-data-science-coursework",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Auckland",
+    "country": "New Zealand",
+    "city": "Auckland",
+    "qs_ranking": 65,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.auckland.ac.nz/en/study/study-options/find-a-study-option/master-of-artificial-intelligence--mai-.html",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Auckland",
+    "country": "New Zealand",
+    "city": "Auckland",
+    "qs_ranking": 65,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.auckland.ac.nz/en/study/study-options/find-a-study-option/master-of-business-analytics.html",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Auckland",
+    "country": "New Zealand",
+    "city": "Auckland",
+    "qs_ranking": 65,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.auckland.ac.nz/en/study/study-options/find-a-study-option/master-of-fine-arts-mfa.html",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Warwick",
+    "country": "UK",
+    "city": "Coventry",
+    "qs_ranking": 67,
+    "field_of_study": "Business & Management",
+    "program_url": "https://warwick.ac.uk/study/postgraduate/courses/msc-business-analytics/",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Warwick",
+    "country": "UK",
+    "city": "Coventry",
+    "qs_ranking": 67,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://warwick.ac.uk/study/postgraduate/courses/msc-cyber-security-engineering/",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "field_of_study": "Business & Management",
+    "program_url": "https://rady.ucsd.edu/programs/ms-business-analytics/index.html",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "field_of_study": "MBA",
+    "program_url": "https://rady.ucsd.edu/programs/mba/index.html",
+    "degree_level": "postgraduate"
+  }
+]

@@ -1,0 +1,700 @@
+[
+  {
+    "university": "Massachusetts Institute of Technology",
+    "country": "USA",
+    "city": "Cambridge, MA",
+    "qs_ranking": 1,
+    "missing_streams": [
+      "Cybersecurity",
+      "Data Science",
+      "Fine Arts",
+      "Healthcare",
+      "Machine Learning"
+    ]
+  },
+  {
+    "university": "Imperial College London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 2,
+    "missing_streams": [
+      "Business Analytics",
+      "Cybersecurity",
+      "Data Science",
+      "Fine Arts",
+      "Law (UK)"
+    ]
+  },
+  {
+    "university": "Stanford University",
+    "country": "USA",
+    "city": "Stanford, CA",
+    "qs_ranking": 3,
+    "missing_streams": [
+      "AI",
+      "Business Analytics",
+      "Cybersecurity",
+      "Healthcare",
+      "Machine Learning"
+    ]
+  },
+  {
+    "university": "University of Oxford",
+    "country": "UK",
+    "city": "Oxford",
+    "qs_ranking": 4,
+    "missing_streams": [
+      "AI",
+      "Business",
+      "Business Analytics",
+      "Cybersecurity",
+      "Data Science",
+      "Economics & Finance",
+      "Fine Arts",
+      "Healthcare",
+      "Law (UK)",
+      "Machine Learning"
+    ]
+  },
+  {
+    "university": "Harvard University",
+    "country": "USA",
+    "city": "Cambridge, MA",
+    "qs_ranking": 5,
+    "missing_streams": [
+      "AI",
+      "Business Analytics",
+      "Cybersecurity",
+      "Fine Arts",
+      "Machine Learning"
+    ]
+  },
+  {
+    "university": "University of Cambridge",
+    "country": "UK",
+    "city": "Cambridge",
+    "qs_ranking": 6,
+    "missing_streams": [
+      "AI",
+      "Business Analytics",
+      "Cybersecurity",
+      "Data Science",
+      "Fine Arts",
+      "Healthcare",
+      "Law (UK)"
+    ]
+  },
+  {
+    "university": "National University of Singapore",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": 8,
+    "missing_streams": [
+      "Business Analytics",
+      "Cybersecurity",
+      "Data Science",
+      "Fine Arts",
+      "Machine Learning"
+    ]
+  },
+  {
+    "university": "UCL",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 9,
+    "missing_streams": [
+      "AI",
+      "Business Analytics",
+      "Cybersecurity",
+      "Fine Arts"
+    ]
+  },
+  {
+    "university": "California Institute of Technology",
+    "country": "USA",
+    "city": "Pasadena, CA",
+    "qs_ranking": 10,
+    "missing_streams": [
+      "AI",
+      "Business",
+      "Business Analytics",
+      "Cybersecurity",
+      "Data Science",
+      "Economics & Finance",
+      "Fine Arts",
+      "Healthcare",
+      "MBA",
+      "Machine Learning"
+    ]
+  },
+  {
+    "university": "University of Pennsylvania",
+    "country": "USA",
+    "city": "Philadelphia, PA",
+    "qs_ranking": 11,
+    "missing_streams": [
+      "Business",
+      "Business Analytics",
+      "Cybersecurity",
+      "Fine Arts",
+      "Machine Learning"
+    ]
+  },
+  {
+    "university": "Nanyang Technological University",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": 12,
+    "missing_streams": [
+      "Business Analytics",
+      "Cybersecurity",
+      "Data Science",
+      "Healthcare",
+      "Machine Learning"
+    ]
+  },
+  {
+    "university": "University of California, Berkeley",
+    "country": "USA",
+    "city": "Berkeley, CA",
+    "qs_ranking": 12,
+    "missing_streams": [
+      "AI",
+      "Business Analytics",
+      "Cybersecurity",
+      "Fine Arts",
+      "Machine Learning"
+    ]
+  },
+  {
+    "university": "Cornell University",
+    "country": "USA",
+    "city": "Ithaca, NY",
+    "qs_ranking": 16,
+    "missing_streams": [
+      "AI",
+      "Business Analytics",
+      "Cybersecurity",
+      "Fine Arts",
+      "Healthcare",
+      "Machine Learning"
+    ]
+  },
+  {
+    "university": "University of Michigan",
+    "country": "USA",
+    "city": "Ann Arbor, MI",
+    "qs_ranking": 17,
+    "missing_streams": [
+      "Business Analytics",
+      "Cybersecurity",
+      "Fine Arts",
+      "MBA",
+      "Machine Learning"
+    ]
+  },
+  {
+    "university": "University of Sydney",
+    "country": "Australia",
+    "city": "Sydney",
+    "qs_ranking": 18,
+    "missing_streams": [
+      "AI",
+      "Business Analytics",
+      "Cybersecurity",
+      "Fine Arts",
+      "Machine Learning"
+    ]
+  },
+  {
+    "university": "University of New South Wales",
+    "country": "Australia",
+    "city": "Sydney",
+    "qs_ranking": 19,
+    "missing_streams": [
+      "AI",
+      "Business Analytics",
+      "Cybersecurity",
+      "Fine Arts",
+      "Machine Learning"
+    ]
+  },
+  {
+    "university": "University of Melbourne",
+    "country": "Australia",
+    "city": "Melbourne",
+    "qs_ranking": 19,
+    "missing_streams": [
+      "Business Analytics",
+      "Fine Arts",
+      "Machine Learning"
+    ]
+  },
+  {
+    "university": "UNSW Sydney",
+    "country": "Australia",
+    "city": "Sydney",
+    "qs_ranking": 19,
+    "missing_streams": [
+      "AI",
+      "Business Analytics",
+      "Cybersecurity",
+      "Economics & Finance",
+      "Fine Arts",
+      "Healthcare",
+      "MBA",
+      "Machine Learning"
+    ]
+  },
+  {
+    "university": "Columbia University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 20,
+    "missing_streams": [
+      "AI",
+      "Business Analytics",
+      "Cybersecurity",
+      "Economics & Finance",
+      "Fine Arts",
+      "MBA",
+      "Machine Learning"
+    ]
+  },
+  {
+    "university": "University of Chicago",
+    "country": "USA",
+    "city": "Chicago, IL",
+    "qs_ranking": 21,
+    "missing_streams": [
+      "AI",
+      "Business Analytics",
+      "Cybersecurity",
+      "Machine Learning"
+    ]
+  },
+  {
+    "university": "Technical University of Munich",
+    "country": "Germany",
+    "city": "Munich",
+    "qs_ranking": 22,
+    "missing_streams": [
+      "AI",
+      "Business Analytics",
+      "Cybersecurity",
+      "Data Science",
+      "Fine Arts",
+      "Healthcare",
+      "Machine Learning"
+    ]
+  },
+  {
+    "university": "Princeton University",
+    "country": "USA",
+    "city": "Princeton, NJ",
+    "qs_ranking": 22,
+    "missing_streams": [
+      "AI",
+      "Business",
+      "Business Analytics",
+      "Cybersecurity",
+      "Data Science",
+      "Fine Arts",
+      "Healthcare",
+      "MBA"
+    ]
+  },
+  {
+    "university": "Yale University",
+    "country": "USA",
+    "city": "New Haven, CT",
+    "qs_ranking": 23,
+    "missing_streams": [
+      "AI",
+      "Business Analytics",
+      "Cybersecurity",
+      "Fine Arts",
+      "Machine Learning"
+    ]
+  },
+  {
+    "university": "Johns Hopkins University",
+    "country": "USA",
+    "city": "Baltimore, MD",
+    "qs_ranking": 23,
+    "missing_streams": [
+      "Business Analytics",
+      "Cybersecurity",
+      "Data Science",
+      "Economics & Finance",
+      "Fine Arts",
+      "Healthcare",
+      "MBA",
+      "Machine Learning"
+    ]
+  },
+  {
+    "university": "University of Toronto",
+    "country": "Canada",
+    "city": "Toronto, ON",
+    "qs_ranking": 25,
+    "missing_streams": [
+      "Business Analytics",
+      "Cybersecurity",
+      "Data Science",
+      "Fine Arts",
+      "Machine Learning"
+    ]
+  },
+  {
+    "university": "\u00c9cole Normale Sup\u00e9rieure (ENS)",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 26,
+    "missing_streams": [
+      "AI",
+      "Business",
+      "Business Analytics",
+      "Cybersecurity",
+      "Data Science",
+      "Economics & Finance",
+      "Fine Arts",
+      "Healthcare",
+      "MBA",
+      "Machine Learning"
+    ]
+  },
+  {
+    "university": "University of Edinburgh",
+    "country": "UK",
+    "city": "Edinburgh",
+    "qs_ranking": 27,
+    "missing_streams": [
+      "Business Analytics",
+      "Cybersecurity",
+      "Data Science",
+      "Fine Arts",
+      "Machine Learning"
+    ]
+  },
+  {
+    "university": "McGill University",
+    "country": "Canada",
+    "city": "Montreal, QC",
+    "qs_ranking": 29,
+    "missing_streams": [
+      "Business Analytics",
+      "Cybersecurity",
+      "Data Science",
+      "Fine Arts",
+      "Healthcare",
+      "Machine Learning"
+    ]
+  },
+  {
+    "university": "Australian National University",
+    "country": "Australia",
+    "city": "Canberra",
+    "qs_ranking": 30,
+    "missing_streams": [
+      "AI",
+      "Business Analytics",
+      "Cybersecurity",
+      "Data Science",
+      "Fine Arts",
+      "MBA"
+    ]
+  },
+  {
+    "university": "University of Manchester",
+    "country": "UK",
+    "city": "Manchester",
+    "qs_ranking": 34,
+    "missing_streams": [
+      "Business Analytics",
+      "Cybersecurity",
+      "Data Science",
+      "Fine Arts",
+      "Machine Learning"
+    ]
+  },
+  {
+    "university": "Monash University",
+    "country": "Australia",
+    "city": "Melbourne",
+    "qs_ranking": 36,
+    "missing_streams": [
+      "AI",
+      "Business",
+      "Business Analytics",
+      "Cybersecurity",
+      "Economics & Finance",
+      "Fine Arts",
+      "Healthcare",
+      "MBA",
+      "Machine Learning"
+    ]
+  },
+  {
+    "university": "Monash University Malaysia",
+    "country": "Malaysia",
+    "city": "Subang Jaya",
+    "qs_ranking": 36,
+    "missing_streams": [
+      "AI",
+      "Business",
+      "Business Analytics",
+      "Cybersecurity",
+      "Data Science",
+      "Economics & Finance",
+      "Fine Arts",
+      "Healthcare",
+      "MBA",
+      "Machine Learning"
+    ]
+  },
+  {
+    "university": "University of British Columbia",
+    "country": "Canada",
+    "city": "Vancouver, BC",
+    "qs_ranking": 38,
+    "missing_streams": [
+      "AI",
+      "Business Analytics",
+      "Cybersecurity",
+      "Fine Arts",
+      "Machine Learning"
+    ]
+  },
+  {
+    "university": "New York University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 39,
+    "missing_streams": [
+      "AI",
+      "Business Analytics",
+      "Cybersecurity",
+      "Fine Arts",
+      "MBA",
+      "Machine Learning"
+    ]
+  },
+  {
+    "university": "King's College London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 40,
+    "missing_streams": [
+      "Business Analytics",
+      "Cybersecurity",
+      "Data Science",
+      "Fine Arts",
+      "Machine Learning"
+    ]
+  },
+  {
+    "university": "University of Queensland",
+    "country": "Australia",
+    "city": "Brisbane",
+    "qs_ranking": 40,
+    "missing_streams": [
+      "AI",
+      "Business Analytics",
+      "Cybersecurity",
+      "Fine Arts",
+      "Machine Learning"
+    ]
+  },
+  {
+    "university": "Sorbonne University",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 41,
+    "missing_streams": [
+      "AI",
+      "Business",
+      "Business Analytics",
+      "Cybersecurity",
+      "Data Science",
+      "Fine Arts",
+      "Healthcare",
+      "MBA",
+      "Machine Learning"
+    ]
+  },
+  {
+    "university": "University of California, Los Angeles",
+    "country": "USA",
+    "city": "Los Angeles, CA",
+    "qs_ranking": 42,
+    "missing_streams": [
+      "Cybersecurity",
+      "Fine Arts",
+      "Machine Learning"
+    ]
+  },
+  {
+    "university": "London School of Economics",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 50,
+    "missing_streams": [
+      "AI",
+      "Business Analytics",
+      "Cybersecurity",
+      "Fine Arts",
+      "Machine Learning"
+    ]
+  },
+  {
+    "university": "Northwestern University",
+    "country": "USA",
+    "city": "Evanston, IL",
+    "qs_ranking": 50,
+    "missing_streams": [
+      "AI",
+      "Business Analytics",
+      "Cybersecurity",
+      "Economics & Finance",
+      "Fine Arts"
+    ]
+  },
+  {
+    "university": "Duke University",
+    "country": "USA",
+    "city": "Durham, NC",
+    "qs_ranking": 50,
+    "missing_streams": [
+      "AI",
+      "Business",
+      "Business Analytics",
+      "Cybersecurity",
+      "Data Science",
+      "Fine Arts",
+      "Healthcare"
+    ]
+  },
+  {
+    "university": "University of Bristol",
+    "country": "UK",
+    "city": "Bristol",
+    "qs_ranking": 54,
+    "missing_streams": [
+      "Business Analytics",
+      "Cybersecurity",
+      "Data Science",
+      "Fine Arts",
+      "Law (UK)",
+      "MBA",
+      "Machine Learning"
+    ]
+  },
+  {
+    "university": "University of Texas at Austin",
+    "country": "USA",
+    "city": "Austin, TX",
+    "qs_ranking": 56,
+    "missing_streams": [
+      "AI",
+      "Cybersecurity",
+      "Fine Arts",
+      "Healthcare",
+      "Machine Learning"
+    ]
+  },
+  {
+    "university": "\u00c9cole Polytechnique",
+    "country": "France",
+    "city": "Palaiseau",
+    "qs_ranking": 56,
+    "missing_streams": [
+      "Business",
+      "Business Analytics",
+      "Cybersecurity",
+      "Fine Arts",
+      "Healthcare",
+      "MBA",
+      "Machine Learning"
+    ]
+  },
+  {
+    "university": "Mines ParisTech (PSL)",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 56,
+    "missing_streams": [
+      "Business",
+      "Business Analytics",
+      "Cybersecurity",
+      "Fine Arts",
+      "Healthcare",
+      "MBA",
+      "Machine Learning"
+    ]
+  },
+  {
+    "university": "Carnegie Mellon University",
+    "country": "USA",
+    "city": "Pittsburgh, PA",
+    "qs_ranking": 58,
+    "missing_streams": [
+      "Business Analytics",
+      "Cybersecurity",
+      "Data Science",
+      "Fine Arts",
+      "Healthcare"
+    ]
+  },
+  {
+    "university": "Universiti Malaya",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": 60,
+    "missing_streams": [
+      "Business Analytics",
+      "Cybersecurity",
+      "Data Science",
+      "Fine Arts",
+      "Machine Learning"
+    ]
+  },
+  {
+    "university": "University of Auckland",
+    "country": "New Zealand",
+    "city": "Auckland",
+    "qs_ranking": 65,
+    "missing_streams": [
+      "AI",
+      "Business Analytics",
+      "Cybersecurity",
+      "Fine Arts",
+      "Machine Learning"
+    ]
+  },
+  {
+    "university": "University of Warwick",
+    "country": "UK",
+    "city": "Coventry",
+    "qs_ranking": 67,
+    "missing_streams": [
+      "Business Analytics",
+      "Cybersecurity",
+      "Data Science",
+      "Fine Arts",
+      "Machine Learning"
+    ]
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "missing_streams": [
+      "Business Analytics",
+      "Cybersecurity",
+      "MBA",
+      "Machine Learning"
+    ]
+  }
+]
