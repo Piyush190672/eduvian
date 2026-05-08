@@ -187,9 +187,85 @@ async function fetchPage(url: string): Promise<string> {
       } catch { /* ignore */ }
       stripped = stripHtml(await page.content());
     }
+
+    // Fees-tab / fees-subpage augmentation. Many uni course pages show the
+    // tuition only after clicking a "Fees" tab (Melbourne, Manchester) or
+    // on a separately-linked subpage (Toronto, UBC). Detect either, fetch
+    // the additional content, and concatenate so the extractor sees all
+    // available fee info on one prompt.
+    const FEE_LABEL = /\b(?:fees?|tuition|tuition\s*fees?|fees?\s*&\s*funding|fees?\s*and\s*funding|cost\s*of\s*study|fees?\s*scholarships?)\b/i;
+    let appended = "";
+
+    // (a) Try clicking same-page tabs/anchors whose text matches FEE_LABEL.
+    try {
+      const beforeLen = stripped.length;
+      // Look for anchors / buttons / role=tab that match the fee label.
+      const tabHandles = await page.$$eval(
+        'a, button, [role="tab"]',
+        (nodes) => nodes
+          .map((n) => ({ text: (n as HTMLElement).innerText?.trim() ?? "", tag: n.tagName }))
+          .filter((x) => x.text.length > 0 && x.text.length < 60)
+      );
+      const feeTabIdx = tabHandles.findIndex((t) => FEE_LABEL.test(t.text));
+      if (feeTabIdx >= 0) {
+        // Re-find the actual element handle and click it. We can't pass DOM
+        // nodes back across page.evaluate, so we use locator with the same
+        // text to click.
+        const label = tabHandles[feeTabIdx].text;
+        try {
+          const loc = page.locator(`a:has-text("${label}"), button:has-text("${label}"), [role="tab"]:has-text("${label}")`).first();
+          await loc.click({ timeout: 3_000 });
+          await page.waitForTimeout(1_500);
+          const after = stripHtml(await page.content());
+          if (after.length > beforeLen + 50) {
+            // Click revealed new content — append delta-ish (just use full).
+            appended += "\n\n[FEES TAB CONTENT]\n" + after;
+          }
+        } catch { /* tab click failed; not fatal */ }
+      }
+    } catch { /* ignore */ }
+
+    // (b) Follow same-domain links whose text or URL hints at fees.
+    try {
+      const origin = new URL(url).origin;
+      const links = await page.$$eval("a[href]", (anchors) =>
+        anchors.map((a) => ({
+          href: (a as HTMLAnchorElement).href,
+          text: (a as HTMLElement).innerText?.trim() ?? "",
+        }))
+      );
+      const feeLinks = links
+        .filter((l) => {
+          if (!l.href.startsWith("http")) return false;
+          if (new URL(l.href).origin !== origin) return false;
+          const matchesText = FEE_LABEL.test(l.text);
+          const matchesUrl = /\/(fees?|tuition|funding|cost-of-study|cost-of-attendance|international-fees?)\b/i.test(l.href);
+          return matchesText || matchesUrl;
+        })
+        .slice(0, 2); // cap at 2 sub-pages to bound cost
+      for (const lnk of feeLinks) {
+        try {
+          const sub = await ctx.newPage();
+          try {
+            await sub.goto(lnk.href, { waitUntil: "domcontentloaded", timeout: 10_000 });
+            await sub.waitForTimeout(1_000);
+            const subStripped = stripHtml(await sub.content());
+            if (subStripped.length > 200 && !looksLikeUnderRendered(subStripped)) {
+              appended += `\n\n[FEES SUBPAGE: ${lnk.href}]\n` + subStripped.slice(0, 20_000);
+            }
+          } finally {
+            await sub.close();
+          }
+        } catch { /* sub-page fetch failed */ }
+      }
+    } catch { /* ignore */ }
+
     // Cap to ~60K chars: program detail pages have all the important fields
     // (name, fees, deadlines, IELTS) in the first half. The rest is footer /
     // FAQ / sidebar / unrelated marketing. Trimming saves ~50% of input tokens.
+    if (appended) {
+      stripped = (stripped + appended).slice(0, 80_000);
+    }
     return stripped;
   } finally {
     await page.close();
@@ -227,7 +303,7 @@ Return a single JSON object with these exact keys. For every field, return null 
   "degree_level": "undergraduate" | "postgraduate" | null,
   "duration_months": integer | null,              // convert years/semesters to months
   "specialization": string | null,                // sub-field if stated, else null
-  "annual_tuition_amount": number | null,         // INTERNATIONAL / OVERSEAS / NON-RESIDENT student tuition only. NEVER pick the domestic/home/EU/in-state fee — those don't apply to our users. UK pages: pick "Overseas" or "International" (NOT "Home"/"UK/EU"). USA pages: pick "Out-of-state" or "International" (NOT "In-state" / "Resident"). Canada pages: "International" (NOT "Domestic"). Australia: "International" (NOT "Commonwealth supported" / "Domestic"). Germany / France / NL / EU: "Non-EU" / "International" if a separate higher fee exists; otherwise the single stated fee is fine. If a page only lists a domestic fee with no international figure, return null. For multi-year totals, divide by number of years to get the annual figure. Stated literally on the page in the page's own currency.
+  "annual_tuition_amount": number | null,         // INTERNATIONAL / OVERSEAS / NON-RESIDENT student tuition only. Use the LITERAL number on the page even if it's labelled "indicative", "approximate", "estimated", "from", "starting at", or "per year subject to review" — those qualifiers mean the figure is published, just not a contractual guarantee. We need the published figure. For multi-year/total amounts (e.g. "AUD$94,484 total course fee" for a 2-year course), divide by the number of years to get the annual figure. NEVER pick the domestic/home/EU/in-state fee. UK pages: "Overseas" or "International" (NOT "Home"/"UK/EU"). USA pages: "Out-of-state" or "International" (NOT "In-state"). Canada: "International" (NOT "Domestic"). Australia: "International" / "Australian full fee" / the higher figure when both tabs are visible (NOT "Commonwealth supported" / "CSP"). Germany / France / NL / Ireland: "Non-EU" / "International" if a separate higher figure exists; otherwise the single stated fee is fine. When a page text dumps both Domestic and International tab content together, pick the figure adjacent to / under the "International students" label. If a page only lists a domestic fee with no international figure, return null. Stated in the page's own currency.
   "annual_tuition_currency": string | null,       // 3-letter ISO code (USD, GBP, EUR, CAD, AUD, NZD, INR, SGD, MYR, AED, CNY, JPY, CHF). Null only when annual_tuition_amount is null.
   "annual_living_cost_amount": number | null,     // estimated annual living cost as literally stated on page, in page's own currency. Null if not stated.
   "annual_living_cost_currency": string | null,   // 3-letter ISO code matching annual_living_cost_amount. Null only when amount is null.
