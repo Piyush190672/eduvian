@@ -1,9 +1,11 @@
 # EduvianAI — Comprehensive State Snapshot for Session Handoff
 
-**Last updated:** 8 May 2026 (handoff #9 — UG + PG sweeps over QS Top-500 added 1,395 verified programs)
+**Last updated:** 10 May 2026 (handoff #10 — fee-completeness fix + 2,000-program backfill; expansion sweep A in flight)
 **Purpose:** Zero-loss handoff between Claude Code sessions. A new session reading this should be able to continue *every* in-flight workstream correctly, respect all user preferences, and avoid all known gotchas.
 
-> **Pinned next-session priority:** **(1) Phase 2 Architecture** — add new architecture programs from QS Top-500 unis not yet represented (recipe in §27.5; user said "go ahead" on 8 May). ~$10-25 API spend. **(2) Clean up still-unverified entries** (count smaller after the recent sweeps; re-run §20.2 audit-strip recipe to get current number). **(3) Confirm interview-prep voice on live deploy** (commit `53ba42cb` cached mic permission + start-guard; user confirmed working 7 May, but capture quality should be re-checked end-to-end). **(4) Marketing-opt-in / unsubscribe link / sample-PDF.**
+> **Pinned next-session priority:** **(1) Expansion sweep A is running** — NL/FR/DE UG Bachelor's seed-finder over 56 unis (PID may have changed; check `ps`). After it lands, sweeps B (SG/UAE/MY/IE depth), C (UK UG breadth at lower-ranked), D (Canada west/east) follow. Total ~$130-235 across A-D. Recipe + catalogs in §29.4. **(2) USA fee coverage stuck at 19.4%** — most US fee panels are JS-only; needs residential proxy or per-uni override layer to push higher. **(3) Architecture Phase 2** — still deferred. **(4) Marketing-opt-in / unsubscribe link / sample-PDF / 63-unverified cleanup.**
+
+> **What's NEW since handoff #9:** the fee-completeness gap (only 5-10% of programs had tuition stored) was fixed across three commits: `06d1f28f` (extractor now captures local currency + ISO code, converts to USD via static FX), `3b6dec06` (tab-click + linked-fees-page fetcher), `3c7229a3` (backfill of 2,000+ existing entries). Coverage rose from ~10% to **35.6% (2,724 / 7,642)** with UK/SG/MY/UAE all over 48%. See §29.
 >
 > H7 Phase C is fully closed (schema dropped + writer patched against dev/preview hole + Sentry `8bfc0387` results-route 410 guard). Brand port partially done: 3 thin-wrapper pages (`/roi-calculator`, `/parent-decision`, `/visa-coach`) ported via new `BrandNav` + `BrandHero` primitives (commit `0c24dc4c`); ROI Calculator + ParentDecisionTool components retheme-flipped from dark/glass to light/white (`cbf6c3d8`). User then said the **remaining 4 pages need no change** — so item is closed at 3-of-7, not 7-of-7. Snapshot §26 is the locked as-shipped reference for any future page port.
 >
@@ -25,7 +27,7 @@ git status --short
 # 2. What's running in the background? (no tier chain currently expected)
 ps aux | grep -E "verify-program|verify-batch|websearch-seed|seed-crawler|re-verify" | grep -v grep
 
-# 3. Database scale check (expected: 6,990 programs, 6,927 verified, 12 countries)
+# 3. Database scale check (expected: 7,642 programs, 7,579 verified, 12 countries)
 python3 -c "
 import re
 from collections import Counter
@@ -276,10 +278,10 @@ USA, UK, Australia, Canada, New Zealand, Ireland, Germany, France, UAE, Singapor
 
 | | Value |
 |---|---:|
-| Last commit on main | `86478401` — PG sweep · 428 verified Master's programs across 11 fields × QS Top-500 (8 May) |
-| Programs in DB | **6,990** |
-| Verified at source | **6,927** (99.1%) |
-| Universities | **521** total / **503** with at least one verified program |
+| Last commit on main | `3c7229a3` — backfill-fees: 2,723 fees populated (35.6% coverage) · 428 verified Master's programs across 11 fields × QS Top-500 (8 May) |
+| Programs in DB | **7,642** |
+| Verified at source | **7,579** (99.2%) |
+| Universities | **521** total / **511** with at least one verified program |
 | Countries | 12 |
 | Build | green |
 | Branch | main |
@@ -295,25 +297,23 @@ USA, UK, Australia, Canada, New Zealand, Ireland, Germany, France, UAE, Singapor
 | Mobile UX | shipped — ~3500-4500px shorter homepage via stage selector compaction, Stage 1 mockup hidden, 4 stage accordions (Show Stage X details), test-lab grid 2-up, decorative blur blobs hidden (root cause of GPU-compositing scroll-flash) |
 | Google Postmaster Tools | verified for `eduvianai.com` — dashboards stay sparse at beta volume |
 
-### 3.1 Country breakdown (post-UG sweep + PG sweep, 8 May 2026)
+### 3.1 Country breakdown (post fee-backfill, 10 May 2026)
 
-Verified against `programs.ts` at the time of writing. Use §0 verification commands to refresh.
-
-| Country | Programs |
-|---|---:|
-| USA | 2,162 |
-| UK | 1,614 |
-| Canada | 738 |
-| Germany | 685 |
-| Australia | 592 |
-| France | 337 |
-| Malaysia | 217 |
-| UAE | 161 |
-| New Zealand | 146 |
-| Netherlands | 140 (legacy — not in TARGET_COUNTRIES; merge.ts allowlist still includes it) |
-| Ireland | 113 |
-| Singapore | 85 |
-| **Total** | **6,990** |
+| Country | Unis (total / verified) | Programs (total / verified) | Fee% |
+|---|---|---|---:|
+| USA | 135 / 134 | 2,402 / 2,371 | 19.4% |
+| UK | 110 / 110 | 1,817 / 1,809 | 60.0% |
+| Canada | 67 / 59 | 785 / 771 | 29.7% |
+| Germany | 54 / 54 | 700 / 698 | 20.7% |
+| Australia | 42 / 42 | 649 / 648 | 41.1% |
+| France | 38 / 38 | 370 / 368 | 37.3% |
+| Malaysia | 19 / 19 | 225 / 224 | 48.9% |
+| UAE | 18 / 17 | 173 / 170 | 48.6% |
+| New Zealand | 8 / 8 | 158 / 158 | 33.5% |
+| Netherlands | 10 / 10 | 140 / 140 | 30.7% (legacy — not in TARGET_COUNTRIES; merge.ts allowlist still includes it) |
+| Ireland | 10 / 10 | 132 / 132 | 30.3% |
+| Singapore | 10 / 10 | 91 / 90 | 59.3% |
+| **Total** | **521 / 511** | **7,642 / 7,579** | **35.6%** |
 
 ### 3.1.1 Still-unverified breakdown (63 entries — cleanup queued in §20)
 
@@ -986,8 +986,8 @@ These have been issued at various points and remain binding:
 
 | Path | What |
 |---|---|
-| `src/data/programs.ts` | THE database. **6,990 entries / 6,927 verified at source**. Has `// @ts-nocheck` directive (large data file). |
-| `src/data/db-stats.ts` | Auto-computes counts from PROGRAMS. Don't edit; recomputed on load. Public surfaces standardise on `verifiedProgramsLabel` (6,927+) and `verifiedUniversitiesLabel` (503+). |
+| `src/data/programs.ts` | THE database. **7,642 entries / 7,579 verified at source**. Has `// @ts-nocheck` directive (large data file). |
+| `src/data/db-stats.ts` | Auto-computes counts from PROGRAMS. Don't edit; recomputed on load. Public surfaces standardise on `verifiedProgramsLabel` (7,579+) and `verifiedUniversitiesLabel` (511+). |
 | `src/lib/types.ts` | Single source of truth for types. `TARGET_COUNTRIES` (12), `FIELDS_OF_STUDY` (18), `Program`, `StudentProfile`, `ScoredProgram`. |
 | `src/lib/scoring.ts` | The 9-signal `recommendPrograms()`. Tier thresholds: Safe 75-100, Reach 50-74, Ambitious <50. |
 | `src/lib/format-fee.ts` | The fee-unavailable rendering helpers. NEVER show $0. |
@@ -1313,24 +1313,26 @@ The current `/sample-parent-report` (committed in `6bf0eb8e`) is a static HTML p
 
 ---
 
-## §21 Latest dataset shape (8 May 2026 — post UG + PG sweeps)
+## §21 Latest dataset shape (10 May 2026 — post fee-backfill)
 
 | | Count |
 |---|---:|
-| Programs total | **6,990** |
-| Programs verified at source | **6,927** (99.1%) |
+| Programs total | **7,642** |
+| Programs verified at source | **7,579** (99.2%) |
 | Universities total | **521** |
-| Universities with at least one verified program | **503** (97%) |
+| Universities with at least one verified program | **511** (98%) |
 | Countries | 12 |
 | Fields of study | 18 |
-| Postgraduate share | 67.6% (4,727) |
-| Undergraduate share | 30.1% (2,103) |
+| Postgraduate share | 70.4% (5,377) |
+| Undergraduate share | 27.5% (2,105) |
+| **With international tuition** | **2,724 (35.6%)** |
+| With local-currency + ISO code metadata | 2,310 |
 
 `DB_STATS` exposes both totals AND verified counts, but **all public-facing surfaces now standardise on `verifiedProgramsLabel`** (commit `f2cf997b`). The dual-number inconsistency that surfaced earlier in this session (one section showing 4,485+, another 4,866+ from a stale cached deploy) is closed: there is one number on the homepage now, and it's the verified one.
 
-- `DB_STATS.verifiedProgramsLabel` ("6,927+") — used everywhere user-visible.
-- `DB_STATS.verifiedUniversitiesLabel` ("503+") — for the "Verified Global Universities" stat.
-- `DB_STATS.programsLabel` ("6,990+") — internal-only; only `src/app/api/chat/route.ts` (the AISA system prompt) references it now, for accuracy when the AI answers "how many programs do you have?". **Don't reintroduce this in copy.**
+- `DB_STATS.verifiedProgramsLabel` ("7,579+") — used everywhere user-visible.
+- `DB_STATS.verifiedUniversitiesLabel` ("511+") — for the "Verified Global Universities" stat.
+- `DB_STATS.programsLabel` ("7,642+") — internal-only; only `src/app/api/chat/route.ts` (the AISA system prompt) references it now, for accuracy when the AI answers "how many programs do you have?". **Don't reintroduce this in copy.**
 
 ---
 
@@ -1487,13 +1489,13 @@ This is the structure the user signed off on. Apply to `src/app/v2/page.tsx`, th
    - Subtext: the positioning statement (24.3).
    - Two CTAs: `Find my best-fit programs` (primary, violet) → `/get-started`. `Generate the family report` (secondary, ghost) → `/parent-decision`.
    - RHS: real sample-dashboard mockup (Top 20 shortlist with 5 sample rows, Safe/Reach/Ambitious tier pills using the semantic palette). NOT a photograph.
-   - Bottom: thin trust strip — `Independent · no university commission · 6,927+ programs · 503+ universities · 12 countries · Decision-support estimates`.
+   - Bottom: thin trust strip — `Independent · no university commission · 7,579+ programs · 511+ universities · 12 countries · Decision-support estimates`.
    - **Directly under hero**: parent strip in stone-50 with two cards:
      - For students: *"Find the right-fit course, improve your application, prepare for interviews."*
      - For parents: *"Compare cost, ROI, safety, visa readiness, and long-term value."*
 
 2. **Proof strip**
-   - 6,927+ verified programs · 503+ universities · 12 countries · No university commission · Official-source data.
+   - 7,579+ verified programs · 511+ universities · 12 countries · No university commission · Official-source data.
    - Editorial layout (large numbers + short description). White background, violet vertical accent bars on each stat.
 
 3. **Five-stage journey** — each card linking to relevant deeper page.
@@ -1792,5 +1794,84 @@ For other workstreams that don't fit either, the original `websearch-seed-finder
 - Doc inconsistency: `merge.ts` still has Netherlands in its TARGET_COUNTRIES allowlist; types.ts has 11 countries (no Netherlands). 140 Netherlands programs are in the DB. Real fix is a follow-up task.
 
 **Estimated cumulative API spend across 28.3 + 28.4 + 28.5:** ~$200-280.
+
+---
+
+## §29 Session log — 8-10 May 2026 (fee-completeness fix + 2,000-program backfill)
+
+### 29.1 The bug user surfaced (8 May)
+
+User reported that programs showed "Verified fee not available" even when the official page (e.g., QUB Computer Science, QMUL Applied AI) clearly stated overseas tuition. Country-wise coverage check confirmed it was systemic — not UK-only:
+
+| Country | Pre-fix Fee% |
+|---|---:|
+| USA | 9.5% |
+| UK | 2.4% |
+| Netherlands | 0.0% |
+| Most other countries | 1.6 – 7.3% |
+
+Root cause: extractor prompt asked for `annual_tuition_usd` and specified "convert from local currency at the rate stated on page; if no rate, null." University pages virtually never publish their own USD conversion rate, so the extractor returned null for every non-US currency. The "no invented values" rule was treating an FX conversion as invention.
+
+### 29.2 Three-part fix
+
+| Commit | What |
+|---|---|
+| `06d1f28f` | Extractor schema now asks for `annual_tuition_amount` (page's own currency) + `annual_tuition_currency` (3-letter ISO), with a static `FX_TO_USD` table converting at write time. Same pair for living cost. Prompt explicitly requires INTERNATIONAL / OVERSEAS / NON-RESIDENT student fees only — never domestic / home / EU / in-state. UK = "Overseas" not "Home"; USA = "Out-of-state" not "In-state"; CA/AU/NZ = "International" not "Domestic"; EU unis = "Non-EU" if separate. Schema kept the legacy `annual_tuition_usd` for filtering / aggregation. `format-fee.ts` reworked to prefer local-currency display ("£26,600") with optional USD parenthetical via `formatFee(input, { withUsd: true })`. |
+| `3b6dec06` | Tab-click + linked-fees-page fetcher in `verify-program.ts`. Many course pages (Melbourne, Manchester) hide tuition behind a "Fees" tab loaded via JS; others (Toronto, UBC) put it on a separate `/fees/` subpage. New fetcher: scan for fee-labelled `<a>`, `<button>`, `[role=tab]` elements + click; scan same-domain links matching `/fees/, /tuition/, /funding/`; cap at 1 subpage with 5s timeout. Output capped at 80K chars. Tightened prompt: "Indicative" / "approximate" / "from" labels are valid, just published-not-contractual. Also added `playwright-extra` + stealth plugin (mask `navigator.webdriver` + chrome runtime presence) so Cloudflare-protected pages serve real content; added bot-fingerprint headers. |
+| `3c7229a3` | New `scripts/verify/backfill-fees.ts` — fee-only re-extraction for the ~7,000 existing entries with null tuition. Uses the same tab-click/subpage fetcher; smaller fee-only Opus prompt (~70% fewer tokens than full verify). Static FX table mirrors `verify-program.ts`. Parse-and-emit per CLAUDE.md hard rule #5: brace walker that tracks strings, rewrites only the fee fields inline (`verified_at` untouched). Persists `programs.ts` every 20 successes for crash safety. |
+
+### 29.3 Backfill operations log
+
+5 production runs over 9-10 May with progressive script hardening:
+
+| Run | Concurrency | Recoveries | Outcome |
+|---:|---:|---:|---|
+| 1 | 5 | 85 | Stalled — newContext-per-call leaked 149 chromium subprocs |
+| 2 | 12 | 136 | Crashed at 1,010/7,160 — context-recycling race |
+| 3 | 10 | 715 | Crashed at 4,049/6,886 — cdpSession-target-closed |
+| 4 | 8 | 715 | Crashed at 4,545/5,633 — same |
+| 5 | 6 | 11 | Killed at 1,300/4,918 (1% recovery rate; truly-unrecoverable residuals) |
+
+Final hardening that worked: shared BrowserContext (no per-call leak) + liveness probe + force-recreate on next call + `process.on("unhandledRejection")` swallow guard + 45s hard ceiling per fetchPage. Running concurrency is bounded around 6-10 because Playwright contention dominates above that.
+
+### 29.4 Expansion plan (queued for handoff #11)
+
+Per user direction 8 May, four sweeps to cover the gaps from §3.1:
+
+| # | Sweep | Catalog | Cost | Time |
+|---:|---|---|---|---|
+| A | NL/FR/DE UG Bachelor's | `scripts/verify/catalogs/nl-fr-de-ug-target.json` (56 unis, 365 (uni,field) UG pairs) | ~$13-19 | ~30-45 min |
+| B | SG / UAE / MY / IE depth at existing-in-DB unis | TBD — build catalog of unis with <10 PG entries each | ~$38-62 | ~1-2 hrs |
+| C | UK UG breadth — add new lower-ranked unis (post-92, art schools, conservatoires) | TBD — curate UK QS 250-1000 unis NOT yet in DB | ~$30-48 | ~1-2 hrs |
+| D | Canada west/east — add new unis (BC, Alberta, Maritime, Quebec) | TBD — curate Canadian unis NOT yet in DB | ~$18-30 | ~30-60 min |
+| **All 4** | | | **~$130-235** | **~6-10 hrs** |
+
+A is in flight as of 10 May (seed-finder over the 56-uni NL/FR/DE catalog). B/C/D queued.
+
+### 29.5 Final fee coverage table (10 May)
+
+| Country | Before fee fix | After backfill | Δ |
+|---|---:|---:|---:|
+| UK | 2.4% | **60.0%** | +57.6pp |
+| Singapore | 3.4% | **59.3%** | +55.9pp |
+| Malaysia | 7.3% | **48.9%** | +41.6pp |
+| UAE | 3.7% | **48.6%** | +44.9pp |
+| Australia | 3.7% | **41.1%** | +37.4pp |
+| France | 1.8% | **37.3%** | +35.5pp |
+| New Zealand | 2.7% | **33.5%** | +30.8pp |
+| Netherlands | 0.0% | **30.7%** | +30.7pp |
+| Ireland | 3.5% | **30.3%** | +26.8pp |
+| Canada | 6.5% | **29.7%** | +23.2pp |
+| Germany | 6.2% | **20.7%** | +14.5pp |
+| USA | 9.5% | **19.4%** | +9.9pp |
+| **Overall** | **~10%** | **35.6%** | **+25pp** |
+
+USA caps at 19% because most US fee panels are JS-only ("Cost & Financial Aid" tabs that load from auth-gated APIs). Pushing higher requires either a residential proxy ($50/mo) or a per-uni manual override layer (~1 day's mapping for the top 30 schools). Captured in CLAUDE.md "Open work" item #2.
+
+### 29.6 New tuition-fee policy (locked in CLAUDE.md)
+
+Documented in CLAUDE.md "Tuition fee policy" section. Key points: international/overseas student fee only (never domestic), local currency primary display, USD via static FX table for filtering/aggregation, "indicative" / "approximate" / "from" labels acceptable.
+
+**Estimated API spend for 29.2 + 29.3:** ~$250-350 (mostly the 5 backfill runs).
 
 
