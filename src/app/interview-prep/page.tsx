@@ -1301,6 +1301,7 @@ function InterviewSession({
   // they're populated.
   const autoListenNameRef = useRef<(() => void) | null>(null);
   const autoListenYesRef = useRef<(() => void) | null>(null);
+  const autoListenCategoryRef = useRef<(() => void) | null>(null);
 
   // ── Check STT support ───────────────────────────────────────────────────────
   useEffect(() => {
@@ -1352,6 +1353,9 @@ function InterviewSession({
   }, [phase]);
 
   // ── AUTO-SPEAK: USA section menu ─────────────────────────────────────────────
+  // No auto-listen here: the USA prompt doesn't enumerate sections by number,
+  // so voice-only selection is ambiguous. The user picks via the buttons in
+  // USASectionPicker.
   useEffect(() => {
     if (phase !== "usa_section" || !studentName || mode === "text") return;
     const msg = `Great to meet you, ${studentName}! I am your US visa interview coach. You can practice by section, or go straight into a Full Mock Interview that covers all the key areas the visa officer will ask about. Which would you like?`;
@@ -1364,7 +1368,9 @@ function InterviewSession({
   useEffect(() => {
     if (phase !== "category" || !studentName || mode === "text") return;
     const msg = `Fantastic, ${studentName}! You are going to do brilliantly today! Now, which category of questions would you like to practice? We have five great options. Number one, About the Program. Number two, Career Outcome. Number three, Why Australia. Number four, About the University. And number five, Other Important Questions. Which one shall we start with?`;
-    const t = setTimeout(() => speak(msg), 300);
+    const t = setTimeout(() => speak(msg, () => {
+      autoListenCategoryRef.current?.();
+    }), 300);
     return () => clearTimeout(t);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [phase]);
@@ -1830,6 +1836,31 @@ function InterviewSession({
     setAnswers([]);
     speakQuestion(USA_FULL_MOCK[0].question);
   };
+
+  // ── Auto-listen helpers for AU category + USA section selection ─────────────
+  // Same listenOnce + regex pattern that CategoryPicker / USASectionPicker use
+  // internally for their manual mic buttons; lifted here so the auto-speak
+  // useEffects above can fire them when TTS ends. The forward-refs
+  // (autoListenCategoryRef / autoListenUsaSectionRef) are populated in the
+  // useEffect below.
+  const tryListenForCategory = useCallback(() => {
+    listenOnce((text) => {
+      const t = text.toLowerCase();
+      if (/\ball\b|practice.?all/i.test(t))         return handlePracticeAll();
+      if (/\bone\b|\b1\b|program/i.test(t))          return handleCategorySelect(AU_CATEGORIES[0]);
+      if (/\btwo\b|\b2\b|career/i.test(t))           return handleCategorySelect(AU_CATEGORIES[1]);
+      if (/\bthree\b|\b3\b|australia|why/i.test(t))  return handleCategorySelect(AU_CATEGORIES[2]);
+      if (/\bfour\b|\b4\b|universit/i.test(t))       return handleCategorySelect(AU_CATEGORIES[3]);
+      if (/\bfive\b|\b5\b|other|important/i.test(t)) return handleCategorySelect(AU_CATEGORIES[4]);
+      // Unmatched — user can re-press the mic button or type.
+    }, () => { /* parent doesn't track listening state — picker manages its own */ });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [listenOnce]);
+
+  // Wire the AU category forward-ref.
+  useEffect(() => {
+    autoListenCategoryRef.current = tryListenForCategory;
+  }, [tryListenForCategory]);
 
   // Auto-submit ref — always holds the latest fetchFeedback call so the silence
   // timer inside startListening() can fire it with the most current values
