@@ -27,6 +27,7 @@ interface ProgramEntry {
   annual_tuition_usd: number;
   avg_living_cost_usd: number;
   duration_months: number;
+  program_url?: string;
 }
 
 const ALL_PROGRAMS = PROGRAMS as unknown as ProgramEntry[];
@@ -197,7 +198,14 @@ export default function ROICalculator() {
   }
 
   // ── ROI calculation ───────────────────────────────────────────────────────────
-  const canCalculate = selectedProgram !== null && salary > 0;
+  // Hard rule (locked 10 May 2026): never run the ROI math when the official
+  // program page didn't expose a tuition figure. Treating null as $0 produces
+  // misleading payback / break-even numbers; we render an explicit
+  // "data unavailable" state instead.
+  const tuitionAvailable = selectedProgram !== null
+    && typeof selectedProgram.annual_tuition_usd === "number"
+    && selectedProgram.annual_tuition_usd > 0;
+  const canCalculate = selectedProgram !== null && salary > 0 && tuitionAvailable;
 
   const results = useMemo(() => {
     if (!canCalculate) return null;
@@ -563,7 +571,26 @@ export default function ROICalculator() {
             initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
             className="lg:col-span-3 space-y-4"
           >
-            {!results ? (
+            {!results && selectedProgram !== null && !tuitionAvailable ? (
+              // No-tuition state: official program page didn't expose a fee.
+              // Refuse to calculate rather than imply a $0 fee.
+              <div className="h-full flex flex-col items-center justify-center py-16 bg-amber-50 border border-amber-200 rounded-3xl text-center px-8 min-h-[400px]">
+                <div className="w-16 h-16 rounded-2xl bg-amber-100 border border-amber-300 flex items-center justify-center mb-5">
+                  <Info className="w-8 h-8 text-amber-700" />
+                </div>
+                <p className="text-gray-900 font-bold text-lg mb-2">Cannot calculate — tuition fee data not available</p>
+                <p className="text-gray-700 text-sm max-w-md mb-4 leading-relaxed">
+                  The official program page for <span className="font-semibold">{selectedProgram.program_name}</span> at <span className="font-semibold">{matchedUni?.name}</span> doesn&apos;t publish an international student tuition figure we can verify. We won&apos;t generate ROI numbers from a $0 placeholder — that would be misleading.
+                </p>
+                <a
+                  href={selectedProgram.program_url}
+                  target="_blank" rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-amber-300 text-amber-800 text-sm font-semibold hover:bg-amber-100 transition-colors"
+                >
+                  Open the official program page →
+                </a>
+              </div>
+            ) : !results ? (
               <div className="h-full flex flex-col items-center justify-center py-16 bg-white border border-stone-200 shadow-sm rounded-3xl text-center px-8 min-h-[400px]">
                 <div className="w-16 h-16 rounded-2xl bg-violet-100 border border-violet-200 flex items-center justify-center mb-5">
                   <TrendingUp className="w-8 h-8 text-violet-700" />

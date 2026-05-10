@@ -6,7 +6,7 @@ import {
   Search, ChevronDown, ShieldCheck, TrendingUp, Globe2,
   GraduationCap, MapPin, Users, Star, Briefcase, Heart,
   CheckCircle2, AlertTriangle, XCircle, DollarSign, ArrowRight, Zap,
-  FileDown, Mail, Send, X,
+  FileDown, Mail, Send, X, Info,
 } from "lucide-react";
 import { CURATED_UNIVERSITIES } from "@/data/roi-data";
 import type { SalaryCountry, FieldOfStudy } from "@/data/roi-data";
@@ -26,6 +26,7 @@ interface ProgramEntry {
   annual_tuition_usd: number;
   avg_living_cost_usd: number;
   duration_months: number;
+  program_url?: string;
 }
 
 type QualityLevel = "Excellent" | "Good" | "Concerning";
@@ -211,9 +212,17 @@ export default function ParentDecisionTool() {
     setDurationMonths(p.duration_months);
   }
 
-  // Auto-calculate result as soon as uni + program selected
+  // Hard rule (locked 10 May 2026): never run the parent-decision math when
+  // the official program page didn't expose a tuition figure. A $0 placeholder
+  // produces a misleading "great value" verdict; we render an explicit
+  // "data unavailable" state instead. Same rule lives in ROICalculator.
+  const tuitionAvailable = selectedProgram !== null
+    && typeof selectedProgram.annual_tuition_usd === "number"
+    && selectedProgram.annual_tuition_usd > 0;
+
+  // Auto-calculate result as soon as uni + program selected (and tuition known)
   const result = useMemo(() => {
-    if (!selectedUni || !selectedProgram) return null;
+    if (!selectedUni || !selectedProgram || !tuitionAvailable) return null;
     return calculateParentDecision({
       university_name:     selectedUni.name,
       country:             selectedUni.country as SalaryCountry,
@@ -508,7 +517,27 @@ export default function ParentDecisionTool() {
           {/* ── Results panel ── */}
           <div className="lg:col-span-3 space-y-4">
             <AnimatePresence mode="wait">
-              {!result ? (
+              {!result && selectedProgram !== null && !tuitionAvailable ? (
+                // No-tuition state: refuse to compute a verdict from a $0 placeholder.
+                <motion.div key="no-tuition" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+                  className="h-full min-h-[480px] bg-amber-50 rounded-3xl border border-amber-200 flex flex-col items-center justify-center p-10 text-center"
+                >
+                  <div className="w-16 h-16 rounded-2xl bg-amber-100 border border-amber-300 flex items-center justify-center mb-4">
+                    <Info className="w-8 h-8 text-amber-700" />
+                  </div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">Cannot calculate — tuition fee data not available</h3>
+                  <p className="text-gray-700 text-sm max-w-md mb-4 leading-relaxed">
+                    The official page for <span className="font-semibold">{selectedProgram.program_name}</span> at <span className="font-semibold">{selectedUni?.name}</span> doesn&apos;t publish an international student tuition figure we can verify. We won&apos;t generate a parent decision verdict from a $0 placeholder — that would be misleading.
+                  </p>
+                  <a
+                    href={selectedProgram.program_url}
+                    target="_blank" rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-amber-300 text-amber-800 text-sm font-semibold hover:bg-amber-100 transition-colors"
+                  >
+                    Open the official program page →
+                  </a>
+                </motion.div>
+              ) : !result ? (
                 <motion.div key="empty" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
                   className="h-full min-h-[480px] bg-white rounded-3xl border border-dashed border-gray-200 flex flex-col items-center justify-center p-10 text-center"
                 >
