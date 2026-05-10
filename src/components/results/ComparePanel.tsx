@@ -18,7 +18,7 @@ import {
 import type { ScoredProgram } from "@/lib/types";
 import { calculateROI, lookupSalary } from "@/lib/roi-calculator";
 import { formatCurrency, getCountryFlag, getTierColor, getTierLabel } from "@/lib/utils";
-import { isFeeUnavailable, FEE_UNAVAILABLE_SHORT } from "@/lib/format-fee";
+import { isFeeUnavailable, FEE_UNAVAILABLE_SHORT, getFeeStatus, FEE_STATUS_LABEL, FEE_STATUS_CLASS } from "@/lib/format-fee";
 import { PSW_RIGHTS, SAFETY_RATINGS, JOB_MARKET } from "@/data/parent-decision-data";
 import type { SalaryCountry, FieldOfStudy } from "@/data/roi-data";
 
@@ -349,6 +349,15 @@ export default function ComparePanel({ programs, onClose, onRemove }: Props) {
                 "lowest",
                 (v) => (isFeeUnavailable(v) ? FEE_UNAVAILABLE_SHORT : formatCurrency(v as number)),
               )}
+
+              {textRow("Fee provenance", programs.map((p) => {
+                const status = getFeeStatus(p);
+                return (
+                  <span className={`inline-flex items-center px-2 py-0.5 rounded-full border text-[10px] font-bold uppercase tracking-wide ${FEE_STATUS_CLASS[status]}`}>
+                    {FEE_STATUS_LABEL[status]}
+                  </span>
+                );
+              }))}
 
               {numericRow(
                 "Annual Living Cost",

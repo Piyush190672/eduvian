@@ -47,7 +47,36 @@ export interface FeeShape {
   annual_tuition_usd?: number | null;
   annual_tuition_amount?: number | null;
   annual_tuition_currency?: string | null;
+  tuition_fee_source?: "verified" | "estimated" | null;
 }
+
+/** Provenance status for the matched-program label.
+ *  - verified:     extracted from the official program page (has annual_tuition_amount or _usd > 0, source absent or "verified")
+ *  - estimated:    fee was inferred from a credible secondary source (tuition_fee_source === "estimated")
+ *  - not_available: no tuition figure on file at all
+ */
+export type FeeStatus = "verified" | "estimated" | "not_available";
+
+export function getFeeStatus(input: FeeShape | null | undefined): FeeStatus {
+  if (!input) return "not_available";
+  const hasNumber = !isFeeUnavailable(input.annual_tuition_amount) || !isFeeUnavailable(input.annual_tuition_usd);
+  if (!hasNumber) return "not_available";
+  return input.tuition_fee_source === "estimated" ? "estimated" : "verified";
+}
+
+/** Plain-English status labels (Verified / Estimated / Not available). */
+export const FEE_STATUS_LABEL: Record<FeeStatus, string> = {
+  verified: "Verified",
+  estimated: "Estimated",
+  not_available: "Not available",
+};
+
+/** Tailwind class shorthand for status pills used on ProgramCard etc. */
+export const FEE_STATUS_CLASS: Record<FeeStatus, string> = {
+  verified:      "bg-emerald-50 text-emerald-700 border-emerald-200",
+  estimated:     "bg-amber-50  text-amber-700   border-amber-200",
+  not_available: "bg-rose-50   text-rose-700    border-rose-200",
+};
 
 /** Primary tuition string. Prefers local currency; falls back to USD; then unavailable. */
 export function formatFee(input: FeeShape | number | null | undefined, opts?: { short?: boolean; withUsd?: boolean }): string {

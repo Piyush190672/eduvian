@@ -2,7 +2,7 @@
 
 import type { ScoredProgram } from "@/lib/types";
 import { formatCurrency, getTierColor, getTierLabel, getCountryFlag } from "@/lib/utils";
-import { isFeeUnavailable, FEE_UNAVAILABLE_MESSAGE, FEE_UNAVAILABLE_SHORT } from "@/lib/format-fee";
+import { isFeeUnavailable, FEE_UNAVAILABLE_MESSAGE, FEE_UNAVAILABLE_SHORT, getFeeStatus, FEE_STATUS_LABEL, FEE_STATUS_CLASS } from "@/lib/format-fee";
 import {
   ExternalLink,
   BookmarkCheck,
@@ -234,12 +234,17 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist,
             {/* Cost & deadline row */}
             <div className="flex flex-wrap items-center gap-4 mt-3 text-sm">
               {tuitionUnavailable ? (
-                <span
-                  className="flex items-center gap-1 text-amber-700 text-xs font-medium"
-                  title={FEE_UNAVAILABLE_MESSAGE}
-                >
-                  <DollarSign className="w-3.5 h-3.5 text-amber-500" />
-                  {FEE_UNAVAILABLE_SHORT}
+                <span className="flex items-center gap-2">
+                  <span className="flex items-center gap-1 text-amber-700 text-xs font-medium" title={FEE_UNAVAILABLE_MESSAGE}>
+                    <DollarSign className="w-3.5 h-3.5 text-amber-500" />
+                    {FEE_UNAVAILABLE_SHORT}
+                  </span>
+                  <span
+                    className={`inline-flex items-center px-2 py-0.5 rounded-full border text-[10px] font-bold uppercase tracking-wide ${FEE_STATUS_CLASS.not_available}`}
+                    title="No verified tuition figure on file. Confirm directly with the university."
+                  >
+                    Fee: Not available
+                  </span>
                 </span>
               ) : (
                 <>
@@ -251,6 +256,23 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist,
                   <span className="text-gray-400 text-xs">
                     Tuition: {formatCurrency(program.annual_tuition_usd as number)} + Living: {formatCurrency(program.avg_living_cost_usd as number)}
                   </span>
+                  {(() => {
+                    const status = getFeeStatus(program);
+                    return (
+                      <span
+                        className={`inline-flex items-center px-2 py-0.5 rounded-full border text-[10px] font-bold uppercase tracking-wide ${FEE_STATUS_CLASS[status]}`}
+                        title={
+                          status === "verified"
+                            ? "Tuition extracted from the official program page."
+                            : status === "estimated"
+                              ? "Tuition estimated from a credible secondary source — confirm with the university."
+                              : "No verified tuition figure on file."
+                        }
+                      >
+                        Fee: {FEE_STATUS_LABEL[status]}
+                      </span>
+                    );
+                  })()}
                 </>
               )}
               {deadlineInfo && (
