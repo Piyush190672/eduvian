@@ -1,0 +1,2783 @@
+[
+  {
+    "university": "PSL Research University",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 24,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://psl.eu/en/education/bachelor-s-degree-organizational-computer-science",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "PSL Research University",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 24,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://psl.eu/en/education/international-bachelor-science-ai",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "PSL Research University",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 24,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://psl.eu/en/education/international-bachelor-environmentally-engaged-engineering-i-be3",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "PSL Research University",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 24,
+    "field_of_study": "Architecture",
+    "program_url": "https://psl.eu/en/node/8963",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "PSL Research University",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 24,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://psl.eu/en/education/psl-bachelors-degree-sustainability-sciences",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "PSL Research University",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 24,
+    "field_of_study": "Business & Management",
+    "program_url": "https://dauphine.psl.eu/en/training/bachelors-degrees/bachelors-degree-in-management",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "PSL Research University",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 24,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://dauphine.psl.eu/en/training/bachelors-degrees/bachelors-degree-in-applied-economics",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "École Normale Supérieure (ENS)",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 26,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://diplome.di.ens.fr/index_en.html",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "École Normale Supérieure (ENS)",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 26,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://enseignement.biologie.ens.fr/spip.php?rubrique2=",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "École Normale Supérieure (ENS)",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 26,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.phys.ens.fr/en/formations/bachelor",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "École Normale Supérieure (ENS)",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 26,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.geosciences.ens.fr/enseignement/diplome-de-lens",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Technical University of Munich",
+    "country": "Germany",
+    "city": "Munich",
+    "qs_ranking": 37,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.tum.de/en/studies/degree-programs/detail/informatics-bachelor-of-science-bsc",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Technical University of Munich",
+    "country": "Germany",
+    "city": "Munich",
+    "qs_ranking": 37,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.tum.de/en/studies/degree-programs/detail/management-and-data-science",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Technical University of Munich",
+    "country": "Germany",
+    "city": "Munich",
+    "qs_ranking": 37,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.tum.de/en/studies/degree-programs/detail/mechanical-engineering-bachelor-of-science-bsc",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Technical University of Munich",
+    "country": "Germany",
+    "city": "Munich",
+    "qs_ranking": 37,
+    "field_of_study": "Architecture",
+    "program_url": "https://www.tum.de/en/studies/degree-programs/detail/architecture-bachelor-of-arts-ba",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Technical University of Munich",
+    "country": "Germany",
+    "city": "Munich",
+    "qs_ranking": 37,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.tum.de/en/studies/degree-programs/detail/molecular-biotechnology-bachelor-of-science-bsc",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Technical University of Munich",
+    "country": "Germany",
+    "city": "Munich",
+    "qs_ranking": 37,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.tum.de/en/studies/degree-programs/detail/physics-bachelor-of-science-bsc",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Technical University of Munich",
+    "country": "Germany",
+    "city": "Munich",
+    "qs_ranking": 37,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.tum.de/en/studies/degree-programs/detail/environmental-engineering-bachelor-of-science-bsc",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Technical University of Munich",
+    "country": "Germany",
+    "city": "Munich",
+    "qs_ranking": 37,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.tum.de/en/studies/degree-programs/detail/management-and-technology-bachelor-of-science-bsc",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "École Polytechnique",
+    "country": "France",
+    "city": "Palaiseau",
+    "qs_ranking": 42,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://programmes.polytechnique.edu/en/bachelor/program-details/double-major-in-mathematics-computer-science",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "École Polytechnique",
+    "country": "France",
+    "city": "Palaiseau",
+    "qs_ranking": 42,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://programmes.polytechnique.edu/en/ingenieur-polytechnicien-program/ingenieur-polytechnicien-program",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "École Polytechnique",
+    "country": "France",
+    "city": "Palaiseau",
+    "qs_ranking": 42,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://programmes.polytechnique.edu/en/bachelor/program-details/structure-of-the-bachelor",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "École Polytechnique",
+    "country": "France",
+    "city": "Palaiseau",
+    "qs_ranking": 42,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://programmes.polytechnique.edu/en/bachelor/program-details/double-major-in-mathematics-economics",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "École Normale Supérieure",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 50,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://diplome.di.ens.fr/index_en.html",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "École Normale Supérieure",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 50,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.phys.ens.fr/en/formations/bachelor",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "École Normale Supérieure",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 50,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://economie.ens.fr/accueil/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Munich (LMU)",
+    "country": "Germany",
+    "city": "Munich",
+    "qs_ranking": 54,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.lmu.de/de/studium/studienangebot/alle-studienfaecher-und-studiengaenge/informatik-bachelor-hauptfach-1453.html",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Munich (LMU)",
+    "country": "Germany",
+    "city": "Munich",
+    "qs_ranking": 54,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.stat.lmu.de/en/studies/bachelor/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Munich (LMU)",
+    "country": "Germany",
+    "city": "Munich",
+    "qs_ranking": 54,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.bio.lmu.de/en/study/for-students/bachelor-biology.html",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Munich (LMU)",
+    "country": "Germany",
+    "city": "Munich",
+    "qs_ranking": 54,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.cup.lmu.de/en/study/study-programs/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Munich (LMU)",
+    "country": "Germany",
+    "city": "Munich",
+    "qs_ranking": 54,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.som.lmu.de/en/studies/study-offer/bachelor-in-business-administration/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Munich (LMU)",
+    "country": "Germany",
+    "city": "Munich",
+    "qs_ranking": 54,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.econ.lmu.de/en/study/bachelor-economics/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Amsterdam",
+    "country": "Netherlands",
+    "city": "Amsterdam",
+    "qs_ranking": 55,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.uva.nl/en/programmes/bachelors/computer-science/computer-science.html",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Amsterdam",
+    "country": "Netherlands",
+    "city": "Amsterdam",
+    "qs_ranking": 55,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.uva.nl/en/programmes/bachelors/artificial-intelligence/artificial-intelligence.html",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Amsterdam",
+    "country": "Netherlands",
+    "city": "Amsterdam",
+    "qs_ranking": 55,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.uva.nl/en/programmes/bachelors/science-technology-and-innovation/science-technology-and-innovation.html",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Amsterdam",
+    "country": "Netherlands",
+    "city": "Amsterdam",
+    "qs_ranking": 55,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.uva.nl/en/programmes/bachelors/biology/biology.html",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Amsterdam",
+    "country": "Netherlands",
+    "city": "Amsterdam",
+    "qs_ranking": 55,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.uva.nl/en/programmes/bachelors/physics-and-astronomy/physics-and-astronomy.html",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Amsterdam",
+    "country": "Netherlands",
+    "city": "Amsterdam",
+    "qs_ranking": 55,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.uva.nl/en/programmes/bachelors/future-planet-studies/future-planet-studies.html",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Amsterdam",
+    "country": "Netherlands",
+    "city": "Amsterdam",
+    "qs_ranking": 55,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.uva.nl/en/programmes/bachelors/business-administration/business-administration.html",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Amsterdam",
+    "country": "Netherlands",
+    "city": "Amsterdam",
+    "qs_ranking": 55,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.uva.nl/en/programmes/bachelors/economics--business-economics/economics--business-economics.html",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Delft University of Technology",
+    "country": "Netherlands",
+    "city": "Delft",
+    "qs_ranking": 56,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.tudelft.nl/en/onderwijs/opleidingen/bachelors/computer-science-and-engineering/bachelor-of-computer-science-and-engineering",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Delft University of Technology",
+    "country": "Netherlands",
+    "city": "Delft",
+    "qs_ranking": 56,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.tudelft.nl/en/onderwijs/opleidingen/bachelors/werktuigbouwkunde/bsc-mechanical-engineering",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Delft University of Technology",
+    "country": "Netherlands",
+    "city": "Delft",
+    "qs_ranking": 56,
+    "field_of_study": "Architecture",
+    "program_url": "https://www.tudelft.nl/en/onderwijs/opleidingen/bachelors/bk/bachelor-of-architecture-urbanism-and-building-sciences",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Delft University of Technology",
+    "country": "Netherlands",
+    "city": "Delft",
+    "qs_ranking": 56,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.tudelft.nl/en/onderwijs/opleidingen/bachelors/life-science-technology/bsc-life-science-technology",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Delft University of Technology",
+    "country": "Netherlands",
+    "city": "Delft",
+    "qs_ranking": 56,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.tudelft.nl/en/onderwijs/opleidingen/bachelors/technische-natuurkunde/bachelor-of-applied-physics",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Delft University of Technology",
+    "country": "Netherlands",
+    "city": "Delft",
+    "qs_ranking": 56,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.tudelft.nl/en/onderwijs/opleidingen/bachelors/ect/bsc-earth-climate-and-technology",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Mines ParisTech (PSL)",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 56,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.minesparis.psl.eu/en/education/mines-paris-albert-school-joint-degrees/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Mines ParisTech (PSL)",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 56,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.minesparis.psl.eu/en/education/i-be3/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Mines ParisTech (PSL)",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 56,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.minesparis.psl.eu/en/education/licenses/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Mines ParisTech (PSL)",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 56,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.minesparis.psl.eu/en/education/i-be3/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Mines ParisTech (PSL)",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 56,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.minesparis.psl.eu/en/education/mines-paris-albert-school-joint-degrees/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Sorbonne University",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 59,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://sciences.sorbonne-universite.fr/formation-sciences/offre-de-formation/licences-0/licence-discipline/les-l2-l3-nos-huit-4",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Sorbonne University",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 59,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://sciences.sorbonne-universite.fr/formation-sciences/offre-de-formation/licences/ma-licence-enrichie-la-carte-bidisciplinaire-0-3-0",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Sorbonne University",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 59,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://sciences.sorbonne-universite.fr/en/courses-taught-english/life-sciences/l-bio",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Sorbonne University",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 59,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://sciences.sorbonne-universite.fr/en/courses-taught-english/life-sciences",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Sorbonne Université",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 59,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://sciences.sorbonne-universite.fr/formation-sciences/offre-de-formation/licences-0/licence-discipline/les-l2-l3-nos-huit-4",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Sorbonne Université",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 59,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://sciences.sorbonne-universite.fr/formation-sciences/offre-de-formation/licences/ma-licence-enrichie-la-carte-bidisciplinaire-0-3-0",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Sorbonne Université",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 59,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://sciences.sorbonne-universite.fr/formation-sciences/offre-de-formation/licences-0/licence-discipline/les-l2-l3-nos-huit-5",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Sorbonne Université",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 59,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://sciences.sorbonne-universite.fr/formation-sciences/offre-de-formation/licences/les-l2-l3-nos-huit-disciplines-de-licence/licence",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Sorbonne Université",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 59,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://sciences.sorbonne-universite.fr/formation-sciences/offre-de-formation/licences-0/licence-discipline/les-l2-l3-nos-huit-2",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Université Paris-Saclay",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 71,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.universite-paris-saclay.fr/en/education/licence-undergraduate-programme/informatique/l3-informatique",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Université Paris-Saclay",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 71,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.universite-paris-saclay.fr/en/education/licence-double-diplome-undergraduate-double-degree/mathematiques-physique-et-sciences-pour-lingenieur/ldd3-engineering-sciences-ecole-normale-superieure-program",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Université Paris-Saclay",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 71,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.universite-paris-saclay.fr/en/education/licence-undergraduate-programme/sciences-de-la-vie/l2-biologie",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Université Paris-Saclay",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 71,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.universite-paris-saclay.fr/en/education/licence-undergraduate-programme/physique",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Université Paris-Saclay",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 71,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.universite-paris-saclay.fr/en/education/licence-undergraduate-programme/economie-et-gestion/l3-gestion-des-entreprises-et-des-organisations",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Université Paris-Saclay",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 71,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.universite-paris-saclay.fr/en/education/licence-undergraduate-programme/economie-et-gestion",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Heidelberg University",
+    "country": "Germany",
+    "city": "Heidelberg",
+    "qs_ranking": 84,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.uni-heidelberg.de/en/study/all-subjects/computer-science/computer-science-bachelor-100",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Heidelberg University",
+    "country": "Germany",
+    "city": "Heidelberg",
+    "qs_ranking": 84,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.uni-heidelberg.de/en/study/all-subjects/molecular-biotechnology/molecular-biotechnology-bachelor-100",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Heidelberg University",
+    "country": "Germany",
+    "city": "Heidelberg",
+    "qs_ranking": 84,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.uni-heidelberg.de/en/study/all-subjects/physics/physics-bachelor-100",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Heidelberg University",
+    "country": "Germany",
+    "city": "Heidelberg",
+    "qs_ranking": 84,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.uni-heidelberg.de/en/study/all-subjects/economics/economics-bachelor-100",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Free University of Berlin",
+    "country": "Germany",
+    "city": "Berlin",
+    "qs_ranking": 97,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.fu-berlin.de/en/studium/studienangebot/grundstaendige/informatik_mono/index.html",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Free University of Berlin",
+    "country": "Germany",
+    "city": "Berlin",
+    "qs_ranking": 97,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.mi.fu-berlin.de/en/bioinf/stud/bachelor/index.html",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Free University of Berlin",
+    "country": "Germany",
+    "city": "Berlin",
+    "qs_ranking": 97,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.physik.fu-berlin.de/en/studium/bachelor/index.html",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Free University of Berlin",
+    "country": "Germany",
+    "city": "Berlin",
+    "qs_ranking": 97,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.fu-berlin.de/en/studium/studienangebot/grundstaendige/betriebswirtschaftslehre_mono/index.html",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Free University of Berlin",
+    "country": "Germany",
+    "city": "Berlin",
+    "qs_ranking": 97,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.fu-berlin.de/en/studium/studienangebot/grundstaendige/volkswirtschaftslehre_mono/index.html",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "RWTH Aachen University",
+    "country": "Germany",
+    "city": "Aachen",
+    "qs_ranking": 99,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.rwth-aachen.de/cms/root/studium/vor-dem-studium/studiengaenge/liste-aktuelle-studiengaenge/studiengangbeschreibung/~bnzs/informatik-b-sc-/?lidx=1",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "RWTH Aachen University",
+    "country": "Germany",
+    "city": "Aachen",
+    "qs_ranking": 99,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.rwth-aachen.de/cms/root/studium/vor-dem-studium/studiengaenge/liste-aktuelle-studiengaenge/studiengangbeschreibung/~bnev/maschinenbau-b-sc-/?lidx=1",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "RWTH Aachen University",
+    "country": "Germany",
+    "city": "Aachen",
+    "qs_ranking": 99,
+    "field_of_study": "Architecture",
+    "program_url": "https://www.rwth-aachen.de/cms/root/studium/vor-dem-studium/studiengaenge/liste-aktuelle-studiengaenge/studiengangbeschreibung/~bnwj/architektur-b-sc-/?lidx=1",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "RWTH Aachen University",
+    "country": "Germany",
+    "city": "Aachen",
+    "qs_ranking": 99,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.rwth-aachen.de/go/id/bkxh?lidx=1",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "RWTH Aachen University",
+    "country": "Germany",
+    "city": "Aachen",
+    "qs_ranking": 99,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.rwth-aachen.de/cms/root/studium/vor-dem-studium/studiengaenge/liste-aktuelle-studiengaenge/studiengangbeschreibung/~bkhx/physik-b-sc/?lidx=1",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "RWTH Aachen University",
+    "country": "Germany",
+    "city": "Aachen",
+    "qs_ranking": 99,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.rwth-aachen.de/cms/root/Studium/Vor-dem-Studium/Studiengaenge/Liste-Aktuelle-Studiengaenge/Studiengangbeschreibung/~bkkf/Umweltingenieurwissenschaften-B-Sc/lidx/1/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "RWTH Aachen University",
+    "country": "Germany",
+    "city": "Aachen",
+    "qs_ranking": 99,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.rwth-aachen.de/cms/root/studium/vor-dem-studium/studiengaenge/liste-aktuelle-studiengaenge/studiengangbeschreibung/~bpxl/betriebswirtschaftslehre-business-admini/?lidx=1",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "RWTH Aachen University",
+    "country": "Germany",
+    "city": "Aachen",
+    "qs_ranking": 99,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.rwth-aachen.de/cms/root/studium/vor-dem-studium/studiengaenge/liste-aktuelle-studiengaenge/studiengangbeschreibung/~bpxl/betriebswirtschaftslehre-business-admini/?lidx=1",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Karlsruhe Institute of Technology",
+    "country": "Germany",
+    "city": "Karlsruhe",
+    "qs_ranking": 119,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.sle.kit.edu/english/vorstudium/bachelor-informatics.php",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Karlsruhe Institute of Technology",
+    "country": "Germany",
+    "city": "Karlsruhe",
+    "qs_ranking": 119,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.sle.kit.edu/english/vorstudium/bachelor-computational-data-science.php",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Karlsruhe Institute of Technology",
+    "country": "Germany",
+    "city": "Karlsruhe",
+    "qs_ranking": 119,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.sle.kit.edu/english/vorstudium/bachelor-mechanical-engineering.php",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Karlsruhe Institute of Technology",
+    "country": "Germany",
+    "city": "Karlsruhe",
+    "qs_ranking": 119,
+    "field_of_study": "Architecture",
+    "program_url": "https://www.sle.kit.edu/english/vorstudium/bachelor-architecture.php",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Karlsruhe Institute of Technology",
+    "country": "Germany",
+    "city": "Karlsruhe",
+    "qs_ranking": 119,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.sle.kit.edu/english/vorstudium/bachelor-bioengineering.php",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Karlsruhe Institute of Technology",
+    "country": "Germany",
+    "city": "Karlsruhe",
+    "qs_ranking": 119,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.sle.kit.edu/english/vorstudium/bachelor-physics.php",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Karlsruhe Institute of Technology",
+    "country": "Germany",
+    "city": "Karlsruhe",
+    "qs_ranking": 119,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.sle.kit.edu/english/vorstudium/bachelor-geoecology.php",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Karlsruhe Institute of Technology",
+    "country": "Germany",
+    "city": "Karlsruhe",
+    "qs_ranking": 119,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.sle.kit.edu/english/vorstudium/bachelor-industrial-engineering-management.php",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Karlsruhe Institute of Technology",
+    "country": "Germany",
+    "city": "Karlsruhe",
+    "qs_ranking": 119,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.sle.kit.edu/english/vorstudium/bachelor-digital-economics.php",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Leiden University",
+    "country": "Netherlands",
+    "city": "Leiden",
+    "qs_ranking": 119,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/computer-science",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Leiden University",
+    "country": "Netherlands",
+    "city": "Leiden",
+    "qs_ranking": 119,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/data-science-and-artificial-intelligence",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Leiden University",
+    "country": "Netherlands",
+    "city": "Leiden",
+    "qs_ranking": 119,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/life-science--technology",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Leiden University",
+    "country": "Netherlands",
+    "city": "Leiden",
+    "qs_ranking": 119,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/natural-science",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Leiden University",
+    "country": "Netherlands",
+    "city": "Leiden",
+    "qs_ranking": 119,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/science-for-sustainable-societies",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Leiden University",
+    "country": "Netherlands",
+    "city": "Leiden",
+    "qs_ranking": 119,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/fdr-economics--society",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Humboldt University Berlin",
+    "country": "Germany",
+    "city": "Berlin",
+    "qs_ranking": 120,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.hu-berlin.de/en/study/study-programme/details/computer-science-bachelor-of-science-monobachelor",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Humboldt University Berlin",
+    "country": "Germany",
+    "city": "Berlin",
+    "qs_ranking": 120,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.hu-berlin.de/en/study/study-programme/details/biology-bachelor-of-science-monobachelor",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Humboldt University Berlin",
+    "country": "Germany",
+    "city": "Berlin",
+    "qs_ranking": 120,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.hu-berlin.de/en/studies/counselling/course-catalogue/programme-descriptions/physikmono",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Humboldt University Berlin",
+    "country": "Germany",
+    "city": "Berlin",
+    "qs_ranking": 120,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.hu-berlin.de/en/studies/counselling/course-catalogue/programme-descriptions/agrar",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Humboldt University Berlin",
+    "country": "Germany",
+    "city": "Berlin",
+    "qs_ranking": 120,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.hu-berlin.de/en/study/study-programme/details/business-administration-bachelor-of-science-monobachelor",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Humboldt University Berlin",
+    "country": "Germany",
+    "city": "Berlin",
+    "qs_ranking": 120,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.hu-berlin.de/en/study/study-programme/details/economics-bachelor-of-science-monobachelor",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Groningen",
+    "country": "Netherlands",
+    "city": "Groningen",
+    "qs_ranking": 139,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.rug.nl/bachelors/computing-science/?lang=en",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Groningen",
+    "country": "Netherlands",
+    "city": "Groningen",
+    "qs_ranking": 139,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.rug.nl/bachelors/artificial-intelligence/?lang=en",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Groningen",
+    "country": "Netherlands",
+    "city": "Groningen",
+    "qs_ranking": 139,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.rug.nl/bachelors/industrial-engineering-and-management/?lang=en",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Groningen",
+    "country": "Netherlands",
+    "city": "Groningen",
+    "qs_ranking": 139,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.rug.nl/bachelors/life-science-and-technology/?lang=en",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Groningen",
+    "country": "Netherlands",
+    "city": "Groningen",
+    "qs_ranking": 139,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.rug.nl/bachelors/physics/?lang=en",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Groningen",
+    "country": "Netherlands",
+    "city": "Groningen",
+    "qs_ranking": 139,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.rug.nl/bachelors/global-responsibility-leadership/?lang=en",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Groningen",
+    "country": "Netherlands",
+    "city": "Groningen",
+    "qs_ranking": 139,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.rug.nl/bachelors/international-business/?lang=en",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Groningen",
+    "country": "Netherlands",
+    "city": "Groningen",
+    "qs_ranking": 139,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.rug.nl/bachelors/economics-and-business-economics/?lang=en",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Technical University of Berlin",
+    "country": "Germany",
+    "city": "Berlin",
+    "qs_ranking": 174,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.tu.berlin/en/studying/study-programs/all-programs-offered/study-course/computer-science-b-sc",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Technical University of Berlin",
+    "country": "Germany",
+    "city": "Berlin",
+    "qs_ranking": 174,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.tu.berlin/en/studying/study-programs/all-programs-offered/study-course/mechanical-engineering-b-sc",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Technical University of Berlin",
+    "country": "Germany",
+    "city": "Berlin",
+    "qs_ranking": 174,
+    "field_of_study": "Architecture",
+    "program_url": "https://www.tu.berlin/en/planen-bauen-umwelt/architektur/architecture-bsc",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Technical University of Berlin",
+    "country": "Germany",
+    "city": "Berlin",
+    "qs_ranking": 174,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.tu.berlin/en/studying/study-programs/all-programs-offered/study-course/biotechnology-b-sc",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Technical University of Berlin",
+    "country": "Germany",
+    "city": "Berlin",
+    "qs_ranking": 174,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.tu.berlin/en/studying/study-programs/all-programs-offered/study-course/engineering-science-b-sc",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Technical University of Berlin",
+    "country": "Germany",
+    "city": "Berlin",
+    "qs_ranking": 174,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.tu.berlin/en/studying/study-programs/all-programs-offered/study-course/environmental-science-and-technology-b-sc",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Technical University of Berlin",
+    "country": "Germany",
+    "city": "Berlin",
+    "qs_ranking": 174,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.tu.berlin/en/studying/study-programs/all-programs-offered/study-course/sustainable-management-b-sc",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Technical University of Berlin",
+    "country": "Germany",
+    "city": "Berlin",
+    "qs_ranking": 174,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.tu.berlin/en/wm/studies-and-teaching/study-program/economics",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Hamburg",
+    "country": "Germany",
+    "city": "Hamburg",
+    "qs_ranking": 191,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.inf.uni-hamburg.de/en/studies/bachelor/inf.html",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Hamburg",
+    "country": "Germany",
+    "city": "Hamburg",
+    "qs_ranking": 191,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.biologie.uni-hamburg.de/en/studium/bachelor/bachelor-mls.html",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Hamburg",
+    "country": "Germany",
+    "city": "Hamburg",
+    "qs_ranking": 191,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.physik.uni-hamburg.de/en/studium/studiengaenge/bachelorstudiengaenge/bsc-physik.html",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Hamburg",
+    "country": "Germany",
+    "city": "Hamburg",
+    "qs_ranking": 191,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.bwl.uni-hamburg.de/en/studium/bachelor-studiengaenge/bachelor-of-science-bwl.html",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Hamburg",
+    "country": "Germany",
+    "city": "Hamburg",
+    "qs_ranking": 191,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.wiso.uni-hamburg.de/en/studienbuero-volkswirtschaftslehre/studiengaenge/b-sc-vwl.html",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Maastricht University",
+    "country": "Netherlands",
+    "city": "Maastricht",
+    "qs_ranking": 192,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.maastrichtuniversity.nl/education/bachelor/programmes/computer-science",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Maastricht University",
+    "country": "Netherlands",
+    "city": "Maastricht",
+    "qs_ranking": 192,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.maastrichtuniversity.nl/education/bachelor/programmes/data-science-and-artificial-intelligence",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Maastricht University",
+    "country": "Netherlands",
+    "city": "Maastricht",
+    "qs_ranking": 192,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://curriculum.maastrichtuniversity.nl/education/bachelor/circular-engineering",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Maastricht University",
+    "country": "Netherlands",
+    "city": "Maastricht",
+    "qs_ranking": 192,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://curriculum.maastrichtuniversity.nl/education/bachelor/bachelor-biomedical-sciences",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Maastricht University",
+    "country": "Netherlands",
+    "city": "Maastricht",
+    "qs_ranking": 192,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://curriculum.maastrichtuniversity.nl/education/bachelor/maastricht-science-programme",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Maastricht University",
+    "country": "Netherlands",
+    "city": "Maastricht",
+    "qs_ranking": 192,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.maastrichtuniversity.nl/education/bachelor/programmes/urban-sustainability-studies",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Maastricht University",
+    "country": "Netherlands",
+    "city": "Maastricht",
+    "qs_ranking": 192,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.maastrichtuniversity.nl/education/bachelor/programmes/international-business",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Maastricht University",
+    "country": "Netherlands",
+    "city": "Maastricht",
+    "qs_ranking": 192,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.maastrichtuniversity.nl/education/bachelor/programmes/economics-and-business-economics",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Erasmus University Rotterdam",
+    "country": "Netherlands",
+    "city": "Rotterdam",
+    "qs_ranking": 199,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.eur.nl/en/bachelor/nanobiology",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Erasmus University Rotterdam",
+    "country": "Netherlands",
+    "city": "Rotterdam",
+    "qs_ranking": 199,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.eur.nl/en/bachelor/bachelor-international-business-administration",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Erasmus University Rotterdam",
+    "country": "Netherlands",
+    "city": "Rotterdam",
+    "qs_ranking": 199,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.eur.nl/en/bachelor/international-bachelor-economics-and-business-economics",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Twente",
+    "country": "Netherlands",
+    "city": "Enschede",
+    "qs_ranking": 199,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.utwente.nl/en/education/bachelor/programmes/technical-computer-science/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Twente",
+    "country": "Netherlands",
+    "city": "Enschede",
+    "qs_ranking": 199,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.utwente.nl/en/education/bachelor/programmes/mechanical-engineering/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Twente",
+    "country": "Netherlands",
+    "city": "Enschede",
+    "qs_ranking": 199,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.utwente.nl/en/education/bachelor/programmes/biomedical-technology/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Twente",
+    "country": "Netherlands",
+    "city": "Enschede",
+    "qs_ranking": 199,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.utwente.nl/en/education/bachelor/programmes/applied-physics/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Twente",
+    "country": "Netherlands",
+    "city": "Enschede",
+    "qs_ranking": 199,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.utwente.nl/en/education/bachelor/programmes/international-business-administration/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Freiburg",
+    "country": "Germany",
+    "city": "Freiburg",
+    "qs_ranking": 213,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.tf.uni-freiburg.de/en/study-programs/computer-science/b-sc-computer-science",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Freiburg",
+    "country": "Germany",
+    "city": "Freiburg",
+    "qs_ranking": 213,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.tf.uni-freiburg.de/en/study-programs/microsystem-engineering/b-sc-mikrosystem-engineering",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Freiburg",
+    "country": "Germany",
+    "city": "Freiburg",
+    "qs_ranking": 213,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.bio.uni-freiburg.de/studies/degree-programs/bsc-biology",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Freiburg",
+    "country": "Germany",
+    "city": "Freiburg",
+    "qs_ranking": 213,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://uni-freiburg.de/en/studies/degree-programmes/degree-programme/305/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Freiburg",
+    "country": "Germany",
+    "city": "Freiburg",
+    "qs_ranking": 213,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.unr.uni-freiburg.de/en/studies-and-instruction/bachelor-programs/environmental-sciences",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Freiburg",
+    "country": "Germany",
+    "city": "Freiburg",
+    "qs_ranking": 213,
+    "field_of_study": "Business & Management",
+    "program_url": "https://uni-freiburg.de/en/studies/degree-programmes/degree-programme/364/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Freiburg",
+    "country": "Germany",
+    "city": "Freiburg",
+    "qs_ranking": 213,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://uni-freiburg.de/en/studies/degree-programmes/degree-programme/305/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Vrije Universiteit Amsterdam",
+    "country": "Netherlands",
+    "city": "Amsterdam",
+    "qs_ranking": 219,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://vu.nl/en/education/bachelor/computer-science",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Vrije Universiteit Amsterdam",
+    "country": "Netherlands",
+    "city": "Amsterdam",
+    "qs_ranking": 219,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://vu.nl/en/education/bachelor/artificial-intelligence",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Vrije Universiteit Amsterdam",
+    "country": "Netherlands",
+    "city": "Amsterdam",
+    "qs_ranking": 219,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://vu.nl/en/education/bachelor/mechanical-engineering",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Vrije Universiteit Amsterdam",
+    "country": "Netherlands",
+    "city": "Amsterdam",
+    "qs_ranking": 219,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://vu.nl/en/education/bachelor/biomolecular-sciences",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Vrije Universiteit Amsterdam",
+    "country": "Netherlands",
+    "city": "Amsterdam",
+    "qs_ranking": 219,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://vu.nl/en/education/bachelor/physics-and-astronomy",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Vrije Universiteit Amsterdam",
+    "country": "Netherlands",
+    "city": "Amsterdam",
+    "qs_ranking": 219,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://vu.nl/en/education/bachelor/earth-sciences",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Vrije Universiteit Amsterdam",
+    "country": "Netherlands",
+    "city": "Amsterdam",
+    "qs_ranking": 219,
+    "field_of_study": "Business & Management",
+    "program_url": "https://vu.nl/en/education/bachelor/international-business-administration",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Vrije Universiteit Amsterdam",
+    "country": "Netherlands",
+    "city": "Amsterdam",
+    "qs_ranking": 219,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://vu.nl/en/education/bachelor/economics-and-business-economics",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Technical University of Darmstadt",
+    "country": "Germany",
+    "city": "Darmstadt",
+    "qs_ranking": 224,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.tu-darmstadt.de/studieren/studieninteressierte/studienangebot_studiengaenge/studiengang_177792.en.jsp",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Technical University of Darmstadt",
+    "country": "Germany",
+    "city": "Darmstadt",
+    "qs_ranking": 224,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.tu-darmstadt.de/studieren/studieninteressierte/studienangebot_studiengaenge/studiengang_179712.en.jsp",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Technical University of Darmstadt",
+    "country": "Germany",
+    "city": "Darmstadt",
+    "qs_ranking": 224,
+    "field_of_study": "Architecture",
+    "program_url": "https://www.tu-darmstadt.de/studieren/studieninteressierte/studienangebot_studiengaenge/studiengang_178112.en.jsp",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Technical University of Darmstadt",
+    "country": "Germany",
+    "city": "Darmstadt",
+    "qs_ranking": 224,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.tu-darmstadt.de/studieren/studieninteressierte/studienangebot_studiengaenge/studiengang_179584.en.jsp",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Technical University of Darmstadt",
+    "country": "Germany",
+    "city": "Darmstadt",
+    "qs_ranking": 224,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.tu-darmstadt.de/studieren/studieninteressierte/studienangebot_studiengaenge/studiengang_200960.en.jsp",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Technical University of Darmstadt",
+    "country": "Germany",
+    "city": "Darmstadt",
+    "qs_ranking": 224,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.tu-darmstadt.de/studieren/studieninteressierte/studienangebot_studiengaenge/studiengang_178368.en.jsp",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Technical University of Darmstadt",
+    "country": "Germany",
+    "city": "Darmstadt",
+    "qs_ranking": 224,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.tu-darmstadt.de/studieren/studieninteressierte/studienangebot_studiengaenge/studiengang_178176.en.jsp",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Technical University of Darmstadt",
+    "country": "Germany",
+    "city": "Darmstadt",
+    "qs_ranking": 224,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.tu-darmstadt.de/studieren/studieninteressierte/studienangebot_studiengaenge/studiengang_177856.en.jsp",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Bonn",
+    "country": "Germany",
+    "city": "Bonn",
+    "qs_ranking": 232,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.uni-bonn.de/en/studying/degree-programs/degree-programs-a-z/computer-science-bsc",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Bonn",
+    "country": "Germany",
+    "city": "Bonn",
+    "qs_ranking": 232,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.uni-bonn.de/en/studying/degree-programs/degree-programs-a-z/biology-bsc",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Bonn",
+    "country": "Germany",
+    "city": "Bonn",
+    "qs_ranking": 232,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.uni-bonn.de/en/studying/degree-programs/degree-programs-a-z/physics-bsc",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Bonn",
+    "country": "Germany",
+    "city": "Bonn",
+    "qs_ranking": 232,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.uni-bonn.de/en/studying/degree-programs/degree-programs-a-z/economics-bsc",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "CentraleSupélec",
+    "country": "France",
+    "city": "Gif-sur-Yvette",
+    "qs_ranking": 234,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.centralesupelec.fr/en/Regional-programs/computer-engineer",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "CentraleSupélec",
+    "country": "France",
+    "city": "Gif-sur-Yvette",
+    "qs_ranking": 234,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.centralesupelec.fr/en/bachelor-artificial-intelligence-data-and-management-sciences",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "CentraleSupélec",
+    "country": "France",
+    "city": "Gif-sur-Yvette",
+    "qs_ranking": 234,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.centralesupelec.fr/en/Regional-programs/global-engineering-bachelor",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "CentraleSupélec",
+    "country": "France",
+    "city": "Gif-sur-Yvette",
+    "qs_ranking": 234,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.centralesupelec.fr/en/Regional-programs/engineer-specializing-in-physics",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Friedrich-Alexander University Erlangen-Nürnberg",
+    "country": "Germany",
+    "city": "Erlangen",
+    "qs_ranking": 254,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.fau.de/studiengang/informatik-b-sc/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Friedrich-Alexander University Erlangen-Nürnberg",
+    "country": "Germany",
+    "city": "Erlangen",
+    "qs_ranking": 254,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.fau.de/studiengang/artificial-intelligence-b-sc/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Friedrich-Alexander University Erlangen-Nürnberg",
+    "country": "Germany",
+    "city": "Erlangen",
+    "qs_ranking": 254,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.fau.de/studiengang/maschinenbau-b-sc/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Friedrich-Alexander University Erlangen-Nürnberg",
+    "country": "Germany",
+    "city": "Erlangen",
+    "qs_ranking": 254,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.fau.de/studiengang/biotechnologie-b-sc/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Friedrich-Alexander University Erlangen-Nürnberg",
+    "country": "Germany",
+    "city": "Erlangen",
+    "qs_ranking": 254,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.fau.de/studiengang/physik-b-sc/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Friedrich-Alexander University Erlangen-Nürnberg",
+    "country": "Germany",
+    "city": "Erlangen",
+    "qs_ranking": 254,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.fau.de/studiengang/wirtschaftswissenschaften-b-sc/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Friedrich-Alexander University Erlangen-Nürnberg",
+    "country": "Germany",
+    "city": "Erlangen",
+    "qs_ranking": 254,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.fau.de/studiengang/international-business-studies-b-sc/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "TU Dresden",
+    "country": "Germany",
+    "city": "Dresden",
+    "qs_ranking": 256,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://tu-dresden.de/ing/informatik/studium/studienangebot/bachelor-studiengaenge/informatik-po-2025?set_language=en",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "TU Dresden",
+    "country": "Germany",
+    "city": "Dresden",
+    "qs_ranking": 256,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://tu-dresden.de/studium/vor-dem-studium/studienangebot/sins/sins_studiengang?autoid=13043&set_language=en",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "TU Dresden",
+    "country": "Germany",
+    "city": "Dresden",
+    "qs_ranking": 256,
+    "field_of_study": "Architecture",
+    "program_url": "https://tu-dresden.de/studium/vor-dem-studium/studienangebot/sins/sins_studiengang?autoid=289&set_language=en",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "TU Dresden",
+    "country": "Germany",
+    "city": "Dresden",
+    "qs_ranking": 256,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://tu-dresden.de/studium/vor-dem-studium/studienangebot/sins/sins_studiengang?autoid=313&set_language=en",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "TU Dresden",
+    "country": "Germany",
+    "city": "Dresden",
+    "qs_ranking": 256,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://tu-dresden.de/studium/vor-dem-studium/studienangebot/sins/sins_studiengang?autoid=327&set_language=en",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "TU Dresden",
+    "country": "Germany",
+    "city": "Dresden",
+    "qs_ranking": 256,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://tu-dresden.de/studium/vor-dem-studium/studienangebot/sins/sins_studiengang?autoid=277&set_language=en",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "TU Dresden",
+    "country": "Germany",
+    "city": "Dresden",
+    "qs_ranking": 256,
+    "field_of_study": "Business & Management",
+    "program_url": "https://tu-dresden.de/studium/vor-dem-studium/studienangebot/sins/sins_studiengang?autoid=337&set_language=en",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "TU Dresden",
+    "country": "Germany",
+    "city": "Dresden",
+    "qs_ranking": 256,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://tu-dresden.de/bu/wirtschaft/studium/studienangebot/bsc-wipaed",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Université Paris Cité",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 261,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://odf.u-paris.fr/fr/offre-de-formation/licence-XA/sciences-technologies-sante-STS/informatique-K2VO937D/licence-informatique-parcours-informatique-fondamentale-JRKM8J1B.html",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Université Paris Cité",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 261,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://odf.u-paris.fr/fr/offre-de-formation/licence-XA/sciences-technologies-sante-STS/sciences-de-la-vie-K2VOD4MO.html",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Université Paris Cité",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 261,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://odf.u-paris.fr/fr/offre-de-formation/licence-XA/sciences-technologies-sante-STS/physique-K1T0IUJ7.html",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Université Paris Cité",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 261,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://odf.u-paris.fr/fr/offre-de-formation/licence-XA/sciences-technologies-sante-STS/sciences-de-la-vie-et-de-la-terre-K2VOD5SP/licence-sciences-de-la-vie-et-de-la-terre-parcours-biodiversite-et-ecosystemes-JR7RLJYU.html",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Université Paris Cité",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 261,
+    "field_of_study": "Business & Management",
+    "program_url": "https://odf.u-paris.fr/fr/offre-de-formation/licence-XA/droit-economie-gestion-DEG/economie-et-gestion-K488U6HP/licence-economie-et-gestion-JT8FQ1RS.html",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Université Paris Cité",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 261,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://odf.u-paris.fr/fr/offre-de-formation/licence-XA/droit-economie-gestion-DEG/economie-K2VO50X5/licence-economie-parcours-sciences-economiques-et-sociales-IGXS286S.html",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "TU Darmstadt",
+    "country": "Germany",
+    "city": "Darmstadt",
+    "qs_ranking": 273,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.informatik.tu-darmstadt.de/studium_fb20/im_studium/studiengaenge_liste/informatik_bsc.en.jsp",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "TU Darmstadt",
+    "country": "Germany",
+    "city": "Darmstadt",
+    "qs_ranking": 273,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.maschinenbau.tu-darmstadt.de/studieren/interessierte/interessierte_bachelor/bsc_maschinenbau_interessierte/index.en.jsp",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "TU Darmstadt",
+    "country": "Germany",
+    "city": "Darmstadt",
+    "qs_ranking": 273,
+    "field_of_study": "Architecture",
+    "program_url": "https://www.architektur.tu-darmstadt.de/studieren/studieninteressierte/studienangebot/bsc_architektur/kurzinformation_bsc_arch/index.en.jsp",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "TU Darmstadt",
+    "country": "Germany",
+    "city": "Darmstadt",
+    "qs_ranking": 273,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.bio.tu-darmstadt.de/studium/studieninteressierte/biomolecular/index.en.jsp",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "TU Darmstadt",
+    "country": "Germany",
+    "city": "Darmstadt",
+    "qs_ranking": 273,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.tu-darmstadt.de/studieren/studieninteressierte/studienangebot_studiengaenge/studiengang_178496.en.jsp",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "TU Darmstadt",
+    "country": "Germany",
+    "city": "Darmstadt",
+    "qs_ranking": 273,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.tu-darmstadt.de/studieren/studieninteressierte/studienangebot_studiengaenge/studiengang_178368.en.jsp",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Sciences Po",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 273,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.sciencespo.fr/college/en/academics/bachelor-arts-sciences/ufr-mathematics-universite-paris/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Sciences Po",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 273,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.sciencespo.fr/college/en/academics/bachelor-arts-sciences/ufr-life-sciences-universite-paris/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Sciences Po",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 273,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.sciencespo.fr/college/en/academics/bachelor-arts-sciences/university-reims-champagne-ardenne/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Sciences Po",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 273,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.sciencespo.fr/college/en/academics/bachelor/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "HEC Paris",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 296,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.hec.edu/en/basc-data-society-organisations",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "HEC Paris",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 296,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.hec.edu/en/basc-data-society-organisations",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Cologne",
+    "country": "Germany",
+    "city": "Cologne",
+    "qs_ranking": 308,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://studieninteressierte.uni-koeln.de/range_of_courses/index_eng.html?app=true&id=423",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Cologne",
+    "country": "Germany",
+    "city": "Cologne",
+    "qs_ranking": 308,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://studieninteressierte.uni-koeln.de/range_of_courses/index_eng.html?app=true&id=140",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Cologne",
+    "country": "Germany",
+    "city": "Cologne",
+    "qs_ranking": 308,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://studieninteressierte.uni-koeln.de/range_of_courses/index_eng.html?app=true&id=141",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Cologne",
+    "country": "Germany",
+    "city": "Cologne",
+    "qs_ranking": 308,
+    "field_of_study": "Business & Management",
+    "program_url": "https://wiso.uni-koeln.de/en/studies/bachelor/business-administration",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Cologne",
+    "country": "Germany",
+    "city": "Cologne",
+    "qs_ranking": 308,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://wiso.uni-koeln.de/en/studies/bachelor/economics/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Stuttgart",
+    "country": "Germany",
+    "city": "Stuttgart",
+    "qs_ranking": 312,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.uni-stuttgart.de/en/study/bachelor-programs/computer-science-b.sc./",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Stuttgart",
+    "country": "Germany",
+    "city": "Stuttgart",
+    "qs_ranking": 312,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.uni-stuttgart.de/en/study/bachelor-programs/artificial-intelligence-and-data-science-b.sc./",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Stuttgart",
+    "country": "Germany",
+    "city": "Stuttgart",
+    "qs_ranking": 312,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.uni-stuttgart.de/en/study/bachelor-programs/mechanical-engineering-b.sc./",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Stuttgart",
+    "country": "Germany",
+    "city": "Stuttgart",
+    "qs_ranking": 312,
+    "field_of_study": "Architecture",
+    "program_url": "https://www.uni-stuttgart.de/en/study/bachelor-programs/architecture-and-urban-planning-b.sc./",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Stuttgart",
+    "country": "Germany",
+    "city": "Stuttgart",
+    "qs_ranking": 312,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.uni-stuttgart.de/en/study/bachelor-programs/technical-biology-b.sc./",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Stuttgart",
+    "country": "Germany",
+    "city": "Stuttgart",
+    "qs_ranking": 312,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.uni-stuttgart.de/en/study/bachelor-programs/chemistry-b.sc./",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Stuttgart",
+    "country": "Germany",
+    "city": "Stuttgart",
+    "qs_ranking": 312,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.uni-stuttgart.de/en/study/bachelor-programs/environmental-engineering-b.sc./",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Stuttgart",
+    "country": "Germany",
+    "city": "Stuttgart",
+    "qs_ranking": 312,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.uni-stuttgart.de/en/study/bachelor-programs/business-administration-technically-oriented-b.sc./",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Münster",
+    "country": "Germany",
+    "city": "Münster",
+    "qs_ranking": 314,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.uni-muenster.de/Informatik/en/studium/index.shtml",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Münster",
+    "country": "Germany",
+    "city": "Münster",
+    "qs_ranking": 314,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.uni-muenster.de/Biologie/en/Studieninteressierte/Studiengaenge/BSc_Biowissenschaften.html",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Münster",
+    "country": "Germany",
+    "city": "Münster",
+    "qs_ranking": 314,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.uni-muenster.de/Physik.GP/en/studium/bachelor.html",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Münster",
+    "country": "Germany",
+    "city": "Münster",
+    "qs_ranking": 314,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.wiwi.uni-muenster.de/fakultaet/en/study-programs/bachelor/business-administration",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Münster",
+    "country": "Germany",
+    "city": "Münster",
+    "qs_ranking": 314,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.wiwi.uni-muenster.de/econ/en/bachelor-economics",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Ulm University",
+    "country": "Germany",
+    "city": "Ulm",
+    "qs_ranking": 339,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.uni-ulm.de/en/study/study-at-ulm-university/study-programmes/course-information/course/computer-science-bachelor/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Ulm University",
+    "country": "Germany",
+    "city": "Ulm",
+    "qs_ranking": 339,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.uni-ulm.de/en/in/faculty/studies/courses/study-course/course/electrical-engineering-and-information-technology-bachelor/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Ulm University",
+    "country": "Germany",
+    "city": "Ulm",
+    "qs_ranking": 339,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.uni-ulm.de/en/study/study-at-ulm-university/study-programmes/course-information/course/biology-bachelor-1/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Ulm University",
+    "country": "Germany",
+    "city": "Ulm",
+    "qs_ranking": 339,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.uni-ulm.de/en/study/study-at-ulm-university/study-programmes/course-information/course/chemistry-bachelor/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Ulm University",
+    "country": "Germany",
+    "city": "Ulm",
+    "qs_ranking": 339,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.uni-ulm.de/en/study/study-at-ulm-university/study-programmes/course-information/course/management-and-economics-bachelor/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Ulm University",
+    "country": "Germany",
+    "city": "Ulm",
+    "qs_ranking": 339,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.uni-ulm.de/en/mawi/faculty/study-and-teaching/study-programmes/study-course/course/wirtschaftswissenschaften-bachelor/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Goethe University Frankfurt",
+    "country": "Germany",
+    "city": "Frankfurt",
+    "qs_ranking": 360,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.uni-frankfurt.de/35791376/Informatik__Bachelor_of_Science__B_Sc",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Goethe University Frankfurt",
+    "country": "Germany",
+    "city": "Frankfurt",
+    "qs_ranking": 360,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.uni-frankfurt.de/35791114/Biowissenschaften__Bachelor_of_Science",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Goethe University Frankfurt",
+    "country": "Germany",
+    "city": "Frankfurt",
+    "qs_ranking": 360,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.uni-frankfurt.de/163518586/Biochemistry__Bachelor_of_Science",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Goethe University Frankfurt",
+    "country": "Germany",
+    "city": "Frankfurt",
+    "qs_ranking": 360,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.uni-frankfurt.de/en/studium/studiengaenge/wirtschaftswissenschaften-bachelor",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Goethe University Frankfurt",
+    "country": "Germany",
+    "city": "Frankfurt",
+    "qs_ranking": 360,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.wiwi.uni-frankfurt.de/en/study/study-programs/bachelor/bachelor-of-science-in-economics-and-business-administration/study-program-profile",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Strasbourg",
+    "country": "France",
+    "city": "Strasbourg",
+    "qs_ranking": 408,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://formations.unistra.fr/fr/formations/licence-LIG/licence-informatique-ME6.html",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Strasbourg",
+    "country": "France",
+    "city": "Strasbourg",
+    "qs_ranking": 408,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://physique-ingenierie.unistra.fr/en/formations/licences/licence-sciences-pour-lingenieur/mecanique-et-genie-industriel-mgi/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Strasbourg",
+    "country": "France",
+    "city": "Strasbourg",
+    "qs_ranking": 408,
+    "field_of_study": "Architecture",
+    "program_url": "https://www.strasbourg.archi.fr/index.php/en/education/bachelors-degree",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Strasbourg",
+    "country": "France",
+    "city": "Strasbourg",
+    "qs_ranking": 408,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://formations.unistra.fr/fr/formations/licence-LIG/licence-sciences-de-la-vie-ME3.html",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Strasbourg",
+    "country": "France",
+    "city": "Strasbourg",
+    "qs_ranking": 408,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://eost.unistra.fr/en/bachelors-and-master/earth-sciences-bachelor",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Strasbourg",
+    "country": "France",
+    "city": "Strasbourg",
+    "qs_ranking": 408,
+    "field_of_study": "Business & Management",
+    "program_url": "https://ecogestion.unistra.fr/en/courses/bachelors-degree/economics-management",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Strasbourg",
+    "country": "France",
+    "city": "Strasbourg",
+    "qs_ranking": 408,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://formations.unistra.fr/fr/formations/licence-LIG/licence-economie-et-gestion-ME10.html",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Université de Lyon",
+    "country": "France",
+    "city": "Lyon",
+    "qs_ranking": 410,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://offre-de-formations.univ-lyon1.fr/parcours-12/informatique.html",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Université de Lyon",
+    "country": "France",
+    "city": "Lyon",
+    "qs_ranking": 410,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://offre-de-formations.univ-lyon1.fr/parcours-70/ingenierie-mecanique.html",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Université de Lyon",
+    "country": "France",
+    "city": "Lyon",
+    "qs_ranking": 410,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://offre-de-formations.univ-lyon1.fr/mention-2/sciences-de-la-vie.html",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Université de Lyon",
+    "country": "France",
+    "city": "Lyon",
+    "qs_ranking": 410,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://offre-de-formations.univ-lyon1.fr/mention-6/physique.html",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Université de Lyon",
+    "country": "France",
+    "city": "Lyon",
+    "qs_ranking": 410,
+    "field_of_study": "Business & Management",
+    "program_url": "https://iae.univ-lyon3.fr/licence-business-management-2",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Université de Lyon",
+    "country": "France",
+    "city": "Lyon",
+    "qs_ranking": 410,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.univ-lyon2.fr/licence-3-economie-et-gestion-3",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Kiel University",
+    "country": "Germany",
+    "city": "Kiel",
+    "qs_ranking": 410,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.uni-kiel.de/en/tf/study/ba-computer-science",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Kiel University",
+    "country": "Germany",
+    "city": "Kiel",
+    "qs_ranking": 410,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.uni-kiel.de/en/tf/study/bsc-etit",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Kiel University",
+    "country": "Germany",
+    "city": "Kiel",
+    "qs_ranking": 410,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.medizin.uni-kiel.de/en/studying/other-degree-programmes/other-degree-programmes",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Kiel University",
+    "country": "Germany",
+    "city": "Kiel",
+    "qs_ranking": 410,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.mnf.uni-kiel.de/en/studium/fields-of-study",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Kiel University",
+    "country": "Germany",
+    "city": "Kiel",
+    "qs_ranking": 410,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.studium.uni-kiel.de/de/studienangebot/studienfaecher/betriebswirtschaftslehre-ba",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Kiel University",
+    "country": "Germany",
+    "city": "Kiel",
+    "qs_ranking": 410,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.studium.uni-kiel.de/de/studienangebot/studienfaecher/volkswirtschaftslehre-ba",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Johannes Gutenberg University Mainz",
+    "country": "Germany",
+    "city": "Mainz",
+    "qs_ranking": 410,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.studium.uni-mainz.de/en/choosing-your-degree-program/courses-offered/informatik-bsc/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Johannes Gutenberg University Mainz",
+    "country": "Germany",
+    "city": "Mainz",
+    "qs_ranking": 410,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.studium.uni-mainz.de/en/choosing-your-degree-program/courses-offered/biologie-bsc/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Johannes Gutenberg University Mainz",
+    "country": "Germany",
+    "city": "Mainz",
+    "qs_ranking": 410,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.studium.uni-mainz.de/en/choosing-your-degree-program/courses-offered/physik-bsc/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Johannes Gutenberg University Mainz",
+    "country": "Germany",
+    "city": "Mainz",
+    "qs_ranking": 410,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.studium.uni-mainz.de/en/choosing-your-degree-program/courses-offered/geographie-bsc/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Johannes Gutenberg University Mainz",
+    "country": "Germany",
+    "city": "Mainz",
+    "qs_ranking": 410,
+    "field_of_study": "Business & Management",
+    "program_url": "https://en.wiwi.uni-mainz.de/bachelor-of-science-in-management-and-economics/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Johannes Gutenberg University Mainz",
+    "country": "Germany",
+    "city": "Mainz",
+    "qs_ranking": 410,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://en.wiwi.uni-mainz.de/bachelor-of-science-in-management-and-economics/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Mannheim",
+    "country": "Germany",
+    "city": "Mannheim",
+    "qs_ranking": 412,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.uni-mannheim.de/en/academics/programs/bsc-business-informatics/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Mannheim",
+    "country": "Germany",
+    "city": "Mannheim",
+    "qs_ranking": 412,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.uni-mannheim.de/en/academics/before-your-studies/programs/bsc-business-administration/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Mannheim",
+    "country": "Germany",
+    "city": "Mannheim",
+    "qs_ranking": 412,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.uni-mannheim.de/en/academics/before-your-studies/programs/bsc-economics/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Würzburg",
+    "country": "Germany",
+    "city": "Würzburg",
+    "qs_ranking": 412,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.informatik.uni-wuerzburg.de/en/studies/degree-programmes/bachelor-computer-science/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Würzburg",
+    "country": "Germany",
+    "city": "Würzburg",
+    "qs_ranking": 412,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.informatik.uni-wuerzburg.de/en/studies/degree-programmes/bachelor-artificial-intelligence-and-data-science/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Würzburg",
+    "country": "Germany",
+    "city": "Würzburg",
+    "qs_ranking": 412,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.biologie.uni-wuerzburg.de/en/biological-sciences/for-prospective-students/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Würzburg",
+    "country": "Germany",
+    "city": "Würzburg",
+    "qs_ranking": 412,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.chemie.uni-wuerzburg.de/en/students/study-programmes/biochemistry/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Würzburg",
+    "country": "Germany",
+    "city": "Würzburg",
+    "qs_ranking": 412,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.uni-wuerzburg.de/en/studium/angebot/faecher/computer-science-and-sustainability/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Würzburg",
+    "country": "Germany",
+    "city": "Würzburg",
+    "qs_ranking": 412,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.wiwi.uni-wuerzburg.de/en/study/bachelor/wiwi/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Würzburg",
+    "country": "Germany",
+    "city": "Würzburg",
+    "qs_ranking": 412,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.wiwi.uni-wuerzburg.de/en/study/bachelor/wiwi/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Leipzig University",
+    "country": "Germany",
+    "city": "Leipzig",
+    "qs_ranking": 451,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.uni-leipzig.de/studium/vor-dem-studium/studienangebot/studiengang/course/show/informatik-b-sc",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Leipzig University",
+    "country": "Germany",
+    "city": "Leipzig",
+    "qs_ranking": 451,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.lw.uni-leipzig.de/en/study/before-you-study/study-programmes",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Leipzig University",
+    "country": "Germany",
+    "city": "Leipzig",
+    "qs_ranking": 451,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.physes.uni-leipzig.de/en/studying/courses-of-study/bachelor-international-physics-studies-program-ipsp-honours/studiengang-bachelor-international-physics-studies-program-ipsp-honours",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Leipzig University",
+    "country": "Germany",
+    "city": "Leipzig",
+    "qs_ranking": 451,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.wifa.uni-leipzig.de/en/degree-programme/study-programmes/bachelor-in-business-information-systems",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Leipzig University",
+    "country": "Germany",
+    "city": "Leipzig",
+    "qs_ranking": 451,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.wifa.uni-leipzig.de/en/degree-programme/study-programmes/bachelor-in-economics-and-management-science",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Bordeaux",
+    "country": "France",
+    "city": "Bordeaux",
+    "qs_ranking": 461,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.u-bordeaux.fr/en/about-us/organisation-operations/training-components/college-of-science-technology/computer-science-faculty",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Bordeaux",
+    "country": "France",
+    "city": "Bordeaux",
+    "qs_ranking": 461,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.u-bordeaux.fr/en/about-us/organisation-operations/training-components/college-of-science-technology/engineering-sciences-faculty",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Bordeaux",
+    "country": "France",
+    "city": "Bordeaux",
+    "qs_ranking": 461,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.u-bordeaux.fr/en/about-us/organisation-operations/training-components/college-of-science-technology/biology-faculty",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Bordeaux",
+    "country": "France",
+    "city": "Bordeaux",
+    "qs_ranking": 461,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.u-bordeaux.fr/en/about-us/organisation-operations/training-components/college-of-science-technology/chemistry-faculty",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Bordeaux",
+    "country": "France",
+    "city": "Bordeaux",
+    "qs_ranking": 461,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.u-bordeaux.fr/en/about-us/organisation-operations/training-components/college-of-science-technology/earth-environmental-sciences-faculty",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Bordeaux",
+    "country": "France",
+    "city": "Bordeaux",
+    "qs_ranking": 461,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.u-bordeaux.fr/en/about-us/organisation-operations/training-components/college-of-law-political-science-economics-management/faculty-of-economics-management-social-AES",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Bordeaux",
+    "country": "France",
+    "city": "Bordeaux",
+    "qs_ranking": 461,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://economie.u-bordeaux.fr/International/International-students",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Konstanz",
+    "country": "Germany",
+    "city": "Konstanz",
+    "qs_ranking": 467,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.uni-konstanz.de/en/study/before-you-study/study-programmes/detail/informatik-bsc/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Konstanz",
+    "country": "Germany",
+    "city": "Konstanz",
+    "qs_ranking": 467,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.uni-konstanz.de/en/study/before-you-study/study-programmes/detail/life-science-bsc/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Konstanz",
+    "country": "Germany",
+    "city": "Konstanz",
+    "qs_ranking": 467,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.uni-konstanz.de/en/study/before-you-study/study-programmes/detail/biological-sciences-bsc/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Konstanz",
+    "country": "Germany",
+    "city": "Konstanz",
+    "qs_ranking": 467,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.uni-konstanz.de/en/study/before-you-study/study-programmes/detail/wirtschaftswissenschaften-bsc/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Konstanz",
+    "country": "Germany",
+    "city": "Konstanz",
+    "qs_ranking": 467,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.wiwi.uni-konstanz.de/en/study/bachelor-of-science/bsc-economics/",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Bremen",
+    "country": "Germany",
+    "city": "Bremen",
+    "qs_ranking": 487,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.uni-bremen.de/en/studies/orientation-application/offered-study-program/dbs/study/25",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Bremen",
+    "country": "Germany",
+    "city": "Bremen",
+    "qs_ranking": 487,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.uni-bremen.de/en/faculty-1-physics-electrical-engineering/studies/degree-programs/electrical-engineering-and-information-technology-bsc",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Bremen",
+    "country": "Germany",
+    "city": "Bremen",
+    "qs_ranking": 487,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.uni-bremen.de/en/studies/orientation-application/offered-study-program/dbs/study/12",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Bremen",
+    "country": "Germany",
+    "city": "Bremen",
+    "qs_ranking": 487,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.uni-bremen.de/en/studies/orientation-application/offered-study-program/dbs/study/133",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Bremen",
+    "country": "Germany",
+    "city": "Bremen",
+    "qs_ranking": 487,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.uni-bremen.de/en/studies/orientation-application/offered-study-program/dbs/study/320",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Bremen",
+    "country": "Germany",
+    "city": "Bremen",
+    "qs_ranking": 487,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.uni-bremen.de/en/studies/orientation-application/offered-study-program/dbs/study/50",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "University of Bremen",
+    "country": "Germany",
+    "city": "Bremen",
+    "qs_ranking": 487,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.uni-bremen.de/en/studies/orientation-application/offered-study-program/dbs/study/178",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Leibniz University Hannover",
+    "country": "Germany",
+    "city": "Hannover",
+    "qs_ranking": 491,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.uni-hannover.de/en/studium/studienangebot/info/studiengang/detail/computer-science",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Leibniz University Hannover",
+    "country": "Germany",
+    "city": "Hannover",
+    "qs_ranking": 491,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.uni-hannover.de/en/studium/studienangebot/info/studiengang/detail/mechanical-engineering",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Leibniz University Hannover",
+    "country": "Germany",
+    "city": "Hannover",
+    "qs_ranking": 491,
+    "field_of_study": "Architecture",
+    "program_url": "https://www.uni-hannover.de/en/studium/studienangebot/info/studiengang/detail/architecture",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Leibniz University Hannover",
+    "country": "Germany",
+    "city": "Hannover",
+    "qs_ranking": 491,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.uni-hannover.de/en/studium/studienangebot/info/studiengang/detail/life-science",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Leibniz University Hannover",
+    "country": "Germany",
+    "city": "Hannover",
+    "qs_ranking": 491,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.uni-hannover.de/en/studium/studienangebot/info/studiengang/detail/biology",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Leibniz University Hannover",
+    "country": "Germany",
+    "city": "Hannover",
+    "qs_ranking": 491,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.uni-hannover.de/en/studium/studienangebot/info/studiengang/detail/sustainable-engineering",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Leibniz University Hannover",
+    "country": "Germany",
+    "city": "Hannover",
+    "qs_ranking": 491,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.uni-hannover.de/en/studium/studienangebot/info/studiengang/detail/economics-and-management-1",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Leibniz University Hannover",
+    "country": "Germany",
+    "city": "Hannover",
+    "qs_ranking": 491,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.uni-hannover.de/en/studium/studienangebot/info/studiengang/detail/economics-and-management-1",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Université Toulouse III",
+    "country": "France",
+    "city": "Toulouse",
+    "qs_ranking": 491,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.univ-tlse3.fr/decouvrir-nos-diplomes/licence-mention-informatique",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Université Toulouse III",
+    "country": "France",
+    "city": "Toulouse",
+    "qs_ranking": 491,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.univ-tlse3.fr/decouvrir-nos-diplomes/licence-parcours-science-et-ingenierie-des-donnees-sid",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Université Toulouse III",
+    "country": "France",
+    "city": "Toulouse",
+    "qs_ranking": 491,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.univ-tlse3.fr/decouvrir-nos-diplomes/licence-mention-genie-civil",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Université Toulouse III",
+    "country": "France",
+    "city": "Toulouse",
+    "qs_ranking": 491,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.univ-tlse3.fr/decouvrir-nos-diplomes/licence-mention-sciences-de-la-vie",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Université Toulouse III",
+    "country": "France",
+    "city": "Toulouse",
+    "qs_ranking": 491,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.univ-tlse3.fr/decouvrir-nos-diplomes/licence-mention-physique",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Université Toulouse III",
+    "country": "France",
+    "city": "Toulouse",
+    "qs_ranking": 491,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.univ-tlse3.fr/decouvrir-nos-diplomes/licence-parcours-sciences-de-la-terre-et-de-lenvironnement-ste",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Université Toulouse III",
+    "country": "France",
+    "city": "Toulouse",
+    "qs_ranking": 491,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.univ-tlse3.fr/decouvrir-nos-diplomes/licence-parcours-ingenierie-des-organisations-io",
+    "degree_level": "undergraduate"
+  },
+  {
+    "university": "Université Toulouse III",
+    "country": "France",
+    "city": "Toulouse",
+    "qs_ranking": 491,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://iut.univ-tlse3.fr/but-parcours-gestion-comptable-fiscale-et-financiere-gc2f-toulouse",
+    "degree_level": "undergraduate"
+  }
+]

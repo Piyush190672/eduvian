@@ -1,0 +1,815 @@
+[
+  {
+    "university": "INSEAD",
+    "country": "France",
+    "city": "Fontainebleau",
+    "qs_ranking": 11,
+    "missing_fields": [
+      "Computer Science & IT",
+      "Artificial Intelligence & Data Science",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Architecture",
+      "Biotechnology & Life Sciences",
+      "Natural Sciences",
+      "Environmental & Sustainability Studies",
+      "Business & Management",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "PSL Research University",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 24,
+    "missing_fields": [
+      "Computer Science & IT",
+      "Artificial Intelligence & Data Science",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Architecture",
+      "Biotechnology & Life Sciences",
+      "Natural Sciences",
+      "Environmental & Sustainability Studies",
+      "Business & Management",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "\u00c9cole Normale Sup\u00e9rieure (ENS)",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 26,
+    "missing_fields": [
+      "Computer Science & IT",
+      "Artificial Intelligence & Data Science",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Architecture",
+      "Biotechnology & Life Sciences",
+      "Environmental & Sustainability Studies",
+      "Business & Management",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "Technical University of Munich",
+    "country": "Germany",
+    "city": "Munich",
+    "qs_ranking": 37,
+    "missing_fields": [
+      "Computer Science & IT",
+      "Artificial Intelligence & Data Science",
+      "Biotechnology & Life Sciences",
+      "Environmental & Sustainability Studies",
+      "Business & Management"
+    ]
+  },
+  {
+    "university": "\u00c9cole Polytechnique",
+    "country": "France",
+    "city": "Palaiseau",
+    "qs_ranking": 42,
+    "missing_fields": [
+      "Artificial Intelligence & Data Science",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Architecture",
+      "Biotechnology & Life Sciences",
+      "Environmental & Sustainability Studies",
+      "Business & Management"
+    ]
+  },
+  {
+    "university": "\u00c9cole Normale Sup\u00e9rieure",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 50,
+    "missing_fields": [
+      "Computer Science & IT",
+      "Artificial Intelligence & Data Science",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Architecture",
+      "Biotechnology & Life Sciences",
+      "Natural Sciences",
+      "Environmental & Sustainability Studies",
+      "Business & Management",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "University of Munich (LMU)",
+    "country": "Germany",
+    "city": "Munich",
+    "qs_ranking": 54,
+    "missing_fields": [
+      "Computer Science & IT",
+      "Artificial Intelligence & Data Science",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Architecture",
+      "Biotechnology & Life Sciences",
+      "Natural Sciences",
+      "Environmental & Sustainability Studies",
+      "Business & Management",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "University of Amsterdam",
+    "country": "Netherlands",
+    "city": "Amsterdam",
+    "qs_ranking": 55,
+    "missing_fields": [
+      "Computer Science & IT",
+      "Artificial Intelligence & Data Science",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Architecture",
+      "Biotechnology & Life Sciences",
+      "Natural Sciences",
+      "Environmental & Sustainability Studies",
+      "Business & Management",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "Delft University of Technology",
+    "country": "Netherlands",
+    "city": "Delft",
+    "qs_ranking": 56,
+    "missing_fields": [
+      "Computer Science & IT",
+      "Artificial Intelligence & Data Science",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Architecture",
+      "Biotechnology & Life Sciences",
+      "Natural Sciences",
+      "Environmental & Sustainability Studies",
+      "Business & Management",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "Mines ParisTech (PSL)",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 56,
+    "missing_fields": [
+      "Computer Science & IT",
+      "Artificial Intelligence & Data Science",
+      "Architecture",
+      "Biotechnology & Life Sciences",
+      "Natural Sciences",
+      "Business & Management",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "Sorbonne University",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 59,
+    "missing_fields": [
+      "Artificial Intelligence & Data Science",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Architecture",
+      "Environmental & Sustainability Studies",
+      "Business & Management",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "Sorbonne Universit\u00e9",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 59,
+    "missing_fields": [
+      "Computer Science & IT",
+      "Artificial Intelligence & Data Science",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Architecture",
+      "Biotechnology & Life Sciences",
+      "Natural Sciences",
+      "Environmental & Sustainability Studies",
+      "Business & Management",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "Universit\u00e9 Paris-Saclay",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 71,
+    "missing_fields": [
+      "Computer Science & IT",
+      "Artificial Intelligence & Data Science",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Architecture",
+      "Biotechnology & Life Sciences",
+      "Natural Sciences",
+      "Environmental & Sustainability Studies",
+      "Business & Management",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "Heidelberg University",
+    "country": "Germany",
+    "city": "Heidelberg",
+    "qs_ranking": 84,
+    "missing_fields": [
+      "Artificial Intelligence & Data Science",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Architecture",
+      "Environmental & Sustainability Studies",
+      "Business & Management"
+    ]
+  },
+  {
+    "university": "Free University of Berlin",
+    "country": "Germany",
+    "city": "Berlin",
+    "qs_ranking": 97,
+    "missing_fields": [
+      "Artificial Intelligence & Data Science",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Architecture",
+      "Environmental & Sustainability Studies"
+    ]
+  },
+  {
+    "university": "RWTH Aachen University",
+    "country": "Germany",
+    "city": "Aachen",
+    "qs_ranking": 99,
+    "missing_fields": [
+      "Artificial Intelligence & Data Science",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "Karlsruhe Institute of Technology",
+    "country": "Germany",
+    "city": "Karlsruhe",
+    "qs_ranking": 119,
+    "missing_fields": [
+      "Business & Management"
+    ]
+  },
+  {
+    "university": "Leiden University",
+    "country": "Netherlands",
+    "city": "Leiden",
+    "qs_ranking": 119,
+    "missing_fields": [
+      "Computer Science & IT",
+      "Artificial Intelligence & Data Science",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Architecture",
+      "Biotechnology & Life Sciences",
+      "Natural Sciences",
+      "Environmental & Sustainability Studies",
+      "Business & Management",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "Eindhoven University of Technology",
+    "country": "Netherlands",
+    "city": "Eindhoven",
+    "qs_ranking": 119,
+    "missing_fields": [
+      "Computer Science & IT",
+      "Artificial Intelligence & Data Science",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Architecture",
+      "Biotechnology & Life Sciences",
+      "Natural Sciences",
+      "Environmental & Sustainability Studies",
+      "Business & Management",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "Humboldt University Berlin",
+    "country": "Germany",
+    "city": "Berlin",
+    "qs_ranking": 120,
+    "missing_fields": [
+      "Computer Science & IT",
+      "Artificial Intelligence & Data Science",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Architecture",
+      "Natural Sciences",
+      "Environmental & Sustainability Studies",
+      "Business & Management",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "Wageningen University & Research",
+    "country": "Netherlands",
+    "city": "Wageningen",
+    "qs_ranking": 130,
+    "missing_fields": [
+      "Computer Science & IT",
+      "Artificial Intelligence & Data Science",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Architecture",
+      "Biotechnology & Life Sciences",
+      "Natural Sciences",
+      "Environmental & Sustainability Studies",
+      "Business & Management",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "University of Groningen",
+    "country": "Netherlands",
+    "city": "Groningen",
+    "qs_ranking": 139,
+    "missing_fields": [
+      "Computer Science & IT",
+      "Artificial Intelligence & Data Science",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Architecture",
+      "Biotechnology & Life Sciences",
+      "Natural Sciences",
+      "Environmental & Sustainability Studies",
+      "Business & Management",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "Technical University of Berlin",
+    "country": "Germany",
+    "city": "Berlin",
+    "qs_ranking": 174,
+    "missing_fields": [
+      "Artificial Intelligence & Data Science"
+    ]
+  },
+  {
+    "university": "University of Hamburg",
+    "country": "Germany",
+    "city": "Hamburg",
+    "qs_ranking": 191,
+    "missing_fields": [
+      "Artificial Intelligence & Data Science",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Architecture",
+      "Environmental & Sustainability Studies"
+    ]
+  },
+  {
+    "university": "Maastricht University",
+    "country": "Netherlands",
+    "city": "Maastricht",
+    "qs_ranking": 192,
+    "missing_fields": [
+      "Artificial Intelligence & Data Science",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Architecture",
+      "Biotechnology & Life Sciences",
+      "Natural Sciences",
+      "Environmental & Sustainability Studies",
+      "Business & Management",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "Erasmus University Rotterdam",
+    "country": "Netherlands",
+    "city": "Rotterdam",
+    "qs_ranking": 199,
+    "missing_fields": [
+      "Computer Science & IT",
+      "Artificial Intelligence & Data Science",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Architecture",
+      "Biotechnology & Life Sciences",
+      "Natural Sciences",
+      "Environmental & Sustainability Studies",
+      "Business & Management",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "University of Twente",
+    "country": "Netherlands",
+    "city": "Enschede",
+    "qs_ranking": 199,
+    "missing_fields": [
+      "Computer Science & IT",
+      "Artificial Intelligence & Data Science",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Architecture",
+      "Biotechnology & Life Sciences",
+      "Natural Sciences",
+      "Environmental & Sustainability Studies",
+      "Business & Management",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "University of T\u00fcbingen",
+    "country": "Germany",
+    "city": "T\u00fcbingen",
+    "qs_ranking": 206,
+    "missing_fields": [
+      "Artificial Intelligence & Data Science",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Architecture"
+    ]
+  },
+  {
+    "university": "University of Freiburg",
+    "country": "Germany",
+    "city": "Freiburg",
+    "qs_ranking": 213,
+    "missing_fields": [
+      "Artificial Intelligence & Data Science",
+      "Architecture",
+      "Natural Sciences",
+      "Business & Management"
+    ]
+  },
+  {
+    "university": "Vrije Universiteit Amsterdam",
+    "country": "Netherlands",
+    "city": "Amsterdam",
+    "qs_ranking": 219,
+    "missing_fields": [
+      "Computer Science & IT",
+      "Artificial Intelligence & Data Science",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Architecture",
+      "Biotechnology & Life Sciences",
+      "Natural Sciences",
+      "Environmental & Sustainability Studies",
+      "Business & Management",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "Technical University of Darmstadt",
+    "country": "Germany",
+    "city": "Darmstadt",
+    "qs_ranking": 224,
+    "missing_fields": [
+      "Computer Science & IT",
+      "Artificial Intelligence & Data Science",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Architecture",
+      "Biotechnology & Life Sciences",
+      "Natural Sciences",
+      "Environmental & Sustainability Studies",
+      "Business & Management",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "University of Bonn",
+    "country": "Germany",
+    "city": "Bonn",
+    "qs_ranking": 232,
+    "missing_fields": [
+      "Artificial Intelligence & Data Science",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Architecture",
+      "Environmental & Sustainability Studies",
+      "Business & Management",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "CentraleSup\u00e9lec",
+    "country": "France",
+    "city": "Gif-sur-Yvette",
+    "qs_ranking": 234,
+    "missing_fields": [
+      "Computer Science & IT",
+      "Artificial Intelligence & Data Science",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Architecture",
+      "Biotechnology & Life Sciences",
+      "Natural Sciences",
+      "Environmental & Sustainability Studies",
+      "Business & Management",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "Friedrich-Alexander University Erlangen-N\u00fcrnberg",
+    "country": "Germany",
+    "city": "Erlangen",
+    "qs_ranking": 254,
+    "missing_fields": [
+      "Architecture"
+    ]
+  },
+  {
+    "university": "TU Dresden",
+    "country": "Germany",
+    "city": "Dresden",
+    "qs_ranking": 256,
+    "missing_fields": [
+      "Computer Science & IT",
+      "Artificial Intelligence & Data Science",
+      "Biotechnology & Life Sciences",
+      "Natural Sciences",
+      "Environmental & Sustainability Studies",
+      "Business & Management",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "Universit\u00e9 Paris Cit\u00e9",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 261,
+    "missing_fields": [
+      "Computer Science & IT",
+      "Artificial Intelligence & Data Science",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Architecture",
+      "Biotechnology & Life Sciences",
+      "Natural Sciences",
+      "Environmental & Sustainability Studies",
+      "Business & Management",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "TU Darmstadt",
+    "country": "Germany",
+    "city": "Darmstadt",
+    "qs_ranking": 273,
+    "missing_fields": [
+      "Computer Science & IT",
+      "Artificial Intelligence & Data Science",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Architecture",
+      "Biotechnology & Life Sciences",
+      "Natural Sciences",
+      "Environmental & Sustainability Studies",
+      "Business & Management",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "Sciences Po",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 273,
+    "missing_fields": [
+      "Computer Science & IT",
+      "Artificial Intelligence & Data Science",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Architecture",
+      "Biotechnology & Life Sciences",
+      "Natural Sciences",
+      "Business & Management",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "HEC Paris",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 296,
+    "missing_fields": [
+      "Computer Science & IT",
+      "Artificial Intelligence & Data Science",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Architecture",
+      "Biotechnology & Life Sciences",
+      "Natural Sciences",
+      "Environmental & Sustainability Studies",
+      "Business & Management",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "University of Cologne",
+    "country": "Germany",
+    "city": "Cologne",
+    "qs_ranking": 308,
+    "missing_fields": [
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Architecture",
+      "Environmental & Sustainability Studies"
+    ]
+  },
+  {
+    "university": "University of Stuttgart",
+    "country": "Germany",
+    "city": "Stuttgart",
+    "qs_ranking": 312,
+    "missing_fields": [
+      "Artificial Intelligence & Data Science",
+      "Architecture",
+      "Biotechnology & Life Sciences",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "University of M\u00fcnster",
+    "country": "Germany",
+    "city": "M\u00fcnster",
+    "qs_ranking": 314,
+    "missing_fields": [
+      "Computer Science & IT",
+      "Artificial Intelligence & Data Science",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Architecture",
+      "Natural Sciences",
+      "Environmental & Sustainability Studies"
+    ]
+  },
+  {
+    "university": "Ulm University",
+    "country": "Germany",
+    "city": "Ulm",
+    "qs_ranking": 339,
+    "missing_fields": [
+      "Artificial Intelligence & Data Science",
+      "Architecture",
+      "Environmental & Sustainability Studies",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "Goethe University Frankfurt",
+    "country": "Germany",
+    "city": "Frankfurt",
+    "qs_ranking": 360,
+    "missing_fields": [
+      "Artificial Intelligence & Data Science",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Architecture",
+      "Environmental & Sustainability Studies"
+    ]
+  },
+  {
+    "university": "University of Strasbourg",
+    "country": "France",
+    "city": "Strasbourg",
+    "qs_ranking": 408,
+    "missing_fields": [
+      "Artificial Intelligence & Data Science",
+      "Architecture",
+      "Business & Management"
+    ]
+  },
+  {
+    "university": "Universit\u00e9 de Lyon",
+    "country": "France",
+    "city": "Lyon",
+    "qs_ranking": 410,
+    "missing_fields": [
+      "Computer Science & IT",
+      "Artificial Intelligence & Data Science",
+      "Architecture",
+      "Biotechnology & Life Sciences",
+      "Natural Sciences",
+      "Environmental & Sustainability Studies",
+      "Business & Management",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "Kiel University",
+    "country": "Germany",
+    "city": "Kiel",
+    "qs_ranking": 410,
+    "missing_fields": [
+      "Computer Science & IT",
+      "Artificial Intelligence & Data Science",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Architecture",
+      "Biotechnology & Life Sciences",
+      "Natural Sciences",
+      "Environmental & Sustainability Studies",
+      "Business & Management",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "Johannes Gutenberg University Mainz",
+    "country": "Germany",
+    "city": "Mainz",
+    "qs_ranking": 410,
+    "missing_fields": [
+      "Computer Science & IT",
+      "Artificial Intelligence & Data Science",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Architecture",
+      "Biotechnology & Life Sciences",
+      "Natural Sciences",
+      "Environmental & Sustainability Studies",
+      "Business & Management",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "University of Mannheim",
+    "country": "Germany",
+    "city": "Mannheim",
+    "qs_ranking": 412,
+    "missing_fields": [
+      "Artificial Intelligence & Data Science",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Architecture",
+      "Biotechnology & Life Sciences",
+      "Natural Sciences",
+      "Environmental & Sustainability Studies"
+    ]
+  },
+  {
+    "university": "University of W\u00fcrzburg",
+    "country": "Germany",
+    "city": "W\u00fcrzburg",
+    "qs_ranking": 412,
+    "missing_fields": [
+      "Computer Science & IT",
+      "Artificial Intelligence & Data Science",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Architecture",
+      "Biotechnology & Life Sciences",
+      "Environmental & Sustainability Studies",
+      "Business & Management",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "Leipzig University",
+    "country": "Germany",
+    "city": "Leipzig",
+    "qs_ranking": 451,
+    "missing_fields": [
+      "Computer Science & IT",
+      "Artificial Intelligence & Data Science",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Architecture",
+      "Biotechnology & Life Sciences",
+      "Natural Sciences",
+      "Environmental & Sustainability Studies",
+      "Business & Management",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "University of Bordeaux",
+    "country": "France",
+    "city": "Bordeaux",
+    "qs_ranking": 461,
+    "missing_fields": [
+      "Computer Science & IT",
+      "Artificial Intelligence & Data Science",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Architecture",
+      "Biotechnology & Life Sciences",
+      "Natural Sciences",
+      "Business & Management",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "University of Konstanz",
+    "country": "Germany",
+    "city": "Konstanz",
+    "qs_ranking": 467,
+    "missing_fields": [
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Architecture",
+      "Environmental & Sustainability Studies"
+    ]
+  },
+  {
+    "university": "University of Bremen",
+    "country": "Germany",
+    "city": "Bremen",
+    "qs_ranking": 487,
+    "missing_fields": [
+      "Artificial Intelligence & Data Science",
+      "Architecture"
+    ]
+  },
+  {
+    "university": "Leibniz University Hannover",
+    "country": "Germany",
+    "city": "Hannover",
+    "qs_ranking": 491,
+    "missing_fields": [
+      "Artificial Intelligence & Data Science",
+      "Natural Sciences",
+      "Environmental & Sustainability Studies",
+      "Business & Management"
+    ]
+  },
+  {
+    "university": "Universit\u00e9 Toulouse III",
+    "country": "France",
+    "city": "Toulouse",
+    "qs_ranking": 491,
+    "missing_fields": [
+      "Architecture"
+    ]
+  }
+]
