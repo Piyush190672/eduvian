@@ -77,9 +77,25 @@ const stripHtml = (html: string) =>
     .trim()
     .slice(0, 60_000);
 
-async function fetchPage(url: string): Promise<string> {
+// One shared BrowserContext for the whole run. The earlier "recycle every
+// 50 uses" had a race: when we closed the old ctx, in-flight workers still
+// holding a page in it got CDP errors and killed the run (1010/7022 crash).
+// Tabs are cheap; the leak risk that motivated recycling was newContext
+// per call, which we no longer do. One ctx, finally we close at shutdown.
+let _sharedCtx: BrowserContext | null = null;
+async function getContext(): Promise<BrowserContext> {
+  // Detect a dead context (browser/CDP closed under us) and recreate.
+  if (_sharedCtx) {
+    try {
+      // Cheap liveness probe — pages() throws if the context died.
+      _sharedCtx.pages();
+      return _sharedCtx;
+    } catch {
+      _sharedCtx = null;
+    }
+  }
   const browser = await getBrowser();
-  const ctx: BrowserContext = await browser.newContext({
+  _sharedCtx = await browser.newContext({
     userAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
     viewport: { width: 1280, height: 1800 },
     locale: "en-US",
@@ -92,11 +108,16 @@ async function fetchPage(url: string): Promise<string> {
       "Upgrade-Insecure-Requests": "1",
     },
   });
-  await ctx.addInitScript(() => {
+  await _sharedCtx.addInitScript(() => {
     Object.defineProperty(navigator, "webdriver", { get: () => false });
     // @ts-expect-error - non-standard
     window.chrome = { runtime: {} };
   });
+  return _sharedCtx;
+}
+
+async function fetchPage(url: string): Promise<string> {
+  const ctx = await getContext();
   const page = await ctx.newPage();
   await page.route("**/*", (route) => {
     const t = route.request().resourceType();
@@ -113,8 +134,14 @@ async function fetchPage(url: string): Promise<string> {
       try { await page.waitForLoadState("networkidle", { timeout: 5_000 }); } catch { /* */ }
       stripped = stripHtml(await page.content());
     }
-    const FEE_LABEL = /\b(?:fees?|tuition|tuition\s*fees?|fees?\s*&\s*funding|fees?\s*and\s*funding|cost\s*of\s*study|fees?\s*scholarships?)\b/i;
+    // Throughput optimisation (9 May): cap fee-tab + subpage work to one
+    // fetch, with tighter timeouts. Most pages either have fees inline
+    // (recovered already) or never expose them — chasing 2 subpages with
+    // 10s timeouts each was the dominant per-page cost.
+    const FEE_LABEL = /\b(?:fees?|tuition|tuition\s*fees?|fees?\s*&\s*funding|fees?\s*and\s*funding|cost\s*of\s*study|fees?\s*scholarships?|international\s*students?)\b/i;
+    const CURRENCY_HINT = /(?:AUD|USD|GBP|EUR|CAD|NZD|SGD|MYR|AED|INR|CHF)\s*\$?\s*[\d,]+|[£€¥$]\s*[\d,]+/;
     let appended = "";
+    const initialHasCurrency = CURRENCY_HINT.test(stripped);
     try {
       const tabHandles = await page.$$eval('a, button, [role="tab"]', (nodes) =>
         nodes.map((n) => ({ text: (n as HTMLElement).innerText?.trim() ?? "" })).filter((x) => x.text.length > 0 && x.text.length < 60)
@@ -123,42 +150,48 @@ async function fetchPage(url: string): Promise<string> {
       if (tab) {
         try {
           const loc = page.locator(`a:has-text("${tab.text}"), button:has-text("${tab.text}"), [role="tab"]:has-text("${tab.text}")`).first();
-          await loc.click({ timeout: 3_000 });
-          await page.waitForTimeout(1_500);
+          await loc.click({ timeout: 1_500 });
+          await page.waitForTimeout(800);
           const after = stripHtml(await page.content());
           if (after.length > stripped.length + 50) appended += "\n\n[FEES TAB CONTENT]\n" + after;
         } catch { /* */ }
       }
     } catch { /* */ }
-    try {
-      const origin = new URL(url).origin;
-      const links = await page.$$eval("a[href]", (anchors) =>
-        anchors.map((a) => ({ href: (a as HTMLAnchorElement).href, text: (a as HTMLElement).innerText?.trim() ?? "" }))
-      );
-      const feeLinks = links.filter((l) => {
-        if (!l.href.startsWith("http")) return false;
-        try { if (new URL(l.href).origin !== origin) return false; } catch { return false; }
-        return FEE_LABEL.test(l.text) || /\/(fees?|tuition|funding|cost-of-study|cost-of-attendance|international-fees?)\b/i.test(l.href);
-      }).slice(0, 2);
-      for (const lnk of feeLinks) {
-        try {
-          const sub = await ctx.newPage();
+    // Only follow a fees subpage if the initial page or tab-click didn't
+    // already reveal a currency amount. Skipping when we already have a
+    // figure saves ~7-10s on pages that resolved inline.
+    if (!CURRENCY_HINT.test(stripped + appended)) {
+      try {
+        const origin = new URL(url).origin;
+        const links = await page.$$eval("a[href]", (anchors) =>
+          anchors.map((a) => ({ href: (a as HTMLAnchorElement).href, text: (a as HTMLElement).innerText?.trim() ?? "" }))
+        );
+        const feeLinks = links.filter((l) => {
+          if (!l.href.startsWith("http")) return false;
+          try { if (new URL(l.href).origin !== origin) return false; } catch { return false; }
+          return FEE_LABEL.test(l.text) || /\/(fees?|tuition|funding|cost-of-study|cost-of-attendance|international-fees?)\b/i.test(l.href);
+        }).slice(0, 1); // cap at 1 subpage (was 2)
+        for (const lnk of feeLinks) {
           try {
-            await sub.goto(lnk.href, { waitUntil: "domcontentloaded", timeout: 10_000 });
-            await sub.waitForTimeout(1_000);
-            const subStripped = stripHtml(await sub.content());
-            if (subStripped.length > 200 && !looksLikeUnderRendered(subStripped)) {
-              appended += `\n\n[FEES SUBPAGE: ${lnk.href}]\n` + subStripped.slice(0, 20_000);
-            }
-          } finally { await sub.close(); }
-        } catch { /* */ }
-      }
-    } catch { /* */ }
+            const sub = await ctx.newPage();
+            try {
+              await sub.goto(lnk.href, { waitUntil: "domcontentloaded", timeout: 5_000 });
+              await sub.waitForTimeout(600);
+              const subStripped = stripHtml(await sub.content());
+              if (subStripped.length > 200 && !looksLikeUnderRendered(subStripped)) {
+                appended += `\n\n[FEES SUBPAGE: ${lnk.href}]\n` + subStripped.slice(0, 20_000);
+              }
+            } finally { await sub.close(); }
+          } catch { /* */ }
+        }
+      } catch { /* */ }
+    }
+    void initialHasCurrency;
     if (appended) stripped = (stripped + appended).slice(0, 80_000);
     return stripped;
   } finally {
-    await page.close();
-    await ctx.close();
+    try { await page.close(); } catch { /* */ }
+    // Don't close the context — it's shared and will be recycled by getContext().
   }
 }
 
@@ -277,6 +310,14 @@ function rewriteEntryFees(src: string, tuitionAmt: number | null, tuitionCcy: st
   return out;
 }
 
+// Don't let an async error from a closed Playwright context kill the whole
+// run via unhandledRejection — log it and let the worker loop's catch
+// recover the next entry.
+process.on("unhandledRejection", (reason) => {
+  const msg = reason instanceof Error ? reason.message : String(reason);
+  console.warn(`[unhandledRejection swallowed] ${msg.slice(0, 200)}`);
+});
+
 async function main() {
   if (!process.env.ANTHROPIC_API_KEY) { console.error("ANTHROPIC_API_KEY not set"); process.exit(1); }
 
@@ -319,7 +360,25 @@ async function main() {
       const t = targets[i];
       try {
         process.stdout.write(`[${i + 1}/${targets.length}] ${t.country} | ${t.uni} | ${t.pname.slice(0, 40)}\n`);
-        const pageText = await fetchPage(t.url);
+        // Hard 45s ceiling per fetch so a hung page can't stall a worker.
+        let pageText: string;
+        try {
+          pageText = await Promise.race<string>([
+            fetchPage(t.url),
+            new Promise<string>((_, rej) => setTimeout(() => rej(new Error("fetch-timeout-45s")), 45_000)),
+          ]);
+        } catch (e) {
+          // Context-died errors blow up the whole process via unhandled
+          // rejection if not caught here. Catch, force context recreation,
+          // count as error, move on.
+          if ((e as Error).message?.includes("Target page, context or browser has been closed") ||
+              (e as Error).message?.includes("Browser has been closed")) {
+            console.warn(`  [ctx-died] forcing context recreate`);
+            try { if (_sharedCtx) await _sharedCtx.close(); } catch { /* */ }
+            _sharedCtx = null;
+          }
+          throw e;
+        }
         if (pageText.length < 200) { nullCount++; continue; }
         const fees = await extractFees(client, t.uni, t.country, t.pname, pageText);
         if (!fees) { errCount++; continue; }
