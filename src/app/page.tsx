@@ -487,7 +487,7 @@ export default function V2LandingPage() {
                 Find the right course. File a stronger application. Walk into the interview prepared.
               </h3>
               <p className="relative text-base text-gray-500 leading-relaxed mb-7 max-w-md">
-                AI-matched shortlist, paragraph-level feedback on your SOP and CV, and exam-style practice for every interview and English test.
+                This decision will shape the next decade of your life. Find a country, course and university that actually fit you — then rehearse every essay, interview and English test until you walk in confident, not hopeful.
               </p>
               <Link
                 href="/get-started"
@@ -511,7 +511,7 @@ export default function V2LandingPage() {
                 Cost, ROI, safety, visa readiness, and long-term value — on one page.
               </h3>
               <p className="relative text-base text-gray-500 leading-relaxed mb-7 max-w-md">
-                A one-page Parent Decision Report with payback period, visa risk flags by country, and a colour-coded family verdict — easy to share, easier to discuss.
+                You're being asked to back a decision worth years of savings. EduvianAI puts the questions you actually need answered — payback period, visa risk, country safety, alternative paths — into one report you can read in five minutes and discuss honestly at home.
               </p>
               <Link
                 href="/sample-parent-report"
