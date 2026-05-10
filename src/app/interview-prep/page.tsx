@@ -36,7 +36,7 @@ import {
   Mic, Volume2, VolumeX, ChevronRight, RotateCcw, CheckCircle2,
   ArrowLeft, Globe2, Sparkles, Trophy, Clock, MessageSquare,
   BookOpen, Briefcase, MapPin, Building2, HelpCircle, ListChecks,
-  ThumbsUp, AlertCircle, Loader2, User, DollarSign, Users, Shield,
+  ThumbsUp, AlertCircle, Loader2, User, DollarSign, Users, Shield, X,
 } from "lucide-react";
 import Link from "next/link";
 import AuthGate from "@/components/AuthGate";
@@ -1311,6 +1311,41 @@ function InterviewSession({
     }
   }, []);
 
+  // ── Mic pre-warm ────────────────────────────────────────────────────────────
+  // Request mic permission on session start (right after country select)
+  // BEFORE the greeting starts speaking. By the time the greeting ends and
+  // auto-listen fires, the permission grant is cached, the mic device is
+  // warm, and the first listenOnce() skips both the permission prompt and
+  // the 150ms post-grant settle. Saves ~300-500ms on the very first
+  // recognition attempt (which the user perceives as "mic takes a moment
+  // to activate"). Idempotent: the inner check on micPermissionGrantedRef
+  // means re-renders don't re-prompt.
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      if (micPermissionGrantedRef.current) return;
+      if (typeof navigator === "undefined" || !navigator?.mediaDevices?.getUserMedia) return;
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        if (cancelled) {
+          stream.getTracks().forEach((t) => t.stop());
+          return;
+        }
+        // Hold the stream open briefly to fully warm the audio device, then
+        // release. SpeechRecognition reacquires the device almost
+        // instantly afterwards.
+        await new Promise((r) => setTimeout(r, 200));
+        stream.getTracks().forEach((t) => t.stop());
+        micPermissionGrantedRef.current = true;
+      } catch (e) {
+        // User denied or device unavailable. Listening will surface a
+        // clear error when the user actually tries it.
+        console.warn("[interview-prep] mic pre-warm failed:", (e as Error).name);
+      }
+    })();
+    return () => { cancelled = true; };
+  }, []);
+
   // ── Cleanup ─────────────────────────────────────────────────────────────────
   useEffect(() => {
     return () => {
@@ -1949,6 +1984,25 @@ function InterviewSession({
   };
 
   // ── Skip ────────────────────────────────────────────────────────────────────
+  // Hard-stop the interview — cancel TTS, stop any active recog, jump to
+  // the complete screen with whatever answers were collected so far. The
+  // confirmation prompt prevents accidental clicks mid-question.
+  const handleStopInterview = () => {
+    const submitted = answers.filter((a) => a.transcript !== "[Skipped]").length;
+    const remaining = activeQuestions.length - submitted;
+    const ok = window.confirm(
+      submitted === 0
+        ? "Stop the interview now? You have no answers recorded yet — the summary will be empty."
+        : `Stop the interview now? You have answered ${submitted} of ${activeQuestions.length} questions (${remaining} remaining). Your collected answers stay on the summary.`
+    );
+    if (!ok) return;
+    cancel(); // stop TTS
+    if (recogRef.current) { try { recogRef.current.abort(); } catch { /* ignore */ } recogRef.current = null; }
+    if (nameRecogRef.current) { try { nameRecogRef.current.abort(); } catch { /* ignore */ } nameRecogRef.current = null; }
+    if (timerRef.current) { clearInterval(timerRef.current); timerRef.current = null; }
+    setPhase("complete");
+  };
+
   const handleSkip = () => {
     const newAnswer: Answer = {
       question: activeQuestions[qIndex].question,
@@ -2427,6 +2481,17 @@ function InterviewSession({
           <button onClick={() => { cancel(); setPhase("listening"); }}
             className="px-5 py-2.5 rounded-xl border border-gray-200 text-gray-600 text-sm font-semibold hover:bg-gray-50 transition-colors">
             Skip reading →
+          </button>
+        )}
+        {/* Stop interview — visible during any active phase. End-of-interview
+            jumps straight to the summary with whatever answers were collected. */}
+        {(phase === "speaking" || phase === "listening" || phase === "review" || phase === "feedback") && (
+          <button
+            onClick={handleStopInterview}
+            className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-rose-200 bg-rose-50 text-rose-700 text-sm font-semibold hover:bg-rose-100 transition-colors"
+            title="Stop interview and jump to the summary"
+          >
+            <X className="w-3.5 h-3.5" /> Stop interview
           </button>
         )}
         {mode === "voice" && phase === "listening" && (
