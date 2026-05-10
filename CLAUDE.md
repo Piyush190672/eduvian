@@ -4,7 +4,7 @@ This file is loaded automatically. The full project state, decisions, and ration
 
 ## What this is
 
-Next.js 14 (App Router) study-abroad platform deployed to Vercel at https://www.eduvianai.com. Postgres + RLS in Supabase Cloud (US, Pro plan). Anthropic Claude for AI features, Resend for transactional mail, Sentry for errors. 12 destination countries, **7,642 programs / 7,579 verified at the source (99.2%) / 521 universities (511 with verified programs) / 2,724 with international tuition fee (35.6%)** as of 10 May 2026, beta-gated to 100 users/month. Email OTP gates register/login.
+Next.js 14 (App Router) study-abroad platform deployed to Vercel at https://www.eduvianai.com. Postgres + RLS in Supabase Cloud (US, Pro plan). Anthropic Claude for AI features, Resend for transactional mail, Sentry for errors. 12 destination countries, **7,800 programs / 7,737 verified at the source (99.2%) / 521 universities (511 with verified programs) / 3,060 with international tuition fee (39.2%, of which 309 estimated)** as of 11 May 2026, beta-gated to 100 users/month. Email OTP gates register/login.
 
 ## Hard rules — never do without explicit user approval
 
@@ -39,7 +39,7 @@ User separates "commit" from "deploy" (push). Defaults:
 
 ## Verification pipeline (programs.ts)
 
-The 7,642-program database in `src/data/programs.ts` is built only by `scripts/verify/`. Hard rules:
+The 7,800-program database in `src/data/programs.ts` is built only by `scripts/verify/`. Hard rules:
 
 1. **No hand-authored entries.** Adds go through the pipeline.
 2. **No invented values.** If the live URL doesn't state a fee/deadline/cutoff, the field is `null`.
@@ -89,8 +89,8 @@ Audit document: `~/Desktop/EduvianAI-Security-Architecture-Risk-Assessment.docx`
 
 | Path | What |
 |---|---|
-| `src/data/programs.ts` | THE database. **7,642 entries / 7,579 verified.** `@ts-nocheck` (large data file). |
-| `src/data/db-stats.ts` | Computed counts. Public surfaces standardise on `verifiedProgramsLabel` (7,579+) and `verifiedUniversitiesLabel` (511+) — `programsLabel` (the unverified-tail total) is internal-only. Don't reintroduce dual numbers in copy. |
+| `src/data/programs.ts` | THE database. **7,800 entries / 7,737 verified.** `@ts-nocheck` (large data file). |
+| `src/data/db-stats.ts` | Computed counts. Public surfaces standardise on `verifiedProgramsLabel` (7,737+) and `verifiedUniversitiesLabel` (511+) — `programsLabel` (the unverified-tail total) is internal-only. Don't reintroduce dual numbers in copy. |
 | `src/app/sample-parent-report/page.tsx` | Static, illustrative parent-decision report at `/sample-parent-report`. Print-friendly (Save-as-PDF button). Linked from the Decide-stage 'See sample family report' CTA. |
 | `src/app/page.tsx` | **The homepage** (post v2 → / swap, 5 May 2026). v2 brand redesign + 8-section structure now serves at `/`. Pre-swap homepage backed up at `_archive/page-pre-v2-swap.tsx.bak`; pre-swap `src/app/v2/` preserved (un-routed) at `src/app/_v2-archive/page.tsx` for reference. |
 | `src/lib/types.ts` | Single source of truth. `TARGET_COUNTRIES` (12), `FIELDS_OF_STUDY` (18). |
@@ -144,28 +144,47 @@ The legal/security/pricing Word docs were generated with `docx`. Pricing Excel v
 
 ## Open work for the next session
 
-Pinned in priority order. Snapshot §20 + §27 + §28 + §29 have full detail.
+Pinned in priority order. Snapshot §20 + §27 + §28 + §29 + §30 have full detail.
 
-1. **Expansion sweep — A: NL/FR/DE UG Bachelor's** is in flight (seed-finder running, ~56 unis, 365 (uni,field) pairs). Then:
-   - **B: SG / UAE / MY / IE depth** at existing-in-DB unis.
-   - **C: UK UG breadth** — add new lower-ranked UK unis (post-92, art schools, conservatoires).
-   - **D: Canada west / east** — BC / Alberta / Maritime / Quebec smaller publics.
-   See snapshot §29 for the planning notes. Estimated total ~$130-235 across A-D.
-2. **USA fee coverage stuck at 19.4%** — most US uni pages put fees behind JS-only "Cost & Financial Aid" panels that even the tab-click + sub-page fetcher can't reach. To push higher: residential proxy or per-uni manual override layer for ~30 high-traffic schools. ~$50/mo proxy cost or 1 day's manual mapping work.
-3. **Verify interview-prep voice end-to-end on the live deploy** (commit `e3b719c5`). User confirmed working 7 May; should be re-checked after a fresh deploy.
-4. **Architecture stream Phase 2 (deferred by user 6 May)** — current 274 Architecture-tagged. Phase 2 = add new programs from QS Top-250 unis not yet represented. ~$10-25 spend.
-5. **Field-mismatch + persistent fetch-error cleanup** — 63 entries from earlier verify passes still aren't verified.
-6. **Marketing email opt-in flow** — Privacy Policy §11 promises this.
-7. **Visible unsubscribe link in email body** — `List-Unsubscribe` header is in; in-body link still missing.
-8. **Real downloadable Sample Parent Report PDF** — current `/sample-parent-report` is HTML + Save-as-PDF.
+> **Background process likely still running on session start:** the priority-country estimate-fees run (USA → Germany → Canada). Check with `ps aux | grep estimate-fees`. Log at `/tmp/estimate-priority.log`. Don't start anything else competing for Anthropic API budget until it exits or you kill it intentionally.
 
-## Tuition fee policy (locked 8 May 2026)
+**Block 1 — fee trust loop (in flight):**
+1. **estimate-fees priority run** (USA + DE + CA, ~3,108 entries) — kicked off 11 May ~14:50, should finish by ~22:00 same day. Watch the log. After exit: review counts, decide whether to extend to other countries.
+2. **Voice sanity check on live deploy** (commits `91f9a54d` + `69a0c428` + `2fde5498` shipped 11 May with auto-listen, mic pre-warm, Stop interview button, and short-utterance capture fix). User reported during testing: name still took 2 attempts in UK, "say YES" took multiple tries — the pre-warm + interim fix should help once Vercel deploys; re-verify.
+
+**Block 2 — DB breadth (queued):**
+3. **Expansion D — Canada west/east** (~$18-30, 30-60 min)
+4. **Expansion B — SG/UAE/MY/IE depth** (~$38-62, 1-2 hrs)
+5. **Expansion C — UK UG breadth** (~$30-48, 1-2 hrs)
+
+**Block 3 — features & cleanup:**
+6. **USA fee coverage uplift** (currently 31.9% after estimate-fees, was 19.4%) — to push higher: residential proxy or per-uni manual override.
+7. **Marketing email opt-in flow** — Privacy Policy §11 promises this.
+8. **Visible unsubscribe link in email body** — `List-Unsubscribe` header is in; in-body link still missing.
+9. **Real downloadable Sample Parent Report PDF** — current `/sample-parent-report` is HTML + Save-as-PDF.
+10. **Field-mismatch + persistent fetch-error cleanup** — 63 entries from earlier verify passes still aren't verified.
+11. **Architecture stream Phase 2 (deferred by user 6 May)** — current 274 Architecture-tagged. Add from QS Top-250 unis not yet represented. ~$10-25 spend.
+
+**Block 4 — security upgrades** (after Blocks 1-3):
+12. Read `~/Desktop/EduvianAI-Security-Architecture-Risk-Assessment.docx` to enumerate Medium/Low findings (snapshot §5 only tracks C/H).
+13. Apply M findings.
+14. Apply L findings.
+15. Secrets rotation policy + 90-day cadence.
+16. Backup posture confirmation (Q8 was "most likely auto-backups only").
+17. Sentry alerting on auth/OTP failures.
+(Pen testing + bug bounty stay deferred to pre-launch.)
+
+**Estimated remaining spend across Blocks 1-3:** ~$200-450 + optional $50/mo residential proxy for #6.
+
+## Tuition fee policy (locked 8 May 2026; provenance UI added 10 May; estimated-fee Layer 2 added 11 May)
 
 - The fee on `annual_tuition_amount` / `annual_tuition_usd` is the **INTERNATIONAL / OVERSEAS / NON-RESIDENT student fee**. Never the domestic / home / EU / in-state figure. The extractor prompt in `verify-program.ts` enforces this; reviewers must reject any PR that loosens it.
-- Display prefers the **local currency literally on the page** (e.g., `£26,600/yr`), with the USD-converted amount as a secondary view via `formatFee(input, { withUsd: true })`. USD is derived from a static FX table in `verify-program.ts` + `backfill-fees.ts` (mid-market rates dated 8 May 2026; update periodically).
+- Display prefers the **local currency literally on the page** (e.g., `£26,600/yr`), with the USD-converted amount as a secondary view via `formatFee(input, { withUsd: true })`. USD is derived from a static FX table in `verify-program.ts` + `backfill-fees.ts` + `estimate-fees.ts` (mid-market rates dated 8 May 2026; update periodically).
 - "Indicative" / "approximate" / "estimated" / "from" / "starting at" / "subject to review" labels on the fee figure mean it's published, just not contractual — those are valid and should be picked.
 - For multi-year totals, divide by the number of years to get the annual figure.
-- Coverage by country (10 May): UK 60% · SG 59% · MY/UAE 49% · AU 41% · FR 37% · NZ/NL/IE/CA 30% · DE 21% · USA 19%. Overall 36%.
+- **Provenance flag:** `tuition_fee_source: "verified" | "estimated"` on Program. Undefined / "verified" = extracted from the official program page. "estimated" = inferred from a credible secondary source (uni's central fees page, ranking aggregators, etc.) by `scripts/verify/estimate-fees.ts`. UI surfaces this as a Verified (emerald) / Estimated (amber) / Not available (rose) pill on ProgramCard + ComparePanel.
+- **ROI + Parent Decision tools:** refuse to calculate when `annual_tuition_usd` is null — show "Cannot calculate — tuition fee data not available" panel with a link to the official page. When the fee is `tuition_fee_source: "estimated"`, both tools render an amber caveat banner above the result: "Based on estimated tuition fee. The official program page didn't publish a fee, so this calculation uses a figure inferred from the university's central fees page or a credible secondary source. Confirm with the university before relying on these numbers."
+- Coverage by country (11 May): UK 60% · SG 59% · MY/UAE 49% · AU 41% · FR 36% · USA 32% (post-estimate-priority-run, 300 estimated) · NZ 33% · NL 29% · CA/IE 30% · DE 20%. Overall **39.2%**.
 
 > Brand port note: 5 May session ported 3 of 7 deep tool pages (`/roi-calculator`, `/parent-decision`, `/visa-coach`) using new `BrandNav` + `BrandHero` primitives (commits `0c24dc4c` + `cbf6c3d8`). User decided the remaining 4 (`/get-started`, `/application-check`, `/interview-prep`, `/english-test-lab`) need no change. Item closed at 3-of-7. Primitives stay available if a future change is wanted.
 

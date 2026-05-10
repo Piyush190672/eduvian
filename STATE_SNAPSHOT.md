@@ -1,11 +1,20 @@
 # EduvianAI — Comprehensive State Snapshot for Session Handoff
 
-**Last updated:** 10 May 2026 (handoff #10 — fee-completeness fix + 2,000-program backfill; expansion sweep A in flight)
+**Last updated:** 11 May 2026 (handoff #11 — Expansion A merged · Estimated-fee Layer 2/3 shipped · voice flow auto-listen + Stop button)
 **Purpose:** Zero-loss handoff between Claude Code sessions. A new session reading this should be able to continue *every* in-flight workstream correctly, respect all user preferences, and avoid all known gotchas.
 
-> **Pinned next-session priority:** **(1) Expansion sweep A is running** — NL/FR/DE UG Bachelor's seed-finder over 56 unis (PID may have changed; check `ps`). After it lands, sweeps B (SG/UAE/MY/IE depth), C (UK UG breadth at lower-ranked), D (Canada west/east) follow. Total ~$130-235 across A-D. Recipe + catalogs in §29.4. **(2) USA fee coverage stuck at 19.4%** — most US fee panels are JS-only; needs residential proxy or per-uni override layer to push higher. **(3) Architecture Phase 2** — still deferred. **(4) Marketing-opt-in / unsubscribe link / sample-PDF / 63-unverified cleanup.**
+> **CRITICAL on session start: A background process is likely still running.** The estimate-fees priority-country run (USA → Germany → Canada, ~3,108 entries) was kicked off ~14:50 on 11 May (PID 83743). Log at `/tmp/estimate-priority.log`. Run `ps aux | grep estimate-fees` first. Do NOT start anything else that competes for Anthropic API budget until it exits or is explicitly killed.
 
-> **What's NEW since handoff #9:** the fee-completeness gap (only 5-10% of programs had tuition stored) was fixed across three commits: `06d1f28f` (extractor now captures local currency + ISO code, converts to USD via static FX), `3b6dec06` (tab-click + linked-fees-page fetcher), `3c7229a3` (backfill of 2,000+ existing entries). Coverage rose from ~10% to **35.6% (2,724 / 7,642)** with UK/SG/MY/UAE all over 48%. See §29.
+> **Pinned next-session priority:** **(1)** Watch the estimate-fees run; when it exits, review counts and decide on next-country scope. **(2)** Voice sanity check on the live deploy — user reported during 11 May testing that name capture in UK still took 2 attempts and "say YES" took multiple; the fixes shipped (`91f9a54d` + `69a0c428` + `2fde5498`) should help once Vercel deploys, re-verify. **(3)** Block 2 expansions D / B / C in that order. **(4)** Block 3 (USA fee uplift via residential proxy + marketing flow + sample PDF + cleanup). **(5)** Block 4 security upgrades. See §30 for the full plan.
+
+> **What's NEW since handoff #10:**
+>
+> - **Expansion A merged (`32721df7`)** — NL/FR/DE UG sweep, +151 verified UG programs. Germany 219, France 77, Netherlands 43.
+> - **Estimated-fee Layer 2+3 shipped (`279279c9`)** — `tuition_fee_source` flag on Program, `estimate-fees.ts` script (Sonnet + web_search secondary sources), amber caveat banner in ROI + Parent when calc uses estimated fee. Layer 1 (no-calc guard) was `d07d3201`; provenance pill was `350a862a`.
+> - **Voice flow auto-listen (`91f9a54d`)** — name + YES capture switched from final-only to interim+stable (fixes "Piyush" / "yes" caught on first try); auto-listen on TTS end so no mic-button click; 650ms inter-segment pause skipped after last segment; nameRecogRef nulled on onend.
+> - **AU category auto-listen (`69a0c428`)** — same pattern for the AU category prompt.
+> - **Stop interview button + mic pre-warm (`2fde5498`)** — Stop button rendered during speaking/listening/review/feedback phases for all 3 countries; `getUserMedia` fires on InterviewSession mount so the mic is warm by the time the greeting ends.
+> - **Estimate-fees priority run** (in flight): USA done with 300 estimates landed already (USA fee coverage 19.4% → 31.9%). Continues through Germany then Canada.
 >
 > H7 Phase C is fully closed (schema dropped + writer patched against dev/preview hole + Sentry `8bfc0387` results-route 410 guard). Brand port partially done: 3 thin-wrapper pages (`/roi-calculator`, `/parent-decision`, `/visa-coach`) ported via new `BrandNav` + `BrandHero` primitives (commit `0c24dc4c`); ROI Calculator + ParentDecisionTool components retheme-flipped from dark/glass to light/white (`cbf6c3d8`). User then said the **remaining 4 pages need no change** — so item is closed at 3-of-7, not 7-of-7. Snapshot §26 is the locked as-shipped reference for any future page port.
 >
@@ -27,7 +36,7 @@ git status --short
 # 2. What's running in the background? (no tier chain currently expected)
 ps aux | grep -E "verify-program|verify-batch|websearch-seed|seed-crawler|re-verify" | grep -v grep
 
-# 3. Database scale check (expected: 7,642 programs, 7,579 verified, 12 countries)
+# 3. Database scale check (expected: 7,800 programs, 7,737 verified, 12 countries)
 python3 -c "
 import re
 from collections import Counter
@@ -278,9 +287,10 @@ USA, UK, Australia, Canada, New Zealand, Ireland, Germany, France, UAE, Singapor
 
 | | Value |
 |---|---:|
-| Last commit on main | `3c7229a3` — backfill-fees: 2,723 fees populated (35.6% coverage) · 428 verified Master's programs across 11 fields × QS Top-500 (8 May) |
-| Programs in DB | **7,642** |
-| Verified at source | **7,579** (99.2%) |
+| Last commit on main | `2fde5498` — Stop interview button + mic pre-warm (11 May) |
+| Programs in DB | **7,800** |
+| Verified at source | **7,737** (99.2%) |
+| With international tuition | **3,060 (39.2%)** — of which **309 estimated** via secondary sources (rest verified at source) |
 | Universities | **521** total / **511** with at least one verified program |
 | Countries | 12 |
 | Build | green |
@@ -297,23 +307,27 @@ USA, UK, Australia, Canada, New Zealand, Ireland, Germany, France, UAE, Singapor
 | Mobile UX | shipped — ~3500-4500px shorter homepage via stage selector compaction, Stage 1 mockup hidden, 4 stage accordions (Show Stage X details), test-lab grid 2-up, decorative blur blobs hidden (root cause of GPU-compositing scroll-flash) |
 | Google Postmaster Tools | verified for `eduvianai.com` — dashboards stay sparse at beta volume |
 
-### 3.1 Country breakdown (post fee-backfill, 10 May 2026)
+### 3.1 Country breakdown (post Expansion-A + estimate-fees-USA, 11 May 2026)
 
-| Country | Unis (total / verified) | Programs (total / verified) | Fee% |
-|---|---|---|---:|
-| USA | 135 / 134 | 2,402 / 2,371 | 19.4% |
-| UK | 110 / 110 | 1,817 / 1,809 | 60.0% |
-| Canada | 67 / 59 | 785 / 771 | 29.7% |
-| Germany | 54 / 54 | 700 / 698 | 20.7% |
-| Australia | 42 / 42 | 649 / 648 | 41.1% |
-| France | 38 / 38 | 370 / 368 | 37.3% |
-| Malaysia | 19 / 19 | 225 / 224 | 48.9% |
-| UAE | 18 / 17 | 173 / 170 | 48.6% |
-| New Zealand | 8 / 8 | 158 / 158 | 33.5% |
-| Netherlands | 10 / 10 | 140 / 140 | 30.7% (legacy — not in TARGET_COUNTRIES; merge.ts allowlist still includes it) |
-| Ireland | 10 / 10 | 132 / 132 | 30.3% |
-| Singapore | 10 / 10 | 91 / 90 | 59.3% |
-| **Total** | **521 / 511** | **7,642 / 7,579** | **35.6%** |
+The "Estimated" column counts entries with `tuition_fee_source: "estimated"` (Layer 2 secondary-source backfill); the rest of the fee% is verified-at-source.
+
+| Country | Unis (total / verified) | Programs (total / verified) | Fee% | Estimated |
+|---|---|---|---:|---:|
+| USA | 135 / 134 | 2,402 / 2,371 | 31.9% | 300 |
+| UK | 110 / 110 | 1,817 / 1,809 | 60.5% | 9 |
+| Canada | 67 / 59 | 785 / 771 | 29.7% | 0 |
+| Germany | 54 / 54 | 773 / 771 | 19.7% | 0 |
+| Australia | 42 / 42 | 649 / 648 | 41.1% | 0 |
+| France | 38 / 38 | 418 / 416 | 35.9% | 0 |
+| Malaysia | 19 / 19 | 225 / 224 | 48.9% | 0 |
+| UAE | 18 / 17 | 173 / 170 | 48.6% | 0 |
+| Netherlands | 10 / 10 | 177 / 177 | 28.8% (legacy — not in TARGET_COUNTRIES; merge.ts allowlist still includes it) | 0 |
+| New Zealand | 8 / 8 | 158 / 158 | 33.5% | 0 |
+| Ireland | 10 / 10 | 132 / 132 | 30.3% | 0 |
+| Singapore | 10 / 10 | 91 / 90 | 59.3% | 0 |
+| **Total** | **521 / 511** | **7,800 / 7,737** | **39.2%** | **309** |
+
+USA's 300 estimated entries came in mid-session (estimate-fees priority run still going on Germany + Canada when this snapshot was written). Expect Germany and Canada totals to climb once it lands.
 
 ### 3.1.1 Still-unverified breakdown (63 entries — cleanup queued in §20)
 
@@ -986,8 +1000,8 @@ These have been issued at various points and remain binding:
 
 | Path | What |
 |---|---|
-| `src/data/programs.ts` | THE database. **7,642 entries / 7,579 verified at source**. Has `// @ts-nocheck` directive (large data file). |
-| `src/data/db-stats.ts` | Auto-computes counts from PROGRAMS. Don't edit; recomputed on load. Public surfaces standardise on `verifiedProgramsLabel` (7,579+) and `verifiedUniversitiesLabel` (511+). |
+| `src/data/programs.ts` | THE database. **7,800 entries / 7,737 verified at source**. Has `// @ts-nocheck` directive (large data file). |
+| `src/data/db-stats.ts` | Auto-computes counts from PROGRAMS. Don't edit; recomputed on load. Public surfaces standardise on `verifiedProgramsLabel` (7,737+) and `verifiedUniversitiesLabel` (511+). |
 | `src/lib/types.ts` | Single source of truth for types. `TARGET_COUNTRIES` (12), `FIELDS_OF_STUDY` (18), `Program`, `StudentProfile`, `ScoredProgram`. |
 | `src/lib/scoring.ts` | The 9-signal `recommendPrograms()`. Tier thresholds: Safe 75-100, Reach 50-74, Ambitious <50. |
 | `src/lib/format-fee.ts` | The fee-unavailable rendering helpers. NEVER show $0. |
@@ -1313,26 +1327,27 @@ The current `/sample-parent-report` (committed in `6bf0eb8e`) is a static HTML p
 
 ---
 
-## §21 Latest dataset shape (10 May 2026 — post fee-backfill)
+## §21 Latest dataset shape (11 May 2026 — post Expansion-A + estimate-fees mid-run)
 
 | | Count |
 |---|---:|
-| Programs total | **7,642** |
-| Programs verified at source | **7,579** (99.2%) |
+| Programs total | **7,800** |
+| Programs verified at source | **7,737** (99.2%) |
 | Universities total | **521** |
 | Universities with at least one verified program | **511** (98%) |
 | Countries | 12 |
 | Fields of study | 18 |
-| Postgraduate share | 70.4% (5,377) |
-| Undergraduate share | 27.5% (2,105) |
-| **With international tuition** | **2,724 (35.6%)** |
-| With local-currency + ISO code metadata | 2,310 |
+| Postgraduate share | 69.1% (5,387) |
+| Undergraduate share | 28.8% (2,247) |
+| **With international tuition** | **3,060 (39.2%)** |
+| → of which estimated (secondary-source) | **309** |
+| → of which verified at source | **2,751** |
 
 `DB_STATS` exposes both totals AND verified counts, but **all public-facing surfaces now standardise on `verifiedProgramsLabel`** (commit `f2cf997b`). The dual-number inconsistency that surfaced earlier in this session (one section showing 4,485+, another 4,866+ from a stale cached deploy) is closed: there is one number on the homepage now, and it's the verified one.
 
-- `DB_STATS.verifiedProgramsLabel` ("7,579+") — used everywhere user-visible.
+- `DB_STATS.verifiedProgramsLabel` ("7,737+") — used everywhere user-visible.
 - `DB_STATS.verifiedUniversitiesLabel` ("511+") — for the "Verified Global Universities" stat.
-- `DB_STATS.programsLabel` ("7,642+") — internal-only; only `src/app/api/chat/route.ts` (the AISA system prompt) references it now, for accuracy when the AI answers "how many programs do you have?". **Don't reintroduce this in copy.**
+- `DB_STATS.programsLabel` ("7,800+") — internal-only; only `src/app/api/chat/route.ts` (the AISA system prompt) references it now, for accuracy when the AI answers "how many programs do you have?". **Don't reintroduce this in copy.**
 
 ---
 
@@ -1489,13 +1504,13 @@ This is the structure the user signed off on. Apply to `src/app/v2/page.tsx`, th
    - Subtext: the positioning statement (24.3).
    - Two CTAs: `Find my best-fit programs` (primary, violet) → `/get-started`. `Generate the family report` (secondary, ghost) → `/parent-decision`.
    - RHS: real sample-dashboard mockup (Top 20 shortlist with 5 sample rows, Safe/Reach/Ambitious tier pills using the semantic palette). NOT a photograph.
-   - Bottom: thin trust strip — `Independent · no university commission · 7,579+ programs · 511+ universities · 12 countries · Decision-support estimates`.
+   - Bottom: thin trust strip — `Independent · no university commission · 7,737+ programs · 511+ universities · 12 countries · Decision-support estimates`.
    - **Directly under hero**: parent strip in stone-50 with two cards:
      - For students: *"Find the right-fit course, improve your application, prepare for interviews."*
      - For parents: *"Compare cost, ROI, safety, visa readiness, and long-term value."*
 
 2. **Proof strip**
-   - 7,579+ verified programs · 511+ universities · 12 countries · No university commission · Official-source data.
+   - 7,737+ verified programs · 511+ universities · 12 countries · No university commission · Official-source data.
    - Editorial layout (large numbers + short description). White background, violet vertical accent bars on each stat.
 
 3. **Five-stage journey** — each card linking to relevant deeper page.
@@ -1873,5 +1888,77 @@ USA caps at 19% because most US fee panels are JS-only ("Cost & Financial Aid" t
 Documented in CLAUDE.md "Tuition fee policy" section. Key points: international/overseas student fee only (never domestic), local currency primary display, USD via static FX table for filtering/aggregation, "indicative" / "approximate" / "from" labels acceptable.
 
 **Estimated API spend for 29.2 + 29.3:** ~$250-350 (mostly the 5 backfill runs).
+
+---
+
+## §30 Session log — 10-11 May 2026 (handoff #11)
+
+Six commits over two days. Three workstreams: Expansion A (NL/FR/DE UG), Estimated-fee Layer 2/3, voice flow improvements + Stop-interview button.
+
+### 30.1 Expansion A merged (10 May → 11 May, `32721df7`)
+
+NL/FR/DE UG sweep over the 56 in-scope QS Top-500 unis with UG STEM/Biz gaps. 309 seed URLs from `ug-stem-biz-seed-finder.ts`; verify-batch hung on the last 9 of 199 fresh URLs (chromium contention, killed cleanly). 156 verified, 151 inserted (after dedup). UG totals: Germany 219 (+64), France 77 (+42), Netherlands 43 (+37). Per-country sweep code in `scripts/verify/catalogs/nl-fr-de-ug-target.json` and seeds in `scripts/verify/seeds/nl-fr-de-ug.json`.
+
+### 30.2 Estimated-fee Layer 2 + Layer 3 (11 May, `279279c9`)
+
+Closes the gap left by `3c7229a3` — the verified-at-source backfill recovered fees for ~36% of programs but the remaining ~64% had to either get fees from secondary sources or be marked as "no calc possible".
+
+Schema (types.ts): `Program.tuition_fee_source?: "verified" | "estimated"`. Undefined / "verified" = official program page (default). "estimated" = inferred from a credible secondary source.
+
+`scripts/verify/estimate-fees.ts`: per null-tuition entry, calls Sonnet 4.6 with `web_search` (max 5 uses) asking for INTERNATIONAL student tuition from credible sources in priority order — uni's central fees page → department fees page → QS / Times Higher Ed / US News → ministry pages → reputable portals as last resort. Reddit/Quora/blogs forbidden. At least 2 sources must agree OR a single highly-credible source must state it. Confidence "high" or "medium" required to write. Writes `tuition_fee_source: "estimated"` flag. Same FX_TO_USD table as `verify-program.ts` and `backfill-fees.ts`. Resume-friendly: skips entries already flagged "estimated".
+
+UI (commits earlier in this session log):
+- **Layer 1** — `d07d3201`: ROI Calculator + Parent Decision Tool refuse to compute when `annual_tuition_usd` is null. Render an amber "Cannot calculate — tuition fee data not available" panel with link to the official program page.
+- **Provenance pill** — `350a862a`: Verified (emerald) / Estimated (amber) / Not available (rose) badge on ProgramCard + ComparePanel "Fee provenance" row. `format-fee.ts` exports `getFeeStatus`, `FEE_STATUS_LABEL`, `FEE_STATUS_CLASS`.
+- **Layer 3 caveat banner** — `279279c9`: When ROI/Parent calc uses a fee with `tuition_fee_source === "estimated"`, an amber banner above the result reads "Based on estimated tuition fee. The official program page didn't publish a fee, so this calculation uses a figure inferred from the university's central fees page or a credible secondary source. Confirm with the university before relying on these numbers."
+
+UK pilot (30 entries) returned 9 estimates (1 high, 8 medium confidence; 20 skipped low/none, 1 error) — 30% recovery rate. Full priority run (USA → Germany → Canada, ~3,108 entries) launched ~14:50 11 May, kicked off at concurrency 4. **Mid-session snapshot:** USA done with 300 estimated entries → USA fee coverage jumped 19.4% → 31.9%. Germany + Canada not yet processed at time of snapshot; expect run to finish by ~22:00 same day.
+
+### 30.3 Voice flow — auto-listen + short-utterance fix (11 May, `91f9a54d` + `69a0c428`)
+
+User reports across 11 May testing: "still does not catch the name and one has to try 3-4 times"; "even when it asks to say 'YES' to begin UK interview, one has to say Yes 3-4 times"; "auto activation of the mic still takes a bit of time"; "Australia interview tool the same problem regarding catching the user Name; then it does not immediately catch which section the user wants to practice".
+
+Three layered fixes (`91f9a54d`):
+
+1. **Auto-listen on TTS end.** Greeting / "say YES" prompts now hand off to the listen helper as soon as the last segment ends — no mic-button click needed. Forward-refs (`autoListenNameRef`, `autoListenYesRef`) populated via useEffect after `tryListenName` / `tryListenForYes` exist. Buttons remain as fallback.
+2. **`speakSegments` fires onEnd immediately after last segment.** The 650ms inter-segment "breath" was applied even after the final segment, adding 650ms of dead air before auto-listen could start. Pause stays for between-segments only.
+3. **Short-utterance capture in `listenOnce`.** `interimResults` stays TRUE in nameMode (was false). With Chrome + `continuous=false`, short utterances like "Piyush" sometimes never fire `final`, or fire final with empty transcript. Without interim, the 6s safety timer fired with empty `lastInterim` and sent the user into a 3-4-try loop. Stable-interim window shortened to 700ms in nameMode (was 1200ms) since names are short. Empty-final fallback to `lastInterim`. `nameRecogRef` nulled on `onend` so subsequent calls don't try to abort a dead instance ("aborted" console noise).
+
+`69a0c428`: same pattern extended to AU category prompt — `tryListenForCategory` lifted to a parent-level useCallback, auto-listens after "Which one shall we start with?" finishes. USA section picker deliberately doesn't auto-listen (its prompt doesn't enumerate sections by number, so voice-only selection would be ambiguous).
+
+### 30.4 Stop interview button + mic pre-warm (11 May, `2fde5498`)
+
+Two requests user surfaced toward end of session:
+
+**Stop interview button.** Rose-tinted ghost button with X icon, visible during `speaking | listening | review | feedback` phases for all three countries. `handleStopInterview` shows confirm dialog with "X of Y answered, Z remaining"; on accept, cancels TTS, aborts active recogs, jumps to `phase === "complete"`. Existing complete screen handles partial answers (renders X/Y count, groups by category).
+
+**Mic pre-warm.** New useEffect on InterviewSession mount fires `getUserMedia({ audio: true })` immediately after country select. Holds the stream open for 200ms to fully warm the audio device, then releases. By the time the greeting ends (~5-8s) and auto-listen fires, permission grant is cached and mic device is warm — first `listenOnce()` skips both the permission prompt AND the 150ms post-grant settle, saving ~300-500ms on first recognition. Idempotent (`micPermissionGrantedRef` guard); cleanup stops the stream if pre-warm hadn't completed.
+
+User reported toward end of session that name+YES still took multiple attempts during testing. Resolution unclear — may be that the user tested before all three voice commits had deployed to Vercel, may be a residual bug. Re-verification on a clean Vercel deploy is the first thing the next session should do.
+
+### 30.5 Combined impact (since handoff #10)
+
+| | After #10 (10 May) | Now (11 May) | Δ |
+|---|---:|---:|---:|
+| Programs total | 7,642 | **7,800** | +158 |
+| Verified | 7,579 | **7,737** | +158 |
+| With tuition | 2,724 (35.6%) | **3,060 (39.2%)** | +336 (+3.6pp) |
+| → estimated (Layer 2) | 0 | **309** | +309 |
+| Architecture | 274 | 274 (unchanged) | — |
+| UG share | 27.5% | 28.8% | +1.3pp |
+
+### 30.6 Background process running on session start
+
+`scripts/verify/estimate-fees.ts --country USA --concurrency 4` (PID 83743 at snapshot time). Wrapper script chains USA → Germany → Canada. Log: `/tmp/estimate-priority.log`. **First action for next session: check whether it's still running**, decide whether to wait, monitor, or kill based on log progress.
+
+### 30.7 Open items the user testing surfaced (not yet fixed)
+
+1. **UK name capture: 2 attempts.** User report 11 May during testing of `91f9a54d`. May resolve once `2fde5498` (mic pre-warm) reaches Vercel. Re-test required.
+2. **UK "say YES": multiple attempts.** Same as above.
+3. **AU category select: doesn't immediately catch which section.** `69a0c428` adds auto-listen for this; same Vercel-deploy timing question.
+
+If still failing post-deploy: the next move is to read DevTools Console for `[interview-prep]` lines — the diagnostic logging from `19c230c8` is still in. Don't add more layers without seeing the new error code first.
+
+**Estimated API spend in 30.2 (priority estimate-fees so far):** ~$30-50 of ~$300-450 total when run completes.
 
 
