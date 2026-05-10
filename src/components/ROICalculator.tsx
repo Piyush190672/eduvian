@@ -28,6 +28,7 @@ interface ProgramEntry {
   avg_living_cost_usd: number;
   duration_months: number;
   program_url?: string;
+  tuition_fee_source?: "verified" | "estimated";
 }
 
 const ALL_PROGRAMS = PROGRAMS as unknown as ProgramEntry[];
@@ -205,6 +206,7 @@ export default function ROICalculator() {
   const tuitionAvailable = selectedProgram !== null
     && typeof selectedProgram.annual_tuition_usd === "number"
     && selectedProgram.annual_tuition_usd > 0;
+  const tuitionEstimated = selectedProgram?.tuition_fee_source === "estimated";
   const canCalculate = selectedProgram !== null && salary > 0 && tuitionAvailable;
 
   const results = useMemo(() => {
@@ -623,6 +625,16 @@ export default function ROICalculator() {
                   initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
                   className="space-y-4"
                 >
+                  {/* Estimated-fee caveat banner */}
+                  {tuitionEstimated && (
+                    <div className="bg-amber-50 border border-amber-200 rounded-2xl px-5 py-3 flex items-start gap-3">
+                      <Info className="w-4 h-4 text-amber-700 flex-shrink-0 mt-0.5" />
+                      <div className="text-xs text-amber-900 leading-relaxed">
+                        <span className="font-bold">Based on estimated tuition fee.</span> The official program page didn&apos;t publish a fee, so this calculation uses a figure inferred from the university&apos;s central fees page or a credible secondary source. Confirm with the university before relying on these numbers.
+                      </div>
+                    </div>
+                  )}
+
                   {/* Header */}
                   <div className="bg-stone-50 border border-stone-200 rounded-2xl px-5 py-4 flex items-center gap-3">
                     <span className="text-2xl flex-shrink-0">{matchedUni?.flag ?? "🎓"}</span>

@@ -99,6 +99,12 @@ export interface Program {
   annual_tuition_amount?: number | null;
   /** ISO 4217 currency code matching annual_tuition_amount (GBP, EUR, USD…). */
   annual_tuition_currency?: string | null;
+  /** Provenance of the tuition figure:
+   *  - undefined / "verified": extracted from the official program page (default).
+   *  - "estimated": inferred from a credible secondary source (uni's central
+   *    fees page, ranking sites, accreditor pages). UI surfaces this as an
+   *    amber "Estimated" pill and ROI/Parent show a caveat banner. */
+  tuition_fee_source?: "verified" | "estimated";
   avg_living_cost_usd: number;
   avg_living_cost_amount?: number | null;
   avg_living_cost_currency?: string | null;

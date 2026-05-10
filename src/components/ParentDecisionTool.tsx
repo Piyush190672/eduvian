@@ -27,6 +27,7 @@ interface ProgramEntry {
   avg_living_cost_usd: number;
   duration_months: number;
   program_url?: string;
+  tuition_fee_source?: "verified" | "estimated";
 }
 
 type QualityLevel = "Excellent" | "Good" | "Concerning";
@@ -219,6 +220,7 @@ export default function ParentDecisionTool() {
   const tuitionAvailable = selectedProgram !== null
     && typeof selectedProgram.annual_tuition_usd === "number"
     && selectedProgram.annual_tuition_usd > 0;
+  const tuitionEstimated = selectedProgram?.tuition_fee_source === "estimated";
 
   // Auto-calculate result as soon as uni + program selected (and tuition known)
   const result = useMemo(() => {
@@ -563,6 +565,16 @@ export default function ParentDecisionTool() {
                 </motion.div>
               ) : (
                 <motion.div key="result" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35 }} className="space-y-4">
+
+                  {/* Estimated-fee caveat banner */}
+                  {tuitionEstimated && (
+                    <div className="bg-amber-50 border border-amber-200 rounded-2xl px-5 py-3 flex items-start gap-3">
+                      <Info className="w-4 h-4 text-amber-700 flex-shrink-0 mt-0.5" />
+                      <div className="text-xs text-amber-900 leading-relaxed">
+                        <span className="font-bold">Based on estimated tuition fee.</span> The official program page didn&apos;t publish a fee, so this verdict uses a figure inferred from the university&apos;s central fees page or a credible secondary source. Confirm with the university before relying on these numbers.
+                      </div>
+                    </div>
+                  )}
 
                   {/* Recommendation banner */}
                   <div className={`rounded-3xl border p-6 ${recStyle!.outer}`}>
