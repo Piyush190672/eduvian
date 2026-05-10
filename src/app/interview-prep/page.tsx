@@ -25,6 +25,8 @@ interface SpeechRecognitionShim extends EventTarget {
   onresult: ((event: SpeechRecognitionEventShim) => void) | null;
   onerror: ((event: SpeechRecognitionErrorEventShim) => void) | null;
   onend: (() => void) | null;
+  onstart?: (() => void) | null;
+  onaudiostart?: (() => void) | null;
 }
 interface SpeechRecognitionCtor { new(): SpeechRecognitionShim; }
 
@@ -666,6 +668,78 @@ function useTTS(country: Country) {
   return { speak, speakSegments, cancel };
 }
 
+// ─── Voice helpers (mic-stream hold + SR prime + listening cue) ────────────────
+// Background: SpeechRecognition has a per-instance pipeline cold-start of
+// ~500-1000ms on Chrome desktop (longer on iOS Safari) on the FIRST .start()
+// of an origin-session. Pre-warming the audio stream via getUserMedia warms
+// the audio device but does NOT warm SR's pipeline. The user perceives the
+// dead window as "I have to speak 2-3 times before it picks me up". Two
+// fixes below: (a) prime the SR pipeline once at session mount so subsequent
+// .start()s are warm, (b) play an audible cue at onaudiostart so the user
+// has a trustworthy "speak now" signal — UI text alone is not enough.
+
+let _audioCtx: AudioContext | null = null;
+function playListeningCue() {
+  if (typeof window === "undefined") return;
+  try {
+    const Ctor = (window as typeof window & { AudioContext?: typeof AudioContext; webkitAudioContext?: typeof AudioContext }).AudioContext
+              ?? (window as typeof window & { AudioContext?: typeof AudioContext; webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
+    if (!Ctor) return;
+    if (!_audioCtx) _audioCtx = new Ctor();
+    if (_audioCtx.state === "suspended") void _audioCtx.resume();
+    const ctx = _audioCtx;
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.frequency.value = 880;
+    osc.type = "sine";
+    // Short envelope: 5ms attack, 60ms hold, 25ms release. Quiet (0.08).
+    const now = ctx.currentTime;
+    gain.gain.setValueAtTime(0, now);
+    gain.gain.linearRampToValueAtTime(0.08, now + 0.005);
+    gain.gain.setValueAtTime(0.08, now + 0.065);
+    gain.gain.linearRampToValueAtTime(0, now + 0.090);
+    osc.connect(gain).connect(ctx.destination);
+    osc.start(now);
+    osc.stop(now + 0.10);
+  } catch {
+    /* cue is best-effort; never block recognition on it */
+  }
+}
+
+// Prime Chrome's SpeechRecognition pipeline once. Construct an instance,
+// briefly start it, wait for onstart (or onaudiostart), then abort. After
+// this returns, subsequent SR .start() calls in the same origin-session
+// warm in <100ms instead of 500-1000ms. Idempotent via the caller's ref.
+function primeRecognition(): Promise<void> {
+  return new Promise((resolve) => {
+    if (typeof window === "undefined") { resolve(); return; }
+    const win = window as typeof window & { SpeechRecognition?: SpeechRecognitionCtor; webkitSpeechRecognition?: SpeechRecognitionCtor };
+    const Ctor = win.SpeechRecognition || win.webkitSpeechRecognition;
+    if (!Ctor) { resolve(); return; }
+    let done = false;
+    const finish = () => {
+      if (done) return;
+      done = true;
+      try { recog.abort(); } catch { /* ignore */ }
+      resolve();
+    };
+    const recog = new Ctor();
+    recog.continuous = false;
+    recog.interimResults = false;
+    recog.lang = "en-US";
+    // Either onstart or onaudiostart is sufficient — Chrome fires onstart
+    // first; some Safari builds skip onaudiostart entirely.
+    recog.onstart = () => { setTimeout(finish, 50); };
+    (recog as SpeechRecognitionShim & { onaudiostart?: () => void }).onaudiostart = () => { setTimeout(finish, 50); };
+    recog.onerror = finish;
+    recog.onend = finish;
+    // Hard ceiling — never let priming hang the session if start() never
+    // fires onstart (rare iOS Safari glitch).
+    setTimeout(finish, 1500);
+    try { recog.start(); } catch { finish(); }
+  });
+}
+
 // ─── Waveform ──────────────────────────────────────────────────────────────────
 
 function Waveform({ active, color }: { active: boolean; color: string }) {
@@ -1294,6 +1368,13 @@ function InterviewSession({
   // a re-render fires the listening useEffect twice while getUserMedia is
   // still awaiting) don't both create recogs and abort each other.
   const startingRef = useRef<boolean>(false);
+  // Held mic stream + SR-pipeline-primed flag. The pre-warm useEffect below
+  // grabs an audio stream and KEEPS IT OPEN for the lifetime of the session
+  // (rather than releasing after 200ms), then primes Chrome's SpeechRecognition
+  // pipeline once. Together they eliminate the cold-start window that made
+  // the first user utterance get dropped ("had to speak 2-3 times").
+  const prewarmStreamRef = useRef<MediaStream | null>(null);
+  const srPrimedRef = useRef<boolean>(false);
   // Forward-ref handles for the auto-listen helpers (tryListenName /
   // tryListenForYes are declared further down the file but the auto-speak
   // useEffects above need to invoke them when TTS ends). We assign these
@@ -1311,19 +1392,21 @@ function InterviewSession({
     }
   }, []);
 
-  // ── Mic pre-warm ────────────────────────────────────────────────────────────
-  // Request mic permission on session start (right after country select)
-  // BEFORE the greeting starts speaking. By the time the greeting ends and
-  // auto-listen fires, the permission grant is cached, the mic device is
-  // warm, and the first listenOnce() skips both the permission prompt and
-  // the 150ms post-grant settle. Saves ~300-500ms on the very first
-  // recognition attempt (which the user perceives as "mic takes a moment
-  // to activate"). Idempotent: the inner check on micPermissionGrantedRef
-  // means re-renders don't re-prompt.
+  // ── Mic pre-warm + SR pipeline prime ───────────────────────────────────────
+  // Two-stage warm-up at session mount:
+  //   1. Grab a getUserMedia stream and KEEP IT OPEN for the session. This
+  //      pins the audio device hot — SR's internal stream re-acquisition
+  //      becomes a no-op rather than a 50-150ms cold path.
+  //   2. Prime SpeechRecognition's pipeline (briefly start+abort an SR
+  //      instance) so Chrome's recognizer connection is cached. Without
+  //      this, the first .start() of the session has a 500-1000ms dead
+  //      window during which audio is dropped, which the user perceives
+  //      as "had to speak 2-3 times before it picked me up".
+  // Stream is released on unmount via the cleanup useEffect below.
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      if (micPermissionGrantedRef.current) return;
+      if (micPermissionGrantedRef.current && srPrimedRef.current) return;
       if (typeof navigator === "undefined" || !navigator?.mediaDevices?.getUserMedia) return;
       try {
         const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
@@ -1331,19 +1414,29 @@ function InterviewSession({
           stream.getTracks().forEach((t) => t.stop());
           return;
         }
-        // Hold the stream open briefly to fully warm the audio device, then
-        // release. SpeechRecognition reacquires the device almost
-        // instantly afterwards.
-        await new Promise((r) => setTimeout(r, 200));
-        stream.getTracks().forEach((t) => t.stop());
+        prewarmStreamRef.current = stream;
         micPermissionGrantedRef.current = true;
+        // Prime SR while the stream is hot. Awaiting is fine — primeRecognition
+        // has its own 1.5s ceiling and the user is still reading the page.
+        if (!srPrimedRef.current) {
+          await primeRecognition();
+          if (cancelled) return;
+          srPrimedRef.current = true;
+        }
       } catch (e) {
         // User denied or device unavailable. Listening will surface a
         // clear error when the user actually tries it.
         console.warn("[interview-prep] mic pre-warm failed:", (e as Error).name);
       }
     })();
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+      const s = prewarmStreamRef.current;
+      if (s) {
+        s.getTracks().forEach((t) => t.stop());
+        prewarmStreamRef.current = null;
+      }
+    };
   }, []);
 
   // ── Cleanup ─────────────────────────────────────────────────────────────────
@@ -1486,6 +1579,14 @@ function InterviewSession({
       }, 3000);
     };
 
+    // Audible cue when SR is actually capturing audio. onaudiostart fires
+    // when the engine has acquired the mic AND begun processing — that's
+    // the only signal a user can trust as "speak now". Fallback to onstart
+    // for browsers (some Safari builds) that skip onaudiostart.
+    let cuedQ = false;
+    const cueOnceQ = () => { if (!cuedQ) { cuedQ = true; playListeningCue(); } };
+    recog.onaudiostart = cueOnceQ;
+    recog.onstart = () => { setTimeout(cueOnceQ, 120); };
     recog.onresult = (event: SpeechRecognitionEventShim) => {
       let interim = "";
       let gotFinal = false;
@@ -1622,6 +1723,15 @@ function InterviewSession({
     let fired = false;
     let lastInterim = "";
     let stableTimer: ReturnType<typeof setTimeout> | null = null;
+
+    // Audible "speak now" cue — fires when SR has actually acquired the
+    // mic (onaudiostart). The UI text already flipped to "Listening…" via
+    // onStateChange(true), but on a cold-start that flag fires before
+    // the engine is capturing — the cue is the trustworthy signal.
+    let cuedN = false;
+    const cueOnceN = () => { if (!cuedN) { cuedN = true; playListeningCue(); } };
+    recog.onaudiostart = cueOnceN;
+    recog.onstart = () => { setTimeout(cueOnceN, 120); };
 
     const fireResult = (text: string) => {
       if (fired) return;
