@@ -263,7 +263,7 @@ export default function V2LandingPage() {
         <div className="max-w-7xl mx-auto px-6 sm:px-10 pt-28 sm:pt-36 pb-16 sm:pb-20 grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           <div className="lg:col-span-7">
             <p className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.25em] text-violet-300/85 mb-8 font-semibold">
-              <Sparkles className="w-3 h-3" /> Independent, AI-powered study-abroad decision intelligence
+              <Sparkles className="w-3 h-3" /> Independent AI-powered study-abroad decision intelligence
             </p>
             <h1 className="font-display font-bold text-[2.25rem] leading-[1.08] sm:text-5xl md:text-[3.75rem] tracking-tight mb-7">
               You only get to decide this <span className="italic font-medium text-violet-300">once</span>.
