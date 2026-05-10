@@ -266,10 +266,10 @@ export default function V2LandingPage() {
               <Sparkles className="w-3 h-3" /> Independent · source-verified · AI-powered
             </p>
             <h1 className="font-display font-bold text-[2.25rem] leading-[1.08] sm:text-5xl md:text-[3.75rem] tracking-tight mb-7">
-              Choose your study abroad path with <span className="italic font-medium text-violet-300">verified data you can trust</span>.
+              You only get to decide this <span className="italic font-medium text-violet-300">once</span>.
             </h1>
             <p className="text-lg sm:text-xl text-white/65 leading-relaxed max-w-2xl mb-10">
-              EduvianAI gives students and families an AI-powered, independent, data-backed layer of clarity before they make high-stakes study abroad decisions.
+              Course, country, cost, visa risk, ROI, safety — every question your family asks, answered from source-verified data, honest about the trade-offs. Say yes with conviction.
             </p>
             <div className="flex flex-wrap items-center gap-x-3 gap-y-3">
               <Link
