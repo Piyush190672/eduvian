@@ -587,7 +587,12 @@ function useTTS(country: Country) {
         if (voice) utter.voice = voice;
         utter.onend = () => {
           didRetry = false;
-          setTimeout(speakNext, 650);
+          // 650ms breath between SEGMENTS only — when this is the last
+          // segment, advance immediately so any auto-listen logic doesn't
+          // sit waiting an extra 650ms with the user thinking the mic
+          // isn't working. speakNext is still the single source of
+          // onEnd?.() to avoid double-fire.
+          setTimeout(speakNext, i >= segments.length ? 0 : 650);
         };
         utter.onerror = (e) => {
           const code = (e as SpeechSynthesisErrorEvent).error ?? "unknown";
@@ -1289,6 +1294,13 @@ function InterviewSession({
   // a re-render fires the listening useEffect twice while getUserMedia is
   // still awaiting) don't both create recogs and abort each other.
   const startingRef = useRef<boolean>(false);
+  // Forward-ref handles for the auto-listen helpers (tryListenName /
+  // tryListenForYes are declared further down the file but the auto-speak
+  // useEffects above need to invoke them when TTS ends). We assign these
+  // in a useEffect after the helpers exist; by the time TTS fires onEnd,
+  // they're populated.
+  const autoListenNameRef = useRef<(() => void) | null>(null);
+  const autoListenYesRef = useRef<(() => void) | null>(null);
 
   // ── Check STT support ───────────────────────────────────────────────────────
   useEffect(() => {
@@ -1308,6 +1320,10 @@ function InterviewSession({
   }, [cancel]);
 
   // ── AUTO-SPEAK: greet and ask for name when session starts ───────────────────
+  // After the greeting finishes, the mic auto-activates for name capture so
+  // the user doesn't have to find and click a microphone button. Listening
+  // helpers are declared further down the file but referenced via closure
+  // — by the time the effect fires, they're stable.
   useEffect(() => {
     if (phase !== "name" || mode === "text") return;
     const greeting = country === "australia"
@@ -1315,7 +1331,10 @@ function InterviewSession({
       : country === "usa"
       ? "Hello! Welcome to your US F-1 visa interview practice! I am here to help you get ready for your consulate appointment. Let us start — could you please tell me your name?"
       : "Hello! Welcome! I am absolutely delighted to help you prepare for your UK credibility interview today. Could you please tell me your name?";
-    const t = setTimeout(() => speak(greeting), 400);
+    const t = setTimeout(() => speak(greeting, () => {
+      // Auto-listen for the name as soon as TTS finishes.
+      autoListenNameRef.current?.();
+    }), 400);
     return () => clearTimeout(t);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [phase]);
@@ -1324,7 +1343,10 @@ function InterviewSession({
   useEffect(() => {
     if (phase !== "uk_confirm" || !studentName || mode === "text") return;
     const msg = `Wonderful, ${studentName}! It is so great to meet you! I am here to help you absolutely nail your UK credibility interview. When you are ready to begin, just say YES and we will get started!`;
-    const t = setTimeout(() => speak(msg), 300);
+    const t = setTimeout(() => speak(msg, () => {
+      // Auto-listen for "YES" as soon as TTS finishes.
+      autoListenYesRef.current?.();
+    }), 300);
     return () => clearTimeout(t);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [phase]);
@@ -1544,10 +1566,14 @@ function InterviewSession({
     if (!Ctor) return;
     const recog = new Ctor() as SpeechRecognitionShim & { maxAlternatives?: number };
     recog.continuous = false;
-    // In nameMode we disable interim results to avoid partial-result noise, and
-    // rely on the final result only. For category/YES we keep interim results so
-    // the stable-interim timer can fire quickly.
-    recog.interimResults = !nameMode;
+    // 11 May 2026: keep interimResults=true even in nameMode. The previous
+    // "final-only" approach failed on short utterances ("Piyush", 0.5s):
+    // Chrome with continuous=false sometimes never fires `final`, or fires
+    // final with an empty transcript. Without interim, the safety timer hit
+    // 6s and fired with empty lastInterim, sending the user into a 3-4-try
+    // retry loop. With interim on + a short stable-interim timer, we fire
+    // ~700ms after the user stops speaking — works for short names.
+    recog.interimResults = true;
     if (nameMode) recog.maxAlternatives = 3;
     // Use en-US for best recognition accuracy; Indian names are well supported
     recog.lang = "en-US";
@@ -1576,34 +1602,37 @@ function InterviewSession({
         const r = event.results[i];
 
         if (r.isFinal) {
-          // In nameMode: try each alternative in order until we find a non-empty one.
-          // This helps when the primary transcript is empty or very short.
+          // Try each alternative in order until we find a non-empty one (in
+          // nameMode we explicitly asked for 3 alternatives, so this
+          // routinely recovers when the primary alt is empty).
           let best = "";
-          if (nameMode) {
-            for (let a = 0; a < r.length; a++) {
-              const alt = r[a]?.transcript?.trim().replace(/\.$/, "") ?? "";
-              if (alt.length >= 1) { best = alt; break; }
-            }
-          } else {
-            best = r[0]?.transcript?.trim().replace(/\.$/, "") ?? "";
+          for (let a = 0; a < r.length; a++) {
+            const alt = r[a]?.transcript?.trim().replace(/\.$/, "") ?? "";
+            if (alt.length >= 1) { best = alt; break; }
           }
+          // If final came back empty, fall back to the most recent interim —
+          // Chrome's "empty final" bug shouldn't strand the caller.
+          if (!best && lastInterim.trim()) best = lastInterim.trim();
           if (!best && !nameMode) continue; // non-name mode: skip empty finals
           // Final result — fire immediately (accept even low-confidence for names)
           fireResult(best);
           return;
         } else {
-          // Interim result (nameMode=false only, since interimResults=false in nameMode)
+          // Interim result — update latest and arm the stable-interim timer
           const text = r[0]?.transcript?.trim().replace(/\.$/, "") ?? "";
           if (!text) continue;
-          // Interim result — update latest and reset stable timer
           lastInterim = text;
           if (stableTimer) clearTimeout(stableTimer);
-          // If interim hasn't changed in 1.2s, treat it as stable and accept it
+          // Shorter stable window in nameMode (700ms) since names are short
+          // and the user expects fast acknowledgement; 1200ms for category /
+          // YES / longer phrases.
+          const stableMs = nameMode ? 700 : 1200;
+          const minLen = nameMode ? 2 : 2;
           stableTimer = setTimeout(() => {
-            if (!fired && lastInterim.trim().length >= 2) {
+            if (!fired && lastInterim.trim().length >= minLen) {
               fireResult(lastInterim.trim());
             }
-          }, 1200);
+          }, stableMs);
         }
       }
     };
@@ -1624,8 +1653,14 @@ function InterviewSession({
         fired = true;
         onResult(lastInterim.trim());
       }
+      // Null the ref so the next listenOnce doesn't try to abort a dead
+      // instance (which produces benign-but-noisy "aborted" errors).
+      if (nameRecogRef.current === recog) nameRecogRef.current = null;
     };
     nameRecogRef.current = recog;
+    // Mark this as a fresh nameMode start by stashing the start time —
+    // helps the auto-listen useEffect avoid re-arming a fresh recog.
+    void nameRecogRef;
     setSttError(null);
     try {
       recog.start();
@@ -1636,6 +1671,58 @@ function InterviewSession({
       nameRecogRef.current = null;
     }
   }, [sttSupported, cancel]);
+
+  // ── Auto-listen helpers (lifted from button click handlers 11 May 2026) ────
+  // The greeting / "say YES" prompts now auto-listen the moment TTS finishes,
+  // so the user doesn't have to click a Mic button. Both helpers stay
+  // available to the manual buttons too.
+  const tryListenName = useCallback((isRetry: boolean) => {
+    listenOnce(
+      (text) => {
+        const name = extractName(text);
+        if (name.length < 2 && !isRetry) {
+          speak(
+            "I didn't catch that — could you say your name again?",
+            () => tryListenName(true),
+          );
+          return;
+        }
+        if (!name) return;
+        setNameInput(name);
+        cancel();
+        setStudentName(name);
+        setPhase(country === "uk" ? "uk_confirm" : country === "usa" ? "usa_section" : "category");
+      },
+      setNameListening,
+      true, // nameMode
+    );
+  }, [listenOnce, extractName, speak, cancel, country]);
+
+  const tryListenForYes = useCallback(() => {
+    listenOnce(
+      (text) => {
+        if (/yes/i.test(text)) {
+          // Inline handleUkConfirm to avoid temporal-dead-zone (it's
+          // declared lower in the file).
+          setActiveQuestions(UK_SEQUENCE);
+          setSessionLabel("Full Interview · 14 Questions");
+          setQIndex(0);
+          setAnswers([]);
+          speakQuestion(UK_SEQUENCE[0].question);
+        } else {
+          setUkConfirmInput(text);
+        }
+      },
+      setYesListening,
+    );
+  }, [listenOnce, speakQuestion]);
+
+  // Wire the forward-refs so the auto-speak useEffects above can invoke the
+  // listen helpers without import-order / temporal-dead-zone issues.
+  useEffect(() => {
+    autoListenNameRef.current = () => tryListenName(false);
+    autoListenYesRef.current = tryListenForYes;
+  }, [tryListenName, tryListenForYes]);
 
   // ── Fetch AI feedback ───────────────────────────────────────────────────────
   const fetchFeedback = useCallback(async (question: string, objective: string, t: string) => {
@@ -1890,36 +1977,12 @@ function InterviewSession({
             <p className="text-sm font-medium text-indigo-900 leading-relaxed">{coachText}</p>
           </div>
 
-          {/* Speak name — auto-advances immediately on detection */}
+          {/* Speak name — auto-advances immediately on detection. Auto-fires
+              once on greeting end via the useEffect above; this manual button
+              stays so the user can re-trigger if they fluffed the first try. */}
           {sttSupported && (
             <button
-              onClick={() => {
-                // nameMode=true: interimResults off, maxAlternatives=3, tries all alts
-                const tryListenName = (isRetry: boolean) => {
-                  listenOnce(
-                    (text) => {
-                      const name = extractName(text);
-                      // If name is too short (< 2 chars) and this isn't already a retry,
-                      // speak a gentle prompt and listen once more
-                      if (name.length < 2 && !isRetry) {
-                        speak(
-                          "I didn't catch that — could you say your name again?",
-                          () => tryListenName(true),
-                        );
-                        return;
-                      }
-                      if (!name) return;
-                      setNameInput(name);
-                      cancel();
-                      setStudentName(name);
-                      setPhase(country === "uk" ? "uk_confirm" : country === "usa" ? "usa_section" : "category");
-                    },
-                    setNameListening,
-                    true, // nameMode
-                  );
-                };
-                tryListenName(false);
-              }}
+              onClick={() => tryListenName(false)}
               className={`w-full flex items-center justify-center gap-2 py-3 rounded-xl border-2 mb-3 text-sm font-semibold transition-all ${
                 nameListening
                   ? "border-rose-400 bg-rose-50 text-rose-600 animate-pulse"
@@ -1977,16 +2040,11 @@ function InterviewSession({
             <p className="text-sm font-medium text-rose-900 leading-relaxed">{coachPrompt}</p>
           </div>
 
-          {/* Speak YES */}
+          {/* Speak YES — auto-fires on TTS end via the useEffect above; this
+              manual button stays as a fallback for re-trigger. */}
           {sttSupported && (
             <button
-              onClick={() => listenOnce(
-                (text) => {
-                  if (/yes/i.test(text)) handleUkConfirm();
-                  else setUkConfirmInput(text);
-                },
-                setYesListening
-              )}
+              onClick={tryListenForYes}
               className={`w-full flex items-center justify-center gap-2 py-3 rounded-xl border-2 mb-3 text-sm font-semibold transition-all ${
                 yesListening
                   ? "border-rose-400 bg-rose-50 text-rose-600 animate-pulse"
