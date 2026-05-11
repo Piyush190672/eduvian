@@ -1,0 +1,530 @@
+[
+  {
+    "university": "University of Oxford",
+    "country": "UK",
+    "city": "Oxford",
+    "qs_ranking": 4,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.ox.ac.uk/admissions/graduate/courses/mfa-fine-art"
+  },
+  {
+    "university": "Nanyang Technological University",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": 12,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.ntu.edu.sg/education/graduate-programme/master-of-arts-(research)"
+  },
+  {
+    "university": "University of Chicago",
+    "country": "USA",
+    "city": "Chicago, IL",
+    "qs_ranking": 21,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://arthistory.uchicago.edu/undergraduate/architectural-studies"
+  },
+  {
+    "university": "Johns Hopkins University",
+    "country": "USA",
+    "city": "Baltimore, MD",
+    "qs_ranking": 23,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://e-catalogue.jhu.edu/peabody/degree-diploma-programs/master-arts-degree/"
+  },
+  {
+    "university": "\u00c9cole Normale Sup\u00e9rieure (ENS)",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 26,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://archives.diffusion.ens.fr/index.php"
+  },
+  {
+    "university": "Australian National University",
+    "country": "Australia",
+    "city": "Canberra",
+    "qs_ranking": 30,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://programsandcourses.anu.edu.au/program/mdesn"
+  },
+  {
+    "university": "Monash University",
+    "country": "Australia",
+    "city": "Melbourne",
+    "qs_ranking": 36,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.monash.edu/study/courses/find-a-course/architecture-f6001"
+  },
+  {
+    "university": "King's College London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 40,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/arts-and-cultural-management-ma"
+  },
+  {
+    "university": "London School of Economics",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 50,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.lse.ac.uk/study-at-lse/Graduate/degree-programmes-2021/MSc-City-Design-and-Social-Science"
+  },
+  {
+    "university": "Northwestern University",
+    "country": "USA",
+    "city": "Evanston, IL",
+    "qs_ranking": 50,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://design.northwestern.edu/programs/masters-degree.html"
+  },
+  {
+    "university": "University of Bristol",
+    "country": "UK",
+    "city": "Bristol",
+    "qs_ranking": 54,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.bristol.ac.uk/study/postgraduate/taught/ma-immersive-arts-virtual-and-augmented-reality/"
+  },
+  {
+    "university": "University of California, San Diego",
+    "country": "USA",
+    "city": "La Jolla, CA",
+    "qs_ranking": 67,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://visarts.ucsd.edu/grad/admissions/mfa.html"
+  },
+  {
+    "university": "University of Warwick",
+    "country": "UK",
+    "city": "Coventry",
+    "qs_ranking": 67,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://warwick.ac.uk/study/undergraduate/courses/basc-design-for-sustainable-innovation/"
+  },
+  {
+    "university": "University of Glasgow",
+    "country": "UK",
+    "city": "Glasgow",
+    "qs_ranking": 78,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.gla.ac.uk/undergraduate/degrees/civilengineeringwitharchitecture/"
+  },
+  {
+    "university": "University of Birmingham",
+    "country": "UK",
+    "city": "Birmingham",
+    "qs_ranking": 79,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.birmingham.ac.uk/study/postgraduate/subjects/history-of-art-courses/art-history-and-curating-ma"
+  },
+  {
+    "university": "University of Southampton",
+    "country": "UK",
+    "city": "Southampton",
+    "qs_ranking": 80,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.southampton.ac.uk/courses/communication-design-masters-ma"
+  },
+  {
+    "university": "University of Adelaide",
+    "country": "Australia",
+    "city": "Adelaide",
+    "qs_ranking": 82,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.adelaide.edu.au/degree-finder/march_marchcswk.html"
+  },
+  {
+    "university": "Heidelberg University",
+    "country": "Germany",
+    "city": "Heidelberg",
+    "qs_ranking": 84,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.uni-heidelberg.de/en/study/all-subjects/european-art-history/european-art-history-master"
+  },
+  {
+    "university": "Durham University",
+    "country": "UK",
+    "city": "Durham",
+    "qs_ranking": 90,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.durham.ac.uk/study/courses/visual-culture-r9t307/"
+  },
+  {
+    "university": "University of North Carolina at Chapel Hill",
+    "country": "USA",
+    "city": "Chapel Hill, NC",
+    "qs_ranking": 95,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://art.unc.edu/courses-and-degrees/studio-art-graduate-programs/"
+  },
+  {
+    "university": "University of St Andrews",
+    "country": "UK",
+    "city": "St Andrews",
+    "qs_ranking": 95,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.st-andrews.ac.uk/subjects/art-history/art-history-mlitt/"
+  },
+  {
+    "university": "University of Alberta",
+    "country": "Canada",
+    "city": "Edmonton, AB",
+    "qs_ranking": 96,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.ualberta.ca/en/graduate-programs/master-of-design-and-master-of-fine-arts-art-and-design.html"
+  },
+  {
+    "university": "Western University",
+    "country": "Canada",
+    "city": "London, ON",
+    "qs_ranking": 109,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.uwo.ca/visarts/grad/future/ma.html"
+  },
+  {
+    "university": "University College Dublin",
+    "country": "Ireland",
+    "city": "Dublin",
+    "qs_ranking": 124,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.ucd.ie/courses/barchsc-architecture"
+  },
+  {
+    "university": "Macquarie University",
+    "country": "Australia",
+    "city": "Sydney",
+    "qs_ranking": 130,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.mq.edu.au/study/find-a-course/courses/master-of-creative-industries"
+  },
+  {
+    "university": "Queen Mary University of London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 130,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.qmul.ac.uk/postgraduate/taught/coursefinder/courses/creative-arts-and-media-ma/"
+  },
+  {
+    "university": "Universiti Kebangsaan Malaysia",
+    "country": "Malaysia",
+    "city": "Bangi",
+    "qs_ranking": 138,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.ukm.my/jurutera/en/architecture-master/"
+  },
+  {
+    "university": "Emory University",
+    "country": "USA",
+    "city": "Atlanta, GA",
+    "qs_ranking": 159,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://arthistory.emory.edu/undergraduate/majors/art-history.html"
+  },
+  {
+    "university": "University of Wollongong",
+    "country": "Australia",
+    "city": "Wollongong",
+    "qs_ranking": 167,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.uow.edu.au/study/courses/bachelor-of-creative-arts/?major=43615"
+  },
+  {
+    "university": "University of York",
+    "country": "UK",
+    "city": "York",
+    "qs_ranking": 168,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.york.ac.uk/study/undergraduate/courses/ba-architecture/"
+  },
+  {
+    "university": "University of Exeter",
+    "country": "UK",
+    "city": "Exeter",
+    "qs_ranking": 169,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.exeter.ac.uk/study/undergraduate/courses/art/arthist/"
+  },
+  {
+    "university": "McMaster University",
+    "country": "Canada",
+    "city": "Hamilton, ON",
+    "qs_ranking": 176,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://future.mcmaster.ca/programs/iarts/"
+  },
+  {
+    "university": "University of Ottawa",
+    "country": "Canada",
+    "city": "Ottawa, ON",
+    "qs_ranking": 191,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://catalogue.uottawa.ca/en/graduate/master-digital-transformation-innovation-concentration-ux-deisgn/"
+  },
+  {
+    "university": "University of Otago",
+    "country": "New Zealand",
+    "city": "Dunedin",
+    "qs_ranking": 197,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.otago.ac.nz/courses/qualifications/macoursework"
+  },
+  {
+    "university": "Dartmouth College",
+    "country": "USA",
+    "city": "Hanover, NH",
+    "qs_ranking": 198,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://studioart.dartmouth.edu/undergraduate/major"
+  },
+  {
+    "university": "Queen's University",
+    "country": "Canada",
+    "city": "Kingston, ON",
+    "qs_ranking": 213,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.queensu.ca/art/"
+  },
+  {
+    "university": "University of Freiburg",
+    "country": "Germany",
+    "city": "Freiburg",
+    "qs_ranking": 213,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://uni-freiburg.de/en/studies/degree-programmes/degree-programme/308/"
+  },
+  {
+    "university": "Technical University of Darmstadt",
+    "country": "Germany",
+    "city": "Darmstadt",
+    "qs_ranking": 224,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.architektur.tu-darmstadt.de/studieren/studieninteressierte/studienangebot/masterstudiengang_architektur/kurzinformation_msc_arch/index.en.jsp"
+  },
+  {
+    "university": "University of Surrey",
+    "country": "UK",
+    "city": "Guildford",
+    "qs_ranking": 251,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.surrey.ac.uk/postgraduate/film-animation-and-digital-arts-ma"
+  },
+  {
+    "university": "University of Connecticut",
+    "country": "USA",
+    "city": "Storrs, CT",
+    "qs_ranking": 256,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://dmd.uconn.edu/major/degrees/mfa/"
+  },
+  {
+    "university": "University of Waikato",
+    "country": "New Zealand",
+    "city": "Hamilton",
+    "qs_ranking": 261,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.waikato.ac.nz/study/qualifications/master-of-design/"
+  },
+  {
+    "university": "University of Aberdeen",
+    "country": "UK",
+    "city": "Aberdeen",
+    "qs_ranking": 264,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.abdn.ac.uk/study/postgraduate-taught/degree-programmes/332/film-and-visual-culture/"
+  },
+  {
+    "university": "Simon Fraser University",
+    "country": "Canada",
+    "city": "Burnaby, BC",
+    "qs_ranking": 298,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.sfu.ca/sca/programs/mfa.html"
+  },
+  {
+    "university": "Florida State University",
+    "country": "USA",
+    "city": "Tallahassee, FL",
+    "qs_ranking": 308,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://cfa.fsu.edu/programs/interior-architecture-and-design-graduate/"
+  },
+  {
+    "university": "Swansea University",
+    "country": "UK",
+    "city": "Swansea",
+    "qs_ranking": 312,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.swansea.ac.uk/postgraduate/taught/artsandhumanities/ma-creative-writing-extended/"
+  },
+  {
+    "university": "University of East Anglia",
+    "country": "UK",
+    "city": "Norwich",
+    "qs_ranking": 313,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.uea.ac.uk/course/undergraduate/ba-history-of-art"
+  },
+  {
+    "university": "Brunel University London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 333,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.brunel.ac.uk/study/courses/design-mdes"
+  },
+  {
+    "university": "University of Leicester",
+    "country": "UK",
+    "city": "Leicester",
+    "qs_ranking": 348,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://le.ac.uk/courses/urban-conservation-ma/2025"
+  },
+  {
+    "university": "University of Iowa",
+    "country": "USA",
+    "city": "Iowa City, IA",
+    "qs_ranking": 357,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://art.uiowa.edu/graduate/mfa-art"
+  },
+  {
+    "university": "University of Victoria",
+    "country": "Canada",
+    "city": "Victoria, BC",
+    "qs_ranking": 359,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.uvic.ca/graduate/programs/graduate-programs/credential-pages/visual-arts-cred/visual-arts-mfa.php"
+  },
+  {
+    "university": "Goethe University Frankfurt",
+    "country": "Germany",
+    "city": "Frankfurt",
+    "qs_ranking": 360,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.uni-frankfurt.de/en/studium/studiengaenge/curatorial-studies-theorie-geschichte-kritik-master"
+  },
+  {
+    "university": "York University",
+    "country": "Canada",
+    "city": "Toronto, ON",
+    "qs_ranking": 363,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://futurestudents.yorku.ca/graduate/programs/design"
+  },
+  {
+    "university": "Flinders University",
+    "country": "Australia",
+    "city": "Adelaide",
+    "qs_ranking": 374,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.flinders.edu.au/study/courses/master-arts-research-creative-performing-arts"
+  },
+  {
+    "university": "Stony Brook University",
+    "country": "USA",
+    "city": "Stony Brook, NY",
+    "qs_ranking": 379,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.stonybrook.edu/undergraduate-admissions/programs/ars.php"
+  },
+  {
+    "university": "University of Saskatchewan",
+    "country": "Canada",
+    "city": "Saskatoon, SK",
+    "qs_ranking": 387,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://admissions.usask.ca/studio-art.php"
+  },
+  {
+    "university": "Royal Holloway, University of London",
+    "country": "UK",
+    "city": "Egham",
+    "qs_ranking": 391,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.royalholloway.ac.uk/studying-here/undergraduate/media-arts/video-games-art-and-design/"
+  },
+  {
+    "university": "University of Strasbourg",
+    "country": "France",
+    "city": "Strasbourg",
+    "qs_ranking": 408,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://arts.unistra.fr/formations/masters/master-design/design-graphique-et-cultures-visuelles"
+  },
+  {
+    "university": "University of Essex",
+    "country": "UK",
+    "city": "Colchester",
+    "qs_ranking": 412,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.essex.ac.uk/courses/pg00456/1/ma-art-history-and-theory"
+  },
+  {
+    "university": "James Cook University",
+    "country": "Australia",
+    "city": "Townsville",
+    "qs_ranking": 415,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.jcu.edu.au/courses/bachelor-of-arts"
+  },
+  {
+    "university": "Aston University",
+    "country": "UK",
+    "city": "Birmingham",
+    "qs_ranking": 446,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.aston.ac.uk/study/courses/product-design-and-technology-bsc"
+  },
+  {
+    "university": "Edith Cowan University",
+    "country": "Australia",
+    "city": "Perth",
+    "qs_ranking": 446,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.ecu.edu.au/degrees/study-areas/arts-and-humanities/arts-and-design"
+  },
+  {
+    "university": "Brandeis University",
+    "country": "USA",
+    "city": "Waltham, MA",
+    "qs_ranking": 470,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.brandeis.edu/fine-arts/undergraduate/architectural-studies/index.html"
+  },
+  {
+    "university": "University of Texas at Dallas",
+    "country": "USA",
+    "city": "Richardson, TX",
+    "qs_ranking": 470,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://bass.utdallas.edu/programs/arts-technology-and-emerging-communication-media-arts-and-design/"
+  },
+  {
+    "university": "Murdoch University",
+    "country": "Australia",
+    "city": "Perth",
+    "qs_ranking": 481,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.murdoch.edu.au/course/undergraduate/b1343"
+  },
+  {
+    "university": "Concordia University",
+    "country": "Canada",
+    "city": "Montreal, QC",
+    "qs_ranking": 487,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.concordia.ca/academics/graduate/design.html"
+  },
+  {
+    "university": "University of Bremen",
+    "country": "Germany",
+    "city": "Bremen",
+    "qs_ranking": 487,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.uni-bremen.de/en/kunst/studies/ma-art-history-and-film-studies"
+  }
+]
