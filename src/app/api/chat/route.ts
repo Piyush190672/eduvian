@@ -281,8 +281,35 @@ IMPORTANT PLATFORM NOTES:
 - Students can get results in under 2 minutes
 - No counsellor or agency needed
 - Platform covers both UG and PG levels
-- Intakes: 2025 and 2026
 `;
+
+// Helpers for dynamic intake calendar. Recomputed per request so AISA never
+// drifts to its training-cutoff year. Indian admit cycles are dominated by
+// the Sep / Fall intake; secondary intakes are Jan (Spring) and Apr / May.
+function buildIntakeContext(now: Date) {
+  const todayIso = now.toISOString().slice(0, 10);
+  const todayHuman = now.toLocaleDateString("en-US", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
+  const year = now.getUTCFullYear();
+  const month = now.getUTCMonth() + 1; // 1–12
+  // Active = the intake cycle currently being applied for or just locked in.
+  // Next  = the cycle students should plan for going forward.
+  // Fall application cycles open ~10-12 months ahead, close ~3-6 months before start.
+  // Jan-May: still applying for the upcoming Fall (this year)
+  // Jun-Aug: Fall (this year) is about to start; planning shifts to next Fall
+  // Sep-Dec: this Fall has started; primary planning is next Fall
+  let activeFall: number, nextFall: number;
+  if (month <= 5) {
+    activeFall = year;      // applying for Fall this year
+    nextFall = year + 1;
+  } else if (month <= 8) {
+    activeFall = year;      // Fall this year about to start
+    nextFall = year + 1;
+  } else {
+    activeFall = year + 1;  // this year's Fall already started; next is the goal
+    nextFall = year + 2;
+  }
+  return { todayIso, todayHuman, year, activeFall, nextFall };
+}
 
 // ── System prompt ─────────────────────────────────────────────────────────────
 const SYSTEM_PROMPT = `You are AISA — eduvianAI's friendly AI student advisor. You talk like a knowledgeable, warm friend who genuinely wants to help students make the best study-abroad decision. You are NOT a formal chatbot — you are conversational, precise, and encouraging.
@@ -381,9 +408,21 @@ export async function POST(req: NextRequest) {
     const Anthropic = (await import("@anthropic-ai/sdk")).default;
     const client = new Anthropic({ apiKey });
 
+    // Compute today's intake calendar at request time. Static prompt strings
+    // drift to the model's training-cutoff year; this block is the canonical
+    // "what year is it, what intake is in play" reference AISA must use.
+    const intake = buildIntakeContext(new Date());
+    const intakeBlock = `\n\nCURRENT INTAKE CALENDAR (computed today, do NOT defer to your training-data year):
+- Today's date: ${intake.todayHuman} (${intake.todayIso})
+- Current intake cycle: Fall ${intake.activeFall} (the one students should plan for if they are applying now or in the next few weeks)
+- Following intake cycle: Fall ${intake.nextFall} (students with longer prep timelines aim here)
+- When the student says "this intake" or "next intake" without specifying, ask which they mean OR default to Fall ${intake.activeFall} for applying-now profiles and Fall ${intake.nextFall} for early planners
+- Never reference a Fall year earlier than ${intake.activeFall} as the "current" intake — that cycle has already started or closed
+- Spring (Jan) intakes follow the same logic — Spring ${intake.activeFall + 1} is the spring tied to Fall ${intake.activeFall}'s application cycle.`;
+
     const baseSystem = programsContext
-      ? `${SYSTEM_PROMPT}\n\n${programsContext}\n\nIMPORTANT: The student is viewing their matched results. Prioritise answering questions about their specific matched programs. Use exact data from the list above — tuition, rankings, deadlines, match scores.`
-      : SYSTEM_PROMPT;
+      ? `${SYSTEM_PROMPT}${intakeBlock}\n\n${programsContext}\n\nIMPORTANT: The student is viewing their matched results. Prioritise answering questions about their specific matched programs. Use exact data from the list above — tuition, rankings, deadlines, match scores.`
+      : `${SYSTEM_PROMPT}${intakeBlock}`;
     const systemPrompt = baseSystem + JAILBREAK_GUARDRAILS;
 
     // Wrap user-supplied content so any prompt-injection attempts inside
