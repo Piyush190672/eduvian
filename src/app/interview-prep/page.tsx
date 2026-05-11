@@ -520,21 +520,38 @@ function pickVoice(voices: SpeechSynthesisVoice[], country: Country): SpeechSynt
       );
     });
 
-    // 2nd-tier fallback: natural-sounding female en-US voices, ordered by
-    // perceived naturalness. Better to read in a clean female voice than in
-    // robotic Alex. The visa-officer character takes the gender shift; the
-    // listen-quality matters more for interview rehearsal.
-    const usNaturalFemale = voices.find((v) => {
+    // 2nd-tier fallback: natural-sounding female en-US voices. Better to
+    // read in a clean female voice than in robotic Alex. The visa-officer
+    // character takes the gender shift; the listen-quality matters more for
+    // interview rehearsal.
+    //
+    // Match strategy: prefer Premium / Enhanced suffix variants over plain
+    // names (Apple ships those as separate downloads with notably better
+    // naturalness). Then plain names. macOS / iOS Voices Library includes:
+    //   Ava, Allison, Samantha, Susan, Victoria, Vicki, Zoe, Karen,
+    //   Princess, Kathy, Veena, Nicky, Sandy, Nora, Joelle, Tessa
+    // — any of these may be the "new female voices" a user just downloaded.
+    const NATURAL_FEMALE_BASE_NAMES = [
+      "Ava", "Allison", "Samantha", "Susan", "Victoria", "Vicki",
+      "Zoe", "Princess", "Kathy", "Nicky", "Sandy", "Nora", "Joelle",
+    ];
+    const QUALITY_SUFFIX = /\((Premium|Enhanced)\)$/i;
+    // Find Premium / Enhanced variants first (best quality on macOS / iOS).
+    const usPremiumFemale = voices.find((v) =>
+      v.lang.startsWith("en-US")
+      && QUALITY_SUFFIX.test(v.name)
+      && NATURAL_FEMALE_BASE_NAMES.some((base) => v.name.startsWith(`${base} (`))
+    );
+    // Otherwise, cloud or plain-name fallbacks.
+    const usNaturalFemale = usPremiumFemale ?? voices.find((v) => {
       const n = v.name;
       return (
         // Cloud-rendered (highest quality)
         n === "Google US English Female" ||
         n === "Microsoft Aria Online (Natural) - English (United States)" ||
         n === "Microsoft Jenny Online (Natural) - English (United States)" ||
-        // macOS / iOS modern voices (2nd-gen+)
-        n === "Ava (Premium)" || n === "Ava (Enhanced)" || n === "Ava" ||
-        n === "Allison (Premium)" || n === "Allison (Enhanced)" || n === "Allison" ||
-        n === "Samantha (Premium)" || n === "Samantha (Enhanced)" || n === "Samantha"
+        // Plain-name fallbacks (older voice versions still sound OK)
+        (v.lang.startsWith("en-US") && NATURAL_FEMALE_BASE_NAMES.includes(n))
       );
     });
 
