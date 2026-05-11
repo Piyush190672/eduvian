@@ -510,10 +510,35 @@ function pickVoice(voices: SpeechSynthesisVoice[], country: Country): SpeechSynt
         (v.lang === "en-US" && /\bmale\b/i.test(n))
       );
     });
-    // Any en-US voice as fallback (prefer non-female if possible)
-    const usLocale = voices.find((v) => v.lang === "en-US" && !/female/i.test(v.name));
+    // Any en-US voice as fallback. The previous `!/female/i.test(v.name)`
+    // filter only caught voices that literally had "female" in their name —
+    // macOS's "Samantha" / "Karen" / "Victoria" etc. are female voices whose
+    // names don't include that word, so they slipped through and got picked
+    // when no male voice was available on the device. Deny-list the known
+    // en-US female names explicitly, then fall back to any en-US.
+    const KNOWN_FEMALE_EN_US = new Set([
+      "Samantha", "Allison", "Ava", "Susan", "Victoria", "Vicki", "Kate",
+      "Kathy", "Princess", "Veena", "Zoe", "Karen",
+      "Microsoft Zira - English (United States)", "Microsoft Zira Desktop",
+      "Microsoft Aria Online (Natural) - English (United States)",
+      "Microsoft Jenny Online (Natural) - English (United States)",
+      "Microsoft Michelle Online (Natural) - English (United States)",
+      // iOS 17+ female en-US premium voices
+      "Nora", "Sandy", "Nicky",
+    ]);
+    const usLocale = voices.find((v) =>
+      v.lang === "en-US"
+      && !/female/i.test(v.name)
+      && !KNOWN_FEMALE_EN_US.has(v.name)
+    );
     const usAny    = voices.find((v) => v.lang === "en-US");
-    return usMaleNamed ?? usLocale ?? usAny ?? null;
+    const picked = usMaleNamed ?? usLocale ?? usAny ?? null;
+    // Diagnostic log so a user reporting "wrong voice" can paste back what
+    // was actually picked. Cheap, runs once per session in practice.
+    if (typeof window !== "undefined" && picked) {
+      console.info(`[interview-prep] USA voice picked: "${picked.name}" (lang=${picked.lang}, localService=${picked.localService ?? "n/a"})`);
+    }
+    return picked;
   }
 
   if (country === "australia") {
