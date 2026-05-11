@@ -4,7 +4,7 @@ This file is loaded automatically. The full project state, decisions, and ration
 
 ## What this is
 
-Next.js 14 (App Router) study-abroad platform deployed to Vercel at https://www.eduvianai.com. Postgres + RLS in Supabase Cloud (US, Pro plan). Anthropic Claude for AI features, Resend for transactional mail, Sentry for errors. 12 destination countries, **7,800 programs / 7,737 verified at the source (99.2%) / 521 universities (511 with verified programs) / 3,060 with international tuition fee (39.2%, of which 309 estimated)** as of 11 May 2026, beta-gated to 100 users/month. Email OTP gates register/login.
+Next.js 14 (App Router) study-abroad platform deployed to Vercel at https://www.eduvianai.com. Postgres + RLS in Supabase Cloud (US, Pro plan). Anthropic Claude for AI features, Resend for transactional mail, Sentry for errors. 12 destination countries, **7,987 programs / 7,924 verified at the source (99.2%) / 543 universities / 4,339 with international tuition fee (54.3%, of which 1,508 estimated)** as of 11 May 2026 (handoff #12), beta-gated to 100 users/month. Email OTP gates register/login.
 
 ## Operating rules — non-negotiable, every session, no exceptions
 
@@ -105,7 +105,7 @@ Audit document: `~/Desktop/EduvianAI-Security-Architecture-Risk-Assessment.docx`
 | Path | What |
 |---|---|
 | `src/data/programs.ts` | THE database. **7,800 entries / 7,737 verified.** `@ts-nocheck` (large data file). |
-| `src/data/db-stats.ts` | Computed counts. Public surfaces standardise on `verifiedProgramsLabel` (7,737+) and `verifiedUniversitiesLabel` (511+) — `programsLabel` (the unverified-tail total) is internal-only. Don't reintroduce dual numbers in copy. |
+| `src/data/db-stats.ts` | Computed counts. Public surfaces standardise on `verifiedProgramsLabel` (7,924+) and `verifiedUniversitiesLabel` (543+) — `programsLabel` (the unverified-tail total) is internal-only. Don't reintroduce dual numbers in copy. |
 | `src/app/sample-parent-report/page.tsx` | Static, illustrative parent-decision report at `/sample-parent-report`. Print-friendly (Save-as-PDF button). Linked from the Decide-stage 'See sample family report' CTA. |
 | `src/app/page.tsx` | **The homepage** (post v2 → / swap, 5 May 2026). v2 brand redesign + 8-section structure now serves at `/`. Pre-swap homepage backed up at `_archive/page-pre-v2-swap.tsx.bak`; pre-swap `src/app/v2/` preserved (un-routed) at `src/app/_v2-archive/page.tsx` for reference. |
 | `src/lib/types.ts` | Single source of truth. `TARGET_COUNTRIES` (12), `FIELDS_OF_STUDY` (18). |
@@ -157,39 +157,45 @@ Audit document: `~/Desktop/EduvianAI-Security-Architecture-Risk-Assessment.docx`
 
 The legal/security/pricing Word docs were generated with `docx`. Pricing Excel via `xlsx`. To regenerate legal: `node scripts/build-legal-docs.js`.
 
-## Open work for the next session
+## Open work for the next session (handoff #12, 11 May 2026)
 
-Pinned in priority order. Snapshot §20 + §27 + §28 + §29 + §30 have full detail.
+Pinned in priority order. Snapshot §31 has full handoff-#12 detail.
 
-> **Background process likely still running on session start:** the priority-country estimate-fees run (USA → Germany → Canada). Check with `ps aux | grep estimate-fees`. Log at `/tmp/estimate-priority.log`. Don't start anything else competing for Anthropic API budget until it exits or you kill it intentionally.
+> **No background processes expected on session start.** Last estimate-fees chain was stopped on user instruction after USA + Germany landed; ~$28 / ~3 hr Canada retry is in Tier-B below.
 
-**Block 1 — fee trust loop (in flight):**
-1. **estimate-fees priority run** (USA + DE + CA, ~3,108 entries) — kicked off 11 May ~14:50, should finish by ~22:00 same day. Watch the log. After exit: review counts, decide whether to extend to other countries.
-2. **Voice sanity check on live deploy** (commits `91f9a54d` + `69a0c428` + `2fde5498` shipped 11 May with auto-listen, mic pre-warm, Stop interview button, and short-utterance capture fix). User reported during testing: name still took 2 attempts in UK, "say YES" took multiple tries — the pre-warm + interim fix should help once Vercel deploys; re-verify.
+**Tier-A — credibility & correctness (cheap, code-only):**
+1. **Voice sanity check on live deploy** — SR-prime + listening-cue patch shipped `b83dae10`; needs a real mic test on UK / AU / USA flows. User-driven, ~10 min.
+2. **`convertINR()` deterministic helper** — currency fix is currently prompt-only (`57f59a18`). Per Rule 6, the real fix is a helper that pre-computes the conversion before AISA sees it.
+3. **Dedup UCL / Middlesex DB rows** — `UCL` and `University College London` are two separate rows; same with `Middlesex University` / `Middlesex University London`.
+4. **63 still-unverified entries cleanup** — 31 field-mismatch, 32 fetch-errors. Strip via `audit-strip` for catalog/listing URLs.
 
-**Block 2 — DB breadth (queued):**
-3. **Expansion D — Canada west/east** (~$18-30, 30-60 min)
-4. **Expansion B — SG/UAE/MY/IE depth** (~$38-62, 1-2 hrs)
-5. **Expansion C — UK UG breadth** (~$30-48, 1-2 hrs)
+**Tier-B — DB completeness (API spend):**
+5. **Canada estimate-fees retry** — 19 estimates lost to SIGTERM + 414 entries never processed. ~$28 / ~3 hr.
+6. **B-Phase 2** — remaining 25 SG/UAE/MY/IE universities (seed-finder stalled at 30/55 mid-run). ~$15–25 / ~2 hr.
+7. ~~C1 retry on 4 zero-yield UK unis~~ — **descoped by user 11 May.**
+8. ~~Brandon + Ontario Tech retry~~ — **descoped by user 11 May.**
+9. **USA fee uplift beyond 78.1%** — residential proxy (~$50/mo) or per-uni manual override.
+10. **Architecture stream Phase 2** — seed files already untracked (`architecture-phase2.json`, `streams-full-sweep.json`). Just needs verify-batch + merge. ~$10–25 / ~1–2 hr.
 
-**Block 3 — features & cleanup:**
-6. **USA fee coverage uplift** (currently 31.9% after estimate-fees, was 19.4%) — to push higher: residential proxy or per-uni manual override.
-7. **Marketing email opt-in flow** — Privacy Policy §11 promises this.
-8. **Visible unsubscribe link in email body** — `List-Unsubscribe` header is in; in-body link still missing.
-9. **Real downloadable Sample Parent Report PDF** — current `/sample-parent-report` is HTML + Save-as-PDF.
-10. **Field-mismatch + persistent fetch-error cleanup** — 63 entries from earlier verify passes still aren't verified.
-11. **Architecture stream Phase 2 (deferred by user 6 May)** — current 274 Architecture-tagged. Add from QS Top-250 unis not yet represented. ~$10-25 spend.
+**Tier-C — product surface deferrals from Tier 1/2/3 sweep:**
+11. **TradeoffView → ProgramCard / ComparePanel** — live student-profile-driven verdicts. Currently only on `/sample-parent-report` as illustrative.
+12. **Backend-mediated email for `<ShareWithFamily />`** — uses `mailto:` today; real fix is server-side send via existing Resend infra.
+13. **Dedicated `/parent-view` route** — buttons route to existing tools today; a true render mode (simpler styling, less jargon) is queued.
+14. **Marketing email opt-in flow** — Privacy Policy §11 promises this.
+15. **Visible unsubscribe link in email body** — `List-Unsubscribe` header is in; in-body link still missing.
+16. **Real downloadable Sample Parent Report PDF** — current is HTML + browser Save-as-PDF.
+17. **`/options` scoring refinement** — current heuristics are rough (scholarship lens is per-country only; safer-admit doesn't factor field-of-study selectivity).
 
-**Block 4 — security upgrades** (after Blocks 1-3):
-12. Read `~/Desktop/EduvianAI-Security-Architecture-Risk-Assessment.docx` to enumerate Medium/Low findings (snapshot §5 only tracks C/H).
-13. Apply M findings.
-14. Apply L findings.
-15. Secrets rotation policy + 90-day cadence.
-16. Backup posture confirmation (Q8 was "most likely auto-backups only").
-17. Sentry alerting on auth/OTP failures.
+**Tier-D — security & ops (after Tiers A/B/C):**
+18. Read `~/Desktop/EduvianAI-Security-Architecture-Risk-Assessment.docx` to enumerate Medium / Low findings.
+19. Apply M findings.
+20. Apply L findings.
+21. Secrets rotation policy + 90-day cadence.
+22. Backup posture confirmation.
+23. Sentry alerting on auth / OTP failures.
 (Pen testing + bug bounty stay deferred to pre-launch.)
 
-**Estimated remaining spend across Blocks 1-3:** ~$200-450 + optional $50/mo residential proxy for #6.
+**Estimated remaining spend across Tiers B + C:** ~$90–150 of API + optional $50/mo residential proxy for #9.
 
 ## Tuition fee policy (locked 8 May 2026; provenance UI added 10 May; estimated-fee Layer 2 added 11 May)
 
@@ -199,7 +205,7 @@ Pinned in priority order. Snapshot §20 + §27 + §28 + §29 + §30 have full de
 - For multi-year totals, divide by the number of years to get the annual figure.
 - **Provenance flag:** `tuition_fee_source: "verified" | "estimated"` on Program. Undefined / "verified" = extracted from the official program page. "estimated" = inferred from a credible secondary source (uni's central fees page, ranking aggregators, etc.) by `scripts/verify/estimate-fees.ts`. UI surfaces this as a Verified (emerald) / Estimated (amber) / Not available (rose) pill on ProgramCard + ComparePanel.
 - **ROI + Parent Decision tools:** refuse to calculate when `annual_tuition_usd` is null — show "Cannot calculate — tuition fee data not available" panel with a link to the official page. When the fee is `tuition_fee_source: "estimated"`, both tools render an amber caveat banner above the result: "Based on estimated tuition fee. The official program page didn't publish a fee, so this calculation uses a figure inferred from the university's central fees page or a credible secondary source. Confirm with the university before relying on these numbers."
-- Coverage by country (11 May): UK 60% · SG 59% · MY/UAE 49% · AU 41% · FR 36% · USA 32% (post-estimate-priority-run, 300 estimated) · NZ 33% · NL 29% · CA/IE 30% · DE 20%. Overall **39.2%**.
+- Coverage by country (11 May, post-handoff-#12): **USA 78%** (1,410 estimated from the priority-run) · UK 60% · SG 59% · MY/UAE 49% · AU 41% · FR 36% · NZ 33% · DE 31% (was 20%, 89 estimated) · NL 29% · CA/IE 30%. Overall **54.3%**.
 
 > Brand port note: 5 May session ported 3 of 7 deep tool pages (`/roi-calculator`, `/parent-decision`, `/visa-coach`) using new `BrandNav` + `BrandHero` primitives (commits `0c24dc4c` + `cbf6c3d8`). User decided the remaining 4 (`/get-started`, `/application-check`, `/interview-prep`, `/english-test-lab`) need no change. Item closed at 3-of-7. Primitives stay available if a future change is wanted.
 

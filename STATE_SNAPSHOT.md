@@ -1,26 +1,40 @@
 # EduvianAI — Comprehensive State Snapshot for Session Handoff
 
-**Last updated:** 11 May 2026 (handoff #11 — Expansion A merged · Estimated-fee Layer 2/3 shipped · voice flow auto-listen + Stop button)
+**Last updated:** 11 May 2026 (handoff #12 — estimate-fees USA+DE landed · Block 2 D/B/C shipped · Tier 1/2/3 value-strengthening sweep · AISA currency + intake fixes)
 **Purpose:** Zero-loss handoff between Claude Code sessions. A new session reading this should be able to continue *every* in-flight workstream correctly, respect all user preferences, and avoid all known gotchas.
 
-> **CRITICAL on session start: A background process is likely still running.** The estimate-fees priority-country run (USA → Germany → Canada, ~3,108 entries) was kicked off ~14:50 on 11 May (PID 83743). Log at `/tmp/estimate-priority.log`. Run `ps aux | grep estimate-fees` first. Do NOT start anything else that competes for Anthropic API budget until it exits or is explicitly killed.
+> **No background processes expected on session start.** The 11 May estimate-fees chain was stopped on user instruction after USA + Germany landed (Canada partial, see §31 / Tier-B). No active verify-batch, seed-finder, or chain-tiers runs.
 
-> **Pinned next-session priority:** **(1)** Watch the estimate-fees run; when it exits, review counts and decide on next-country scope. **(2)** Voice sanity check on the live deploy — user reported during 11 May testing that name capture in UK still took 2 attempts and "say YES" took multiple; the fixes shipped (`91f9a54d` + `69a0c428` + `2fde5498`) should help once Vercel deploys, re-verify. **(3)** Block 2 expansions D / B / C in that order. **(4)** Block 3 (USA fee uplift via residential proxy + marketing flow + sample PDF + cleanup). **(5)** Block 4 security upgrades. See §30 for the full plan.
+> **Pinned next-session priority (handoff #12 → #13):** Tier-A first (cheap & code-only), then Tier-C #11–13, then Tier-B excluding the user-descoped C1-retry and Brandon/Ontario-Tech items, then Tier-C #14–17, then Tier-D security. See §31.
 
-> **What's NEW since handoff #10:**
+> **What's NEW since handoff #11 (21 commits on main):**
 >
-> - **Expansion A merged (`32721df7`)** — NL/FR/DE UG sweep, +151 verified UG programs. Germany 219, France 77, Netherlands 43.
-> - **Estimated-fee Layer 2+3 shipped (`279279c9`)** — `tuition_fee_source` flag on Program, `estimate-fees.ts` script (Sonnet + web_search secondary sources), amber caveat banner in ROI + Parent when calc uses estimated fee. Layer 1 (no-calc guard) was `d07d3201`; provenance pill was `350a862a`.
-> - **Voice flow auto-listen (`91f9a54d`)** — name + YES capture switched from final-only to interim+stable (fixes "Piyush" / "yes" caught on first try); auto-listen on TTS end so no mic-button click; 650ms inter-segment pause skipped after last segment; nameRecogRef nulled on onend.
-> - **AU category auto-listen (`69a0c428`)** — same pattern for the AU category prompt.
-> - **Stop interview button + mic pre-warm (`2fde5498`)** — Stop button rendered during speaking/listening/review/feedback phases for all 3 countries; `getUserMedia` fires on InterviewSession mount so the mic is warm by the time the greeting ends.
-> - **Estimate-fees priority run** (in flight): USA done with 300 estimates landed already (USA fee coverage 19.4% → 31.9%). Continues through Germany then Canada.
+> - **estimate-fees USA + Germany landed (`6ac022be`)** — fee coverage: USA 31.9% → 78.1% (+1,410 estimates), Germany 19.7% → 31.0% (+89). Canada was stopped early at 138/552 — 19 estimates lost to SIGTERM since they were below the 20-flush threshold. Hardening (`a42b83f4`) added a SIGTERM handler that flushes before exit and dropped the threshold to 5.
+> - **Block 2 D — Canada west/east (`d59732ec`)** — +72 verified programs across 13 regional Canadian unis (Thompson Rivers, Royal Roads, Athabasca, Lethbridge, Winnipeg, Suffolk, UAL, etc.). Brandon + Ontario Tech hit seed-finder JSON parse errors — descoped by user.
+> - **Block 2 B-Phase 1 — SG/UAE/MY/IE depth (`47d39bd7`)** — +18 verified programs (UAE +12, MY +4, SG +1, IE +1). Seed-finder stalled at 30/55 unis due to Anthropic API rate-limit pressure; user authorised partial-commit. B-Phase 2 (~25 remaining unis) queued in Tier-B.
+> - **Block 2 C1 — UK new universities (`1b081ce6`)** — +63 verified programs across 11 of 15 targeted new UK unis (UAL, Suffolk, Abertay, Queen Margaret, Royal Veterinary, St George's, etc.). 4 unis (Northumbria, Norwich UA, Open University, Bedfordshire) landed 0 programs — descoped by user.
+> - **Block 2 C2 — UK UG deepening (`712aaaed`)** — +3 verified UG programs across 14 PG-heavy UK unis. Low yield was structural: seed-finder defaults to flagship PG / Master's pages; URL-keyword UG filter caught only 11 of 112 in-scope seeds. Closed at 3.
+> - **Hero rewrite (`a85ac572` → `bc422dc7`)** — H1 swapped from feature-led ("verified data you can trust") to stakes-led ("You only get to decide this *once*"). Eyebrow now reads "INDEPENDENT AI-POWERED STUDY-ABROAD DECISION INTELLIGENCE". Both-sides cards subtexts rewritten as emotional benefits (`71fdd716`).
+> - **Operating rules in CLAUDE.md (`c5f13551`)** — 10 non-negotiable rules above the project-specific Hard Rules: think before coding, simplicity first, surgical changes, goal-driven, factual-only, model-for-judgment-only, surface conflicts, read-before-write, checkpoint after each step, fail loud.
+> - **Voice patch (`b83dae10`)** — SR pipeline prime + listening cue on `onaudiostart`. Holds the mic stream open for the session lifetime. Eliminates the ~500–1000ms cold-start that made users speak 2–3× before capture. Live-mic test still pending (Tier-A #1).
+> - **ROI + Parent no-fee dead-end → editable input (`84ced1b8`)** — programs with no verified or estimated fee now render an "Enter the annual tuition" prompt instead of "Cannot calculate". Caveat banner mirrors the existing estimated-fee pattern.
+> - **Tier 1 value-strengthening (`368e05c7`)** —
+>   - Sample Parent Report cost inconsistency fix: split "Budget fit" into honest "Tuition budget fit" (Good) + "Total investment fit" (Needs discussion).
+>   - `<NextBestAction />` shared component, high-contrast violet gradient, dropped into 5 result surfaces (ROI, Parent, Visa Coach, Shortlist Summary, Sample Parent Report).
+>   - AISA chat trust frame banner + suggested-prompt refresh.
+> - **Tier 2 transparency (`8c3c86b6`)** —
+>   - `<DataBadge kind=... />` with 5 provenance types (official / ai_estimate / user_provided / needs_verification / illustrative). Scoped to decision-driving values only.
+>   - `<SourceProof lines lastVerified sourceUrl />` emerald-tinted footer dropped into ROI / Parent / Visa Coach / Sample Parent Report. Pure-UTC date format to avoid SSR hydration mismatch.
+> - **Tier 3 decision lens + family handoff (`a02d740d` + `b8af4373`)** —
+>   - `<TradeoffView />` six-factor decision lens (Admission · Cost · ROI · Visa · Safety · Scholarship) with optional "Compare with..." chip row. Dropped into Sample Parent Report.
+>   - `<ShareWithFamily />` three-button family handoff (Print/PDF · Email (mailto) · Parent-friendly view). Dropped into Visa Coach + Shortlist Summary. ROI/Parent got single "Parent-friendly view" buttons next to existing PDF/Email.
+>   - **New `/options?lens=safer|cheaper|roi|visa-low|scholarship` route** — cross-program ranker behind the "Compare with..." chips. 5 lenses each with their own scoring rule + DataBadge + SourceProof.
+> - **AISA currency fix (`57f59a18`)** — added explicit lakh/crore definitions + FX rates + worked examples to the system prompt. Was returning "40 lakhs INR ≈ $4,800" — now $48,200. Real fix (deterministic `convertINR()` helper) is Tier-A #2.
+> - **AISA intake calendar (`0f5f1586`)** — `buildIntakeContext(now)` computes the active + following Fall intake from the request timestamp, injected per request so AISA stops referencing 2025 as "current".
 >
-> H7 Phase C is fully closed (schema dropped + writer patched against dev/preview hole + Sentry `8bfc0387` results-route 410 guard). Brand port partially done: 3 thin-wrapper pages (`/roi-calculator`, `/parent-decision`, `/visa-coach`) ported via new `BrandNav` + `BrandHero` primitives (commit `0c24dc4c`); ROI Calculator + ParentDecisionTool components retheme-flipped from dark/glass to light/white (`cbf6c3d8`). User then said the **remaining 4 pages need no change** — so item is closed at 3-of-7, not 7-of-7. Snapshot §26 is the locked as-shipped reference for any future page port.
->
-> Outstanding for next session in priority order: (1) interview-prep voice verification, (2) Architecture stream Phase 2, (3) 63-entry cleanup, (4) marketing-opt-in flow, (5) visible unsubscribe link in email body, (6) downloadable Sample Parent Report PDF. (DB password rotation done by user 5 May.)
+> The DB grew from **7,800 / 7,737 verified → 7,987 / 7,924 verified** during this session (+187 programs, fee coverage 39.2% → 54.3%).
 
-> **Read this top-to-bottom before doing anything.** Then run the verification commands in §0 to confirm reality matches this document.
+> **Read this top-to-bottom before doing anything.** Then run the verification commands in §0 to confirm reality matches this document. §31 has the full handoff-#12 open-work plan.
 
 ---
 
@@ -36,7 +50,7 @@ git status --short
 # 2. What's running in the background? (no tier chain currently expected)
 ps aux | grep -E "verify-program|verify-batch|websearch-seed|seed-crawler|re-verify" | grep -v grep
 
-# 3. Database scale check (expected: 7,800 programs, 7,737 verified, 12 countries)
+# 3. Database scale check (expected: 7,987 programs, 7,924 verified, 12 countries)
 python3 -c "
 import re
 from collections import Counter
@@ -287,11 +301,11 @@ USA, UK, Australia, Canada, New Zealand, Ireland, Germany, France, UAE, Singapor
 
 | | Value |
 |---|---:|
-| Last commit on main | `2fde5498` — Stop interview button + mic pre-warm (11 May) |
-| Programs in DB | **7,800** |
-| Verified at source | **7,737** (99.2%) |
-| With international tuition | **3,060 (39.2%)** — of which **309 estimated** via secondary sources (rest verified at source) |
-| Universities | **521** total / **511** with at least one verified program |
+| Last commit on main | `0f5f1586` — AISA dynamic intake calendar (handoff #12, 11 May) |
+| Programs in DB | **7,987** |
+| Verified at source | **7,924** (99.2%) |
+| With international tuition | **4,339 (54.3%)** — of which **1,508 estimated** via secondary sources (rest verified at source) |
+| Universities | **543** total (verified-unis count needs re-derivation post-handoff-#12) |
 | Countries | 12 |
 | Build | green |
 | Branch | main |
@@ -307,27 +321,27 @@ USA, UK, Australia, Canada, New Zealand, Ireland, Germany, France, UAE, Singapor
 | Mobile UX | shipped — ~3500-4500px shorter homepage via stage selector compaction, Stage 1 mockup hidden, 4 stage accordions (Show Stage X details), test-lab grid 2-up, decorative blur blobs hidden (root cause of GPU-compositing scroll-flash) |
 | Google Postmaster Tools | verified for `eduvianai.com` — dashboards stay sparse at beta volume |
 
-### 3.1 Country breakdown (post Expansion-A + estimate-fees-USA, 11 May 2026)
+### 3.1 Country breakdown (post handoff #12, 11 May 2026)
 
 The "Estimated" column counts entries with `tuition_fee_source: "estimated"` (Layer 2 secondary-source backfill); the rest of the fee% is verified-at-source.
 
-| Country | Unis (total / verified) | Programs (total / verified) | Fee% | Estimated |
-|---|---|---|---:|---:|
-| USA | 135 / 134 | 2,402 / 2,371 | 31.9% | 300 |
-| UK | 110 / 110 | 1,817 / 1,809 | 60.5% | 9 |
-| Canada | 67 / 59 | 785 / 771 | 29.7% | 0 |
-| Germany | 54 / 54 | 773 / 771 | 19.7% | 0 |
-| Australia | 42 / 42 | 649 / 648 | 41.1% | 0 |
-| France | 38 / 38 | 418 / 416 | 35.9% | 0 |
-| Malaysia | 19 / 19 | 225 / 224 | 48.9% | 0 |
-| UAE | 18 / 17 | 173 / 170 | 48.6% | 0 |
-| Netherlands | 10 / 10 | 177 / 177 | 28.8% (legacy — not in TARGET_COUNTRIES; merge.ts allowlist still includes it) | 0 |
-| New Zealand | 8 / 8 | 158 / 158 | 33.5% | 0 |
-| Ireland | 10 / 10 | 132 / 132 | 30.3% | 0 |
-| Singapore | 10 / 10 | 91 / 90 | 59.3% | 0 |
-| **Total** | **521 / 511** | **7,800 / 7,737** | **39.2%** | **309** |
+| Country | Programs | Fee% | Estimated | Δ since handoff #11 |
+|---|---:|---:|---:|---|
+| USA | 2,402 | **78.1%** | 1,410 | +46.2pp · estimate-fees priority run |
+| UK | 1,886 | 60.5% | 9 | +69 programs (C1 +63, C2 +3, leftovers +3) |
+| Canada | 857 | 29.7% | 0 | +72 (Expansion D) |
+| Germany | 785 | **31.0%** | 89 | +11.3pp · +12 programs (mostly leftovers) |
+| Australia | 649 | 41.1% | 0 | — |
+| France | 434 | 35.9% | 0 | +16 leftovers from prior NL/FR/DE runs |
+| Malaysia | 229 | 48.9% | 0 | +4 (Expansion B-Phase 1) |
+| UAE | 185 | 48.6% | 0 | +12 (Expansion B-Phase 1) |
+| Netherlands | 177 | 28.8% | 0 | — |
+| New Zealand | 158 | 33.5% | 0 | — |
+| Ireland | 133 | 30.3% | 0 | +1 (Expansion B-Phase 1) |
+| Singapore | 92 | 59.3% | 0 | +1 (Expansion B-Phase 1) |
+| **Total** | **7,987** | **54.3%** | **1,508** | **+187 programs, +15.1pp fee%** |
 
-USA's 300 estimated entries came in mid-session (estimate-fees priority run still going on Germany + Canada when this snapshot was written). Expect Germany and Canada totals to climb once it lands.
+USA's 1,410 estimated fees came from the 11 May estimate-fees priority run (~9 hours, ~$0.04–0.06/entry). Germany's 89 came from the same chain (low pass-rate ~14% — DE public unis don't disclose international tuition on secondary sources cleanly). Canada was stopped mid-run on user instruction; ~$28 / ~3 hr retry queued in Tier-B.
 
 ### 3.1.1 Still-unverified breakdown (63 entries — cleanup queued in §20)
 
@@ -1961,4 +1975,144 @@ If still failing post-deploy: the next move is to read DevTools Console for `[in
 
 **Estimated API spend in 30.2 (priority estimate-fees so far):** ~$30-50 of ~$300-450 total when run completes.
 
+---
 
+## §31 Session log — 11 May 2026 (handoff #12)
+
+The session that produced this snapshot version. 21 commits on `main`. DB 7,800 → 7,987 (+187), fee% 39.2% → 54.3%.
+
+### 31.1 estimate-fees priority run — landed USA + Germany, stopped Canada
+
+Continued the chain that was running at session start. Throughput degraded from initial 8.5/min to ~2.6/min (Anthropic rate-limit cumulating). On user instruction, stopped mid-Canada at entry 138/552 — **19 successful Canada estimates were lost** because they were below the script's 20-flush threshold and no SIGTERM handler existed. USA + Germany landings (1,499 estimates total) committed as `6ac022be`.
+
+Hardening shipped immediately (`a42b83f4`): module-level `flushOnExit` callback wired inside `main()` once `entries` is loaded; SIGTERM + SIGINT handlers call it before `process.exit(143|130)`. Save threshold dropped from 20 → 5. Worst-case loss now ~4 in-flight + ~4 queued instead of 19.
+
+### 31.2 Block 2 D / B / C — DB breadth sweep
+
+Three parallel-conceptual expansions, run serially in this session.
+
+**Expansion D — Canada west/east (`d59732ec`):** 15 regional Canadian universities not previously in DB. websearch-seed-finder returned 159 raw seeds across 13 of 15 unis (Brandon + Ontario Tech hit JSON parse errors → 0 seeds, user-descoped). Filtered to user's 10 chosen fields (CS, AI/DS, Business, MBA, Engineering, Biotech/Life Sci, Med/Public Health, Soc Sci, Nat Sci, Nursing) → 102 seeds. verify-batch (Opus, concurrency 5): 74 ok / 8 rejected / 20 err. Errors clustered on laurentian.ca (5 workers stalled ~28 min on unresponsive site; user-authorised SIGTERM to unblock the supervisor). Net +72 Canada.
+
+**Expansion B-Phase 1 — SG/UAE/MY/IE depth (`47d39bd7`):** Targeted 55 existing unis with at least one missing field from the 10-field scope. seed-finder rate-limited badly mid-run — 30/55 unis processed (293 raw seeds) before user authorised partial-commit. Filter (10 fields ∩ uni's missing fields) → 35 seeds; 8 already-verified deduped → 27 to verify. 20 ok / 2 rejected / 5 err (5 = sunway.edu.my stall, user-authorised SIGTERM). Net +18 (UAE 12, MY 4, SG 1, IE 1). **B-Phase 2 (~25 remaining unis) queued in Tier-B.**
+
+**Expansion C — UK breadth (`1b081ce6` + `712aaaed`):**
+- C1 (new UK unis): 15 institutions not previously in DB (Northumbria, UAL, Queen Margaret, Abertay, Suffolk, West London, Open University, Royal Vet, St George's, St Mary's Twickenham, York St John, Bedfordshire, Leeds Trinity, Arts Univ Bournemouth, Norwich UA). 146 raw seeds → 94 filtered. 64 ok / 16 rejected / 14 err (68% pass-rate). 11 of 15 unis landed at least one program; 4 (Northumbria, Norwich UA, Open U, Bedfordshire) returned 0 — user-descoped the retry.
+- C2 (UG-deepening at 14 PG-heavy existing UK unis): 180 raw seeds; URL-keyword UG filter (`/undergraduate`, `/bachelor`, `/bsc-`, etc., excluding `/msc/`, `/pg/`, `/phd`) caught only 11 of 112 in-scope seeds — seed-finder defaults to flagship PG pages. 6 ok / 0 rej / 1 err; 3 deduped at merge → +3 net UK UG.
+
+Net Block 2: **+93 programs** (D 72 + B 18 + C 66 with leftovers).
+
+### 31.3 Tier 1/2/3 value-strengthening sweep
+
+User-driven 7-item list to make the website's value stronger. Triaged into three tiers; first cuts of all three landed.
+
+**Tier 1 (`368e05c7`) — credibility-critical:**
+- Fixed the Sample Parent Report cost inconsistency (single "Budget fit: Good" row hiding ₹42L tuition vs ₹65.6L total contradiction). Split into "Tuition budget fit" (Good) + "Total investment fit" (Needs discussion). Family verdict updated to "Worth discussing".
+- New `<NextBestAction />` shared component (high-contrast dark-violet gradient with glowing icon block, animated arrow, soft fuchsia accent line — designed to read as decision-grade, not just a button). Dropped into ShortlistSummary, VisaCoach, ROICalculator, ParentDecisionTool, sample-parent-report.
+- AISA chat trust frame banner inside the chat window above messages; refreshed suggested-prompt set (Find programs under ₹40L · Compare UK vs Germany for AI · Visa docs · Scholarships).
+
+**Tier 2 (`8c3c86b6`) — transparency:**
+- New `<DataBadge kind=... />`: 5 provenance types (official emerald · ai_estimate violet · user_provided indigo · needs_verification amber · illustrative gray), each with icon + tooltip. Scoped to decision-driving values only per the agreed caveat.
+- New `<SourceProof lines lastVerified sourceUrl />`: emerald-tinted footer with field-by-source mapping. Pure-UTC date format (`getUTCDate/Month/FullYear`) to avoid an SSR hydration mismatch the first draft hit (`toLocaleDateString` resolves differently on server vs client).
+- Dropped both into ROI / Parent / Visa Coach / Sample Parent Report.
+
+**Tier 3 (`a02d740d` + `b8af4373`) — decision lens & family handoff:**
+- `<TradeoffView />`: 6-factor lens (Admission · Cost · ROI · Visa complexity · Safety · Scholarship possibility) with verdict pills + optional "Compare with..." chip row. Pre-computed factors pattern — call sites supply data, component doesn't compute.
+- `<ShareWithFamily />`: Print/PDF · Email (mailto: with pre-filled subject + body) · Parent-friendly view (configurable target). South Asia behaviour bridge.
+- **New `/options?lens=safer|cheaper|roi|visa-low|scholarship` route** with cross-program ranker driving the "Compare with..." chips. Five lenses each with their own scoring rule:
+  - `safer` — QS placement (NULL / 200+ first)
+  - `cheaper` — annual_tuition_usd ASC (excludes null)
+  - `roi` — country-median salary ÷ (tuition + living × years), DESC
+  - `visa-low` — visa complexity composite ASC
+  - `scholarship` — country-level heuristic (UK / DE / IE / NL top-tier)
+- Drop-ins: TradeoffView on sample-parent-report; ShareWithFamily on Visa Coach + ShortlistSummary; single "Parent-friendly view" button on ROI / Parent (full ShareWithFamily would duplicate their existing PDF+Email forms — surgical-changes rule).
+
+### 31.4 ROI + Parent no-fee dead-end → editable input (`84ced1b8`)
+
+Programs with no verified or estimated fee previously rendered a "Cannot calculate — tuition fee data not available" panel that killed the funnel. Replaced with an amber "Tuition fee needed to calculate" panel + numeric USD input. Once the user types a positive value, the normal ROI / Parent verdict renders below, with an amber caveat banner ("Based on the tuition fee you entered. Re-confirm with the university...") mirroring the existing estimated-fee pattern. Three valid tuition provenances now mirror across both tools: `verified | estimated | user_provided`.
+
+### 31.5 AISA fixes — currency + intake calendar
+
+Two related credibility holes both rooted in the same bug class: free-handing deterministic facts that the model gets wrong.
+
+- **Currency (`57f59a18`)**: AISA was converting "40 lakhs INR" to "$4,800 USD" (off by exactly 10×; "lakh" = 100,000 not 10,000). Fix: explicit CURRENCY RULES section in the system prompt with lakh / crore definitions + FX rates for the 7 main destination currencies + worked examples that call out the failure mode by name. **Real fix queued (Tier-A #2):** `convertINR()` helper that pre-computes the conversion before AISA sees it.
+- **Intake calendar (`0f5f1586`)**: AISA was referencing "the 2025 intake" mid-2026 — drifting to its training-cutoff year. Fix: `buildIntakeContext(now)` computes the active + following Fall cycles based on the request timestamp and injects them into the system prompt per request. Jan–May: active = current year, next = +1. Jun–Aug: active still current. Sep–Dec: active = current+1.
+
+### 31.6 Home rewrites — hero, both-sides cards, eyebrow
+
+User-driven copy sweep to lead with stakes and emotional benefits, not features.
+
+- Hero H1 (`a85ac572`): "Choose your study abroad path with verified data you can trust" → "**You only get to decide this *once*.**"
+- Hero subtext (`a85ac572`): old corporate-positioning line → "Course, country, cost, visa risk, ROI, safety — every question your family asks, answered from source-verified data, honest about the trade-offs. Say yes with conviction."
+- Both-sides student card subtext (`71fdd716`): feature-list → "This decision will shape the next decade of your life. Find a country, course and university that actually fit you — then rehearse every essay, interview and English test until you walk in confident, not hopeful."
+- Both-sides parent card subtext (`71fdd716`): feature-list → "You're being asked to back a decision worth years of savings. EduvianAI puts the questions you actually need answered — payback period, visa risk, country safety, alternative paths — into one report you can read in five minutes and discuss honestly at home."
+- Eyebrow (`482a9ece` → `bc422dc7` after a round of revisions): "Independent · source-verified · AI-powered" → "**INDEPENDENT AI-POWERED STUDY-ABROAD DECISION INTELLIGENCE**" (no comma — reads as one cohesive descriptor, not a list of attributes).
+
+### 31.7 Voice patch — SR pipeline prime + listening cue (`b83dae10`)
+
+The 11 May handoff-#11 fix-set (mic getUserMedia pre-warm, auto-listen on TTS end, short-utterance interim capture) addressed audio-device latency but NOT the SpeechRecognition pipeline cold-start (~500–1000ms on Chrome desktop). User confirmed mid-session that the symptom ("speak 2–3 times") persisted.
+
+Three changes:
+1. Pre-warm useEffect HOLDS the getUserMedia stream open for the session lifetime instead of releasing after 200ms. Eliminates SR's stream re-acquisition cold path.
+2. New `primeRecognition()` runs at session mount: brief SR start → wait for `onstart`/`onaudiostart` → abort. Caches Chrome's recognizer pipeline so subsequent `.start()`s warm in <100ms.
+3. New `playListeningCue()` (Web Audio, 880Hz × 90ms, vol 0.08) fires from `recog.onaudiostart` (with `onstart` + 120ms fallback for Safari) in both startListening (question phase) and listenOnce (name / YES / AU category). Trustworthy "speak now" signal.
+
+`SpeechRecognitionShim` extended with optional `onstart` / `onaudiostart`. Stream released on unmount via existing cleanup. **Live-mic verification still pending (Tier-A #1).**
+
+### 31.8 Operating rules codified (`c5f13551`)
+
+10 non-negotiable rules added to CLAUDE.md as a top-level "Operating rules — non-negotiable, every session, no exceptions" section, immediately after the project description:
+1. Think before coding · 2. Simplicity first · 3. Surgical changes · 4. Goal-driven execution · 5. Always factual, no fabrication · 6. Use model only for judgment calls · 7. Surface conflicts, don't average them · 8. Read before write · 9. Checkpoint after every significant step · 10. Fail loud.
+
+Loaded automatically into every Claude Code session.
+
+### 31.9 Open work — handoff #12 → #13 plan
+
+Pinned in priority order. Cost / effort estimates derived from this session's actual throughput.
+
+**Tier-A — credibility & correctness (cheap, code-only):**
+1. **Voice sanity check on live deploy** — `b83dae10` shipped; needs a real mic test on UK / AU / USA flows. User-driven, ~10 min.
+2. **`convertINR()` deterministic helper** — currency fix is prompt-only today. Per Rule 6, real fix is a helper that pre-computes conversions before AISA sees them.
+3. **Dedup `UCL` vs `University College London` + `Middlesex University` vs `Middlesex University London`** — spotted during C1 UK inventory.
+4. **63 still-unverified entries cleanup** — 31 field-mismatch (24 catalog URLs, 7 manual), 32 fetch-errors (2 dead, 28 catalog placeholders, 2 retry). Strip via `audit-strip --include field_mismatch` then manual review of residual.
+
+**Tier-B — DB completeness (API spend):**
+5. **Canada estimate-fees retry** — recover the 19 lost + process 414 not-yet-touched. ~$28 / ~3 hr. Hardening (`a42b83f4`) means a partial-stop won't lose work again.
+6. **B-Phase 2 — remaining 25 SG/UAE/MY/IE unis.** ~$15–25 / ~2 hr. Run when Anthropic rate-limit pressure has eased (overnight is safest).
+7. ~~C1 retry on 4 zero-yield UK unis~~ — **descoped by user 11 May.**
+8. ~~Brandon + Ontario Tech retry~~ — **descoped by user 11 May.**
+9. **USA fee uplift beyond 78.1%** — residential proxy (~$50/mo) or per-uni manual override for the universities whose pages block bot fetches.
+10. **Architecture stream Phase 2** — seed files already untracked (`scripts/verify/seeds/architecture-phase2.json` + `streams-full-sweep.json`). Just needs verify-batch + merge. ~$10–25 / ~1–2 hr.
+
+**Tier-C — product surface deferrals from Tier 1/2/3:**
+11. **TradeoffView → ProgramCard / ComparePanel** with live student-profile-driven verdicts (admission chance derived from match_score, cost from tuition + living, ROI from country/field salary, visa complexity from VISA_COMPLEXITY_RANKED, safety from per-country mapping, scholarship from country heuristic).
+12. **Backend-mediated email for ShareWithFamily** — replace `mailto:` with server-side send via existing Resend infra.
+13. **Dedicated `/parent-view` route** — true render mode (simpler styling, less jargon) usable for any tool, not just routing to `/sample-parent-report` as a placeholder.
+14. **Marketing email opt-in flow** — Privacy Policy §11 promises this.
+15. **Visible unsubscribe link in email body** — `List-Unsubscribe` header is in; in-body link still missing.
+16. **Real downloadable Sample Parent Report PDF** — current is HTML + browser Save-as-PDF.
+17. **`/options` scoring refinement** — current heuristics are rough (scholarship lens is per-country only; safer-admit doesn't factor field-of-study selectivity; ROI doesn't account for graduate-stay visa duration).
+
+**Tier-D — security & ops:**
+18. Read `~/Desktop/EduvianAI-Security-Architecture-Risk-Assessment.docx` to enumerate Medium / Low findings.
+19. Apply M findings.
+20. Apply L findings.
+21. Secrets rotation policy + 90-day cadence.
+22. Backup posture confirmation.
+23. Sentry alerting on auth / OTP failures.
+(Pen testing + bug bounty stay deferred to pre-launch.)
+
+**Estimated remaining spend across Tiers B + C (excluding descoped #7-8):** ~$90–150 of API + optional $50/mo residential proxy for #9.
+
+### 31.10 Working-tree state at handoff #12
+
+Last commit on `main`: `0f5f1586` (AISA dynamic intake calendar).
+
+Modified but uncommitted:
+- `scripts/verify/catalogs/streams-all-qs.json` (from a prior session; ties into Architecture Phase 2 / Tier-B #10)
+
+Untracked (also from prior sessions, all tie into Tier-B #10):
+- `scripts/verify/catalogs/architecture-phase2-target.json`
+- `scripts/verify/seeds/architecture-phase2.json`
+- `scripts/verify/seeds/streams-full-sweep.json`
+
+No background processes. No in-flight verify or seed work.
