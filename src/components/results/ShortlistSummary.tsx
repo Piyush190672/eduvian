@@ -72,8 +72,8 @@ export default function ShortlistSummary({ programs, onRemove }: Props) {
         <ShareWithFamily
           emailSubject="My EduvianAI shortlist"
           emailBody={`My current EduvianAI shortlist of ${programs.length} program${programs.length === 1 ? "" : "s"}:\n\n${programs.map((p, i) => `${i + 1}. ${p.program_name} — ${p.university_name} (${p.country}) · ${p.match_score}% match`).join("\n")}\n\nView the full breakdown: ${typeof window !== "undefined" ? window.location.href : "https://www.eduvianai.com"}`}
-          parentViewHref="/sample-parent-report"
-          parentViewLabel="See a sample parent report"
+          parentViewHref="/parent-view?from=shortlist"
+          parentViewLabel="Open parent-friendly view"
         />
       </div>
     </div>

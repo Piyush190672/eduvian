@@ -561,8 +561,8 @@ export default function VisaCoach() {
         <ShareWithFamily
           emailSubject={`${active.country} student visa checklist — EduvianAI`}
           emailBody={`I've put the official ${active.country} student-visa checklist together using EduvianAI's Visa Coach. Have a look — every figure links back to a government source: ${typeof window !== "undefined" ? window.location.href : "https://www.eduvianai.com/visa-coach"}`}
-          parentViewHref="/sample-parent-report"
-          parentViewLabel="See a sample parent report"
+          parentViewHref="/parent-view?from=visa"
+          parentViewLabel="Open parent-friendly view"
         />
       </section>
 

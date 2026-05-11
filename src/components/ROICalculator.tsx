@@ -784,9 +784,9 @@ export default function ROICalculator() {
                           : <><FileDown className="w-3.5 h-3.5" /> Download PDF</>}
                       </button>
 
-                      {/* Parent-friendly view button */}
+                      {/* Parent-friendly view button → hub */}
                       <a
-                        href="/parent-decision"
+                        href="/parent-view?from=roi"
                         className="flex items-center gap-2 px-4 py-2 rounded-xl bg-violet-600 text-white text-sm font-semibold hover:bg-violet-700 transition-all"
                       >
                         <User className="w-3.5 h-3.5" /> Parent-friendly view
