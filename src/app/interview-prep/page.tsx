@@ -488,13 +488,28 @@ function pickVoice(voices: SpeechSynthesisVoice[], country: Country): SpeechSynt
     // Quality tier 2 — Microsoft Neural voices (Windows 10/11 with edge-tts engine)
     // Quality tier 3 — macOS / iOS 17+ premium named voices (need user to have downloaded)
     // Quality tier 4 — any en-US named "male" / any en-US non-female / any en-US
-    // 1st-gen macOS Alex (2007) is widely available but sounds robotic by
-    // today's standards. Treat him as "explicitly never pick" — if the device
-    // has no premium male voice, fall through to a natural-sounding female
-    // voice (Google US English / Aria / Samantha at adjusted pitch) rather
-    // than serve a robotic-male read. The user authorised this trade-off
-    // 11 May 2026.
-    const ROBOTIC_DENY = new Set(["Alex"]);
+    // ROBOTIC_DENY: voices that exist on the system but sound mechanical /
+    // cartoonish / synthesised by 2010s standards. Never pick these even if
+    // they match the priority list — fall through to the female fallback
+    // instead.
+    //
+    // - Alex: 1st-gen macOS male (2007), diphone synthesis.
+    // - Albert / Fred / Ralph / Bruce: System-7-era novelty voices that
+    //   shipped with classic Mac OS. Still present on macOS for legacy
+    //   compatibility. Tagged en-US but designed as character voices.
+    // - Bahh, Bells, Boing, Bubbles, Cellos, Deranged, Good News, Bad News,
+    //   Hysterical, Junior (legacy/novelty — distinct from iOS 17+ Junior),
+    //   Pipe Organ, Trinoids, Whisper, Zarvox: novelty voices in the same
+    //   class. Listed by name so the premium-voice match for plain "Junior"
+    //   can still hit the new high-quality iOS-17+ Junior on devices that
+    //   actually have it (Apple ships those with "(Premium)" / "(Enhanced)"
+    //   suffix variants which are matched separately below).
+    const ROBOTIC_DENY = new Set([
+      "Alex", "Albert", "Fred", "Ralph", "Bruce",
+      "Bahh", "Bells", "Boing", "Bubbles", "Cellos", "Deranged",
+      "Good News", "Bad News", "Hysterical", "Pipe Organ", "Trinoids",
+      "Whisper", "Zarvox",
+    ]);
 
     const usMaleNamed = voices.find((v) => {
       const n = v.name;
@@ -508,10 +523,12 @@ function pickVoice(voices: SpeechSynthesisVoice[], country: Country): SpeechSynt
         n === "Microsoft Mark - English (United States)" ||
         n === "Microsoft David - English (United States)" ||
         (/^Microsoft (Guy|Davis|Mark|David|Andrew|Brian|Tony|Christopher)\b/.test(n) && v.lang.startsWith("en-US")) ||
-        // Tier 3 — macOS / iOS premium en-US male (Alex deliberately excluded)
-        n === "Aaron"     || n === "Albert"   || n === "Arthur"  ||
+        // Tier 3 — macOS / iOS premium en-US male. Only the modern voices.
+        // Albert + Fred removed — they're the System-7-era novelty voices,
+        // not the modern premium voices.
+        n === "Aaron"     || n === "Arthur"   ||
         n === "Eddy (English (US))" || n === "Eddy" ||
-        n === "Fred"      || n === "Junior (English (US))" || n === "Junior" ||
+        n === "Junior (English (US))" || n === "Junior" ||
         n === "Nathan"    || n === "Reed"     || n === "Reed (English (US))" ||
         n === "Rocko (English (US))" || n === "Rocko" ||
         n === "Tom"       ||
