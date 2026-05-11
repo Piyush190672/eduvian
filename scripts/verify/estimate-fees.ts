@@ -178,11 +178,32 @@ process.on("unhandledRejection", (reason) => {
   console.warn(`[unhandledRejection swallowed] ${msg.slice(0, 200)}`);
 });
 
+// Hardening (11 May 2026): a signal-driven flush so a SIGTERM mid-run
+// doesn't drop in-memory estimates. The 11 May chain stopped Canada at
+// entry 138/552 with 19 successful estimates queued in memory — none had
+// reached the 20-flush threshold, all were lost. flushOnExit is wired
+// inside main() once the entries array exists; signal handlers below
+// call it and exit non-zero so wrapper scripts see the interruption.
+let flushOnExit: (() => void) | null = null;
+let flushInProgress = false;
+const handleSignal = (sig: NodeJS.Signals) => {
+  if (flushInProgress) return;
+  flushInProgress = true;
+  console.warn(`\n[${sig}] flushing in-memory estimates to disk before exit…`);
+  try { flushOnExit?.(); console.warn("[flushed]"); }
+  catch (e) { console.error("[flush failed]", (e as Error).message); }
+  process.exit(sig === "SIGINT" ? 130 : 143);
+};
+process.on("SIGTERM", () => handleSignal("SIGTERM"));
+process.on("SIGINT", () => handleSignal("SIGINT"));
+
 async function main() {
   if (!process.env.ANTHROPIC_API_KEY) { console.error("ANTHROPIC_API_KEY not set"); process.exit(1); }
 
   const { header, trailer, entries, tail } = loadEntries();
   console.log(`Loaded ${entries.length} entries.`);
+  // Wire the signal-flush now that we own the in-memory state.
+  flushOnExit = () => writeFileSync(PROGRAMS_PATH, emit(header, trailer, entries, tail));
 
   // Targets: entries with no tuition AND a program_url AND no prior estimate.
   const targets: { idx: number; uni: string; country: string; pname: string; url: string }[] = [];
@@ -229,7 +250,12 @@ async function main() {
         e.src = rewriteEntryFees(e.src, est.annual_tuition_amount as number, (est.annual_tuition_currency as string).toUpperCase(), usd);
         if (est.confidence === "high") highOk++; else mediumOk++;
         process.stdout.write(`  ✓ ${est.confidence} ${est.annual_tuition_amount} ${est.annual_tuition_currency} (USD ${usd}) — ${est.sources.length} sources\n`);
-        if (++saveCounter >= 20) {
+        // Flush every 5 successful estimates (was 20). At concurrency 4
+        // this is roughly one disk write every 1-2 minutes — cheap, and
+        // the worst-case loss on SIGTERM is now 4 in-flight entries
+        // (still inside the worker await) plus up to 4 not-yet-flushed
+        // queued estimates, instead of 19.
+        if (++saveCounter >= 5) {
           saveCounter = 0;
           writeFileSync(PROGRAMS_PATH, emit(header, trailer, entries, tail));
         }
