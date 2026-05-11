@@ -488,8 +488,17 @@ function pickVoice(voices: SpeechSynthesisVoice[], country: Country): SpeechSynt
     // Quality tier 2 — Microsoft Neural voices (Windows 10/11 with edge-tts engine)
     // Quality tier 3 — macOS / iOS 17+ premium named voices (need user to have downloaded)
     // Quality tier 4 — any en-US named "male" / any en-US non-female / any en-US
+    // 1st-gen macOS Alex (2007) is widely available but sounds robotic by
+    // today's standards. Treat him as "explicitly never pick" — if the device
+    // has no premium male voice, fall through to a natural-sounding female
+    // voice (Google US English / Aria / Samantha at adjusted pitch) rather
+    // than serve a robotic-male read. The user authorised this trade-off
+    // 11 May 2026.
+    const ROBOTIC_DENY = new Set(["Alex"]);
+
     const usMaleNamed = voices.find((v) => {
       const n = v.name;
+      if (ROBOTIC_DENY.has(n)) return false;
       return (
         // Tier 1 — Google (cloud, highest quality on Chrome)
         n === "Google US English Male" || n === "Google US English" ||
@@ -499,23 +508,38 @@ function pickVoice(voices: SpeechSynthesisVoice[], country: Country): SpeechSynt
         n === "Microsoft Mark - English (United States)" ||
         n === "Microsoft David - English (United States)" ||
         (/^Microsoft (Guy|Davis|Mark|David|Andrew|Brian|Tony|Christopher)\b/.test(n) && v.lang.startsWith("en-US")) ||
-        // Tier 3 — macOS / iOS premium en-US male (alphabetical)
+        // Tier 3 — macOS / iOS premium en-US male (Alex deliberately excluded)
         n === "Aaron"     || n === "Albert"   || n === "Arthur"  ||
         n === "Eddy (English (US))" || n === "Eddy" ||
         n === "Fred"      || n === "Junior (English (US))" || n === "Junior" ||
         n === "Nathan"    || n === "Reed"     || n === "Reed (English (US))" ||
         n === "Rocko (English (US))" || n === "Rocko" ||
-        n === "Tom"       || n === "Alex"     ||
+        n === "Tom"       ||
         // Tier 4 — generic male hint
         (v.lang === "en-US" && /\bmale\b/i.test(n))
       );
     });
-    // Any en-US voice as fallback. The previous `!/female/i.test(v.name)`
-    // filter only caught voices that literally had "female" in their name —
-    // macOS's "Samantha" / "Karen" / "Victoria" etc. are female voices whose
-    // names don't include that word, so they slipped through and got picked
-    // when no male voice was available on the device. Deny-list the known
-    // en-US female names explicitly, then fall back to any en-US.
+
+    // 2nd-tier fallback: natural-sounding female en-US voices, ordered by
+    // perceived naturalness. Better to read in a clean female voice than in
+    // robotic Alex. The visa-officer character takes the gender shift; the
+    // listen-quality matters more for interview rehearsal.
+    const usNaturalFemale = voices.find((v) => {
+      const n = v.name;
+      return (
+        // Cloud-rendered (highest quality)
+        n === "Google US English Female" ||
+        n === "Microsoft Aria Online (Natural) - English (United States)" ||
+        n === "Microsoft Jenny Online (Natural) - English (United States)" ||
+        // macOS / iOS modern voices (2nd-gen+)
+        n === "Ava (Premium)" || n === "Ava (Enhanced)" || n === "Ava" ||
+        n === "Allison (Premium)" || n === "Allison (Enhanced)" || n === "Allison" ||
+        n === "Samantha (Premium)" || n === "Samantha (Enhanced)" || n === "Samantha"
+      );
+    });
+
+    // Last-resort: ANY en-US voice, with Alex explicitly denied so we never
+    // serve him even when nothing else is available. Falls through to usAny.
     const KNOWN_FEMALE_EN_US = new Set([
       "Samantha", "Allison", "Ava", "Susan", "Victoria", "Vicki", "Kate",
       "Kathy", "Princess", "Veena", "Zoe", "Karen",
@@ -523,16 +547,17 @@ function pickVoice(voices: SpeechSynthesisVoice[], country: Country): SpeechSynt
       "Microsoft Aria Online (Natural) - English (United States)",
       "Microsoft Jenny Online (Natural) - English (United States)",
       "Microsoft Michelle Online (Natural) - English (United States)",
-      // iOS 17+ female en-US premium voices
       "Nora", "Sandy", "Nicky",
     ]);
     const usLocale = voices.find((v) =>
       v.lang === "en-US"
+      && !ROBOTIC_DENY.has(v.name)
       && !/female/i.test(v.name)
       && !KNOWN_FEMALE_EN_US.has(v.name)
     );
-    const usAny    = voices.find((v) => v.lang === "en-US");
-    const picked = usMaleNamed ?? usLocale ?? usAny ?? null;
+    const usAny = voices.find((v) => v.lang === "en-US" && !ROBOTIC_DENY.has(v.name));
+
+    const picked = usMaleNamed ?? usNaturalFemale ?? usLocale ?? usAny ?? null;
     // Diagnostic log so a user reporting "wrong voice" can paste back what
     // was actually picked. Cheap, runs once per session in practice.
     if (typeof window !== "undefined" && picked) {
