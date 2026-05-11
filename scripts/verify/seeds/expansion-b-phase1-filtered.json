@@ -1,0 +1,282 @@
+[
+  {
+    "university": "Abu Dhabi University",
+    "country": "UAE",
+    "city": "Abu Dhabi",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.adu.ac.ae/study/colleges/college-of-business/ProgramDetail/master-of-strategic-leadership"
+  },
+  {
+    "university": "Abu Dhabi University",
+    "country": "UAE",
+    "city": "Abu Dhabi",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.adu.ac.ae/study/colleges/college-of-engineering/ProgramDetail/master-of-science-in-electrical-and-computer-engineering"
+  },
+  {
+    "university": "Abu Dhabi University",
+    "country": "UAE",
+    "city": "Abu Dhabi",
+    "qs_ranking": null,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.adu.ac.ae/study/colleges/college-of-health-sciences/ProgramDetail/bsc-in-molecular-and-medical-genetics"
+  },
+  {
+    "university": "Abu Dhabi University",
+    "country": "UAE",
+    "city": "Abu Dhabi",
+    "qs_ranking": null,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.adu.ac.ae/study/colleges/college-of-health-sciences/ProgramDetail/bsc-in-molecular-and-medical-genetics"
+  },
+  {
+    "university": "American University of Sharjah",
+    "country": "UAE",
+    "city": "Sharjah",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://www.aus.edu/sba/department-of-management-strategy-and-entrepreneurship/master-of-business-administration"
+  },
+  {
+    "university": "BITS Pilani Dubai Campus",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.bits-dubai.ac.ae/admissions/be/"
+  },
+  {
+    "university": "BITS Pilani Dubai Campus",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.bits-dubai.ac.ae/admissions/higher-degree-m-e/"
+  },
+  {
+    "university": "BITS Pilani Dubai Campus",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.bits-dubai.ac.ae/admissions/be/"
+  },
+  {
+    "university": "Curtin University Malaysia",
+    "country": "Malaysia",
+    "city": "Miri",
+    "qs_ranking": null,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://curtin.edu.my/study/postgraduate/master-public-health/"
+  },
+  {
+    "university": "ESSEC Asia-Pacific Singapore",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.essec.edu/en/program/master-data-sciences-business-analytics/"
+  },
+  {
+    "university": "ESSEC Asia-Pacific Singapore",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.essec.edu/en/program/master-in-management-international/"
+  },
+  {
+    "university": "HELP University",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://university.help.edu.my/programme/bachelor-of-management/"
+  },
+  {
+    "university": "INSEAD Asia Campus",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.insead.edu/master-programmes/executive-master-change"
+  },
+  {
+    "university": "INTI International University",
+    "country": "Malaysia",
+    "city": "Nilai",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://newinti.edu.my/programme/bachelor-of-business-hons-with-psychology/"
+  },
+  {
+    "university": "INTI International University",
+    "country": "Malaysia",
+    "city": "Nilai",
+    "qs_ranking": null,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://newinti.edu.my/programme/bsc-hons-physiotherapy/"
+  },
+  {
+    "university": "Multimedia University",
+    "country": "Malaysia",
+    "city": "Cyberjaya",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://www.mmu.edu.my/fom/programmes/master-of-business-administration-m-b-a/"
+  },
+  {
+    "university": "National University of Ireland Galway",
+    "country": "Ireland",
+    "city": "Galway",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.universityofgalway.ie/courses/taught-postgraduate-courses/mechanical-engineering.html"
+  },
+  {
+    "university": "National University of Ireland Galway",
+    "country": "Ireland",
+    "city": "Galway",
+    "qs_ranking": null,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.universityofgalway.ie/courses/taught-postgraduate-courses/biotechnology.html"
+  },
+  {
+    "university": "National University of Ireland Galway",
+    "country": "Ireland",
+    "city": "Galway",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.universityofgalway.ie/colleges-and-schools/arts-social-sciences-and-celtic-studies/english-media-creative-arts/departments-centres/english/ma-english/ma-english/"
+  },
+  {
+    "university": "National University of Ireland Galway",
+    "country": "Ireland",
+    "city": "Galway",
+    "qs_ranking": null,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.universityofgalway.ie/courses/undergraduate-courses/science-undenominated.html"
+  },
+  {
+    "university": "National University of Ireland Galway",
+    "country": "Ireland",
+    "city": "Galway",
+    "qs_ranking": null,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.universityofgalway.ie/courses/undergraduate-courses/nursing-science-general.html"
+  },
+  {
+    "university": "New York University Abu Dhabi",
+    "country": "UAE",
+    "city": "Abu Dhabi",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://nyuad.nyu.edu/en/academics/undergraduate/majors-and-minors/computer-science-major.html"
+  },
+  {
+    "university": "New York University Abu Dhabi",
+    "country": "UAE",
+    "city": "Abu Dhabi",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://nyuad.nyu.edu/en/academics/undergraduate/majors-and-minors/business-organizations-and-society-major.html"
+  },
+  {
+    "university": "New York University Abu Dhabi",
+    "country": "UAE",
+    "city": "Abu Dhabi",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://stern.nyuad.nyu.edu/programs-admissions/mba-program/"
+  },
+  {
+    "university": "New York University Abu Dhabi",
+    "country": "UAE",
+    "city": "Abu Dhabi",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://nyuad.nyu.edu/en/academics/undergraduate/majors-and-minors/electrical-engineering-major.html"
+  },
+  {
+    "university": "New York University Abu Dhabi",
+    "country": "UAE",
+    "city": "Abu Dhabi",
+    "qs_ranking": null,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://nyuad.nyu.edu/en/academics/undergraduate/majors-and-minors/biology-major.html"
+  },
+  {
+    "university": "New York University Abu Dhabi",
+    "country": "UAE",
+    "city": "Abu Dhabi",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://nyuad.nyu.edu/en/academics/undergraduate/majors-and-minors/social-research-and-public-policy-major.html"
+  },
+  {
+    "university": "New York University Abu Dhabi",
+    "country": "UAE",
+    "city": "Abu Dhabi",
+    "qs_ranking": null,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://nyuad.nyu.edu/en/academics/undergraduate/majors-and-minors/chemistry-major.html"
+  },
+  {
+    "university": "RIT Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://www.rit.edu/dubai/master-science-organizational-leadership-and-innovation"
+  },
+  {
+    "university": "Royal College of Surgeons in Ireland",
+    "country": "Ireland",
+    "city": "Dublin",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.rcsi.com/online/find-a-course/masters/h/e/Healthcare-Management"
+  },
+  {
+    "university": "Sunway University",
+    "country": "Malaysia",
+    "city": "Subang Jaya",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://university.sunway.edu.my/set/bachelor-electronic-electrical"
+  },
+  {
+    "university": "Sunway University",
+    "country": "Malaysia",
+    "city": "Subang Jaya",
+    "qs_ranking": null,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://university.sunway.edu.my/smls/bsc-med-biotech"
+  },
+  {
+    "university": "Sunway University",
+    "country": "Malaysia",
+    "city": "Subang Jaya",
+    "qs_ranking": null,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://university.sunway.edu.my/smls/ma-med-science"
+  },
+  {
+    "university": "Sunway University",
+    "country": "Malaysia",
+    "city": "Subang Jaya",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://university.sunway.edu.my/smls/bsc-psychology"
+  },
+  {
+    "university": "Sunway University",
+    "country": "Malaysia",
+    "city": "Subang Jaya",
+    "qs_ranking": null,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://university.sunway.edu.my/healthcare/dip-nursing"
+  }
+]
