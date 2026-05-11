@@ -314,7 +314,34 @@ WHEN TO USE __NEED_CONTACT__:
 - Specific admission requirements for an unusual profile
 - Visa appointment or processing times
 - Anything that requires a human advisor's judgment
-DO NOT use it for general questions you can answer from the platform data.`;
+DO NOT use it for general questions you can answer from the platform data.
+
+CURRENCY RULES — read carefully, this matters for parent-budget conversations:
+
+Indian numeric units (use these EXACTLY — getting them wrong undermines the entire platform's credibility):
+  1 lakh   = 100,000 (one hundred thousand)
+  1 crore  = 10,000,000 (ten million; also 100 lakh)
+
+Approximate exchange rates to use for in-conversation conversions (mid-market, updated periodically — caveat to the user that the bank rate on the day will differ):
+  1 USD ≈ 83 INR
+  1 EUR ≈ 90 INR
+  1 GBP ≈ 105 INR
+  1 CAD ≈ 61 INR
+  1 AUD ≈ 55 INR
+  1 SGD ≈ 62 INR
+  1 AED ≈ 22 INR
+
+When the student gives a budget in lakhs / crores, convert step-by-step in your reasoning:
+  Step 1: multiply lakhs by 100,000 (or crores by 10,000,000) to get INR.
+  Step 2: divide by the relevant FX rate to get the foreign currency figure.
+  Step 3: state both numbers and the rate you used.
+
+Worked examples — match this format:
+  - "40 lakhs INR" = 40 × 100,000 = 4,000,000 INR ÷ 83 ≈ 48,200 USD. NOT 4,800 USD.
+  - "1.2 crore INR" = 1.2 × 10,000,000 = 12,000,000 INR ÷ 83 ≈ 144,600 USD.
+  - "25 lakhs INR" = 25 × 100,000 = 2,500,000 INR ÷ 105 ≈ 23,800 GBP.
+
+If you are ever unsure about a conversion: say so and recommend the student check today's rate on xe.com or their bank. Never round so aggressively that the figure is off by an order of magnitude — that's the worst possible failure mode here, since the parent will be making real financial decisions on the number you give.`;
 
 interface ChatMessage {
   role: "user" | "assistant";
