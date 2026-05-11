@@ -504,15 +504,26 @@ function pickVoice(voices: SpeechSynthesisVoice[], country: Country): SpeechSynt
     //   can still hit the new high-quality iOS-17+ Junior on devices that
     //   actually have it (Apple ships those with "(Premium)" / "(Enhanced)"
     //   suffix variants which are matched separately below).
-    // ROBOTIC_DENY: voices that exist on the system but sound mechanical /
-    // cartoonish. Plain-name "Junior" added 11 May 2026 after user's
-    // device picked the System-7-era novelty Junior (a child voice) —
-    // distinct from the iOS 17+ / macOS Sonoma+ premium "Junior (Premium)"
-    // or "Junior (English (US))" which the picker still prefers explicitly.
-    // Same logic for plain "Tom" (legacy) — keep the suffix variants
-    // allowed in the priority list.
+    // 11 May 2026: user-specified preference order. Tries each in turn;
+    // first match wins. Overrides everything below — so if the user has
+    // Alex installed, we pick Alex regardless of priority-list scoring or
+    // deny-lists. User has authored this ordering with their downloaded
+    // voices in mind.
+    const USER_PREFERRED_ORDER = ["Alex", "Ava (Premium)", "Allison (Enhanced)"];
+    for (const wanted of USER_PREFERRED_ORDER) {
+      const v = voices.find((x) => x.name === wanted);
+      if (v) {
+        if (typeof window !== "undefined") {
+          console.info(`[interview-prep] USA voice picked: "${v.name}" (lang=${v.lang}, localService=${v.localService ?? "n/a"})`);
+        }
+        return v;
+      }
+    }
+
+    // ROBOTIC_DENY: voices that sound mechanical / cartoonish. Used in
+    // fallback paths only — the user-preferred order above is exempt.
     const ROBOTIC_DENY = new Set([
-      "Alex", "Albert", "Fred", "Ralph", "Bruce",
+      "Albert", "Fred", "Ralph", "Bruce",
       "Junior", "Tom",
       "Bahh", "Bells", "Boing", "Bubbles", "Cellos", "Deranged",
       "Good News", "Bad News", "Hysterical", "Pipe Organ", "Trinoids",
@@ -689,12 +700,11 @@ function useTTS(country: Country) {
 
       const utterAndAdvance = (seg: string) => {
         const utter = new SpeechSynthesisUtterance(seg);
-        // USA male voice reads better at the default rate; the prior 1.05
-        // clipped phonemes on some macOS/iOS voices and made it sound clipped.
-        // UK/AU female voices stay at 1.0 rate / 1.12 pitch (slightly raised
-        // pitch gives a warmer, less monotone female read on synthesised voices).
-        utter.rate  = 1.0;
-        utter.pitch = country === "usa" ? 1.0 : 1.12;
+        // USA: rate 1.05 per user preference (11 May 2026). UK/AU stay at 1.0.
+        // Pitch: 1.0 for USA (male/neutral character), 1.12 for UK/AU
+        // (slightly raised, warmer female read on synthesised voices).
+        utter.rate  = country === "usa" ? 1.05 : 1.0;
+        utter.pitch = country === "usa" ? 1.0  : 1.12;
         utter.volume = 1;
         if (voice) utter.voice = voice;
         utter.onend = () => {
