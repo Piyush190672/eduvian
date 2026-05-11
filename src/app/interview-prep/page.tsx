@@ -700,11 +700,11 @@ function useTTS(country: Country) {
 
       const utterAndAdvance = (seg: string) => {
         const utter = new SpeechSynthesisUtterance(seg);
-        // USA: rate 1.05 per user preference (11 May 2026). UK/AU stay at 1.0.
+        // Rate 1.0 across all three countries per user preference (11 May 2026).
         // Pitch: 1.0 for USA (male/neutral character), 1.12 for UK/AU
         // (slightly raised, warmer female read on synthesised voices).
-        utter.rate  = country === "usa" ? 1.05 : 1.0;
-        utter.pitch = country === "usa" ? 1.0  : 1.12;
+        utter.rate  = 1.0;
+        utter.pitch = country === "usa" ? 1.0 : 1.12;
         utter.volume = 1;
         if (voice) utter.voice = voice;
         utter.onend = () => {
