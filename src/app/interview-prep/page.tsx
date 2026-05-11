@@ -504,8 +504,16 @@ function pickVoice(voices: SpeechSynthesisVoice[], country: Country): SpeechSynt
     //   can still hit the new high-quality iOS-17+ Junior on devices that
     //   actually have it (Apple ships those with "(Premium)" / "(Enhanced)"
     //   suffix variants which are matched separately below).
+    // ROBOTIC_DENY: voices that exist on the system but sound mechanical /
+    // cartoonish. Plain-name "Junior" added 11 May 2026 after user's
+    // device picked the System-7-era novelty Junior (a child voice) —
+    // distinct from the iOS 17+ / macOS Sonoma+ premium "Junior (Premium)"
+    // or "Junior (English (US))" which the picker still prefers explicitly.
+    // Same logic for plain "Tom" (legacy) — keep the suffix variants
+    // allowed in the priority list.
     const ROBOTIC_DENY = new Set([
       "Alex", "Albert", "Fred", "Ralph", "Bruce",
+      "Junior", "Tom",
       "Bahh", "Bells", "Boing", "Bubbles", "Cellos", "Deranged",
       "Good News", "Bad News", "Hysterical", "Pipe Organ", "Trinoids",
       "Whisper", "Zarvox",
