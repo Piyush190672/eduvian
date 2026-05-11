@@ -1,11 +1,11 @@
 # EduvianAI — Comprehensive State Snapshot for Session Handoff
 
-**Last updated:** 11 May 2026 (handoff #12 — estimate-fees USA+DE landed · Block 2 D/B/C shipped · Tier 1/2/3 value-strengthening sweep · AISA currency + intake fixes)
+**Last updated:** 11 May 2026 (handoff #12.5 — Tier-A + Tier-C #11-13 + Tier-B #10 shipped · DB now 100% verified · NBA review · specialisation-fee backfill · Canada estimate-fees retry in flight)
 **Purpose:** Zero-loss handoff between Claude Code sessions. A new session reading this should be able to continue *every* in-flight workstream correctly, respect all user preferences, and avoid all known gotchas.
 
-> **No background processes expected on session start.** The 11 May estimate-fees chain was stopped on user instruction after USA + Germany landed (Canada partial, see §31 / Tier-B). No active verify-batch, seed-finder, or chain-tiers runs.
+> **Background process likely running on session start:** Canada estimate-fees retry (PID 19626). Log at `/tmp/estimate-fees-canada-2.log`. Hardening from `a42b83f4` is active — SIGTERM-safe + saves every 5 estimates. ~577 entries when launched. Check progress before kicking off anything else that competes for Anthropic API budget.
 
-> **Pinned next-session priority (handoff #12 → #13):** Tier-A first (cheap & code-only), then Tier-C #11–13, then Tier-B excluding the user-descoped C1-retry and Brandon/Ontario-Tech items, then Tier-C #14–17, then Tier-D security. See §31.
+> **Pinned next-session priority (handoff #12.5 → #13):** Wait for / monitor Canada estimate-fees, then Tier-B #6 (B-Phase 2 SG/UAE/MY/IE remaining 25 unis), then Tier-C #14-17 (marketing opt-in, visible unsubscribe, real PDF generator, `/options` scoring refinement), then Tier-D security. Tier-B #9 (USA residential proxy) needs explicit user authorisation for paid subscription. See §32.
 
 > **What's NEW since handoff #11 (21 commits on main):**
 >
@@ -301,11 +301,11 @@ USA, UK, Australia, Canada, New Zealand, Ireland, Germany, France, UAE, Singapor
 
 | | Value |
 |---|---:|
-| Last commit on main | `0f5f1586` — AISA dynamic intake calendar (handoff #12, 11 May) |
-| Programs in DB | **7,987** |
-| Verified at source | **7,924** (99.2%) |
-| With international tuition | **4,339 (54.3%)** — of which **1,508 estimated** via secondary sources (rest verified at source) |
-| Universities | **543** total (verified-unis count needs re-derivation post-handoff-#12) |
+| Last commit on main | `fa8723a5` — NBA review pass (handoff #12.5, 11 May) |
+| Programs in DB | **7,986** |
+| Verified at source | **7,986 (100.0%)** — every entry carries a verified_at stamp after the 11 May strip (`46274d08`) |
+| With international tuition | **4,327+ (54.2%+)** — climbing as the Canada estimate-fees retry runs (PID 19626). Of which ~1,551 estimated via secondary sources (`tuition_fee_source: "estimated"`) |
+| Universities | **534** total |
 | Countries | 12 |
 | Build | green |
 | Branch | main |
@@ -2116,3 +2116,126 @@ Untracked (also from prior sessions, all tie into Tier-B #10):
 - `scripts/verify/seeds/streams-full-sweep.json`
 
 No background processes. No in-flight verify or seed work.
+
+---
+
+## §32 Session log — 11 May 2026 (handoff #12.5 — Tier-A + Tier-C #11-13 + Tier-B #10 + NBA review + Canada estimate-fees retry in flight)
+
+Continuation of handoff #12 in the same calendar day. 18 commits on `main` since `e37fb0f4` (#12 doc refresh). Closed all four Tier-A items, three of the four Tier-C product-surface deferrals (one closed as superseded), one Tier-B item (Architecture Phase 2), plus the NBA-review fix the user surfaced after seeing the Tier-3 first cut live.
+
+### 32.1 Tier-A — credibility & correctness
+
+**`convertINR()` deterministic helper (`6d2f3c18`)** — Operating Rule 6 closure on the AISA currency bug. Regex extractor + pre-computed conversion table for the seven destination currencies (USD/EUR/GBP/CAD/AUD/SGD/AED) injected into the chat system prompt per request. AISA reads facts ("40 lakhs INR = INR 4,000,000 → USD 48,193 · EUR 44,444 · …") instead of doing the math. Caught 7 phrasings in smoke test including the user's original "$4,800 vs $48,200" failure case.
+
+**UCL / Middlesex dedup (`94dc29d7`)** — spotted during the C1 UK university inventory. `UCL` (27 rows) and `University College London` (4 rows) were the same institution under two display names; same with `Middlesex University` (15) / `Middlesex University London` (2). Standardised on the longer formal names to match the rest of the DB. Row counts unchanged; unique-university count 543 → 541.
+
+**63 stale unverified entries strip (`46274d08`)** — after two re-verify passes, 63 entries still lacked a `verified_at` stamp (catalog URLs from older crawler runs, dead links, etc.). The naive `audit-strip --include field_mismatch fetch_or_api_error` would have stripped 90 rows including 27 that had been successfully re-verified in a later pass. Used a smarter Python filter that only strips entries that are BOTH unverified in `programs.ts` AND flagged in the latest `reverify-report.jsonl` entry. Result: exactly 63 stripped, 1 preserved (the re-verified one). **DB is now 100% verified.**
+
+**Voice sanity check on live deploy** — the only Tier-A item not closable by automation. UK + AU voice flows confirmed working by the user. USA flow needed multiple rounds (§32.2).
+
+### 32.2 USA voice triage — five-commit refinement loop
+
+User-reported "USA voice is robotic" and "voice breaks at times" — single-country complaint. Iteration log:
+
+1. **`3dc24880`** — extended `usMaleNamed` priority list to include Google US English Male (Chrome cloud), Microsoft Guy/Davis Online (Natural) (Windows), iOS 17+ premium voices (Eddy, Junior, Reed, Rocko, Aaron, Arthur, Albert, Junior English (US) etc.); dropped USA rate from 1.05 → 1.0. Verified the bundle deployed via grep against the live `_next/static/chunks/app/interview-prep/page-*.js`.
+2. **`dd0305ee`** — picker's `usLocale` fallback only excluded literal "female" in name; macOS Samantha / Karen / Victoria / Ava slipped through. Added explicit `KNOWN_FEMALE_EN_US` deny-list + `console.info` log of the picked voice so triage can be confirmed from DevTools.
+3. **User's console showed: `Albert`** — Albert is a 1990s-era novelty voice. **`f7d2058c`** — added Albert + Fred + Ralph + Bruce + the System-7 novelty voices (Bahh, Bells, Boing, Bubbles, Cellos, Deranged, Good News, Bad News, Hysterical, Pipe Organ, Trinoids, Whisper, Zarvox) to `ROBOTIC_DENY`.
+4. **User's console showed: `Junior`** — but the OLD novelty Junior (child voice), not the iOS 17+ premium one. **`17945ce7`** — added plain "Junior" + plain "Tom" to `ROBOTIC_DENY`. Suffixed variants ("Junior (Premium)", "Junior (English (US))", etc.) stay in priority.
+5. **User downloaded specific voices and stated explicit preference order.** **`e06ae204`** — added `USER_PREFERRED_ORDER = ["Alex", "Ava (Premium)", "Allison (Enhanced)"]` that runs BEFORE all other tiers and ignores `ROBOTIC_DENY`. User's call on Alex's quality is the override.
+6. **`8728f8a1`** — user requested rate 1.0 (was just bumped to 1.05).
+7. **`9a016275`** — user moved Ava (Premium) to first position. Alex demoted to last fallback.
+8. **`b9ff79b2`** (intermediate) — added Premium/Enhanced suffix preference logic for natural-female tier (Ava/Allison/Samantha/Susan/Victoria/Vicki/Zoe/Princess/Kathy/Nicky/Sandy/Nora/Joelle).
+9. **User reports "voice still breaking" on Ava (Premium).** Re-diagnosed: this isn't device-specific (UK/AU work fine). Root cause was `listenOnce`'s unconditional `cancel()` firing on TTS-onEnd (auto-listen path); audio was still draining and `cancel()` chopped the final syllable. **`fe187477`** guarded `cancel()` with `if (speechSynthesis.speaking)`.
+10. **`fe187477` also added** — module-level `speechFriendlyName()` with phonetic respelling map for ~20 common Indian names ("Piyush" → "Piyoosh", "Saurabh" → "Sow-rubh", etc.); used only in TTS strings, display name unchanged.
+11. **`fe187477` also added** — USA section-select mic. Earlier snapshot said "USA section picker deliberately doesn't auto-listen — 12 sections too many to enumerate by number"; new design enumerates by **topic keyword** instead ("say a topic like family, university, finances, future, or visa, or full mock for everything"). `tryListenForUsaSection` regex-matches keywords against the 12 USA_SECTIONS labels.
+
+Lesson per Operating Rule 1 (push back, present multiple interpretations): the early "device issue" framing was wrong. The user's pushback ("AU + UK work, so it's not the device") was correct — the breaking was our `cancel()` race, hidden by the shorter UK/AU prompts.
+
+### 32.3 Tier-C — product surface deferrals
+
+**ShareWithFamily backend email (`c31163e7`)** — first cut used `mailto:` which bounces through the user's local mail app. Replaced with inline form posting to new `/api/email/share` endpoint. Rate-limited via `aiToolLimit` (10/hour per IP). Body wraps in a minimal HTML shell (preheader card + paragraph-per-line + footer with source link). Plain-text alternative forwarded. CRLF-stripped subject for header-injection defence-in-depth.
+
+**`/parent-view` hub route (`dd5af6c5`)** — first cut routed "Parent-friendly view" buttons to three different existing destinations (ROI → /parent-decision, Visa Coach → /sample-parent-report, Shortlist → /sample-parent-report). Inconsistent. New hub reads `?from=visa|roi|shortlist` and surfaces the recommended destination first with context-aware framing, plus the other parent-oriented outputs below + SourceProof footer. All three call sites updated.
+
+**TradeoffView → ProgramCard / ComparePanel** — closed as superseded. ComparePanel already does a richer side-by-side (match score, tier, QS, tuition, total investment, fee provenance, budget fit, salary, payback, 10-year ROI, location safety, PSW visa availability + duration). The 6-factor TradeoffView component stays available on `/sample-parent-report` and any future detail surface, but duplicating it into ProgramCard / ComparePanel would have added visual noise without new signal.
+
+### 32.4 Tier-B #10 — Architecture Phase 2 (`2d011e82`)
+
+Targeted 97 QS-Top universities (the catalog from a prior 8 May session that never got past the seed-finder stage). websearch-seed-finder ran cleanly through 94 of 97 (3 JSON parse errors — Yeshiva, one other unnamed). 1,253 raw seeds across 17 fields.
+
+Honest scope note: seed-finder doesn't accept a field filter — it picks the strongest 10-15 fields per uni from the 17-option list. The catalog was framed as "Architecture Phase 2" but seed-finder returned 0 seeds tagged with the new "Architecture" field (split out 6 May) — the seed-finder prompt uses the legacy 17-field list which still has the compound "Arts, Design & Architecture". Filtered to that compound field → 66 seeds; 25 deduped against existing DB entries → 41 to verify. verify-batch (Opus, concurrency 5): 30 ok / 5 rej / 6 err. Two workers stalled mid-run on slow sites ("University of …" + École Normale Supérieure); user-authorised SIGTERM unblocked the supervisor.
+
+Net DB delta: +62 programs (30 verify-batch + 32 leftover outputs the merger caught up on). Architecture field 274 → 279 (+5). The remaining +57 spread across other fields from the broader sweep. The full 1,253-seed harvest is kept at `seeds/architecture-phase2-full.json` for any future field-specific sweep (e.g., Natural Sciences QS-top sweep already has 87 candidates collected).
+
+### 32.5 Tier-B #5 — Canada estimate-fees retry (in flight)
+
+Three attempts in this calendar day:
+
+1. **First attempt** (in handoff #11) — chain step 3 (USA → Germany → Canada). 138/552 processed when stopped on user instruction; **19 estimates lost** because the script's flush threshold was 20 and no SIGTERM handler existed.
+2. **Hardening shipped** (`a42b83f4`) — module-level `flushOnExit` callback wired in `main()`; SIGTERM + SIGINT handlers call it before `process.exit(143|130)`. Save threshold dropped 20 → 5.
+3. **Second attempt** today — 604 entries to process. Ran 91/604 before the specialisation-fee backfill (§32.6) needed to write programs.ts. SIGTERM'd cleanly (hardening flush confirmed). ~$5-8 of estimates landed.
+4. **Third attempt** today — relaunched after the backfill commit `898bfe93`. 577 entries to process post-backfill. PID 19626 active when this section was written. Expected ~3 hr wall, ~$25-30 cost.
+
+### 32.6 Specialisation-fee backfill (`898bfe93`)
+
+User reported the same U Toronto MScAC program shows fee 25920 in Parent Decision Tool and "null" in ROI Calculator. Root cause: the DB has TWO entries for the same MScAC program — the base program (fee 25920) and an AI-concentration variant (fee null; URL is `mscac.utoronto.ca/concentrations/ai/`). The verifier scraped both pages separately; the concentration page doesn't list a fee. The two tools' dropdowns render both entries; the user picked different ones in each tool.
+
+Python backfill identified 8 child programs across the DB whose name starts with a parent program's name at the same university AND whose degree_level matches the parent. Inherited the parent's fee + tagged `tuition_fee_source: "estimated"`. The UCLA "Computer Science" / "Computer Science BS" pair was correctly skipped (degree-level mismatch — UG vs PG fees differ).
+
+Backfilled programs:
+  - University of Toronto      MScAC + AI concentration       (25920)
+  - Illinois Institute of Tech Computer Science + (M.S.)      (33318)
+  - Griffith University        MIT + AI specialisation        (28275)
+  - James Cook University      MBA + Analytics major          (21536)
+  - James Cook University      MIT + Cyber Security major     (20909)
+  - Univ of the West of England MSc Business Mgmt + Data Anal. (21590)
+  - Mississippi State Univ     Biological Sciences + Grad Prg (27637)
+  - Cape Breton University     Bachelor of Science + Biology  (16577)
+
+Two-writer race lesson: the backfill script and the Canada estimate-fees retry both wrote `programs.ts` concurrently — the first write got clobbered on the next estimate-fees flush. Resolved by SIGTERM'ing estimate-fees, re-running backfill, then restarting estimate-fees with `--skip-existing`.
+
+### 32.7 NBA review (`fa8723a5`)
+
+User flagged that the Parent Decision NBA ("Run the ROI Calculator on the same program to see the 10-year financial picture") implied program-state transfer between tools that doesn't exist — clicking landed in an empty ROI calculator forcing re-entry. Reviewed all six NBA copies; three needed rewriting:
+
+| Surface | Old | New |
+|---|---|---|
+| sample-parent-report | "Compare this offer with a lower-cost program in the same field before committing" → `/roi-calculator` | "Compare this offer with a lower-cost program in the same field" → `/options?lens=cheaper` |
+| Parent Decision result | "Run the ROI Calculator on the same program to see the 10-year financial picture" → `/roi-calculator` | "Compare this offer with a lower-cost program in your shortlist" → `/options?lens=cheaper` |
+| ROI Calculator result | "Run the Parent Decision Tool to share this verdict with your family" → `/parent-decision` | "See the parent-friendly view of this verdict" → `/parent-view?from=roi` |
+
+All three rewrites eliminate the state-transfer assumption and route to surfaces that work regardless of what program the user was previously looking at.
+
+### 32.8 Open work — handoff #12.5 → #13 plan
+
+Pinned in priority order. Tier-A is closed except the user-driven mic test. Tier-C #11-13 closed. Tier-B #10 closed.
+
+**Tier-A — credibility & correctness (essentially closed):**
+1. **Voice sanity check on live deploy** — final user mic test on USA flow after `fe187477` deploys.
+
+**Tier-B — DB completeness:**
+5. **Canada estimate-fees retry** — in flight (PID 19626). Wait for completion or partial-commit at user instruction.
+6. **B-Phase 2 — remaining 25 SG/UAE/MY/IE unis.** ~$15-25 / ~2 hr. Best run when Anthropic rate-limit pressure has eased.
+9. **USA fee uplift beyond 78.1%** — residential proxy (~$50/mo) or per-uni manual override. **Skipped pending explicit user authorisation for paid subscription.**
+
+**Tier-C — features (3 of 7 remaining):**
+14. **Marketing email opt-in flow** — Privacy Policy §11 promises this.
+15. **Visible unsubscribe link in email body** — `List-Unsubscribe` header is in; in-body link still missing.
+16. **Real downloadable Sample Parent Report PDF** — current is HTML + browser Save-as-PDF.
+17. **`/options` scoring refinement** — current heuristics are rough.
+
+**Tier-D — security & ops:**
+18-23. Unchanged from §31. Read the audit `.docx`, apply M + L findings, secrets rotation policy, backup posture, Sentry alerts.
+
+**Estimated remaining spend across Tier-B #5 finishing + Tier-B #6 + Tier-C #14-17:** ~$50-90 of API + optional $50/mo residential proxy for #9.
+
+### 32.9 Working-tree state at handoff #12.5
+
+Last commit on `main`: `fa8723a5` (NBA review pass).
+
+Modified but uncommitted: `src/data/programs.ts` (in-flight Canada estimate-fees retry is writing inline; will commit when the chain completes or is stopped).
+
+Untracked (carry-over from prior sessions, related to future field-specific sweeps): `scripts/verify/catalogs/streams-all-qs.json` (modified) + `scripts/verify/seeds/streams-full-sweep.json` (804-entry harvest from May 8; not yet committed because the scope of a "streams-full-sweep" follow-up is undefined).
+
+The 1,253-seed `architecture-phase2-full.json` IS committed (`2d011e82`) — useful for any future field-specific sweep.
+
