@@ -286,6 +286,76 @@ IMPORTANT PLATFORM NOTES:
 // Helpers for dynamic intake calendar. Recomputed per request so AISA never
 // drifts to its training-cutoff year. Indian admit cycles are dominated by
 // the Sep / Fall intake; secondary intakes are Jan (Spring) and Apr / May.
+// Deterministic INR → foreign-currency conversion helper. AISA used to free-hand
+// this and was returning "40 lakhs INR ≈ $4,800 USD" (off by exactly 10× —
+// treating lakh as 10,000 instead of 100,000). Per Operating Rule 6, currency
+// conversion is a deterministic transform — compute it here and inject the
+// pre-computed numbers into the system prompt as facts, so AISA never does
+// the math itself.
+//
+// Mid-market FX rates (updated periodically — caveat to the user that the
+// bank rate on the day will differ). Match the figures in the CURRENCY RULES
+// section of the system prompt so AISA's text and these numbers stay aligned.
+const INR_PER_FOREIGN: Record<string, number> = {
+  USD: 83, EUR: 90, GBP: 105, CAD: 61, AUD: 55, SGD: 62, AED: 22,
+};
+
+interface INRMention { raw: string; inr: number; conversions: Array<{ ccy: string; amount: number }>; }
+
+// Detect numeric INR amounts in user text, expand lakh / crore units, return
+// the conversions for the seven destination currencies. Examples we catch:
+//   "40 lakhs INR" / "40 lakh" / "40L"
+//   "1.2 crore INR" / "1.2cr"
+//   "₹45,00,000" / "Rs 4500000"
+// Falls back to recognising bare numbers WITH a "rupees" / "INR" / "₹" / "Rs"
+// hint to avoid hallucinating units onto unrelated digits.
+function extractINRMentions(text: string): INRMention[] {
+  const out: INRMention[] = [];
+  const seen = new Set<number>();
+  const push = (raw: string, inrAmount: number) => {
+    if (!Number.isFinite(inrAmount) || inrAmount <= 0) return;
+    if (seen.has(inrAmount)) return;
+    seen.add(inrAmount);
+    const conversions = Object.entries(INR_PER_FOREIGN).map(([ccy, rate]) => ({
+      ccy,
+      amount: Math.round(inrAmount / rate),
+    }));
+    out.push({ raw, inr: inrAmount, conversions });
+  };
+
+  // Lakh / L variants: "40 lakh", "40 lakhs", "40L", "40 lacs"
+  for (const m of text.matchAll(/(\d+(?:\.\d+)?)\s*(lakhs?|lacs?|L\b)/gi)) {
+    push(m[0], parseFloat(m[1]) * 100_000);
+  }
+  // Crore / Cr variants: "1.2 crore", "1.2 cr", "1.2cr"
+  for (const m of text.matchAll(/(\d+(?:\.\d+)?)\s*(crores?|cr\b)/gi)) {
+    push(m[0], parseFloat(m[1]) * 10_000_000);
+  }
+  // Explicit ₹ / Rs / INR with a number — strip Indian-style commas (₹45,00,000)
+  for (const m of text.matchAll(/(?:₹|Rs\.?|INR)\s*([\d,]+(?:\.\d+)?)/gi)) {
+    push(m[0], parseFloat(m[1].replace(/,/g, "")));
+  }
+  // Number followed by "rupees"
+  for (const m of text.matchAll(/(\d[\d,]*(?:\.\d+)?)\s*rupees?/gi)) {
+    push(m[0], parseFloat(m[1].replace(/,/g, "")));
+  }
+  return out;
+}
+
+// Render an INR-mentions block to splice into the system prompt before AISA
+// answers. Each detected amount appears with its pre-computed conversions
+// for the seven destinations. AISA's role drops from "convert" to "pick the
+// relevant figure from the table below".
+function buildCurrencyContext(latestUserMsg: string): string {
+  const mentions = extractINRMentions(latestUserMsg);
+  if (mentions.length === 0) return "";
+  const lines = mentions.map((m) => {
+    const conv = m.conversions.map((c) => `${c.ccy} ${c.amount.toLocaleString()}`).join(" · ");
+    return `  - "${m.raw}" = INR ${m.inr.toLocaleString()} → ${conv}`;
+  }).join("\n");
+  return `\n\nPRE-COMPUTED INR CONVERSIONS (the student's latest message mentioned these amounts — use these figures verbatim instead of computing your own; rates are mid-market USD=83, EUR=90, GBP=105, CAD=61, AUD=55, SGD=62, AED=22 INR):\n${lines}\nIf the student needs a currency not in this list, do not guess — say so and recommend xe.com or their bank for today's rate.`;
+}
+
 function buildIntakeContext(now: Date) {
   const todayIso = now.toISOString().slice(0, 10);
   const todayHuman = now.toLocaleDateString("en-US", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
@@ -420,9 +490,14 @@ export async function POST(req: NextRequest) {
 - Never reference a Fall year earlier than ${intake.activeFall} as the "current" intake — that cycle has already started or closed
 - Spring (Jan) intakes follow the same logic — Spring ${intake.activeFall + 1} is the spring tied to Fall ${intake.activeFall}'s application cycle.`;
 
+    // Pre-compute INR conversions for any lakh / crore / ₹ amounts in the
+    // student's latest message. AISA reads facts, doesn't compute.
+    const latestUserMsg = [...messages].reverse().find((m) => m.role === "user")?.content ?? "";
+    const currencyBlock = buildCurrencyContext(latestUserMsg);
+
     const baseSystem = programsContext
-      ? `${SYSTEM_PROMPT}${intakeBlock}\n\n${programsContext}\n\nIMPORTANT: The student is viewing their matched results. Prioritise answering questions about their specific matched programs. Use exact data from the list above — tuition, rankings, deadlines, match scores.`
-      : `${SYSTEM_PROMPT}${intakeBlock}`;
+      ? `${SYSTEM_PROMPT}${intakeBlock}${currencyBlock}\n\n${programsContext}\n\nIMPORTANT: The student is viewing their matched results. Prioritise answering questions about their specific matched programs. Use exact data from the list above — tuition, rankings, deadlines, match scores.`
+      : `${SYSTEM_PROMPT}${intakeBlock}${currencyBlock}`;
     const systemPrompt = baseSystem + JAILBREAK_GUARDRAILS;
 
     // Wrap user-supplied content so any prompt-injection attempts inside
