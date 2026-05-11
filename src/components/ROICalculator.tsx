@@ -857,8 +857,8 @@ export default function ROICalculator() {
 
                   {/* Next best action */}
                   <NextBestAction
-                    label="Run the Parent Decision Tool to share this verdict with your family"
-                    href="/parent-decision"
+                    label="See the parent-friendly view of this verdict"
+                    href="/parent-view?from=roi"
                   />
 
                   {/* CTA */}

@@ -250,8 +250,8 @@ export default function SampleParentReportPage() {
           {/* Next best action */}
           <section className="mt-2">
             <NextBestAction
-              label="Compare this offer with a lower-cost program in the same field before committing"
-              href="/roi-calculator"
+              label="Compare this offer with a lower-cost program in the same field"
+              href="/options?lens=cheaper"
             />
           </section>
 

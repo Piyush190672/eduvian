@@ -819,8 +819,8 @@ export default function ParentDecisionTool() {
 
                   {/* Next best action */}
                   <NextBestAction
-                    label="Run the ROI Calculator on the same program to see the 10-year financial picture"
-                    href="/roi-calculator"
+                    label="Compare this offer with a lower-cost program in your shortlist"
+                    href="/options?lens=cheaper"
                   />
 
                   {/* CTA */}
