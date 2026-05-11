@@ -1,0 +1,17 @@
+[
+  { "university": "Thompson Rivers University", "country": "Canada", "city": "Kamloops, BC", "qs_ranking": null },
+  { "university": "Royal Roads University", "country": "Canada", "city": "Victoria, BC", "qs_ranking": null },
+  { "university": "University of the Fraser Valley", "country": "Canada", "city": "Abbotsford, BC", "qs_ranking": null },
+  { "university": "Athabasca University", "country": "Canada", "city": "Athabasca, AB", "qs_ranking": null },
+  { "university": "University of Lethbridge", "country": "Canada", "city": "Lethbridge, AB", "qs_ranking": null },
+  { "university": "University of Winnipeg", "country": "Canada", "city": "Winnipeg, MB", "qs_ranking": null },
+  { "university": "Brandon University", "country": "Canada", "city": "Brandon, MB", "qs_ranking": null },
+  { "university": "Ontario Tech University", "country": "Canada", "city": "Oshawa, ON", "qs_ranking": null },
+  { "university": "OCAD University", "country": "Canada", "city": "Toronto, ON", "qs_ranking": null },
+  { "university": "Nipissing University", "country": "Canada", "city": "North Bay, ON", "qs_ranking": null },
+  { "university": "Laurentian University", "country": "Canada", "city": "Sudbury, ON", "qs_ranking": null },
+  { "university": "Algoma University", "country": "Canada", "city": "Sault Ste. Marie, ON", "qs_ranking": null },
+  { "university": "Université du Québec à Montréal", "country": "Canada", "city": "Montréal, QC", "qs_ranking": null },
+  { "university": "Université de Sherbrooke", "country": "Canada", "city": "Sherbrooke, QC", "qs_ranking": null },
+  { "university": "Saint Mary's University", "country": "Canada", "city": "Halifax, NS", "qs_ranking": null }
+]
