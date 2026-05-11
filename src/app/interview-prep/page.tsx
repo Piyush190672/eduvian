@@ -509,7 +509,9 @@ function pickVoice(voices: SpeechSynthesisVoice[], country: Country): SpeechSynt
     // Alex installed, we pick Alex regardless of priority-list scoring or
     // deny-lists. User has authored this ordering with their downloaded
     // voices in mind.
-    const USER_PREFERRED_ORDER = ["Alex", "Ava (Premium)", "Allison (Enhanced)"];
+    // Updated 11 May 2026: user moved Ava (Premium) to first. Alex stays as
+    // a fallback in case the Premium voice ever becomes unavailable.
+    const USER_PREFERRED_ORDER = ["Ava (Premium)", "Allison (Enhanced)", "Alex"];
     for (const wanted of USER_PREFERRED_ORDER) {
       const v = voices.find((x) => x.name === wanted);
       if (v) {
