@@ -1,0 +1,16 @@
+[
+  { "university": "Manchester Metropolitan University", "country": "UK", "city": "Manchester", "qs_ranking": null },
+  { "university": "Coventry University", "country": "UK", "city": "Coventry", "qs_ranking": null },
+  { "university": "Heriot-Watt University", "country": "UK", "city": "Edinburgh", "qs_ranking": null },
+  { "university": "Loughborough University", "country": "UK", "city": "Loughborough", "qs_ranking": null },
+  { "university": "University of Huddersfield", "country": "UK", "city": "Huddersfield", "qs_ranking": null },
+  { "university": "University of York", "country": "UK", "city": "York", "qs_ranking": null },
+  { "university": "Bangor University", "country": "UK", "city": "Bangor", "qs_ranking": null },
+  { "university": "Durham University", "country": "UK", "city": "Durham", "qs_ranking": null },
+  { "university": "University of Portsmouth", "country": "UK", "city": "Portsmouth", "qs_ranking": null },
+  { "university": "Kingston University London", "country": "UK", "city": "London", "qs_ranking": null },
+  { "university": "SOAS, University of London", "country": "UK", "city": "London", "qs_ranking": null },
+  { "university": "University of Central Lancashire", "country": "UK", "city": "Preston", "qs_ranking": null },
+  { "university": "Birkbeck, University of London", "country": "UK", "city": "London", "qs_ranking": null },
+  { "university": "University of Worcester", "country": "UK", "city": "Worcester", "qs_ranking": null }
+]
