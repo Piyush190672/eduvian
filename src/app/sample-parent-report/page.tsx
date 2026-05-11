@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { ArrowLeft, Printer, Users, CheckCircle2, AlertCircle, TrendingUp, Shield, Briefcase, GraduationCap, Banknote, Heart } from "lucide-react";
 import { NextBestAction } from "@/components/NextBestAction";
+import { SourceProof } from "@/components/SourceProof";
+import { DataBadge } from "@/components/DataBadge";
 import { EduvianLogoMark } from "@/components/EduvianLogo";
 
 // Static, illustrative sample. Numbers are believable but invented.
@@ -197,6 +199,28 @@ export default function SampleParentReportPage() {
                   </div>
                 );
               })}
+            </div>
+          </section>
+
+          {/* Source proof + provenance badges */}
+          <section className="mt-2 space-y-3">
+            <SourceProof
+              lines={[
+                { field: "Tuition fee", source: "Official university page" },
+                { field: "Living cost (Toronto)", source: "Numbeo + city benchmarks" },
+                { field: "Salary projection", source: "StatsCan + market benchmarks" },
+                { field: "Visa requirements", source: "Canada IRCC official portal" },
+              ]}
+              lastVerified="2026-05-01"
+              sourceUrl="https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada.html"
+              sourceLabel="Open the official source"
+            />
+            <div className="flex flex-wrap items-center gap-2">
+              <DataBadge kind="illustrative" />
+              <span className="text-[11px] text-gray-500">on the entire report — sample student, not a real case</span>
+              <span className="text-gray-300">·</span>
+              <DataBadge kind="ai_estimate" />
+              <span className="text-[11px] text-gray-500">on payback, ROI &amp; 10-year projection</span>
             </div>
           </section>
 

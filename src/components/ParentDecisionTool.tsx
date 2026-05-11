@@ -14,6 +14,8 @@ import { calculateParentDecision } from "@/lib/parent-decision-calculator";
 import { PROGRAMS } from "@/data/programs";
 import Link from "next/link";
 import { NextBestAction } from "@/components/NextBestAction";
+import { SourceProof } from "@/components/SourceProof";
+import { DataBadge } from "@/components/DataBadge";
 
 // ── types ─────────────────────────────────────────────────────────────────────
 
@@ -29,6 +31,7 @@ interface ProgramEntry {
   duration_months: number;
   program_url?: string;
   tuition_fee_source?: "verified" | "estimated";
+  verified_at?: string;
 }
 
 type QualityLevel = "Excellent" | "Good" | "Concerning";
@@ -782,6 +785,28 @@ export default function ParentDecisionTool() {
                       )}
                     </div>
                     {emailError && <p className="mt-2 text-xs text-rose-500">{emailError}</p>}
+                  </div>
+
+                  {/* Source proof — what came from where */}
+                  <SourceProof
+                    lines={[
+                      { field: "Tuition fee", source: programHasFee ? (tuitionEstimated ? "Estimated (secondary source)" : "Official university page") : "Entered by you" },
+                      { field: "Living cost", source: "EduvianAI city benchmark" },
+                      { field: "Safety / job market", source: "Official statistics + ranking aggregators" },
+                      { field: "Family verdict", source: "Computed by EduvianAI from the inputs above" },
+                    ]}
+                    lastVerified={selectedProgram?.verified_at}
+                    sourceUrl={selectedProgram?.program_url}
+                    sourceLabel="Open the official program page"
+                  />
+
+                  {/* Provenance badges */}
+                  <div className="flex flex-wrap items-center gap-2">
+                    <DataBadge kind={tuitionUserSupplied ? "user_provided" : tuitionEstimated ? "ai_estimate" : "official"} />
+                    <span className="text-[11px] text-gray-500">on tuition</span>
+                    <span className="text-gray-300">·</span>
+                    <DataBadge kind="ai_estimate" />
+                    <span className="text-[11px] text-gray-500">on payback &amp; verdict</span>
                   </div>
 
                   {/* Next best action */}

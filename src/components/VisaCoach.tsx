@@ -27,6 +27,8 @@ import {
   type VisaRisk,
 } from "@/data/visa-data";
 import { NextBestAction } from "@/components/NextBestAction";
+import { SourceProof } from "@/components/SourceProof";
+import { DataBadge } from "@/components/DataBadge";
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
 function fmtMoney(amount: number, currency: string): string {
@@ -518,6 +520,29 @@ export default function VisaCoach() {
               </div>
             );
           })}
+        </div>
+      </section>
+
+      {/* ── Source proof + provenance badges ─────────────────── */}
+      <section className="grid md:grid-cols-3 gap-5 items-start">
+        <div className="md:col-span-2">
+          <SourceProof
+            lines={[
+              { field: "Visa requirements", source: `${active.country} government / consulate portal` },
+              { field: "Fund proof figures", source: "Official government guidelines" },
+              { field: "Processing time", source: "Latest published consulate timelines" },
+              { field: "Risk flags", source: "EduvianAI checklist + official guidance" },
+            ]}
+            lastVerified={VISA_DATA_LAST_VERIFIED}
+            sourceUrl={active.applyUrl}
+            sourceLabel={`Open the ${active.applyUrlLabel}`}
+          />
+        </div>
+        <div className="md:col-span-1 flex flex-wrap items-start gap-2 pt-4">
+          <DataBadge kind="official" />
+          <span className="text-[11px] text-gray-500">on rules &amp; figures</span>
+          <DataBadge kind="needs_verification" />
+          <span className="text-[11px] text-gray-500">on recency — visa rules change often</span>
         </div>
       </section>
 
