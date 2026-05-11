@@ -192,21 +192,31 @@ export default function ROICalculator() {
     setSelectedProgram(p);
     setProgramOpen(false);
     setCity(p.city || "");
-    setTuition(p.annual_tuition_usd);
+    // When the official page has no fee, start with 0 so the user-entry
+    // input renders empty and the calculator stays inert until a fee is
+    // typed. Same for living cost — keep it pre-filled when available.
+    setTuition(p.annual_tuition_usd || 0);
     setLiving(p.avg_living_cost_usd);
     setDuration(p.duration_months);
     if (matchedUni) setSalary(lookupSalary(matchedUni.country as SalaryCountry, p.field_of_study as FieldOfStudy, matchedUni.qs_ranking, matchedUni.name));
   }
 
   // ── ROI calculation ───────────────────────────────────────────────────────────
-  // Hard rule (locked 10 May 2026): never run the ROI math when the official
-  // program page didn't expose a tuition figure. Treating null as $0 produces
-  // misleading payback / break-even numbers; we render an explicit
-  // "data unavailable" state instead.
-  const tuitionAvailable = selectedProgram !== null
+  // Hard rule (locked 10 May 2026): never run the ROI math when both the
+  // official program page AND the user have left tuition blank. Treating
+  // null as $0 produces misleading payback / break-even numbers.
+  // Three valid tuition provenances:
+  //   - verified  → DB carries the figure straight from the program page
+  //   - estimated → backfilled via estimate-fees.ts from a secondary source
+  //   - user      → DB has no figure; user has typed one in the prompt below
+  // 11 May 2026: user-entered fee path added so a missing-fee program is no
+  // longer a dead-end. Caveat banner mirrors the "estimated" pattern.
+  const programHasFee = selectedProgram !== null
     && typeof selectedProgram.annual_tuition_usd === "number"
     && selectedProgram.annual_tuition_usd > 0;
-  const tuitionEstimated = selectedProgram?.tuition_fee_source === "estimated";
+  const tuitionUserSupplied = selectedProgram !== null && !programHasFee && tuition > 0;
+  const tuitionAvailable = programHasFee || tuitionUserSupplied;
+  const tuitionEstimated = selectedProgram?.tuition_fee_source === "estimated" && programHasFee;
   const canCalculate = selectedProgram !== null && salary > 0 && tuitionAvailable;
 
   const results = useMemo(() => {
@@ -573,21 +583,43 @@ export default function ROICalculator() {
             initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
             className="lg:col-span-3 space-y-4"
           >
-            {!results && selectedProgram !== null && !tuitionAvailable ? (
+            {selectedProgram !== null && !programHasFee && !tuitionUserSupplied ? (
               // No-tuition state: official program page didn't expose a fee.
-              // Refuse to calculate rather than imply a $0 fee.
-              <div className="h-full flex flex-col items-center justify-center py-16 bg-amber-50 border border-amber-200 rounded-3xl text-center px-8 min-h-[400px]">
-                <div className="w-16 h-16 rounded-2xl bg-amber-100 border border-amber-300 flex items-center justify-center mb-5">
-                  <Info className="w-8 h-8 text-amber-700" />
+              // Replaced the prior dead-end panel (10 May 2026) with an
+              // editable input so the user can type the figure they got from
+              // the university directly. ROI math stays gated until tuition > 0.
+              <div className="bg-amber-50 border border-amber-200 rounded-3xl px-6 py-7 min-h-[400px]">
+                <div className="flex items-start gap-3 mb-5">
+                  <div className="w-10 h-10 rounded-2xl bg-amber-100 border border-amber-300 flex items-center justify-center flex-shrink-0">
+                    <Info className="w-5 h-5 text-amber-700" />
+                  </div>
+                  <div>
+                    <p className="text-gray-900 font-bold text-base mb-1">Tuition fee needed to calculate</p>
+                    <p className="text-gray-700 text-sm leading-relaxed">
+                      The official program page for <span className="font-semibold">{selectedProgram.program_name}</span> at <span className="font-semibold">{matchedUni?.name}</span> doesn&apos;t publish an international student tuition figure we can verify. Enter the annual fee below and we&apos;ll calculate the rest.
+                    </p>
+                  </div>
                 </div>
-                <p className="text-gray-900 font-bold text-lg mb-2">Cannot calculate — tuition fee data not available</p>
-                <p className="text-gray-700 text-sm max-w-md mb-4 leading-relaxed">
-                  The official program page for <span className="font-semibold">{selectedProgram.program_name}</span> at <span className="font-semibold">{matchedUni?.name}</span> doesn&apos;t publish an international student tuition figure we can verify. We won&apos;t generate ROI numbers from a $0 placeholder — that would be misleading.
+                <label className="block mb-2 text-[11px] font-bold text-amber-900 uppercase tracking-widest">Annual tuition (USD)</label>
+                <div className="flex items-center gap-2">
+                  <span className="text-amber-900 font-bold text-lg">$</span>
+                  <input
+                    type="number"
+                    min={0}
+                    step={1000}
+                    placeholder="e.g. 45000"
+                    value={tuition || ""}
+                    onChange={(e) => setTuition(Math.max(0, parseInt(e.target.value, 10) || 0))}
+                    className="flex-1 px-3 py-2 rounded-xl border border-amber-300 bg-white text-gray-900 font-mono text-sm focus:outline-none focus:ring-2 focus:ring-amber-400"
+                  />
+                </div>
+                <p className="mt-3 text-[11px] text-amber-800 leading-relaxed">
+                  Confirm the figure with the university&apos;s admissions office before relying on the numbers we compute from it.
                 </p>
                 <a
                   href={selectedProgram.program_url}
                   target="_blank" rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-amber-300 text-amber-800 text-sm font-semibold hover:bg-amber-100 transition-colors"
+                  className="mt-4 inline-flex items-center gap-2 text-xs font-semibold text-amber-800 hover:text-amber-900"
                 >
                   Open the official program page →
                 </a>
@@ -631,6 +663,15 @@ export default function ROICalculator() {
                       <Info className="w-4 h-4 text-amber-700 flex-shrink-0 mt-0.5" />
                       <div className="text-xs text-amber-900 leading-relaxed">
                         <span className="font-bold">Based on estimated tuition fee.</span> The official program page didn&apos;t publish a fee, so this calculation uses a figure inferred from the university&apos;s central fees page or a credible secondary source. Confirm with the university before relying on these numbers.
+                      </div>
+                    </div>
+                  )}
+                  {/* User-entered-fee caveat banner (11 May 2026) */}
+                  {tuitionUserSupplied && (
+                    <div className="bg-amber-50 border border-amber-200 rounded-2xl px-5 py-3 flex items-start gap-3">
+                      <Info className="w-4 h-4 text-amber-700 flex-shrink-0 mt-0.5" />
+                      <div className="text-xs text-amber-900 leading-relaxed">
+                        <span className="font-bold">Based on the tuition fee you entered.</span> The official program page didn&apos;t publish a verifiable figure, so this calculation uses the value you typed. Re-confirm with the university&apos;s admissions office before acting on these numbers.
                       </div>
                     </div>
                   )}

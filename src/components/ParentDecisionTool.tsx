@@ -208,21 +208,26 @@ export default function ParentDecisionTool() {
     setCity(p.city || "");
     const f = p.field_of_study as FieldOfStudy;
     setField(f);
-    setAnnualTuition(p.annual_tuition_usd);
+    // When the official page has no fee, start with 0 so the user-entry
+    // input renders empty and the decision math stays inert until typed.
+    setAnnualTuition(p.annual_tuition_usd || 0);
     setLivingCost(p.avg_living_cost_usd);
     setDurationMonths(p.duration_months);
   }
 
-  // Hard rule (locked 10 May 2026): never run the parent-decision math when
-  // the official program page didn't expose a tuition figure. A $0 placeholder
-  // produces a misleading "great value" verdict; we render an explicit
-  // "data unavailable" state instead. Same rule lives in ROICalculator.
-  const tuitionAvailable = selectedProgram !== null
+  // Hard rule (locked 10 May 2026, extended 11 May 2026): never run the
+  // parent-decision math when both the official program page AND the user
+  // have left tuition blank. Three valid tuition provenances mirror ROI:
+  //   verified | estimated | user (typed in the prompt below)
+  const programHasFee = selectedProgram !== null
     && typeof selectedProgram.annual_tuition_usd === "number"
     && selectedProgram.annual_tuition_usd > 0;
-  const tuitionEstimated = selectedProgram?.tuition_fee_source === "estimated";
+  const tuitionUserSupplied = selectedProgram !== null && !programHasFee && annualTuition > 0;
+  const tuitionAvailable = programHasFee || tuitionUserSupplied;
+  const tuitionEstimated = selectedProgram?.tuition_fee_source === "estimated" && programHasFee;
 
-  // Auto-calculate result as soon as uni + program selected (and tuition known)
+  // Auto-calculate result as soon as uni + program selected (and tuition known —
+  // whether from the verified/estimated DB figure or a user-entered override).
   const result = useMemo(() => {
     if (!selectedUni || !selectedProgram || !tuitionAvailable) return null;
     return calculateParentDecision({
@@ -519,22 +524,45 @@ export default function ParentDecisionTool() {
           {/* ── Results panel ── */}
           <div className="lg:col-span-3 space-y-4">
             <AnimatePresence mode="wait">
-              {!result && selectedProgram !== null && !tuitionAvailable ? (
-                // No-tuition state: refuse to compute a verdict from a $0 placeholder.
+              {selectedProgram !== null && !programHasFee && !tuitionUserSupplied ? (
+                // No-tuition state: replaced the prior dead-end (10 May 2026)
+                // with an editable input so the parent can type the figure
+                // they got from the university directly. Verdict math stays
+                // gated until annualTuition > 0.
                 <motion.div key="no-tuition" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-                  className="h-full min-h-[480px] bg-amber-50 rounded-3xl border border-amber-200 flex flex-col items-center justify-center p-10 text-center"
+                  className="h-full min-h-[480px] bg-amber-50 rounded-3xl border border-amber-200 p-7"
                 >
-                  <div className="w-16 h-16 rounded-2xl bg-amber-100 border border-amber-300 flex items-center justify-center mb-4">
-                    <Info className="w-8 h-8 text-amber-700" />
+                  <div className="flex items-start gap-3 mb-5">
+                    <div className="w-10 h-10 rounded-2xl bg-amber-100 border border-amber-300 flex items-center justify-center flex-shrink-0">
+                      <Info className="w-5 h-5 text-amber-700" />
+                    </div>
+                    <div>
+                      <h3 className="text-base font-bold text-gray-900 mb-1">Tuition fee needed to calculate</h3>
+                      <p className="text-gray-700 text-sm leading-relaxed">
+                        The official page for <span className="font-semibold">{selectedProgram.program_name}</span> at <span className="font-semibold">{selectedUni?.name}</span> doesn&apos;t publish an international student tuition figure we can verify. Enter the annual fee below and we&apos;ll build the parent decision verdict.
+                      </p>
+                    </div>
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">Cannot calculate — tuition fee data not available</h3>
-                  <p className="text-gray-700 text-sm max-w-md mb-4 leading-relaxed">
-                    The official page for <span className="font-semibold">{selectedProgram.program_name}</span> at <span className="font-semibold">{selectedUni?.name}</span> doesn&apos;t publish an international student tuition figure we can verify. We won&apos;t generate a parent decision verdict from a $0 placeholder — that would be misleading.
+                  <label className="block mb-2 text-[11px] font-bold text-amber-900 uppercase tracking-widest">Annual tuition (USD)</label>
+                  <div className="flex items-center gap-2">
+                    <span className="text-amber-900 font-bold text-lg">$</span>
+                    <input
+                      type="number"
+                      min={0}
+                      step={1000}
+                      placeholder="e.g. 45000"
+                      value={annualTuition || ""}
+                      onChange={(e) => setAnnualTuition(Math.max(0, parseInt(e.target.value, 10) || 0))}
+                      className="flex-1 px-3 py-2 rounded-xl border border-amber-300 bg-white text-gray-900 font-mono text-sm focus:outline-none focus:ring-2 focus:ring-amber-400"
+                    />
+                  </div>
+                  <p className="mt-3 text-[11px] text-amber-800 leading-relaxed">
+                    Confirm the figure with the university&apos;s admissions office before relying on the numbers we compute from it.
                   </p>
                   <a
                     href={selectedProgram.program_url}
                     target="_blank" rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-amber-300 text-amber-800 text-sm font-semibold hover:bg-amber-100 transition-colors"
+                    className="mt-4 inline-flex items-center gap-2 text-xs font-semibold text-amber-800 hover:text-amber-900"
                   >
                     Open the official program page →
                   </a>
@@ -572,6 +600,15 @@ export default function ParentDecisionTool() {
                       <Info className="w-4 h-4 text-amber-700 flex-shrink-0 mt-0.5" />
                       <div className="text-xs text-amber-900 leading-relaxed">
                         <span className="font-bold">Based on estimated tuition fee.</span> The official program page didn&apos;t publish a fee, so this verdict uses a figure inferred from the university&apos;s central fees page or a credible secondary source. Confirm with the university before relying on these numbers.
+                      </div>
+                    </div>
+                  )}
+                  {/* User-entered-fee caveat banner (11 May 2026) */}
+                  {tuitionUserSupplied && (
+                    <div className="bg-amber-50 border border-amber-200 rounded-2xl px-5 py-3 flex items-start gap-3">
+                      <Info className="w-4 h-4 text-amber-700 flex-shrink-0 mt-0.5" />
+                      <div className="text-xs text-amber-900 leading-relaxed">
+                        <span className="font-bold">Based on the tuition fee you entered.</span> The official program page didn&apos;t publish a verifiable figure, so this verdict uses the value you typed. Re-confirm with the university&apos;s admissions office before acting on these numbers.
                       </div>
                     </div>
                   )}
