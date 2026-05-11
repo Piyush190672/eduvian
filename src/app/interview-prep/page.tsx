@@ -471,6 +471,49 @@ function parseFeedback(text: string, country: Country) {
   return { well, improve, sample, raw: text };
 }
 
+// ─── Name pronunciation (TTS only — display name stays as-typed) ──────────────
+// Browser TTS voices have small lexicons; non-English names (especially Indian
+// names) get mispronounced even on Premium voices. Respell common cases
+// phonetically for the TTS engine. Extend as new names are reported.
+const NAME_PRONUNCIATIONS: Record<string, string> = {
+  "Piyush":   "Piyoosh",
+  "Piyush Kumar": "Piyoosh Kumar",
+  // Common Indian names that commonly fail on US TTS voices
+  "Rohit":    "Roh-it",
+  "Ankit":    "Un-kit",
+  "Saurabh":  "Sow-rubh",
+  "Saurav":   "Sow-rav",
+  "Aditya":   "Aaditya",
+  "Aaditya":  "Aaditya",
+  "Aakash":   "Aakash",
+  "Anushka":  "A-noosh-ka",
+  "Priya":    "Pree-ya",
+  "Pooja":    "Pooh-ja",
+  "Rajiv":    "Ra-jeev",
+  "Sanjay":   "Sun-jay",
+  "Vikram":   "Vik-rum",
+  "Vivek":    "Vi-vek",
+  "Karan":    "Ka-run",
+  "Tanvi":    "Tun-vee",
+  "Kavya":    "Kav-ya",
+  "Ishaan":   "Ish-aan",
+  "Aarav":    "A-rav",
+};
+function speechFriendlyName(name: string): string {
+  const key = (name ?? "").trim();
+  if (!key) return key;
+  if (NAME_PRONUNCIATIONS[key]) return NAME_PRONUNCIATIONS[key];
+  // First word match (handles "Piyush Kumar" → "Piyoosh Kumar")
+  const parts = key.split(/\s+/);
+  if (parts.length > 1) {
+    const first = parts[0];
+    if (NAME_PRONUNCIATIONS[first]) {
+      return [NAME_PRONUNCIATIONS[first], ...parts.slice(1)].join(" ");
+    }
+  }
+  return key;
+}
+
 // ─── TTS hook ──────────────────────────────────────────────────────────────────
 // ─── Voice selection ──────────────────────────────────────────────────────────
 // AU coach  → en-AU female (Karen on macOS, Google Australian Female on Chrome)
@@ -1505,6 +1548,7 @@ function InterviewSession({
   const autoListenNameRef = useRef<(() => void) | null>(null);
   const autoListenYesRef = useRef<(() => void) | null>(null);
   const autoListenCategoryRef = useRef<(() => void) | null>(null);
+  const autoListenUsaSectionRef = useRef<(() => void) | null>(null);
 
   // ── Check STT support ───────────────────────────────────────────────────────
   useEffect(() => {
@@ -1593,7 +1637,8 @@ function InterviewSession({
   // ── AUTO-SPEAK: UK "are you ready — say YES" ─────────────────────────────────
   useEffect(() => {
     if (phase !== "uk_confirm" || !studentName || mode === "text") return;
-    const msg = `Wonderful, ${studentName}! It is so great to meet you! I am here to help you absolutely nail your UK credibility interview. When you are ready to begin, just say YES and we will get started!`;
+    const sayName = speechFriendlyName(studentName);
+    const msg = `Wonderful, ${sayName}! It is so great to meet you! I am here to help you absolutely nail your UK credibility interview. When you are ready to begin, just say YES and we will get started!`;
     const t = setTimeout(() => speak(msg, () => {
       // Auto-listen for "YES" as soon as TTS finishes.
       autoListenYesRef.current?.();
@@ -1603,13 +1648,18 @@ function InterviewSession({
   }, [phase]);
 
   // ── AUTO-SPEAK: USA section menu ─────────────────────────────────────────────
-  // No auto-listen here: the USA prompt doesn't enumerate sections by number,
-  // so voice-only selection is ambiguous. The user picks via the buttons in
-  // USASectionPicker.
+  // 11 May 2026: now auto-listens. 12 sections is too many to enumerate by
+  // number — the prompt invites the student to say a topic keyword instead
+  // (family, university, finances, etc.) or "full mock" for everything.
+  // tryListenForUsaSection matches keywords against the section labels and
+  // routes to the right handler.
   useEffect(() => {
     if (phase !== "usa_section" || !studentName || mode === "text") return;
-    const msg = `Great to meet you, ${studentName}! I am your US visa interview coach. You can practice by section, or go straight into a Full Mock Interview that covers all the key areas the visa officer will ask about. Which would you like?`;
-    const t = setTimeout(() => speak(msg), 300);
+    const sayName = speechFriendlyName(studentName);
+    const msg = `Great to meet you, ${sayName}! I am your US visa interview coach. You can pick a section to practice — just say a topic, for example, family, university, course, finances, future, or visa. Or say full mock to cover everything the officer might ask. Which one would you like?`;
+    const t = setTimeout(() => speak(msg, () => {
+      autoListenUsaSectionRef.current?.();
+    }), 300);
     return () => clearTimeout(t);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [phase]);
@@ -1617,7 +1667,8 @@ function InterviewSession({
   // ── AUTO-SPEAK: AU category menu ─────────────────────────────────────────────
   useEffect(() => {
     if (phase !== "category" || !studentName || mode === "text") return;
-    const msg = `Fantastic, ${studentName}! You are going to do brilliantly today! Now, which category of questions would you like to practice? We have five great options. Number one, About the Program. Number two, Career Outcome. Number three, Why Australia. Number four, About the University. And number five, Other Important Questions. Which one shall we start with?`;
+    const sayName = speechFriendlyName(studentName);
+    const msg = `Fantastic, ${sayName}! You are going to do brilliantly today! Now, which category of questions would you like to practice? We have five great options. Number one, About the Program. Number two, Career Outcome. Number three, Why Australia. Number four, About the University. And number five, Other Important Questions. Which one shall we start with?`;
     const t = setTimeout(() => speak(msg, () => {
       autoListenCategoryRef.current?.();
     }), 300);
@@ -1799,7 +1850,15 @@ function InterviewSession({
     nameMode = false,
   ) => {
     if (!sttSupported || typeof window === "undefined") return;
-    cancel(); // stop TTS before listening
+    // Only stop TTS if it's actively speaking. The earlier unconditional
+    // cancel() was firing even when listenOnce was invoked from the TTS
+    // onEnd callback (auto-listen path) — at that point synthesis is
+    // technically done but audio is still draining, and cancel() chopped
+    // the last syllable. Result: USA voice "breaking at end of greeting".
+    // Guarding on speechSynthesis.speaking removes the race.
+    if (typeof window !== "undefined" && "speechSynthesis" in window && window.speechSynthesis.speaking) {
+      cancel();
+    }
     if (nameRecogRef.current) {
       try { nameRecogRef.current.abort(); } catch { /* ignore */ }
       nameRecogRef.current = null;
@@ -2129,6 +2188,49 @@ function InterviewSession({
     autoListenCategoryRef.current = tryListenForCategory;
   }, [tryListenForCategory]);
 
+  // USA section voice-pick. Keyword-match against USA_SECTIONS labels — 12
+  // sections is too many to enumerate by number, so the auto-speak prompt
+  // invites a topic word ("family", "university", "finances", etc.) plus
+  // "full mock" for the all-questions path.
+  const tryListenForUsaSection = useCallback(() => {
+    listenOnce((text) => {
+      const t = text.toLowerCase();
+      // "Full mock" / "all questions" → full mock path
+      if (/\bfull\s*mock\b|\bmock\b|\ball\s+question|\beverything\b|\bcomplete\b/.test(t)) {
+        return handleFullMockUSA();
+      }
+      // Topic-keyword → matching section. Order matters: more specific terms
+      // first to avoid (e.g.) "career" matching the misc section.
+      const sectionByKeyword: Array<{ re: RegExp; id: string }> = [
+        { re: /\bwhy\b|\bus\b|\busa\b|\bamerica\b/,                                       id: "usa_why" },
+        { re: /\buniversit|\binstitute|\bcollege|\bschool/,                               id: "usa_university" },
+        { re: /\bcourse\b|\bprogram\b|\bsubject\b|\bmajor\b/,                              id: "usa_course" },
+        { re: /\bacademic\b|\bbackground\b|\beducation\b|\bcgpa\b|\bgrades?\b/,            id: "usa_academic" },
+        { re: /\bjob\b|\bbusiness\b|\bwork\b|\bemployment\b|\bcurrent\s+work/,             id: "usa_job" },
+        { re: /\btests?\b|\btoefl\b|\bielts\b|\bgre\b|\bgmat\b|\bsat\b|\bscores?\b/,        id: "usa_tests" },
+        { re: /\bfamily\b|\bparents\b|\bsibling/,                                          id: "usa_family" },
+        { re: /\bfinanc|\bsponsor|\bfund|\bmoney|\bcost|\bbudget/,                         id: "usa_finance" },
+        { re: /\bfuture\b|\bcareer\b|\bafter\s+studies\b|\bplans?\b|\bafter\s+graduat/,    id: "usa_future" },
+        { re: /\brelative|\bcousin|\buncle|\baunt/,                                        id: "usa_relatives" },
+        { re: /\bvisa\b|\brefusal|\bprevious\s+visa|\bdenied/,                             id: "usa_visa" },
+        { re: /\bmisc|\bother|\bgeneral/,                                                  id: "usa_misc" },
+      ];
+      for (const { re, id } of sectionByKeyword) {
+        if (re.test(t)) {
+          const section = USA_SECTIONS.find((s) => s.id === id);
+          if (section) return handleSectionSelect(section);
+        }
+      }
+      // Unmatched — user can re-press the mic button or click a section.
+    }, () => { /* picker manages its own listening state */ });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [listenOnce]);
+
+  // Wire the USA section forward-ref.
+  useEffect(() => {
+    autoListenUsaSectionRef.current = tryListenForUsaSection;
+  }, [tryListenForUsaSection]);
+
   // Auto-submit ref — always holds the latest fetchFeedback call so the silence
   // timer inside startListening() can fire it with the most current values
   const autoSubmitRef = useRef<(() => void) | null>(null);
@@ -2338,7 +2440,7 @@ function InterviewSession({
 
   // ── UK: "say YES to begin" ──────────────────────────────────────────────────
   if (phase === "uk_confirm") {
-    const coachPrompt = `Wonderful, ${studentName}! It is so great to meet you! I am here to help you absolutely nail your UK credibility interview. When you are ready to begin, just say YES and we will get started!`;
+    const coachPrompt = `Wonderful, ${speechFriendlyName(studentName)}! It is so great to meet you! I am here to help you absolutely nail your UK credibility interview. When you are ready to begin, just say YES and we will get started!`;
     return (
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-md mx-auto text-center">
         <div className="flex items-center justify-center gap-3 mb-8">
