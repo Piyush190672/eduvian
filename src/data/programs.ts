@@ -646,18 +646,7 @@ export const PROGRAMS = ([
   },,
     
   // ─── UK — additional QS universities ─────────────────────────────────────
-              {
-    university_name: "University of Sheffield",
-    country: "UK", city: "Sheffield", qs_ranking: 111,
-    program_name: "MSc in Data Analytics", degree_level: "postgraduate",
-    duration_months: 12, field_of_study: "Artificial Intelligence & Data Science", specialization: "Data Analytics",
-    annual_tuition_usd: 25800, avg_living_cost_usd: 12000,
-    intake_semesters: ["fall"], application_deadline: "rolling",
-    min_gpa: 2.8, min_percentage: 60, min_ielts: 6.5, min_toefl: 88, min_pte: 62, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.sheffield.ac.uk/postgraduate/taught/courses/2026/data-analytics-msc",
-    apply_url: "https://www.sheffield.ac.uk/postgraduate/taught/apply",
-  },,
-      {
+                    {
     university_name: "University of Exeter",
     country: "UK", city: "Exeter", qs_ranking: 149,
     program_name: "MSc Business Analytics", degree_level: "postgraduate",
@@ -669,31 +658,9 @@ export const PROGRAMS = ([
     apply_url: "https://www.exeter.ac.uk/postgraduate/apply/",
     verified_at: "2026-04-27T09:52:27.707Z", verification_source_url: "https://www.exeter.ac.uk/study/postgraduate/courses/management/msc-business-analytics/",
   },,
-              {
-    university_name: "Heriot-Watt University",
-    country: "UK", city: "Edinburgh", qs_ranking: 451,
-    program_name: "MSc in Actuarial Science", degree_level: "postgraduate",
-    duration_months: 12, field_of_study: "Economics & Finance", specialization: "Actuarial Science",
-    annual_tuition_usd: 21600, avg_living_cost_usd: 14000,
-    intake_semesters: ["fall"], application_deadline: "rolling",
-    min_gpa: 2.8, min_percentage: 60, min_ielts: 6.5, min_toefl: 88, min_pte: 62, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.hw.ac.uk/uk/study/postgraduate/",
-    apply_url: "https://www.hw.ac.uk/study/",
-  },,
-  
+                
   // ─── Australia — additional QS universities ───────────────────────────────
-        {
-    university_name: "Swinburne University of Technology",
-    country: "Australia", city: "Melbourne", qs_ranking: 462,
-    program_name: "Master of Cybersecurity", degree_level: "postgraduate",
-    duration_months: 24, field_of_study: "Computer Science & IT", specialization: "Cybersecurity",
-    annual_tuition_usd: 26400, avg_living_cost_usd: 18000,
-    intake_semesters: ["fall", "spring"], application_deadline: "rolling",
-    min_gpa: 2.5, min_percentage: 55, min_ielts: 6.0, min_toefl: 79, min_pte: 50, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.swinburne.edu.au/courses/postgraduate/",
-    apply_url: "https://www.swinburne.edu.au/study/",
-  },,
-  {
+          {
     university_name: "University of Wollongong",
     country: "Australia", city: "Wollongong", qs_ranking: 196,
     program_name: "Master of Computer Science", degree_level: "postgraduate",
@@ -749,18 +716,7 @@ export const PROGRAMS = ([
   // ─── Ireland — additional QS universities ─────────────────────────────────
       
   // ─── Germany — additional QS universities ─────────────────────────────────
-  {
-    university_name: "Karlsruhe Institute of Technology",
-    country: "Germany", city: "Karlsruhe", qs_ranking: 119,
-    program_name: "MSc in Computer Science", degree_level: "postgraduate",
-    duration_months: 24, field_of_study: "Computer Science & IT", specialization: "General CS",
-    annual_tuition_usd: 3590, avg_living_cost_usd: 11000,
-    intake_semesters: ["fall", "spring"], application_deadline: "2026-01-15",
-    min_gpa: 3.2, min_percentage: 68, min_ielts: 7.0, min_toefl: 95, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.kit.edu/kit/english/education.php",
-    apply_url: "https://www.kit.edu/english/",
-  },,
-            
+              
   // ─── France — additional QS universities ──────────────────────────────────
   {
     university_name: "École Polytechnique",
@@ -774,18 +730,7 @@ export const PROGRAMS = ([
     apply_url: "https://programmes.polytechnique.edu/en/master/apply",
     verified_at: "2026-04-27T10:20:31.884Z", verification_source_url: "https://programmes.polytechnique.edu/en/master/master-of-science-and-technology",
   },,
-      {
-    university_name: "Sorbonne University",
-    country: "France", city: "Paris", qs_ranking: 59,
-    program_name: "Master in European Cultural Heritage", degree_level: "postgraduate",
-    duration_months: 24, field_of_study: "Arts, Design & Architecture", specialization: "Cultural Heritage",
-    annual_tuition_usd: 3600, avg_living_cost_usd: 18000,
-    intake_semesters: ["fall"], application_deadline: "2026-04-01",
-    min_gpa: 3.0, min_percentage: 65, min_ielts: 6.5, min_toefl: 90, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://sciences.sorbonne-universite.fr/formation-sciences/masters/mention-informatique-master",
-    apply_url: "https://www.sorbonne-universite.fr/en/education",
-  },,
-  {
+        {
     university_name: "EDHEC Business School",
     country: "France", city: "Lille", qs_ranking: 501,
     program_name: "MSc in Financial Engineering", degree_level: "postgraduate",
@@ -799,33 +744,11 @@ export const PROGRAMS = ([
   },,
 
   // ─── UAE — additional QS universities ────────────────────────────────────
-  {
-    university_name: "Abu Dhabi University",
-    country: "UAE", city: "Abu Dhabi", qs_ranking: 801,
-    program_name: "MSc in Artificial Intelligence", degree_level: "postgraduate",
-    duration_months: 24, field_of_study: "Artificial Intelligence & Data Science", specialization: "AI",
-    annual_tuition_usd: 16800, avg_living_cost_usd: 16000,
-    intake_semesters: ["fall", "spring"], application_deadline: "rolling",
-    min_gpa: 2.75, min_percentage: 60, min_ielts: 6.0, min_toefl: 80, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.adu.ac.ae/academics/graduate-programs/",
-    apply_url: "https://www.adu.ac.ae/admissions/",
-  },,
-      
+        
   // ─── Singapore — additional QS universities ───────────────────────────────
         
   // ─── Malaysia — additional QS universities ────────────────────────────────
-        {
-    university_name: "Sunway University",
-    country: "Malaysia", city: "Subang Jaya", qs_ranking: 601,
-    program_name: "BSc in Computer Science", degree_level: "undergraduate",
-    duration_months: 36, field_of_study: "Computer Science & IT", specialization: "General CS",
-    annual_tuition_usd: 9600, avg_living_cost_usd: 7000,
-    intake_semesters: ["fall", "spring"], application_deadline: "rolling",
-    min_gpa: null, min_percentage: 55, min_ielts: 5.5, min_toefl: 69, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null, program_url: "https://university.sunway.edu.my/Undergraduate-Studies",
-    apply_url: "https://sunway.edu.my/university/",
-  },,
-      
+              
   // ─── MEDICINE & PUBLIC HEALTH ─────────────────────────────────────────────
 
   // ── USA ───────────────────────────────────────────────────────────────────
@@ -1023,18 +946,7 @@ export const PROGRAMS = ([
   },,
   
   // ── Singapore ─────────────────────────────────────────────────────────────
-    {
-    university_name: "Nanyang Technological University",
-    country: "Singapore", city: "Singapore", qs_ranking: 26,
-    program_name: "MBBS Medicine (LKCMedicine)", degree_level: "undergraduate",
-    duration_months: 60, field_of_study: "Medicine & Public Health", specialization: "Medicine",
-    annual_tuition_usd: 45000, avg_living_cost_usd: 18000,
-    intake_semesters: ["fall"], application_deadline: "2026-03-15",
-    min_gpa: null, min_percentage: 85, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.lkcmedicine.ntu.edu.sg/Education/MBBS",
-    apply_url: "https://www.lkcmedicine.ntu.edu.sg/Education/MBBS/Admissions",
-  },,
-
+    
   // ── Malaysia ──────────────────────────────────────────────────────────────
     
   // ─── ADDITIONAL AUSTRALIA UNIVERSITIES ───────────────────────────────────
@@ -1172,18 +1084,7 @@ export const PROGRAMS = ([
   // University of East Anglia (UEA)
   
   // University of Dundee
-    {
-    university_name: "University of Dundee",
-    country: "UK", city: "Dundee", qs_ranking: 451,
-    program_name: "BEng Civil Engineering", degree_level: "undergraduate",
-    duration_months: 48, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "Civil Engineering",
-    annual_tuition_usd: 22000, avg_living_cost_usd: 12000,
-    intake_semesters: ["fall"], application_deadline: "2026-01-15",
-    min_gpa: null, min_percentage: 65, min_ielts: 6.0, min_toefl: 79, min_pte: 51, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.dundee.ac.uk/undergraduate/civil-engineering",
-    apply_url: "https://www.dundee.ac.uk/apply/",
-  },,
-
+    
   // University of Stirling
     
   // Brunel University London
@@ -1255,29 +1156,7 @@ export const PROGRAMS = ([
   // University of Hull
 
   // De Montfort University
-  {
-    university_name: "De Montfort University",
-    country: "UK", city: "Leicester", qs_ranking: 801,
-    program_name: "MSc Cyber Security", degree_level: "postgraduate",
-    duration_months: 12, field_of_study: "Computer Science & IT", specialization: "Cyber Security",
-    annual_tuition_usd: 19000, avg_living_cost_usd: 13000,
-    intake_semesters: ["fall", "spring"], application_deadline: "rolling",
-    min_gpa: null, min_percentage: 55, min_ielts: 6.0, min_toefl: 79, min_pte: 50, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.dmu.ac.uk/study/courses/postgraduate/cyber-security-msc/cyber-security.aspx",
-    apply_url: "https://www.dmu.ac.uk/study/how-to-apply/",
-  },,
-  {
-    university_name: "De Montfort University",
-    country: "UK", city: "Leicester", qs_ranking: 801,
-    program_name: "BSc Software Engineering", degree_level: "undergraduate",
-    duration_months: 36, field_of_study: "Computer Science & IT", specialization: "Software Engineering",
-    annual_tuition_usd: 19000, avg_living_cost_usd: 13000,
-    intake_semesters: ["fall"], application_deadline: "2026-01-15",
-    min_gpa: null, min_percentage: 55, min_ielts: 6.0, min_toefl: 79, min_pte: 50, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.dmu.ac.uk/study/courses/undergraduate/software-engineering-bsc/software-engineering.aspx",
-    apply_url: "https://www.dmu.ac.uk/study/how-to-apply/",
-  },,
-
+    
   // ─── AUSTRALIA (additional) ───────────────────────────────────────────────
 
   // Australian Catholic University
@@ -1561,133 +1440,12 @@ export const PROGRAMS = ([
   // University of the West of Scotland
     
   // University of Worcester
-  {
-    university_name: "University of Worcester",
-    country: "UK", city: "Worcester", qs_ranking: 1001,
-    program_name: "BA Business Management", degree_level: "undergraduate",
-    duration_months: 36, field_of_study: "Business & Management", specialization: "Business Management",
-    annual_tuition_usd: 19000, avg_living_cost_usd: 12000,
-    intake_semesters: ["fall"], application_deadline: "2026-01-31",
-    min_gpa: null, min_percentage: 50, min_ielts: 6.0, min_toefl: 79, min_pte: 50, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.worcester.ac.uk/courses/business-management-ba",
-    apply_url: "https://www.worcester.ac.uk/courses/apply",
-  },,
-
+  
   // Bath Spa University
-    {
-    university_name: "Bath Spa University",
-    country: "UK", city: "Bath", qs_ranking: 1001,
-    program_name: "BA Business and Management", degree_level: "undergraduate",
-    duration_months: 36, field_of_study: "Business & Management", specialization: "Business Management",
-    annual_tuition_usd: 19000, avg_living_cost_usd: 14000,
-    intake_semesters: ["fall"], application_deadline: "2026-01-31",
-    min_gpa: null, min_percentage: 50, min_ielts: 6.0, min_toefl: 79, min_pte: 50, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.bathspa.ac.uk/courses/ug/business-and-management/",
-    apply_url: "https://www.bathspa.ac.uk/apply/",
-  },,
-
+    
   // University of Gloucestershire
     
-      {
-    university_name: "New York University",
-    country: "USA", city: "New York, NY", qs_ranking: 42,
-    program_name: "MSc Data Science", degree_level: "postgraduate",
-    duration_months: 12, field_of_study: "Artificial Intelligence & Data Science", specialization: "Data Science",
-    annual_tuition_usd: 38845, avg_living_cost_usd: 18000,
-    intake_semesters: ["fall","spring"], application_deadline: "2026-01-15",
-    min_gpa: 3.7, min_percentage: null, min_ielts: 7, min_toefl: 105, min_pte: null, min_duolingo: null,
-    min_gre: 325, min_gmat: null, min_sat: null, work_exp_required_years: 1, program_url: "https://www.nyu.edu/graduate",
-    apply_url: "https://www.nyu.edu/admissions/graduate",
-  },,
-  {
-    university_name: "New York University",
-    country: "USA", city: "New York, NY", qs_ranking: 42,
-    program_name: "MSc Finance", degree_level: "postgraduate",
-    duration_months: 12, field_of_study: "Economics & Finance", specialization: "Finance",
-    annual_tuition_usd: 46444, avg_living_cost_usd: 18000,
-    intake_semesters: ["fall","spring"], application_deadline: "2026-01-15",
-    min_gpa: 3.7, min_percentage: null, min_ielts: 7, min_toefl: 105, min_pte: null, min_duolingo: null,
-    min_gre: 325, min_gmat: null, min_sat: null, work_exp_required_years: 1, program_url: "https://www.nyu.edu/graduate",
-    apply_url: "https://www.nyu.edu/admissions/graduate",
-  },,
-        {
-    university_name: "UC Davis",
-    country: "USA", city: "Davis, CA", qs_ranking: 148,
-    program_name: "MSc Finance", degree_level: "postgraduate",
-    duration_months: 12, field_of_study: "Economics & Finance", specialization: "Finance",
-    annual_tuition_usd: 32371, avg_living_cost_usd: 18000,
-    intake_semesters: ["fall","spring"], application_deadline: "2026-01-15",
-    min_gpa: 3.3, min_percentage: null, min_ielts: 6.5, min_toefl: 95, min_pte: null, min_duolingo: null,
-    min_gre: 315, min_gmat: null, min_sat: null, work_exp_required_years: 1, program_url: "https://www.ucdavis.edu/graduate",
-    apply_url: "https://www.ucdavis.edu/admissions/graduate",
-  },,
-                {
-    university_name: "Emory University",
-    country: "USA", city: "Atlanta, GA", qs_ranking: 246,
-    program_name: "MSc Finance", degree_level: "postgraduate",
-    duration_months: 12, field_of_study: "Economics & Finance", specialization: "Finance",
-    annual_tuition_usd: 50844, avg_living_cost_usd: 18000,
-    intake_semesters: ["fall","spring"], application_deadline: "2026-01-15",
-    min_gpa: 3, min_percentage: null, min_ielts: 6.5, min_toefl: 90, min_pte: null, min_duolingo: null,
-    min_gre: 310, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.emory.edu/graduate",
-    apply_url: "https://www.emory.edu/admissions/graduate",
-  },,
-      {
-    university_name: "University of Virginia",
-    country: "USA", city: "Charlottesville, VA", qs_ranking: 244,
-    program_name: "MSc Data Science", degree_level: "postgraduate",
-    duration_months: 12, field_of_study: "Artificial Intelligence & Data Science", specialization: "Data Science",
-    annual_tuition_usd: 45238, avg_living_cost_usd: 18000,
-    intake_semesters: ["fall","spring"], application_deadline: "2026-01-15",
-    min_gpa: 3, min_percentage: null, min_ielts: 6.5, min_toefl: 90, min_pte: null, min_duolingo: null,
-    min_gre: 310, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.virginia.edu/graduate",
-    apply_url: "https://www.virginia.edu/admissions/graduate",
-  },,
-  {
-    university_name: "University of Virginia",
-    country: "USA", city: "Charlottesville, VA", qs_ranking: 244,
-    program_name: "MSc Finance", degree_level: "postgraduate",
-    duration_months: 12, field_of_study: "Economics & Finance", specialization: "Finance",
-    annual_tuition_usd: 38923, avg_living_cost_usd: 18000,
-    intake_semesters: ["fall","spring"], application_deadline: "2026-01-15",
-    min_gpa: 3, min_percentage: null, min_ielts: 6.5, min_toefl: 90, min_pte: null, min_duolingo: null,
-    min_gre: 310, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.virginia.edu/graduate",
-    apply_url: "https://www.virginia.edu/admissions/graduate",
-  },,
-                  {
-    university_name: "University of North Carolina at Chapel Hill",
-    country: "USA", city: "Chapel Hill, NC", qs_ranking: 261,
-    program_name: "MSc Data Science", degree_level: "postgraduate",
-    duration_months: 12, field_of_study: "Artificial Intelligence & Data Science", specialization: "Data Science",
-    annual_tuition_usd: 32059, avg_living_cost_usd: 18000,
-    intake_semesters: ["fall","spring"], application_deadline: "2026-01-15",
-    min_gpa: 3, min_percentage: null, min_ielts: 6.5, min_toefl: 90, min_pte: null, min_duolingo: null,
-    min_gre: 310, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.unc.edu/graduate",
-    apply_url: "https://www.unc.edu/admissions/graduate",
-  },,
-  {
-    university_name: "University of North Carolina at Chapel Hill",
-    country: "USA", city: "Chapel Hill, NC", qs_ranking: 261,
-    program_name: "MSc Finance", degree_level: "postgraduate",
-    duration_months: 12, field_of_study: "Economics & Finance", specialization: "Finance",
-    annual_tuition_usd: 34013, avg_living_cost_usd: 18000,
-    intake_semesters: ["fall","spring"], application_deadline: "2026-01-15",
-    min_gpa: 3, min_percentage: null, min_ielts: 6.5, min_toefl: 90, min_pte: null, min_duolingo: null,
-    min_gre: 310, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.unc.edu/graduate",
-    apply_url: "https://www.unc.edu/admissions/graduate",
-  },,
-      {
-    university_name: "Humboldt University Berlin",
-    country: "Germany", city: "Berlin", qs_ranking: 120,
-    program_name: "MSc Finance", degree_level: "postgraduate",
-    duration_months: 12, field_of_study: "Economics & Finance", specialization: "Finance",
-    annual_tuition_usd: 10506, avg_living_cost_usd: 12000,
-    intake_semesters: ["fall","spring"], application_deadline: "2026-07-15",
-    min_gpa: 3.3, min_percentage: null, min_ielts: 6.5, min_toefl: 95, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 1, program_url: "https://www.hu-berlin.de/graduate",
-    apply_url: "https://www.hu-berlin.de/admissions/graduate",
-  },,
-                      // ── University of Tübingen — QS 206 (English-taught Master's programmes) ───
+                                                                                        // ── University of Tübingen — QS 206 (English-taught Master's programmes) ───
   { university_name: "University of Tübingen", country: "Germany", city: "Tübingen", qs_ranking: 206, program_name: "Machine Learning - Master", degree_level: "postgraduate", duration_months: 24, field_of_study: "Artificial Intelligence & Data Science", specialization: "Machine Learning", annual_tuition_usd: 3700, avg_living_cost_usd: 12000, intake_semesters: ["fall"], application_deadline: "2026-06-15", min_gpa: 3.5, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://uni-tuebingen.de/en/study/finding-a-course/degree-programs-available/detail/course/machine-learning-master/", apply_url: "https://uni-tuebingen.de/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/informatik/studium/studierende/lehre-studienorganisation/studiengaenge/machine-learning/admission-and-application/",
     verified_at: "2026-05-01T21:51:31.093Z", verification_source_url: "https://uni-tuebingen.de/en/study/finding-a-course/degree-programs-available/detail/course/machine-learning-master/",
   },,
@@ -1772,62 +1530,7 @@ export const PROGRAMS = ([
   { university_name: "University of Tübingen", country: "Germany", city: "Tübingen", qs_ranking: 206, program_name: "MA Palaeolithic Archaeology", degree_level: "postgraduate", duration_months: 24, field_of_study: "Social Sciences & Humanities", specialization: "Prehistoric Archaeology & Human Evolution", annual_tuition_usd: 3700, avg_living_cost_usd: 12000, intake_semesters: ["fall"], application_deadline: "2026-06-15", min_gpa: null, min_percentage: null, min_ielts: 6.5, min_toefl: 79, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://uni-tuebingen.de/en/study/finding-a-course/degree-programs-available/detail/course/palaeolithic-archaeology-master/", apply_url: "https://uni-tuebingen.de/en/study/application-and-enrollment/masters-degree/",
     verified_at: "2026-05-04T03:14:47.000Z",
     verification_source_url: "https://uni-tuebingen.de/en/study/finding-a-course/degree-programs-available/detail/course/palaeolithic-archaeology-master/" },,
-  {
-    university_name: "Université de Montréal",
-    country: "Canada", city: "Montreal", qs_ranking: 141,
-    program_name: "MSc Data Science", degree_level: "postgraduate",
-    duration_months: 12, field_of_study: "Artificial Intelligence & Data Science", specialization: "Data Science",
-    annual_tuition_usd: 38496, avg_living_cost_usd: 14000,
-    intake_semesters: ["fall","spring"], application_deadline: "2026-02-01",
-    min_gpa: 3.3, min_percentage: null, min_ielts: 6.5, min_toefl: 95, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 1, program_url: "https://www.umontreal.ca/graduate",
-    apply_url: "https://www.umontreal.ca/admissions/graduate",
-  },,
-  {
-    university_name: "Université de Montréal",
-    country: "Canada", city: "Montreal", qs_ranking: 141,
-    program_name: "MSc Finance", degree_level: "postgraduate",
-    duration_months: 12, field_of_study: "Economics & Finance", specialization: "Finance",
-    annual_tuition_usd: 26554, avg_living_cost_usd: 14000,
-    intake_semesters: ["fall","spring"], application_deadline: "2026-02-01",
-    min_gpa: 3.3, min_percentage: null, min_ielts: 6.5, min_toefl: 95, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 1, program_url: "https://www.umontreal.ca/graduate",
-    apply_url: "https://www.umontreal.ca/admissions/graduate",
-  },,
-      {
-    university_name: "Université Paris Cité",
-    country: "France", city: "Paris", qs_ranking: 261,
-    program_name: "MSc Finance", degree_level: "postgraduate",
-    duration_months: 12, field_of_study: "Economics & Finance", specialization: "Finance",
-    annual_tuition_usd: 19559, avg_living_cost_usd: 14000,
-    intake_semesters: ["fall"], application_deadline: "2026-03-01",
-    min_gpa: 3, min_percentage: null, min_ielts: 6.5, min_toefl: 90, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.u-paris.fr/graduate",
-    apply_url: "https://www.u-paris.fr/admissions/graduate",
-  },,
-              {
-    university_name: "New York University Abu Dhabi",
-    country: "UAE", city: "Abu Dhabi", qs_ranking: 185,
-    program_name: "MSc Data Science", degree_level: "postgraduate",
-    duration_months: 12, field_of_study: "Artificial Intelligence & Data Science", specialization: "Data Science",
-    annual_tuition_usd: 23126, avg_living_cost_usd: 16000,
-    intake_semesters: ["fall","spring"], application_deadline: "2026-04-30",
-    min_gpa: 3.3, min_percentage: null, min_ielts: 6.5, min_toefl: 95, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 1, program_url: "https://www.nyuad.ac.ae/graduate",
-    apply_url: "https://www.nyuad.ac.ae/admissions/graduate",
-  },,
-  {
-    university_name: "New York University Abu Dhabi",
-    country: "UAE", city: "Abu Dhabi", qs_ranking: 185,
-    program_name: "MSc Finance", degree_level: "postgraduate",
-    duration_months: 12, field_of_study: "Economics & Finance", specialization: "Finance",
-    annual_tuition_usd: 23801, avg_living_cost_usd: 16000,
-    intake_semesters: ["fall","spring"], application_deadline: "2026-04-30",
-    min_gpa: 3.3, min_percentage: null, min_ielts: 6.5, min_toefl: 95, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 1, program_url: "https://www.nyuad.ac.ae/graduate",
-    apply_url: "https://www.nyuad.ac.ae/admissions/graduate",
-  },,
-          // ─── ADDITIONAL USA ──────────────────────────────────────────────────────────
+                                    // ─── ADDITIONAL USA ──────────────────────────────────────────────────────────
   // Brown University
   { university_name: "Brown University", country: "USA", city: "Providence, RI", qs_ranking: 79, program_name: "Master of Science in Computer Science", degree_level: "postgraduate", duration_months: 24, field_of_study: "Computer Science & IT", specialization: "General CS", annual_tuition_usd: 63000, avg_living_cost_usd: 22000, intake_semesters: ["fall"], application_deadline: "2025-12-15", min_gpa: 3.5, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null, min_gre: 320, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://graduateprograms.brown.edu/graduate-program/electrical-and-computer-engineering-scm", apply_url: "https://apply.graduateschool.brown.edu/apply/",
     verified_at: "2026-04-27T10:42:12.144Z", verification_source_url: "https://cs.brown.edu/degrees/masters/",
@@ -1935,8 +1638,7 @@ export const PROGRAMS = ([
     { university_name: "University of Massachusetts Amherst", country: "USA", city: "Amherst, MA", qs_ranking: 275, program_name: "Master of Business Administration", degree_level: "postgraduate", duration_months: 24, field_of_study: "MBA", specialization: "Business Administration", annual_tuition_usd: 40000, avg_living_cost_usd: 16000, intake_semesters: ["fall"], application_deadline: "2026-03-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 80, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: 580, min_sat: null, work_exp_required_years: 2, program_url: "https://www.isenberg.umass.edu/programs/masters/mba", apply_url: "https://www.isenberg.umass.edu/programs/masters/mba/admissions",
     verified_at: "2026-05-02T10:09:10.272Z", verification_source_url: "https://www.isenberg.umass.edu/programs/masters/mba",
   },,
-    { university_name: "University of Massachusetts Amherst", country: "USA", city: "Amherst, MA", qs_ranking: 275, program_name: "MS in Agricultural & Resource Economics", degree_level: "postgraduate", duration_months: 24, field_of_study: "Agriculture & Veterinary Sciences", specialization: "Agricultural Economics", annual_tuition_usd: 32000, avg_living_cost_usd: 16000, intake_semesters: ["fall"], application_deadline: "2026-02-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 80, min_pte: null, min_duolingo: null, min_gre: 305, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.resecon.umass.edu/graduate/", apply_url: "https://www.umass.edu/gradschool/apply" },,
-  
+      
   // University of Arizona
   { university_name: "University of Arizona", country: "USA", city: "Tucson, AZ", qs_ranking: 293, program_name: "MS in Computer Science", degree_level: "postgraduate", duration_months: 24, field_of_study: "Computer Science & IT", specialization: "General CS", annual_tuition_usd: 31000, avg_living_cost_usd: 15000, intake_semesters: ["fall","spring"], application_deadline: "2026-02-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 79, min_pte: null, min_duolingo: null, min_gre: 307, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://cs.arizona.edu/graduate/masters-program", apply_url: "https://grad.arizona.edu/admissions",
     verified_at: "2026-04-27T17:11:40.799Z", verification_source_url: "https://cs.arizona.edu/graduate/masters-program",
@@ -2004,8 +1706,7 @@ export const PROGRAMS = ([
   { university_name: "University of Miami", country: "USA", city: "Coral Gables, FL", qs_ranking: 324, program_name: "JD — School of Law", degree_level: "postgraduate", duration_months: 36, field_of_study: "Law", specialization: "General Law", annual_tuition_usd: 58000, avg_living_cost_usd: 30000, intake_semesters: ["fall"], application_deadline: "2026-04-01", min_gpa: 3.3, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://admissions.law.miami.edu/academics/jd/apply/", apply_url: "https://www.law.miami.edu/admissions",
     verified_at: "2026-05-04T02:17:15.000Z",
     verification_source_url: "https://admissions.law.miami.edu/academics/jd/apply/" },,
-  { university_name: "University of Miami", country: "USA", city: "Coral Gables, FL", qs_ranking: 324, program_name: "MS in Communication", degree_level: "postgraduate", duration_months: 24, field_of_study: "Media & Communications", specialization: "Strategic Communication", annual_tuition_usd: 50000, avg_living_cost_usd: 30000, intake_semesters: ["fall"], application_deadline: "2026-03-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 80, min_pte: null, min_duolingo: null, min_gre: 305, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://com.miami.edu/graduate/", apply_url: "https://www.grad.miami.edu/apply/index.html" },,
-  
+    
   // Rutgers University–New Brunswick
   { university_name: "Rutgers University–New Brunswick", country: "USA", city: "New Brunswick, NJ", qs_ranking: 328, program_name: "Graduate Program in Computer Science", degree_level: "postgraduate", duration_months: 24, field_of_study: "Computer Science & IT", specialization: "General CS", annual_tuition_usd: 28000, avg_living_cost_usd: 18000, intake_semesters: ["fall","spring"], application_deadline: "2026-02-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 79, min_pte: null, min_duolingo: null, min_gre: 307, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.cs.rutgers.edu/graduate/", apply_url: "https://gradstudy.rutgers.edu/apply/apply-now",
     verified_at: "2026-04-27T10:46:29.312Z", verification_source_url: "https://www.cs.rutgers.edu/graduate/",
@@ -2057,14 +1758,11 @@ export const PROGRAMS = ([
   },,
       
   // George Washington University
-  { university_name: "George Washington University", country: "USA", city: "Washington, DC", qs_ranking: 371, program_name: "MS in Computer Science", degree_level: "postgraduate", duration_months: 24, field_of_study: "Computer Science & IT", specialization: "General CS", annual_tuition_usd: 56000, avg_living_cost_usd: 24000, intake_semesters: ["fall","spring"], application_deadline: "2026-03-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 80, min_pte: null, min_duolingo: null, min_gre: 308, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.cs.gwu.edu/graduate/", apply_url: "https://graduateadmissions.gwu.edu/" },,
-  { university_name: "George Washington University", country: "USA", city: "Washington, DC", qs_ranking: 371, program_name: "MBA — School of Business", degree_level: "postgraduate", duration_months: 24, field_of_study: "MBA", specialization: "International Business", annual_tuition_usd: 62000, avg_living_cost_usd: 24000, intake_semesters: ["fall"], application_deadline: "2026-04-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 80, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: 600, min_sat: null, work_exp_required_years: 2, program_url: "https://business.gwu.edu/mba/", apply_url: "https://business.gwu.edu/admissions",
+    { university_name: "George Washington University", country: "USA", city: "Washington, DC", qs_ranking: 371, program_name: "MBA — School of Business", degree_level: "postgraduate", duration_months: 24, field_of_study: "MBA", specialization: "International Business", annual_tuition_usd: 62000, avg_living_cost_usd: 24000, intake_semesters: ["fall"], application_deadline: "2026-04-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 80, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: 600, min_sat: null, work_exp_required_years: 2, program_url: "https://business.gwu.edu/mba/", apply_url: "https://business.gwu.edu/admissions",
     verified_at: "2026-05-04T02:17:15.000Z",
     verification_source_url: "https://business.gwu.edu/mba/" },,
-  { university_name: "George Washington University", country: "USA", city: "Washington, DC", qs_ranking: 371, program_name: "MS in Data Science", degree_level: "postgraduate", duration_months: 24, field_of_study: "Artificial Intelligence & Data Science", specialization: "Data Science", annual_tuition_usd: 56000, avg_living_cost_usd: 24000, intake_semesters: ["fall","spring"], application_deadline: "2026-03-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 80, min_pte: null, min_duolingo: null, min_gre: 308, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://datascience.gwu.edu/", apply_url: "https://graduateadmissions.gwu.edu/" },,
-  { university_name: "Virginia Tech", country: "USA", city: "Blacksburg, VA", qs_ranking: 389, program_name: "MS in Computer Science", degree_level: "postgraduate", duration_months: 24, field_of_study: "Computer Science & IT", specialization: "General CS", annual_tuition_usd: 35000, avg_living_cost_usd: 16000, intake_semesters: ["fall","spring"], application_deadline: "2026-01-15", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 80, min_pte: null, min_duolingo: null, min_gre: 308, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://students.cs.vt.edu/Graduate/Degrees/MSThesis.html", apply_url: "https://graduateschool.vt.edu/admissions.html", verified_at: "2026-04-27T17:47:08.307Z", verification_source_url: "https://students.cs.vt.edu/Graduate/Degrees/MSThesis.html" },,
-        { university_name: "Virginia Tech", country: "USA", city: "Blacksburg, VA", qs_ranking: 389, program_name: "MArch — Architecture", degree_level: "postgraduate", duration_months: 36, field_of_study: "Architecture", specialization: "Architecture", annual_tuition_usd: 35000, avg_living_cost_usd: 16000, intake_semesters: ["fall"], application_deadline: "2026-01-15", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 80, min_pte: null, min_duolingo: null, min_gre: 305, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://archdesign.vt.edu/graduate/", apply_url: "https://graduateschool.vt.edu/admissions.html" },,
-  
+    { university_name: "Virginia Tech", country: "USA", city: "Blacksburg, VA", qs_ranking: 389, program_name: "MS in Computer Science", degree_level: "postgraduate", duration_months: 24, field_of_study: "Computer Science & IT", specialization: "General CS", annual_tuition_usd: 35000, avg_living_cost_usd: 16000, intake_semesters: ["fall","spring"], application_deadline: "2026-01-15", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 80, min_pte: null, min_duolingo: null, min_gre: 308, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://students.cs.vt.edu/Graduate/Degrees/MSThesis.html", apply_url: "https://graduateschool.vt.edu/admissions.html", verified_at: "2026-04-27T17:47:08.307Z", verification_source_url: "https://students.cs.vt.edu/Graduate/Degrees/MSThesis.html" },,
+          
   // UC Santa Cruz
             { university_name: "UC Santa Cruz", country: "USA", city: "Santa Cruz, CA", qs_ranking: 393, program_name: "MFA in Digital Arts & New Media", degree_level: "postgraduate", duration_months: 24, field_of_study: "Arts, Design & Architecture", specialization: "Digital Arts", annual_tuition_usd: 27000, avg_living_cost_usd: 22000, intake_semesters: ["fall"], application_deadline: "2026-01-15", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 80, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://danm.ucsc.edu/graduate/", apply_url: "https://graduate.ucsc.edu/admissions/",
     verified_at: "2026-04-27T10:48:50.265Z", verification_source_url: "https://danm.ucsc.edu/graduate/",
@@ -2080,12 +1778,9 @@ export const PROGRAMS = ([
   { university_name: "Colorado State University", country: "USA", city: "Fort Collins, CO", qs_ranking: 442, program_name: "MS in Natural Resources", degree_level: "postgraduate", duration_months: 24, field_of_study: "Environmental & Sustainability Studies", specialization: "Natural Resources", annual_tuition_usd: 31000, avg_living_cost_usd: 16000, intake_semesters: ["fall"], application_deadline: "2026-02-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 71, min_pte: null, min_duolingo: null, min_gre: 303, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://warnercnr.colostate.edu/graduate/", apply_url: "https://admissions.colostate.edu/graduate/",
     verified_at: "2026-05-04T02:17:15.000Z",
     verification_source_url: "https://warnercnr.colostate.edu/graduate/" },,
-  { university_name: "Colorado State University", country: "USA", city: "Fort Collins, CO", qs_ranking: 442, program_name: "MS in Agricultural Sciences", degree_level: "postgraduate", duration_months: 24, field_of_study: "Agriculture & Veterinary Sciences", specialization: "Agricultural Sciences", annual_tuition_usd: 30000, avg_living_cost_usd: 16000, intake_semesters: ["fall","spring"], application_deadline: "2026-03-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 71, min_pte: null, min_duolingo: null, min_gre: 300, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://agriculture.colostate.edu/graduate/", apply_url: "https://admissions.colostate.edu/graduate/" },,
-  { university_name: "Colorado State University", country: "USA", city: "Fort Collins, CO", qs_ranking: 442, program_name: "DVM — Veterinary Medicine", degree_level: "postgraduate", duration_months: 48, field_of_study: "Agriculture & Veterinary Sciences", specialization: "Veterinary Medicine", annual_tuition_usd: 35000, avg_living_cost_usd: 16000, intake_semesters: ["fall"], application_deadline: "2025-10-01", min_gpa: 3.3, min_percentage: null, min_ielts: 6.5, min_toefl: 71, min_pte: null, min_duolingo: null, min_gre: 305, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://cvmbs.colostate.edu/dvm/", apply_url: "https://cvmbs.colostate.edu/admissions/" },,
-
+    
   // Stony Brook University (SUNY)
-          { university_name: "Stony Brook University", country: "USA", city: "Stony Brook, NY", qs_ranking: 460, program_name: "MPH — Public Health", degree_level: "postgraduate", duration_months: 24, field_of_study: "Medicine & Public Health", specialization: "Public Health", annual_tuition_usd: 22000, avg_living_cost_usd: 21000, intake_semesters: ["fall"], application_deadline: "2026-03-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 80, min_pte: null, min_duolingo: null, min_gre: 305, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://publichealth.stonybrook.edu/", apply_url: "https://www.stonybrook.edu/graduate/apply" },,
-  
+            
   // University at Buffalo (SUNY)
   { university_name: "University at Buffalo (SUNY)", country: "USA", city: "Buffalo, NY", qs_ranking: 466, program_name: "Computer Science and Engineering Graduate Program", degree_level: "postgraduate", duration_months: 24, field_of_study: "Computer Science & IT", specialization: "General CS", annual_tuition_usd: 22000, avg_living_cost_usd: 15000, intake_semesters: ["fall","spring"], application_deadline: "2026-03-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 79, min_pte: null, min_duolingo: null, min_gre: 305, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://engineering.buffalo.edu/computer-science-engineering/graduate.html", apply_url: "https://www.buffalo.edu/gradschool/admissions.html",
     verified_at: "2026-04-27T10:49:31.739Z", verification_source_url: "https://engineering.buffalo.edu/computer-science-engineering/graduate.html",
@@ -2110,8 +1805,7 @@ export const PROGRAMS = ([
   { university_name: "Iowa State University", country: "USA", city: "Ames, IA", qs_ranking: 470, program_name: "Graduate Admission – College of Design", degree_level: "postgraduate", duration_months: 36, field_of_study: "Architecture", specialization: "Architecture", annual_tuition_usd: 30000, avg_living_cost_usd: 13000, intake_semesters: ["fall"], application_deadline: "2026-02-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 79, min_pte: null, min_duolingo: null, min_gre: 300, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.design.iastate.edu/architecture/graduate/", apply_url: "https://www.iastate.edu/graduate-admission",
     verified_at: "2026-04-27T10:50:00.851Z", verification_source_url: "https://www.design.iastate.edu/architecture/graduate/",
   },,
-  { university_name: "Iowa State University", country: "USA", city: "Ames, IA", qs_ranking: 470, program_name: "MS in Environmental Science", degree_level: "postgraduate", duration_months: 24, field_of_study: "Environmental & Sustainability Studies", specialization: "Environmental Science", annual_tuition_usd: 29000, avg_living_cost_usd: 13000, intake_semesters: ["fall"], application_deadline: "2026-02-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 79, min_pte: null, min_duolingo: null, min_gre: 300, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.cnr.iastate.edu/graduate/", apply_url: "https://www.iastate.edu/graduate-admission" },,
-
+  
   // University of Tennessee Knoxville
   { university_name: "University of Tennessee Knoxville", country: "USA", city: "Knoxville, TN", qs_ranking: 481, program_name: "MS in Computer Science", degree_level: "postgraduate", duration_months: 24, field_of_study: "Computer Science & IT", specialization: "General CS", annual_tuition_usd: 35000, avg_living_cost_usd: 14000, intake_semesters: ["fall","spring"], application_deadline: "2026-02-15", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 61, min_pte: null, min_duolingo: null, min_gre: 305, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.eecs.utk.edu/graduate/", apply_url: "https://gradschool.utk.edu/admissions/",
     verified_at: "2026-05-04T02:17:15.000Z",
@@ -2119,8 +1813,7 @@ export const PROGRAMS = ([
   { university_name: "University of Tennessee Knoxville", country: "USA", city: "Knoxville, TN", qs_ranking: 481, program_name: "Full-Time MBA", degree_level: "postgraduate", duration_months: 24, field_of_study: "MBA", specialization: "Business Administration", annual_tuition_usd: 32000, avg_living_cost_usd: 14000, intake_semesters: ["fall"], application_deadline: "2026-04-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 61, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: 550, min_sat: null, work_exp_required_years: 2, program_url: "https://haslam.utk.edu/mba/", apply_url: "https://haslam.utk.edu/mba/admissions/",
     verified_at: "2026-04-27T10:50:08.113Z", verification_source_url: "https://haslam.utk.edu/mba/",
   },,
-  { university_name: "University of Tennessee Knoxville", country: "USA", city: "Knoxville, TN", qs_ranking: 481, program_name: "MS in Mechanical Engineering", degree_level: "postgraduate", duration_months: 24, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "Mechanical Engineering", annual_tuition_usd: 34000, avg_living_cost_usd: 14000, intake_semesters: ["fall","spring"], application_deadline: "2026-02-15", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 61, min_pte: null, min_duolingo: null, min_gre: 303, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://me.utk.edu/graduate/", apply_url: "https://gradschool.utk.edu/admissions/" },,
-    { university_name: "University of Tennessee Knoxville", country: "USA", city: "Knoxville, TN", qs_ranking: 481, program_name: "J.D. and MA (Philosophy)", degree_level: "postgraduate", duration_months: 36, field_of_study: "Law", specialization: "General Law", annual_tuition_usd: 28000, avg_living_cost_usd: 14000, intake_semesters: ["fall"], application_deadline: "2026-03-15", min_gpa: 3.2, min_percentage: null, min_ielts: 7.0, min_toefl: 79, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://law.utk.edu/jd/", apply_url: "https://law.utk.edu/admissions/",
+      { university_name: "University of Tennessee Knoxville", country: "USA", city: "Knoxville, TN", qs_ranking: 481, program_name: "J.D. and MA (Philosophy)", degree_level: "postgraduate", duration_months: 36, field_of_study: "Law", specialization: "General Law", annual_tuition_usd: 28000, avg_living_cost_usd: 14000, intake_semesters: ["fall"], application_deadline: "2026-03-15", min_gpa: 3.2, min_percentage: null, min_ielts: 7.0, min_toefl: 79, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://law.utk.edu/jd/", apply_url: "https://law.utk.edu/admissions/",
     verified_at: "2026-04-27T10:50:19.093Z", verification_source_url: "https://law.utk.edu/jd/",
   },,
 
@@ -2142,9 +1835,7 @@ export const PROGRAMS = ([
   { university_name: "UC Riverside", country: "USA", city: "Riverside, CA", qs_ranking: 497, program_name: "Graduate Study in Computer Science", degree_level: "postgraduate", duration_months: 24, field_of_study: "Artificial Intelligence & Data Science", specialization: "Data Science", annual_tuition_usd: 26000, avg_living_cost_usd: 18000, intake_semesters: ["fall"], application_deadline: "2026-01-05", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 80, min_pte: null, min_duolingo: null, min_gre: 307, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www1.cs.ucr.edu/graduate/", apply_url: "https://gradapply.ucr.edu/",
     verified_at: "2026-04-27T10:50:53.562Z", verification_source_url: "https://www1.cs.ucr.edu/graduate/",
   },,
-  { university_name: "UC Riverside", country: "USA", city: "Riverside, CA", qs_ranking: 497, program_name: "MS in Biotechnology", degree_level: "postgraduate", duration_months: 24, field_of_study: "Biotechnology & Life Sciences", specialization: "Biotechnology", annual_tuition_usd: 25000, avg_living_cost_usd: 18000, intake_semesters: ["fall"], application_deadline: "2026-01-05", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 80, min_pte: null, min_duolingo: null, min_gre: 305, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.biochem.ucr.edu/graduate/", apply_url: "https://gradapply.ucr.edu/" },,
-  { university_name: "UC Riverside", country: "USA", city: "Riverside, CA", qs_ranking: 497, program_name: "MS in Agriculture & Natural Resources", degree_level: "postgraduate", duration_months: 24, field_of_study: "Agriculture & Veterinary Sciences", specialization: "Agricultural Sciences", annual_tuition_usd: 24000, avg_living_cost_usd: 18000, intake_semesters: ["fall"], application_deadline: "2026-01-05", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 80, min_pte: null, min_duolingo: null, min_gre: 303, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.cnas.ucr.edu/graduate/", apply_url: "https://gradapply.ucr.edu/" },,
-
+    
   // Colorado School of Mines
   { university_name: "Colorado School of Mines", country: "USA", city: "Golden, CO", qs_ranking: 501, program_name: "Graduate Program - Computer Science", degree_level: "postgraduate", duration_months: 24, field_of_study: "Computer Science & IT", specialization: "General CS", annual_tuition_usd: 41580, avg_living_cost_usd: 22000, intake_semesters: ["fall","spring"], application_deadline: "2026-02-15", min_gpa: 3.2, min_percentage: null, min_ielts: 6.5, min_toefl: 80, min_pte: null, min_duolingo: null, min_gre: 308, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://cs.mines.edu/graduate/", apply_url: "https://www.mines.edu/graduate-studies/apply/",
     verified_at: "2026-04-27T10:51:14.441Z", verification_source_url: "https://cs.mines.edu/graduate/",
@@ -2155,17 +1846,11 @@ export const PROGRAMS = ([
   { university_name: "Colorado School of Mines", country: "USA", city: "Golden, CO", qs_ranking: 501, program_name: "Graduate Program - Computer Science", degree_level: "postgraduate", duration_months: 24, field_of_study: "Artificial Intelligence & Data Science", specialization: "Data Science", annual_tuition_usd: 41580, avg_living_cost_usd: 22000, intake_semesters: ["fall"], application_deadline: "2026-02-15", min_gpa: 3.2, min_percentage: null, min_ielts: 6.5, min_toefl: 80, min_pte: null, min_duolingo: null, min_gre: 308, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://cs.mines.edu/graduate/", apply_url: "https://www.mines.edu/graduate-studies/apply/",
     verified_at: "2026-04-27T10:51:14.441Z", verification_source_url: "https://cs.mines.edu/graduate/",
   },,
-  { university_name: "Colorado School of Mines", country: "USA", city: "Golden, CO", qs_ranking: 501, program_name: "MS in Mineral & Energy Economics", degree_level: "postgraduate", duration_months: 12, field_of_study: "Economics & Finance", specialization: "Energy Economics", annual_tuition_usd: 41580, avg_living_cost_usd: 22000, intake_semesters: ["fall"], application_deadline: "2026-02-15", min_gpa: 3.2, min_percentage: null, min_ielts: 6.5, min_toefl: 80, min_pte: null, min_duolingo: null, min_gre: 308, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://economics.mines.edu/graduate/", apply_url: "https://www.mines.edu/graduate-studies/apply/" },,
-
-  // University of Delaware
-    { university_name: "University of Delaware", country: "USA", city: "Newark, DE", qs_ranking: 506, program_name: "MBA — Lerner College", degree_level: "postgraduate", duration_months: 24, field_of_study: "MBA", specialization: "Business Administration", annual_tuition_usd: 33840, avg_living_cost_usd: 16000, intake_semesters: ["fall"], application_deadline: "2026-04-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 79, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: 560, min_sat: null, work_exp_required_years: 2, program_url: "https://www.lerner.udel.edu/mba/", apply_url: "https://www.lerner.udel.edu/mba/admissions/" },,
-  { university_name: "University of Delaware", country: "USA", city: "Newark, DE", qs_ranking: 506, program_name: "MS in Chemical Engineering", degree_level: "postgraduate", duration_months: 24, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "Chemical Engineering", annual_tuition_usd: 33840, avg_living_cost_usd: 16000, intake_semesters: ["fall","spring"], application_deadline: "2026-02-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 79, min_pte: null, min_duolingo: null, min_gre: 307, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.che.udel.edu/graduate/", apply_url: "https://www.udel.edu/academics/colleges/grad/prospective-students/apply/" },,
-    { university_name: "University of Delaware", country: "USA", city: "Newark, DE", qs_ranking: 506, program_name: "MS in Nursing", degree_level: "postgraduate", duration_months: 24, field_of_study: "Nursing & Allied Health", specialization: "Advanced Practice Nursing", annual_tuition_usd: 33840, avg_living_cost_usd: 16000, intake_semesters: ["fall"], application_deadline: "2026-03-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 79, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 1, program_url: "https://www.nursing.udel.edu/graduate/", apply_url: "https://www.udel.edu/academics/colleges/grad/prospective-students/apply/" },,
   
+  // University of Delaware
+            
   // Missouri University of Science and Technology
-      { university_name: "Missouri University of Science and Technology", country: "USA", city: "Rolla, MO", qs_ranking: 527, program_name: "MS in Civil Engineering", degree_level: "postgraduate", duration_months: 24, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "Civil Engineering", annual_tuition_usd: 29558, avg_living_cost_usd: 13000, intake_semesters: ["fall","spring"], application_deadline: "2026-03-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 80, min_pte: null, min_duolingo: null, min_gre: 303, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://ce.mst.edu/graduate/", apply_url: "https://grad.mst.edu/apply/" },,
-  { university_name: "Missouri University of Science and Technology", country: "USA", city: "Rolla, MO", qs_ranking: 527, program_name: "MS in Environmental Engineering", degree_level: "postgraduate", duration_months: 24, field_of_study: "Environmental & Sustainability Studies", specialization: "Environmental Engineering", annual_tuition_usd: 29558, avg_living_cost_usd: 13000, intake_semesters: ["fall"], application_deadline: "2026-03-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 80, min_pte: null, min_duolingo: null, min_gre: 303, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://ce.mst.edu/graduate/", apply_url: "https://grad.mst.edu/apply/" },,
-    
+            
   // University of Utah
   { university_name: "University of Utah", country: "USA", city: "Salt Lake City, UT", qs_ranking: 531, program_name: "MS and PhD Programs", degree_level: "postgraduate", duration_months: 24, field_of_study: "Computer Science & IT", specialization: "General CS", annual_tuition_usd: 26000, avg_living_cost_usd: 16000, intake_semesters: ["fall","spring"], application_deadline: "2026-02-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 80, min_pte: null, min_duolingo: null, min_gre: 307, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.cs.utah.edu/graduate/", apply_url: "https://gradschool.utah.edu/apply-now/",
     verified_at: "2026-04-27T10:52:01.946Z", verification_source_url: "https://www.cs.utah.edu/graduate/",
@@ -2173,8 +1858,7 @@ export const PROGRAMS = ([
     { university_name: "University of Utah", country: "USA", city: "Salt Lake City, UT", qs_ranking: 531, program_name: "Graduate Program Advising and Administration", degree_level: "postgraduate", duration_months: 24, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "Mechanical Engineering", annual_tuition_usd: 25000, avg_living_cost_usd: 16000, intake_semesters: ["fall","spring"], application_deadline: "2026-02-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 80, min_pte: null, min_duolingo: null, min_gre: 305, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://mech.utah.edu/graduate/", apply_url: "https://gradschool.utah.edu/apply-now/",
     verified_at: "2026-04-27T10:51:53.046Z", verification_source_url: "https://mech.utah.edu/graduate/",
   },,
-  { university_name: "University of Utah", country: "USA", city: "Salt Lake City, UT", qs_ranking: 531, program_name: "MS in Biomedical Engineering", degree_level: "postgraduate", duration_months: 24, field_of_study: "Biotechnology & Life Sciences", specialization: "Biomedical Engineering", annual_tuition_usd: 25000, avg_living_cost_usd: 16000, intake_semesters: ["fall"], application_deadline: "2026-01-15", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 80, min_pte: null, min_duolingo: null, min_gre: 307, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://bme.utah.edu/graduate/", apply_url: "https://gradschool.utah.edu/apply-now/" },,
-  { university_name: "University of Utah", country: "USA", city: "Salt Lake City, UT", qs_ranking: 531, program_name: "The JD Program at Utah Law", degree_level: "postgraduate", duration_months: 36, field_of_study: "Law", specialization: "General Law", annual_tuition_usd: 30000, avg_living_cost_usd: 16000, intake_semesters: ["fall"], application_deadline: "2026-03-15", min_gpa: 3.2, min_percentage: null, min_ielts: 7.0, min_toefl: 80, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://law.utah.edu/jd/", apply_url: "https://law.utah.edu/admissions/",
+    { university_name: "University of Utah", country: "USA", city: "Salt Lake City, UT", qs_ranking: 531, program_name: "The JD Program at Utah Law", degree_level: "postgraduate", duration_months: 36, field_of_study: "Law", specialization: "General Law", annual_tuition_usd: 30000, avg_living_cost_usd: 16000, intake_semesters: ["fall"], application_deadline: "2026-03-15", min_gpa: 3.2, min_percentage: null, min_ielts: 7.0, min_toefl: 80, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://law.utah.edu/jd/", apply_url: "https://law.utah.edu/admissions/",
     verified_at: "2026-04-27T10:52:09.718Z", verification_source_url: "https://law.utah.edu/jd/",
   },,
   
@@ -2182,9 +1866,7 @@ export const PROGRAMS = ([
   { university_name: "University of Connecticut", country: "USA", city: "Storrs, CT", qs_ranking: 565, program_name: "Graduate Research Assistant with Dr. Khan", degree_level: "postgraduate", duration_months: 24, field_of_study: "Computer Science & IT", specialization: "General CS", annual_tuition_usd: 44000, avg_living_cost_usd: 18000, intake_semesters: ["fall","spring"], application_deadline: "2026-03-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 79, min_pte: null, min_duolingo: null, min_gre: 307, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://cse.uconn.edu/graduate/", apply_url: "https://grad.uconn.edu/admissions/apply/",
     verified_at: "2026-04-27T10:52:13.889Z", verification_source_url: "https://cse.uconn.edu/graduate/",
   },,
-  { university_name: "University of Connecticut", country: "USA", city: "Storrs, CT", qs_ranking: 565, program_name: "MBA — School of Business", degree_level: "postgraduate", duration_months: 24, field_of_study: "MBA", specialization: "Business Administration", annual_tuition_usd: 45000, avg_living_cost_usd: 18000, intake_semesters: ["fall"], application_deadline: "2026-04-15", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 79, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: 560, min_sat: null, work_exp_required_years: 2, program_url: "https://business.uconn.edu/mba/", apply_url: "https://business.uconn.edu/mba/admissions/" },,
-  { university_name: "University of Connecticut", country: "USA", city: "Storrs, CT", qs_ranking: 565, program_name: "MS in Electrical Engineering", degree_level: "postgraduate", duration_months: 24, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "Electrical Engineering", annual_tuition_usd: 43000, avg_living_cost_usd: 18000, intake_semesters: ["fall","spring"], application_deadline: "2026-03-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 79, min_pte: null, min_duolingo: null, min_gre: 305, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.ece.uconn.edu/graduate/", apply_url: "https://grad.uconn.edu/admissions/apply/" },,
-  { university_name: "University of Connecticut", country: "USA", city: "Storrs, CT", qs_ranking: 565, program_name: "JD Academic Regulations", degree_level: "postgraduate", duration_months: 36, field_of_study: "Law", specialization: "General Law", annual_tuition_usd: 45000, avg_living_cost_usd: 18000, intake_semesters: ["fall"], application_deadline: "2026-03-01", min_gpa: 3.2, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.law.uconn.edu/jd/", apply_url: "https://www.law.uconn.edu/admissions",
+      { university_name: "University of Connecticut", country: "USA", city: "Storrs, CT", qs_ranking: 565, program_name: "JD Academic Regulations", degree_level: "postgraduate", duration_months: 36, field_of_study: "Law", specialization: "General Law", annual_tuition_usd: 45000, avg_living_cost_usd: 18000, intake_semesters: ["fall"], application_deadline: "2026-03-01", min_gpa: 3.2, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.law.uconn.edu/jd/", apply_url: "https://www.law.uconn.edu/admissions",
     verified_at: "2026-04-27T10:52:18.602Z", verification_source_url: "https://www.law.uconn.edu/jd/",
   },,
   { university_name: "University of Connecticut", country: "USA", city: "Storrs, CT", qs_ranking: 565, program_name: "Graduate Faculty Directory", degree_level: "postgraduate", duration_months: 24, field_of_study: "Nursing & Allied Health", specialization: "Advanced Practice Nursing", annual_tuition_usd: 42000, avg_living_cost_usd: 18000, intake_semesters: ["fall"], application_deadline: "2026-03-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 79, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 1, program_url: "https://nursing.uconn.edu/graduate/", apply_url: "https://grad.uconn.edu/admissions/apply/",
@@ -2193,8 +1875,7 @@ export const PROGRAMS = ([
   { university_name: "University of Connecticut", country: "USA", city: "Storrs, CT", qs_ranking: 565, program_name: "MS in Agricultural Sciences", degree_level: "postgraduate", duration_months: 24, field_of_study: "Agriculture & Veterinary Sciences", specialization: "Agricultural Sciences", annual_tuition_usd: 42000, avg_living_cost_usd: 18000, intake_semesters: ["fall","spring"], application_deadline: "2026-03-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 79, min_pte: null, min_duolingo: null, min_gre: 300, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://cahnr.uconn.edu/graduate/", apply_url: "https://grad.uconn.edu/admissions/apply/",
     verified_at: "2026-05-04T02:17:15.000Z",
     verification_source_url: "https://cahnr.uconn.edu/graduate/" },,
-  { university_name: "University of Connecticut", country: "USA", city: "Storrs, CT", qs_ranking: 565, program_name: "MS in Environmental Science", degree_level: "postgraduate", duration_months: 24, field_of_study: "Environmental & Sustainability Studies", specialization: "Environmental Science", annual_tuition_usd: 42000, avg_living_cost_usd: 18000, intake_semesters: ["fall"], application_deadline: "2026-02-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 79, min_pte: null, min_duolingo: null, min_gre: 303, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://enve.uconn.edu/graduate/", apply_url: "https://grad.uconn.edu/admissions/apply/" },,
-
+  
   // ─── ADDITIONAL UK ────────────────────────────────────────────────────────────
   // University of Sussex
   { university_name: "University of Sussex", country: "UK", city: "Brighton", qs_ranking: 246, program_name: "MBA — Business School", degree_level: "postgraduate", duration_months: 12, field_of_study: "MBA", specialization: "General Management", annual_tuition_usd: 32000, avg_living_cost_usd: 15000, intake_semesters: ["fall"], application_deadline: "2026-06-01", min_gpa: 3.0, min_percentage: 55, min_ielts: 6.5, min_toefl: 90, min_pte: 62, min_duolingo: null, min_gre: null, min_gmat: 550, min_sat: null, work_exp_required_years: 3, program_url: "https://www.sussex.ac.uk/business-school/postgraduate/", apply_url: "https://www.sussex.ac.uk/study/masters/apply",
@@ -2203,8 +1884,7 @@ export const PROGRAMS = ([
       { university_name: "University of Sussex", country: "UK", city: "Brighton", qs_ranking: 246, program_name: "MSc Psychology", degree_level: "postgraduate", duration_months: 12, field_of_study: "Natural Sciences", specialization: "Psychology", annual_tuition_usd: 24000, avg_living_cost_usd: 15000, intake_semesters: ["fall"], application_deadline: "2026-07-01", min_gpa: 3.0, min_percentage: 60, min_ielts: 6.5, min_toefl: 90, min_pte: 62, min_duolingo: null, min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.sussex.ac.uk/psychology/", apply_url: "https://www.sussex.ac.uk/study/masters/apply",
     verified_at: "2026-05-04T02:17:15.000Z",
     verification_source_url: "https://www.sussex.ac.uk/psychology/" },,
-  { university_name: "University of Sussex", country: "UK", city: "Brighton", qs_ranking: 246, program_name: "MSc Global Health", degree_level: "postgraduate", duration_months: 12, field_of_study: "Medicine & Public Health", specialization: "Global Health", annual_tuition_usd: 25000, avg_living_cost_usd: 15000, intake_semesters: ["fall"], application_deadline: "2026-07-01", min_gpa: 3.0, min_percentage: 60, min_ielts: 6.5, min_toefl: 90, min_pte: 62, min_duolingo: null, min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.sussex.ac.uk/global-studies/", apply_url: "https://www.sussex.ac.uk/study/masters/apply" },,
-
+  
   // ─── CANADA — PUBLIC COLLEGES ─────────
   { university_name: "Seneca Polytechnic", country: "Canada", city: "Toronto, ON", qs_ranking: null, program_name: "Diploma in Computer Programming & Analysis", degree_level: "diploma", duration_months: 24, field_of_study: "Computer Science & IT", specialization: "Programming & Analysis", annual_tuition_usd: 15000, avg_living_cost_usd: 16000, intake_semesters: ["fall","winter","spring"], application_deadline: "rolling", min_gpa: 2.0, min_percentage: 60, min_ielts: 6.0, min_toefl: 80, min_pte: 55, min_duolingo: null, min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.senecapolytechnic.ca/programs/fulltime/CPA.html", apply_url: "https://www.senecacollege.ca/admissions/apply.html",
     verified_at: "2026-04-27T17:48:09.173Z", verification_source_url: "https://www.senecapolytechnic.ca/programs/fulltime/CPA.html",
@@ -2264,8 +1944,7 @@ export const PROGRAMS = ([
   // Niagara College
         
   // St. Clair College
-    { university_name: "St. Clair College", country: "Canada", city: "Windsor, ON", qs_ranking: null, program_name: "Diploma in Electrical Engineering Technology", degree_level: "diploma", duration_months: 24, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "Electrical Engineering", annual_tuition_usd: 13000, avg_living_cost_usd: 12000, intake_semesters: ["fall","winter"], application_deadline: "rolling", min_gpa: 2.0, min_percentage: 60, min_ielts: 6.0, min_toefl: 80, min_pte: 55, min_duolingo: null, min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.stclaircollege.ca/programs/electrical-engineering-technology", apply_url: "https://www.stclaircollege.ca/admissions/apply" },,
-  
+      
   // Georgian College
   { university_name: "Georgian College", country: "Canada", city: "Barrie, ON", qs_ranking: null, program_name: "Diploma in Computer Programming", degree_level: "diploma", duration_months: 24, field_of_study: "Computer Science & IT", specialization: "Software Development", annual_tuition_usd: 13000, avg_living_cost_usd: 12000, intake_semesters: ["fall","winter","spring"], application_deadline: "rolling", min_gpa: 2.0, min_percentage: 60, min_ielts: 6.0, min_toefl: 80, min_pte: 55, min_duolingo: null, min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.georgiancollege.ca/academics/programs/computer-programming/", apply_url: "https://www.georgiancollege.ca/admissions/apply/",
     verified_at: "2026-04-27T10:56:17.374Z", verification_source_url: "https://www.georgiancollege.ca/academics/programs/computer-programming/",
@@ -2289,11 +1968,7 @@ export const PROGRAMS = ([
   },,
   
   // Douglas College
-  { university_name: "Douglas College", country: "Canada", city: "New Westminster, BC", qs_ranking: null, program_name: "Diploma in Computer Information Systems", degree_level: "diploma", duration_months: 24, field_of_study: "Computer Science & IT", specialization: "Information Systems", annual_tuition_usd: 14500, avg_living_cost_usd: 17000, intake_semesters: ["fall","winter","spring"], application_deadline: "rolling", min_gpa: 2.0, min_percentage: 60, min_ielts: 6.5, min_toefl: 88, min_pte: 58, min_duolingo: null, min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.douglas.bc.ca/programs/cis", apply_url: "https://www.douglas.bc.ca/future-students/how-to-apply" },,
-  { university_name: "Douglas College", country: "Canada", city: "New Westminster, BC", qs_ranking: null, program_name: "Diploma in Nursing — Practical Nursing", degree_level: "diploma", duration_months: 24, field_of_study: "Nursing & Allied Health", specialization: "Practical Nursing", annual_tuition_usd: 16000, avg_living_cost_usd: 17000, intake_semesters: ["fall","winter"], application_deadline: "rolling", min_gpa: 2.5, min_percentage: 65, min_ielts: 7.0, min_toefl: 100, min_pte: 65, min_duolingo: null, min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.douglas.bc.ca/programs/practical-nursing", apply_url: "https://www.douglas.bc.ca/future-students/how-to-apply" },,
-  { university_name: "Douglas College", country: "Canada", city: "New Westminster, BC", qs_ranking: null, program_name: "Diploma in Criminology", degree_level: "diploma", duration_months: 24, field_of_study: "Social Sciences & Humanities", specialization: "Criminology", annual_tuition_usd: 13500, avg_living_cost_usd: 17000, intake_semesters: ["fall","winter"], application_deadline: "rolling", min_gpa: 2.0, min_percentage: 60, min_ielts: 6.5, min_toefl: 88, min_pte: 58, min_duolingo: null, min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.douglas.bc.ca/programs/criminology", apply_url: "https://www.douglas.bc.ca/future-students/how-to-apply" },,
-  { university_name: "Douglas College", country: "Canada", city: "New Westminster, BC", qs_ranking: null, program_name: "Postgraduate Certificate in Finance", degree_level: "pg_diploma", duration_months: 12, field_of_study: "Economics & Finance", specialization: "Finance", annual_tuition_usd: 14500, avg_living_cost_usd: 17000, intake_semesters: ["fall","winter"], application_deadline: "rolling", min_gpa: 2.5, min_percentage: 60, min_ielts: 6.5, min_toefl: 88, min_pte: 58, min_duolingo: null, min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.douglas.bc.ca/programs/finance", apply_url: "https://www.douglas.bc.ca/future-students/how-to-apply" },,
-
+        
   // Kwantlen Polytechnic University
     { university_name: "Kwantlen Polytechnic University", country: "Canada", city: "Surrey, BC", qs_ranking: null, program_name: "Bachelor of Design in Fashion and Technology", degree_level: "diploma", duration_months: 24, field_of_study: "Arts, Design & Architecture", specialization: "Fashion Design", annual_tuition_usd: 15000, avg_living_cost_usd: 17000, intake_semesters: ["fall"], application_deadline: "2026-03-01", min_gpa: 2.0, min_percentage: 60, min_ielts: 6.5, min_toefl: 88, min_pte: 58, min_duolingo: null, min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.kpu.ca/design/fashion", apply_url: "https://www.kpu.ca/admission",
     verified_at: "2026-04-27T10:57:46.290Z", verification_source_url: "https://www.kpu.ca/design/fashion",
@@ -2307,9 +1982,7 @@ export const PROGRAMS = ([
   // Camosun College
       
   // Okanagan College
-  { university_name: "Okanagan College", country: "Canada", city: "Kelowna, BC", qs_ranking: null, program_name: "Diploma in Computer Information Systems", degree_level: "diploma", duration_months: 24, field_of_study: "Computer Science & IT", specialization: "Information Systems", annual_tuition_usd: 13500, avg_living_cost_usd: 14000, intake_semesters: ["fall","winter"], application_deadline: "rolling", min_gpa: 2.0, min_percentage: 60, min_ielts: 6.5, min_toefl: 88, min_pte: 58, min_duolingo: null, min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.okanagan.bc.ca/programs/technology/", apply_url: "https://www.okanagan.bc.ca/admissions/" },,
-  { university_name: "Okanagan College", country: "Canada", city: "Kelowna, BC", qs_ranking: null, program_name: "Diploma in Engineering Technology", degree_level: "diploma", duration_months: 24, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "Engineering Technology", annual_tuition_usd: 13500, avg_living_cost_usd: 14000, intake_semesters: ["fall","winter"], application_deadline: "rolling", min_gpa: 2.0, min_percentage: 60, min_ielts: 6.5, min_toefl: 88, min_pte: 58, min_duolingo: null, min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.okanagan.bc.ca/programs/trades-technology/", apply_url: "https://www.okanagan.bc.ca/admissions/" },,
-  
+      
   // ── Alberta ───────────────────────────────────────────────────────────────
   // SAIT — Southern Alberta Institute of Technology
     { university_name: "Southern Alberta Institute of Technology (SAIT)", country: "Canada", city: "Calgary, AB", qs_ranking: null, program_name: "Diploma in Engineering Technology — Civil", degree_level: "diploma", duration_months: 24, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "Civil Engineering Technology", annual_tuition_usd: 13000, avg_living_cost_usd: 14000, intake_semesters: ["fall","winter"], application_deadline: "rolling", min_gpa: 2.0, min_percentage: 60, min_ielts: 6.0, min_toefl: 80, min_pte: 55, min_duolingo: null, min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.sait.ca/programs-and-courses/diplomas/civil-engineering-technology", apply_url: "https://www.sait.ca/admissions/how-to-apply",
@@ -2324,26 +1997,21 @@ export const PROGRAMS = ([
   // Bow Valley College
     
   // Red Deer Polytechnic
-  { university_name: "Red Deer Polytechnic", country: "Canada", city: "Red Deer, AB", qs_ranking: null, program_name: "Diploma in Computer Systems Technology", degree_level: "diploma", duration_months: 24, field_of_study: "Computer Science & IT", specialization: "Computer Systems", annual_tuition_usd: 11000, avg_living_cost_usd: 12000, intake_semesters: ["fall","winter"], application_deadline: "rolling", min_gpa: 2.0, min_percentage: 60, min_ielts: 6.0, min_toefl: 80, min_pte: 55, min_duolingo: null, min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://rdpolytech.ca/programs/computing/", apply_url: "https://rdpolytech.ca/admissions/" },,
-  
+    
   // Lethbridge College
       
   // NorQuest College
-  { university_name: "NorQuest College", country: "Canada", city: "Edmonton, AB", qs_ranking: null, program_name: "Diploma in Healthcare Administration", degree_level: "diploma", duration_months: 24, field_of_study: "Medicine & Public Health", specialization: "Healthcare Administration", annual_tuition_usd: 10500, avg_living_cost_usd: 13000, intake_semesters: ["fall","winter"], application_deadline: "rolling", min_gpa: 2.0, min_percentage: 60, min_ielts: 6.5, min_toefl: 88, min_pte: 58, min_duolingo: null, min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.norquest.ca/programs-courses/programs/health/", apply_url: "https://www.norquest.ca/admissions/" },,
-  { university_name: "NorQuest College", country: "Canada", city: "Edmonton, AB", qs_ranking: null, program_name: "Diploma in Information Technology", degree_level: "diploma", duration_months: 24, field_of_study: "Computer Science & IT", specialization: "IT Systems", annual_tuition_usd: 10000, avg_living_cost_usd: 13000, intake_semesters: ["fall","winter"], application_deadline: "rolling", min_gpa: 2.0, min_percentage: 60, min_ielts: 6.0, min_toefl: 80, min_pte: 55, min_duolingo: null, min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.norquest.ca/programs-courses/programs/technology/", apply_url: "https://www.norquest.ca/admissions/" },,
-  
+      
   // Olds College
         
   // ── Manitoba ──────────────────────────────────────────────────────────────
   // Red River College Polytechnic
-    { university_name: "Red River College Polytechnic", country: "Canada", city: "Winnipeg, MB", qs_ranking: null, program_name: "Diploma in Engineering Technology", degree_level: "diploma", duration_months: 24, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "Engineering Technology", annual_tuition_usd: 10000, avg_living_cost_usd: 11000, intake_semesters: ["fall","winter"], application_deadline: "rolling", min_gpa: 2.0, min_percentage: 60, min_ielts: 6.0, min_toefl: 80, min_pte: 55, min_duolingo: null, min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.rrc.ca/programs/engineering-technology/", apply_url: "https://www.rrc.ca/admissions/" },,
-    
+        
   // Assiniboine Community College
       
   // ── Saskatchewan ──────────────────────────────────────────────────────────
   // Saskatchewan Polytechnic
-    { university_name: "Saskatchewan Polytechnic", country: "Canada", city: "Saskatoon, SK", qs_ranking: null, program_name: "Diploma in Engineering Technology", degree_level: "diploma", duration_months: 24, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "Engineering Technology", annual_tuition_usd: 9500, avg_living_cost_usd: 10000, intake_semesters: ["fall","winter"], application_deadline: "rolling", min_gpa: 2.0, min_percentage: 60, min_ielts: 6.0, min_toefl: 80, min_pte: 55, min_duolingo: null, min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://saskpolytech.ca/programs-and-courses/programs/engineering-technology/", apply_url: "https://saskpolytech.ca/admissions/apply/" },,
-  { university_name: "Florida State University", country: "USA", city: "Tallahassee, FL", qs_ranking: 651, program_name: "Master of Business Administration (MBA)", degree_level: "postgraduate", duration_months: 21, field_of_study: "MBA", specialization: "General Management", annual_tuition_usd: 26707, avg_living_cost_usd: 14000, intake_semesters: ["fall"], application_deadline: "2025-11-01", min_gpa: 3.0, min_percentage: null, min_ielts: 7.0, min_toefl: 90, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: 600, min_sat: null, work_exp_required_years: 2, program_url: "https://business.fsu.edu/mba", apply_url: "https://admissions.fsu.edu/apply/",
+      { university_name: "Florida State University", country: "USA", city: "Tallahassee, FL", qs_ranking: 651, program_name: "Master of Business Administration (MBA)", degree_level: "postgraduate", duration_months: 21, field_of_study: "MBA", specialization: "General Management", annual_tuition_usd: 26707, avg_living_cost_usd: 14000, intake_semesters: ["fall"], application_deadline: "2025-11-01", min_gpa: 3.0, min_percentage: null, min_ielts: 7.0, min_toefl: 90, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: 600, min_sat: null, work_exp_required_years: 2, program_url: "https://business.fsu.edu/mba", apply_url: "https://admissions.fsu.edu/apply/",
     verified_at: "2026-04-27T11:01:09.834Z", verification_source_url: "https://business.fsu.edu/mba",
   },,
   { university_name: "Florida State University", country: "USA", city: "Tallahassee, FL", qs_ranking: 651, program_name: "MS in Environmental Science", degree_level: "postgraduate", duration_months: 24, field_of_study: "Environmental & Sustainability Studies", specialization: "Environmental Science", annual_tuition_usd: 26707, avg_living_cost_usd: 14000, intake_semesters: ["fall"], application_deadline: "2025-12-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 80, min_pte: null, min_duolingo: null, min_gre: 300, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.eoas.fsu.edu/graduate", apply_url: "https://admissions.fsu.edu/apply/",
@@ -2352,8 +2020,7 @@ export const PROGRAMS = ([
   { university_name: "Florida State University", country: "USA", city: "Tallahassee, FL", qs_ranking: 651, program_name: "Juris Doctor (JD)", degree_level: "postgraduate", duration_months: 36, field_of_study: "Law", specialization: "General Law", annual_tuition_usd: 26707, avg_living_cost_usd: 14000, intake_semesters: ["fall"], application_deadline: "2026-03-01", min_gpa: 3.3, min_percentage: null, min_ielts: 7.0, min_toefl: 90, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://law.fsu.edu/", apply_url: "https://admissions.fsu.edu/apply/",
     verified_at: "2026-05-04T02:17:15.000Z",
     verification_source_url: "https://law.fsu.edu/" },,
-          { university_name: "Clemson University", country: "USA", city: "Clemson, SC", qs_ranking: 601, program_name: "MBA", degree_level: "postgraduate", duration_months: 21, field_of_study: "MBA", specialization: "General Management", annual_tuition_usd: 24798, avg_living_cost_usd: 16000, intake_semesters: ["fall"], application_deadline: "2026-03-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 80, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: 550, min_sat: null, work_exp_required_years: 3, program_url: "https://business.clemson.edu/mba/", apply_url: "https://www.clemson.edu/graduate/admissions/" },,
-  { university_name: "University of Houston", country: "USA", city: "Houston, TX", qs_ranking: 521, program_name: "MS in Data Analytics", degree_level: "postgraduate", duration_months: 18, field_of_study: "Artificial Intelligence & Data Science", specialization: "Data Analytics", annual_tuition_usd: 18199, avg_living_cost_usd: 16000, intake_semesters: ["fall","spring"], application_deadline: "2025-12-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 79, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.uh.edu/nsm/computer-science/graduate/", apply_url: "https://www.uh.edu/admissions/",
+            { university_name: "University of Houston", country: "USA", city: "Houston, TX", qs_ranking: 521, program_name: "MS in Data Analytics", degree_level: "postgraduate", duration_months: 18, field_of_study: "Artificial Intelligence & Data Science", specialization: "Data Analytics", annual_tuition_usd: 18199, avg_living_cost_usd: 16000, intake_semesters: ["fall","spring"], application_deadline: "2025-12-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 79, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.uh.edu/nsm/computer-science/graduate/", apply_url: "https://www.uh.edu/admissions/",
     verified_at: "2026-05-04T02:17:15.000Z",
     verification_source_url: "https://www.uh.edu/nsm/computer-science/graduate/" },,
   { university_name: "University of Houston", country: "USA", city: "Houston, TX", qs_ranking: 521, program_name: "Master of Business Administration", degree_level: "postgraduate", duration_months: 21, field_of_study: "MBA", specialization: "General Management", annual_tuition_usd: 18199, avg_living_cost_usd: 16000, intake_semesters: ["fall"], application_deadline: "2026-04-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 79, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: 550, min_sat: null, work_exp_required_years: 2, program_url: "https://www.bauer.uh.edu/mba/", apply_url: "https://www.uh.edu/admissions/",
