@@ -13,6 +13,7 @@ import type { SalaryCountry, FieldOfStudy } from "@/data/roi-data";
 import { calculateParentDecision } from "@/lib/parent-decision-calculator";
 import { PROGRAMS } from "@/data/programs";
 import Link from "next/link";
+import { NextBestAction } from "@/components/NextBestAction";
 
 // ── types ─────────────────────────────────────────────────────────────────────
 
@@ -782,6 +783,12 @@ export default function ParentDecisionTool() {
                     </div>
                     {emailError && <p className="mt-2 text-xs text-rose-500">{emailError}</p>}
                   </div>
+
+                  {/* Next best action */}
+                  <NextBestAction
+                    label="Run the ROI Calculator on the same program to see the 10-year financial picture"
+                    href="/roi-calculator"
+                  />
 
                   {/* CTA */}
                   <div className="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl p-5 flex flex-col sm:flex-row items-center justify-between gap-4">

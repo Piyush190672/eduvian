@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { ArrowLeft, Printer, Users, CheckCircle2, AlertCircle, TrendingUp, Shield, Briefcase, GraduationCap, Banknote, Heart } from "lucide-react";
+import { NextBestAction } from "@/components/NextBestAction";
 import { EduvianLogoMark } from "@/components/EduvianLogo";
 
 // Static, illustrative sample. Numbers are believable but invented.
@@ -18,13 +19,14 @@ const SAMPLE = {
 };
 
 const FACTORS = [
-  { icon: Banknote,    factor: "Budget fit",         view: "Good",              tone: "good",    note: "₹42L over 2 years sits inside the family's stated ceiling of ₹45L." },
-  { icon: TrendingUp,  factor: "Payback period",     view: "4.8 years",         tone: "neutral", note: "Median CS new-grad salary in Toronto: CAD 78,000 (StatsCan 2025)." },
-  { icon: Shield,      factor: "Safety",             view: "Good",              tone: "good",    note: "Toronto Numbeo safety index 65/100; consistent rating across student forums." },
-  { icon: Briefcase,   factor: "Job market",         view: "Strong",            tone: "good",    note: "PGWP up to 3 years post-graduation; CS new-grad placement >85% within 6 months." },
-  { icon: GraduationCap, factor: "Visa readiness",   view: "Medium risk",       tone: "warn",    note: "SDS funds (CAD 22,895) confirmed in GIC. Statement of purpose still needs work." },
-  { icon: CheckCircle2, factor: "Scholarship fit",   view: "Worth applying",    tone: "neutral", note: "OGS and Vector Institute scholarships open in March; deadline 4 weeks out." },
-  { icon: Heart,       factor: "Family verdict",     view: "Worth considering", tone: "verdict", note: "Strong fit on cost, safety and outcomes. One open question: visa readiness." },
+  { icon: Banknote,    factor: "Tuition budget fit",   view: "Good",                tone: "good",    note: "Tuition ₹39.4L over 2 years sits inside the family's stated ceiling of ₹45L." },
+  { icon: Banknote,    factor: "Total investment fit", view: "Needs discussion",    tone: "warn",    note: "Total investment ₹65.6L (tuition + living + setup) is ~₹20.6L above the family's ₹45L ceiling. Either revisit the ceiling, target scholarships, or compare a lower-cost program." },
+  { icon: TrendingUp,  factor: "Payback period",       view: "4.8 years",           tone: "neutral", note: "Median CS new-grad salary in Toronto: CAD 78,000 (StatsCan 2025)." },
+  { icon: Shield,      factor: "Safety",               view: "Good",                tone: "good",    note: "Toronto Numbeo safety index 65/100; consistent rating across student forums." },
+  { icon: Briefcase,   factor: "Job market",           view: "Strong",              tone: "good",    note: "PGWP up to 3 years post-graduation; CS new-grad placement >85% within 6 months." },
+  { icon: GraduationCap, factor: "Visa readiness",     view: "Medium risk",         tone: "warn",    note: "SDS funds (CAD 22,895) confirmed in GIC. Statement of purpose still needs work." },
+  { icon: CheckCircle2, factor: "Scholarship fit",     view: "Worth applying",      tone: "neutral", note: "OGS and Vector Institute scholarships open in March; deadline 4 weeks out." },
+  { icon: Heart,       factor: "Family verdict",       view: "Worth discussing",    tone: "verdict", note: "Strong on safety, payback and outcomes. Two open items: total investment is above the stated ceiling, and visa SOP needs work." },
 ];
 
 const COSTS = [
@@ -196,6 +198,14 @@ export default function SampleParentReportPage() {
                 );
               })}
             </div>
+          </section>
+
+          {/* Next best action */}
+          <section className="mt-2">
+            <NextBestAction
+              label="Compare this offer with a lower-cost program in the same field before committing"
+              href="/roi-calculator"
+            />
           </section>
 
           {/* Footer disclaimer */}

@@ -14,6 +14,7 @@ import { PROGRAMS } from "@/data/programs";
 import { DB_STATS } from "@/data/db-stats";
 import { formatCurrency } from "@/lib/utils";
 import DecisionDisclaimer from "@/components/DecisionDisclaimer";
+import { NextBestAction } from "@/components/NextBestAction";
 
 // ── types ─────────────────────────────────────────────────────────────────────
 
@@ -820,6 +821,12 @@ export default function ROICalculator() {
                     </div>
                     {emailError && <p className="mt-2 text-xs text-rose-600">{emailError}</p>}
                   </div>
+
+                  {/* Next best action */}
+                  <NextBestAction
+                    label="Run the Parent Decision Tool to share this verdict with your family"
+                    href="/parent-decision"
+                  />
 
                   {/* CTA */}
                   <div className="bg-violet-50 border border-violet-200 rounded-2xl p-5 flex items-center justify-between gap-4">

@@ -26,6 +26,7 @@ import {
   type VisaChecklistItem,
   type VisaRisk,
 } from "@/data/visa-data";
+import { NextBestAction } from "@/components/NextBestAction";
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
 function fmtMoney(amount: number, currency: string): string {
@@ -518,6 +519,15 @@ export default function VisaCoach() {
             );
           })}
         </div>
+      </section>
+
+      {/* ── Next best action ─────────────────────────────────── */}
+      <section>
+        <NextBestAction
+          label={`Complete financial proof for your ${active.country} application before final submission`}
+          href={active.applyUrl}
+          external
+        />
       </section>
 
       {/* ── Bottom CTA + Official sources ───────────────────── */}

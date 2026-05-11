@@ -4,6 +4,7 @@ import type { ScoredProgram } from "@/lib/types";
 import { BookmarkCheck, X } from "lucide-react";
 import { getCountryFlag } from "@/lib/utils";
 import { formatTotalCost } from "@/lib/format-fee";
+import { NextBestAction } from "@/components/NextBestAction";
 
 interface Props {
   programs: ScoredProgram[];
@@ -59,6 +60,12 @@ export default function ShortlistSummary({ programs, onRemove }: Props) {
             </div>
           </div>
         ))}
+      </div>
+      <div className="mt-4">
+        <NextBestAction
+          label={`Check application strength for your top ${Math.min(3, programs.length)} option${programs.length === 1 ? "" : "s"}`}
+          href="/application-check"
+        />
       </div>
     </div>
   );

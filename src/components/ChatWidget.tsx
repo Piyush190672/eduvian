@@ -12,17 +12,17 @@ interface Message {
 }
 
 const DEFAULT_SUGGESTED_QUESTIONS = [
-  "Which countries are best for MS in Computer Science?",
-  "What GRE score do I need for US universities?",
-  "How do I get a scholarship for studying in the UK?",
-  "What's the cost of studying in Germany?",
+  "Find programs under ₹40L total cost",
+  "Compare UK vs Germany for AI / Data Science",
+  "What documents do I need for a US student visa?",
+  "Which countries offer scholarships for Master's?",
 ];
 
 const RESULTS_SUGGESTED_QUESTIONS = [
   "Tell me more about my Safe matches",
-  "Which of my matched programs offer scholarships?",
   "Compare the tuition costs of my top matches",
-  "What are the application deadlines for my Reach programs?",
+  "Which of my matched programs offer scholarships?",
+  "Explain my best match to my parents",
 ];
 
 function buildProgramsContext(programs: ScoredProgram[], studentName: string): string {
@@ -302,6 +302,14 @@ export default function ChatWidget({ programs, studentName = "there" }: ChatWidg
                 className="ml-auto p-1.5 rounded-xl hover:bg-white/20 transition-colors">
                 <X className="w-4 h-4 text-white" />
               </button>
+            </div>
+
+            {/* Trust frame — non-dismissible, always visible above messages */}
+            <div className="flex-shrink-0 px-4 py-2.5 bg-amber-50 border-b border-amber-100 flex items-start gap-2">
+              <span className="text-amber-700 text-[11px] mt-0.5 flex-shrink-0">ⓘ</span>
+              <p className="text-[11px] text-amber-900 leading-snug">
+                AISA answers from EduvianAI&apos;s verified program data where available. For admissions, fees, scholarships and visa rules, check the linked official source before committing.
+              </p>
             </div>
 
             {/* Messages */}
