@@ -483,19 +483,33 @@ function parseFeedback(text: string, country: Country) {
 
 function pickVoice(voices: SpeechSynthesisVoice[], country: Country): SpeechSynthesisVoice | null {
   if (country === "usa") {
-    // USA coach → en-US MALE voice
-    // Priority: Google US English Male (Chrome) → Reed (newer macOS) → Aaron (newer macOS)
-    //           → Nathan (newer macOS) → Tom (macOS) → Alex (macOS, older)
-    //           → any en-US with "male" in name → any en-US non-female → any en-US
-    const usMaleNamed = voices.find((v) =>
-      v.name === "Google US English Male" ||
-      v.name === "Reed"   ||      // newer macOS en-US male
-      v.name === "Aaron"  ||      // newer macOS en-US male
-      v.name === "Nathan" ||      // newer macOS en-US male
-      v.name === "Tom"    ||      // macOS en-US male
-      v.name === "Alex"   ||      // macOS en-US male (older but decent)
-      (v.lang === "en-US" && /male/i.test(v.name))
-    );
+    // USA coach → en-US MALE voice, highest-quality first.
+    // Quality tier 1 — cloud-rendered Google voices (Chrome desktop / Android Chrome)
+    // Quality tier 2 — Microsoft Neural voices (Windows 10/11 with edge-tts engine)
+    // Quality tier 3 — macOS / iOS 17+ premium named voices (need user to have downloaded)
+    // Quality tier 4 — any en-US named "male" / any en-US non-female / any en-US
+    const usMaleNamed = voices.find((v) => {
+      const n = v.name;
+      return (
+        // Tier 1 — Google (cloud, highest quality on Chrome)
+        n === "Google US English Male" || n === "Google US English" ||
+        // Tier 2 — Microsoft (Windows)
+        n === "Microsoft Guy Online (Natural) - English (United States)" ||
+        n === "Microsoft Davis Online (Natural) - English (United States)" ||
+        n === "Microsoft Mark - English (United States)" ||
+        n === "Microsoft David - English (United States)" ||
+        (/^Microsoft (Guy|Davis|Mark|David|Andrew|Brian|Tony|Christopher)\b/.test(n) && v.lang.startsWith("en-US")) ||
+        // Tier 3 — macOS / iOS premium en-US male (alphabetical)
+        n === "Aaron"     || n === "Albert"   || n === "Arthur"  ||
+        n === "Eddy (English (US))" || n === "Eddy" ||
+        n === "Fred"      || n === "Junior (English (US))" || n === "Junior" ||
+        n === "Nathan"    || n === "Reed"     || n === "Reed (English (US))" ||
+        n === "Rocko (English (US))" || n === "Rocko" ||
+        n === "Tom"       || n === "Alex"     ||
+        // Tier 4 — generic male hint
+        (v.lang === "en-US" && /\bmale\b/i.test(n))
+      );
+    });
     // Any en-US voice as fallback (prefer non-female if possible)
     const usLocale = voices.find((v) => v.lang === "en-US" && !/female/i.test(v.name));
     const usAny    = voices.find((v) => v.lang === "en-US");
@@ -583,8 +597,12 @@ function useTTS(country: Country) {
 
       const utterAndAdvance = (seg: string) => {
         const utter = new SpeechSynthesisUtterance(seg);
-        utter.rate  = country === "usa" ? 1.05 : 1.0;
-        utter.pitch = country === "usa" ? 1.0  : 1.12;
+        // USA male voice reads better at the default rate; the prior 1.05
+        // clipped phonemes on some macOS/iOS voices and made it sound clipped.
+        // UK/AU female voices stay at 1.0 rate / 1.12 pitch (slightly raised
+        // pitch gives a warmer, less monotone female read on synthesised voices).
+        utter.rate  = 1.0;
+        utter.pitch = country === "usa" ? 1.0 : 1.12;
         utter.volume = 1;
         if (voice) utter.voice = voice;
         utter.onend = () => {
