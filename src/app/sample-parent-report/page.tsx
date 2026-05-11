@@ -5,6 +5,7 @@ import { ArrowLeft, Printer, Users, CheckCircle2, AlertCircle, TrendingUp, Shiel
 import { NextBestAction } from "@/components/NextBestAction";
 import { SourceProof } from "@/components/SourceProof";
 import { DataBadge } from "@/components/DataBadge";
+import { TradeoffView, TRADEOFF_ICONS, type TradeoffFactor } from "@/components/TradeoffView";
 import { EduvianLogoMark } from "@/components/EduvianLogo";
 
 // Static, illustrative sample. Numbers are believable but invented.
@@ -124,6 +125,28 @@ export default function SampleParentReportPage() {
                 </p>
               </div>
             </div>
+          </section>
+
+          {/* At-a-glance trade-offs */}
+          <section className="mb-8 print:hidden">
+            <TradeoffView
+              title="At a glance — six-factor trade-offs"
+              factors={[
+                { key: "admission",   label: "Admission chance",       verdict: "Strong",   tone: "good",    note: "Sample student's profile (CGPA 8.4, GRE 322, two internships) is above the median admit for the chosen program.",   Icon: TRADEOFF_ICONS.admission },
+                { key: "cost",        label: "Cost",                   verdict: "High",     tone: "warn",    note: "Total investment ₹65.6L runs ~₹20.6L above the family's ₹45L ceiling.",                                              Icon: TRADEOFF_ICONS.cost },
+                { key: "roi",         label: "ROI",                    verdict: "Strong",   tone: "good",    note: "Payback in 4.8 years on a CAD 78k median graduate salary; 10-year net value ≈ CAD 612k above the no-study baseline.", Icon: TRADEOFF_ICONS.roi },
+                { key: "visa",        label: "Visa complexity",        verdict: "Medium",   tone: "medium",  note: "Canada SDS — fast lane if funds & GIC are in order; SOP and study-plan still need strengthening.",                  Icon: TRADEOFF_ICONS.visa },
+                { key: "safety",      label: "Safety",                 verdict: "Strong",   tone: "good",    note: "Toronto Numbeo safety index 65/100, consistent across recent student forum surveys.",                              Icon: TRADEOFF_ICONS.safety },
+                { key: "scholarship", label: "Scholarship possibility", verdict: "Medium",   tone: "medium",  note: "OGS + Vector Institute scholarships open in March; deadlines ~4 weeks out at the time of this sample.",            Icon: TRADEOFF_ICONS.scholarship },
+              ] as TradeoffFactor[]}
+              compareActions={[
+                { label: "Safer admit option",          href: "/get-started?lens=safer" },
+                { label: "Lower-cost option",           href: "/get-started?lens=cheaper" },
+                { label: "Better ROI option",           href: "/get-started?lens=roi" },
+                { label: "Lower visa-complexity option", href: "/get-started?lens=visa-low" },
+                { label: "Stronger scholarship-fit",    href: "/get-started?lens=scholarship" },
+              ]}
+            />
           </section>
 
           {/* 7-factor breakdown */}

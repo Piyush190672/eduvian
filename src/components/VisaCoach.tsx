@@ -29,6 +29,7 @@ import {
 import { NextBestAction } from "@/components/NextBestAction";
 import { SourceProof } from "@/components/SourceProof";
 import { DataBadge } from "@/components/DataBadge";
+import { ShareWithFamily } from "@/components/ShareWithFamily";
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
 function fmtMoney(amount: number, currency: string): string {
@@ -552,6 +553,16 @@ export default function VisaCoach() {
           label={`Complete financial proof for your ${active.country} application before final submission`}
           href={active.applyUrl}
           external
+        />
+      </section>
+
+      {/* ── Share with family ────────────────────────────────── */}
+      <section>
+        <ShareWithFamily
+          emailSubject={`${active.country} student visa checklist — EduvianAI`}
+          emailBody={`I've put the official ${active.country} student-visa checklist together using EduvianAI's Visa Coach. Have a look — every figure links back to a government source: ${typeof window !== "undefined" ? window.location.href : "https://www.eduvianai.com/visa-coach"}`}
+          parentViewHref="/sample-parent-report"
+          parentViewLabel="See a sample parent report"
         />
       </section>
 
