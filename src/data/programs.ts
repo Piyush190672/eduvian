@@ -1403,7 +1403,7 @@ export const PROGRAMS = ([
   
   // Middlesex University London
   {
-    university_name: "Middlesex University London",
+    university_name: "Middlesex University",
     country: "UK", city: "London", qs_ranking: 801,
     program_name: "MSc Cyber Security", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Computer Science & IT", specialization: "Cyber Security",
@@ -3288,7 +3288,7 @@ export const PROGRAMS = ([
     verified_at: "2026-04-27T11:08:07.086Z", verification_source_url: "https://www.mun.ca/business/graduate/mba/",
   },
   {
-    university_name: "Middlesex University London",
+    university_name: "Middlesex University",
     country: "UK", city: "London", qs_ranking: 801,
     program_name: "Cyber Security and Emerging Threats MSc", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Computer Science & IT", specialization: "Cyber Security and Emerging Threats",
@@ -3730,7 +3730,7 @@ export const PROGRAMS = ([
     verified_at: "2026-04-27T10:48:50.265Z", verification_source_url: "https://danm.ucsc.edu/graduate/",
   },
   {
-    university_name: "UCL",
+    university_name: "University College London",
     country: "UK", city: "London", qs_ranking: 9,
     program_name: "Machine Learning MSc", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Artificial Intelligence & Data Science", specialization: "Machine Learning",
@@ -10381,7 +10381,7 @@ export const PROGRAMS = ([
     verified_at: "2026-04-30T16:24:20.894Z", verification_source_url: "https://statistics.stanford.edu/academic-programs/statistics-ms/statistics-data-science-ms-overview",
   },
   {
-    university_name: "UCL",
+    university_name: "University College London",
     country: "UK", city: "London", qs_ranking: 9,
     program_name: "Advanced Critical Care Practice MSc", degree_level: "postgraduate",
     duration_months: 36, field_of_study: "Nursing & Allied Health", specialization: "Advanced Critical Care Practice",
@@ -10394,7 +10394,7 @@ export const PROGRAMS = ([
     verified_at: "2026-04-30T21:07:36.517Z", verification_source_url: "https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/advanced-critical-care-practice-msc",
   },
   {
-    university_name: "UCL",
+    university_name: "University College London",
     country: "UK", city: "London", qs_ranking: 9,
     program_name: "Architectural Design MArch", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Architecture", specialization: "Architectural Design",
@@ -10407,7 +10407,7 @@ export const PROGRAMS = ([
     verified_at: "2026-04-30T20:46:14.164Z", verification_source_url: "https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/architectural-design",
   },
   {
-    university_name: "UCL",
+    university_name: "University College London",
     country: "UK", city: "London", qs_ranking: 9,
     program_name: "Biochemical Engineering MSc", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Biotechnology & Life Sciences", specialization: "Biochemical Engineering",
@@ -10420,7 +10420,7 @@ export const PROGRAMS = ([
     verified_at: "2026-04-30T20:21:58.142Z", verification_source_url: "https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/biochemical-engineering-msc",
   },
   {
-    university_name: "UCL",
+    university_name: "University College London",
     country: "UK", city: "London", qs_ranking: 9,
     program_name: "Business Administration MBA", degree_level: "postgraduate",
     duration_months: 16, field_of_study: "MBA", specialization: "General",
@@ -10433,7 +10433,7 @@ export const PROGRAMS = ([
     verified_at: "2026-04-30T20:11:35.051Z", verification_source_url: "https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/business-administration-mba",
   },
   {
-    university_name: "UCL",
+    university_name: "University College London",
     country: "UK", city: "London", qs_ranking: 9,
     program_name: "Computer Science MSc", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Computer Science & IT", specialization: "Computer Science",
@@ -10446,7 +10446,7 @@ export const PROGRAMS = ([
     verified_at: "2026-04-30T20:00:49.927Z", verification_source_url: "https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/computer-science-msc",
   },
   {
-    university_name: "UCL",
+    university_name: "University College London",
     country: "UK", city: "London", qs_ranking: 9,
     program_name: "Digital Media: Critical Studies MA", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Media & Communications", specialization: "Digital Media",
@@ -10459,7 +10459,7 @@ export const PROGRAMS = ([
     verified_at: "2026-04-30T20:56:53.699Z", verification_source_url: "https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/digital-media-critical-studies-ma",
   },
   {
-    university_name: "UCL",
+    university_name: "University College London",
     country: "UK", city: "London", qs_ranking: 9,
     program_name: "Economics MSc", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Economics & Finance", specialization: "Economics",
@@ -10472,7 +10472,7 @@ export const PROGRAMS = ([
     verified_at: "2026-04-30T20:56:42.957Z", verification_source_url: "https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/economics-msc",
   },
   {
-    university_name: "UCL",
+    university_name: "University College London",
     country: "UK", city: "London", qs_ranking: 9,
     program_name: "Environment and Sustainable Development MSc", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Environmental & Sustainability Studies", specialization: "Environment and Sustainable Development",
@@ -10485,7 +10485,7 @@ export const PROGRAMS = ([
     verified_at: "2026-04-30T21:07:16.127Z", verification_source_url: "https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/environment-and-sustainable-development-msc",
   },
   {
-    university_name: "UCL",
+    university_name: "University College London",
     country: "UK", city: "London", qs_ranking: 9,
     program_name: "History MA", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Social Sciences & Humanities", specialization: "General",
@@ -10498,7 +10498,7 @@ export const PROGRAMS = ([
     verified_at: "2026-04-30T20:46:25.023Z", verification_source_url: "https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/history-ma",
   },
   {
-    university_name: "UCL",
+    university_name: "University College London",
     country: "UK", city: "London", qs_ranking: 9,
     program_name: "Law LLM", degree_level: "postgraduate",
     duration_months: 10, field_of_study: "Law", specialization: "General",
@@ -10511,7 +10511,7 @@ export const PROGRAMS = ([
     verified_at: "2026-04-30T20:32:27.530Z", verification_source_url: "https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/law-llm",
   },
   {
-    university_name: "UCL",
+    university_name: "University College London",
     country: "UK", city: "London", qs_ranking: 9,
     program_name: "Management MSc", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Business & Management", specialization: "Management",
@@ -10524,7 +10524,7 @@ export const PROGRAMS = ([
     verified_at: "2026-04-30T20:11:24.444Z", verification_source_url: "https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/management-msc",
   },
   {
-    university_name: "UCL",
+    university_name: "University College London",
     country: "UK", city: "London", qs_ranking: 9,
     program_name: "Master of Public Health MPH", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Medicine & Public Health", specialization: "Public Health",
@@ -10537,7 +10537,7 @@ export const PROGRAMS = ([
     verified_at: "2026-04-30T20:32:16.771Z", verification_source_url: "https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/master-public-health-mph",
   },
   {
-    university_name: "UCL",
+    university_name: "University College London",
     country: "UK", city: "London", qs_ranking: 9,
     program_name: "Mechanical Engineering MSc", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "Mechanical Engineering",
@@ -10550,7 +10550,7 @@ export const PROGRAMS = ([
     verified_at: "2026-04-30T20:21:47.518Z", verification_source_url: "https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/mechanical-engineering-msc",
   },
   {
-    university_name: "UCL",
+    university_name: "University College London",
     country: "UK", city: "London", qs_ranking: 9,
     program_name: "Physics MSc", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Natural Sciences", specialization: "Physics",
@@ -72177,7 +72177,7 @@ export const PROGRAMS = ([
     verified_at: "2026-05-07T11:27:56.999Z", verification_source_url: "https://sciences.sorbonne-universite.fr/formation-sciences/licences/licences-generales-l2-l3/licence-dinformatique",
   },
   {
-    university_name: "UCL",
+    university_name: "University College London",
     country: "UK", city: "London", qs_ranking: 9,
     program_name: "Architecture BSc", degree_level: "undergraduate",
     duration_months: null, field_of_study: "Architecture", specialization: "General",
@@ -72190,7 +72190,7 @@ export const PROGRAMS = ([
     verified_at: "2026-05-07T11:22:48.616Z", verification_source_url: "https://www.ucl.ac.uk/prospective-students/undergraduate/degrees/architecture-bsc",
   },
   {
-    university_name: "UCL",
+    university_name: "University College London",
     country: "UK", city: "London", qs_ranking: 9,
     program_name: "Biological Sciences BSc", degree_level: "undergraduate",
     duration_months: 36, field_of_study: "Biotechnology & Life Sciences", specialization: "General",
@@ -72203,7 +72203,7 @@ export const PROGRAMS = ([
     verified_at: "2026-05-07T11:22:50.664Z", verification_source_url: "https://www.ucl.ac.uk/prospective-students/undergraduate/degrees/biological-sciences-bsc-2026",
   },
   {
-    university_name: "UCL",
+    university_name: "University College London",
     country: "UK", city: "London", qs_ranking: 9,
     program_name: "Computer Science BSc", degree_level: "undergraduate",
     duration_months: null, field_of_study: "Computer Science & IT", specialization: "Computer Science",
@@ -72216,7 +72216,7 @@ export const PROGRAMS = ([
     verified_at: "2026-05-07T11:22:45.337Z", verification_source_url: "https://www.ucl.ac.uk/prospective-students/undergraduate/degrees/computer-science-bsc/",
   },
   {
-    university_name: "UCL",
+    university_name: "University College London",
     country: "UK", city: "London", qs_ranking: 9,
     program_name: "Data Science BSc", degree_level: "undergraduate",
     duration_months: 36, field_of_study: "Artificial Intelligence & Data Science", specialization: "Data Science",
@@ -72229,7 +72229,7 @@ export const PROGRAMS = ([
     verified_at: "2026-05-07T11:22:42.386Z", verification_source_url: "https://www.ucl.ac.uk/prospective-students/undergraduate/degrees/data-science-bsc-2026",
   },
   {
-    university_name: "UCL",
+    university_name: "University College London",
     country: "UK", city: "London", qs_ranking: 9,
     program_name: "Economics BSc (Econ)", degree_level: "undergraduate",
     duration_months: 36, field_of_study: "Economics & Finance", specialization: "General",
@@ -72242,7 +72242,7 @@ export const PROGRAMS = ([
     verified_at: "2026-05-07T11:22:59.580Z", verification_source_url: "https://www.ucl.ac.uk/prospective-students/undergraduate/degrees/economics-bsc-econ-2026",
   },
   {
-    university_name: "UCL",
+    university_name: "University College London",
     country: "UK", city: "London", qs_ranking: 9,
     program_name: "International Management BSc", degree_level: "undergraduate",
     duration_months: null, field_of_study: "Business & Management", specialization: "International Management",
@@ -72255,7 +72255,7 @@ export const PROGRAMS = ([
     verified_at: "2026-05-07T11:22:58.856Z", verification_source_url: "https://www.ucl.ac.uk/prospective-students/undergraduate/degrees/international-management-bsc",
   },
   {
-    university_name: "UCL",
+    university_name: "University College London",
     country: "UK", city: "London", qs_ranking: 9,
     program_name: "Mechanical Engineering BEng", degree_level: "undergraduate",
     duration_months: 36, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "Mechanical Engineering",
@@ -72268,7 +72268,7 @@ export const PROGRAMS = ([
     verified_at: "2026-05-07T11:22:44.009Z", verification_source_url: "https://www.ucl.ac.uk/prospective-students/undergraduate/degrees/mechanical-engineering-beng-2026",
   },
   {
-    university_name: "UCL",
+    university_name: "University College London",
     country: "UK", city: "London", qs_ranking: 9,
     program_name: "Natural Sciences BSc", degree_level: "undergraduate",
     duration_months: 36, field_of_study: "Natural Sciences", specialization: "General",
@@ -72281,7 +72281,7 @@ export const PROGRAMS = ([
     verified_at: "2026-05-07T11:22:54.309Z", verification_source_url: "https://www.ucl.ac.uk/prospective-students/undergraduate/degrees/natural-sciences-bsc-2026",
   },
   {
-    university_name: "UCL",
+    university_name: "University College London",
     country: "UK", city: "London", qs_ranking: 9,
     program_name: "Sustainable Built Environments, Energy and Resources BSc", degree_level: "undergraduate",
     duration_months: null, field_of_study: "Environmental & Sustainability Studies", specialization: "Energy and Resources",
@@ -89512,7 +89512,7 @@ export const PROGRAMS = ([
     verified_at: "2026-05-08T05:45:06.759Z", verification_source_url: "https://master-sante.sorbonne-universite.fr/mention-sante-publique/mention-sante-publique-m1/",
   },
   {
-    university_name: "UCL",
+    university_name: "University College London",
     country: "UK", city: "London", qs_ranking: 9,
     program_name: "Business Analytics MSc", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Business & Management", specialization: "Business Analytics",
@@ -89525,7 +89525,7 @@ export const PROGRAMS = ([
     verified_at: "2026-05-08T05:41:48.177Z", verification_source_url: "https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/business-analytics-msc",
   },
   {
-    university_name: "UCL",
+    university_name: "University College London",
     country: "UK", city: "London", qs_ranking: 9,
     program_name: "Fine Art MFA", degree_level: "postgraduate",
     duration_months: 18, field_of_study: "Arts, Design & Architecture", specialization: "Fine Art",
@@ -89538,7 +89538,7 @@ export const PROGRAMS = ([
     verified_at: "2026-05-08T05:41:49.533Z", verification_source_url: "https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/fine-art-mfa",
   },
   {
-    university_name: "UCL",
+    university_name: "University College London",
     country: "UK", city: "London", qs_ranking: 9,
     program_name: "Information Security MSc", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Computer Science & IT", specialization: "Information Security",
