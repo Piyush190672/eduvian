@@ -140,11 +140,11 @@ export default function SampleParentReportPage() {
                 { key: "scholarship", label: "Scholarship possibility", verdict: "Medium",   tone: "medium",  note: "OGS + Vector Institute scholarships open in March; deadlines ~4 weeks out at the time of this sample.",            Icon: TRADEOFF_ICONS.scholarship },
               ] as TradeoffFactor[]}
               compareActions={[
-                { label: "Safer admit option",          href: "/get-started?lens=safer" },
-                { label: "Lower-cost option",           href: "/get-started?lens=cheaper" },
-                { label: "Better ROI option",           href: "/get-started?lens=roi" },
-                { label: "Lower visa-complexity option", href: "/get-started?lens=visa-low" },
-                { label: "Stronger scholarship-fit",    href: "/get-started?lens=scholarship" },
+                { label: "Safer admit option",           href: "/options?lens=safer" },
+                { label: "Lower-cost option",            href: "/options?lens=cheaper" },
+                { label: "Better ROI option",            href: "/options?lens=roi" },
+                { label: "Lower visa-complexity option", href: "/options?lens=visa-low" },
+                { label: "Stronger scholarship-fit",     href: "/options?lens=scholarship" },
               ]}
             />
           </section>

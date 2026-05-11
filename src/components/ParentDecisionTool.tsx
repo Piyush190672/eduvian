@@ -746,6 +746,14 @@ export default function ParentDecisionTool() {
                           : <><FileDown className="w-3.5 h-3.5" /> Download PDF</>}
                       </button>
 
+                      {/* Sample parent report — what the printable report looks like */}
+                      <Link
+                        href="/sample-parent-report"
+                        className="flex items-center gap-2 px-4 py-2 rounded-xl bg-purple-600 text-white text-sm font-semibold hover:bg-purple-700 transition-all"
+                      >
+                        <Users className="w-3.5 h-3.5" /> See sample parent report
+                      </Link>
+
                       {/* Email button */}
                       {!showEmailForm ? (
                         <button

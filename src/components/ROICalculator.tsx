@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   TrendingUp, GraduationCap, MapPin, Sparkles, Info, ArrowRight,
   ChevronDown, Search, CheckCircle2, Zap, BookOpen, DollarSign,
-  FileDown, Mail, Send, X,
+  FileDown, Mail, Send, X, User,
 } from "lucide-react";
 import { CURATED_UNIVERSITIES, SALARY_LOOKUP } from "@/data/roi-data";
 import type { SalaryCountry, FieldOfStudy } from "@/data/roi-data";
@@ -783,6 +783,14 @@ export default function ROICalculator() {
                           ? <><span className="w-3.5 h-3.5 border-2 border-indigo-400/40 border-t-indigo-400 rounded-full animate-spin" /> Generating…</>
                           : <><FileDown className="w-3.5 h-3.5" /> Download PDF</>}
                       </button>
+
+                      {/* Parent-friendly view button */}
+                      <a
+                        href="/parent-decision"
+                        className="flex items-center gap-2 px-4 py-2 rounded-xl bg-violet-600 text-white text-sm font-semibold hover:bg-violet-700 transition-all"
+                      >
+                        <User className="w-3.5 h-3.5" /> Parent-friendly view
+                      </a>
 
                       {/* Email button */}
                       {!showEmailForm ? (

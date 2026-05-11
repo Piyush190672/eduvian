@@ -5,6 +5,7 @@ import { BookmarkCheck, X } from "lucide-react";
 import { getCountryFlag } from "@/lib/utils";
 import { formatTotalCost } from "@/lib/format-fee";
 import { NextBestAction } from "@/components/NextBestAction";
+import { ShareWithFamily } from "@/components/ShareWithFamily";
 
 interface Props {
   programs: ScoredProgram[];
@@ -65,6 +66,14 @@ export default function ShortlistSummary({ programs, onRemove }: Props) {
         <NextBestAction
           label={`Check application strength for your top ${Math.min(3, programs.length)} option${programs.length === 1 ? "" : "s"}`}
           href="/application-check"
+        />
+      </div>
+      <div className="mt-3">
+        <ShareWithFamily
+          emailSubject="My EduvianAI shortlist"
+          emailBody={`My current EduvianAI shortlist of ${programs.length} program${programs.length === 1 ? "" : "s"}:\n\n${programs.map((p, i) => `${i + 1}. ${p.program_name} — ${p.university_name} (${p.country}) · ${p.match_score}% match`).join("\n")}\n\nView the full breakdown: ${typeof window !== "undefined" ? window.location.href : "https://www.eduvianai.com"}`}
+          parentViewHref="/sample-parent-report"
+          parentViewLabel="See a sample parent report"
         />
       </div>
     </div>
