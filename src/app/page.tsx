@@ -273,7 +273,7 @@ export default function V2LandingPage() {
             visible, a viewport-anchored nav slides behind them.) */}
         <nav className="absolute top-0 inset-x-0 z-40">
           <div className="max-w-7xl mx-auto px-6 sm:px-10 h-16 flex items-center justify-between">
-            <Link href="/" className="flex items-center gap-2 text-white">
+            <Link href="/" className="flex items-center gap-2.5 text-white">
               <img
                 src="/logo.svg"
                 alt=""
@@ -281,7 +281,10 @@ export default function V2LandingPage() {
                 height={32}
                 className="w-8 h-8 rounded-lg"
               />
-              <span className="font-display text-lg font-bold tracking-tight">eduvianAI</span>
+              <span className="flex flex-col leading-none">
+                <span className="font-display text-lg font-bold tracking-tight">eduvianAI</span>
+                <span className="hidden sm:inline text-[10px] font-medium text-white/55 tracking-tight mt-1">Study-abroad, made intelligent</span>
+              </span>
             </Link>
             <div className="flex items-center gap-6">
               <button
@@ -1210,8 +1213,18 @@ export default function V2LandingPage() {
       {/* ───── FOOTER ───── */}
       <footer className="bg-white">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 py-12 grid sm:grid-cols-2 gap-6 items-center text-gray-500">
-          <div className="flex items-center gap-3">
-            <span className="font-display text-base font-bold text-gray-900">eduvianAI</span>
+          <div className="flex items-center gap-2.5">
+            <img
+              src="/logo.svg"
+              alt=""
+              width={28}
+              height={28}
+              className="w-7 h-7 rounded-lg"
+            />
+            <span className="flex flex-col leading-none">
+              <span className="font-display text-base font-bold tracking-tight text-gray-900">eduvianAI</span>
+              <span className="text-[10px] font-medium text-gray-400 tracking-tight mt-0.5">Study-abroad, made intelligent</span>
+            </span>
           </div>
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs sm:justify-end">
             <button

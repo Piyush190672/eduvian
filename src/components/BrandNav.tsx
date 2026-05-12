@@ -24,8 +24,18 @@ export default function BrandNav({ variant = "dark", ctaHref = "/get-started", c
   return (
     <nav className={wrapperCls}>
       <div className="max-w-7xl mx-auto px-6 sm:px-10 h-16 flex items-center justify-between">
-        <Link href="/" className={`flex items-center gap-2 ${logoCls}`}>
-          <span className="font-display text-lg font-bold tracking-tight">eduvianAI</span>
+        <Link href="/" className={`flex items-center gap-2.5 ${logoCls}`}>
+          <img
+            src="/logo.svg"
+            alt=""
+            width={32}
+            height={32}
+            className="w-8 h-8 rounded-lg"
+          />
+          <span className="flex flex-col leading-none">
+            <span className="font-display text-lg font-bold tracking-tight">eduvianAI</span>
+            <span className={`hidden sm:inline text-[10px] font-medium tracking-tight mt-1 ${isDark ? "text-white/55" : "text-gray-400"}`}>Study-abroad, made intelligent</span>
+          </span>
         </Link>
         <div className="flex items-center gap-3 sm:gap-6">
           <Link href="/" className={linkCls}>
