@@ -1,11 +1,11 @@
 # EduvianAI — Comprehensive State Snapshot for Session Handoff
 
-**Last updated:** 11 May 2026 (handoff #12.5 — Tier-A + Tier-C #11-13 + Tier-B #10 shipped · DB now 100% verified · NBA review · specialisation-fee backfill · Canada estimate-fees retry in flight)
+**Last updated:** 12 May 2026 (handoff #13 — Canada estimate-fees retry complete · Tier-B #6 closed · Tier-C #14-17 all shipped · 5 Tier-D audit findings closed (M4 M6 M8 M9 L2 L4 L6) · USA + AU interview-prep flows rebuilt against attached knowledge files · admin_audit log live in prod)
 **Purpose:** Zero-loss handoff between Claude Code sessions. A new session reading this should be able to continue *every* in-flight workstream correctly, respect all user preferences, and avoid all known gotchas.
 
-> **Background process likely running on session start:** Canada estimate-fees retry (PID 19626). Log at `/tmp/estimate-fees-canada-2.log`. Hardening from `a42b83f4` is active — SIGTERM-safe + saves every 5 estimates. ~577 entries when launched. Check progress before kicking off anything else that competes for Anthropic API budget.
+> **No background processes running.** Canada estimate-fees retry from handoff #12.5 finished cleanly (577/577, 230 estimates landed in `10810376`).
 
-> **Pinned next-session priority (handoff #12.5 → #13):** Wait for / monitor Canada estimate-fees, then Tier-B #6 (B-Phase 2 SG/UAE/MY/IE remaining 25 unis), then Tier-C #14-17 (marketing opt-in, visible unsubscribe, real PDF generator, `/options` scoring refinement), then Tier-D security. Tier-B #9 (USA residential proxy) needs explicit user authorisation for paid subscription. See §32.
+> **Pinned next-session priority (handoff #13 → #14):** STATE_SNAPSHOT + CLAUDE.md refresh (this commit). Then in order: live mic test of the new USA + AU two-step interview flow (user-driven, ~10 min). Then `students_public_insert` RLS hardening (newly surfaced 12 May while archiving the students-table migration — anon INSERT policy unused by current flows but exposes a write surface). Then remaining Tier-D leftovers: M1 CSP, M3 Zod, M5 secrets-rotation doc, M7/L3 legal-doc edits (don't push without attorney sign-off), L5 verified_at HMAC, I1–I4 informational (security.txt, IR plan, pen test, bug bounty). Tier-B #9 (USA residential proxy) still skipped pending explicit user authorisation for paid subscription. See §33.
 
 > **What's NEW since handoff #11 (21 commits on main):**
 >
@@ -2239,3 +2239,247 @@ Untracked (carry-over from prior sessions, related to future field-specific swee
 
 The 1,253-seed `architecture-phase2-full.json` IS committed (`2d011e82`) — useful for any future field-specific sweep.
 
+
+---
+
+## §33 Session log — 12 May 2026 (handoff #13 — Canada retry close-out + Tier-B #6 + all four Tier-C #14-17 + Tier-D pass + USA/AU interview-prep rebuild)
+
+22 commits on `main` (`7f1020cb..06ee429a` plus this snapshot refresh). DB grew 7,986 → 8,007 verified programs (+21), 100% verified. Fee coverage: Canada climbed from ~25% mid-retry to **55.4%** (463/835 with fee). Overall estimated-fee count 1,551 → 1,771 (+220 net after `--skip-existing` collisions). Five Tier-D audit findings closed in production; admin_audit log table live + verified end-to-end.
+
+### 33.1 Canada estimate-fees retry — closed cleanly (`10810376`)
+
+Third attempt, kicked off in handoff #12.5 with the SIGTERM-safe hardening from `a42b83f4`. Started ~22:40 on 11 May, finished ~00:08 on 12 May after ~50 min wall-time and ~577 entries. Results:
+
+| Bucket | Count |
+|---|---|
+| High-confidence | 85 |
+| Medium-confidence | 145 |
+| Low / skipped (no fee inferred) | 297 |
+| Errors | 50 |
+| **Net written to programs.ts** | **230** |
+
+All 230 are Canada-only (verified by country-filter on the hunk context). No previous-loss this time — hardening worked as designed.
+
+### 33.2 Tier-B #6 — B-Phase 2 SG/UAE/MY/IE depth (`e47e31c6`)
+
+Second pass over the 25 universities that B-Phase 1 (`47d39bd7`) couldn't reach due to Anthropic rate-limit pressure. The rate-limit picture cleared between sessions — seed-finder ran the full 25 in ~7 min (vs ~50 min for Phase 1's 30).
+
+Pipeline:
+- Catalog: `scripts/verify/catalogs/expansion-b-phase2-target.json` (25 unis)
+- Seed-finder: 271 raw seeds across 21 of 25 unis. 4 zero-yield: IIUM, Singapore Institute of Technology, Trinity College Dublin (model returned no confident URLs), and Zayed University (JSON parse error on model output).
+- Filter (chosen 10 fields ∩ uni's missing fields) → 28 seeds; 1 deduped → 27 to verify.
+- verify-batch (Opus 4.7, concurrency 5): 15 ok / 6 rejected / 6 err.
+- merge: +21 programs (15 from Phase 2 + 6 strays from prior /output/).
+
+DB delta: Ireland +8, Malaysia +5, UAE +1, France +4 (stray), Germany +3 (stray), Singapore +0 (both SG seeds rejected/err). Total in-scope net: **+14 (B-Phase 2)** plus **+7 (legacy strays merged at the same time)**. B-Phase scope is now fully processed.
+
+### 33.3 Tier-C #15 — Visible unsubscribe link in email body (`f4e0bef2`)
+
+Privacy Policy §11 names `privacy@eduvianai.com` as the unsubscribe contact. The `List-Unsubscribe` header (Gmail/Outlook in-client button) was already in place; the in-body link was missing across all three transactional templates.
+
+Added body-level `mailto:privacy@eduvianai.com?subject=Unsubscribe` to:
+- `api/email/route.ts` (shortlist results email)
+- `api/email/tools/route.ts` (ROI / Parent tool email shell)
+- `api/email/welcome/route.ts` (welcome email + plain-text body)
+
+Skipped `api/email/share/route.ts` — share endpoint forwards one-shot user-to-user messages, not a subscribed list, so an "Unsubscribe" link would be semantically misleading.
+
+### 33.4 Tier-C #14 — Marketing email opt-in flow (`9130d6fa` + SQL applied)
+
+End-to-end opt-in wiring:
+
+- `StudentProfile.marketing_opt_in?: boolean` (src/lib/types.ts)
+- Register form (/get-started) — checkbox below the OTP-hint, default OFF, copy clarifies that transactional sends are unaffected
+- `/api/auth` register handler accepts `marketing_opt_in` and persists `marketing_opt_in` + `marketing_opt_in_at` on `students`. Strip-on-error fallback for forward-compatible deploy.
+- SQL migration `src/lib/migrations/20260512-students-marketing-opt-in.sql` — adds the two columns + partial index on `marketing_opt_in = true`.
+
+User applied the SQL via Supabase Studio (verified). Existing 2 students backfilled to `marketing_opt_in = false` (correct — opt-out by default per Privacy Policy §11). No marketing-send worker exists yet, so the flag is read-only for now — the gate exists before any future bulk send.
+
+### 33.5 Tier-C #17 — `/options` scoring refinement (`65787067`)
+
+Two refinements called out in the handoff:
+
+**safer lens — field-of-study selectivity bias.** Previously sorted purely by `qs_ranking` DESC with a hard top-200 filter, treating Medicine at QS-#350 as equivalent to Hospitality at QS-#350 despite vastly different admit windows. Added `FIELD_SELECTIVITY` (0.55 Medicine → 1.30 Hospitality, 1.0 neutral) applied as a multiplier to the effective sort key. Filter widened from top-200 to top-100 so safe-fit options at QS 100-200 in non-competitive fields aren't excluded. Metric copy now names the field's typical selectivity for legibility.
+
+**scholarship lens — per-program tuition signal.** Previously sorted purely by country rank with qs_ranking tie-break. This put $60k MIT CS programs at the top of the USA bracket even though Fulbright / Chevening-tier scholarships are largely partial and proportionally cover more of lower-tuition programs. New composite (higher = better): `country_rank × 10 + tuitionBucket (0-4) + verifiedBonus (0/1)` where `tuitionBucket` is `4 (<$15k)` → `1 (>$50k)` → `0 (unknown)`. Metric copy tags each program as low / moderate / premium tuition.
+
+### 33.6 Tier-C #16 — Real downloadable Sample Parent Report PDF (`16c8e65e`)
+
+Previously the only export path was browser Save-as-PDF (`window.print`) which produces a raster-y, browser-quirk-dependent file. Replaced with a proper `@react-pdf/renderer` document — selectable text, consistent layout, stable filename.
+
+Architecture:
+- `src/app/sample-parent-report/data.ts` — extracted the static report content (SAMPLE, FACTORS, COSTS, ROI, RISKS, SOURCES) so the HTML page and the PDF doc share one source of truth.
+- `src/app/sample-parent-report/pdf-doc.tsx` — `@react-pdf/renderer` Document. A4, Helvetica, text-selectable. Clean B/W typography with subtle tone-coded backgrounds on factor + risk rows.
+- `src/app/sample-parent-report/page.tsx` — "Download PDF" handler dynamic-imports both `@react-pdf/renderer` and `./pdf-doc` on click so the ~250kb-gz renderer bundle only loads when the user actually wants a PDF. Original Save-as-PDF kept as a "Print view" fallback.
+
+Dependency already in `package.json` (`@react-pdf/renderer ^3.4.4`) — no install needed.
+
+### 33.7 Tier-D — audit findings closed in production
+
+Pulled `~/Desktop/EduvianAI-Security-Architecture-Risk-Assessment.docx`, enumerated M and L findings, triaged. Five closed today (M4, M6, M8, M9, L2, L4, L6 — that's 7 if you count M6 and M8 admin-slice as separate commits + M8 full sweep).
+
+| ID | Status | Commit | Note |
+|---|---|---|---|
+| M1 | OPEN | — | CSP `unsafe-inline` / `unsafe-eval`. Defer — 4-6 wk Next.js refactor. |
+| M2 | ✅ already closed | — | Email OTP shipped in handoff #11. |
+| M3 | OPEN | — | Zod input validation — 0/28 routes; cross-cut. |
+| **M4** | ✅ | `106e364f` | `getClientIp()` now prefers Vercel-set headers (x-vercel-forwarded-for, x-real-ip). x-forwarded-for is fallback for non-Vercel only. |
+| M5 | OPEN | — | Secrets rotation policy doc (90-day cadence). Doc-only. |
+| **M6** | ✅ | `99c7b2d4` + SQL applied | `public.admin_audit` table; `src/lib/admin-audit.ts` helper with fire-and-forget `logAdminAction()`. session_started writes verified email + token hash; per-route reads write only the hash and join back via the hash. End-to-end chain verified in prod with kpiyush@yahoo.com. |
+| M7 | OPEN | — | `tool_usage` IP disclosure — Privacy Policy §2.2 edit; touches `scripts/build-legal-docs.js`; legal commits don't push without attorney sign-off. |
+| **M8** | ✅ (28/28) | `99c7b2d4` (admin slice) + `9cd3992f` (10-route sweep) | All API routes now rate-limited. Per-route caps tiered against downstream cost / blast radius. |
+| **M9** | ✅ | `8b2bb998` | `.github/dependabot.yml` — weekly npm + github-actions updates, dev-tools batched, Next.js grouped. CVE PRs always opened. |
+| L1 | per-auditor intent: keep 30d | — | "Reduce to 7 days for now; bump back up after H1+M2 are complete." H1 + M2 both done — staying at 30d is consistent with auditor intent. |
+| **L2** | ✅ | `47e6f7c8` | `/api/chat` hardcoded country counts replaced with `programsByCountry` from `db-stats.ts`. Stray Switzerland row gone. |
+| L3 | OPEN | — | Privacy Policy §6 SCC citation — legal doc, not pushed. |
+| **L4** | ✅ | `2d478305` | `/api/admin/session` POST now constant-time (500ms min) across all paths — rate_limited, missing_bearer, invalid_token, not_authorized, mfa_required, success. Closes timing-based admin enumeration. |
+| L5 | OPEN | — | `verified_at` HMAC signing — schema + writer rework. Defer. |
+| **L6** | ✅ | `c15aaf14` | `middleware.ts` mints (or accepts trusted upstream) `x-request-id` on every request; forwards via request headers and echoes on every response. Carrier in place; downstream Sentry / Anthropic / Supabase tagging can land later. |
+| I1–I4 | OPEN | — | security.txt, bug bounty, IR plan, pen test schedule. Pre-launch items. |
+
+### 33.8 M8 — per-route rate-limit map (full coverage post-sweep)
+
+| Class | Cap | Routes |
+|---|---|---|
+| Auth | 10 / 15 min | `auth`, `auth/send-otp` |
+| Logout / account | 5–30 / h | `auth/logout`, `account/access`, `account/correct`, **`account/delete` (5/h)** |
+| AI tools | 10 / h | `chat`, `sop-assistant`, `lor-coach`, `interview-feedback`, `application-check`, `cv-assessment`, `score-english`, `check-match`, `extract-text` |
+| Email | 10 / h | `email`, `email/tools`, `email/share`, `email/welcome` |
+| PDF | 20–30 / h | `pdf/[token]`, `pdf/tools` |
+| Submit / results | 60 / h | `submit`, `results/[token]` |
+| Inquiry | 20 / h | `chat/inquiry` |
+| Admin | 100 / h + 20 / 15 min on session | `admin/session`, `admin/leads`, `admin/inquiries`, `admin/beta-usage` |
+
+### 33.9 USA interview-prep — knowledge-file rebuild
+
+Three connected commits:
+
+**`390e618c` — USA_SECTIONS rebuilt 12 → 8 sections, verbatim from FINAL_CORRECTED knowledge file.** Sections: Why USA (4) · University (8) · Course (12) · Academic (6, includes 2 TOEFL/IELTS Qs that lived in their own section before) · Sponsor (11) · Future (8) · Visa or Refusal (2, OPTIONAL) · Personal Background (13, consolidates the old Job + Family + Relatives + Misc sections). Total 64 approved questions. Knowledge file Section B lists 6 mandatory + 2 optional.
+
+`buildUsaFullMock()` replaced the static 12-question array. Picks one random approved question per section at session start.
+
+USA_GUIDELINES checklist map updated to match the new section labels: TOEFL bullets folded into Academic; Job + Family + Relatives + Misc bullets folded into Personal Background. Feedback grader (interview-feedback route) looks up by section label, no route change needed.
+
+Voice keyword matcher collapsed 12 → 8 keys; new "personal" / family / job / travel / relative variants all route to `usa_personal`.
+
+Homepage card: "60+ across 12 sections" → "63 across 8 sections".
+
+**`7570e055` — USA two-step mode choice.** New phase `usa_mode_choice` between name capture and section picker. Spoken prompt: "Great to meet you, [name]! Do you want to practice a full interview or a specific section?". UI: two-button card (Full Mock / Specific Section). Voice matcher: "full / mock / everything / all" → full mock; "specific / section / pick / choose" → section picker; "any / start / begin / continue" → opens with the canonical *"Why do you wish to study in USA and not in India?"*.
+
+**`f621dac4` — USA full mock covers all 8 sections (6 mandatory → 2 optional).** Per user clarification: full mock = all 8 sections, six mandatory FIRST then the two optional ones AFTER. `USA_OPTIONAL_SECTION_IDS` added; mock builder iterates mandatory + optional in order = 8 questions per session.
+
+**`c4667b9f` — typo fixes.** User authorised correction of two typos in the knowledge file (overriding "never paraphrase" for these specific items): "What will be the total cost of per year?" → "…total cost per year?". And "Where your brother/parents did completed their studies?" was effectively a typo'd duplicate of a clean version already in the same section → typo version dropped. Net: 64 → 63 questions, Personal Background 13 → 12.
+
+### 33.10 Stop Interview TTS bug fix (`21e2cd9b`) — affects all three countries
+
+User-reported: clicking Stop Interview cancelled the in-flight speech but the coach kept talking ~250ms later. Same pattern affected Mute toggle and any user-driven cancel.
+
+**Root cause.** `speakSegments()` had a retry path that treated TTS `onerror` codes `interrupted` / `canceled` as a browser race and re-queued the cancelled segment after 250ms. The retry was added to rescue the first-utterance-on-mount race in Chrome but couldn't tell "browser raced itself" from "user clicked Stop".
+
+**Fix.** New `intentionallyCancelledRef` inside `useTTS()`. `cancel()` sets the flag to true before `speechSynthesis.cancel()`. `speakSegments()` resets it to false on entry (a new speak overrides any prior user-cancel). The onerror retry guard bails out if the flag is set — cancelled segment stays cancelled, no further onEnd fires. `speakNext()` also checks the flag at top, belt-and-suspenders for any browser that fires `onend` (Safari) instead of `onerror` on a cancelled utterance.
+
+### 33.11 AU interview-prep — knowledge-file rebuild (`06ee429a`)
+
+Same pattern as the USA rebuild, applied to the AU `Australia_Interview_Prep_Knowledge_File.docx`.
+
+- `AU_CATEGORIES`: 19 → **18 questions** verbatim from the file's Section "Approved Interview Question Bank". Cat 2 collapsed 4 questions → 3 (the file groups remuneration + companies + salary + "Have you been offered a job already?" into a single long Q2). Several Q wordings reverted to docx-exact (Cat 1 Q4 terse phrasing; Cat 1 Q5 ends with "…planning to change your area of specialization?"; Cat 3 Q1 split punctuation; Cat 5 punctuation per docx; Cat 5 Q3 graduation year as ASCII "2012-13" not en-dash).
+- `buildAuFullMock()`: one random question per category in order (Program → Career → Why Australia → University → Other Important). Five questions per mock, randomised per session. `handlePracticeAll()` now calls the builder.
+- New phase `au_mode_choice` mirroring USA — spoken: "[Name], do you want to practice a full mock interview or a specific category?". UI: two-button card.
+- `tryListenForAuModeChoice`: "full / mock / everything / all" → handlePracticeAll; "specific / category / pick / choose" → category picker; category-name shortcuts → straight into that category; **unmatched → falls through to handlePracticeAll**, honouring the file's rule "If the user does not choose a category, begin a full mock interview".
+- AU intro greeting reworded verbatim: "Hello, I am here to help you prepare for your university interview. Please tell me your name."
+- AU_GUIDELINES (per-category checklist used by the feedback grader) already aligned with the file's "Response should cover" bullets — no change.
+- Homepage AU card: "19 questions across 5 categories" → "18 questions across 5 categories".
+
+USA and AU now share the same name → mode_choice → (mock | picker → questions) flow. UK still uses its existing "are you ready, say YES" pattern since the UK file doesn't define a mode-choice step.
+
+### 33.12 Students-table migration archived (`8b1783c0`)
+
+While triaging Supabase Studio snippets for cleanup, discovered the original `students` table CREATE migration had never been version-controlled — it lived only as a snippet. Reconstructed verbatim from the snippet content into `src/lib/migrations/20260301-students.sql`. Date prefix is approximate; file header documents the uncertainty and two follow-ups discovered while reading.
+
+**New follow-up surfaced (not in original audit register).** The `students_public_insert` RLS policy grants INSERT to anon. Current `/api/auth` register handler uses `createServiceClient()` and bypasses RLS, so the policy is unused legitimately but provides a write surface to anyone holding the anon key (visible to every browser). Worth dropping after verifying no other code path relies on it — same class of issue as C2 (which we closed for `submissions`).
+
+### 33.13 Supabase Studio snippet cleanup — in flight
+
+Started but incomplete. The user has 32 private snippets in their Studio. Of those:
+- 8 are duplicates of repo migrations under `src/lib/migrations/` — safe to delete (verified by me)
+- 1 already archived (students table) — safe to delete
+- 11 "Likely DELETE" pending the user to paste contents — I'll archive each into the repo or confirm-delete
+- 9 useful diagnostics to KEEP — should be renamed with `category / verb` prefix and favorited (e.g. `admin-audit / daily summary`, `submissions / list all`, `ops / list RLS policies`)
+- 2 probable duplicates ("Coverage Su…" vs "Coverage Co…") — open both, keep one
+- 1+ off-screen — paste names
+
+Two reusable queries written today for admin_audit ops, worth saving as snippets:
+
+```sql
+-- Daily admin activity summary (weekly check)
+SELECT date_trunc('day', a.created_at)::date AS day,
+       s.actor AS operator,
+       COUNT(*) FILTER (WHERE a.action = 'session_started') AS logins,
+       COUNT(*) FILTER (WHERE a.actor_kind = 'session_hash') AS reads
+FROM public.admin_audit a
+LEFT JOIN public.admin_audit s
+  ON s.target = a.actor AND s.action = 'session_started'
+WHERE a.created_at > now() - interval '30 days'
+GROUP BY 1, 2
+ORDER BY 1 DESC, reads DESC;
+
+-- Anomaly check: orphan session hashes (must return 0 rows in normal operation)
+SELECT DISTINCT a.actor AS orphan_session_hash
+FROM public.admin_audit a
+LEFT JOIN public.admin_audit s
+  ON s.target = a.actor AND s.action = 'session_started'
+WHERE a.actor_kind = 'session_hash'
+  AND s.id IS NULL;
+```
+
+### 33.14 Open work — handoff #13 → #14 plan
+
+Pinned in priority order. None blocking; user can pick where to pick up.
+
+**Tier-A — credibility & correctness (user-driven, no API spend):**
+1. **Voice / mic test on the live USA flow** — `fe187477` + the new `7570e055` + `f621dac4` + `21e2cd9b`. Test full mock and section picker; confirm Stop Interview now actually silences the coach.
+2. **Voice / mic test on the live AU flow** — `06ee429a`. Two-step mode choice; full mock should ask 5 questions one-per-category.
+
+**Tier-B — DB completeness (API spend):**
+3. **USA fee uplift beyond 78.1%** — `Tier-B #9`. Residential proxy (~$50/mo) or per-uni manual override. **Still skipped pending explicit user authorisation for paid subscription.**
+
+**Tier-C — product surface (3 of 7 from original list remain):**
+All closed today (#14 marketing opt-in, #15 unsubscribe link, #16 real PDF, #17 /options scoring).
+
+**Tier-D — security & ops (10 items remaining):**
+4. **`students_public_insert` RLS hardening** (newly surfaced 12 May). 30-min change: drop the anon-INSERT policy after verifying no code path uses it.
+5. **M1 CSP** — drop `unsafe-inline` / `unsafe-eval`. 4-6 wk Next.js refactor; roadmap decision needed.
+6. **M3 Zod** — input validation across the 28 API routes. ~1-2 days.
+7. **M5 Secrets rotation policy doc** — 90-day cadence. Doc-only.
+8. **M7 + L3 legal-doc edits** — Privacy Policy §2.2 (tool_usage IP disclosure) + §6 (SCC citation). Touches `scripts/build-legal-docs.js`; **don't push** without attorney sign-off.
+9. **L5 verified_at HMAC signing** — schema + writer rework. Defer.
+10. **I1 security.txt** — `/.well-known/security.txt`. 10 min.
+11. **I3 Incident response plan** — required for ISO 27001 roadmap. Document detection → triage → containment → notification → post-mortem.
+12. **I2 + I4** — bug bounty / VRP + pen-testing schedule. Pre-launch.
+
+**Housekeeping:**
+13. **Finish the Supabase Studio snippet cleanup** (§33.13). User pastes the 11 "Likely DELETE" snippet contents; I archive or confirm-delete each.
+14. **Refresh STATE_SNAPSHOT + CLAUDE.md** — this commit.
+
+### 33.15 DB shape at handoff #13
+
+```
+Programs:      8,007 (was 7,986 in handoff #12.5; +21 from B-Phase 2)
+Verified:      8,007 (100.0%)
+Countries:     12
+Universities:  ~535+
+Fee coverage:  ~55%+ overall (CA 55.4% / 463-of-835 after the retry; estimated 1,771 total)
+```
+
+Per-country (programs):
+USA 2,378 · UK 1,915 · Canada 846 · Germany 792 · Australia 650 · France 441 · Malaysia 233 · UAE 183 · Netherlands 177 · New Zealand 159 · Ireland 141 · Singapore 92.
+
+### 33.16 Working-tree state at handoff #13
+
+Last commit on `main`: `06ee429a` (interview-prep AU rebuild). Tree clean. 22 commits pushed in this session.
+
+SQL migrations applied + verified in Supabase Studio:
+- `20260512-students-marketing-opt-in.sql` — students has `marketing_opt_in` boolean + `marketing_opt_in_at` timestamptz + partial index. 2 existing students backfilled to false.
+- `20260512-admin-audit-log.sql` — `public.admin_audit` live with 3 indexes + RLS deny-all. Three rows generated by the first admin login: 1 `session_started` (email-keyed) + 2 per-route reads (hash-keyed). Join resolver confirmed working.
+
+SQL migrations *not* yet applied (none pending right now — every migration referenced today is applied).

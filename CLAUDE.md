@@ -4,7 +4,7 @@ This file is loaded automatically. The full project state, decisions, and ration
 
 ## What this is
 
-Next.js 14 (App Router) study-abroad platform deployed to Vercel at https://www.eduvianai.com. Postgres + RLS in Supabase Cloud (US, Pro plan). Anthropic Claude for AI features, Resend for transactional mail, Sentry for errors. 12 destination countries, **7,986 programs / 7,986 verified at the source (100.0%) / 534 universities / 4,327+ with international tuition fee (54.2%+, of which 1,551 estimated)** as of 11 May 2026 (handoff #12.5 — Canada estimate-fees retry still in flight, fee count climbing), beta-gated to 100 users/month. Email OTP gates register/login.
+Next.js 14 (App Router) study-abroad platform deployed to Vercel at https://www.eduvianai.com. Postgres + RLS in Supabase Cloud (US, Pro plan). Anthropic Claude for AI features, Resend for transactional mail, Sentry for errors. 12 destination countries, **8,007 programs / 8,007 verified at the source (100.0%) / ~535 universities / ~55%+ with international tuition fee (of which 1,771 estimated)** as of 12 May 2026 (handoff #13 — Canada estimate-fees retry closed, B-Phase 2 closed, all four Tier-C #14-17 shipped, seven Tier-D audit findings closed, USA + AU interview-prep flows rebuilt against the attached knowledge files), beta-gated to 100 users/month. Email OTP gates register/login.
 
 ## Operating rules — non-negotiable, every session, no exceptions
 
@@ -92,6 +92,8 @@ Audit document: `~/Desktop/EduvianAI-Security-Architecture-Risk-Assessment.docx`
 
 `submissions` rows carry only `profile_encrypted` + `email_hash` for PII. Lookup by email goes through `email_hash` only. The writer guard now refuses to insert any row without both fields set — no NODE_ENV exemption.
 
+**MEDIUM / LOW pass (12 May 2026):** Seven findings closed in production — M4 IP-header trust (`106e364f`), M6 admin audit log (`99c7b2d4` + SQL `20260512-admin-audit-log.sql` applied; chain verified end-to-end), M8 rate-limit sweep across all 28 API routes (`99c7b2d4` admin slice + `9cd3992f` 10-route sweep), M9 Dependabot (`8b2bb998`), L2 chat hardcoded country counts (`47e6f7c8`), L4 constant-time admin/session (`2d478305`), L6 x-request-id propagation (`c15aaf14`). M2 was already closed (Email OTP). Still open: M1 (CSP), M3 (Zod), M5 (rotation policy doc), M7+L3 (legal-doc edits, attorney-gated), L5 (verified_at HMAC), I1–I4 (informational pre-launch items). Newly surfaced 12 May: `students_public_insert` RLS policy grants anon INSERT — unused by current flows but provides a write surface; drop after verifying no other dependency.
+
 ## Authentication
 
 - Email OTP gates `/api/auth` register and login. 6-digit codes hashed with HMAC-SHA256 keyed on `PII_HASH_SECRET`. 5-min expiry, 5-attempt lockout, 60s resend cooldown. See `src/lib/otp.ts`.
@@ -157,45 +159,36 @@ Audit document: `~/Desktop/EduvianAI-Security-Architecture-Risk-Assessment.docx`
 
 The legal/security/pricing Word docs were generated with `docx`. Pricing Excel via `xlsx`. To regenerate legal: `node scripts/build-legal-docs.js`.
 
-## Open work for the next session (handoff #12.5, 11 May 2026 — mid-Canada estimate-fees retry)
+## Open work for the next session (handoff #13, 12 May 2026)
 
-Pinned in priority order. Snapshot §32 has full handoff-#12.5 detail.
+Pinned in priority order. Snapshot §33 has full handoff-#13 detail. No background processes running on session start.
 
-> **Background process likely running on session start:** Canada estimate-fees retry (PID 19626). Log at `/tmp/estimate-fees-canada-2.log`. Hardening from `a42b83f4` is active — SIGTERM-safe + saves every 5 estimates. ~577 entries when launched; check progress before kicking off anything that competes for Anthropic API budget.
-
-**Tier-A — credibility & correctness (cheap, code-only):**
-1. **Voice sanity check on live deploy** — UK + AU confirmed working. USA voice issues iterated through: SR-prime cold-start (`b83dae10`), Albert + novelty-voice deny-list, Junior/Tom deny, user-specified Alex → Ava (Premium) → Allison (Enhanced) order (`e06ae204` / `9a016275`), TTS-mid-cancel race fixed (`fe187477`), name phonetic respelling map (`fe187477`), USA module-select mic added (`fe187477`). Status: **needs a final user mic test** on USA flow once Vercel deploys.
-2. ~~`convertINR()` deterministic helper~~ — **done `6d2f3c18`** — regex extractor + pre-computed conversion table for 7 destination currencies injected into chat prompt. 7 phrasings smoke-tested.
-3. ~~Dedup UCL / Middlesex DB rows~~ — **done `94dc29d7`** — 27 + 2 rows renamed; unique unis 543 → 541.
-4. ~~63 still-unverified entries cleanup~~ — **done `46274d08`** — DB now 100% verified (7,924 / 7,924 at the time; currently 7,986 / 7,986).
+**Tier-A — credibility & correctness (user-driven, no code change from me):**
+1. **Live mic test of the new USA two-step interview flow** — `7570e055` + `f621dac4` + `21e2cd9b`. After name capture, the coach asks "Full mock or specific section?". Full mock = 8 questions (6 mandatory then 2 optional). Confirm Stop Interview now actually silences the coach (was the 12 May bug). Also confirm `fe187477` voice patch is good on USA.
+2. **Live mic test of the new AU two-step interview flow** — `06ee429a`. Same shape: name → mode choice → (5-question full mock OR category picker). Default-on-no-answer is full mock per the AU knowledge file.
 
 **Tier-B — DB completeness (API spend):**
-5. **Canada estimate-fees retry** — in flight as PID 19626. First attempt (Canada chain step 3 in handoff #11) lost 19 estimates to SIGTERM with no flush handler; second attempt earlier today stopped at 91/604 to avoid race with the specialisation-fee backfill (`898bfe93`); this third pass started post-backfill with `--skip-existing` ⇒ ~577 entries.
-6. **B-Phase 2** — remaining 25 SG/UAE/MY/IE universities. ~$15–25 / ~2 hr.
-7. ~~C1 retry on 4 zero-yield UK unis~~ — **descoped by user 11 May.**
-8. ~~Brandon + Ontario Tech retry~~ — **descoped by user 11 May.**
-9. **USA fee uplift beyond 78.1%** — residential proxy (~$50/mo) or per-uni manual override. **Skipped pending explicit user authorisation** (paid subscription).
-10. ~~Architecture stream Phase 2~~ — **done `2d011e82`** — +62 programs, +5 Architecture-field. seed-finder ran 97 unis (3 JSON parse errors at seed stage); verify-batch 30 ok / 5 rej / 6 err. The full 1,253-seed harvest kept at `seeds/architecture-phase2-full.json` for any future field-specific sweep.
+3. **USA fee uplift beyond 78.1%** — Tier-B #9. Residential proxy (~$50/mo) or per-uni manual override. **Still skipped pending explicit user authorisation** for paid subscription.
 
-**Tier-C — product surface deferrals from Tier 1/2/3 sweep:**
-11. ~~TradeoffView → ProgramCard / ComparePanel~~ — **closed as superseded** — ComparePanel already does richer side-by-side comparison.
-12. ~~Backend-mediated email for `<ShareWithFamily />`~~ — **done `c31163e7`** — new `/api/email/share` endpoint + inline form. Resend-backed.
-13. ~~Dedicated `/parent-view` route~~ — **done `dd5af6c5`** — hub route reading `?from=visa|roi|shortlist`, recommended-destination card + alternatives + SourceProof footer.
-14. **Marketing email opt-in flow** — Privacy Policy §11 promises this.
-15. **Visible unsubscribe link in email body** — `List-Unsubscribe` header is in; in-body link still missing.
-16. **Real downloadable Sample Parent Report PDF** — current is HTML + browser Save-as-PDF.
-17. **`/options` scoring refinement** — current heuristics are rough (scholarship lens is per-country only; safer-admit doesn't factor field-of-study selectivity).
+**Tier-C — product surface:** All four (#14, #15, #16, #17) shipped 12 May. Nothing remaining.
 
-**Tier-D — security & ops (after Tiers A/B/C):**
-18. Read `~/Desktop/EduvianAI-Security-Architecture-Risk-Assessment.docx` to enumerate Medium / Low findings.
-19. Apply M findings.
-20. Apply L findings.
-21. Secrets rotation policy + 90-day cadence.
-22. Backup posture confirmation.
-23. Sentry alerting on auth / OTP failures.
-(Pen testing + bug bounty stay deferred to pre-launch.)
+**Tier-D — security & ops (10 items remaining; 7 closed 12 May):**
+4. **`students_public_insert` RLS hardening** (newly surfaced 12 May while archiving the students-table migration as `8b1783c0`). The anon-INSERT policy is unused by current flows (`/api/auth` uses service_role and bypasses RLS) but provides a write surface to anyone holding the anon key. ~30-min change: drop the policy after verifying no other code path uses it. Same class as C2.
+5. **M1 CSP** — drop `unsafe-inline` / `unsafe-eval`. 4-6 wk Next.js refactor; roadmap decision needed.
+6. **M3 Zod input validation** — 0/28 routes; cross-cut. ~1-2 days.
+7. **M5 Secrets rotation policy doc** — 90-day cadence for ANTHROPIC_API_KEY, SUPABASE_SECRET_KEY, RESEND_API_KEY, ADMIN_SESSION_SECRET. Doc-only.
+8. **M7 + L3 legal-doc edits** — Privacy Policy §2.2 (tool_usage IP disclosure) + §6 (SCC citation). Touches `scripts/build-legal-docs.js`; **don't push** without attorney sign-off.
+9. **L5 verified_at HMAC signing** — schema + writer rework. Defer.
+10. **I1 security.txt** — `/.well-known/security.txt`. 10 min.
+11. **I3 Incident response plan** — required for ISO 27001 roadmap.
+12. **I2 + I4** — bug bounty / VRP + pen-testing schedule. Pre-launch.
 
-**Estimated remaining spend (Tier-B #5 finishing + #6, Tier-C #14-17):** ~$50–90 of API + optional $50/mo residential proxy for #9.
+**Audit register (closed 12 May):** M4 (`106e364f`), M6 (`99c7b2d4` + SQL applied + end-to-end verified), M8 (`99c7b2d4` admin slice + `9cd3992f` full 28/28-route sweep), M9 (`8b2bb998` Dependabot), L2 (`47e6f7c8` chat counts), L4 (`2d478305` constant-time admin/session), L6 (`c15aaf14` x-request-id).
+
+**Housekeeping:**
+13. **Finish the Supabase Studio snippet cleanup** (§33.13). User has 32 private snippets — 8 are duplicates of repo migrations (safe to delete), 1 archived as `8b1783c0` (safe to delete), 11 "Likely DELETE" pending the user pasting contents so I archive into the repo or confirm-delete, 9 useful diagnostics to KEEP and rename with `category / verb` prefix, 2 probable duplicates ("Coverage Su…" vs "Coverage Co…").
+
+**Estimated remaining spend across remaining items:** ~$50/mo if you approve the Tier-B #9 residential proxy. Otherwise zero — all remaining work is code or docs.
 
 ## Tuition fee policy (locked 8 May 2026; provenance UI added 10 May; estimated-fee Layer 2 added 11 May)
 
@@ -205,7 +198,7 @@ Pinned in priority order. Snapshot §32 has full handoff-#12.5 detail.
 - For multi-year totals, divide by the number of years to get the annual figure.
 - **Provenance flag:** `tuition_fee_source: "verified" | "estimated"` on Program. Undefined / "verified" = extracted from the official program page. "estimated" = inferred from a credible secondary source (uni's central fees page, ranking aggregators, etc.) by `scripts/verify/estimate-fees.ts`. UI surfaces this as a Verified (emerald) / Estimated (amber) / Not available (rose) pill on ProgramCard + ComparePanel.
 - **ROI + Parent Decision tools:** refuse to calculate when `annual_tuition_usd` is null — show "Cannot calculate — tuition fee data not available" panel with a link to the official page. When the fee is `tuition_fee_source: "estimated"`, both tools render an amber caveat banner above the result: "Based on estimated tuition fee. The official program page didn't publish a fee, so this calculation uses a figure inferred from the university's central fees page or a credible secondary source. Confirm with the university before relying on these numbers."
-- Coverage by country (11 May, mid-handoff-#12.5): **USA 78%** (1,410 estimated) · UK 60% · SG 59% · MY/UAE 49% · AU 41% · FR 36% · NZ 33% · DE 31% · NL 29% · IE 30% · CA climbing as the retry runs. Overall **54.2%+** (Canada estimate-fees retry in flight, PID 19626).
+- Coverage by country (12 May, handoff #13): **USA 78%** (1,410 estimated) · UK 60% · SG 59% · CA 55% (post-retry) · MY/UAE 49% · AU 41% · FR 36% · NZ 33% · DE 31% · NL 29% · IE 30%. Overall **~55%+** of programs carry a fee (1,771 estimated).
 
 > Brand port note: 5 May session ported 3 of 7 deep tool pages (`/roi-calculator`, `/parent-decision`, `/visa-coach`) using new `BrandNav` + `BrandHero` primitives (commits `0c24dc4c` + `cbf6c3d8`). User decided the remaining 4 (`/get-started`, `/application-check`, `/interview-prep`, `/english-test-lab`) need no change. Item closed at 3-of-7. Primitives stay available if a future change is wanted.
 
