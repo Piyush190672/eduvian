@@ -253,7 +253,7 @@ export default function ChatWidget({ programs, studentName = "there" }: ChatWidg
         onClick={() => setOpen((o) => !o)}
         className="fixed bottom-6 right-6 z-50 flex items-center gap-2.5 pl-2 pr-5 py-2 rounded-2xl bg-gradient-to-r from-violet-600 to-fuchsia-500 text-white font-bold shadow-2xl shadow-violet-500/40 hover:shadow-violet-500/60 transition-all duration-300 hover:-translate-y-1"
         whileTap={{ scale: 0.95 }}
-        aria-label="Chat with AISA"
+        aria-label="Ask AISA when you are stuck"
       >
         <AnimatePresence mode="wait" initial={false}>
           {open ? (
@@ -271,7 +271,7 @@ export default function ChatWidget({ programs, studentName = "there" }: ChatWidg
             </motion.span>
           )}
         </AnimatePresence>
-        <span className="text-sm">Chat with AISA</span>
+        <span className="text-sm">Ask AISA when you are stuck</span>
         {!open && (
           <span className="absolute -top-1.5 -right-1.5 w-4 h-4 bg-emerald-400 rounded-full border-2 border-white animate-pulse" />
         )}
