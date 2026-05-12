@@ -82,24 +82,9 @@ export const USA_GUIDELINES: Record<string, string[]> = {
     "Degree title, specialisation, and percentage or CGPA",
     "Key subjects studied and their connection to the proposed course",
     "Clear academic progression logic from previous studies to current application",
-  ],
-  "Current Job / Business": [
-    "Current employer name and job title stated clearly if working",
-    "Reason for leaving the current job to pursue higher studies",
-    "How existing work experience directly supports the proposed course",
-    "Confirmation that work experience is documented (experience letter available)",
-  ],
-  "TOEFL / IELTS / GRE / GMAT / SAT": [
-    "Exact test scores stated confidently",
+    "Exact TOEFL / IELTS / GRE / GMAT / SAT scores stated confidently where applicable",
     "Awareness of the minimum score requirement at the chosen university",
     "If scores are lower than average, a compensating strength is mentioned",
-    "Tests taken within their valid period",
-  ],
-  "About Your Family": [
-    "Father's and/or mother's occupation clearly stated",
-    "Number of siblings and their education or occupation mentioned",
-    "Overall family educational background",
-    "Family support for the student's decision to study abroad confirmed",
   ],
   "Sponsor and Financial Detail": [
     "Clear identification of the primary sponsor (father, self, education loan)",
@@ -118,11 +103,6 @@ export const USA_GUIDELINES: Record<string, string[]> = {
     "Non-immigrant intent reinforced — no plan to settle permanently in the US",
     "Strong home-country ties demonstrated (family, property, job prospects)",
   ],
-  "Relatives in US": [
-    "Honest and confident disclosure of relatives or acquaintances in the US",
-    "If relatives exist, assurance that primary focus remains on studies",
-    "Demonstration that family ties and career are anchored in the home country",
-  ],
   "Visa or Refusal": [
     "Confident, structured statement of purpose and intent to study",
     "Strong ties to home country highlighted (family, career, assets)",
@@ -130,7 +110,13 @@ export const USA_GUIDELINES: Record<string, string[]> = {
     "If previously refused a visa, honest explanation of what has changed since",
     "Preparation and research evident — the student knows exactly why they deserve the visa",
   ],
-  "Miscellaneous": [
+  "Your Personal Background": [
+    "Current employer name and job title stated clearly if working; reason for leaving the current job",
+    "Work experience documented (experience letter) if applicable",
+    "Father's and/or mother's occupation clearly stated; family income disclosed honestly",
+    "Number of siblings and their education or occupation mentioned",
+    "Family support for the student's decision to study abroad confirmed",
+    "Honest disclosure of any relatives or acquaintances in the US; primary focus remains on studies",
     "Any prior travel history mentioned honestly and confidently",
     "Clear plan to return home during summers or semester breaks if asked",
     "Productive and purposeful use of off-periods described (study, family, internship)",

@@ -248,7 +248,12 @@ const UK_CATEGORIES: QuestionCategory[] = [
   },
 ];
 
-// ─── USA — 12 sections, 60+ approved questions (F-1 visa consular interview) ──
+// ─── USA — 8 sections, 64 approved questions (F-1 visa consular interview) ────
+// Source of truth: USA_Visa_Interview_Prep_Knowledge_File (FINAL_CORRECTED).
+// Wording is VERBATIM from Section C of the knowledge file — never paraphrase,
+// merge, or invent. Six sections are mandatory in a full mock; "Visa or
+// Refusal" and "Your Personal Background" are optional but available for
+// section-practice mode.
 
 const USA_SECTIONS: QuestionCategory[] = [
   {
@@ -293,55 +298,24 @@ const USA_SECTIONS: QuestionCategory[] = [
       "How long will your studies last?",
       "What is the scope of your course?",
       "What do you plan to study at the university?",
-      "What benefit will this course bring to you?",
+      "What benefit will bring this course to you?",
       "What is the course commencement date?",
-      "What will be the total cost per year?",
+      "What will be the total cost of per year?",
       "Where will you stay in US?",
     ],
   },
   {
     id: "usa_academic",
     label: "Your Academic Background",
-    objective: "Evaluate academic history, grades, subjects, and how they lead to the proposed course.",
+    objective: "Evaluate academic history, grades, subjects, and English / standardised test scores.",
     icon: <User className="w-4 h-4" />,
     questions: [
       "Where did you do your last course of study?",
       "What is your specialization?",
       "What is your High School, Degree or Master's percentage or grade?",
       "What are your subjects in last course of study (High School, Degree or Master's)?",
-    ],
-  },
-  {
-    id: "usa_job",
-    label: "Current Job / Business",
-    objective: "Understand current employment and why the student is leaving to study abroad.",
-    icon: <Briefcase className="w-4 h-4" />,
-    questions: [
-      "Show your Experience Certificate. (if applicable)",
-      "Why are you leaving your current job to study?",
-    ],
-  },
-  {
-    id: "usa_tests",
-    label: "TOEFL / IELTS / GRE / GMAT / SAT",
-    objective: "Verify English proficiency and standardised test scores are sufficient for the programme.",
-    icon: <ListChecks className="w-4 h-4" />,
-    questions: [
       "Could you please show me your TOEFL/IELTS scorecard?",
-      "Why are your TOEFL/IELTS scores low?",
-    ],
-  },
-  {
-    id: "usa_family",
-    label: "About Your Family",
-    objective: "Understand family background and establish home-country ties.",
-    icon: <Users className="w-4 h-4" />,
-    questions: [
-      "What does your father do?",
-      "How many brothers and sisters do you have?",
-      "What is your father's annual income?",
-      "Do you have a brother, sister, or any other relative already at this university?",
-      "Where did your brother/parents complete their studies?",
+      "Why are your TOEFL/IELTS score low",
     ],
   },
   {
@@ -359,7 +333,8 @@ const USA_SECTIONS: QuestionCategory[] = [
       "How many people are dependents of your sponsor?",
       "Why is he sponsoring you? (if not father)",
       "How much money is available for your stay in US?",
-      "How will you finance your education funds for the full duration?",
+      "How are you related to your sponsor (if not father)?",
+      "How will you finance your education funds for 4 years?",
     ],
   },
   {
@@ -368,23 +343,14 @@ const USA_SECTIONS: QuestionCategory[] = [
     objective: "Establish return intent, career roadmap, and non-immigrant intent after graduation.",
     icon: <Sparkles className="w-4 h-4" />,
     questions: [
-      "What are your plans after completing your studies?",
+      "What are you plans after completing your studies?",
       "Have you researched your career prospects?",
-      "What will you do after completing your degree?",
-      "What will you do after coming back home?",
+      "What will you do after completing BA/B.SC/BS/PGD/MA/MBA/MS/M.Sc?",
+      "What will you do after coming back to Home?",
       "How much money can you earn after your completion of studies?",
+      "What are you future plans after completion of your studies?",
       "Do you intend to work in US during or after completion of your studies?",
       "How can you prove that you will come back after finishing your studies?",
-    ],
-  },
-  {
-    id: "usa_relatives",
-    label: "Relatives in US",
-    objective: "Check for US-based relatives and ensure home-country ties remain primary.",
-    icon: <Globe2 className="w-4 h-4" />,
-    questions: [
-      "Do you have any relatives in the US?",
-      "Do you know anyone (in USA) in your University?",
     ],
   },
   {
@@ -393,38 +359,52 @@ const USA_SECTIONS: QuestionCategory[] = [
     objective: "Test the student's ability to make a compelling case for the visa and handle rejection.",
     icon: <Shield className="w-4 h-4" />,
     questions: [
-      "Why should I grant you a U.S. Visa?",
+      "Why should I grant you U.S. Visa?",
       "What will you do if your US Visa is rejected?",
     ],
   },
   {
-    id: "usa_misc",
-    label: "Miscellaneous",
-    objective: "Cover travel history, semester breaks, and overall preparedness for life in the US.",
-    icon: <HelpCircle className="w-4 h-4" />,
+    id: "usa_personal",
+    label: "Your Personal Background",
+    objective: "Cover work experience, family, relatives in the US, prior travel, and semester breaks — establish home-country ties.",
+    icon: <Users className="w-4 h-4" />,
     questions: [
+      "Show your Experience Certificate. (if applicable)",
+      "(If you are currently working) Why are you leaving your current job?",
+      "What does your father do?",
+      "How many brothers and sisters do you have?",
+      "What is your father's annual income?",
+      "Where your brother/parents did completed their studies?",
+      "Do you have a brother / sister, or any other relative already at this university?",
+      "Where did your brother/parents complete their studies?",
+      "Do you have any relatives in the US?",
+      "Do you know anyone (in USA) in your University?",
       "Have you ever visited any other country?",
-      "Will you come back home during summers?",
+      "Will you come back to home during summers?",
       "What will you do during the off period/semester?",
     ],
   },
 ];
 
-// USA Full Mock — 12 representative questions, one per mandatory/key section
-const USA_FULL_MOCK: { question: string; category: string; objective: string }[] = [
-  { question: "Why do you wish to study in USA and not in India?", category: "Why United States of America", objective: "Assess whether studying in the USA is a genuine choice and establish non-immigrant intent." },
-  { question: "Which US University are you planning to go to?", category: "About Institute / University / College", objective: "Verify the student's knowledge of the chosen institution and why it was selected." },
-  { question: "Why have you chosen this specific university?", category: "About Institute / University / College", objective: "Verify the student's knowledge of the chosen institution and why it was selected." },
-  { question: "What course are you going for?", category: "About Your Course", objective: "Assess course knowledge, relevance to prior studies, duration, and cost awareness." },
-  { question: "What is the course structure & contents?", category: "About Your Course", objective: "Assess course knowledge, relevance to prior studies, duration, and cost awareness." },
-  { question: "What will be the total cost per year?", category: "About Your Course", objective: "Assess course knowledge, relevance to prior studies, duration, and cost awareness." },
-  { question: "Where did you do your last course of study?", category: "Your Academic Background", objective: "Evaluate academic history, grades, subjects, and how they lead to the proposed course." },
-  { question: "What is your High School, Degree or Master's percentage or grade?", category: "Your Academic Background", objective: "Evaluate academic history, grades, subjects, and how they lead to the proposed course." },
-  { question: "Who is sponsoring you?", category: "Sponsor and Financial Detail", objective: "Verify that sufficient, legitimate funding is available for the full duration of study." },
-  { question: "How will you finance your education funds for the full duration?", category: "Sponsor and Financial Detail", objective: "Verify that sufficient, legitimate funding is available for the full duration of study." },
-  { question: "What are your plans after completing your studies?", category: "Future Plans (Career Prospects)", objective: "Establish return intent, career roadmap, and non-immigrant intent after graduation." },
-  { question: "Why should I grant you a U.S. Visa?", category: "Visa or Refusal", objective: "Test the student's ability to make a compelling case for the visa and handle rejection." },
-];
+// Mandatory sections for full-mock coverage (per knowledge file Section B).
+// Visa or Refusal + Your Personal Background are OPTIONAL — available in
+// section practice but not required in a full mock interview.
+const USA_MANDATORY_SECTION_IDS = ["usa_why", "usa_university", "usa_course", "usa_academic", "usa_finance", "usa_future"] as const;
+
+/**
+ * Build a USA Full Mock interview at session start: ONE question randomly
+ * picked from each of the 6 mandatory sections, in the section order from
+ * USA_SECTIONS. Randomised per session so repeat practice surfaces variety
+ * without paraphrasing or inventing questions.
+ */
+function buildUsaFullMock(): { question: string; category: string; objective: string }[] {
+  return USA_SECTIONS
+    .filter((s) => (USA_MANDATORY_SECTION_IDS as readonly string[]).includes(s.id))
+    .map((s) => {
+      const q = s.questions[Math.floor(Math.random() * s.questions.length)];
+      return { question: q, category: s.label, objective: s.objective };
+    });
+}
 
 const USA_ALL_QUESTIONS = USA_SECTIONS.flatMap((s) =>
   s.questions.map((q) => ({ question: q, category: s.label, objective: s.objective }))
@@ -1021,10 +1001,10 @@ function CountrySelect({ onSelect }: { onSelect: (c: Country) => void }) {
             </div>
           </div>
           <p className="text-sm text-gray-500 leading-relaxed">
-            60+ approved questions across 12 sections — Why USA, University, Course, Finance, Future Plans, and more.
+            64 approved questions across 8 sections — Why USA, University, Course, Academic, Finance, Future Plans, Visa, and Personal Background.
           </p>
           <div className="flex flex-wrap gap-1.5">
-            {["12 sections", "60+ questions", "Male US voice", "AI feedback"].map((t) => (
+            {["8 sections", "64 questions", "Male US voice", "AI feedback"].map((t) => (
               <span key={t} className="px-2.5 py-1 rounded-full bg-blue-100 text-blue-700 text-[11px] font-semibold">{t}</span>
             ))}
           </div>
@@ -1186,7 +1166,7 @@ function USASectionPicker({
   onBack: () => void;
 }) {
   const totalQ = USA_ALL_QUESTIONS.length;
-  const mandatorySections = ["usa_why", "usa_university", "usa_course", "usa_academic", "usa_finance", "usa_future"];
+  const mandatorySections: readonly string[] = USA_MANDATORY_SECTION_IDS;
 
   return (
     <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="max-w-xl mx-auto">
@@ -1209,7 +1189,7 @@ function USASectionPicker({
         </div>
         <div className="text-left flex-1">
           <p className="font-bold text-sm">Full Mock Interview</p>
-          <p className="text-xs text-white/70 mt-0.5">12 questions · covers all mandatory sections</p>
+          <p className="text-xs text-white/70 mt-0.5">{USA_MANDATORY_SECTION_IDS.length} questions · one randomly picked from each mandatory section</p>
         </div>
         <ChevronRight className="w-4 h-4 opacity-70" />
       </motion.button>
@@ -1624,7 +1604,7 @@ function InterviewSession({
     const greeting = country === "australia"
       ? "Hello there! Welcome to your Genuine Student interview practice! I am so excited to help you prepare. To get us started, could you please tell me your name?"
       : country === "usa"
-      ? "Hello! Welcome to your US F-1 visa interview practice! I am here to help you get ready for your consulate appointment. Let us start — could you please tell me your name?"
+      ? "Hello! I am your USA student visa guide. I am here to help you prepare for your upcoming student visa interview. May I know your name please?"
       : "Hello! Welcome! I am absolutely delighted to help you prepare for your UK credibility interview today. Could you please tell me your name?";
     const t = setTimeout(() => speak(greeting, () => {
       // Auto-listen for the name as soon as TTS finishes.
@@ -1648,15 +1628,16 @@ function InterviewSession({
   }, [phase]);
 
   // ── AUTO-SPEAK: USA section menu ─────────────────────────────────────────────
-  // 11 May 2026: now auto-listens. 12 sections is too many to enumerate by
-  // number — the prompt invites the student to say a topic keyword instead
-  // (family, university, finances, etc.) or "full mock" for everything.
-  // tryListenForUsaSection matches keywords against the section labels and
-  // routes to the right handler.
+  // Per the USA Visa Interview Prep Knowledge File: ask whether the user
+  // wants a full interview or a specific section; if "section", enumerate
+  // all eight sections by name then ask "Which section…". tryListenForUsa
+  // Section routes whatever the student says — full mock, a section name,
+  // or "any/start/begin" — to the right handler.
   useEffect(() => {
     if (phase !== "usa_section" || !studentName || mode === "text") return;
     const sayName = speechFriendlyName(studentName);
-    const msg = `Great to meet you, ${sayName}! I am your US visa interview coach. You can pick a section to practice — just say a topic, for example, family, university, course, finances, future, or visa. Or say full mock to cover everything the officer might ask. Which one would you like?`;
+    const sectionList = USA_SECTIONS.map((s) => s.label).join(", ");
+    const msg = `Great to meet you, ${sayName}! Do you want to practice a full interview or a specific section? If you choose a specific section, you can pick from: ${sectionList}. Which section do you want to practice today? Or say full mock to cover every mandatory section the officer might ask.`;
     const t = setTimeout(() => speak(msg, () => {
       autoListenUsaSectionRef.current?.();
     }), 300);
@@ -2156,11 +2137,15 @@ function InterviewSession({
 
   const handleFullMockUSA = () => {
     cancel();
-    setActiveQuestions(USA_FULL_MOCK);
-    setSessionLabel("Full Mock Interview · 12 Questions");
+    // Build a fresh randomised mock per session (one random question per
+    // mandatory section). Knowledge file Section B specifies six mandatory
+    // sections; Visa / Personal stay optional and aren't in the mock.
+    const mock = buildUsaFullMock();
+    setActiveQuestions(mock);
+    setSessionLabel(`Full Mock Interview · ${mock.length} Questions`);
     setQIndex(0);
     setAnswers([]);
-    speakQuestion(USA_FULL_MOCK[0].question);
+    speakQuestion(mock[0].question);
   };
 
   // ── Auto-listen helpers for AU category + USA section selection ─────────────
@@ -2199,21 +2184,25 @@ function InterviewSession({
       if (/\bfull\s*mock\b|\bmock\b|\ball\s+question|\beverything\b|\bcomplete\b/.test(t)) {
         return handleFullMockUSA();
       }
+      // "any" / "start" / "begin" / "continue" → kick off with the canonical
+      // opener "Why do you wish to study in USA and not in India?" by
+      // routing to the Why USA section (its first question).
+      if (/\b(any|start|begin|continue|go\s+ahead|let'?s\s+start)\b/.test(t)) {
+        const why = USA_SECTIONS.find((s) => s.id === "usa_why");
+        if (why) return handleSectionSelect(why);
+      }
       // Topic-keyword → matching section. Order matters: more specific terms
-      // first to avoid (e.g.) "career" matching the misc section.
+      // first to avoid (e.g.) "personal" matching another section. Keywords
+      // map to the eight approved sections from the knowledge file.
       const sectionByKeyword: Array<{ re: RegExp; id: string }> = [
-        { re: /\bwhy\b|\bus\b|\busa\b|\bamerica\b/,                                       id: "usa_why" },
-        { re: /\buniversit|\binstitute|\bcollege|\bschool/,                               id: "usa_university" },
-        { re: /\bcourse\b|\bprogram\b|\bsubject\b|\bmajor\b/,                              id: "usa_course" },
-        { re: /\bacademic\b|\bbackground\b|\beducation\b|\bcgpa\b|\bgrades?\b/,            id: "usa_academic" },
-        { re: /\bjob\b|\bbusiness\b|\bwork\b|\bemployment\b|\bcurrent\s+work/,             id: "usa_job" },
-        { re: /\btests?\b|\btoefl\b|\bielts\b|\bgre\b|\bgmat\b|\bsat\b|\bscores?\b/,        id: "usa_tests" },
-        { re: /\bfamily\b|\bparents\b|\bsibling/,                                          id: "usa_family" },
-        { re: /\bfinanc|\bsponsor|\bfund|\bmoney|\bcost|\bbudget/,                         id: "usa_finance" },
-        { re: /\bfuture\b|\bcareer\b|\bafter\s+studies\b|\bplans?\b|\bafter\s+graduat/,    id: "usa_future" },
-        { re: /\brelative|\bcousin|\buncle|\baunt/,                                        id: "usa_relatives" },
-        { re: /\bvisa\b|\brefusal|\bprevious\s+visa|\bdenied/,                             id: "usa_visa" },
-        { re: /\bmisc|\bother|\bgeneral/,                                                  id: "usa_misc" },
+        { re: /\bwhy\b|\bus\b|\busa\b|\bamerica\b/,                                                              id: "usa_why" },
+        { re: /\buniversit|\binstitute|\bcollege|\bschool/,                                                      id: "usa_university" },
+        { re: /\bcourse\b|\bprogram\b|\bsubject\b|\bmajor\b/,                                                    id: "usa_course" },
+        { re: /\bacademic\b|\bbackground\b|\beducation\b|\bcgpa\b|\bgrades?\b|\btoefl\b|\bielts\b|\bgre\b|\bgmat\b|\bsat\b|\bscores?\b/, id: "usa_academic" },
+        { re: /\bfinanc|\bsponsor|\bfund|\bmoney|\bcost|\bbudget|\bloan/,                                        id: "usa_finance" },
+        { re: /\bfuture\b|\bcareer\b|\bafter\s+studies\b|\bplans?\b|\bafter\s+graduat/,                          id: "usa_future" },
+        { re: /\bvisa\b|\brefusal|\bprevious\s+visa|\bdenied|\brejection/,                                       id: "usa_visa" },
+        { re: /\bpersonal\b|\bfamily\b|\bparents\b|\bsibling|\brelative|\bcousin|\buncle|\baunt|\bjob\b|\bbusiness\b|\bwork\b|\bemployment\b|\btravel|\bsummer|\bsemester/, id: "usa_personal" },
       ];
       for (const { re, id } of sectionByKeyword) {
         if (re.test(t)) {
@@ -2373,7 +2362,7 @@ function InterviewSession({
     const coachText = country === "australia"
       ? "Hello there! Welcome to your Genuine Student interview practice! I am so excited to help you prepare. To get us started, could you please tell me your name?"
       : country === "usa"
-      ? "Hello! Welcome to your US F-1 visa interview practice! I am here to help you get ready for your consulate appointment. Let us start — could you please tell me your name?"
+      ? "Hello! I am your USA student visa guide. I am here to help you prepare for your upcoming student visa interview. May I know your name please?"
       : "Hello! Welcome! I am absolutely delighted to help you prepare for your UK credibility interview today. Could you please tell me your name?";
     return (
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-md mx-auto text-center">
