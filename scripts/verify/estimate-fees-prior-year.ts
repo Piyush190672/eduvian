@@ -18,19 +18,40 @@
  * program is silently skipped from the budget cap). A 5%-uplifted
  * prior-year number is materially better than zero or null.
  *
- * Sources allowed (user-specified, 12 May 2026):
- *   - QS Top Universities (topuniversities.com)
- *   - Times Higher Education (timeshighereducation.com)
- *   - IDP Education (idp.com)
- *   - LEAP Scholar (leapscholar.com)
- *   - Career360 (careers360.com)
- *   - USA Today / usnews.com (for USA programs)
- *   - The university's OWN archived fees page (Wayback Machine /
- *     Google cache) — preferred above all third-party sources
- *   - News articles with both old + new figures named and dated
+ * Sources allowed (user-shaped, 12 May 2026 — examples, not exhaustive).
+ * The prompt asks the model to use the CREDIBLE-SOURCE CATEGORIES below
+ * rather than a strict allowlist, so it can adapt to whichever
+ * country-specific authoritative portal is most relevant:
  *
- * Banned sources: Reddit, Quora, forums, undated figures, "around X"
- * approximations without a year anchor.
+ *   1. The university's OWN archived fees page (Wayback Machine /
+ *      Google cache). Preferred over any third party.
+ *   2. Major higher-ed ranking / aggregator sites — QS Top Universities,
+ *      Times Higher Education, U.S. News, Shanghai Ranking, CWUR, etc.
+ *   3. Official government / ministry-of-education / national-body
+ *      portals — UCAS / DfE (UK), Department of Education (US), DAAD
+ *      (DE), Campus France (FR), Universities Canada (CA), Department
+ *      of Home Affairs / Study Australia (AU), studyinholland.nl /
+ *      Nuffic (NL), educationinireland.com (IE), Immigration NZ /
+ *      study-with-new-zealand (NZ), Education Malaysia / EMGS (MY).
+ *   4. Major established study-abroad consultancies that publish dated,
+ *      attributed fee data — IDP Education, LEAP Scholar, Career360,
+ *      ApplyBoard, Edwise, Krishnan, etc.
+ *   5. Major news outlets reporting a dated fee change — BBC, FT,
+ *      Guardian, NYT, The Conversation, Education Week, etc.
+ *
+ * The user originally named a short list (QS / THE / IDP / LEAP /
+ * Career360 / USA Today) as EXAMPLES; any source that fits the same
+ * "established, dated, attributable" bar is acceptable. The model
+ * decides per-program.
+ *
+ * Banned sources (called out explicitly in the prompt):
+ *   - Reddit, Quora, college-confidential, any web forum
+ *   - User-generated content sites (Wikipedia is OK only when it
+ *     cites a dated primary source you can verify in the result)
+ *   - Undated figures, "around X" / "approximately X" without a
+ *     specific academic year anchor
+ *   - The university's own CURRENT-year fees page (already tried by
+ *     layer 1 — bypass).
  *
  * Usage:
  *   npx tsx scripts/verify/estimate-fees-prior-year.ts [--limit N] [--country C] [--concurrency N] [--dry]
@@ -77,36 +98,80 @@ PRIOR-PRIOR:   ${PRIOR_PRIOR} (acceptable as fallback)
 
 Use the web_search tool. Look for the INTERNATIONAL / OVERSEAS / NON-RESIDENT tuition figure for academic year ${PRIOR_YEAR}-${(PRIOR_YEAR % 100 + 1).toString().padStart(2, "0")} or ${PRIOR_PRIOR}-${(PRIOR_PRIOR % 100 + 1).toString().padStart(2, "0")}.
 
-ALLOWED sources (user-locked, 12 May 2026 — use ONLY these):
-  1. The university's OWN archived fees page (Wayback Machine
-     web.archive.org or Google cache) from the prior academic year.
-     PREFERRED above all third-party sources.
-  2. QS Top Universities  → topuniversities.com
-  3. Times Higher Education → timeshighereducation.com
-  4. IDP Education → idp.com  (program profile or country fees page)
-  5. LEAP Scholar → leapscholar.com
-  6. Career360 → careers360.com
-  7. USA Today / U.S. News (usnews.com) — for USA programs.
-  8. News articles (BBC, Guardian, FT, NYT, etc.) ONLY when they
-     report a fee change citing both the old and new figure with
-     the academic year named.
+ALLOWED source CATEGORIES (use any source that fits these — the named
+examples are illustrative, not exhaustive):
 
-BANNED sources (do NOT use, even if they appear in results):
+  1. The university's OWN archived fees page from the prior academic
+     year via Wayback Machine (web.archive.org) or Google cache.
+     PREFERRED above all third-party sources.
+
+  2. Major higher-ed ranking / aggregator sites with a published
+     program / fee profile:
+       - QS Top Universities (topuniversities.com)
+       - Times Higher Education (timeshighereducation.com)
+       - U.S. News (usnews.com)
+       - Shanghai Ranking (shanghairanking.com)
+       - CWUR (cwur.org)
+       - Webometrics
+     Any comparable established ranking site is fine.
+
+  3. Official government / national-body portals for the destination
+     country:
+       - UK: UCAS, gov.uk (DfE), HESA
+       - USA: U.S. Department of Education College Scorecard, IPEDS
+       - Canada: Universities Canada, EduCanada (gov.ca)
+       - Australia: Study Australia (.gov.au), Department of Home Affairs
+       - Germany: DAAD (daad.de), Hochschulkompass
+       - France: Campus France (campusfrance.org)
+       - Netherlands: Nuffic / studyinholland.nl
+       - Ireland: Education in Ireland (educationinireland.com)
+       - New Zealand: Study with NZ (studywithnewzealand.govt.nz)
+       - Malaysia: Education Malaysia / EMGS
+     Any ".gov" / ".ac." / ministry-of-education domain for the
+     country in question is acceptable.
+
+  4. Major established study-abroad consultancies with dated,
+     attributed fee data:
+       - IDP Education (idp.com)
+       - LEAP Scholar (leapscholar.com)
+       - Career360 (careers360.com)
+       - ApplyBoard (applyboard.com)
+       - Edwise International
+       - The Chopras
+       - Krishnan / KC Overseas
+     Any equivalent established consultancy publication is fine.
+
+  5. Major news outlets reporting a DATED fee change (with both
+     old and new figures named):
+       - BBC, FT, Guardian, NYT
+       - The Conversation, Education Week
+       - Country-specific equivalents (Times of India education
+         desk, The Hindu, SCMP, etc.)
+
+If a source you find fits the same "established, dated, attributable"
+bar but isn't named above, use it — flag in the notes which category
+it belongs to.
+
+BANNED (do NOT use even if they appear in results):
   - Reddit, Quora, Stack Exchange, college-confidential, any forum
-  - Blogs without a year anchor
-  - Shiksha, Yocket, MastersPortal, GoStudy, and other study-abroad
-    portals NOT on the allowlist above
-  - Undated figures, "around X" / "approximately X" without academic
-    year attribution
-  - The university's own current-year page (already tried at layer 1)
+  - User-generated content (Wikipedia OK only when it cites a dated
+    primary source you can verify and include in your sources array)
+  - Undated figures, "around X" / "approximately X" without an
+    explicit academic year
+  - The university's own CURRENT-year page (already tried at layer 1)
 
 Hard rules:
   - INTERNATIONAL / OVERSEAS / NON-RESIDENT tuition only — never domestic / home / EU / in-state.
   - Annual figure. Multi-year totals → divide by years.
   - The year MUST be explicit. An undated figure is unusable.
   - Prefer ${PRIOR_YEAR}-${(PRIOR_YEAR % 100 + 1).toString().padStart(2, "0")}. If only ${PRIOR_PRIOR}-${(PRIOR_PRIOR % 100 + 1).toString().padStart(2, "0")} is available, use it and note the script will apply two years' worth of uplift via separate logic.
-  - Two-source agreement (BOTH from the allowed list above) OR the
-    university's own archived official page is sufficient on its own.
+  - Confidence bar: ANY of the following is sufficient:
+      a) The university's own archived official page (category 1 alone).
+      b) ANY category 2 / 3 source (rankings or government portal) alone,
+         since these aggregate from official data.
+      c) Two sources from categories 4 / 5 (consultancies / news) that
+         agree on a number within 10% of each other.
+    Anything weaker → confidence: low → don't write.
   - Cite the exact source URLs you used in the "sources" array.
 
 Return ONLY a JSON object:
