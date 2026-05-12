@@ -87,6 +87,11 @@ const argLimit   = (() => { const i = argv.indexOf("--limit");       return i >=
 const argCountry = (() => { const i = argv.indexOf("--country");     return i >= 0 ? argv[i + 1] : null; })();
 const argConc    = (() => { const i = argv.indexOf("--concurrency"); return i >= 0 ? parseInt(argv[i + 1], 10) : 4; })();
 const argDry     = argv.includes("--dry");
+// Re-target rows that were already written as tuition_fee_source:"estimated"
+// but DON'T carry a tuition_estimate_note. Used after the 12 May pilot to
+// re-attempt the ~80 entries written under the pre-variance-rule prompt so
+// they pick up the new variance-aware note when applicable.
+const argReattemptNoNote = argv.includes("--reattempt-no-note");
 
 const CURRENT_YEAR = new Date().getUTCFullYear();
 const PRIOR_YEAR   = CURRENT_YEAR - 1;
@@ -360,18 +365,35 @@ async function main() {
 
   const { header, trailer, entries, tail } = loadEntries();
 
-  // Targets: programs where USD tuition is missing AND amount is missing
-  // (= both layers 1 and 2 came up empty) AND tuition_fee_source is NOT
-  // already "estimated" (skip programs an earlier pass attempted).
-  // Rerunnable — already-estimated rows are left alone.
+  // Targets:
+  //
+  //   Default mode — programs where USD tuition is missing AND amount is
+  //   missing (= layers 1 + 2 + any prior pass all came up empty) AND
+  //   tuition_fee_source is NOT already "estimated". Rerunnable.
+  //
+  //   --reattempt-no-note — ADDITIONALLY pick up rows where
+  //   tuition_fee_source === "estimated" AND tuition_estimate_note is
+  //   missing. Used to re-attempt rows that were written by a pilot
+  //   under an older prompt that didn't return variance_pct, so they
+  //   pick up the new variance-aware note when applicable.
+  //   The rewrite path overwrites the existing fee fields, so the new
+  //   pass gets fresh sources and may set a different number.
   const targets: { idx: number; uni: string; country: string; programName: string; programUrl: string }[] = [];
   for (let i = 0; i < entries.length; i++) {
     const s = entries[i].src;
     const usd = extractNumber(s, "annual_tuition_usd");
     const amt = extractNumber(s, "annual_tuition_amount");
-    if ((usd ?? 0) > 0 || (amt ?? 0) > 0) continue;
-    if (/tuition_fee_source:\s*"estimated"/.test(s)) continue;
+    const isEstimated = /tuition_fee_source:\s*"estimated"/.test(s);
+    const hasNote = /tuition_estimate_note:\s*"[^"]+"/.test(s);
+
+    const missingFee = (usd ?? 0) <= 0 && (amt ?? 0) <= 0;
+    const reattemptable = argReattemptNoNote && isEstimated && !hasNote;
+    if (!missingFee && !reattemptable) continue;
+    // Avoid double-processing a row already marked estimated unless caller
+    // asked for the re-attempt path.
+    if (missingFee && isEstimated && !argReattemptNoNote) continue;
     if (argCountry && extractField(s, "country") !== argCountry) continue;
+
     const uni    = extractField(s, "university_name") ?? "?";
     const country = extractField(s, "country") ?? "?";
     const programName = extractField(s, "program_name") ?? "?";
