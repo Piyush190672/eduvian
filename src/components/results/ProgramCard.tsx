@@ -22,6 +22,14 @@ interface Props {
   isInCompare?: boolean;
   onToggleCompare?: () => void;
   compareDisabled?: boolean;
+  /**
+   * Program's total annual cost expressed as a percentage of the user's
+   * selected budget. Pass when the program survives the 110% hard filter
+   * but exceeds 100% — the UI renders an amber "X% of your budget" pill
+   * so the user knows it's borderline. Omit (or pass null / <=100 / >110)
+   * to skip the badge.
+   */
+  budgetPct?: number | null;
 }
 
 type SignalStatus = "strong" | "partial" | "gap";
@@ -134,7 +142,7 @@ function getDeadlineInfo(deadline: string | null | undefined): {
   };
 }
 
-export default function ProgramCard({ program, isShortlisted, onToggleShortlist, isInCompare, onToggleCompare, compareDisabled }: Props) {
+export default function ProgramCard({ program, isShortlisted, onToggleShortlist, isInCompare, onToggleCompare, compareDisabled, budgetPct }: Props) {
   const tuitionUnavailable = isFeeUnavailable(program.annual_tuition_usd);
   const totalCost = tuitionUnavailable ? null : (program.annual_tuition_usd as number) + (program.avg_living_cost_usd ?? 0);
   const flag = getCountryFlag(program.country);
@@ -273,6 +281,19 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist,
                       </span>
                     );
                   })()}
+                  {/* Budget headroom: programs that survived the 110% hard
+                      filter but still exceed 100% of the user's budget. The
+                      number is precise (rounded to nearest whole %) so the
+                      user can immediately tell whether it's 102% (small
+                      stretch) or 108% (notable stretch). */}
+                  {typeof budgetPct === "number" && budgetPct > 100 && budgetPct <= 110 && (
+                    <span
+                      className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full border text-[10px] font-bold uppercase tracking-wide bg-amber-50 border-amber-200 text-amber-800"
+                      title={`This program's total annual cost is ${Math.round(budgetPct)}% of the budget you selected. Within the 10% headroom — worth a closer look on scholarships.`}
+                    >
+                      {Math.round(budgetPct)}% of your budget
+                    </span>
+                  )}
                 </>
               )}
               {deadlineInfo && (

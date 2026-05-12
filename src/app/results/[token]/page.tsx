@@ -18,7 +18,7 @@ import {
 } from "lucide-react";
 import { EduvianLogoMark } from "@/components/EduvianLogo";
 import type { ScoredProgram, ProgramTier, StudentProfile } from "@/lib/types";
-import { TARGET_COUNTRIES } from "@/lib/types";
+import { TARGET_COUNTRIES, BUDGET_VALUES } from "@/lib/types";
 import ProgramCard from "@/components/results/ProgramCard";
 import ShortlistSummary from "@/components/results/ShortlistSummary";
 import ProfileCard from "@/components/results/ProfileCard";
@@ -171,6 +171,18 @@ export default function ResultsPage() {
   const allPrograms = data.programs;
   const profile = data.submission.profile as unknown as StudentProfile;
   const studentName = profile.full_name ?? "there";
+
+  // Budget headroom helper — programs that survived the 110% hard filter
+  // but exceed 100% of the user's budget get an amber "X% of your budget"
+  // pill on the card. The hard filter in scoring.ts excludes anything
+  // above 110%, so this value is always in (100, 110] when truthy.
+  const budgetMax = profile.budget_range ? BUDGET_VALUES[profile.budget_range] : 0;
+  const budgetPctFor = (p: ScoredProgram): number | null => {
+    if (!budgetMax || budgetMax <= 0) return null;
+    if (typeof p.annual_tuition_usd !== "number" || p.annual_tuition_usd <= 0) return null;
+    const total = p.annual_tuition_usd + (p.avg_living_cost_usd ?? 0);
+    return (total / budgetMax) * 100;
+  };
 
   // Apply country / field filters then sort
   const applyFilters = (programs: ScoredProgram[]) => {
@@ -410,6 +422,7 @@ export default function ResultsPage() {
                         isInCompare={compareSet.has(program.id)}
                         onToggleCompare={() => toggleCompare(program.id)}
                         compareDisabled={!compareSet.has(program.id) && compareSet.size >= 5}
+                        budgetPct={budgetPctFor(program)}
                       />
                     </motion.div>
                   ))}
