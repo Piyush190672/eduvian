@@ -192,11 +192,63 @@ function scoreIntake(profile: StudentProfile, program: Program): number {
 
 function scoreWorkExp(profile: StudentProfile, program: Program): number {
   const required = program.work_exp_required_years ?? 0;
-  if (required === 0) return 80;
-  const studentYears = profile.work_experience_years ?? 0;
-  if (studentYears >= required) return 100;
-  if (studentYears >= required - 1) return 60;
-  return 20;
+  let base: number;
+  if (required === 0) {
+    base = 80;
+  } else {
+    const studentYears = profile.work_experience_years ?? 0;
+    if (studentYears >= required) base = 100;
+    else if (studentYears >= required - 1) base = 60;
+    else base = 20;
+  }
+
+  // For MBA programs, blend the years-based signal with the leadership
+  // signal (50 / 50). For non-MBA programs the base score is returned
+  // unchanged. This is how the new MBA leadership / team-size questions
+  // feed into match_score without requiring a new top-level signal +
+  // weight redistribution.
+  if (program.field_of_study === "MBA") {
+    const leadership = scoreMbaLeadership(profile, program);
+    return Math.round((base + leadership) / 2);
+  }
+  return base;
+}
+
+/**
+ * MBA-specific leadership match. Returns a neutral 100 for any non-MBA
+ * program so the signal effectively only affects MBA matches.
+ *
+ * Top MBA programs (Harvard, Wharton, INSEAD, LBS, etc.) explicitly weight
+ * leadership experience and team size. We don't carry per-program "wants
+ * leaders" data, so we use QS rank as a proxy: the higher the rank, the
+ * stronger the assumed weight. Within that frame:
+ *
+ *   - User HAS team-leading experience    → boost top programs, neutral mid-tier
+ *   - User has NO team-leading experience → drag top programs down,
+ *                                            mid-tier stays viable
+ *   - Larger team size adds extra credit for the leading=true branch.
+ */
+function scoreMbaLeadership(profile: StudentProfile, program: Program): number {
+  if (program.field_of_study !== "MBA") return 100; // not applicable
+
+  const qs = program.qs_ranking ?? 9999;
+  const isTopMba    = qs <= 50;
+  const isStrongMba = qs <= 200;
+  const led         = profile.mba_team_leading_experience === true;
+  const size        = profile.mba_max_team_size ?? 0;
+
+  if (led) {
+    let base = isTopMba ? 100 : isStrongMba ? 90 : 80;
+    // Team-size bonus, capped — caps prevent over-fitting to one outlier.
+    if (size >= 10)      base = Math.min(100, base + 5);
+    else if (size >= 5)  base = Math.min(100, base + 2);
+    return base;
+  }
+
+  // No team-leading experience
+  if (isTopMba)    return 40;   // top MBAs strongly expect leadership
+  if (isStrongMba) return 65;   // mid-top MBAs still prefer it
+  return 80;                    // smaller / regional MBAs are more forgiving
 }
 
 function scoreStdTest(profile: StudentProfile, program: Program): number {
@@ -293,6 +345,20 @@ function isHardDisqualified(profile: StudentProfile, program: Program): boolean 
   // for a data gap on our side).
   if (Array.isArray(program.intake_semesters) && program.intake_semesters.length > 0) {
     if (!program.intake_semesters.includes(profile.target_intake_semester)) return true;
+  }
+
+  // MBA-only: minimum work experience is a STRICT hard filter. Top MBA
+  // programs explicitly require 2-5 years of work experience and routinely
+  // reject below-floor applicants. Applied only to MBA programs; non-MBA
+  // PG programs keep the existing soft work-exp signal. Data-honest: only
+  // fires when work_exp_required_years is a positive number — programs
+  // with null/0 don't publish a floor.
+  if (program.field_of_study === "MBA") {
+    const required = program.work_exp_required_years ?? 0;
+    if (required > 0) {
+      const studentYears = profile.work_experience_years ?? 0;
+      if (studentYears < required) return true;
+    }
   }
 
   return false;

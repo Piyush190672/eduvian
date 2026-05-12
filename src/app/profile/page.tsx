@@ -83,6 +83,19 @@ function validateStep(step: number, profile: Partial<StudentProfile>): string[] 
     } else {
       if (!profile.major_stream) missing.push("Major / Stream");
     }
+    // MBA-specific: leadership question is required, and if answered yes,
+    // the team-size follow-up is required too. Only enforced when the user
+    // picks MBA — non-MBA students don't see these fields.
+    if (profile.intended_field === "MBA") {
+      if (profile.mba_team_leading_experience === undefined) {
+        missing.push("MBA: Team-leading experience answer");
+      } else if (
+        profile.mba_team_leading_experience === true &&
+        (!profile.mba_max_team_size || profile.mba_max_team_size <= 0)
+      ) {
+        missing.push("MBA: Size of the largest team you led");
+      }
+    }
   }
 
   if (step === 3) {

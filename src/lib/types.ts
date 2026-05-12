@@ -82,6 +82,13 @@ export interface StudentProfile {
   // only future bulk / promotional emails honour it. The flag rides on
   // the encrypted profile blob — no new DB column.
   marketing_opt_in?: boolean;
+
+  // MBA-specific (only collected when intended_field === "MBA" and
+  // degree_level === "postgraduate"). Top MBAs explicitly weight
+  // leadership experience and team size; we surface those questions so
+  // the matcher can prefer programs whose admit profile matches.
+  mba_team_leading_experience?: boolean;
+  mba_max_team_size?: number;
 }
 
 // ─── Program ──────────────────────────────────────────────────────────────────

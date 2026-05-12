@@ -399,6 +399,53 @@ export default function StepAcademic({ profile, onChange }: Props) {
             </div>
           </div>
 
+          {/* MBA-specific questions. Top MBAs explicitly weight leadership
+              experience and team size — surfacing those answers lets the
+              matcher prefer programs that match the user's profile. Shown
+              only when intended_field is MBA. */}
+          {profile.intended_field === "MBA" && (
+            <div className="rounded-2xl border border-indigo-100 bg-indigo-50/40 px-4 py-4 space-y-4">
+              <p className="text-xs font-bold text-indigo-700 uppercase tracking-wide">MBA-specific</p>
+              <div>
+                <Label>Do you have experience of leading teams? *</Label>
+                <RadioGroup
+                  options={[
+                    { value: "true",  label: "Yes" },
+                    { value: "false", label: "No" },
+                  ]}
+                  value={
+                    profile.mba_team_leading_experience !== undefined
+                      ? String(profile.mba_team_leading_experience)
+                      : undefined
+                  }
+                  onChange={(v) =>
+                    onChange({
+                      mba_team_leading_experience: v === "true",
+                      // Clear team size if they switch back to "No".
+                      ...(v === "false" ? { mba_max_team_size: 0 } : {}),
+                    })
+                  }
+                />
+              </div>
+              {profile.mba_team_leading_experience && (
+                <div>
+                  <Label>What was the size of the largest team you led? *</Label>
+                  <Input
+                    type="number"
+                    min={1}
+                    max={500}
+                    placeholder="e.g. 6"
+                    value={profile.mba_max_team_size ?? ""}
+                    onChange={(e) =>
+                      onChange({ mba_max_team_size: parseInt(e.target.value) || 0 })
+                    }
+                  />
+                  <p className="text-[11px] text-gray-500 mt-1">Headcount you had direct managerial / project-lead responsibility for. Top MBAs weight this.</p>
+                </div>
+              )}
+            </div>
+          )}
+
           <div>
             <Label>Research papers published?</Label>
             <RadioGroup
