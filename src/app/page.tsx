@@ -283,7 +283,7 @@ export default function V2LandingPage() {
               />
               <span className="flex flex-col leading-none">
                 <span className="font-display text-lg font-bold tracking-tight">eduvianAI</span>
-                <span className="hidden sm:inline text-[10px] font-medium text-white/55 tracking-tight mt-1">Study-abroad, made intelligent</span>
+                <span className="hidden sm:inline text-[10px] font-medium text-white/55 tracking-tight mt-1">Independent study-abroad intelligence</span>
               </span>
             </Link>
             <div className="flex items-center gap-6">
@@ -1223,7 +1223,7 @@ export default function V2LandingPage() {
             />
             <span className="flex flex-col leading-none">
               <span className="font-display text-base font-bold tracking-tight text-gray-900">eduvianAI</span>
-              <span className="text-[10px] font-medium text-gray-400 tracking-tight mt-0.5">Study-abroad, made intelligent</span>
+              <span className="text-[10px] font-medium text-gray-400 tracking-tight mt-0.5">Independent study-abroad intelligence</span>
             </span>
           </div>
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs sm:justify-end">
