@@ -50,8 +50,8 @@ export async function POST(req: NextRequest) {
 
   try {
     const body = await req.json();
-    const { action, name, email, phone, source, source_stage, otp_code, marketing_opt_in } = body as {
-      action: "register" | "login";
+    const { action, name, email, phone, source, source_stage, otp_code, marketing_opt_in, password } = body as {
+      action: "register" | "login" | "login_password";
       name?: string;
       email: string;
       phone?: string;
@@ -59,6 +59,7 @@ export async function POST(req: NextRequest) {
       source_stage?: number;
       otp_code?: string;
       marketing_opt_in?: boolean;
+      password?: string;
     };
 
     if (!email || !isValidEmail(email)) {
@@ -73,6 +74,61 @@ export async function POST(req: NextRequest) {
         return createServiceClient();
       } catch { return null; }
     })();
+
+    // ── PASSWORD LOGIN PATH ──────────────────────────────────────────────────
+    // Alternative to the email-OTP gate below. The user chooses one method at
+    // login time. Password login is only available for accounts that have set
+    // a password via /api/auth/set-password; if no password is on file, we
+    // return reason: "no_password" so the client can fall back to OTP login.
+    if (action === "login_password") {
+      if (!supabase) {
+        return NextResponse.json({ error: "Service unavailable" }, { status: 503 });
+      }
+      if (typeof password !== "string" || password.length === 0) {
+        return NextResponse.json({ error: "Password is required." }, { status: 400 });
+      }
+      const { verifyPassword } = await import("@/lib/password");
+
+      // Pull the student + their stored hash.
+      const { data: student } = await supabase
+        .from("students")
+        .select("id, name, email, phone, password_hash")
+        .eq("email", normalizedEmail)
+        .single();
+
+      // Generic 401 if account is missing OR password not yet set OR password
+      // mismatch — never disclose which one. Eliminates user-enumeration via
+      // timing/error-text. The "no_password" reason hint only fires for the
+      // CURRENT user when the email matches an actual account but they
+      // haven't set a password — in that case we want to nudge them toward
+      // OTP login instead.
+      if (!student) {
+        return NextResponse.json({ error: "Wrong email or password." }, { status: 401 });
+      }
+      const stored = (student as { password_hash?: string | null }).password_hash;
+      if (!stored) {
+        return NextResponse.json(
+          {
+            error: "No password set for this account yet. Use the email-code option to log in, then set a password from your profile.",
+            reason: "no_password",
+          },
+          { status: 401 },
+        );
+      }
+      const ok = await verifyPassword(password, stored);
+      if (!ok) {
+        return NextResponse.json({ error: "Wrong email or password." }, { status: 401 });
+      }
+
+      // Mirror the OTP-login success path: fetch latest submission token so
+      // the client can route the user back to their /results/[token] page.
+      const token = await getLatestToken(supabase);
+      // Strip password_hash before returning the student blob.
+      const { password_hash: _ph, ...studentSafe } = student as Record<string, unknown>;
+      void _ph;
+      const studentEmail = (studentSafe as { email?: string }).email ?? normalizedEmail;
+      return jsonWithUserCookie({ ok: true, student: studentSafe, isNew: false, token }, studentEmail, meta);
+    }
 
     // ── OTP verification gate ────────────────────────────────────────────────
     // Both register and login require a valid 6-digit code emailed via

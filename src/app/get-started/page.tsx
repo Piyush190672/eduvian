@@ -60,6 +60,10 @@ export default function GetStartedPage() {
   const router = useRouter();
   const [mode, setMode] = useState<Mode>("choose");
   const [step, setStep] = useState<"details" | "otp">("details");
+  // Login can now happen via email-OTP (existing flow) OR password (new
+  // 12 May 2026). The user picks one BEFORE submitting their email. The
+  // toggle is only visible in "login" mode — register stays OTP-only.
+  const [loginMethod, setLoginMethod] = useState<"otp" | "password">("otp");
 
   // Register form
   const [name, setName] = useState("");
@@ -67,6 +71,7 @@ export default function GetStartedPage() {
   const [phone, setPhone] = useState("");
   const [marketingOptIn, setMarketingOptIn] = useState(false);
   const [otp, setOtp] = useState("");
+  const [password, setPassword] = useState("");
   const [resendIn, setResendIn] = useState(0);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -76,6 +81,8 @@ export default function GetStartedPage() {
   useEffect(() => {
     setStep("details");
     setOtp("");
+    setPassword("");
+    setLoginMethod("otp");
   }, [mode]);
 
   // Resend countdown.
@@ -166,6 +173,47 @@ export default function GetStartedPage() {
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // ── Password login branch ────────────────────────────────────────────
+    // Single-step: email + password submit straight to /api/auth with
+    // action="login_password". No OTP email round-trip.
+    if (loginMethod === "password") {
+      if (!password) {
+        setError("Enter your password.");
+        return;
+      }
+      setError("");
+      setLoading(true);
+      try {
+        const res = await fetch("/api/auth", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ action: "login_password", email, password }),
+        });
+        const data = await res.json();
+        if (data.ok) {
+          saveStudentLocally({ name: data.student.name, email: data.student.email, phone: data.student.phone, id: data.student.id });
+          if (data.token) router.push(`/results/${data.token}`);
+          else router.push("/profile");
+        } else if (data.reason === "no_password") {
+          // Helpful nudge: this email has an account but no password set.
+          setError(data.error ?? "No password set for this account.");
+          // Auto-switch back to OTP so the user can sign in immediately,
+          // then add a password from /profile.
+          setLoginMethod("otp");
+          setPassword("");
+        } else {
+          setError(data.error ?? "Wrong email or password.");
+        }
+      } catch {
+        setError("Connection error. Please try again.");
+      } finally {
+        setLoading(false);
+      }
+      return;
+    }
+
+    // ── OTP login branch (existing) ──────────────────────────────────────
     if (step === "details") return requestOtp("login");
     if (!/^[0-9]{6}$/.test(otp)) {
       setError("Enter the 6-digit code from your email.");
@@ -571,21 +619,74 @@ export default function GetStartedPage() {
               </div>
 
               <form onSubmit={handleLogin} className="bg-white/5 border border-white/10 rounded-3xl p-8 space-y-5">
-                {step === "details" ? (
-                  <div>
-                    <label className="block text-sm font-semibold text-slate-300 mb-2">Email Address *</label>
-                    <div className="relative">
-                      <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
-                      <input
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder="priya@example.com"
-                        className="w-full pl-11 pr-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder:text-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
-                        required
-                      />
-                    </div>
+                {/* Login-method toggle — only visible on the first step
+                    (before the user has committed to OTP or password). */}
+                {step === "details" && (
+                  <div className="grid grid-cols-2 gap-2 p-1 rounded-xl bg-white/5 border border-white/10">
+                    <button
+                      type="button"
+                      onClick={() => { setLoginMethod("otp"); setError(""); setPassword(""); }}
+                      className={`py-2 rounded-lg text-xs font-bold transition-all ${
+                        loginMethod === "otp"
+                          ? "bg-indigo-500 text-white shadow"
+                          : "text-slate-400 hover:text-white"
+                      }`}
+                    >
+                      Email code
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => { setLoginMethod("password"); setError(""); setOtp(""); }}
+                      className={`py-2 rounded-lg text-xs font-bold transition-all ${
+                        loginMethod === "password"
+                          ? "bg-indigo-500 text-white shadow"
+                          : "text-slate-400 hover:text-white"
+                      }`}
+                    >
+                      Password
+                    </button>
                   </div>
+                )}
+
+                {step === "details" ? (
+                  <>
+                    <div>
+                      <label className="block text-sm font-semibold text-slate-300 mb-2">Email Address *</label>
+                      <div className="relative">
+                        <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
+                        <input
+                          type="email"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          placeholder="priya@example.com"
+                          autoComplete="email"
+                          className="w-full pl-11 pr-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder:text-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+                          required
+                        />
+                      </div>
+                    </div>
+
+                    {/* Password field only when password login is selected.
+                        For OTP, we just take the email here and prompt for
+                        the 6-digit code on the next step. */}
+                    {loginMethod === "password" && (
+                      <div>
+                        <label className="block text-sm font-semibold text-slate-300 mb-2">Password *</label>
+                        <input
+                          type="password"
+                          value={password}
+                          onChange={(e) => setPassword(e.target.value)}
+                          placeholder="Your password"
+                          autoComplete="current-password"
+                          className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder:text-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+                          required
+                        />
+                        <p className="mt-2 text-[11px] text-slate-500 leading-relaxed">
+                          Haven&apos;t set one yet? Sign in with <span className="text-slate-300 font-semibold">Email code</span> first, then add a password from your profile.
+                        </p>
+                      </div>
+                    )}
+                  </>
                 ) : (
                   <>
                     <div className="text-center pb-2">
@@ -644,13 +745,19 @@ export default function GetStartedPage() {
 
                 <button
                   type="submit"
-                  disabled={loading || (step === "otp" && otp.length !== 6)}
+                  disabled={
+                    loading
+                    || (step === "otp" && otp.length !== 6)
+                    || (loginMethod === "password" && !password)
+                  }
                   className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-bold text-sm hover:shadow-lg hover:shadow-indigo-500/30 transition-all disabled:opacity-60"
                 >
                   {loading ? (
-                    <><Loader2 className="w-4 h-4 animate-spin" /> {step === "details" ? "Sending code…" : "Signing in…"}</>
-                  ) : step === "details" ? (
+                    <><Loader2 className="w-4 h-4 animate-spin" /> {step === "details" && loginMethod === "otp" ? "Sending code…" : "Signing in…"}</>
+                  ) : step === "details" && loginMethod === "otp" ? (
                     <>Send verification code <ArrowRight className="w-4 h-4" /></>
+                  ) : step === "details" && loginMethod === "password" ? (
+                    <>Sign in <ArrowRight className="w-4 h-4" /></>
                   ) : (
                     <>Log In & Continue <ArrowRight className="w-4 h-4" /></>
                   )}
