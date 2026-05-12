@@ -7,6 +7,38 @@ import { DB_STATS, universitiesByCountry } from "@/data/db-stats";
 import ChatWidget from "@/components/ChatWidget";
 import CountryModal from "@/components/CountryModal";
 import HowItWorksModal from "@/components/HowItWorksModal";
+import { DataBadge, type DataProvenance } from "@/components/DataBadge";
+
+// Compact "Source proof" row used inside sample-output cards on the homepage.
+// Surfaces the provenance system inline with the decision, not buried on the
+// methodology page. Renders 1-4 DataBadges + an optional "Last verified" date
+// (only relevant when at least one badge is "official").
+function SourceProof({
+  kinds,
+  lastVerified,
+  className = "",
+  size = "sm",
+}: {
+  kinds: DataProvenance[];
+  lastVerified?: string;
+  className?: string;
+  size?: "sm" | "xs";
+}) {
+  const labelCls = size === "xs" ? "text-[9px]" : "text-[10px]";
+  return (
+    <div className={`flex flex-wrap items-center gap-1.5 ${className}`}>
+      <span className={`${labelCls} uppercase tracking-widest text-gray-500 font-bold mr-0.5`}>Source proof</span>
+      {kinds.map((k) => (
+        <DataBadge key={k} kind={k} />
+      ))}
+      {lastVerified && (
+        <span className={`${labelCls} text-gray-400 font-semibold ml-0.5`}>· Last verified {lastVerified}</span>
+      )}
+    </div>
+  );
+}
+
+const LAST_VERIFIED_LABEL = "8 May 2026";
 
 // Each stage card carries: stage name + user situation + one-line benefit
 // + one sample output + one primary CTA. Methodology / data-source notes
@@ -86,12 +118,16 @@ const PRINCIPLES = [
   { n: "04", t: "Built to decide, not just discover", p: "Search is the easy part. Shortlist → SOP review → interview prep → fee comparison → final pick. Every tool returns specific next steps, not vague advice — solving the real pain points students hit at every stage." },
 ];
 
-const DEMOS = [
-  { i: 0, label: "University Match",     sub: "Your personalised Top 20 shortlist",  accent: "border-violet-500"  },
-  { i: 1, label: "SOP Check",            sub: "AI feedback across 7 dimensions",     accent: "border-violet-400"  },
-  { i: 2, label: "Interview Coach",      sub: "Voice + text mock with AI scoring",   accent: "border-emerald-500" },
-  { i: 3, label: "ROI Analysis",         sub: "Payback period and 10-year ROI",      accent: "border-amber-500"   },
-  { i: 4, label: "Visa Apply",           sub: "Country checklist + risk flags",      accent: "border-rose-500"    },
+const DEMOS: Array<{
+  i: number; label: string; sub: string; accent: string;
+  provenance: DataProvenance[];
+  showLastVerified: boolean;
+}> = [
+  { i: 0, label: "University Match",     sub: "Your personalised Top 20 shortlist",  accent: "border-violet-500",  provenance: ["official", "ai_estimate"],            showLastVerified: true  },
+  { i: 1, label: "SOP Check",            sub: "AI feedback across 7 dimensions",     accent: "border-violet-400",  provenance: ["user_provided", "ai_estimate"],       showLastVerified: false },
+  { i: 2, label: "Interview Coach",      sub: "Voice + text mock with AI scoring",   accent: "border-emerald-500", provenance: ["user_provided", "ai_estimate"],       showLastVerified: false },
+  { i: 3, label: "ROI Analysis",         sub: "Payback period and 10-year ROI",      accent: "border-amber-500",   provenance: ["official", "ai_estimate"],            showLastVerified: true  },
+  { i: 4, label: "Visa Apply",           sub: "Country checklist + risk flags",      accent: "border-rose-500",    provenance: ["official", "needs_verification"],     showLastVerified: true  },
 ];
 
 type Level = "Low" | "Medium" | "High";
@@ -325,6 +361,12 @@ export default function V2LandingPage() {
                     ))}
                   </div>
                   <p className="text-[9px] text-gray-400 mt-2.5 pt-2 border-t border-gray-50">Showing 4 of 20 · Safe, Reach &amp; Ambitious</p>
+                  <SourceProof
+                    kinds={["official", "ai_estimate"]}
+                    lastVerified={LAST_VERIFIED_LABEL}
+                    className="mt-2"
+                    size="xs"
+                  />
                 </div>
               )}
 
@@ -363,6 +405,11 @@ export default function V2LandingPage() {
                     ))}
                   </div>
                   <p className="text-[10px] text-gray-400 mt-3 pt-3 border-t border-gray-50">7 SOP dimensions + 6 CV dimensions scored</p>
+                  <SourceProof
+                    kinds={["user_provided", "ai_estimate"]}
+                    className="mt-2"
+                    size="xs"
+                  />
                 </div>
               )}
 
@@ -392,6 +439,12 @@ export default function V2LandingPage() {
                   <div className="mt-4 rounded-xl bg-emerald-50 border border-emerald-100 p-3">
                     <p className="text-xs font-semibold text-emerald-800">★ UCL recovers 2.6 years faster than Melbourne</p>
                   </div>
+                  <SourceProof
+                    kinds={["official", "ai_estimate"]}
+                    lastVerified={LAST_VERIFIED_LABEL}
+                    className="mt-3 pt-2 border-t border-gray-50"
+                    size="xs"
+                  />
                 </div>
               )}
 
@@ -419,6 +472,12 @@ export default function V2LandingPage() {
                     ))}
                   </div>
                   <p className="text-[9px] font-bold text-violet-700 mt-3 pt-2 border-t border-gray-50">Official-source checklists · risk flags · apply links</p>
+                  <SourceProof
+                    kinds={["official", "needs_verification"]}
+                    lastVerified={LAST_VERIFIED_LABEL}
+                    className="mt-2"
+                    size="xs"
+                  />
                 </div>
               )}
             </div>
@@ -869,6 +928,20 @@ export default function V2LandingPage() {
                     </div>
                   </div>
                 )}
+
+                {/* Source-proof footer — surfaces provenance inside the
+                    decision output itself (per homepage spec, May 2026). */}
+                <div className="mt-6 pt-5 border-t border-stone-200">
+                  <SourceProof
+                    kinds={DEMOS[activeDemo].provenance}
+                    lastVerified={DEMOS[activeDemo].showLastVerified ? LAST_VERIFIED_LABEL : undefined}
+                  />
+                  {DEMOS[activeDemo].showLastVerified && (
+                    <p className="mt-2 text-[11px] text-gray-500">
+                      Official page checked · Fee source available · Deadline source available
+                    </p>
+                  )}
+                </div>
               </div>
             </div>
           </div>
