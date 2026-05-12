@@ -47,12 +47,19 @@ const STATUS_STYLE: Record<SignalStatus, { bg: string; text: string; dot: string
 };
 
 // Human-readable verdict per signal and score
-function getVerdict(signal: string, value: number, isPG: boolean): string {
+function getVerdict(signal: string, value: number, isPG: boolean, budgetPct?: number | null): string {
   const s = getStatus(value);
   switch (signal) {
     case "academic":
       return s === "strong" ? "Above requirement" : s === "partial" ? "Meets minimum" : "Below requirement";
     case "budget":
+      // When the program is in the 100-110% headroom band, show the
+      // precise percentage inside the Budget tile rather than the
+      // generic "Slightly over budget" copy — gives the user a real
+      // number to act on. Below 100% or unknown → existing copy.
+      if (typeof budgetPct === "number" && budgetPct > 100 && budgetPct <= 110) {
+        return `${Math.round(budgetPct)}% of your budget`;
+      }
       return s === "strong" ? "Well within budget" : s === "partial" ? "Slightly over budget" : "Over budget";
     case "std_test":
       if (value === 60 || value === 70) return "No test submitted";
@@ -91,12 +98,13 @@ interface SignalChipProps {
   signal: string;
   value: number;
   isPG: boolean;
+  budgetPct?: number | null;
 }
 
-function SignalChip({ signal, value, isPG }: SignalChipProps) {
+function SignalChip({ signal, value, isPG, budgetPct }: SignalChipProps) {
   const status = getStatus(value);
   const style = STATUS_STYLE[status];
-  const verdict = getVerdict(signal, value, isPG);
+  const verdict = getVerdict(signal, value, isPG, budgetPct);
   return (
     <div className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl border ${style.bg} ${
       status === "strong" ? "border-emerald-100" : status === "partial" ? "border-amber-100" : "border-rose-100"
@@ -281,19 +289,10 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist,
                       </span>
                     );
                   })()}
-                  {/* Budget headroom: programs that survived the 110% hard
-                      filter but still exceed 100% of the user's budget. The
-                      number is precise (rounded to nearest whole %) so the
-                      user can immediately tell whether it's 102% (small
-                      stretch) or 108% (notable stretch). */}
-                  {typeof budgetPct === "number" && budgetPct > 100 && budgetPct <= 110 && (
-                    <span
-                      className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full border text-[10px] font-bold uppercase tracking-wide bg-amber-50 border-amber-200 text-amber-800"
-                      title={`This program's total annual cost is ${Math.round(budgetPct)}% of the budget you selected. Within the 10% headroom — worth a closer look on scholarships.`}
-                    >
-                      {Math.round(budgetPct)}% of your budget
-                    </span>
-                  )}
+                  {/* The "X% of your budget" headroom signal lives inside
+                      the Budget tile in the signals row below — see
+                      getVerdict() for the budget case. Keeping the cost
+                      row tight here. */}
                 </>
               )}
               {deadlineInfo && (
@@ -346,6 +345,7 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist,
                 signal={s.key}
                 value={bd[s.key] as number}
                 isPG={isPG}
+                budgetPct={s.key === "budget" ? budgetPct : undefined}
               />
             ))}
           </div>
