@@ -124,13 +124,26 @@ export async function checkRateLimit(
   }
 }
 
-/** Get the real client IP from Next.js request headers. */
+/**
+ * Get the real client IP from request headers.
+ *
+ * Trust order (closes M4 from the security audit):
+ *   1. x-vercel-forwarded-for — Vercel's edge writes this on every
+ *      request; the client cannot fake it because Vercel overwrites
+ *      it before our handler runs.
+ *   2. x-real-ip               — also set by Vercel's edge.
+ *   3. x-forwarded-for         — client-spoofable when the deployment
+ *      isn't behind a trusted proxy. Used last as a best-effort
+ *      fallback for non-Vercel environments (Docker self-host, local
+ *      dev, etc.) and we take the FIRST entry — closest to the client.
+ */
 export function getClientIp(headers: Headers): string {
-  return (
-    headers.get("x-forwarded-for")?.split(",")[0].trim() ??
-    headers.get("x-real-ip") ??
-    "unknown"
-  );
+  const vercel = headers.get("x-vercel-forwarded-for")?.split(",")[0].trim();
+  if (vercel) return vercel;
+  const real = headers.get("x-real-ip");
+  if (real) return real;
+  const xff = headers.get("x-forwarded-for")?.split(",")[0].trim();
+  return xff || "unknown";
 }
 
 /**
