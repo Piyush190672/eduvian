@@ -58,7 +58,7 @@ type Country = "australia" | "uk" | "usa";
 // feedback    → AI-generated feedback displayed
 // complete    → end of session summary
 type Phase =
-  | "name" | "uk_confirm" | "category" | "usa_section"
+  | "name" | "uk_confirm" | "category" | "usa_mode_choice" | "usa_section"
   | "speaking" | "listening" | "review" | "feedback" | "complete";
 
 interface QuestionCategory {
@@ -1529,6 +1529,7 @@ function InterviewSession({
   const autoListenYesRef = useRef<(() => void) | null>(null);
   const autoListenCategoryRef = useRef<(() => void) | null>(null);
   const autoListenUsaSectionRef = useRef<(() => void) | null>(null);
+  const autoListenUsaModeChoiceRef = useRef<(() => void) | null>(null);
 
   // ── Check STT support ───────────────────────────────────────────────────────
   useEffect(() => {
@@ -1627,17 +1628,32 @@ function InterviewSession({
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [phase]);
 
+  // ── AUTO-SPEAK: USA mode choice (full vs specific section) ──────────────────
+  // First step after name capture, per the knowledge file: ask "Do you want
+  // to practice a full interview or a specific section?" — the answer
+  // routes either straight into the full mock or into the section picker.
+  // Saying "any / start / begin / continue" jumps to the canonical Why-USA
+  // opener.
+  useEffect(() => {
+    if (phase !== "usa_mode_choice" || !studentName || mode === "text") return;
+    const sayName = speechFriendlyName(studentName);
+    const msg = `Great to meet you, ${sayName}! Do you want to practice a full interview or a specific section?`;
+    const t = setTimeout(() => speak(msg, () => {
+      autoListenUsaModeChoiceRef.current?.();
+    }), 300);
+    return () => clearTimeout(t);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [phase]);
+
   // ── AUTO-SPEAK: USA section menu ─────────────────────────────────────────────
-  // Per the USA Visa Interview Prep Knowledge File: ask whether the user
-  // wants a full interview or a specific section; if "section", enumerate
-  // all eight sections by name then ask "Which section…". tryListenForUsa
-  // Section routes whatever the student says — full mock, a section name,
-  // or "any/start/begin" — to the right handler.
+  // Reached only after the user picked "specific section" in the mode-choice
+  // step. Enumerates the eight approved sections from the knowledge file
+  // verbatim, then asks "Which section…". tryListenForUsaSection matches
+  // section keywords (or "full mock" as a late-stage fallback).
   useEffect(() => {
     if (phase !== "usa_section" || !studentName || mode === "text") return;
-    const sayName = speechFriendlyName(studentName);
     const sectionList = USA_SECTIONS.map((s) => s.label).join(", ");
-    const msg = `Great to meet you, ${sayName}! Do you want to practice a full interview or a specific section? If you choose a specific section, you can pick from: ${sectionList}. Which section do you want to practice today? Or say full mock to cover every mandatory section the officer might ask.`;
+    const msg = `You can pick from any of these eight sections: ${sectionList}. Which section do you want to practice today?`;
     const t = setTimeout(() => speak(msg, () => {
       autoListenUsaSectionRef.current?.();
     }), 300);
@@ -2004,7 +2020,7 @@ function InterviewSession({
         setNameInput(name);
         cancel();
         setStudentName(name);
-        setPhase(country === "uk" ? "uk_confirm" : country === "usa" ? "usa_section" : "category");
+        setPhase(country === "uk" ? "uk_confirm" : country === "usa" ? "usa_mode_choice" : "category");
       },
       setNameListening,
       true, // nameMode
@@ -2088,7 +2104,7 @@ function InterviewSession({
     cancel(); // stop any current speech before transitioning
     setStudentName(name);
     setNameInput(name); // update field to show the cleaned name
-    setPhase(country === "uk" ? "uk_confirm" : country === "usa" ? "usa_section" : "category");
+    setPhase(country === "uk" ? "uk_confirm" : country === "usa" ? "usa_mode_choice" : "category");
   };
 
   // ── UK YES confirmation ─────────────────────────────────────────────────────
@@ -2173,10 +2189,38 @@ function InterviewSession({
     autoListenCategoryRef.current = tryListenForCategory;
   }, [tryListenForCategory]);
 
-  // USA section voice-pick. Keyword-match against USA_SECTIONS labels — 12
-  // sections is too many to enumerate by number, so the auto-speak prompt
-  // invites a topic word ("family", "university", "finances", etc.) plus
-  // "full mock" for the all-questions path.
+  // USA mode-choice voice-pick — "full" vs "section". Also catches the
+  // shortcut answers "any / start / begin / continue" which kick straight
+  // into the canonical Why-USA opener.
+  const tryListenForUsaModeChoice = useCallback(() => {
+    listenOnce((text) => {
+      const t = text.toLowerCase();
+      if (/\bfull\b|\bmock\b|\beverything\b|\bcomplete\b|\ball\b/.test(t)) {
+        return handleFullMockUSA();
+      }
+      if (/\b(specific|section|particular|pick|choose)\b/.test(t)) {
+        cancel();
+        setPhase("usa_section");
+        return;
+      }
+      if (/\b(any|start|begin|continue|go\s+ahead|let'?s\s+start)\b/.test(t)) {
+        const why = USA_SECTIONS.find((s) => s.id === "usa_why");
+        if (why) return handleSectionSelect(why);
+      }
+      // Unmatched — student can re-press the mic or click a button.
+    }, () => { /* picker manages its own listening state */ });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [listenOnce, cancel]);
+
+  // Wire the USA mode-choice forward-ref.
+  useEffect(() => {
+    autoListenUsaModeChoiceRef.current = tryListenForUsaModeChoice;
+  }, [tryListenForUsaModeChoice]);
+
+  // USA section voice-pick. Keyword-match against USA_SECTIONS labels — eight
+  // sections are enumerated in the auto-speak prompt; this matcher accepts a
+  // topic word ("family", "university", "finances", etc.). "Full mock" still
+  // works here as a late-stage fallback if the student changes their mind.
   const tryListenForUsaSection = useCallback(() => {
     listenOnce((text) => {
       const t = text.toLowerCase();
@@ -2488,6 +2532,56 @@ function InterviewSession({
     );
   }
 
+  // ── USA: Mode choice (full mock vs specific section) ───────────────────────
+  // First decision step after name capture, per the knowledge file's
+  // "Do you want to practice a full interview or a specific section?" rule.
+  if (phase === "usa_mode_choice") {
+    return (
+      <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="max-w-xl mx-auto">
+        <div className="flex items-center gap-3 mb-6">
+          <span className="text-4xl">🇺🇸</span>
+          <div>
+            <p className="text-xs font-bold text-blue-700 uppercase tracking-wider">USA · F-1 Visa Interview</p>
+            <h2 className="text-2xl font-extrabold text-gray-900">
+              How would you like to practice, {studentName}?
+            </h2>
+            <p className="text-sm text-gray-500 mt-1">A full mock covers every mandatory section. A specific section lets you go deep on one topic.</p>
+          </div>
+        </div>
+
+        <div className="space-y-3">
+          <motion.button whileHover={{ y: -2 }} onClick={handleFullMockUSA}
+            className="w-full flex items-center gap-4 p-5 rounded-2xl bg-gradient-to-r from-blue-600 to-red-600 text-white shadow-lg hover:shadow-xl transition-all">
+            <div className="w-11 h-11 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0">
+              <ListChecks className="w-5 h-5" />
+            </div>
+            <div className="text-left flex-1">
+              <p className="font-bold text-base">Full Mock Interview</p>
+              <p className="text-xs text-white/80 mt-0.5">{USA_MANDATORY_SECTION_IDS.length} questions · one randomly picked from each mandatory section</p>
+            </div>
+            <ChevronRight className="w-4 h-4 opacity-80" />
+          </motion.button>
+
+          <motion.button whileHover={{ y: -2 }} onClick={() => { cancel(); setPhase("usa_section"); }}
+            className="w-full flex items-center gap-4 p-5 rounded-2xl bg-white border-2 border-blue-300 text-blue-700 hover:border-blue-500 hover:bg-blue-50 transition-all">
+            <div className="w-11 h-11 rounded-xl bg-blue-100 flex items-center justify-center flex-shrink-0">
+              <BookOpen className="w-5 h-5" />
+            </div>
+            <div className="text-left flex-1">
+              <p className="font-bold text-base">Specific Section</p>
+              <p className="text-xs text-blue-600 mt-0.5">Pick one of the 8 approved sections (Why USA, University, Course, …)</p>
+            </div>
+            <ChevronRight className="w-4 h-4 opacity-70" />
+          </motion.button>
+        </div>
+
+        <button onClick={() => { cancel(); setPhase("name"); }} className="flex items-center gap-2 text-sm text-gray-400 hover:text-gray-600 mt-6 mx-auto">
+          <ArrowLeft className="w-3.5 h-3.5" /> Back
+        </button>
+      </motion.div>
+    );
+  }
+
   // ── USA: Section picker ─────────────────────────────────────────────────────
   if (phase === "usa_section") {
     return (
@@ -2495,7 +2589,7 @@ function InterviewSession({
         studentName={studentName}
         onSelect={handleSectionSelect}
         onFullMock={handleFullMockUSA}
-        onBack={() => { cancel(); setPhase("name"); }}
+        onBack={() => { cancel(); setPhase("usa_mode_choice"); }}
       />
     );
   }
@@ -2600,7 +2694,7 @@ function InterviewSession({
             onClick={() => {
               setAnswers([]); setQIndex(0); setTranscript(""); setFeedbackText("");
               elapsedRef.current = 0; setElapsed(0);
-              setPhase(country === "uk" ? "uk_confirm" : country === "usa" ? "usa_section" : "category");
+              setPhase(country === "uk" ? "uk_confirm" : country === "usa" ? "usa_mode_choice" : "category");
             }}
             className={`flex-1 flex items-center justify-center gap-2 py-3.5 rounded-2xl bg-gradient-to-r ${accentBg} text-white font-bold`}
           >
