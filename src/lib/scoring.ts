@@ -176,6 +176,17 @@ function scoreScholarship(_program: Program): number {
 }
 
 function scoreIntake(profile: StudentProfile, program: Program): number {
+  // Programs that fail the intake hard filter are excluded before scoring,
+  // so by the time we get here the only cases are:
+  //  - intake_semesters non-empty AND includes target → match (100)
+  //  - intake_semesters empty (data missing on our side, hard filter
+  //    deliberately let it through) → neutral 60 to avoid penalising the
+  //    program for our data gap
+  // The explicit-false branch is defensive only — it shouldn't fire post-
+  // filter but keeps the function correct if called in isolation.
+  if (!Array.isArray(program.intake_semesters) || program.intake_semesters.length === 0) {
+    return 60;
+  }
   return program.intake_semesters.includes(profile.target_intake_semester) ? 100 : 0;
 }
 
@@ -272,6 +283,16 @@ function isHardDisqualified(profile: StudentProfile, program: Program): boolean 
     const totalCost = tuition + (program.avg_living_cost_usd ?? 0);
     const budgetMax = BUDGET_VALUES[profile.budget_range];
     if (budgetMax > 0 && totalCost > budgetMax * 1.10) return true;
+  }
+
+  // Intake availability — exclude programs that explicitly DON'T offer
+  // the user's target intake semester. Same data-honest pattern as the
+  // academic / budget filters above: only fires when the program's
+  // intake_semesters list is non-empty AND missing the target. Programs
+  // with empty / missing intake data stay (we don't penalise the user
+  // for a data gap on our side).
+  if (Array.isArray(program.intake_semesters) && program.intake_semesters.length > 0) {
+    if (!program.intake_semesters.includes(profile.target_intake_semester)) return true;
   }
 
   return false;
