@@ -53,6 +53,36 @@ const SCHOLARSHIP_RANK: Record<string, number> = {
   Canada: 7, "New Zealand": 6, France: 6, Singapore: 5, UAE: 4, Malaysia: 4,
 };
 
+// Per-field-of-study selectivity bias for the "safer" lens. 1.0 = neutral.
+// >1.0 widens the effective admit window (less selective fields), <1.0
+// tightens it (more selective fields). Multiplier applies to the program's
+// qs_ranking when ranking DESC so a less-selective field at the same uni
+// ranks above a more-selective one. Values derived from typical published
+// acceptance bands across destination universities (heuristic — flagged
+// in UI copy as "AI estimate").
+const FIELD_SELECTIVITY: Record<string, number> = {
+  "Medicine & Public Health":                0.55,
+  "MBA":                                     0.65,
+  "Law":                                     0.70,
+  "Artificial Intelligence & Data Science":  0.80,
+  "Computer Science & IT":                   0.85,
+  "Business & Management":                   0.90,
+  "Economics & Finance":                     0.90,
+  "Engineering (Mechanical/Civil/Electrical)": 1.00,
+  "Biotechnology & Life Sciences":           1.05,
+  "Natural Sciences":                        1.10,
+  "Social Sciences & Humanities":            1.15,
+  "Architecture":                            1.10,
+  "Arts, Design & Architecture":             1.10,
+  "Media & Communications":                  1.15,
+  "Environmental & Sustainability Studies":  1.15,
+  "Nursing & Allied Health":                 1.20,
+  "Agriculture & Veterinary Sciences":       1.20,
+  "Hospitality & Tourism":                   1.30,
+};
+const fieldSelectivity = (f: string | undefined): number =>
+  (f && FIELD_SELECTIVITY[f]) ? FIELD_SELECTIVITY[f] : 1.0;
+
 interface RankedProgram {
   id: string;
   university_name: string;
@@ -83,6 +113,7 @@ function getPrograms() {
     duration_months?: number;
     annual_tuition_usd?: number | null;
     avg_living_cost_usd?: number | null;
+    tuition_fee_source?: "verified" | "estimated";
     program_url?: string;
   }>;
 }
@@ -117,18 +148,22 @@ function rankForLens(lens: Lens): RankedProgram[] {
   }
 
   if (lens === "safer") {
-    // Heuristic: programs where the university is outside the QS top 200
+    // Heuristic: programs where the university is outside the QS top 100
     // (or has no QS ranking at all) skew toward broader admit windows.
-    // We rank by qs_ranking DESC (NULL last → treated as most-accessible),
-    // and prefer programs with explicit field of study + duration so the
-    // result isn't catalog noise.
-    const candidates = all.filter((p) => !!p.field_of_study && (p.qs_ranking == null || p.qs_ranking > 200));
-    candidates.sort((a, b) => {
-      const qa = a.qs_ranking ?? 9999;
-      const qb = b.qs_ranking ?? 9999;
-      return qb - qa;
+    // Effective sort key is (qs_ranking × FIELD_SELECTIVITY) DESC so a
+    // less-selective field at a same-tier uni ranks above a more-selective
+    // one. NULL ranks treated as 1500 (most-accessible). Filter widened
+    // from top-200 to top-100 so genuinely safe options at well-ranked
+    // unis in non-competitive fields aren't excluded outright.
+    const candidates = all.filter((p) => !!p.field_of_study && (p.qs_ranking == null || p.qs_ranking > 100));
+    const scored = candidates.map((p) => {
+      const sel = fieldSelectivity(p.field_of_study);
+      const effective = (p.qs_ranking ?? 1500) * sel;
+      return { p, sel, effective };
     });
-    for (const p of candidates.slice(0, 30)) {
+    scored.sort((a, b) => b.effective - a.effective);
+    for (const { p, sel } of scored.slice(0, 30)) {
+      const selLabel = sel >= 1.15 ? "typically less selective" : sel <= 0.85 ? "typically more selective" : "average selectivity";
       out.push({
         id: p.id || `${p.university_name}|${p.program_name}`,
         university_name: p.university_name,
@@ -142,7 +177,9 @@ function rankForLens(lens: Lens): RankedProgram[] {
         annual_tuition_usd: p.annual_tuition_usd ?? null,
         avg_living_cost_usd: p.avg_living_cost_usd ?? null,
         program_url: p.program_url,
-        metric: p.qs_ranking ? `QS ~${p.qs_ranking} — broader admit window` : "Unranked / regional — broadest admit window",
+        metric: p.qs_ranking
+          ? `QS ~${p.qs_ranking} · ${p.field_of_study} ${selLabel}`
+          : `Unranked / regional · ${p.field_of_study} ${selLabel}`,
       });
     }
     return out;
@@ -212,11 +249,35 @@ function rankForLens(lens: Lens): RankedProgram[] {
     return out;
   }
 
-  // scholarship
-  const candidates = all
+  // scholarship — country-rank is the dominant signal, but we now blend in
+  // a per-program tuition signal so that lower-tuition programs in the same
+  // scholarship-strong country rank ahead of premium ones (partial
+  // scholarships cover proportionally more of the sticker, and most major
+  // funding programmes — Chevening, DAAD, Hardiman, Holland — are partial).
+  // Composite score (higher = better):
+  //   country_rank × 10
+  //   + tuitionBucket  (0–4: 4 = <$15k/yr verified, 0 = unknown/>$50k)
+  //   + (verified fee  ? +1 : 0)
+  // Tie-break by qs_ranking ASC so reputable funded options surface first.
+  const tuitionBucket = (t: number | null | undefined): number => {
+    if (isFeeUnavailable(t) || (t as number) <= 0) return 0;
+    const v = t as number;
+    if (v < 15000) return 4;
+    if (v < 30000) return 3;
+    if (v < 50000) return 2;
+    return 1;
+  };
+  const scored = all
     .filter((p) => !!p.field_of_study && SCHOLARSHIP_RANK[p.country] != null)
-    .sort((a, b) => SCHOLARSHIP_RANK[b.country] - SCHOLARSHIP_RANK[a.country] || (a.qs_ranking ?? 9999) - (b.qs_ranking ?? 9999));
-  for (const p of candidates.slice(0, 30)) {
+    .map((p) => {
+      const bucket = tuitionBucket(p.annual_tuition_usd);
+      const verifiedBonus = p.tuition_fee_source && p.tuition_fee_source !== "estimated" ? 1 : 0;
+      const composite = SCHOLARSHIP_RANK[p.country] * 10 + bucket + verifiedBonus;
+      return { p, bucket, composite };
+    });
+  scored.sort((a, b) => b.composite - a.composite || (a.p.qs_ranking ?? 9999) - (b.p.qs_ranking ?? 9999));
+  for (const { p, bucket } of scored.slice(0, 30)) {
+    const tuitionTag = bucket === 4 ? "low tuition" : bucket === 3 ? "moderate tuition" : bucket >= 1 ? "premium tuition" : "tuition unverified";
     out.push({
       id: p.id || `${p.university_name}|${p.program_name}`,
       university_name: p.university_name,
@@ -230,7 +291,8 @@ function rankForLens(lens: Lens): RankedProgram[] {
       annual_tuition_usd: p.annual_tuition_usd ?? null,
       avg_living_cost_usd: p.avg_living_cost_usd ?? null,
       program_url: p.program_url,
-      metric: `Scholarship-strong country (rank ${SCHOLARSHIP_RANK[p.country]}/10) — see /scholarships`,
+      metric: `${p.country} scholarship rank ${SCHOLARSHIP_RANK[p.country]}/10 · ${tuitionTag}`,
+      metricSecondary: "Partial scholarships cover proportionally more of lower tuition. See /scholarships for named programmes.",
     });
   }
   return out;
