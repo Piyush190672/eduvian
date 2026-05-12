@@ -1,0 +1,24 @@
+# EduvianAI — Security disclosure contact (RFC 9116)
+# Closes I1 from the 2 May 2026 Security Architecture Risk Assessment.
+
+Contact: mailto:security@eduvianai.com
+Expires: 2027-05-12T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://www.eduvianai.com/.well-known/security.txt
+Policy: https://www.eduvianai.com/security-policy
+
+# Acknowledgements: We thank security researchers who follow responsible
+# disclosure. Please give us 90 days to remediate before public disclosure.
+#
+# In scope: https://www.eduvianai.com and all api.eduvianai.com / *.eduvianai.com
+#   endpoints, plus the verification / extraction pipelines that drive
+#   src/data/programs.ts.
+#
+# Out of scope: third-party services we use (Supabase Cloud, Vercel, Anthropic
+#   API, Resend, Upstash) — report those directly to the respective vendor.
+#
+# Please include:
+#   - A clear reproduction (browser version, request payloads, screenshots / video)
+#   - Affected URL(s) and the impact you've confirmed
+#   - Your suggested severity (Critical / High / Medium / Low / Informational)
+#   - The first time you discovered the issue
