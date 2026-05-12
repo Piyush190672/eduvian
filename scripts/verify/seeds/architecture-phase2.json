@@ -1,0 +1,20 @@
+[
+  {
+    "university": "Australian National University",
+    "country": "Australia",
+    "city": "Canberra",
+    "qs_ranking": 30,
+    "field_of_study": "Architecture",
+    "program_url": "https://programsandcourses.anu.edu.au/program/mdesn",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Monash University",
+    "country": "Australia",
+    "city": "Melbourne",
+    "qs_ranking": 36,
+    "field_of_study": "Architecture",
+    "program_url": "https://www.monash.edu/study/courses/find-a-course/architecture-f6001",
+    "degree_level": "postgraduate"
+  }
+]

@@ -1,0 +1,276 @@
+[
+  {
+    "university": "American University in Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "missing_fields": [
+      "Biotechnology & Life Sciences",
+      "Medicine & Public Health",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Asia Pacific University of Technology & Innovation",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": null,
+    "missing_fields": [
+      "Biotechnology & Life Sciences",
+      "Medicine & Public Health",
+      "Social Sciences & Humanities",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Curtin University Singapore",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "missing_fields": [
+      "Computer Science & IT",
+      "MBA",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Biotechnology & Life Sciences",
+      "Medicine & Public Health",
+      "Social Sciences & Humanities",
+      "Natural Sciences"
+    ]
+  },
+  {
+    "university": "International Islamic University Malaysia",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": null,
+    "missing_fields": [
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Biotechnology & Life Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Khalifa University",
+    "country": "UAE",
+    "city": "Abu Dhabi",
+    "qs_ranking": null,
+    "missing_fields": [
+      "Business & Management",
+      "MBA",
+      "Social Sciences & Humanities",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Maynooth University",
+    "country": "Ireland",
+    "city": "Maynooth",
+    "qs_ranking": null,
+    "missing_fields": [
+      "Medicine & Public Health"
+    ]
+  },
+  {
+    "university": "Nanyang Technological University",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "missing_fields": [
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "S P Jain School of Global Management Singapore",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "missing_fields": [
+      "Computer Science & IT",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Biotechnology & Life Sciences",
+      "Medicine & Public Health",
+      "Social Sciences & Humanities",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Singapore Institute of Technology",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "missing_fields": [
+      "MBA",
+      "Medicine & Public Health",
+      "Social Sciences & Humanities",
+      "Natural Sciences"
+    ]
+  },
+  {
+    "university": "Taylor's University",
+    "country": "Malaysia",
+    "city": "Subang Jaya",
+    "qs_ranking": null,
+    "missing_fields": [
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Technological University Dublin",
+    "country": "Ireland",
+    "city": "Dublin",
+    "qs_ranking": null,
+    "missing_fields": [
+      "Social Sciences & Humanities",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Trinity College Dublin",
+    "country": "Ireland",
+    "city": "Dublin",
+    "qs_ranking": null,
+    "missing_fields": [
+      "Social Sciences & Humanities"
+    ]
+  },
+  {
+    "university": "UCSI University",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": null,
+    "missing_fields": [
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "United Arab Emirates University",
+    "country": "UAE",
+    "city": "Al Ain",
+    "qs_ranking": null,
+    "missing_fields": [
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Universiti Kebangsaan Malaysia",
+    "country": "Malaysia",
+    "city": "Bangi",
+    "qs_ranking": null,
+    "missing_fields": [
+      "Engineering (Mechanical/Civil/Electrical)"
+    ]
+  },
+  {
+    "university": "Universiti Malaya",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": null,
+    "missing_fields": [
+      "Social Sciences & Humanities"
+    ]
+  },
+  {
+    "university": "Universiti Putra Malaysia",
+    "country": "Malaysia",
+    "city": "Serdang",
+    "qs_ranking": null,
+    "missing_fields": [
+      "Computer Science & IT",
+      "MBA",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Biotechnology & Life Sciences"
+    ]
+  },
+  {
+    "university": "Universiti Sains Malaysia",
+    "country": "Malaysia",
+    "city": "Penang",
+    "qs_ranking": null,
+    "missing_fields": [
+      "Biotechnology & Life Sciences",
+      "Social Sciences & Humanities"
+    ]
+  },
+  {
+    "university": "Universiti Teknologi Malaysia",
+    "country": "Malaysia",
+    "city": "Johor Bahru",
+    "qs_ranking": null,
+    "missing_fields": [
+      "Business & Management",
+      "Medicine & Public Health",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Universiti Tunku Abdul Rahman",
+    "country": "Malaysia",
+    "city": "Kampar",
+    "qs_ranking": null,
+    "missing_fields": [
+      "Business & Management"
+    ]
+  },
+  {
+    "university": "University College Cork",
+    "country": "Ireland",
+    "city": "Cork",
+    "qs_ranking": null,
+    "missing_fields": [
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Biotechnology & Life Sciences",
+      "Social Sciences & Humanities",
+      "Natural Sciences",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University College Dublin",
+    "country": "Ireland",
+    "city": "Dublin",
+    "qs_ranking": null,
+    "missing_fields": [
+      "Computer Science & IT",
+      "Artificial Intelligence & Data Science",
+      "Business & Management",
+      "MBA",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Social Sciences & Humanities"
+    ]
+  },
+  {
+    "university": "University of Galway",
+    "country": "Ireland",
+    "city": "Galway",
+    "qs_ranking": null,
+    "missing_fields": [
+      "Social Sciences & Humanities"
+    ]
+  },
+  {
+    "university": "University of Nottingham Malaysia",
+    "country": "Malaysia",
+    "city": "Semenyih",
+    "qs_ranking": null,
+    "missing_fields": [
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Zayed University",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "missing_fields": [
+      "Computer Science & IT",
+      "MBA",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Biotechnology & Life Sciences",
+      "Medicine & Public Health",
+      "Nursing & Allied Health"
+    ]
+  }
+]
