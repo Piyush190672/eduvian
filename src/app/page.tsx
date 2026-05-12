@@ -312,10 +312,16 @@ export default function V2LandingPage() {
               <Sparkles className="w-3 h-3" /> AI-powered. Independent. Verified at source.
             </p>
             <h1 className="font-display font-bold text-[2.25rem] leading-[1.08] sm:text-5xl md:text-[3.75rem] tracking-tight mb-7">
-              You only get to decide this <span className="italic font-medium text-violet-300">once</span>.
+              You only decide this <span className="italic font-medium text-violet-300">once</span>.
             </h1>
-            <p className="text-lg sm:text-xl text-white/65 leading-relaxed max-w-2xl mb-10">
-              Course, country, cost, visa risk, ROI, safety — every question your family asks, answered from source-verified data, honest about the trade-offs. Say yes with conviction.
+            <p className="text-lg sm:text-xl text-white/65 leading-relaxed max-w-2xl mb-6">
+              Course, country, cost, visa, ROI, safety — every question your family will ask, answered from official university sources. Honest about the trade-offs.
+            </p>
+            {/* Standalone signature line — italic, softer weight, slightly
+                larger than body. Treats the promise as a seal on the
+                message rather than the last clause of the subhead. */}
+            <p className="font-display italic font-light text-xl sm:text-2xl text-white/80 leading-snug mb-10">
+              Say yes with conviction.
             </p>
             <div className="flex flex-wrap items-center gap-x-3 gap-y-3">
               <Link
