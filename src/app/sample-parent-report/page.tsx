@@ -1,56 +1,32 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
-import { ArrowLeft, Printer, Users, CheckCircle2, AlertCircle, TrendingUp, Shield, Briefcase, GraduationCap, Banknote, Heart } from "lucide-react";
+import { ArrowLeft, Printer, Users, CheckCircle2, AlertCircle, Download, TrendingUp, Shield, Briefcase, GraduationCap, Banknote, Heart } from "lucide-react";
 import { NextBestAction } from "@/components/NextBestAction";
 import { SourceProof } from "@/components/SourceProof";
 import { DataBadge } from "@/components/DataBadge";
 import { TradeoffView, TRADEOFF_ICONS, type TradeoffFactor } from "@/components/TradeoffView";
 import { EduvianLogoMark } from "@/components/EduvianLogo";
+import { SAMPLE, FACTORS as FACTORS_DATA, COSTS, ROI, RISKS } from "./data";
 
 // Static, illustrative sample. Numbers are believable but invented.
 // Goal: let a parent (or a student showing one) see the exact format
 // and depth of the real Parent Decision Report before generating their own.
 
-const SAMPLE = {
-  studentInitial: "Priya M.",
-  program: "MS in Computer Science",
-  university: "University of Toronto",
-  country: "Canada",
-  intake: "Fall 2026",
-  generatedOn: "Sample · illustrative only",
+// Map each factor to its lucide icon — kept inline so the data module
+// stays icon-library-free (the @react-pdf doc can't render lucide).
+const FACTOR_ICONS: Record<string, typeof TrendingUp> = {
+  "Tuition budget fit":   Banknote,
+  "Total investment fit": Banknote,
+  "Payback period":       TrendingUp,
+  "Safety":               Shield,
+  "Job market":           Briefcase,
+  "Visa readiness":       GraduationCap,
+  "Scholarship fit":      CheckCircle2,
+  "Family verdict":       Heart,
 };
-
-const FACTORS = [
-  { icon: Banknote,    factor: "Tuition budget fit",   view: "Good",                tone: "good",    note: "Tuition ₹39.4L over 2 years sits inside the family's stated ceiling of ₹45L." },
-  { icon: Banknote,    factor: "Total investment fit", view: "Needs discussion",    tone: "warn",    note: "Total investment ₹65.6L (tuition + living + setup) is ~₹20.6L above the family's ₹45L ceiling. Either revisit the ceiling, target scholarships, or compare a lower-cost program." },
-  { icon: TrendingUp,  factor: "Payback period",       view: "4.8 years",           tone: "neutral", note: "Median CS new-grad salary in Toronto: CAD 78,000 (StatsCan 2025)." },
-  { icon: Shield,      factor: "Safety",               view: "Good",                tone: "good",    note: "Toronto Numbeo safety index 65/100; consistent rating across student forums." },
-  { icon: Briefcase,   factor: "Job market",           view: "Strong",              tone: "good",    note: "PGWP up to 3 years post-graduation; CS new-grad placement >85% within 6 months." },
-  { icon: GraduationCap, factor: "Visa readiness",     view: "Medium risk",         tone: "warn",    note: "SDS funds (CAD 22,895) confirmed in GIC. Statement of purpose still needs work." },
-  { icon: CheckCircle2, factor: "Scholarship fit",     view: "Worth applying",      tone: "neutral", note: "OGS and Vector Institute scholarships open in March; deadline 4 weeks out." },
-  { icon: Heart,       factor: "Family verdict",       view: "Worth discussing",    tone: "verdict", note: "Strong on safety, payback and outcomes. Two open items: total investment is above the stated ceiling, and visa SOP needs work." },
-];
-
-const COSTS = [
-  { label: "Tuition (2 years)",                amount: "CAD 64,000",   inr: "≈ ₹39.4L" },
-  { label: "Living (Toronto, 24 months)",      amount: "CAD 38,400",   inr: "≈ ₹23.6L" },
-  { label: "One-time setup (visa, insurance)", amount: "CAD 4,200",    inr: "≈ ₹2.6L"  },
-  { label: "Total investment",                 amount: "CAD 106,600",  inr: "≈ ₹65.6L", total: true },
-];
-
-const ROI = {
-  expected_starting_salary: "CAD 78,000 / year",
-  five_year_earnings:        "CAD 470,000",
-  break_even_year:           "Year 4.8 post-graduation",
-  net_value_10yr:            "≈ CAD 612,000 above the no-study baseline",
-};
-
-const RISKS = [
-  { tone: "warn", text: "SOP needs strengthening to reduce SDS rejection risk — flagged by SOP Assistant." },
-  { tone: "warn", text: "Toronto rent has risen 11% YoY — budget assumes a shared 2BR within 30 min commute." },
-  { tone: "ok",   text: "Funds proof, transcripts, IELTS 7.0 already secured." },
-];
+const FACTORS = FACTORS_DATA.map((f) => ({ ...f, icon: FACTOR_ICONS[f.factor] ?? TrendingUp }));
 
 const toneClasses = {
   good:    { bg: "bg-emerald-50",  border: "border-emerald-200", text: "text-emerald-700",  dotBg: "bg-emerald-500" },
@@ -60,6 +36,36 @@ const toneClasses = {
 } as const;
 
 export default function SampleParentReportPage() {
+  const [downloading, setDownloading] = useState(false);
+
+  // Real downloadable PDF (Tier-C #16). Generates a proper text-selectable
+  // file via @react-pdf/renderer — dynamic-imported so the heavy renderer
+  // bundle (~250kb gz) only loads when the user actually clicks Download.
+  const handleDownloadPdf = async () => {
+    if (downloading) return;
+    setDownloading(true);
+    try {
+      const [{ pdf }, { SampleParentReportPdfDoc }] = await Promise.all([
+        import("@react-pdf/renderer"),
+        import("./pdf-doc"),
+      ]);
+      const blob = await pdf(<SampleParentReportPdfDoc />).toBlob();
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "EduvianAI-Parent-Decision-Report-sample.pdf";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    } catch (err) {
+      console.error("PDF generation failed:", err);
+      alert("Couldn't generate the PDF. Try the Save-as-PDF button instead.");
+    } finally {
+      setDownloading(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-100 print:bg-white">
       {/* Top toolbar — hidden on print */}
@@ -73,11 +79,20 @@ export default function SampleParentReportPage() {
             SAMPLE · illustrative
           </span>
           <button
+            onClick={handleDownloadPdf}
+            disabled={downloading}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 disabled:opacity-60 text-white text-sm font-bold transition-colors shadow-md"
+          >
+            <Download className="w-4 h-4" />
+            {downloading ? "Generating…" : "Download PDF"}
+          </button>
+          <button
             onClick={() => window.print()}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white text-sm font-bold transition-colors shadow-md"
+            className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-purple-300 text-purple-700 hover:bg-purple-50 text-sm font-bold transition-colors"
+            title="Print or use the browser's Save-as-PDF dialog"
           >
             <Printer className="w-4 h-4" />
-            Save as PDF
+            Print view
           </button>
           <Link
             href="/parent-decision"
@@ -276,11 +291,12 @@ export default function SampleParentReportPage() {
             Generate my own report
           </Link>
           <button
-            onClick={() => window.print()}
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-purple-300 text-purple-700 hover:bg-purple-50 text-sm font-bold transition-colors"
+            onClick={handleDownloadPdf}
+            disabled={downloading}
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-purple-300 text-purple-700 hover:bg-purple-50 disabled:opacity-60 text-sm font-bold transition-colors"
           >
-            <Printer className="w-4 h-4" />
-            Save this sample as PDF
+            <Download className="w-4 h-4" />
+            {downloading ? "Generating PDF…" : "Download this sample as PDF"}
           </button>
         </div>
       </div>
