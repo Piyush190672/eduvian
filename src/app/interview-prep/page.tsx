@@ -386,20 +386,26 @@ const USA_SECTIONS: QuestionCategory[] = [
   },
 ];
 
-// Mandatory sections for full-mock coverage (per knowledge file Section B).
-// Visa or Refusal + Your Personal Background are OPTIONAL — available in
-// section practice but not required in a full mock interview.
+// Per knowledge file Section B: six sections are mandatory and two are
+// optional. The full mock asks one random question from each of the SIX
+// mandatory sections first, then one from each of the TWO optional
+// sections — so the officer-style sequence stays mandatory-first and the
+// optional pair lands at the tail. Section-practice mode lets the user
+// pick any of the eight; this list only controls mock coverage.
 const USA_MANDATORY_SECTION_IDS = ["usa_why", "usa_university", "usa_course", "usa_academic", "usa_finance", "usa_future"] as const;
+const USA_OPTIONAL_SECTION_IDS  = ["usa_visa", "usa_personal"] as const;
 
 /**
- * Build a USA Full Mock interview at session start: ONE question randomly
- * picked from each of the 6 mandatory sections, in the section order from
- * USA_SECTIONS. Randomised per session so repeat practice surfaces variety
- * without paraphrasing or inventing questions.
+ * Build a USA Full Mock interview at session start. Iterates the eight
+ * approved sections in mandatory-first order, picking ONE random question
+ * per section. Total = 8 questions, randomised per session so repeat
+ * practice surfaces variety without paraphrasing or inventing.
  */
 function buildUsaFullMock(): { question: string; category: string; objective: string }[] {
-  return USA_SECTIONS
-    .filter((s) => (USA_MANDATORY_SECTION_IDS as readonly string[]).includes(s.id))
+  const orderedIds = [...USA_MANDATORY_SECTION_IDS, ...USA_OPTIONAL_SECTION_IDS] as readonly string[];
+  return orderedIds
+    .map((id) => USA_SECTIONS.find((s) => s.id === id))
+    .filter((s): s is QuestionCategory => !!s)
     .map((s) => {
       const q = s.questions[Math.floor(Math.random() * s.questions.length)];
       return { question: q, category: s.label, objective: s.objective };
@@ -1189,7 +1195,7 @@ function USASectionPicker({
         </div>
         <div className="text-left flex-1">
           <p className="font-bold text-sm">Full Mock Interview</p>
-          <p className="text-xs text-white/70 mt-0.5">{USA_MANDATORY_SECTION_IDS.length} questions · one randomly picked from each mandatory section</p>
+          <p className="text-xs text-white/70 mt-0.5">{USA_MANDATORY_SECTION_IDS.length + USA_OPTIONAL_SECTION_IDS.length} questions · one per section, {USA_MANDATORY_SECTION_IDS.length} mandatory first then {USA_OPTIONAL_SECTION_IDS.length} optional</p>
         </div>
         <ChevronRight className="w-4 h-4 opacity-70" />
       </motion.button>
@@ -2557,7 +2563,7 @@ function InterviewSession({
             </div>
             <div className="text-left flex-1">
               <p className="font-bold text-base">Full Mock Interview</p>
-              <p className="text-xs text-white/80 mt-0.5">{USA_MANDATORY_SECTION_IDS.length} questions · one randomly picked from each mandatory section</p>
+              <p className="text-xs text-white/80 mt-0.5">{USA_MANDATORY_SECTION_IDS.length + USA_OPTIONAL_SECTION_IDS.length} questions · one per section, {USA_MANDATORY_SECTION_IDS.length} mandatory first then {USA_OPTIONAL_SECTION_IDS.length} optional</p>
             </div>
             <ChevronRight className="w-4 h-4 opacity-80" />
           </motion.button>
