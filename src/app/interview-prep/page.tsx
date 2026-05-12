@@ -708,6 +708,11 @@ if (typeof window !== "undefined" && "speechSynthesis" in window) {
 }
 
 function useTTS(country: Country) {
+  // Flag set by cancel() so the onerror "interrupted/canceled" retry below
+  // can distinguish a user-driven stop (don't retry) from a browser race
+  // (retry once). Reset to false at the start of every speakSegments call.
+  const intentionallyCancelledRef = useRef(false);
+
   // speakSegments() — speaks an array of text segments with a pause between each.
   // This creates natural breathing room between feedback sections.
   const speakSegments = useCallback((segments: string[], onEnd?: () => void) => {
@@ -722,12 +727,19 @@ function useTTS(country: Country) {
     // from useTTS — that path is for user-driven interruption (Mute toggle,
     // listenOnce, etc.) and is fine to call separately.
 
+    // A new speak request always overrides any previous user-driven cancel.
+    intentionallyCancelledRef.current = false;
+
     const doSpeak = (voices: SpeechSynthesisVoice[]) => {
       const voice = pickVoice(voices, country);
       let i = 0;
       let didRetry = false;
 
       const speakNext = () => {
+        // Honour a user-driven cancel even if the browser fires onend
+        // (instead of onerror) on the cancelled utterance. We bail
+        // silently — the cancel path is the user's exit; no onEnd().
+        if (intentionallyCancelledRef.current) return;
         if (i >= segments.length) { onEnd?.(); return; }
         const seg = segments[i++];
         if (!seg.trim()) { speakNext(); return; }
@@ -755,10 +767,16 @@ function useTTS(country: Country) {
         utter.onerror = (e) => {
           const code = (e as SpeechSynthesisErrorEvent).error ?? "unknown";
           console.warn("[interview-prep] TTS utter.onerror:", code);
-          // 'interrupted' / 'canceled' usually means another speak() or
-          // cancel() raced this one. Retry once with a small delay before
-          // giving up — this rescues the first-utterance race that can
-          // happen on initial mount in Chrome.
+          // User-driven Stop Interview / Mute / listenOnce paths set
+          // intentionallyCancelledRef before invoking speechSynthesis.cancel().
+          // In that case we MUST NOT retry — the user clicked stop, honour it.
+          // The remaining segments are dropped, no further speakNext fires.
+          if (intentionallyCancelledRef.current) {
+            return;
+          }
+          // 'interrupted' / 'canceled' here means another speak() raced this
+          // one (the original first-utterance-on-mount race). Retry once with
+          // a small delay before giving up.
           if ((code === "interrupted" || code === "canceled") && !didRetry) {
             didRetry = true;
             i--; // rewind so speakNext re-pops this segment
@@ -817,6 +835,11 @@ function useTTS(country: Country) {
 
   const cancel = useCallback(() => {
     if (typeof window !== "undefined" && "speechSynthesis" in window) {
+      // Flag set BEFORE speechSynthesis.cancel() so the onerror path inside
+      // any in-flight speakSegments() sees it and skips the retry. Without
+      // this flag the retry re-queued the cancelled utterance ~250ms later
+      // and the user heard the coach keep talking after Stop Interview.
+      intentionallyCancelledRef.current = true;
       window.speechSynthesis.cancel();
     }
   }, []);
