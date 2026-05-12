@@ -117,10 +117,14 @@ function scoreAcademic(profile: StudentProfile, program: Program): number {
 }
 
 function scoreEnglish(profile: StudentProfile, program: Program): number {
-  if (profile.english_test === "none") {
-    const requiresTest = program.min_ielts || program.min_toefl || program.min_pte || program.min_duolingo;
-    return requiresTest ? 20 : 70;
-  }
+  // User explicitly hasn't taken any English test. Render this as a gap
+  // regardless of whether the program page publishes a minimum — every
+  // international study program effectively requires one even when not
+  // explicitly stated. The exact value 5 is a SENTINEL that the UI
+  // (ProgramCard.getVerdict) treats specially to show
+  // "Take an English test (IELTS / TOEFL / PTE / Duolingo)" rather than
+  // the generic "Below requirement" copy.
+  if (profile.english_test === "none") return 5;
 
   // Defensive: an empty number input fires parseFloat("") = NaN, and a
   // legacy row with english_score_overall = 0 used to drop straight into

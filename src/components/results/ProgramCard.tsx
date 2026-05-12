@@ -65,6 +65,10 @@ function getVerdict(signal: string, value: number, isPG: boolean, budgetPct?: nu
       if (value === 60 || value === 70) return "No test submitted";
       return s === "strong" ? "Score qualifies" : s === "partial" ? "Close to requirement" : "Below requirement";
     case "english":
+      // 5 = sentinel from scoring.ts meaning the user said english_test
+      // is "none". Always show a take-the-test prompt rather than the
+      // generic "Below requirement" copy.
+      if (value === 5) return "Take an English test (IELTS / TOEFL / PTE)";
       if (value === 70 || value === 80) return "No test or not required";
       return s === "strong" ? "Meets requirement" : s === "partial" ? "Slightly below" : "Below requirement";
     case "scholarship":
