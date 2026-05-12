@@ -158,18 +158,21 @@ function scoreBudget(profile: StudentProfile, program: Program): number {
 }
 
 /**
- * Scholarship score — proxy based on QS ranking.
- * Top-ranked universities offer more merit aid; well-ranked programs are
- * more likely to bridge budget gaps with scholarships.
+ * Scholarship signal.
+ *
+ * Previously this was a QS-ranking proxy ("higher rank → more aid"), which
+ * silently inflated per-program scholarship scores even though we have no
+ * per-program scholarship data. That was misleading.
+ *
+ * Until programs.ts carries explicit scholarship-availability data per
+ * program / university, this signal returns a NEUTRAL 50 — it contributes
+ * the same constant to every program's match_score and doesn't claim
+ * availability one way or the other. The UI no longer shows this row in
+ * the score breakdown (see CheckMatchPanel.tsx). Country-level scholarship
+ * guidance remains at /options?lens=scholarship and /scholarships.
  */
-function scoreScholarship(program: Program): number {
-  if (!program.qs_ranking) return 45; // unranked colleges: moderate scholarship availability
-  if (program.qs_ranking <= 50)  return 100;
-  if (program.qs_ranking <= 100) return 90;
-  if (program.qs_ranking <= 200) return 78;
-  if (program.qs_ranking <= 400) return 62;
-  if (program.qs_ranking <= 600) return 48;
-  return 35;
+function scoreScholarship(_program: Program): number {
+  return 50;
 }
 
 function scoreIntake(profile: StudentProfile, program: Program): number {
@@ -227,9 +230,17 @@ function scoreGapYear(profile: StudentProfile): number {
   return profile.academic_gap ? 50 : 100;
 }
 
-// ─── Hard disqualifiers (English floor) ──────────────────────────────────────
+// ─── Hard disqualifiers (English floor + academic floor + budget ceiling) ────
+//
+// 12 May 2026: academic + budget moved from soft scoring to hard filters.
+// Programs the student isn't academically eligible for, or whose total
+// annual cost exceeds 110% of the user's selected budget, are now
+// excluded from the matched results entirely rather than just penalised.
 
 function isHardDisqualified(profile: StudentProfile, program: Program): boolean {
+  // English floor — student must be within shouting distance of the
+  // published minimum. Buffer reflects scale-conversion noise; tighter
+  // than the academic floor below because English tests are deterministic.
   if (profile.english_test !== "none" && profile.english_score_overall) {
     const s = profile.english_score_overall;
     const ok: Record<string, boolean> = {
@@ -240,6 +251,29 @@ function isHardDisqualified(profile: StudentProfile, program: Program): boolean 
     };
     if (!ok[profile.english_test]) return true;
   }
+
+  // Academic floor — strict. If the program publishes a minimum GPA or
+  // percentage and the student's converted score is below it, exclude
+  // the program. No buffer: the user asked for results that match the
+  // stated eligibility criteria, not "close enough" results.
+  const minPct = programMinToPercentage(program);
+  if (minPct > 0) {
+    const studentPct = toPercentage(profile);
+    if (studentPct < minPct) return true;
+  }
+
+  // Budget ceiling — total annual cost (tuition + living) > 110% of the
+  // user's budget. Programs with no fee data (annual_tuition_usd <= 0
+  // or null-cast) are NOT disqualified — we can't make a budget claim
+  // without a fee. The ROI / Parent tools surface the missing-fee state
+  // separately via the editable-input path.
+  const tuition = program.annual_tuition_usd;
+  if (typeof tuition === "number" && tuition > 0) {
+    const totalCost = tuition + (program.avg_living_cost_usd ?? 0);
+    const budgetMax = BUDGET_VALUES[profile.budget_range];
+    if (budgetMax > 0 && totalCost > budgetMax * 1.10) return true;
+  }
+
   return false;
 }
 
@@ -346,8 +380,13 @@ export function recommendPrograms(profile: StudentProfile, programs: Program[]):
   const canadaCollegeTypes = new Set(profile.canada_college_types ?? []);
 
   // ── Allowed fields ────────────────────────────────────────────────────────
-  const relatedFields = RELATED_FIELDS[profile.intended_field] ?? [];
-  const allowedFields = new Set([profile.intended_field, ...relatedFields]);
+  // STRICT 12 May 2026: only the user's exact intended_field qualifies.
+  // The previous RELATED_FIELDS expansion bucketed MBA with Economics &
+  // Finance, Computer Science with AI/DS, etc. — defensible for breadth
+  // but the user asked for "strictly stick to the programs in the intended
+  // stream only". RELATED_FIELDS is kept above the function for the rare
+  // case a future flag wants to re-enable it; not used here.
+  const allowedFields = new Set([profile.intended_field]);
 
   // Build reverse map: country name → country code
   const nameToCode = Object.fromEntries(TARGET_COUNTRIES.map((t) => [t.name, t.code]));

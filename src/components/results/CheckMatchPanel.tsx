@@ -235,11 +235,16 @@ export default function CheckMatchPanel({ token }: Props) {
                         <div className="grid grid-cols-2 gap-2">
                           {(
                             [
+                              // "Scholarships" row removed 12 May 2026 — we
+                              // don't carry per-program scholarship data, so
+                              // a Strong / Average / Weak signal here would
+                              // be misleading. Country-level scholarship
+                              // guidance lives at /scholarships and at
+                              // /options?lens=scholarship instead.
                               ["Academic",          breakdown.academic       ],
                               ["Budget",            breakdown.budget         ],
                               ["Standard Test",     breakdown.std_test       ],
                               ["English",           breakdown.english        ],
-                              ["Scholarships",      breakdown.scholarship    ],
                               ["Intake Match",      breakdown.intake         ],
                               ["Backlogs",          breakdown.backlogs       ],
                               ["Gap Year",          breakdown.gap_year       ],
