@@ -248,12 +248,18 @@ const UK_CATEGORIES: QuestionCategory[] = [
   },
 ];
 
-// ─── USA — 8 sections, 64 approved questions (F-1 visa consular interview) ────
+// ─── USA — 8 sections, 63 approved questions (F-1 visa consular interview) ────
 // Source of truth: USA_Visa_Interview_Prep_Knowledge_File (FINAL_CORRECTED).
-// Wording is VERBATIM from Section C of the knowledge file — never paraphrase,
-// merge, or invent. Six sections are mandatory in a full mock; "Visa or
-// Refusal" and "Your Personal Background" are optional but available for
-// section-practice mode.
+// Wording follows Section C of the knowledge file — never paraphrase, merge,
+// or invent. Two typos in the original file were corrected on user instruction:
+//   - "What will be the total cost of per year?" → "What will be the total
+//      cost per year?" (preposition fix)
+//   - "Where your brother/parents did completed their studies?" was
+//      effectively a typo'd duplicate of "Where did your brother/parents
+//      complete their studies?" already present in the same section; the
+//      typo version was dropped, the clean version kept.
+// Six sections are mandatory in a full mock; "Visa or Refusal" and "Your
+// Personal Background" are optional but available for section-practice mode.
 
 const USA_SECTIONS: QuestionCategory[] = [
   {
@@ -300,7 +306,7 @@ const USA_SECTIONS: QuestionCategory[] = [
       "What do you plan to study at the university?",
       "What benefit will bring this course to you?",
       "What is the course commencement date?",
-      "What will be the total cost of per year?",
+      "What will be the total cost per year?",
       "Where will you stay in US?",
     ],
   },
@@ -374,7 +380,6 @@ const USA_SECTIONS: QuestionCategory[] = [
       "What does your father do?",
       "How many brothers and sisters do you have?",
       "What is your father's annual income?",
-      "Where your brother/parents did completed their studies?",
       "Do you have a brother / sister, or any other relative already at this university?",
       "Where did your brother/parents complete their studies?",
       "Do you have any relatives in the US?",
@@ -1007,10 +1012,10 @@ function CountrySelect({ onSelect }: { onSelect: (c: Country) => void }) {
             </div>
           </div>
           <p className="text-sm text-gray-500 leading-relaxed">
-            64 approved questions across 8 sections — Why USA, University, Course, Academic, Finance, Future Plans, Visa, and Personal Background.
+            63 approved questions across 8 sections — Why USA, University, Course, Academic, Finance, Future Plans, Visa, and Personal Background.
           </p>
           <div className="flex flex-wrap gap-1.5">
-            {["8 sections", "64 questions", "Male US voice", "AI feedback"].map((t) => (
+            {["8 sections", "63 questions", "Male US voice", "AI feedback"].map((t) => (
               <span key={t} className="px-2.5 py-1 rounded-full bg-blue-100 text-blue-700 text-[11px] font-semibold">{t}</span>
             ))}
           </div>
