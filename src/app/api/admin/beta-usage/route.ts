@@ -1,9 +1,22 @@
-import { NextResponse } from "next/server";
+import { NextResponse, type NextRequest } from "next/server";
 import { createServiceClient } from "@/lib/supabase";
 import { MONTHLY_UNIQUE_USER_CAP, MAX_MONTHLY_SPEND_CENTS } from "@/lib/beta-gate";
 import { apiErrorResponse } from "@/lib/api-error";
+import { logAdminAction, sessionActorFromHeaders } from "@/lib/admin-audit";
+import { getClientIp, checkRateLimit } from "@/lib/rate-limit";
 
-export async function GET() {
+export async function GET(req: NextRequest) {
+  const ip = getClientIp(req.headers);
+  const rl = await checkRateLimit(`admin-beta-usage:${ip}`, 100, 3600);
+  if (!rl.ok) return NextResponse.json({ error: "rate_limited" }, { status: 429 });
+  const actor = sessionActorFromHeaders(req.headers);
+  logAdminAction({
+    actor: actor ?? "unknown",
+    actor_kind: "session_hash",
+    action: "beta_usage.read",
+    ip,
+    ua: req.headers.get("user-agent"),
+  });
   const supabase = createServiceClient();
   if (!supabase) {
     return NextResponse.json({

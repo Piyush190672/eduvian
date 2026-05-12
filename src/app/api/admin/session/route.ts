@@ -3,6 +3,7 @@ import { createSessionToken } from "@/lib/session";
 import { createServiceClient } from "@/lib/supabase";
 import { isOwnerEmail } from "@/lib/beta-gate";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
+import { logAdminAction, hashSessionToken, sessionActorFromHeaders } from "@/lib/admin-audit";
 
 const COOKIE_NAME = "eduvianai_admin_session";
 const COOKIE_OPTS = {
@@ -92,13 +93,32 @@ export async function POST(req: NextRequest) {
   }
 
   const token = await createSessionToken();
+  // M6: log a session_started row keyed on the verified admin email and
+  // the session-token hash, so subsequent per-route audit rows (keyed on
+  // session_hash only) can be joined back to the operator.
+  logAdminAction({
+    actor: data.user.email!,
+    actor_kind: "email",
+    action: "session_started",
+    target: hashSessionToken(token),
+    ip,
+    ua: req.headers.get("user-agent"),
+  });
   const res = NextResponse.json({ ok: true });
   res.cookies.set(COOKIE_NAME, token, { ...COOKIE_OPTS, maxAge: 60 * 60 * 8 }); // 8 h
   return padToMinTime(started, res);
 }
 
 // DELETE — called on logout to clear the session cookie
-export async function DELETE() {
+export async function DELETE(req: NextRequest) {
+  const actor = sessionActorFromHeaders(req.headers);
+  logAdminAction({
+    actor: actor ?? "unknown",
+    actor_kind: "session_hash",
+    action: "session_ended",
+    ip: getClientIp(req.headers),
+    ua: req.headers.get("user-agent"),
+  });
   const res = NextResponse.json({ ok: true });
   res.cookies.set(COOKIE_NAME, "", { ...COOKIE_OPTS, maxAge: 0 });
   return res;

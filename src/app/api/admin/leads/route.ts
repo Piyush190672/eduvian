@@ -1,8 +1,26 @@
-import { NextResponse } from "next/server";
+import { NextResponse, type NextRequest } from "next/server";
 import { submissionStore } from "@/lib/store";
 import { decryptProfile } from "@/lib/submissions-decrypt";
+import { logAdminAction, sessionActorFromHeaders } from "@/lib/admin-audit";
+import { getClientIp, checkRateLimit } from "@/lib/rate-limit";
 
-export async function GET() {
+export async function GET(req: NextRequest) {
+  // M8: rate-limit even admin-side reads. The middleware admin gate is
+  // the authz check; this is the abuse cap if a session token leaks.
+  const ip = getClientIp(req.headers);
+  const rl = await checkRateLimit(`admin-leads:${ip}`, 100, 3600);
+  if (!rl.ok) {
+    return NextResponse.json({ error: "rate_limited" }, { status: 429 });
+  }
+  // M6: audit every admin read. Fire-and-forget — never blocks the handler.
+  const actor = sessionActorFromHeaders(req.headers);
+  logAdminAction({
+    actor: actor ?? "unknown",
+    actor_kind: "session_hash",
+    action: "leads.read",
+    ip,
+    ua: req.headers.get("user-agent"),
+  });
   try {
     const { createServiceClient } = await import("@/lib/supabase");
     const supabase = createServiceClient();
