@@ -72,16 +72,41 @@ function csrfCheck(request: NextRequest): NextResponse | null {
   return null;
 }
 
+/**
+ * Mint or propagate an x-request-id for every request. Closes L6 from
+ * the security audit — gives us a correlation key that can be threaded
+ * through Vercel → Supabase / Anthropic call sites for incident tracing.
+ * If the client already sent one (e.g. a known integration), we trust
+ * the first 64 chars; otherwise we generate a fresh UUID.
+ */
+function ensureRequestId(request: NextRequest): string {
+  const incoming = request.headers.get("x-request-id");
+  if (incoming && /^[A-Za-z0-9._-]{8,64}$/.test(incoming)) return incoming;
+  return crypto.randomUUID();
+}
+
+function withRequestId(res: NextResponse, requestId: string): NextResponse {
+  res.headers.set("x-request-id", requestId);
+  return res;
+}
+
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+  const requestId = ensureRequestId(request);
+  // Propagate to downstream handlers via request headers — Next.js exposes
+  // these via `headers()` in route handlers. Sentry's getCurrentScope can
+  // also tag from this if needed.
+  request.headers.set("x-request-id", requestId);
 
   // CSRF gate runs first for every state-changing /api/* call.
   const csrfFail = csrfCheck(request);
-  if (csrfFail) return csrfFail;
+  if (csrfFail) return withRequestId(csrfFail, requestId);
 
   // The session endpoint itself must be reachable without a session cookie —
   // POST creates it (chicken-and-egg), DELETE clears it on logout.
-  if (pathname === "/api/admin/session") return NextResponse.next();
+  if (pathname === "/api/admin/session") {
+    return withRequestId(NextResponse.next({ request: { headers: request.headers } }), requestId);
+  }
 
   // Protect /admin/* sub-routes (login page at /admin stays open)
   const isProtectedAdmin = pathname.startsWith("/admin/");
@@ -95,13 +120,13 @@ export async function middleware(request: NextRequest) {
 
     if (!valid) {
       if (isAdminApi) {
-        return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+        return withRequestId(NextResponse.json({ error: "Unauthorized" }, { status: 401 }), requestId);
       }
-      return NextResponse.redirect(new URL("/admin", request.url));
+      return withRequestId(NextResponse.redirect(new URL("/admin", request.url)), requestId);
     }
   }
 
-  return NextResponse.next();
+  return withRequestId(NextResponse.next({ request: { headers: request.headers } }), requestId);
 }
 
 export const config = {
