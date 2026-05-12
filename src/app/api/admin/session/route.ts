@@ -12,37 +12,54 @@ const COOKIE_OPTS = {
   path: "/",
 };
 
+// Minimum response time for admin-session POST. Closes L4 from the
+// security audit: a constant floor prevents an attacker from
+// distinguishing "no JWT" / "bad JWT" / "not-owner" / "MFA-required"
+// /  "success" via timing — the various paths in this handler differ
+// by ~100ms (Supabase getUser is the slow call). 500ms is comfortably
+// above that variance without being noticeable to a real operator.
+const ADMIN_LOGIN_MIN_MS = 500;
+async function padToMinTime<T>(started: number, work: Promise<T> | T): Promise<T> {
+  const result = await work;
+  const elapsed = Date.now() - started;
+  const remaining = ADMIN_LOGIN_MIN_MS - elapsed;
+  if (remaining > 0) await new Promise((r) => setTimeout(r, remaining));
+  return result;
+}
+
 // POST — verify Supabase JWT + owner allowlist, then issue admin cookie
 export async function POST(req: NextRequest) {
+  const started = Date.now();
+
   // Brute-force guard for the admin login flow.
   const ip = getClientIp(req.headers);
   const rl = await checkRateLimit(`admin-session:${ip}`, 20, 900);
   if (!rl.ok) {
-    return NextResponse.json(
+    return padToMinTime(started, NextResponse.json(
       { ok: false, error: "rate_limited" },
       { status: 429, headers: { "Retry-After": String(rl.retryAfter ?? 60) } }
-    );
+    ));
   }
 
   const auth = req.headers.get("authorization") ?? "";
   const m = /^Bearer\s+(.+)$/i.exec(auth.trim());
   if (!m) {
-    return NextResponse.json({ ok: false, error: "missing_bearer_token" }, { status: 401 });
+    return padToMinTime(started, NextResponse.json({ ok: false, error: "missing_bearer_token" }, { status: 401 }));
   }
   const jwt = m[1];
 
   const supabase = createServiceClient();
   if (!supabase) {
-    return NextResponse.json({ ok: false, error: "auth_unavailable" }, { status: 503 });
+    return padToMinTime(started, NextResponse.json({ ok: false, error: "auth_unavailable" }, { status: 503 }));
   }
 
   const { data, error } = await supabase.auth.getUser(jwt);
   if (error || !data?.user?.email) {
-    return NextResponse.json({ ok: false, error: "invalid_token" }, { status: 401 });
+    return padToMinTime(started, NextResponse.json({ ok: false, error: "invalid_token" }, { status: 401 }));
   }
 
   if (!isOwnerEmail(data.user.email)) {
-    return NextResponse.json({ ok: false, error: "not_authorized" }, { status: 403 });
+    return padToMinTime(started, NextResponse.json({ ok: false, error: "not_authorized" }, { status: 403 }));
   }
 
   // H1: enforce AAL2 if the user has any verified MFA factor.
@@ -67,17 +84,17 @@ export async function POST(req: NextRequest) {
       // Malformed token shouldn't have got past getUser, but be defensive.
     }
     if (aal !== "aal2") {
-      return NextResponse.json(
+      return padToMinTime(started, NextResponse.json(
         { ok: false, error: "mfa_required" },
         { status: 403 },
-      );
+      ));
     }
   }
 
   const token = await createSessionToken();
   const res = NextResponse.json({ ok: true });
   res.cookies.set(COOKIE_NAME, token, { ...COOKIE_OPTS, maxAge: 60 * 60 * 8 }); // 8 h
-  return res;
+  return padToMinTime(started, res);
 }
 
 // DELETE — called on logout to clear the session cookie
