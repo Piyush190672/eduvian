@@ -261,41 +261,51 @@ export default function V2LandingPage() {
   return (
     <div className="min-h-screen bg-white font-sans antialiased text-gray-900">
 
-      {/* ───── NAV ───── */}
-      <nav className="absolute top-0 inset-x-0 z-50">
-        <div className="max-w-7xl mx-auto px-6 sm:px-10 h-16 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 text-white">
-            <span className="font-display text-lg font-bold tracking-tight">eduvianAI</span>
-          </Link>
-          <div className="flex items-center gap-6">
-            <button
-              type="button"
-              onClick={() => setHowItWorksOpen(true)}
-              className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors"
-            >
-              How it works
-            </button>
-            <Link href="#journey"      className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors">Stages</Link>
-            <Link href="#outputs"      className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors">Outputs</Link>
-            <Link href="#destinations" className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors">Destinations</Link>
-            <Link href="#scholarships" className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors">Scholarships</Link>
-            <Link href="#principles"   className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors">Why choose us</Link>
-            <Link
-              href="/get-started"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-gray-900 text-sm font-semibold hover:bg-stone-100 transition-colors"
-            >
-              Get started
-            </Link>
-          </div>
-        </div>
-      </nav>
-
       {/* ───── HERO ─────
           Heading = the user-supplied positioning sentence.
           RHS    = real sample-dashboard mockup (no photo).
           Below  = parent strip with For-students / For-parents.
        */}
       <section className="relative bg-[#0E1119] text-white overflow-hidden">
+        {/* NAV — placed INSIDE the relative hero so the absolute
+            positioning resolves against the section, not the viewport.
+            (When the page-level fixed BetaBanner + SecurityNotice are
+            visible, a viewport-anchored nav slides behind them.) */}
+        <nav className="absolute top-0 inset-x-0 z-40">
+          <div className="max-w-7xl mx-auto px-6 sm:px-10 h-16 flex items-center justify-between">
+            <Link href="/" className="flex items-center gap-2 text-white">
+              <img
+                src="/logo.svg"
+                alt=""
+                width={32}
+                height={32}
+                className="w-8 h-8 rounded-lg"
+              />
+              <span className="font-display text-lg font-bold tracking-tight">eduvianAI</span>
+            </Link>
+            <div className="flex items-center gap-6">
+              <button
+                type="button"
+                onClick={() => setHowItWorksOpen(true)}
+                className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors"
+              >
+                How it works
+              </button>
+              <Link href="#journey"      className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors">Stages</Link>
+              <Link href="#outputs"      className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors">Outputs</Link>
+              <Link href="#destinations" className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors">Destinations</Link>
+              <Link href="#scholarships" className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors">Scholarships</Link>
+              <Link href="#principles"   className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors">Why choose us</Link>
+              <Link
+                href="/get-started"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-gray-900 text-sm font-semibold hover:bg-stone-100 transition-colors"
+              >
+                Get started
+              </Link>
+            </div>
+          </div>
+        </nav>
+
         <div className="max-w-7xl mx-auto px-6 sm:px-10 pt-28 sm:pt-36 pb-16 sm:pb-20 grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           <div className="lg:col-span-7">
             <p className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.25em] text-violet-300/85 mb-8 font-semibold">
