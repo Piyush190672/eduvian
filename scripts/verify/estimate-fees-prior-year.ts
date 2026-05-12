@@ -53,6 +53,14 @@
  *   - The university's own CURRENT-year fees page (already tried by
  *     layer 1 — bypass).
  *
+ * Confidence ladder (12 May 2026, user-tuned):
+ *   - Archived uni page (cat 1) alone                     → sufficient
+ *   - Ranking / government portal (cat 2-3) alone         → sufficient
+ *   - Two cat-4 / cat-5 sources agreeing within 10%       → sufficient
+ *   - Two cat-4 / cat-5 sources within 11-20%             → sufficient,
+ *       take the AVERAGE of the two figures; note the spread
+ *   - Two cat-4 / cat-5 sources differing by > 20%        → low → null
+ *
  * Usage:
  *   npx tsx scripts/verify/estimate-fees-prior-year.ts [--limit N] [--country C] [--concurrency N] [--dry]
  */
@@ -170,8 +178,15 @@ Hard rules:
       b) ANY category 2 / 3 source (rankings or government portal) alone,
          since these aggregate from official data.
       c) Two sources from categories 4 / 5 (consultancies / news) that
-         agree on a number within 10% of each other.
-    Anything weaker → confidence: low → don't write.
+         agree on a number within 10% of each other → use either figure
+         (or their average; the deviation is small).
+      d) Two sources from categories 4 / 5 that disagree by 11-20% →
+         take the AVERAGE of the two figures and use that. Note the
+         spread in the "notes" field so reviewers know the spread.
+      e) Two sources from categories 4 / 5 that disagree by >20% →
+         confidence: low → don't write. Spread is too wide to average
+         responsibly.
+    Anything weaker than the above → confidence: low → don't write.
   - Cite the exact source URLs you used in the "sources" array.
 
 Return ONLY a JSON object:
