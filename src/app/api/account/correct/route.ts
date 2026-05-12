@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getUserFromRequest } from "@/lib/user-cookie";
 import { createServiceClient } from "@/lib/supabase";
 import { apiErrorResponse } from "@/lib/api-error";
+import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 
 // Reads the session cookie — must be evaluated per-request, never statically.
 export const dynamic = "force-dynamic";
@@ -22,6 +23,11 @@ function clean(value: unknown, maxLen: number): string | null {
  */
 export async function POST(req: NextRequest) {
   try {
+    // M8: cap self-service corrections (20/h per IP).
+    const ip = getClientIp(req.headers);
+    const rl = await checkRateLimit(`account-correct:${ip}`, 20, 3600);
+    if (!rl.ok) return NextResponse.json({ error: "rate_limited" }, { status: 429, headers: { "Retry-After": String(rl.retryAfter ?? 60) } });
+
     const user = await getUserFromRequest(req);
     if (!user) {
       return NextResponse.json({ error: "Sign in to update your data." }, { status: 401 });

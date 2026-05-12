@@ -4,11 +4,18 @@ import { PROGRAMS } from "@/data/programs";
 import { submissionStore } from "@/lib/store";
 import type { Program } from "@/lib/types";
 import { decryptProfile } from "@/lib/submissions-decrypt";
+import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 
 export async function GET(
-  _req: NextRequest,
+  req: NextRequest,
   { params }: { params: { token: string } }
 ) {
+  // M8: cap result reads (60/h per IP). Token-gated, but rate-cap is
+  // belt-and-suspenders against token-guessing fishing.
+  const ip = getClientIp(req.headers);
+  const rl = await checkRateLimit(`results-get:${ip}`, 60, 3600);
+  if (!rl.ok) return NextResponse.json({ error: "rate_limited" }, { status: 429, headers: { "Retry-After": String(rl.retryAfter ?? 60) } });
+
   const { token } = params;
 
   // Try Supabase
@@ -82,6 +89,11 @@ export async function PATCH(
   req: NextRequest,
   { params }: { params: { token: string } }
 ) {
+  // M8: cap shortlist updates (60/h per IP) — write path, must cap.
+  const ip = getClientIp(req.headers);
+  const rl = await checkRateLimit(`results-patch:${ip}`, 60, 3600);
+  if (!rl.ok) return NextResponse.json({ error: "rate_limited" }, { status: 429, headers: { "Retry-After": String(rl.retryAfter ?? 60) } });
+
   const { token } = params;
   const { shortlisted_ids } = await req.json();
 

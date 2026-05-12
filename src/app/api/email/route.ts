@@ -5,9 +5,16 @@ import { formatCurrency, getTierLabel } from "@/lib/utils";
 import { scoreStudentProfile, getCategoryStyle, categoryBadgeHtml } from "@/lib/profile-score";
 import { escHtml, escHtmlBounded } from "@/lib/html-escape";
 import { decryptProfile } from "@/lib/submissions-decrypt";
+import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 
 export async function POST(req: NextRequest) {
   try {
+    // M8: cap shortlist-email sends (10/h per IP). Resend bills per send;
+    // any uncapped POST endpoint that fires email is an abuse vector.
+    const ip = getClientIp(req.headers);
+    const rl = await checkRateLimit(`email-shortlist:${ip}`, 10, 3600);
+    if (!rl.ok) return NextResponse.json({ error: "rate_limited" }, { status: 429, headers: { "Retry-After": String(rl.retryAfter ?? 60) } });
+
     const body = await req.json();
     const { token, shortlisted_ids } = body as {
       token: string;

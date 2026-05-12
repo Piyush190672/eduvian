@@ -3,6 +3,7 @@ import { getUserFromRequest, USER_COOKIE_NAME } from "@/lib/user-cookie";
 import { createServiceClient } from "@/lib/supabase";
 import { apiErrorResponse } from "@/lib/api-error";
 import { emailHash } from "@/lib/pii-crypto";
+import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 
 // Reads the session cookie — must be evaluated per-request, never statically.
 export const dynamic = "force-dynamic";
@@ -20,6 +21,12 @@ export const dynamic = "force-dynamic";
  */
 export async function POST(req: NextRequest) {
   try {
+    // M8: cap destructive erasure attempts hard (5/h per IP). A legit
+    // user only needs this once; the cap defends against scripted abuse.
+    const ip = getClientIp(req.headers);
+    const rl = await checkRateLimit(`account-delete:${ip}`, 5, 3600);
+    if (!rl.ok) return NextResponse.json({ error: "rate_limited" }, { status: 429, headers: { "Retry-After": String(rl.retryAfter ?? 60) } });
+
     const user = await getUserFromRequest(req);
     if (!user) {
       return NextResponse.json({ error: "Sign in to delete your data." }, { status: 401 });

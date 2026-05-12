@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { apiErrorResponse } from "@/lib/api-error";
 import { escHtml } from "@/lib/html-escape";
+import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 
 export const maxDuration = 30;
 
@@ -425,6 +426,11 @@ function buildParentBody(d: ParentData): string {
 
 export async function POST(req: NextRequest) {
   try {
+    // M8: cap tool-PDF renders (20/h per IP) — HTML build + render is heavy.
+    const ip = getClientIp(req.headers);
+    const rl = await checkRateLimit(`pdf-tools:${ip}`, 20, 3600);
+    if (!rl.ok) return NextResponse.json({ error: "rate_limited" }, { status: 429, headers: { "Retry-After": String(rl.retryAfter ?? 60) } });
+
     const { type, data } = await req.json() as { type: "roi" | "parent"; data: ROIData | ParentData };
 
     if (type === "roi") {

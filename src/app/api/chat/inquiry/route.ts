@@ -1,8 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 import { captureApiError } from "@/lib/api-error";
+import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 
 export async function POST(req: NextRequest) {
   try {
+    // M8: cap inquiries (20/h per IP) — these write to the chat_inquiries
+    // table; uncapped, a bot could fill it.
+    const ip = getClientIp(req.headers);
+    const rl = await checkRateLimit(`chat-inquiry:${ip}`, 20, 3600);
+    if (!rl.ok) return NextResponse.json({ ok: false, error: "rate_limited" }, { status: 429, headers: { "Retry-After": String(rl.retryAfter ?? 60) } });
+
     const { name, email, phone, question } = await req.json() as {
       name: string;
       email: string;

@@ -4,6 +4,7 @@ import { createServiceClient } from "@/lib/supabase";
 import { apiErrorResponse } from "@/lib/api-error";
 import { emailHash } from "@/lib/pii-crypto";
 import { decryptProfile } from "@/lib/submissions-decrypt";
+import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 
 // Reads the session cookie — must be evaluated per-request, never statically.
 export const dynamic = "force-dynamic";
@@ -14,6 +15,11 @@ export const dynamic = "force-dynamic";
  */
 export async function GET(req: NextRequest) {
   try {
+    // M8: cap data-export reads (30/h per IP).
+    const ip = getClientIp(req.headers);
+    const rl = await checkRateLimit(`account-access:${ip}`, 30, 3600);
+    if (!rl.ok) return NextResponse.json({ error: "rate_limited" }, { status: 429, headers: { "Retry-After": String(rl.retryAfter ?? 60) } });
+
     const user = await getUserFromRequest(req);
     if (!user) {
       return NextResponse.json({ error: "Sign in to view your data." }, { status: 401 });

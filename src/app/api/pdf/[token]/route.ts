@@ -7,11 +7,17 @@ import { getTierLabel, formatCurrency, getCountryFlag } from "@/lib/utils";
 import { scoreStudentProfile, categoryBadgeHtml } from "@/lib/profile-score";
 import { escHtml } from "@/lib/html-escape";
 import { decryptProfile } from "@/lib/submissions-decrypt";
+import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 
 export async function GET(
   req: NextRequest,
   { params }: { params: { token: string } }
 ) {
+  // M8: cap PDF renders (30/h per IP) — HTML→PDF render is CPU-heavy.
+  const ip = getClientIp(req.headers);
+  const rl = await checkRateLimit(`pdf-token:${ip}`, 30, 3600);
+  if (!rl.ok) return NextResponse.json({ error: "rate_limited" }, { status: 429, headers: { "Retry-After": String(rl.retryAfter ?? 60) } });
+
   const { token } = params;
 
   // Read shortlisted IDs from query param first (most up-to-date)
