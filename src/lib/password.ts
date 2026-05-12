@@ -20,7 +20,7 @@ const SCRYPT_P = 1;
 const KEY_LEN  = 64;
 const SALT_LEN = 32;
 
-export const MIN_PASSWORD_LENGTH = 10;
+export const MIN_PASSWORD_LENGTH = 8;
 export const MAX_PASSWORD_LENGTH = 256;
 
 /** Generate a fresh hash for a plaintext password. */
@@ -71,10 +71,17 @@ export async function verifyPassword(plain: string, stored: string): Promise<boo
 /**
  * Validate password strength. Returns null when OK, an error string otherwise.
  *
- * Keeping rules minimal in v1: length only. Composition rules (mixed case,
- * digits, symbols) have weak evidence vs. length per the latest NIST 800-63B
- * guidance; we may revisit if we add a strength meter to the UI.
+ * Locked policy (12 May 2026): minimum 8 characters AND must contain at
+ * least one letter, at least one digit, and at least one special character
+ * (anything outside [A-Za-z0-9]). Stricter than NIST 800-63B's "length is
+ * king" guidance, but matches the user's explicit requirement and helps
+ * defend against credential-stuffing dictionaries that target purely
+ * alphabetic or purely numeric passwords.
  */
+const RE_LETTER  = /[A-Za-z]/;
+const RE_DIGIT   = /[0-9]/;
+const RE_SPECIAL = /[^A-Za-z0-9]/;
+
 export function validatePasswordStrength(plain: unknown): string | null {
   if (typeof plain !== "string") return "Password is required.";
   if (plain.length < MIN_PASSWORD_LENGTH) {
@@ -82,6 +89,15 @@ export function validatePasswordStrength(plain: unknown): string | null {
   }
   if (plain.length > MAX_PASSWORD_LENGTH) {
     return "Password is too long.";
+  }
+  if (!RE_LETTER.test(plain)) {
+    return "Password must contain at least one letter.";
+  }
+  if (!RE_DIGIT.test(plain)) {
+    return "Password must contain at least one number.";
+  }
+  if (!RE_SPECIAL.test(plain)) {
+    return "Password must contain at least one special character (e.g. ! @ # $ % & *).";
   }
   return null;
 }

@@ -21,7 +21,20 @@ import { Lock, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
  * cards.
  */
 
-const MIN_LENGTH = 10;
+// Mirrors src/lib/password.ts. Server is the source of truth — this is just
+// a client-side hint so we don't roundtrip on obviously-bad input.
+const MIN_LENGTH = 8;
+const RE_LETTER  = /[A-Za-z]/;
+const RE_DIGIT   = /[0-9]/;
+const RE_SPECIAL = /[^A-Za-z0-9]/;
+
+function clientValidate(pw: string): string | null {
+  if (pw.length < MIN_LENGTH) return `Password must be at least ${MIN_LENGTH} characters.`;
+  if (!RE_LETTER.test(pw))    return "Password must contain at least one letter.";
+  if (!RE_DIGIT.test(pw))     return "Password must contain at least one number.";
+  if (!RE_SPECIAL.test(pw))   return "Password must contain at least one special character (e.g. ! @ # $ % & *).";
+  return null;
+}
 
 export default function SetPasswordCard() {
   const [hasUser, setHasUser] = useState(false);
@@ -44,8 +57,9 @@ export default function SetPasswordCard() {
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     setMsg(null);
-    if (newPassword.length < MIN_LENGTH) {
-      setMsg({ kind: "err", text: `Password must be at least ${MIN_LENGTH} characters.` });
+    const strengthErr = clientValidate(newPassword);
+    if (strengthErr) {
+      setMsg({ kind: "err", text: strengthErr });
       return;
     }
     if (newPassword !== confirm) {
@@ -119,11 +133,28 @@ export default function SetPasswordCard() {
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
               autoComplete="new-password"
-              placeholder={`At least ${MIN_LENGTH} characters`}
+              placeholder={`At least ${MIN_LENGTH} characters, letters, numbers, special`}
               minLength={MIN_LENGTH}
               required
               className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition placeholder:text-gray-400"
             />
+            {/* Live strength checklist — green ticks as the user types so they
+                see exactly which rule is still missing. */}
+            <ul className="mt-2 space-y-0.5 text-[11px] text-gray-500">
+              {[
+                { ok: newPassword.length >= MIN_LENGTH,   label: `At least ${MIN_LENGTH} characters` },
+                { ok: RE_LETTER.test(newPassword),         label: "Contains a letter (A–Z, a–z)" },
+                { ok: RE_DIGIT.test(newPassword),          label: "Contains a number (0–9)" },
+                { ok: RE_SPECIAL.test(newPassword),        label: "Contains a special character (e.g. ! @ # $ %)" },
+              ].map((rule) => (
+                <li key={rule.label} className="flex items-center gap-1.5">
+                  <span className={rule.ok ? "text-emerald-600 font-bold" : "text-gray-300"}>
+                    {rule.ok ? "✓" : "○"}
+                  </span>
+                  <span className={rule.ok ? "text-emerald-700" : ""}>{rule.label}</span>
+                </li>
+              ))}
+            </ul>
           </div>
           <div>
             <label className="block text-xs font-semibold text-gray-600 mb-1.5">Confirm new password</label>
