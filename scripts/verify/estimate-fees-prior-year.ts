@@ -18,13 +18,16 @@
  * program is silently skipped from the budget cap). A 5%-uplifted
  * prior-year number is materially better than zero or null.
  *
- * Sources allowed:
- *   - University's own ARCHIVED fees page (Wayback Machine / Google cache)
- *   - QS / THE / US News program profiles citing a dated figure
- *   - News articles announcing a fee change ("uni X raised fees from
- *     £25,000 to £26,500 for 2025-26")
- *   - Alumni / student blogs that quote a prior-year figure with the
- *     specific academic year attached
+ * Sources allowed (user-specified, 12 May 2026):
+ *   - QS Top Universities (topuniversities.com)
+ *   - Times Higher Education (timeshighereducation.com)
+ *   - IDP Education (idp.com)
+ *   - LEAP Scholar (leapscholar.com)
+ *   - Career360 (careers360.com)
+ *   - USA Today / usnews.com (for USA programs)
+ *   - The university's OWN archived fees page (Wayback Machine /
+ *     Google cache) — preferred above all third-party sources
+ *   - News articles with both old + new figures named and dated
  *
  * Banned sources: Reddit, Quora, forums, undated figures, "around X"
  * approximations without a year anchor.
@@ -72,20 +75,39 @@ CURRENT YEAR:  ${CURRENT_YEAR}
 PRIOR YEAR:    ${PRIOR_YEAR} (preferred)
 PRIOR-PRIOR:   ${PRIOR_PRIOR} (acceptable as fallback)
 
-Use the web_search tool. Look for the INTERNATIONAL / OVERSEAS / NON-RESIDENT tuition figure for academic year ${PRIOR_YEAR}-${(PRIOR_YEAR % 100 + 1).toString().padStart(2, "0")} or ${PRIOR_PRIOR}-${(PRIOR_PRIOR % 100 + 1).toString().padStart(2, "0")}. Acceptable sources in priority order:
-  1. Wayback Machine / Google cache snapshot of the university's official fees page from the prior academic year.
-  2. QS Top Universities, Times Higher Ed, US News program profiles citing a DATED prior-year figure.
-  3. News articles reporting a fee change with both old and new figures named, e.g. "Uni X raised tuition from £25,000 to £26,500 for 2025-26".
-  4. Reputable study-abroad portals (Shiksha, Yocket, MastersPortal) IF they explicitly quote the academic year and the source.
+Use the web_search tool. Look for the INTERNATIONAL / OVERSEAS / NON-RESIDENT tuition figure for academic year ${PRIOR_YEAR}-${(PRIOR_YEAR % 100 + 1).toString().padStart(2, "0")} or ${PRIOR_PRIOR}-${(PRIOR_PRIOR % 100 + 1).toString().padStart(2, "0")}.
 
-Banned sources: Reddit, Quora, forums, blog posts without a year anchor, "around X / approximately X" without dated attribution.
+ALLOWED sources (user-locked, 12 May 2026 — use ONLY these):
+  1. The university's OWN archived fees page (Wayback Machine
+     web.archive.org or Google cache) from the prior academic year.
+     PREFERRED above all third-party sources.
+  2. QS Top Universities  → topuniversities.com
+  3. Times Higher Education → timeshighereducation.com
+  4. IDP Education → idp.com  (program profile or country fees page)
+  5. LEAP Scholar → leapscholar.com
+  6. Career360 → careers360.com
+  7. USA Today / U.S. News (usnews.com) — for USA programs.
+  8. News articles (BBC, Guardian, FT, NYT, etc.) ONLY when they
+     report a fee change citing both the old and new figure with
+     the academic year named.
+
+BANNED sources (do NOT use, even if they appear in results):
+  - Reddit, Quora, Stack Exchange, college-confidential, any forum
+  - Blogs without a year anchor
+  - Shiksha, Yocket, MastersPortal, GoStudy, and other study-abroad
+    portals NOT on the allowlist above
+  - Undated figures, "around X" / "approximately X" without academic
+    year attribution
+  - The university's own current-year page (already tried at layer 1)
 
 Hard rules:
   - INTERNATIONAL / OVERSEAS / NON-RESIDENT tuition only — never domestic / home / EU / in-state.
   - Annual figure. Multi-year totals → divide by years.
   - The year MUST be explicit. An undated figure is unusable.
   - Prefer ${PRIOR_YEAR}-${(PRIOR_YEAR % 100 + 1).toString().padStart(2, "0")}. If only ${PRIOR_PRIOR}-${(PRIOR_PRIOR % 100 + 1).toString().padStart(2, "0")} is available, use it and note the script will apply two years' worth of uplift via separate logic.
-  - Two-source agreement OR the university's archived official page.
+  - Two-source agreement (BOTH from the allowed list above) OR the
+    university's own archived official page is sufficient on its own.
+  - Cite the exact source URLs you used in the "sources" array.
 
 Return ONLY a JSON object:
 {
