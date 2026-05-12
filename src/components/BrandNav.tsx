@@ -34,7 +34,7 @@ export default function BrandNav({ variant = "dark", ctaHref = "/get-started", c
           />
           <span className="flex flex-col leading-none">
             <span className="font-display text-lg font-bold tracking-tight">eduvianAI</span>
-            <span className={`hidden sm:inline text-[10px] font-medium tracking-tight mt-1 ${isDark ? "text-white/55" : "text-gray-400"}`}>Independent study-abroad intelligence</span>
+            <span className={`text-[9px] sm:text-[10px] font-medium tracking-tight mt-1 ${isDark ? "text-white/55" : "text-gray-400"}`}>Independent study-abroad intelligence</span>
           </span>
         </Link>
         <div className="flex items-center gap-3 sm:gap-6">
