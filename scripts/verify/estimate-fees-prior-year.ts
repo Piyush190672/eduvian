@@ -84,7 +84,19 @@ const UPLIFT_PCT = 5;
 
 const argv = process.argv.slice(2);
 const argLimit   = (() => { const i = argv.indexOf("--limit");       return i >= 0 ? parseInt(argv[i + 1], 10) : Infinity; })();
-const argCountry = (() => { const i = argv.indexOf("--country");     return i >= 0 ? argv[i + 1] : null; })();
+// --country supports a single name OR a comma-separated list of names.
+//   --country UK
+//   --country UK,USA,Canada,Australia,Ireland,"New Zealand",Germany
+// Names match Program.country exactly (case-sensitive). Use double quotes
+// around names that contain spaces ("New Zealand") when calling from a
+// shell.
+const argCountry = (() => {
+  const i = argv.indexOf("--country");
+  if (i < 0) return null;
+  const raw = argv[i + 1] ?? "";
+  const names = raw.split(",").map((s) => s.trim()).filter(Boolean);
+  return names.length > 0 ? new Set(names) : null;
+})();
 const argConc    = (() => { const i = argv.indexOf("--concurrency"); return i >= 0 ? parseInt(argv[i + 1], 10) : 4; })();
 const argDry     = argv.includes("--dry");
 // Re-attempt only the entries listed in a prior pass's audit JSON. The
@@ -423,7 +435,7 @@ async function main() {
       if (!missingFee) continue;
       if (isEstimated) continue;
     }
-    if (argCountry && country !== argCountry) continue;
+    if (argCountry && !argCountry.has(country)) continue;
     if (!programUrl) continue;
     targets.push({ idx: i, uni, country, programName, programUrl });
     if (targets.length >= argLimit) break;
