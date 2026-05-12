@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { DB_STATS, universitiesByCountry } from "@/data/db-stats";
+import { DB_STATS, universitiesByCountry, programsByCountry } from "@/data/db-stats";
 
 export const maxDuration = 60;
 
@@ -8,6 +8,12 @@ const uniListSection = Object.entries(universitiesByCountry)
   .sort((a, b) => b[1].length - a[1].length)
   .map(([country, unis]) => `${country} (${unis.length} universities):\n${unis.join(", ")}`)
   .join("\n\n");
+
+// Live country ranking — closes L2 from the security audit (hardcoded counts
+// drifted from DB). Source of truth is db-stats.ts → PROGRAMS.
+const countryRankSection = programsByCountry
+  .map((c, i) => `${i + 1}. ${c.country} — ${c.count} programs`)
+  .join("\n");
 
 // ── Platform knowledge base ───────────────────────────────────────────────────
 const PLATFORM_DATA = `
@@ -45,19 +51,7 @@ MATCHING TIERS:
 - AMBITIOUS (score <50): Highly competitive; worth a strong application. ~20% of shortlist.
 
 COUNTRIES WE COVER (${DB_STATS.totalCountries} destinations):
-1. USA — 449 programs (largest in database)
-2. UK — 211 programs
-3. Canada — 182 programs
-4. Germany — 77 programs
-5. Australia — 67 programs
-6. Netherlands — 27 programs
-7. France — 18 programs
-8. Malaysia — 14 programs
-9. Ireland — 12 programs
-10. UAE — 11 programs
-11. Singapore — 10 programs
-12. New Zealand — 9 programs
-13. Switzerland — 4 programs
+${countryRankSection}
 
 TOTAL DATABASE: ${DB_STATS.totalPrograms.toLocaleString()}+ programs across ${DB_STATS.totalUniversities}+ universities, ${DB_STATS.totalFields} fields of study.
 

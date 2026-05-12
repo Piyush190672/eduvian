@@ -20,6 +20,9 @@ let verifiedProgramCount = 0;
 
 // universities grouped by country  {country -> sorted string[]}
 const _byCountry: Record<string, Set<string>> = {};
+// program count per country — closes L2 from the security audit, which
+// flagged that /api/chat hardcoded these numbers and drifted from the DB.
+const _programCountByCountry: Record<string, number> = {};
 
 interface MaybeVerified {
   university_name?: string;
@@ -36,6 +39,7 @@ for (const p of PROGRAMS as MaybeVerified[]) {
   if (p.country) {
     if (!_byCountry[p.country]) _byCountry[p.country] = new Set();
     _byCountry[p.country].add(p.university_name);
+    _programCountByCountry[p.country] = (_programCountByCountry[p.country] ?? 0) + 1;
   }
   if (p.verified_at) {
     verifiedProgramCount += 1;
@@ -47,6 +51,16 @@ export const universitiesByCountry: Record<string, string[]> = {};
 for (const [country, unis] of Object.entries(_byCountry)) {
   universitiesByCountry[country] = [...unis].sort();
 }
+
+/**
+ * Program count per country, ranked DESC. Use this in any place that
+ * needs to enumerate countries by depth (e.g., the chat-route system
+ * prompt). Avoids hardcoded counts that drift from the DB.
+ */
+export const programsByCountry: Array<{ country: string; count: number }> =
+  Object.entries(_programCountByCountry)
+    .map(([country, count]) => ({ country, count }))
+    .sort((a, b) => b.count - a.count);
 
 // ── Exported stats ─────────────────────────────────────────────────────────
 
