@@ -58,7 +58,7 @@ type Country = "australia" | "uk" | "usa";
 // feedback    → AI-generated feedback displayed
 // complete    → end of session summary
 type Phase =
-  | "name" | "uk_confirm" | "category" | "usa_mode_choice" | "usa_section"
+  | "name" | "uk_confirm" | "category" | "au_mode_choice" | "usa_mode_choice" | "usa_section"
   | "speaking" | "listening" | "review" | "feedback" | "complete";
 
 interface QuestionCategory {
@@ -77,7 +77,10 @@ interface Answer {
   feedback?: string;
 }
 
-// ─── Australia — 19 exact approved questions ──────────────────────────────────
+// ─── Australia — 18 approved questions, 5 categories ──────────────────────────
+// Source of truth: Australia_Interview_Prep_Knowledge_File (DOCX, attached
+// 12 May 2026). Wording is VERBATIM from Section "Approved Interview Question
+// Bank" of the file — never paraphrase, merge, or invent.
 
 const AU_CATEGORIES: QuestionCategory[] = [
   {
@@ -88,8 +91,8 @@ const AU_CATEGORIES: QuestionCategory[] = [
       "Why have you chosen this course?",
       "What are the course contents and structure and how it is going to benefit you?",
       "How will this course improve your circumstances in your country?",
-      "What independent research have you conducted in regards to this course?",
-      "Your proposed course is inconsistent to your previous studies, and you don't have work experience in related field as well, so why you have chosen this course? Why are you changing your specialization?",
+      "Independent research conducted in regards to this course?",
+      "Your proposed course is inconsistent to your previous studies, and you don't have work experience in related field as well, so why you have chosen this course? Why are you planning to change your area of specialization?",
       "What all study options you considered while making your research?",
     ],
   },
@@ -98,9 +101,8 @@ const AU_CATEGORIES: QuestionCategory[] = [
     objective: "Establish correlation between previous academic background, proposed studies, career outcomes, ROI, and employment plans after completion.",
     icon: <Briefcase className="w-4 h-4" />,
     questions: [
-      "What details can you share about the studies you have completed in the past and how are those studies linked to your proposed studies?",
-      "How will this course improve your career prospects, what are the employment opportunities at completion of this course and remuneration level?",
-      "What salary or remuneration do you expect in India after completing this course? Which all companies would you like to work for after completing this course?",
+      "Details of studies you have completed in past and how those studies are linked to your proposed studies?",
+      "How this course will improve your career prospects, what are the employment opportunities at completion of this course and remuneration level? What salary/remuneration you expect in India after completing this course? Which all companies you would like to work for after completing this course? Have you been offered a job already?",
       "How will this course benefit you professionally and economically?",
     ],
   },
@@ -109,8 +111,8 @@ const AU_CATEGORIES: QuestionCategory[] = [
     objective: "Assess whether studying in Australia is a genuine and well-researched choice.",
     icon: <MapPin className="w-4 h-4" />,
     questions: [
-      "Why have you chosen Australia as your study destination, what research have you made in regards to studying in Australia, its culture and lifestyle?",
-      "Why are you not pursuing a similar course in India or any other country? Have you conducted any independent research to make sure if similar courses are available in India or not? If yes, what research you have conducted. If no, why not. If similar courses are available in India, why you are not opting for that?",
+      "Why you have chosen Australia as your study destination, what research you have made in regards to studying in Australia? What do you know about Australian culture and life style?",
+      "Why you are not pursuing a similar course in India or any other country? Have you conducted any independent research to make sure if similar courses are available in India or not? If yes, what research you have conducted. If no, why not. If similar courses are available in India, why you are not opting for that?",
       "If not India, which all countries you considered while making your research for further studies, what research you conducted in regards to those countries?",
     ],
   },
@@ -119,9 +121,9 @@ const AU_CATEGORIES: QuestionCategory[] = [
     objective: "Gauge the applicant's understanding of the university, campus, program strengths, and why this institution is better suited than others.",
     icon: <Building2 className="w-4 h-4" />,
     questions: [
-      "You are going to which university and campus? Why have you chosen this university and campus? Where is this university or campus located in Australia?",
-      "Why have you chosen this education provider or university, what independent research you have conducted on your part to make sure this is the right institution to pursue your study plans?",
-      "Have you considered other universities also? If yes, which all universities you considered for your proposed education and what research you made in regards to those universities. If no, why you have not considered those options for your proposed studies?",
+      "You are going to which university and campus? Why have you chosen this university and campus? Where is this university/campus located in Australia?",
+      "Why you have chosen this education provider/university, what independent research you have conducted on your part to make sure this is the right institution to pursue your study plans?",
+      "Have you considered other universities also. If yes, which all universities you considered for your proposed education and what research you made in regards to those universities. If no, why you have not considered those options for your proposed studies?",
     ],
   },
   {
@@ -129,9 +131,9 @@ const AU_CATEGORIES: QuestionCategory[] = [
     objective: "Assess return incentives, study-gap justification, and seriousness of intent.",
     icon: <HelpCircle className="w-4 h-4" />,
     questions: [
-      "How can you prove that you will come back after completing your studies?",
-      "You finished your graduation or high school last year, what are you doing since then?",
-      "You completed your graduation in 2012–13 and since then you are working, so now what made you take this decision of going for further education?",
+      "How can you prove that you will come back after completing your studies.",
+      "You finished your graduation/high school last year, what are you doing since then.",
+      "You completed your graduation in 2012-13 and since then you are working, so now what made you take this decision of going for further education?",
     ],
   },
 ];
@@ -139,6 +141,20 @@ const AU_CATEGORIES: QuestionCategory[] = [
 const AU_ALL_QUESTIONS = AU_CATEGORIES.flatMap((c) =>
   c.questions.map((q) => ({ question: q, category: c.label, objective: c.objective }))
 );
+
+/**
+ * AU Full Mock builder. Per the knowledge file: "If User chooses Full Mock
+ * Interview option, then at least one question each needs to be asked from
+ * within each category … start from category 1, … then category 2, …".
+ * One random question per category at session start, in category order.
+ * Five categories → five questions per mock; randomised per session.
+ */
+function buildAuFullMock(): { question: string; category: string; objective: string }[] {
+  return AU_CATEGORIES.map((c) => {
+    const q = c.questions[Math.floor(Math.random() * c.questions.length)];
+    return { question: q, category: c.label, objective: c.objective };
+  });
+}
 
 // ─── UK — 14 exact approved questions (fixed linear sequence) ─────────────────
 
@@ -989,10 +1005,10 @@ function CountrySelect({ onSelect }: { onSelect: (c: Country) => void }) {
             </div>
           </div>
           <p className="text-sm text-gray-500 leading-relaxed">
-            19 approved questions across 5 categories — Program, Career Outcome, Why Australia, University, and Return Intent.
+            18 approved questions across 5 categories — Program, Career Outcome, Why Australia, University, and Other Important Questions.
           </p>
           <div className="flex flex-wrap gap-1.5">
-            {["5 categories", "19 questions", "Genuine Student style", "AI feedback"].map((t) => (
+            {["5 categories", "18 questions", "Genuine Student style", "AI feedback"].map((t) => (
               <span key={t} className="px-2.5 py-1 rounded-full bg-sky-100 text-sky-700 text-[11px] font-semibold">{t}</span>
             ))}
           </div>
@@ -1564,6 +1580,7 @@ function InterviewSession({
   const autoListenCategoryRef = useRef<(() => void) | null>(null);
   const autoListenUsaSectionRef = useRef<(() => void) | null>(null);
   const autoListenUsaModeChoiceRef = useRef<(() => void) | null>(null);
+  const autoListenAuModeChoiceRef = useRef<(() => void) | null>(null);
 
   // ── Check STT support ───────────────────────────────────────────────────────
   useEffect(() => {
@@ -1637,7 +1654,7 @@ function InterviewSession({
   useEffect(() => {
     if (phase !== "name" || mode === "text") return;
     const greeting = country === "australia"
-      ? "Hello there! Welcome to your Genuine Student interview practice! I am so excited to help you prepare. To get us started, could you please tell me your name?"
+      ? "Hello, I am here to help you prepare for your university interview. Please tell me your name."
       : country === "usa"
       ? "Hello! I am your USA student visa guide. I am here to help you prepare for your upcoming student visa interview. May I know your name please?"
       : "Hello! Welcome! I am absolutely delighted to help you prepare for your UK credibility interview today. Could you please tell me your name?";
@@ -1674,6 +1691,23 @@ function InterviewSession({
     const msg = `Great to meet you, ${sayName}! Do you want to practice a full interview or a specific section?`;
     const t = setTimeout(() => speak(msg, () => {
       autoListenUsaModeChoiceRef.current?.();
+    }), 300);
+    return () => clearTimeout(t);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [phase]);
+
+  // ── AUTO-SPEAK: AU mode choice (full mock vs specific category) ─────────────
+  // Per the AU knowledge file: after name capture, address the student by name
+  // and ask "Do you want to practice a full mock interview or a specific
+  // category?". If they don't pick a category, default to a full mock starting
+  // with the first question from About the Program (the matcher routes that
+  // path to handlePracticeAll).
+  useEffect(() => {
+    if (phase !== "au_mode_choice" || !studentName || mode === "text") return;
+    const sayName = speechFriendlyName(studentName);
+    const msg = `${sayName}, do you want to practice a full mock interview or a specific category?`;
+    const t = setTimeout(() => speak(msg, () => {
+      autoListenAuModeChoiceRef.current?.();
     }), 300);
     return () => clearTimeout(t);
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -2054,7 +2088,7 @@ function InterviewSession({
         setNameInput(name);
         cancel();
         setStudentName(name);
-        setPhase(country === "uk" ? "uk_confirm" : country === "usa" ? "usa_mode_choice" : "category");
+        setPhase(country === "uk" ? "uk_confirm" : country === "usa" ? "usa_mode_choice" : "au_mode_choice");
       },
       setNameListening,
       true, // nameMode
@@ -2138,7 +2172,7 @@ function InterviewSession({
     cancel(); // stop any current speech before transitioning
     setStudentName(name);
     setNameInput(name); // update field to show the cleaned name
-    setPhase(country === "uk" ? "uk_confirm" : country === "usa" ? "usa_mode_choice" : "category");
+    setPhase(country === "uk" ? "uk_confirm" : country === "usa" ? "usa_mode_choice" : "au_mode_choice");
   };
 
   // ── UK YES confirmation ─────────────────────────────────────────────────────
@@ -2165,11 +2199,16 @@ function InterviewSession({
 
   const handlePracticeAll = () => {
     cancel();
-    setActiveQuestions(AU_ALL_QUESTIONS);
-    setSessionLabel("All Categories · 19 Questions");
+    // Per knowledge file: full mock = one random question from each of the
+    // 5 categories, in category order (Program → Career → Why Australia →
+    // University → Other Important). Randomised per session for variety
+    // without paraphrasing or inventing questions.
+    const mock = buildAuFullMock();
+    setActiveQuestions(mock);
+    setSessionLabel(`Full Mock Interview · ${mock.length} Questions`);
     setQIndex(0);
     setAnswers([]);
-    speakQuestion(AU_ALL_QUESTIONS[0].question);
+    speakQuestion(mock[0].question);
   };
 
   // ── USA section / full mock selection ───────────────────────────────────────
@@ -2222,6 +2261,40 @@ function InterviewSession({
   useEffect(() => {
     autoListenCategoryRef.current = tryListenForCategory;
   }, [tryListenForCategory]);
+
+  // AU mode-choice voice-pick — "full mock" vs "specific category". Per the
+  // knowledge file, when the student doesn't pick anything we DEFAULT to a
+  // full mock (not to category 1 directly). Category-name shortcuts ("about
+  // the program", "why Australia", …) skip straight to that category.
+  const tryListenForAuModeChoice = useCallback(() => {
+    listenOnce((text) => {
+      const t = text.toLowerCase();
+      if (/\bfull\b|\bmock\b|\beverything\b|\bcomplete\b|\ball\b/.test(t)) {
+        return handlePracticeAll();
+      }
+      if (/\b(specific|category|particular|pick|choose)\b/.test(t)) {
+        cancel();
+        setPhase("category");
+        return;
+      }
+      // Category-by-name shortcut → straight to that category
+      if (/\bprogram\b|\bcourse\b/.test(t))                 return handleCategorySelect(AU_CATEGORIES[0]);
+      if (/\bcareer\b|\boutcome\b/.test(t))                 return handleCategorySelect(AU_CATEGORIES[1]);
+      if (/\bwhy\s+australia\b|\baustralia\b/.test(t))      return handleCategorySelect(AU_CATEGORIES[2]);
+      if (/\buniversit\b|\bcampus\b/.test(t))               return handleCategorySelect(AU_CATEGORIES[3]);
+      if (/\bother\b|\bimportant\b|\breturn\b|\bgap\b/.test(t)) return handleCategorySelect(AU_CATEGORIES[4]);
+      // Unmatched — per spec "If the user does not choose a category, begin
+      // a full mock interview". Falling through here means we deliberately
+      // honour that default rather than waiting for another prompt.
+      return handlePracticeAll();
+    }, () => { /* picker manages its own listening state */ });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [listenOnce, cancel]);
+
+  // Wire the AU mode-choice forward-ref.
+  useEffect(() => {
+    autoListenAuModeChoiceRef.current = tryListenForAuModeChoice;
+  }, [tryListenForAuModeChoice]);
 
   // USA mode-choice voice-pick — "full" vs "section". Also catches the
   // shortcut answers "any / start / begin / continue" which kick straight
@@ -2438,7 +2511,7 @@ function InterviewSession({
   // ── Name collection ─────────────────────────────────────────────────────────
   if (phase === "name") {
     const coachText = country === "australia"
-      ? "Hello there! Welcome to your Genuine Student interview practice! I am so excited to help you prepare. To get us started, could you please tell me your name?"
+      ? "Hello, I am here to help you prepare for your university interview. Please tell me your name."
       : country === "usa"
       ? "Hello! I am your USA student visa guide. I am here to help you prepare for your upcoming student visa interview. May I know your name please?"
       : "Hello! Welcome! I am absolutely delighted to help you prepare for your UK credibility interview today. Could you please tell me your name?";
@@ -2628,6 +2701,56 @@ function InterviewSession({
     );
   }
 
+  // ── AU: Mode choice (full mock vs specific category) ───────────────────────
+  // First decision step after name capture, per the knowledge file's rule
+  // "Do you want to practice a full mock interview or a specific category?".
+  if (phase === "au_mode_choice") {
+    return (
+      <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="max-w-xl mx-auto">
+        <div className="flex items-center gap-3 mb-6">
+          <span className="text-4xl">🇦🇺</span>
+          <div>
+            <p className="text-xs font-bold text-emerald-700 uppercase tracking-wider">Australia · Genuine Student Interview</p>
+            <h2 className="text-2xl font-extrabold text-gray-900">
+              How would you like to practice, {studentName}?
+            </h2>
+            <p className="text-sm text-gray-500 mt-1">A full mock asks one question from each of the 5 categories in order. A specific category lets you go deep on one topic.</p>
+          </div>
+        </div>
+
+        <div className="space-y-3">
+          <motion.button whileHover={{ y: -2 }} onClick={handlePracticeAll}
+            className="w-full flex items-center gap-4 p-5 rounded-2xl bg-gradient-to-r from-emerald-600 to-amber-600 text-white shadow-lg hover:shadow-xl transition-all">
+            <div className="w-11 h-11 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0">
+              <ListChecks className="w-5 h-5" />
+            </div>
+            <div className="text-left flex-1">
+              <p className="font-bold text-base">Full Mock Interview</p>
+              <p className="text-xs text-white/80 mt-0.5">{AU_CATEGORIES.length} questions · one random per category, in order</p>
+            </div>
+            <ChevronRight className="w-4 h-4 opacity-80" />
+          </motion.button>
+
+          <motion.button whileHover={{ y: -2 }} onClick={() => { cancel(); setPhase("category"); }}
+            className="w-full flex items-center gap-4 p-5 rounded-2xl bg-white border-2 border-emerald-300 text-emerald-700 hover:border-emerald-500 hover:bg-emerald-50 transition-all">
+            <div className="w-11 h-11 rounded-xl bg-emerald-100 flex items-center justify-center flex-shrink-0">
+              <BookOpen className="w-5 h-5" />
+            </div>
+            <div className="text-left flex-1">
+              <p className="font-bold text-base">Specific Category</p>
+              <p className="text-xs text-emerald-600 mt-0.5">Pick one of the 5 approved categories (Program, Career, Why Australia, …)</p>
+            </div>
+            <ChevronRight className="w-4 h-4 opacity-70" />
+          </motion.button>
+        </div>
+
+        <button onClick={() => { cancel(); setPhase("name"); }} className="flex items-center gap-2 text-sm text-gray-400 hover:text-gray-600 mt-6 mx-auto">
+          <ArrowLeft className="w-3.5 h-3.5" /> Back
+        </button>
+      </motion.div>
+    );
+  }
+
   // ── AU: Category picker ─────────────────────────────────────────────────────
   if (phase === "category") {
     return (
@@ -2635,7 +2758,7 @@ function InterviewSession({
         studentName={studentName}
         onSelect={handleCategorySelect}
         onPracticeAll={handlePracticeAll}
-        onBack={() => { cancel(); setPhase("name"); }}
+        onBack={() => { cancel(); setPhase("au_mode_choice"); }}
         listenOnce={listenOnce}
         sttSupported={sttSupported}
       />
@@ -2728,7 +2851,7 @@ function InterviewSession({
             onClick={() => {
               setAnswers([]); setQIndex(0); setTranscript(""); setFeedbackText("");
               elapsedRef.current = 0; setElapsed(0);
-              setPhase(country === "uk" ? "uk_confirm" : country === "usa" ? "usa_mode_choice" : "category");
+              setPhase(country === "uk" ? "uk_confirm" : country === "usa" ? "usa_mode_choice" : "au_mode_choice");
             }}
             className={`flex-1 flex items-center justify-center gap-2 py-3.5 rounded-2xl bg-gradient-to-r ${accentBg} text-white font-bold`}
           >
