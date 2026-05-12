@@ -1,0 +1,50 @@
+# Closes M9 from the security audit (2 May 2026): automated dependency
+# scanning + update PRs. Runs weekly; updates batch into one PR per
+# ecosystem so the review surface stays manageable.
+#
+# Security-only flags: Dependabot opens *all* CVE-flagged updates
+# regardless of the version-update rules. The schedule below only
+# controls non-security update PRs.
+
+version: 2
+updates:
+  # Node.js dependencies — Next.js, Supabase SDK, Resend, Anthropic SDK, etc.
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "Asia/Kolkata"
+    open-pull-requests-limit: 5
+    versioning-strategy: "increase-if-necessary"
+    groups:
+      # Batch dev-tools so type-check / lint upgrades arrive together.
+      dev-tools:
+        dependency-type: "development"
+        patterns:
+          - "@types/*"
+          - "eslint*"
+          - "typescript"
+      # Group Next.js + React ecosystem upgrades so the framework moves coherently.
+      nextjs:
+        patterns:
+          - "next"
+          - "react"
+          - "react-dom"
+          - "@next/*"
+    labels:
+      - "dependencies"
+
+  # GitHub Actions (none today, but Dependabot will auto-detect any added).
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "Asia/Kolkata"
+    open-pull-requests-limit: 3
+    labels:
+      - "dependencies"
+      - "github-actions"
