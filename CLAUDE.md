@@ -4,7 +4,7 @@ This file is loaded automatically. The full project state, decisions, and ration
 
 ## What this is
 
-Next.js 14 (App Router) study-abroad platform deployed to Vercel at https://www.eduvianai.com. Postgres + RLS in Supabase Cloud (US, Pro plan). Anthropic Claude for AI features, Resend for transactional mail, Sentry for errors. 12 destination countries, **8,007 programs / 8,007 verified at the source (100.0%) / ~535 universities / ~55%+ with international tuition fee (of which 1,771 estimated)** as of 12 May 2026 (handoff #13 — Canada estimate-fees retry closed, B-Phase 2 closed, all four Tier-C #14-17 shipped, seven Tier-D audit findings closed, USA + AU interview-prep flows rebuilt against the attached knowledge files), beta-gated to 100 users/month. Email OTP gates register/login.
+Next.js 14 (App Router) study-abroad platform deployed to Vercel at https://www.eduvianai.com. Postgres + RLS in Supabase Cloud (US, Pro plan). Anthropic Claude for AI features, Resend for transactional mail, Sentry for errors. 12 destination countries, **8,007 programs / 8,007 verified at the source (100.0%) / ~535 universities / ~55%+ with international tuition fee (of which 1,771 estimated)** as of 12 May 2026 (handoff #13 — Canada estimate-fees retry closed, B-Phase 2 closed, all four Tier-C #14-17 shipped, seven Tier-D audit findings closed, USA + AU interview-prep flows rebuilt against the attached knowledge files), beta-gated to 50 unique users / month (excluding owner). Email OTP gates register/login.
 
 ## Operating rules — non-negotiable, every session, no exceptions
 

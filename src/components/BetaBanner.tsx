@@ -4,7 +4,10 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { X } from "lucide-react";
 
-const STORAGE_KEY = "eduvian_beta_banner_dismissed_2026_04";
+// Storage-key suffix bumped on every meaningful banner-copy change so users
+// who dismissed an older version see the new one. Last bump 12 May 2026
+// (beta cap reduced from 100 → 50 / month per request).
+const STORAGE_KEY = "eduvian_beta_banner_dismissed_2026_05_50";
 const HIDE_FOR_MS = 7 * 24 * 60 * 60 * 1000; // 7 days
 
 export default function BetaBanner() {
@@ -65,7 +68,7 @@ export default function BetaBanner() {
     >
       <p className="truncate text-center">
         <span aria-hidden="true">🧪</span>{" "}
-        <span className="font-bold">Beta</span> — free access for the first 100 users each month.{" "}
+        <span className="font-bold">Beta</span> — free access for the first 50 users each month. Once the quota is full, new users can come back on the 1st of the next month.{" "}
         <Link href="/get-started" className="underline font-bold hover:text-amber-900">
           Claim your spot →
         </Link>

@@ -860,7 +860,7 @@ export async function apiErrorResponse(err, context, fallbackMessage = "Somethin
 ### 14.2 The tool_usage table (beta gate)
 
 `src/lib/beta-gate.ts` enforces:
-- `MONTHLY_UNIQUE_USER_CAP = 100` — max 100 distinct users per calendar month
+- `MONTHLY_UNIQUE_USER_CAP = 50` — max 50 distinct users per calendar month (excluding owner emails; dropped from 100 on 12 May 2026)
 - `MAX_MONTHLY_SPEND_CENTS = 5000` — global $50/month Anthropic spend ceiling
 - Per-tool monthly caps (e.g., `sop-assistant: 5`, `lor-coach-generate: 1`, `chat: 50`)
 - Owners listed in `BETA_OWNER_EMAILS` env var bypass everything

@@ -2,11 +2,14 @@
  * Server-side beta gate.
  *
  * Caps:
- *   - 100 unique users per calendar month (UTC)
+ *   - 50 unique users per calendar month (UTC) — owner email excluded
  *   - Per-user per-tool monthly caps (PER_USER_MONTHLY_CAPS)
  *   - Global monthly spend cap in cents (MAX_MONTHLY_SPEND_CENTS)
  *
  * Owner emails listed in BETA_OWNER_EMAILS (comma-separated) bypass everything.
+ * If MONTHLY_UNIQUE_USER_CAP changes here, update the banner copy in
+ * src/components/BetaBanner.tsx (currently inlines "50" for client-bundle
+ * minimality — both sources of truth should agree).
  */
 
 export const PER_USER_MONTHLY_CAPS: Record<string, number> = {
@@ -23,7 +26,7 @@ export const PER_USER_MONTHLY_CAPS: Record<string, number> = {
   "check-match": 30,
 };
 
-export const MONTHLY_UNIQUE_USER_CAP = 100;
+export const MONTHLY_UNIQUE_USER_CAP = 50;
 
 /** Hard global ceiling on monthly Anthropic spend, in cents. Default $50. */
 export const MAX_MONTHLY_SPEND_CENTS = parseInt(
@@ -57,6 +60,20 @@ export interface GateResult {
 function startOfMonthUTC(): string {
   const now = new Date();
   return new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), 1)).toISOString();
+}
+
+/** First-of-next-month, UTC, formatted as e.g. "June 1, 2026". Used in the
+ *  beta-full and spend-cap user messages so callers know exactly when the
+ *  quota resets without having to do mental month-math. */
+function nextMonthFirstUTC(): string {
+  const now = new Date();
+  const next = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth() + 1, 1));
+  return next.toLocaleDateString("en-US", {
+    timeZone: "UTC",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
 }
 
 function getOwnerEmails(): string[] {
@@ -136,7 +153,7 @@ export async function checkBetaAccess(
         allowed: false,
         reason: "spend_cap_exceeded",
         message:
-          "Beta spend cap reached for this month. Resets on the 1st.",
+          `Beta spend cap reached for this month. The cap resets on ${nextMonthFirstUTC()}; please come back then.`,
       };
     }
 
@@ -145,7 +162,7 @@ export async function checkBetaAccess(
         allowed: false,
         reason: "beta_full",
         message:
-          "We're in beta — only 100 users per month and this month's slots are full. Please try again next month.",
+          `We're so sorry — this month's user quota of ${MONTHLY_UNIQUE_USER_CAP} is already full. The quota resets on ${nextMonthFirstUTC()}; please come back then and we'll have a spot ready for you. Thanks for your patience while we're in beta!`,
       };
     }
 
