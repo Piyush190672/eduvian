@@ -146,7 +146,20 @@ function scoreEnglish(profile: StudentProfile, program: Program): number {
     default: return 70;
   }
 
-  if (!minRequired) return 80;
+  // No minimum for the user's chosen test type. Two interpretations:
+  //   a) Program lists NO English-test minima at all → not required → 80.
+  //   b) Program lists OTHER tests (e.g. only TOEFL) but not the user's
+  //      → the user's test isn't accepted → SENTINEL 7 (gap with
+  //      "only XX accepted" verdict in the UI).
+  if (!minRequired) {
+    const programAcceptsAnyTest =
+      (program.min_ielts ?? 0) > 0 ||
+      (program.min_toefl ?? 0) > 0 ||
+      (program.min_pte   ?? 0) > 0 ||
+      (program.min_duolingo ?? 0) > 0;
+    if (programAcceptsAnyTest) return 7; // mismatch — handled in UI
+    return 80;                            // not required — partial/strong
+  }
   if (s < minRequired) {
     const gapPct = (minRequired - s) / maxPossible;
     return clamp(40 - gapPct * 200);

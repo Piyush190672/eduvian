@@ -47,7 +47,7 @@ const STATUS_STYLE: Record<SignalStatus, { bg: string; text: string; dot: string
 };
 
 // Human-readable verdict per signal and score
-function getVerdict(signal: string, value: number, isPG: boolean, budgetPct?: number | null): string {
+function getVerdict(signal: string, value: number, isPG: boolean, budgetPct?: number | null, acceptedEnglishTests?: string[]): string {
   const s = getStatus(value);
   switch (signal) {
     case "academic":
@@ -69,6 +69,16 @@ function getVerdict(signal: string, value: number, isPG: boolean, budgetPct?: nu
       // is "none". Always show a take-the-test prompt rather than the
       // generic "Below requirement" copy.
       if (value === 5) return "Take an English test (IELTS / TOEFL / PTE)";
+      // 7 = sentinel meaning the program lists English-test minima but
+      // the user's chosen test type isn't on the accepted list. Render
+      // the accepted-list so the user knows exactly which test(s) to
+      // take instead.
+      if (value === 7) {
+        const list = acceptedEnglishTests && acceptedEnglishTests.length > 0
+          ? acceptedEnglishTests.join(" / ")
+          : "the listed";
+        return `Only ${list} accepted by this program`;
+      }
       if (value === 70 || value === 80) return "No test or not required";
       return s === "strong" ? "Meets requirement" : s === "partial" ? "Slightly below" : "Below requirement";
     case "scholarship":
@@ -103,12 +113,17 @@ interface SignalChipProps {
   value: number;
   isPG: boolean;
   budgetPct?: number | null;
+  /** Accepted English test names for this program, formatted for display
+   *  ("IELTS", "TOEFL", "PTE", "Duolingo"). Used by getVerdict to render
+   *  "Only IELTS / TOEFL accepted" when the user's test type isn't on
+   *  the program's accepted list (scoring sentinel value 7). */
+  acceptedEnglishTests?: string[];
 }
 
-function SignalChip({ signal, value, isPG, budgetPct }: SignalChipProps) {
+function SignalChip({ signal, value, isPG, budgetPct, acceptedEnglishTests }: SignalChipProps) {
   const status = getStatus(value);
   const style = STATUS_STYLE[status];
-  const verdict = getVerdict(signal, value, isPG, budgetPct);
+  const verdict = getVerdict(signal, value, isPG, budgetPct, acceptedEnglishTests);
   return (
     <div className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl border ${style.bg} ${
       status === "strong" ? "border-emerald-100" : status === "partial" ? "border-amber-100" : "border-rose-100"
@@ -164,6 +179,17 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist,
   const deadlineInfo = getDeadlineInfo(program.application_deadline);
 
   const bd = program.score_breakdown;
+
+  // Which English tests this program publishes a minimum for. Surfaces in
+  // the Budget tile? — no, the English tile. Used by SignalChip → getVerdict
+  // when the user's test isn't on the program's accepted list (scoring
+  // returns sentinel 7).
+  const acceptedEnglishTests: string[] = [
+    ((program.min_ielts    ?? 0) > 0) && "IELTS",
+    ((program.min_toefl    ?? 0) > 0) && "TOEFL",
+    ((program.min_pte      ?? 0) > 0) && "PTE",
+    ((program.min_duolingo ?? 0) > 0) && "Duolingo",
+  ].filter((x): x is string => typeof x === "string");
 
   // Signals to display (work_exp only if PG and has a value)
   const signals: { key: keyof typeof bd }[] = [
@@ -350,6 +376,7 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist,
                 value={bd[s.key] as number}
                 isPG={isPG}
                 budgetPct={s.key === "budget" ? budgetPct : undefined}
+                acceptedEnglishTests={s.key === "english" ? acceptedEnglishTests : undefined}
               />
             ))}
           </div>
