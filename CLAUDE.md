@@ -4,7 +4,7 @@ This file is loaded automatically. The full project state, decisions, and ration
 
 ## What this is
 
-Next.js 14 (App Router) study-abroad platform deployed to Vercel at https://www.eduvianai.com. Postgres + RLS in Supabase Cloud (US, Pro plan). Anthropic Claude for AI features, Resend for transactional mail, Sentry for errors. 12 destination countries, **8,007 programs / 8,007 verified at the source (100.0%) / ~535 universities / ~55%+ with international tuition fee (of which 1,771 estimated)** as of 12 May 2026 (handoff #13 — Canada estimate-fees retry closed, B-Phase 2 closed, all four Tier-C #14-17 shipped, seven Tier-D audit findings closed, USA + AU interview-prep flows rebuilt against the attached knowledge files), beta-gated to 50 unique users / month (excluding owner). Email OTP gates register/login.
+Next.js 14 (App Router) study-abroad platform deployed to Vercel at https://www.eduvianai.com. Postgres + RLS in Supabase Cloud (US, Pro plan). Anthropic Claude for AI features, Resend for transactional mail, Sentry for errors. 12 destination countries, **8,007 programs / 8,007 verified at the source (100.0%) / ~535 universities / ~59% with international tuition fee (1,897 of those estimated, 4 with variance notes)** as of 12 May 2026 (handoff #14 — password-auth flow live, beta cap at 50/mo, matching algorithm rewritten with hard filters on academic + budget + field + intake, four-pass tuition-data fill running, MBA leadership questions + work-exp hard filter, English-signal honesty fixes, /api/version deploy-check endpoint, security.txt + students-RLS hardening), beta-gated to 50 unique users / month (excluding owner). Email OTP **and** password (scrypt) both gate register / login.
 
 ## Operating rules — non-negotiable, every session, no exceptions
 
@@ -92,7 +92,7 @@ Audit document: `~/Desktop/EduvianAI-Security-Architecture-Risk-Assessment.docx`
 
 `submissions` rows carry only `profile_encrypted` + `email_hash` for PII. Lookup by email goes through `email_hash` only. The writer guard now refuses to insert any row without both fields set — no NODE_ENV exemption.
 
-**MEDIUM / LOW pass (12 May 2026):** Seven findings closed in production — M4 IP-header trust (`106e364f`), M6 admin audit log (`99c7b2d4` + SQL `20260512-admin-audit-log.sql` applied; chain verified end-to-end), M8 rate-limit sweep across all 28 API routes (`99c7b2d4` admin slice + `9cd3992f` 10-route sweep), M9 Dependabot (`8b2bb998`), L2 chat hardcoded country counts (`47e6f7c8`), L4 constant-time admin/session (`2d478305`), L6 x-request-id propagation (`c15aaf14`). M2 was already closed (Email OTP). Still open: M1 (CSP), M3 (Zod), M5 (rotation policy doc), M7+L3 (legal-doc edits, attorney-gated), L5 (verified_at HMAC), I1–I4 (informational pre-launch items). Newly surfaced 12 May: `students_public_insert` RLS policy grants anon INSERT — unused by current flows but provides a write surface; drop after verifying no other dependency.
+**MEDIUM / LOW pass (12 May 2026):** Nine findings closed in production across handoffs #13 and #14 — M4 IP-header trust (`106e364f`), M6 admin audit log (`99c7b2d4` + SQL `20260512-admin-audit-log.sql` applied; chain verified end-to-end), M8 rate-limit sweep across all 28 API routes (`99c7b2d4` admin slice + `9cd3992f` 10-route sweep), M9 Dependabot (`8b2bb998`), L2 chat hardcoded country counts (`47e6f7c8`), L4 constant-time admin/session (`2d478305`), L6 x-request-id propagation (`c15aaf14`), **I1 `/.well-known/security.txt` + `/security-policy` page (`591c25f1`)**, **`students_public_insert` RLS dropped (`5fcabe5a` + SQL applied)**. M2 was already closed (Email OTP). Still open: M1 (CSP), M3 (Zod), M5 (rotation policy doc), M7+L3 (legal-doc edits, attorney-gated), L5 (verified_at HMAC), I2/I3/I4 (informational pre-launch items).
 
 ## Authentication
 
@@ -159,36 +159,36 @@ Audit document: `~/Desktop/EduvianAI-Security-Architecture-Risk-Assessment.docx`
 
 The legal/security/pricing Word docs were generated with `docx`. Pricing Excel via `xlsx`. To regenerate legal: `node scripts/build-legal-docs.js`.
 
-## Open work for the next session (handoff #13, 12 May 2026)
+## Open work for the next session (handoff #14, 12 May 2026)
 
-Pinned in priority order. Snapshot §33 has full handoff-#13 detail. No background processes running on session start.
+Pinned in priority order. Snapshot §34 has full handoff-#14 detail. No background processes running on session start (the 7-country tuition sweep was user-stopped early at 92/2,933; resumable via the same wrapper command).
 
 **Tier-A — credibility & correctness (user-driven, no code change from me):**
-1. **Live mic test of the new USA two-step interview flow** — `7570e055` + `f621dac4` + `21e2cd9b`. After name capture, the coach asks "Full mock or specific section?". Full mock = 8 questions (6 mandatory then 2 optional). Confirm Stop Interview now actually silences the coach (was the 12 May bug). Also confirm `fe187477` voice patch is good on USA.
-2. **Live mic test of the new AU two-step interview flow** — `06ee429a`. Same shape: name → mode choice → (5-question full mock OR category picker). Default-on-no-answer is full mock per the AU knowledge file.
+1. **End-to-end password-auth QA** — set a password from `/account/security` (live strength checklist should light up green as 8+ chars / letter / digit / special are met), log out, log back in via the new Password toggle on `/get-started`. The OTP toggle should still work side-by-side.
+2. **Sanity-check the tightened matching results** — academic + budget + field + intake are all hard filters now; some users' shortlists will shrink. Eyeball that the new English-signal verdicts ("Take an English test" / "Only TOEFL accepted by this program") render correctly in the per-program signal row.
+3. **Confirm `security@eduvianai.com` mailbox** exists or forwards to `privacy@` (referenced by the new `/.well-known/security.txt`).
+4. **Live mic test of the new USA + AU two-step interview flows** (carried over from handoff #13 — still pending).
 
 **Tier-B — DB completeness (API spend):**
-3. **USA fee uplift beyond 78.1%** — Tier-B #9. Residential proxy (~$50/mo) or per-uni manual override. **Still skipped pending explicit user authorisation** for paid subscription.
+5. **Resume the 7-country tuition sweep** — same wrapper command (`--country "UK,USA,Canada,Australia,Ireland,New Zealand"` then `--country "Germany,France,Malaysia,UAE,Netherlands,Singapore" --qs-max 500`). ~2,840 entries remaining, ~$114, ~7 hr at concurrency 6. Hit rate trending ~26-30% on this batch (lower than pilot's 48% — catalog-page noise). Script's "already-estimated rows are skipped" rule means a fresh spawn picks up exactly where the user-stop interrupted.
+6. **USA fee uplift beyond 78%** — Tier-B #9. Residential proxy ($50/mo). **Still skipped pending explicit user authorisation** for paid subscription.
 
-**Tier-C — product surface:** All four (#14, #15, #16, #17) shipped 12 May. Nothing remaining.
+**Tier-C — product surface:** all four (#14, #15, #16, #17) shipped on handoff #13. Nothing new this handoff except QoL on existing surfaces.
 
-**Tier-D — security & ops (10 items remaining; 7 closed 12 May):**
-4. **`students_public_insert` RLS hardening** (newly surfaced 12 May while archiving the students-table migration as `8b1783c0`). The anon-INSERT policy is unused by current flows (`/api/auth` uses service_role and bypasses RLS) but provides a write surface to anyone holding the anon key. ~30-min change: drop the policy after verifying no other code path uses it. Same class as C2.
-5. **M1 CSP** — drop `unsafe-inline` / `unsafe-eval`. 4-6 wk Next.js refactor; roadmap decision needed.
-6. **M3 Zod input validation** — 0/28 routes; cross-cut. ~1-2 days.
-7. **M5 Secrets rotation policy doc** — 90-day cadence for ANTHROPIC_API_KEY, SUPABASE_SECRET_KEY, RESEND_API_KEY, ADMIN_SESSION_SECRET. Doc-only.
-8. **M7 + L3 legal-doc edits** — Privacy Policy §2.2 (tool_usage IP disclosure) + §6 (SCC citation). Touches `scripts/build-legal-docs.js`; **don't push** without attorney sign-off.
-9. **L5 verified_at HMAC signing** — schema + writer rework. Defer.
-10. **I1 security.txt** — `/.well-known/security.txt`. 10 min.
-11. **I3 Incident response plan** — required for ISO 27001 roadmap.
-12. **I2 + I4** — bug bounty / VRP + pen-testing schedule. Pre-launch.
+**Tier-D — security & ops:** (M4, M6, M8, M9, L2, L4, L6, I1 all closed on handoff #13. `students_public_insert` RLS closed on this handoff via `5fcabe5a` + SQL applied.)
 
-**Audit register (closed 12 May):** M4 (`106e364f`), M6 (`99c7b2d4` + SQL applied + end-to-end verified), M8 (`99c7b2d4` admin slice + `9cd3992f` full 28/28-route sweep), M9 (`8b2bb998` Dependabot), L2 (`47e6f7c8` chat counts), L4 (`2d478305` constant-time admin/session), L6 (`c15aaf14` x-request-id).
+7. **M1 CSP** — drop `unsafe-inline` / `unsafe-eval`. 4-6 wk Next.js refactor; roadmap decision needed.
+8. **M3 Zod input validation** — 0/28 routes; cross-cut. ~1-2 days.
+9. **M5 Secrets rotation policy doc** — 90-day cadence for ANTHROPIC_API_KEY, SUPABASE_SECRET_KEY, RESEND_API_KEY, ADMIN_SESSION_SECRET. Doc-only.
+10. **M7 + L3 legal-doc edits** — Privacy Policy §2.2 (tool_usage IP disclosure) + §6 (SCC citation). Touches `scripts/build-legal-docs.js`; **don't push** without attorney sign-off.
+11. **L5 verified_at HMAC signing** — schema + writer rework. Defer.
+12. **I3 Incident response plan** — required for ISO 27001 roadmap.
+13. **I2 + I4** — bug bounty / VRP + pen-testing schedule. Pre-launch.
 
 **Housekeeping:**
-13. **Finish the Supabase Studio snippet cleanup** (§33.13). User has 32 private snippets — 8 are duplicates of repo migrations (safe to delete), 1 archived as `8b1783c0` (safe to delete), 11 "Likely DELETE" pending the user pasting contents so I archive into the repo or confirm-delete, 9 useful diagnostics to KEEP and rename with `category / verb` prefix, 2 probable duplicates ("Coverage Su…" vs "Coverage Co…").
+14. **Supabase Studio snippet cleanup** — outstanding from handoff #13 (§33.13). Apply the same triage to any new snippets added since.
 
-**Estimated remaining spend across remaining items:** ~$50/mo if you approve the Tier-B #9 residential proxy. Otherwise zero — all remaining work is code or docs.
+**Estimated remaining spend across remaining items:** ~$114 for the resumed tuition sweep + $50/mo if Tier-B #9 is greenlit. Otherwise zero — all remaining work is code or docs.
 
 ## Tuition fee policy (locked 8 May 2026; provenance UI added 10 May; estimated-fee Layer 2 added 11 May)
 
@@ -196,9 +196,10 @@ Pinned in priority order. Snapshot §33 has full handoff-#13 detail. No backgrou
 - Display prefers the **local currency literally on the page** (e.g., `£26,600/yr`), with the USD-converted amount as a secondary view via `formatFee(input, { withUsd: true })`. USD is derived from a static FX table in `verify-program.ts` + `backfill-fees.ts` + `estimate-fees.ts` (mid-market rates dated 8 May 2026; update periodically).
 - "Indicative" / "approximate" / "estimated" / "from" / "starting at" / "subject to review" labels on the fee figure mean it's published, just not contractual — those are valid and should be picked.
 - For multi-year totals, divide by the number of years to get the annual figure.
-- **Provenance flag:** `tuition_fee_source: "verified" | "estimated"` on Program. Undefined / "verified" = extracted from the official program page. "estimated" = inferred from a credible secondary source (uni's central fees page, ranking aggregators, etc.) by `scripts/verify/estimate-fees.ts`. UI surfaces this as a Verified (emerald) / Estimated (amber) / Not available (rose) pill on ProgramCard + ComparePanel.
+- **Provenance flag:** `tuition_fee_source: "verified" | "estimated"` on Program. Undefined / "verified" = extracted from the official program page. "estimated" = inferred from a credible secondary source (uni's central fees page, ranking aggregators, etc.) by `scripts/verify/estimate-fees.ts` OR by `scripts/verify/estimate-fees-prior-year.ts` (Layer 3 — prior-year fee from credible sources + 5%/year uplift, added handoff #14). UI surfaces this as a Verified (emerald) / Estimated (amber) / Not available (rose) pill on ProgramCard + ComparePanel.
+- **Per-program variance note** (new, handoff #14): `tuition_estimate_note: string | null` on Program. Populated only by the prior-year flow when two consultancy / news sources spread by 5-20% — the script averages them and writes a "verify with the university" note that the UI displays in the Estimated pill's tooltip + adds an asterisk to the pill label.
 - **ROI + Parent Decision tools:** refuse to calculate when `annual_tuition_usd` is null — show "Cannot calculate — tuition fee data not available" panel with a link to the official page. When the fee is `tuition_fee_source: "estimated"`, both tools render an amber caveat banner above the result: "Based on estimated tuition fee. The official program page didn't publish a fee, so this calculation uses a figure inferred from the university's central fees page or a credible secondary source. Confirm with the university before relying on these numbers."
-- Coverage by country (12 May, handoff #13): **USA 78%** (1,410 estimated) · UK 60% · SG 59% · CA 55% (post-retry) · MY/UAE 49% · AU 41% · FR 36% · NZ 33% · DE 31% · NL 29% · IE 30%. Overall **~55%+** of programs carry a fee (1,771 estimated).
+- Coverage by country (12 May, handoff #14, prior-year sweep partial): **USA 79%** · UK 60%+ (climbing as sweep runs) · SG 59%+ · CA 55%+ · MY/UAE 49% · AU 41%+ · FR 36% · NZ 33%+ · DE 31%+ · NL 29% · IE 30%+. Overall **~59%** of programs carry a fee (1,897 estimated; 4 with variance notes). Resumable 7-country sweep covers ~2,840 more if greenlit.
 
 > Brand port note: 5 May session ported 3 of 7 deep tool pages (`/roi-calculator`, `/parent-decision`, `/visa-coach`) using new `BrandNav` + `BrandHero` primitives (commits `0c24dc4c` + `cbf6c3d8`). User decided the remaining 4 (`/get-started`, `/application-check`, `/interview-prep`, `/english-test-lab`) need no change. Item closed at 3-of-7. Primitives stay available if a future change is wanted.
 
