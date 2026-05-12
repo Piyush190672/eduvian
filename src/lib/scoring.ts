@@ -122,7 +122,15 @@ function scoreEnglish(profile: StudentProfile, program: Program): number {
     return requiresTest ? 20 : 70;
   }
 
-  const s = profile.english_score_overall ?? 0;
+  // Defensive: an empty number input fires parseFloat("") = NaN, and a
+  // legacy row with english_score_overall = 0 used to drop straight into
+  // the "score < min" branch and render the signal as a red gap. If the
+  // user has selected a test type but no usable score is on file, treat
+  // as "data not yet available" → neutral partial (70) instead of gap.
+  const sRaw = Number(profile.english_score_overall);
+  if (!Number.isFinite(sRaw) || sRaw <= 0) return 70;
+  const s = sRaw;
+
   let minRequired: number | null = null;
   let maxPossible: number;
 
@@ -252,10 +260,20 @@ function scoreMbaLeadership(profile: StudentProfile, program: Program): number {
 }
 
 function scoreStdTest(profile: StudentProfile, program: Program): number {
+  // Score-on-file helper. Same NaN / 0 defence as scoreEnglish — if the
+  // user selected a test type but the numeric score didn't make it into
+  // the profile, don't render the signal as a red gap; return null and
+  // let the caller fall back to the neutral-partial branch.
+  const validScore = (raw: unknown): number | null => {
+    const n = Number(raw);
+    return Number.isFinite(n) && n > 0 ? n : null;
+  };
+
   if (profile.degree_level === "undergraduate") {
     if (!profile.std_test_ug || profile.std_test_ug === "none") return 60;
     if (profile.std_test_ug === "sat" && program.min_sat) {
-      const score = profile.std_test_ug_score ?? 0;
+      const score = validScore(profile.std_test_ug_score);
+      if (score == null) return 70;
       if (score >= program.min_sat) return 100;
       if (score >= program.min_sat - 50) return 60;
       return 20;
@@ -266,13 +284,15 @@ function scoreStdTest(profile: StudentProfile, program: Program): number {
       return program.min_gre || program.min_gmat ? 30 : 70;
     }
     if (profile.std_test_pg === "gre" && program.min_gre) {
-      const score = profile.std_test_pg_score ?? 0;
+      const score = validScore(profile.std_test_pg_score);
+      if (score == null) return 70;
       if (score >= program.min_gre) return 100;
       if (score >= program.min_gre - 10) return 60;
       return 20;
     }
     if (profile.std_test_pg === "gmat" && program.min_gmat) {
-      const score = profile.std_test_pg_score ?? 0;
+      const score = validScore(profile.std_test_pg_score);
+      if (score == null) return 70;
       if (score >= program.min_gmat) return 100;
       if (score >= program.min_gmat - 20) return 60;
       return 20;

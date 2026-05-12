@@ -251,8 +251,17 @@ export default function StepAcademic({ profile, onChange }: Props) {
         >
           <option value="">Select year</option>
           {(() => {
+            // PG candidates can be several years post-graduation (work
+            // experience, second masters, etc.) — extend the back-window
+            // to cur-10 for PG so the dropdown covers older graduates.
+            // UG stays at cur-6 (most UG applicants graduated in the
+            // last 1-3 years). Both keep a +2 forward buffer for
+            // students still in their final year(s).
             const cur = new Date().getFullYear();
-            return Array.from({ length: 9 }, (_, i) => cur - 6 + i);
+            const yearsBack = isGrad ? 10 : 6;
+            const yearsForward = 2;
+            const total = yearsBack + yearsForward + 1;
+            return Array.from({ length: total }, (_, i) => cur - yearsBack + i);
           })().map((y) => (
             <option key={y} value={y}>{y}</option>
           ))}
