@@ -87,11 +87,21 @@ const argLimit   = (() => { const i = argv.indexOf("--limit");       return i >=
 const argCountry = (() => { const i = argv.indexOf("--country");     return i >= 0 ? argv[i + 1] : null; })();
 const argConc    = (() => { const i = argv.indexOf("--concurrency"); return i >= 0 ? parseInt(argv[i + 1], 10) : 4; })();
 const argDry     = argv.includes("--dry");
-// Re-target rows that were already written as tuition_fee_source:"estimated"
-// but DON'T carry a tuition_estimate_note. Used after the 12 May pilot to
-// re-attempt the ~80 entries written under the pre-variance-rule prompt so
-// they pick up the new variance-aware note when applicable.
-const argReattemptNoNote = argv.includes("--reattempt-no-note");
+// Re-attempt only the entries listed in a prior pass's audit JSON. The
+// per-entry log emitted by this script (fees-prior-year-results.json)
+// is the authoritative source for "which programs did THIS script
+// already write" — much narrower than "any row marked estimated"
+// (which would also include rows from estimate-fees.ts, a different
+// methodology). Used after the 12 May pilot to re-process its 96
+// ok entries under the new variance-aware prompt.
+const argReattemptLog = (() => {
+  const i = argv.indexOf("--reattempt-from-log");
+  if (i < 0) return null;
+  // Default to the pilot log path if flag is passed without a value.
+  return argv[i + 1] && !argv[i + 1].startsWith("--")
+    ? argv[i + 1]
+    : "/Users/piyushkumar/Playground/eduvian/scripts/verify/output/fees-prior-year-results.json";
+})();
 
 const CURRENT_YEAR = new Date().getUTCFullYear();
 const PRIOR_YEAR   = CURRENT_YEAR - 1;
@@ -371,33 +381,49 @@ async function main() {
   //   missing (= layers 1 + 2 + any prior pass all came up empty) AND
   //   tuition_fee_source is NOT already "estimated". Rerunnable.
   //
-  //   --reattempt-no-note — ADDITIONALLY pick up rows where
-  //   tuition_fee_source === "estimated" AND tuition_estimate_note is
-  //   missing. Used to re-attempt rows that were written by a pilot
-  //   under an older prompt that didn't return variance_pct, so they
-  //   pick up the new variance-aware note when applicable.
+  //   --reattempt-from-log [<path>] — read a prior audit JSON (default
+  //   fees-prior-year-results.json) and target ONLY the entries listed
+  //   there. Authoritative narrow targeting for "what did THIS script
+  //   already touch", avoids accidentally re-processing rows written
+  //   by other estimation passes (e.g. estimate-fees.ts current-year).
   //   The rewrite path overwrites the existing fee fields, so the new
   //   pass gets fresh sources and may set a different number.
   const targets: { idx: number; uni: string; country: string; programName: string; programUrl: string }[] = [];
+
+  // Build a fast lookup if --reattempt-from-log is set: (uni|programName) key set.
+  let reattemptKeys: Set<string> | null = null;
+  if (argReattemptLog) {
+    try {
+      const log = JSON.parse(readFileSync(argReattemptLog, "utf8")) as Array<{ uni: string; programName: string }>;
+      reattemptKeys = new Set(log.map((r) => `${r.uni}|${r.programName}`));
+      console.log(`[--reattempt-from-log] loaded ${reattemptKeys.size} entries from ${argReattemptLog}`);
+    } catch (e) {
+      console.error(`[--reattempt-from-log] could not read ${argReattemptLog}: ${(e as Error).message}`);
+      process.exit(1);
+    }
+  }
+
   for (let i = 0; i < entries.length; i++) {
     const s = entries[i].src;
     const usd = extractNumber(s, "annual_tuition_usd");
     const amt = extractNumber(s, "annual_tuition_amount");
     const isEstimated = /tuition_fee_source:\s*"estimated"/.test(s);
-    const hasNote = /tuition_estimate_note:\s*"[^"]+"/.test(s);
-
-    const missingFee = (usd ?? 0) <= 0 && (amt ?? 0) <= 0;
-    const reattemptable = argReattemptNoNote && isEstimated && !hasNote;
-    if (!missingFee && !reattemptable) continue;
-    // Avoid double-processing a row already marked estimated unless caller
-    // asked for the re-attempt path.
-    if (missingFee && isEstimated && !argReattemptNoNote) continue;
-    if (argCountry && extractField(s, "country") !== argCountry) continue;
 
     const uni    = extractField(s, "university_name") ?? "?";
     const country = extractField(s, "country") ?? "?";
     const programName = extractField(s, "program_name") ?? "?";
     const programUrl  = extractField(s, "program_url")  ?? "";
+
+    if (reattemptKeys) {
+      // Strict: only entries named in the audit log are eligible.
+      if (!reattemptKeys.has(`${uni}|${programName}`)) continue;
+    } else {
+      // Default: rows with no fee data, never estimated, never written.
+      const missingFee = (usd ?? 0) <= 0 && (amt ?? 0) <= 0;
+      if (!missingFee) continue;
+      if (isEstimated) continue;
+    }
+    if (argCountry && country !== argCountry) continue;
     if (!programUrl) continue;
     targets.push({ idx: i, uni, country, programName, programUrl });
     if (targets.length >= argLimit) break;
