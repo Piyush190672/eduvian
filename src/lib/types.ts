@@ -118,6 +118,12 @@ export interface Program {
    *    fees page, ranking sites, accreditor pages). UI surfaces this as an
    *    amber "Estimated" pill and ROI/Parent show a caveat banner. */
   tuition_fee_source?: "verified" | "estimated";
+  /** Per-program reviewer note for estimates carrying meaningful source
+   *  spread (5-20%). When present, the UI tacks this onto the Estimated
+   *  pill's tooltip so users see a stronger "verify with the university"
+   *  cue than the generic estimated copy. Populated only by the
+   *  prior-year-fees pass when spread between two sources is ≥ 5%. */
+  tuition_estimate_note?: string | null;
   avg_living_cost_usd: number;
   avg_living_cost_amount?: number | null;
   avg_living_cost_currency?: string | null;

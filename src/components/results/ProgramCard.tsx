@@ -304,6 +304,12 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist,
                   </span>
                   {(() => {
                     const status = getFeeStatus(program);
+                    // Stronger caveat when the prior-year-fees pass left a
+                    // per-program note (used when two consultancy / news
+                    // sources had 5-20% spread — see estimate-fees-prior-
+                    // year.ts). Falls back to the generic estimated copy
+                    // when no note is on file.
+                    const estimateNote = (program as { tuition_estimate_note?: string | null }).tuition_estimate_note;
                     return (
                       <span
                         className={`inline-flex items-center px-2 py-0.5 rounded-full border text-[10px] font-bold uppercase tracking-wide ${FEE_STATUS_CLASS[status]}`}
@@ -311,11 +317,16 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist,
                           status === "verified"
                             ? "Tuition extracted from the official program page."
                             : status === "estimated"
-                              ? "Tuition estimated from a credible secondary source — confirm with the university."
+                              ? (estimateNote
+                                  ? estimateNote
+                                  : "Tuition estimated from a credible secondary source — confirm with the university.")
                               : "No verified tuition figure on file."
                         }
                       >
                         Fee: {FEE_STATUS_LABEL[status]}
+                        {status === "estimated" && estimateNote && (
+                          <span className="ml-1 text-amber-900" aria-hidden="true">*</span>
+                        )}
                       </span>
                     );
                   })()}

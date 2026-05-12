@@ -196,8 +196,18 @@ Return ONLY a JSON object:
   "prior_year":          ${PRIOR_YEAR} | ${PRIOR_PRIOR} | null,
   "sources":             [string],
   "confidence":          "high" | "medium" | "low" | "none",
+  "variance_pct":        number | null,
   "notes":               string
 }
+
+variance_pct usage:
+  - When you used ONE source (category 1 archive, OR a single category
+    2 / 3 ranking / government portal), set variance_pct to null.
+  - When you used TWO category 4 / 5 sources (consultancies / news),
+    set variance_pct to the spread between them, computed as
+    abs(a - b) / max(a, b) * 100, rounded to nearest whole percent.
+  - The script uses variance_pct >= 5 to attach a stronger "verify
+    with the university" note on the resulting programs.ts row.
 
 If confidence is "low" or "none", set amounts/currency/year to null. We don't write low-confidence figures.
 `;
@@ -208,6 +218,7 @@ interface PriorYearEstimate {
   prior_year: number | null;
   sources: string[];
   confidence: "high" | "medium" | "low" | "none";
+  variance_pct: number | null;
   notes: string;
 }
 
@@ -278,7 +289,13 @@ function emit(header: string, trailer: string, entries: { src: string; pre: stri
   return out + tail + trailer;
 }
 
-function rewriteEntryFees(src: string, tuitionAmt: number, tuitionCcy: string, tuitionUsd: number): string {
+function rewriteEntryFees(
+  src: string,
+  tuitionAmt: number,
+  tuitionCcy: string,
+  tuitionUsd: number,
+  estimateNote: string | null,
+): string {
   const replaceField = (s: string, field: string, value: string): string => {
     const re = new RegExp(`(${field}:\\s*)(?:"[^"]*"|null|\\d+(?:\\.\\d+)?)`, "g");
     if (re.test(s)) return s.replace(re, `$1${value}`);
@@ -292,6 +309,17 @@ function rewriteEntryFees(src: string, tuitionAmt: number, tuitionCcy: string, t
     out = out.replace(/tuition_fee_source:\s*"[^"]+"/, `tuition_fee_source: "estimated"`);
   } else {
     out = out.replace(/(annual_tuition_currency:\s*[^,]+,)/, `$1 tuition_fee_source: "estimated",`);
+  }
+  // Per-program reviewer note for 5-20% variance estimates. Escape internal
+  // quotes / backslashes — keep the source-text emit safe.
+  if (estimateNote) {
+    const safe = estimateNote.replace(/\\/g, "\\\\").replace(/"/g, '\\"');
+    const noteLiteral = `"${safe}"`;
+    if (/tuition_estimate_note:\s*(?:"[^"]*"|null)/.test(out)) {
+      out = out.replace(/tuition_estimate_note:\s*(?:"[^"]*"|null)/, `tuition_estimate_note: ${noteLiteral}`);
+    } else {
+      out = out.replace(/(tuition_fee_source:\s*"[^"]+",)/, `$1 tuition_estimate_note: ${noteLiteral},`);
+    }
   }
   return out;
 }
@@ -372,6 +400,8 @@ async function main() {
     confidence: string;
     sources: string[];
     notes: string;
+    variancePct: number | null;
+    estimateNote: string | null;
     uni: string;
     programName: string;
   };
@@ -395,6 +425,7 @@ async function main() {
         r.upliftedAmount,
         r.priorCurrency,
         r.usd,
+        r.estimateNote,
       );
       applied++;
     }
@@ -437,7 +468,16 @@ async function main() {
               return;
             }
             okCount++;
-            console.log(`  ✓ ${res.confidence} ${res.prior_year_amount}${res.prior_year_currency} (${res.prior_year}) → uplifted ${uplifted}, $${usd} USD`);
+            // Reviewer note for moderate-variance estimates. 5-20% spread
+            // ⇒ flag for explicit university verification on top of the
+            // generic "Estimated" pill. Tight (<5%) or single-source
+            // (variance_pct === null) estimates use the existing pill
+            // copy without the additional note.
+            const v = typeof res.variance_pct === "number" ? res.variance_pct : null;
+            const estimateNote = (v != null && v >= 5 && v <= 20)
+              ? `Tuition figure is estimated from sources with ~${Math.round(v)}% spread — please verify the current-year fee with the university before relying on it.`
+              : null;
+            console.log(`  ✓ ${res.confidence} ${res.prior_year_amount}${res.prior_year_currency} (${res.prior_year}) → uplifted ${uplifted}, $${usd} USD${v != null ? `, variance ${v}%` : ""}`);
             results.push({
               idx: t.idx,
               priorAmount: res.prior_year_amount,
@@ -448,6 +488,8 @@ async function main() {
               confidence: res.confidence,
               sources: res.sources,
               notes: res.notes,
+              variancePct: v,
+              estimateNote,
               uni: t.uni,
               programName: t.programName,
             });
