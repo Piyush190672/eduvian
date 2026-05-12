@@ -41,16 +41,16 @@ export default function ProfileCard({ profile, token }: Props) {
   const result = scoreStudentProfile(profile);
   const style = getCategoryStyle(result.category as ProfileCategory);
 
-  const downloadPDF = async () => {
+  const downloadPDF = () => {
+    // Open the API URL directly in a new tab — same-origin, so the inline
+    // window.print() auto-fires reliably. Earlier this went through a
+    // fetch + blob: URL hop, but Chrome/Safari block window.print() in
+    // blob: contexts (autoplay-style restriction), which caused the print
+    // dialog to never appear on the matched-results PDF.
     toast("Opening print view — use Save as PDF", { icon: "📄" });
-    try {
-      const res = await fetch(`/api/pdf/${token}`);
-      if (!res.ok) throw new Error();
-      const blob = await res.blob();
-      const url = URL.createObjectURL(blob);
-      window.open(url, "_blank");
-    } catch {
-      toast.error("PDF generation failed. Try again.");
+    const win = window.open(`/api/pdf/${token}`, "_blank");
+    if (!win) {
+      toast.error("Allow pop-ups for eduvianai.com to download the PDF.");
     }
   };
 

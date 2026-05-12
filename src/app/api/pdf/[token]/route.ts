@@ -8,77 +8,98 @@ import { scoreStudentProfile, categoryBadgeHtml } from "@/lib/profile-score";
 import { escHtml } from "@/lib/html-escape";
 import { decryptProfile } from "@/lib/submissions-decrypt";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
+import { captureApiError } from "@/lib/api-error";
+
+// PDF render = decrypt profile + score 8k+ programs + emit ~10KB HTML.
+// Cold-start scoring across 8,007 programs can exceed Vercel's 10s default
+// on the free tier. Bump to 30s to match /api/pdf/tools, well above the
+// observed render time.
+export const maxDuration = 30;
 
 export async function GET(
   req: NextRequest,
   { params }: { params: { token: string } }
 ) {
-  // M8: cap PDF renders (30/h per IP) — HTML→PDF render is CPU-heavy.
-  const ip = getClientIp(req.headers);
-  const rl = await checkRateLimit(`pdf-token:${ip}`, 30, 3600);
-  if (!rl.ok) return NextResponse.json({ error: "rate_limited" }, { status: 429, headers: { "Retry-After": String(rl.retryAfter ?? 60) } });
+  try {
+    // M8: cap PDF renders (30/h per IP) — HTML→PDF render is CPU-heavy.
+    const ip = getClientIp(req.headers);
+    const rl = await checkRateLimit(`pdf-token:${ip}`, 30, 3600);
+    if (!rl.ok) return NextResponse.json({ error: "rate_limited" }, { status: 429, headers: { "Retry-After": String(rl.retryAfter ?? 60) } });
 
-  const { token } = params;
+    const { token } = params;
 
-  // Read shortlisted IDs from query param first (most up-to-date)
-  const idsParam = req.nextUrl.searchParams.get("ids");
-  const queryIds = idsParam ? idsParam.split(",").filter(Boolean) : [];
+    // Read shortlisted IDs from query param first (most up-to-date)
+    const idsParam = req.nextUrl.searchParams.get("ids");
+    const queryIds = idsParam ? idsParam.split(",").filter(Boolean) : [];
 
-  // Try in-memory store first, fall back to Supabase
-  let submission: { profile: StudentProfile; shortlisted_ids: string[] } | null =
-    submissionStore.get(token) ?? null;
+    // Try in-memory store first, fall back to Supabase
+    let submission: { profile: StudentProfile; shortlisted_ids: string[] } | null =
+      submissionStore.get(token) ?? null;
 
-  if (!submission) {
-    try {
-      const { createServiceClient } = await import("@/lib/supabase");
-      const supabase = createServiceClient();
-      if (supabase) {
-        const { data } = await supabase
-          .from("submissions")
-          .select("*")
-          .eq("token", token)
-          .single();
-        if (data) submission = data;
+    if (!submission) {
+      try {
+        const { createServiceClient } = await import("@/lib/supabase");
+        const supabase = createServiceClient();
+        if (supabase) {
+          const { data, error } = await supabase
+            .from("submissions")
+            .select("*")
+            .eq("token", token)
+            .single();
+          if (error) {
+            console.warn("[pdf/token] Supabase lookup error:", error.message);
+          }
+          if (data) submission = data;
+        }
+      } catch (e) {
+        console.warn("[pdf/token] Supabase exception:", (e as Error)?.message ?? e);
       }
-    } catch {
-      // ignore
     }
+
+    if (!submission) {
+      return NextResponse.json({ error: "Not found" }, { status: 404 });
+    }
+
+    // H7: prefer encrypted profile; fall back to plaintext.
+    const profile = decryptProfile(submission as { profile?: unknown; profile_encrypted?: string | null }) as StudentProfile;
+    if (!profile) {
+      return NextResponse.json({ error: "Profile data unavailable" }, { status: 500 });
+    }
+
+    // Prefer query param IDs, fall back to stored, then top 20
+    const shortlistedIds =
+      queryIds.length > 0 ? queryIds : (submission.shortlisted_ids ?? []);
+
+    const programs: Program[] = PROGRAMS.map((p, i) => ({
+      ...p,
+      id: `prog_${i}`,
+      is_active: true,
+      last_updated: new Date().toISOString(),
+    }));
+
+    const scored = recommendPrograms(profile, programs);
+    const shortlisted =
+      shortlistedIds.length > 0
+        ? scored.filter((p) => shortlistedIds.includes(p.id))
+        : scored.slice(0, 20);
+
+    const html = buildPDFHtml(profile, shortlisted);
+
+    return new NextResponse(html, {
+      headers: {
+        "Content-Type": "text/html; charset=utf-8",
+        // Always re-render so the user gets the latest shortlist state, and
+        // so a one-time render failure doesn't get cached by a CDN edge.
+        "Cache-Control": "no-store, max-age=0",
+      },
+    });
+  } catch (err) {
+    captureApiError(err, { route: "pdf/[token]" });
+    return NextResponse.json(
+      { error: "PDF generation failed. Please try again in a moment." },
+      { status: 500 },
+    );
   }
-
-  if (!submission) {
-    return NextResponse.json({ error: "Not found" }, { status: 404 });
-  }
-
-  // H7: prefer encrypted profile; fall back to plaintext.
-  const profile = decryptProfile(submission as { profile?: unknown; profile_encrypted?: string | null }) as StudentProfile;
-  if (!profile) {
-    return NextResponse.json({ error: "Profile data unavailable" }, { status: 500 });
-  }
-
-  // Prefer query param IDs, fall back to stored, then top 20
-  const shortlistedIds =
-    queryIds.length > 0 ? queryIds : (submission.shortlisted_ids ?? []);
-
-  const programs: Program[] = PROGRAMS.map((p, i) => ({
-    ...p,
-    id: `prog_${i}`,
-    is_active: true,
-    last_updated: new Date().toISOString(),
-  }));
-
-  const scored = recommendPrograms(profile, programs);
-  const shortlisted =
-    shortlistedIds.length > 0
-      ? scored.filter((p) => shortlistedIds.includes(p.id))
-      : scored.slice(0, 20);
-
-  const html = buildPDFHtml(profile, shortlisted);
-
-  return new NextResponse(html, {
-    headers: {
-      "Content-Type": "text/html; charset=utf-8",
-    },
-  });
 }
 
 function buildPDFHtml(profile: StudentProfile, programs: ScoredProgram[]): string {
