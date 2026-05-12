@@ -245,6 +245,14 @@ export default function ResultsPage() {
         </Link>
         <div className="flex items-center gap-2">
           <LogoutButton variant="compact" />
+          <Link
+            href="/account/security"
+            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-xl border border-gray-200 text-sm font-medium text-gray-600 hover:bg-gray-50 transition-all"
+            title="Manage how you sign in — add a password for faster login"
+          >
+            <ShieldCheck className="w-4 h-4" />
+            Security
+          </Link>
           <NavButtons backHref={`/profile?token=${token}`} backLabel="Modify Profile" />
           <button
             onClick={sendEmail}

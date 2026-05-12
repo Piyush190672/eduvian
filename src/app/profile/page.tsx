@@ -12,6 +12,7 @@ import {
   ChevronLeft,
   ChevronRight,
   Loader2,
+  ShieldCheck,
 } from "lucide-react";
 import type { StudentProfile } from "@/lib/types";
 import StepPersonal from "@/components/form/StepPersonal";
@@ -222,6 +223,14 @@ function ProfilePageInner() {
             Step {step} of {STEPS.length}
           </span>
           <LogoutButton variant="compact" />
+          <Link
+            href="/account/security"
+            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-xl border border-gray-200 text-sm font-medium text-gray-600 hover:bg-gray-50 transition-all"
+            title="Manage how you sign in — add a password for faster login"
+          >
+            <ShieldCheck className="w-4 h-4" />
+            Security
+          </Link>
           <NavButtons backHref="/" />
         </div>
       </nav>
