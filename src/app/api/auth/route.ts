@@ -50,7 +50,7 @@ export async function POST(req: NextRequest) {
 
   try {
     const body = await req.json();
-    const { action, name, email, phone, source, source_stage, otp_code } = body as {
+    const { action, name, email, phone, source, source_stage, otp_code, marketing_opt_in } = body as {
       action: "register" | "login";
       name?: string;
       email: string;
@@ -58,6 +58,7 @@ export async function POST(req: NextRequest) {
       source?: string;
       source_stage?: number;
       otp_code?: string;
+      marketing_opt_in?: boolean;
     };
 
     if (!email || !isValidEmail(email)) {
@@ -232,13 +233,17 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Name is required" }, { status: 400 });
     }
 
+    // Privacy Policy §11: marketing/promotional sends only if explicitly opted in.
+    // Default false. Welcome / transactional sends ignore this flag.
     const student = {
-      name:         sanitize(name.trim(), 100),
-      email:        normalizedEmail,
-      phone:        sanitize(phone?.trim() ?? "", 30),
-      source:       source ?? null,
-      source_stage: source_stage ?? null,
-      created_at:   new Date().toISOString(),
+      name:               sanitize(name.trim(), 100),
+      email:              normalizedEmail,
+      phone:              sanitize(phone?.trim() ?? "", 30),
+      source:             source ?? null,
+      source_stage:       source_stage ?? null,
+      marketing_opt_in:   marketing_opt_in === true,
+      marketing_opt_in_at: marketing_opt_in === true ? new Date().toISOString() : null,
+      created_at:         new Date().toISOString(),
     };
 
     /** Fire welcome email asynchronously — never blocks the registration response */
@@ -255,7 +260,7 @@ export async function POST(req: NextRequest) {
       let upsertResult = await supabase.from("students").upsert({ ...student }, { onConflict: "email" }).select().single();
       if (upsertResult.error) {
         // Retry without optional columns (in case schema hasn't been migrated yet)
-        const { source: _s, source_stage: _ss, ...coreStudent } = student;
+        const { source: _s, source_stage: _ss, marketing_opt_in: _mo, marketing_opt_in_at: _moa, ...coreStudent } = student;
         upsertResult = await supabase.from("students").upsert(coreStudent, { onConflict: "email" }).select().single();
       }
 

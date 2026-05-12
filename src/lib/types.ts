@@ -76,6 +76,12 @@ export interface StudentProfile {
   canada_college_types?: ("diploma" | "pg_diploma")[];
   // Scoring preference
   scholarship_seeking?: boolean;
+
+  // Marketing opt-in (Privacy Policy §11). Default false. Transactional
+  // sends (welcome, match results, tool outputs) are not gated on this;
+  // only future bulk / promotional emails honour it. The flag rides on
+  // the encrypted profile blob — no new DB column.
+  marketing_opt_in?: boolean;
 }
 
 // ─── Program ──────────────────────────────────────────────────────────────────
