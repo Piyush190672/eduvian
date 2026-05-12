@@ -99,6 +99,16 @@ const argCountry = (() => {
 })();
 const argConc    = (() => { const i = argv.indexOf("--concurrency"); return i >= 0 ? parseInt(argv[i + 1], 10) : 4; })();
 const argDry     = argv.includes("--dry");
+// QS ranking ceiling. Programs whose qs_ranking > argQsMax are skipped.
+// Programs with null qs_ranking are skipped when this flag is set. Used
+// for countries where the user wants to limit the spend to top-tier unis
+// (e.g. Germany has many regional FHs / Hochschulen outside QS-500).
+const argQsMax = (() => {
+  const i = argv.indexOf("--qs-max");
+  if (i < 0) return null;
+  const n = parseInt(argv[i + 1] ?? "", 10);
+  return Number.isFinite(n) && n > 0 ? n : null;
+})();
 // Re-attempt only the entries listed in a prior pass's audit JSON. The
 // per-entry log emitted by this script (fees-prior-year-results.json)
 // is the authoritative source for "which programs did THIS script
@@ -437,6 +447,12 @@ async function main() {
     }
     if (argCountry && !argCountry.has(country)) continue;
     if (!programUrl) continue;
+    // QS ceiling — skip unranked + above-cap programs when set.
+    if (argQsMax !== null) {
+      const qm = s.match(/qs_ranking:\s*([\d.]+|null)/);
+      const qs = !qm || qm[1] === "null" ? null : parseFloat(qm[1]);
+      if (qs === null || qs > argQsMax) continue;
+    }
     targets.push({ idx: i, uni, country, programName, programUrl });
     if (targets.length >= argLimit) break;
   }
