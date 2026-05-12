@@ -79,6 +79,8 @@ function emailShell(preheader: string, body: string): string {
         © 2025 eduvianAI · Your Global Future, Simplified<br/>
         Salary figures are median graduate outcomes. All amounts in USD. For informational purposes only.<br/>
         <a href="https://www.eduvianai.com" style="color:#6366f1;text-decoration:none;">www.eduvianai.com</a>
+        &nbsp;·&nbsp;
+        <a href="mailto:privacy@eduvianai.com?subject=Unsubscribe" style="color:#6366f1;text-decoration:underline;">Unsubscribe</a>
       </div>
     </div>
   </div>

@@ -180,9 +180,11 @@ export async function POST(req: NextRequest) {
     </div>
 
     <div style="background:#f8fafc;padding:20px 32px;text-align:center;border-top:1px solid #f1f5f9;">
-      <div style="color:#9ca3af;font-size:12px;">
+      <div style="color:#9ca3af;font-size:12px;line-height:1.6;">
         © 2025 eduvianAI · Your Global Future, Simplified<br>
         <a href="${resultsUrl}" style="color:#6366f1;text-decoration:none;">View your shortlist</a>
+        &nbsp;·&nbsp;
+        <a href="mailto:privacy@eduvianai.com?subject=Unsubscribe" style="color:#6366f1;text-decoration:underline;">Unsubscribe</a>
       </div>
     </div>
   </div>
