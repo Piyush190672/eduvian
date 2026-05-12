@@ -18,12 +18,13 @@
 --     and marketing_opt_in_at columns + partial index.
 --
 -- Open follow-up (security): the "students_public_insert" policy below
--- grants INSERT to the anon role. The current /api/auth register
--- handler uses createServiceClient() and bypasses RLS anyway, so this
--- policy is unused in the legitimate flow but provides a write surface
--- to anyone holding the anon key (which is visible to every browser).
--- Consider dropping the public-insert policy after verifying no other
--- code path relies on it.
+-- granted INSERT to the anon role.
+-- → CLOSED 12 May 2026 in 20260512-students-drop-public-insert.sql
+-- after auditing every caller that writes to students. All write paths
+-- use createServiceClient() and bypass RLS, so dropping the policy
+-- doesn't break any legitimate flow; it only removes an anon-key write
+-- surface. Anyone rebuilding the table from scratch should apply both
+-- this file AND 20260512-students-drop-public-insert.sql in order.
 
 BEGIN;
 

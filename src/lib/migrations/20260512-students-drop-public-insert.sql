@@ -1,0 +1,35 @@
+-- Drop the students_public_insert RLS policy.
+--
+-- Background: the original students-table CREATE migration (now archived as
+-- 20260301-students.sql) declared:
+--
+--   CREATE POLICY "students_public_insert" ON public.students
+--     FOR INSERT WITH CHECK (true);
+--
+-- This granted unrestricted INSERT to the anon role. Same class of issue as
+-- C2 (submissions IDOR via anon SELECT), surfaced 12 May 2026 while
+-- archiving the long-orphan Supabase Studio snippet.
+--
+-- Verification done before drop:
+--   - /api/auth (register)                 → createServiceClient() — bypass
+--   - /api/chat/inquiry                    → createServiceClient() — bypass
+--   - /api/admin/leads                     → createServiceClient() — bypass
+--   - /api/account/access/correct/delete   → createServiceClient() — bypass
+--   - Anon client (getSupabase())          → only used in /admin/page.tsx
+--     for Supabase Auth signInWithPassword + MFA; never reads/writes
+--     the students table.
+--
+-- After this migration the students_service_all policy remains (FOR ALL
+-- USING auth.role() = 'service_role') and continues to allow every
+-- legitimate path. Anyone holding the public anon key (visible to every
+-- browser) loses the ability to write rows directly.
+--
+-- Safe to apply via Supabase Studio. Idempotent (IF EXISTS).
+-- Closes the open follow-up noted in 20260301-students.sql.
+
+DROP POLICY IF EXISTS "students_public_insert" ON public.students;
+
+-- Verification:
+--   SELECT polname FROM pg_policy
+--   WHERE polrelid = 'public.students'::regclass;
+--   -- Expected: only students_service_all remains.
