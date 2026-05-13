@@ -5,6 +5,7 @@ import { Toaster } from "react-hot-toast";
 import BetaBanner from "@/components/BetaBanner";
 import SecurityNoticeBanner from "@/components/SecurityNoticeBanner";
 import IdleLogout from "@/components/IdleLogout";
+import FloatingGetStartedButton from "@/components/FloatingGetStartedButton";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -49,6 +50,7 @@ export default function RootLayout({
         <BetaBanner />
         <SecurityNoticeBanner />
         <IdleLogout />
+        <FloatingGetStartedButton />
         {children}
         <Toaster
           position="top-center"
