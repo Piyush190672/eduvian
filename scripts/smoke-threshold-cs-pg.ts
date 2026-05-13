@@ -19,25 +19,28 @@ const profile: StudentProfile = {
   visa_history: "never_applied",
   family_abroad: false,
   family_income_inr: "20L_40L",
-  degree_level: "undergraduate",
-  current_degree: "12th Grade",
-  major_stream: "Science (PCM)",
-  institution_name: "DPS RK Puram",
-  graduation_year: 2026,
-  academic_score_type: "percentage",
-  academic_score: 88,
+  degree_level: "postgraduate",
+  current_degree: "B.Tech CS",
+  major_stream: "Computer Science",
+  institution_name: "IIT Delhi",
+  graduation_year: 2025,
+  academic_score_type: "gpa",
+  academic_score: 3.6,
   backlogs: false,
   backlog_count: 0,
   academic_gap: false,
+  work_experience_years: 1,
+  research_papers: true,
+  research_paper_count: 2,
   english_test: "ielts",
   english_score_overall: 7.0,
-  std_test_ug: "sat",
-  std_test_ug_score: 1450,
+  std_test_pg: "gre",
+  std_test_pg_score: 318,
   country_preferences: ["US", "GB", "CA", "AU", "DE", "SG", "IE", "NZ", "FR"],
   target_intake_year: 2026,
   target_intake_semester: "fall",
   budget_range: "above_70k",
-  intended_field: "Engineering (Mechanical/Civil/Electrical)",
+  intended_field: "Computer Science & IT",
   qs_ranking_preference: "any",
   post_study_work_visa: false,
 };
@@ -86,8 +89,8 @@ import { scoreProgram } from "@/lib/scoring";
 const fullScored = (programs as Program[])
   .filter((p) =>
     p.is_active &&
-    p.degree_level === "undergraduate" &&
-    p.field_of_study === "Engineering (Mechanical/Civil/Electrical)" &&
+    p.degree_level === "postgraduate" &&
+    p.field_of_study === "Computer Science & IT" &&
     (p.intake_semesters?.includes("fall") ?? true) &&
     p.annual_tuition_usd != null
   )

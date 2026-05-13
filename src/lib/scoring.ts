@@ -7,11 +7,13 @@ import type {
 import { BUDGET_VALUES, TARGET_COUNTRIES, COUNTRY_REGIONS, OTHER_FIELD_SENTINEL } from "./types";
 
 // ─── Weight configuration ─────────────────────────────────────────────────────
-// Academic 40%, Budget 20%, Std Test 10%, English/Scholarship/Intake/
-// Backlogs/Gap Year each 5%. Work Exp 5% for PG only (normalized for UG).
+// PG: Academic 35%, Budget 20%, Std Test 10%, English/Scholarship/Intake/
+//     Backlogs/Gap Year/Work Exp/Research Paper each 5%. (Research Paper
+//     added 13 May 2026; academic reduced 5% to fund it.)
+// UG: Same as PG minus Work Exp and Research Paper, normalised to 1.0.
 
 const WEIGHTS_PG = {
-  academic:        0.40,
+  academic:        0.35,
   budget:          0.20,
   std_test:        0.10,
   english:         0.05,
@@ -20,10 +22,12 @@ const WEIGHTS_PG = {
   backlogs:        0.05,
   gap_year:        0.05,
   work_experience: 0.05,
+  research_paper:  0.05,
 };
 
-// UG has no work_exp — normalize the remaining 8 signals to sum to 1.0
-const UG_TOTAL = 0.95; // sum without work_experience
+// UG has no work_exp and no research_paper — normalize the remaining 8
+// signals to sum to 1.0.
+const UG_TOTAL = 0.95; // sum without work_experience (research_paper is PG-only)
 const WEIGHTS_UG = {
   academic:        0.40 / UG_TOTAL,
   budget:          0.20 / UG_TOTAL,
@@ -34,6 +38,7 @@ const WEIGHTS_UG = {
   backlogs:        0.05 / UG_TOTAL,
   gap_year:        0.05 / UG_TOTAL,
   work_experience: 0,
+  research_paper:  0,
 };
 
 // ─── Countries offering strong Post-Study Work Visas ─────────────────────────
@@ -353,6 +358,26 @@ function scoreGapYear(profile: StudentProfile): number {
   return profile.academic_gap ? 50 : 100;
 }
 
+/**
+ * Research-paper signal (PG only). Published research is a meaningful
+ * differentiator at competitive PG admissions, especially for research-
+ * stream Masters and any PhD pipeline. Graduated by count rather than
+ * binary because a sustained track record (3+ papers) is materially
+ * stronger than a single co-authored undergrad publication.
+ *
+ * Returns 0 if research_papers is false / unset OR count is 0 — so a
+ * student who didn't publish carries the full 5% drag rather than a
+ * neutral mid-score that would understate the signal.
+ */
+function scoreResearchPaper(profile: StudentProfile): number {
+  if (!profile.research_papers) return 0;
+  const count = profile.research_paper_count ?? 0;
+  if (count <= 0) return 0;
+  if (count === 1) return 60;
+  if (count === 2) return 85;
+  return 100;
+}
+
 // ─── Hard disqualifiers (English floor + academic floor + budget ceiling) ────
 //
 // 12 May 2026: academic + budget moved from soft scoring to hard filters.
@@ -440,6 +465,7 @@ export function scoreProgram(profile: StudentProfile, program: Program): ScoredP
     std_test:        scoreStdTest(profile, program),
     backlogs:        scoreBacklogs(profile),
     gap_year:        scoreGapYear(profile),
+    research_paper:  isPG ? scoreResearchPaper(profile) : 0,
   };
 
   const match_score = Math.round(
@@ -451,7 +477,8 @@ export function scoreProgram(profile: StudentProfile, program: Program): ScoredP
     breakdown.intake          * W.intake +
     breakdown.work_experience * W.work_experience +
     breakdown.backlogs        * W.backlogs +
-    breakdown.gap_year        * W.gap_year
+    breakdown.gap_year        * W.gap_year +
+    breakdown.research_paper  * W.research_paper
   );
 
   // ── Prestige-adjusted tier thresholds ──────────────────────────────────────

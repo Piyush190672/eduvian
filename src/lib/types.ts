@@ -201,6 +201,7 @@ export interface ScoredProgram extends Program {
     std_test: number;
     backlogs: number;
     gap_year: number;
+    research_paper: number;
   };
 }
 
