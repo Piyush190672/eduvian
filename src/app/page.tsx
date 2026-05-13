@@ -626,7 +626,7 @@ export default function V2LandingPage() {
           <div className="max-w-3xl mb-12 sm:mb-16">
             <p className="text-[11px] uppercase tracking-[0.25em] text-violet-700 font-semibold mb-4">Built for both sides of the table</p>
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-[1.1] mb-5">
-              Students and parents on <span className="italic font-medium text-violet-700">one trusted platform</span>.
+              <span className="italic font-medium text-violet-700">Students and parents</span> on one trusted platform.
             </h2>
             <p className="text-base sm:text-lg text-gray-500 leading-relaxed">
               Students choose their best-fit path. Parents decide if it's worth the cost. EduvianAI answers the questions each side is actually asking — from the same source-verified dataset.
