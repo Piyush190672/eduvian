@@ -56,10 +56,27 @@ const BENEFITS = [
 
 const RESEND_COOLDOWN_SECONDS = 60;
 
+// Password strength — mirrors src/lib/password.ts. Server is authoritative;
+// this is just a UX hint so we don't roundtrip on obviously-bad input.
+const PW_MIN_LENGTH = 8;
+const PW_RE_LETTER  = /[A-Za-z]/;
+const PW_RE_DIGIT   = /[0-9]/;
+const PW_RE_SPECIAL = /[^A-Za-z0-9]/;
+function validatePassword(pw: string): string | null {
+  if (pw.length < PW_MIN_LENGTH) return `Password must be at least ${PW_MIN_LENGTH} characters.`;
+  if (!PW_RE_LETTER.test(pw))    return "Password must contain at least one letter.";
+  if (!PW_RE_DIGIT.test(pw))     return "Password must contain at least one number.";
+  if (!PW_RE_SPECIAL.test(pw))   return "Password must contain at least one special character (e.g. ! @ # $ % & *).";
+  return null;
+}
+
 export default function GetStartedPage() {
   const router = useRouter();
   const [mode, setMode] = useState<Mode>("choose");
-  const [step, setStep] = useState<"details" | "otp">("details");
+  // After register OTP success, transition to "password" — set-a-password
+  // is part of the same screen so users finish the auth flow in one place
+  // instead of being asked again from /account/security later.
+  const [step, setStep] = useState<"details" | "otp" | "password">("details");
 
   // Already signed in? Skip the login/register chooser entirely — the
   // expected flow when an authenticated user clicks "Get Started" again
@@ -161,30 +178,73 @@ export default function GetStartedPage() {
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
     if (step === "details") return requestOtp("register");
-    if (!/^[0-9]{6}$/.test(otp)) {
-      setError("Enter the 6-digit code from your email.");
+
+    // OTP step → verify with /api/auth, then transition to password step
+    // (NOT immediately route to /profile — the new register flow asks for a
+    // password on the same screen before continuing).
+    if (step === "otp") {
+      if (!/^[0-9]{6}$/.test(otp)) {
+        setError("Enter the 6-digit code from your email.");
+        return;
+      }
+      setError("");
+      setLoading(true);
+      try {
+        const res = await fetch("/api/auth", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ action: "register", name, email, phone, otp_code: otp, marketing_opt_in: marketingOptIn }),
+        });
+        const data = await res.json();
+        if (data.ok) {
+          saveStudentLocally({ name: data.student.name, email: data.student.email, phone: data.student.phone, id: data.student.id });
+          setStep("password");
+        } else {
+          setError(data.error ?? "Something went wrong. Try again.");
+        }
+      } catch {
+        setError("Connection error. Please try again.");
+      } finally {
+        setLoading(false);
+      }
       return;
     }
-    setError("");
-    setLoading(true);
-    try {
-      const res = await fetch("/api/auth", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ action: "register", name, email, phone, otp_code: otp, marketing_opt_in: marketingOptIn }),
-      });
-      const data = await res.json();
-      if (data.ok) {
-        saveStudentLocally({ name: data.student.name, email: data.student.email, phone: data.student.phone, id: data.student.id });
-        router.push("/profile");
-      } else {
-        setError(data.error ?? "Something went wrong. Try again.");
+
+    // Password step → store the password against the just-created account,
+    // then route to /profile. The /api/auth/set-password endpoint is gated
+    // by the eduvianai_user cookie that the register step just minted.
+    if (step === "password") {
+      const strengthErr = validatePassword(password);
+      if (strengthErr) {
+        setError(strengthErr);
+        return;
       }
-    } catch {
-      setError("Connection error. Please try again.");
-    } finally {
-      setLoading(false);
+      setError("");
+      setLoading(true);
+      try {
+        const res = await fetch("/api/auth/set-password", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ new_password: password }),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok) {
+          setError(data.error ?? "Could not save password. You can set one later from your profile.");
+          return;
+        }
+        router.push("/profile");
+      } catch {
+        setError("Connection error. You can set a password later from your profile.");
+      } finally {
+        setLoading(false);
+      }
     }
+  };
+
+  // Skip the password step without setting one — user can still log in
+  // with the email-OTP flow and set a password later from /account/security.
+  const skipPassword = () => {
+    router.push("/profile");
   };
 
   const handleLogin = async (e: React.FormEvent) => {
@@ -440,12 +500,20 @@ export default function GetStartedPage() {
                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center mx-auto mb-4 shadow-xl shadow-indigo-500/30">
                   <UserPlus className="w-8 h-8 text-white" />
                 </div>
-                <h2 className="text-3xl font-extrabold text-white mb-2">Create your profile</h2>
-                <p className="text-slate-400 text-sm">Takes 10 seconds. Free forever.</p>
+                <h2 className="text-3xl font-extrabold text-white mb-2">
+                  {step === "password" ? "One last step" : step === "otp" ? "Check your inbox" : "Create your profile"}
+                </h2>
+                <p className="text-slate-400 text-sm">
+                  {step === "password"
+                    ? "Set a password to sign in faster next time — or skip and use the email-code flow."
+                    : step === "otp"
+                      ? "Enter the 6-digit code we just emailed you."
+                      : "Takes 10 seconds. Free forever."}
+                </p>
               </div>
 
               <form onSubmit={handleRegister} className="bg-white/5 border border-white/10 rounded-3xl p-8 space-y-5">
-                {step === "details" ? (
+                {step === "details" && (
                   <>
                     <div>
                       <label className="block text-sm font-semibold text-slate-300 mb-2">Full Name *</label>
@@ -492,7 +560,8 @@ export default function GetStartedPage() {
                       </div>
                     </div>
                   </>
-                ) : (
+                )}
+                {step === "otp" && (
                   <>
                     <div className="text-center pb-2">
                       <p className="text-slate-300 text-sm">
@@ -516,6 +585,44 @@ export default function GetStartedPage() {
                         className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white text-center text-2xl font-mono tracking-[0.4em] focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
                         required
                       />
+                    </div>
+                  </>
+                )}
+                {step === "password" && (
+                  <>
+                    <div className="text-center pb-2">
+                      <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-400/30 mb-3">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-300" />
+                        <span className="text-xs font-semibold text-emerald-200">Email verified</span>
+                      </div>
+                      <p className="text-slate-300 text-sm">Now set a password for faster sign-in next time.</p>
+                      <p className="text-slate-500 text-xs mt-1">You can skip and use the email-code flow forever — your call.</p>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-semibold text-slate-300 mb-2">Create a password *</label>
+                      <input
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        autoComplete="new-password"
+                        placeholder="At least 8 characters, letter, number, special"
+                        minLength={PW_MIN_LENGTH}
+                        className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder:text-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+                        autoFocus
+                      />
+                      <ul className="mt-2.5 space-y-0.5 text-[11px] text-slate-400">
+                        {[
+                          { ok: password.length >= PW_MIN_LENGTH, label: `At least ${PW_MIN_LENGTH} characters` },
+                          { ok: PW_RE_LETTER.test(password),       label: "Contains a letter" },
+                          { ok: PW_RE_DIGIT.test(password),        label: "Contains a number" },
+                          { ok: PW_RE_SPECIAL.test(password),      label: "Contains a special character (! @ # $ % &)" },
+                        ].map((r) => (
+                          <li key={r.label} className="flex items-center gap-1.5">
+                            <span className={r.ok ? "text-emerald-400 font-bold" : "text-slate-600"}>{r.ok ? "✓" : "○"}</span>
+                            <span className={r.ok ? "text-emerald-300" : ""}>{r.label}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   </>
                 )}
@@ -552,15 +659,21 @@ export default function GetStartedPage() {
 
                 <button
                   type="submit"
-                  disabled={loading || (step === "otp" && otp.length !== 6)}
+                  disabled={
+                    loading
+                    || (step === "otp" && otp.length !== 6)
+                    || (step === "password" && password.length < PW_MIN_LENGTH)
+                  }
                   className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-bold text-sm hover:shadow-lg hover:shadow-indigo-500/30 transition-all disabled:opacity-60"
                 >
                   {loading ? (
-                    <><Loader2 className="w-4 h-4 animate-spin" /> {step === "details" ? "Sending code…" : "Verifying…"}</>
+                    <><Loader2 className="w-4 h-4 animate-spin" /> {step === "details" ? "Sending code…" : step === "otp" ? "Verifying…" : "Saving password…"}</>
                   ) : step === "details" ? (
                     <>Send verification code <ArrowRight className="w-4 h-4" /></>
+                  ) : step === "otp" ? (
+                    <>Verify & continue <ArrowRight className="w-4 h-4" /></>
                   ) : (
-                    <>Create Profile & Continue <ArrowRight className="w-4 h-4" /></>
+                    <>Save password & continue <ArrowRight className="w-4 h-4" /></>
                   )}
                 </button>
 
@@ -580,6 +693,18 @@ export default function GetStartedPage() {
                       className={`hover:text-white transition-colors ${resendIn > 0 ? "cursor-not-allowed text-slate-600" : ""}`}
                     >
                       {resendIn > 0 ? `Resend in ${resendIn}s` : "Resend code"}
+                    </button>
+                  </div>
+                )}
+
+                {step === "password" && (
+                  <div className="text-center pt-1">
+                    <button
+                      type="button"
+                      onClick={skipPassword}
+                      className="text-xs text-slate-400 hover:text-white underline-offset-2 hover:underline transition-colors"
+                    >
+                      Skip — I&apos;ll set one later
                     </button>
                   </div>
                 )}
