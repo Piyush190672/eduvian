@@ -303,8 +303,8 @@ export default function ChatWidget({ programs, studentName = "there" }: ChatWidg
         onClick={() => setOpen((o) => !o)}
         className={
           compact
-            ? "fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r from-violet-600 to-fuchsia-500 text-white shadow-2xl shadow-violet-500/40 hover:shadow-violet-500/60 transition-all duration-300 hover:-translate-y-1"
-            : "fixed bottom-6 right-6 z-50 flex items-center gap-2.5 pl-2 pr-5 py-2 rounded-2xl bg-gradient-to-r from-violet-600 to-fuchsia-500 text-white font-bold shadow-2xl shadow-violet-500/40 hover:shadow-violet-500/60 transition-all duration-300 hover:-translate-y-1"
+            ? "fixed bottom-5 right-5 z-50 flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-r from-violet-600 to-fuchsia-500 text-white shadow-lg shadow-violet-500/40 hover:shadow-violet-500/60 transition-all duration-300 hover:-translate-y-1"
+            : "fixed bottom-5 right-5 z-50 flex items-center gap-2 pl-1.5 pr-3.5 py-1.5 rounded-2xl bg-gradient-to-r from-violet-600 to-fuchsia-500 text-white font-bold shadow-lg shadow-violet-500/40 hover:shadow-violet-500/60 transition-all duration-300 hover:-translate-y-1"
         }
         whileTap={{ scale: 0.95 }}
         animate={!open && pulse ? { y: [0, -8, 0, -4, 0] } : { y: 0 }}
@@ -317,18 +317,18 @@ export default function ChatWidget({ programs, studentName = "there" }: ChatWidg
             <motion.span key="close"
               initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }}
               exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.15 }}
-              className="w-8 h-8 flex items-center justify-center">
-              <X className="w-5 h-5" />
+              className="w-7 h-7 flex items-center justify-center">
+              <X className="w-4 h-4" />
             </motion.span>
           ) : (
             <motion.span key="avatar"
               initial={{ scale: 0.7, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.7, opacity: 0 }} transition={{ duration: 0.15 }}>
-              <AisaAvatar size={compact ? 32 : 36} />
+              <AisaAvatar size={compact ? 26 : 30} />
             </motion.span>
           )}
         </AnimatePresence>
-        {!compact && <span className="text-sm font-bold">Stuck? Ask AISA</span>}
+        {!compact && <span className="text-[12px] font-bold">Stuck? Ask AISA</span>}
         {!open && (
           <span className="absolute -top-1.5 -right-1.5 w-4 h-4 bg-emerald-400 rounded-full border-2 border-white animate-pulse" />
         )}

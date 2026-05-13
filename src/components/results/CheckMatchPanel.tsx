@@ -106,7 +106,7 @@ export default function CheckMatchPanel({ token }: Props) {
             className="flex-shrink-0 flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-semibold hover:shadow-lg hover:shadow-indigo-200 transition-all hover:-translate-y-0.5"
           >
             <TrendingUp className="w-4 h-4" />
-            Check My Score
+            Check
           </button>
         </div>
       </motion.div>

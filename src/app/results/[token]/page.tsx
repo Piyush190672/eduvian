@@ -413,13 +413,18 @@ export default function ResultsPage() {
               </div>
 
               {programs.length === 0 ? (
-                <div className="text-center py-10 rounded-2xl border border-dashed border-gray-200">
-                  <Filter className="w-8 h-8 text-gray-200 mx-auto mb-2" />
-                  <p className="text-sm text-gray-400">No {tc.label.toLowerCase()} matches for the current filters.</p>
+                // Compact no-results row — used to be a tall py-10 panel
+                // with an icon block, which on mobile pushed the next
+                // tier section well below the fold. (13 May 2026)
+                <div className="flex items-center justify-between gap-3 px-3 py-2.5 rounded-xl bg-gray-50 border border-dashed border-gray-200">
+                  <p className="text-xs text-gray-500 flex items-center gap-1.5">
+                    <Filter className="w-3.5 h-3.5 text-gray-300 flex-shrink-0" />
+                    No {tc.label.toLowerCase()} matches for the current filters.
+                  </p>
                   {(filters.country !== "all" || filters.field !== "all") && (
                     <button
                       onClick={() => setFilters({ country: "all", field: "all", sort: filters.sort })}
-                      className="mt-2 text-xs text-indigo-500 hover:underline"
+                      className="flex-shrink-0 text-xs text-indigo-500 hover:underline"
                     >
                       Clear filters
                     </button>
