@@ -49,7 +49,7 @@ const nextConfig = {
     domains: ["flagcdn.com", "images.unsplash.com"],
   },
   experimental: {
-    serverComponentsExternalPackages: ["mammoth", "pdf-parse"],
+    serverComponentsExternalPackages: ["mammoth", "pdf-parse", "pdfjs-dist"],
     // Required in Next 14 to load instrumentation.ts (Sentry init).
     instrumentationHook: true,
   },
