@@ -436,25 +436,22 @@ export function scoreProgram(profile: StudentProfile, program: Program): ScoredP
     breakdown.gap_year        * W.gap_year
   );
 
-  // ── Prestige-adjusted tier thresholds ──────────────────────────────────────
-  // Higher-ranked universities have lower admit rates and holistic admissions —
-  // a high match score does not mean "safe". These aggressive thresholds ensure
-  // top-25 programs almost always appear as Reach/Ambitious even for strong profiles.
-  const qs = program.qs_ranking ?? 9999;
-  let safeMin: number;
-  let reachMin: number;
-  if      (qs <=  25) { safeMin = 92; reachMin = 70; }
-  else if (qs <=  50) { safeMin = 89; reachMin = 66; }
-  else if (qs <= 100) { safeMin = 86; reachMin = 62; }
-  else if (qs <= 200) { safeMin = 82; reachMin = 57; }
-  else if (qs <= 400) { safeMin = 78; reachMin = 52; }
-  else if (qs <= 700) { safeMin = 74; reachMin = 47; }
-  else                { safeMin = 68; reachMin = 42; }
-
+  // ── Tier thresholds ────────────────────────────────────────────────────────
+  // Single global scale per the spec in CLAUDE.md:
+  //   Safe       75-100   profile comfortably meets requirements
+  //   Reach      50-74    profile is in range but not guaranteed
+  //   Ambitious  <50      stretch — known gap on one or more signals
+  //
+  // History: this used to be QS-prestige-adjusted (introduced 13 Apr 2026,
+  // edf3b9b3), but the per-program threshold variance broke score-tier
+  // monotonicity across the shortlist — a higher-scoring program at a
+  // high-ranked university would land in Reach while a lower-scoring
+  // program at a low-ranked university landed in Safe. Reverted to the
+  // documented global thresholds 13 May 2026.
   let tier: ProgramTier;
-  if (match_score >= safeMin)  tier = "safe";
-  else if (match_score >= reachMin) tier = "reach";
-  else tier = "ambitious";
+  if      (match_score >= 75) tier = "safe";
+  else if (match_score >= 50) tier = "reach";
+  else                        tier = "ambitious";
 
   return { ...program, match_score, tier, score_breakdown: breakdown };
 }
