@@ -21,9 +21,9 @@ import { useEffect } from "react";
  * recommendation in §H2 of the audit doc.
  */
 
-const IDLE_LIMIT_MS = 60 * 60 * 1000;   // 60 minutes
-const CHECK_EVERY_MS = 60 * 1000;        // re-check once a minute
-const THROTTLE_MS = 5 * 1000;            // at most one activity write per 5s
+const IDLE_LIMIT_MS = 24 * 60 * 60 * 1000;   // 24 hours
+const CHECK_EVERY_MS = 5 * 60 * 1000;         // re-check every 5 minutes
+const THROTTLE_MS = 5 * 1000;                 // at most one activity write per 5s
 const LAST_ACTIVE_KEY = "eduvian_last_active";
 const STUDENT_KEY = "eduvian_student";
 

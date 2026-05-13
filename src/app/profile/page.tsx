@@ -230,7 +230,6 @@ function ProfilePageInner() {
         <Link href="/" className="flex items-center gap-2">
           <EduvianLogoMark size={32} />
           <div>
-            <span className="font-display font-bold text-xl text-gray-900 tracking-tight">eduvian<span className="text-indigo-500">AI</span></span>
             <p className="text-sm font-bold text-gray-400 leading-none">Your Global Future, Simplified</p>
           </div>
         </Link>

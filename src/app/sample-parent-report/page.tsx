@@ -111,7 +111,6 @@ export default function SampleParentReportPage() {
             <div>
               <div className="flex items-center gap-2 mb-3">
                 <EduvianLogoMark size={28} />
-                <span className="font-display font-bold text-lg text-gray-900">eduvian<span className="text-indigo-500">AI</span></span>
               </div>
               <p className="text-[11px] font-bold text-purple-700 uppercase tracking-widest mb-2">Parent Decision Report</p>
               <h1 className="font-display text-2xl sm:text-3xl font-bold text-gray-900 leading-tight">

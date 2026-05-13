@@ -14,8 +14,8 @@ export default function MethodologyPage() {
       {/* ───── NAV ───── */}
       <nav className="absolute top-0 inset-x-0 z-50">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 h-16 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 text-white">
-            <span className="font-display text-lg font-bold tracking-tight">eduvianAI</span>
+          <Link href="/" className="flex items-center text-white" aria-label="eduvianAI home">
+            <img src="/logo.svg" alt="eduvianAI" width={32} height={32} className="w-8 h-8 rounded-lg" />
           </Link>
           <div className="flex items-center gap-3 sm:gap-6">
             <Link href="/" className="inline-flex items-center gap-1.5 text-sm text-white/70 hover:text-white transition-colors">

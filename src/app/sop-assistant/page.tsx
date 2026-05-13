@@ -154,7 +154,6 @@ function Nav() {
       <Link href="/" className="flex items-center gap-3 py-4 flex-shrink-0">
         <EduvianLogoMark size={36} />
         <div>
-          <span className="font-display font-bold text-base text-white tracking-tight">eduvian<span className="text-indigo-300">AI</span></span>
           <p className="text-[10px] text-indigo-300 leading-none font-medium">Your Global Future, Simplified</p>
         </div>
       </Link>

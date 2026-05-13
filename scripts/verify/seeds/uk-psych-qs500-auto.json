@@ -1,0 +1,398 @@
+[
+  {
+    "university": "University of Cambridge",
+    "country": "UK",
+    "city": "Cambridge",
+    "qs_ranking": 2,
+    "field_of_study": "Psychology",
+    "program_url": "https://www.postgraduate.study.cam.ac.uk/courses/directory/blpympbsc",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Oxford",
+    "country": "UK",
+    "city": "Oxford",
+    "qs_ranking": 4,
+    "field_of_study": "Psychology",
+    "program_url": "https://www.ox.ac.uk/admissions/graduate/courses/msc-psychological-research",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University College London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 9,
+    "field_of_study": "Psychology",
+    "program_url": "https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/psychological-sciences-msc",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Edinburgh",
+    "country": "UK",
+    "city": "Edinburgh",
+    "qs_ranking": 27,
+    "field_of_study": "Psychology",
+    "program_url": "https://study.ed.ac.uk/programmes/postgraduate-taught/1035-psychological-research",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Manchester",
+    "country": "UK",
+    "city": "Manchester",
+    "qs_ranking": 34,
+    "field_of_study": "Psychology",
+    "program_url": "https://www.manchester.ac.uk/study/masters/courses/list/08070/msc-clinical-and-health-psychology/",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "King's College London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 40,
+    "field_of_study": "Psychology",
+    "program_url": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/health-psychology-msc",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "London School of Economics",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 50,
+    "field_of_study": "Psychology",
+    "program_url": "https://www.lse.ac.uk/study-at-lse/graduate/msc-social-and-cultural-psychology",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Bristol",
+    "country": "UK",
+    "city": "Bristol",
+    "qs_ranking": 54,
+    "field_of_study": "Psychology",
+    "program_url": "https://www.bristol.ac.uk/study/postgraduate/taught/msc-psychology-conversion/",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Warwick",
+    "country": "UK",
+    "city": "Coventry",
+    "qs_ranking": 67,
+    "field_of_study": "Psychology",
+    "program_url": "https://warwick.ac.uk/study/postgraduate/courses/msc-psychological-research/",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Leeds",
+    "country": "UK",
+    "city": "Leeds",
+    "qs_ranking": 75,
+    "field_of_study": "Psychology",
+    "program_url": "https://courses.leeds.ac.uk/g603/psychological-approaches-to-health-msc",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Glasgow",
+    "country": "UK",
+    "city": "Glasgow",
+    "qs_ranking": 77,
+    "field_of_study": "Psychology",
+    "program_url": "https://www.gla.ac.uk/postgraduate/taught/psychologicalscienceresearchmethodsof/",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Birmingham",
+    "country": "UK",
+    "city": "Birmingham",
+    "qs_ranking": 79,
+    "field_of_study": "Psychology",
+    "program_url": "https://www.birmingham.ac.uk/study/postgraduate/subjects/psychology-courses/psychology-msc",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Southampton",
+    "country": "UK",
+    "city": "Southampton",
+    "qs_ranking": 80,
+    "field_of_study": "Psychology",
+    "program_url": "https://www.southampton.ac.uk/courses/psychology-masters-msc",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Durham University",
+    "country": "UK",
+    "city": "Durham",
+    "qs_ranking": 92,
+    "field_of_study": "Psychology",
+    "program_url": "https://www.dur.ac.uk/courses/info/?id=19580&code=C8K009",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of St Andrews",
+    "country": "UK",
+    "city": "St Andrews",
+    "qs_ranking": 95,
+    "field_of_study": "Psychology",
+    "program_url": "https://www.st-andrews.ac.uk/subjects/psychology/research-psychology-msc/",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Sheffield",
+    "country": "UK",
+    "city": "Sheffield",
+    "qs_ranking": 105,
+    "field_of_study": "Psychology",
+    "program_url": "https://www.sheffield.ac.uk/postgraduate/taught/courses/2026/psychological-research-methods-msc",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Nottingham",
+    "country": "UK",
+    "city": "Nottingham",
+    "qs_ranking": 108,
+    "field_of_study": "Psychology",
+    "program_url": "https://www.nottingham.ac.uk/pgstudy/course/taught/psychology-research-methods-msc",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Newcastle University",
+    "country": "UK",
+    "city": "Newcastle",
+    "qs_ranking": 110,
+    "field_of_study": "Psychology",
+    "program_url": "https://www.ncl.ac.uk/postgraduate/degrees/5202f/",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Queen Mary University of London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 130,
+    "field_of_study": "Psychology",
+    "program_url": "https://www.qmul.ac.uk/postgraduate/taught/coursefinder/courses/psychology-conversion-msc/",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Lancaster University",
+    "country": "UK",
+    "city": "Lancaster",
+    "qs_ranking": 140,
+    "field_of_study": "Psychology",
+    "program_url": "https://www.lancaster.ac.uk/study/postgraduate/postgraduate-courses/psychological-research-methods-msc/2025/",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Exeter",
+    "country": "UK",
+    "city": "Exeter",
+    "qs_ranking": 149,
+    "field_of_study": "Psychology",
+    "program_url": "https://www.exeter.ac.uk/study/postgraduate/courses/psychology/clinical/",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Bath",
+    "country": "UK",
+    "city": "Bath",
+    "qs_ranking": 150,
+    "field_of_study": "Psychology",
+    "program_url": "https://www.bath.ac.uk/courses/postgraduate-2026/taught-postgraduate-courses/msc-applied-clinical-psychology-full-time/",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Liverpool",
+    "country": "UK",
+    "city": "Liverpool",
+    "qs_ranking": 165,
+    "field_of_study": "Psychology",
+    "program_url": "https://www.liverpool.ac.uk/courses/psychology-conversion-msc",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of York",
+    "country": "UK",
+    "city": "York",
+    "qs_ranking": 168,
+    "field_of_study": "Psychology",
+    "program_url": "https://www.york.ac.uk/study/postgraduate-taught/courses/msc-psychology-mental-health/",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Cardiff University",
+    "country": "UK",
+    "city": "Cardiff",
+    "qs_ranking": 197,
+    "field_of_study": "Psychology",
+    "program_url": "https://www.cardiff.ac.uk/study/postgraduate/taught/courses/course/psychology-conversion-msc",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Queen's University Belfast",
+    "country": "UK",
+    "city": "Belfast",
+    "qs_ranking": 197,
+    "field_of_study": "Psychology",
+    "program_url": "https://www.qub.ac.uk/courses/postgraduate-taught/psychological-science-msc/",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Loughborough University",
+    "country": "UK",
+    "city": "Loughborough",
+    "qs_ranking": 234,
+    "field_of_study": "Psychology",
+    "program_url": "https://www.lboro.ac.uk/study/postgraduate/masters-degrees/a-z/work-psychology/",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Sussex",
+    "country": "UK",
+    "city": "Brighton",
+    "qs_ranking": 246,
+    "field_of_study": "Psychology",
+    "program_url": "https://www.sussex.ac.uk/study/masters/courses/psychology-conversion-msc",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Surrey",
+    "country": "UK",
+    "city": "Guildford",
+    "qs_ranking": 251,
+    "field_of_study": "Psychology",
+    "program_url": "https://www.surrey.ac.uk/postgraduate/psychology-conversion-msc",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Aberdeen",
+    "country": "UK",
+    "city": "Aberdeen",
+    "qs_ranking": 264,
+    "field_of_study": "Psychology",
+    "program_url": "https://www.abdn.ac.uk/study/postgraduate-taught/degree-programmes/261/psychological-studies/",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Strathclyde",
+    "country": "UK",
+    "city": "Glasgow",
+    "qs_ranking": 269,
+    "field_of_study": "Psychology",
+    "program_url": "https://www.strath.ac.uk/courses/postgraduatetaught/researchmethodsinpsychology/",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Heriot-Watt University",
+    "country": "UK",
+    "city": "Edinburgh",
+    "qs_ranking": 274,
+    "field_of_study": "Psychology",
+    "program_url": "https://www.hw.ac.uk/study/postgraduate/applied-psychology",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Swansea University",
+    "country": "UK",
+    "city": "Swansea",
+    "qs_ranking": 312,
+    "field_of_study": "Psychology",
+    "program_url": "https://www.swansea.ac.uk/postgraduate/taught/psychology/clinical-psychology-and-mental-health-msc/",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of East Anglia",
+    "country": "UK",
+    "city": "Norwich",
+    "qs_ranking": 313,
+    "field_of_study": "Psychology",
+    "program_url": "https://www.uea.ac.uk/course/postgraduate/msc-social-and-applied-psychology",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Brunel University London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 333,
+    "field_of_study": "Psychology",
+    "program_url": "https://www.brunel.ac.uk/study/courses/psychological-sciences-conversion-msc",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Reading",
+    "country": "UK",
+    "city": "Reading",
+    "qs_ranking": 335,
+    "field_of_study": "Psychology",
+    "program_url": "https://www.reading.ac.uk/ready-to-study/study/subject-area/psychology-pg/msc-psychology-conversion",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "City, University of London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 348,
+    "field_of_study": "Psychology",
+    "program_url": "https://city.ac.uk/study/courses/postgraduate/organisational-psychology",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Leicester",
+    "country": "UK",
+    "city": "Leicester",
+    "qs_ranking": 348,
+    "field_of_study": "Psychology",
+    "program_url": "https://le.ac.uk/courses/psychology-msc/2026",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Royal Holloway, University of London",
+    "country": "UK",
+    "city": "Egham",
+    "qs_ranking": 391,
+    "field_of_study": "Psychology",
+    "program_url": "https://www.royalholloway.ac.uk/studying-here/postgraduate/psychology/clinical-psychology/",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Dundee",
+    "country": "UK",
+    "city": "Dundee",
+    "qs_ranking": 412,
+    "field_of_study": "Psychology",
+    "program_url": "https://www.dundee.ac.uk/postgraduate/psychology-conversion",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Essex",
+    "country": "UK",
+    "city": "Colchester",
+    "qs_ranking": 412,
+    "field_of_study": "Psychology",
+    "program_url": "https://www.essex.ac.uk/courses/pg00755/1/msc-psychology",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "Aston University",
+    "country": "UK",
+    "city": "Birmingham",
+    "qs_ranking": 446,
+    "field_of_study": "Psychology",
+    "program_url": "https://www.aston.ac.uk/study/courses/psychology-conversion-msc",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Kent",
+    "country": "UK",
+    "city": "Canterbury",
+    "qs_ranking": 470,
+    "field_of_study": "Psychology",
+    "program_url": "https://www.kent.ac.uk/courses/postgraduate/4956/clinical-psychology",
+    "degree_level": "postgraduate"
+  },
+  {
+    "university": "University of Stirling",
+    "country": "UK",
+    "city": "Stirling",
+    "qs_ranking": 487,
+    "field_of_study": "Psychology",
+    "program_url": "https://www.stir.ac.uk/courses/pg-taught/psychology-accredited-conversion-course/",
+    "degree_level": "postgraduate"
+  }
+]

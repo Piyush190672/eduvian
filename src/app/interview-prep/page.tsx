@@ -3137,7 +3137,6 @@ function InterviewPrepInner() {
         <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
             <EduvianLogoMark size={32} />
-            <span className="font-display font-bold text-sm text-gray-900 tracking-tight">eduvian<span className="text-indigo-500">AI</span></span>
           </Link>
           <Link href="/#interview-prep" className="text-xs font-semibold text-gray-500 hover:text-gray-700 flex items-center gap-1.5 transition-colors">
             <ArrowLeft className="w-3.5 h-3.5" /> Back to home

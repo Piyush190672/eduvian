@@ -1,0 +1,407 @@
+[
+  {
+    "university": "University of Cambridge",
+    "country": "UK",
+    "city": "Cambridge",
+    "qs_ranking": 2,
+    "missing_fields": [
+      "Psychology"
+    ]
+  },
+  {
+    "university": "Imperial College London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 2,
+    "missing_fields": [
+      "Psychology"
+    ]
+  },
+  {
+    "university": "University of Oxford",
+    "country": "UK",
+    "city": "Oxford",
+    "qs_ranking": 4,
+    "missing_fields": [
+      "Psychology"
+    ]
+  },
+  {
+    "university": "University College London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 9,
+    "missing_fields": [
+      "Psychology"
+    ]
+  },
+  {
+    "university": "University of Edinburgh",
+    "country": "UK",
+    "city": "Edinburgh",
+    "qs_ranking": 27,
+    "missing_fields": [
+      "Psychology"
+    ]
+  },
+  {
+    "university": "University of Manchester",
+    "country": "UK",
+    "city": "Manchester",
+    "qs_ranking": 34,
+    "missing_fields": [
+      "Psychology"
+    ]
+  },
+  {
+    "university": "King's College London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 40,
+    "missing_fields": [
+      "Psychology"
+    ]
+  },
+  {
+    "university": "London School of Economics",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 50,
+    "missing_fields": [
+      "Psychology"
+    ]
+  },
+  {
+    "university": "University of Bristol",
+    "country": "UK",
+    "city": "Bristol",
+    "qs_ranking": 54,
+    "missing_fields": [
+      "Psychology"
+    ]
+  },
+  {
+    "university": "University of Warwick",
+    "country": "UK",
+    "city": "Coventry",
+    "qs_ranking": 67,
+    "missing_fields": [
+      "Psychology"
+    ]
+  },
+  {
+    "university": "University of Leeds",
+    "country": "UK",
+    "city": "Leeds",
+    "qs_ranking": 75,
+    "missing_fields": [
+      "Psychology"
+    ]
+  },
+  {
+    "university": "University of Glasgow",
+    "country": "UK",
+    "city": "Glasgow",
+    "qs_ranking": 77,
+    "missing_fields": [
+      "Psychology"
+    ]
+  },
+  {
+    "university": "University of Birmingham",
+    "country": "UK",
+    "city": "Birmingham",
+    "qs_ranking": 79,
+    "missing_fields": [
+      "Psychology"
+    ]
+  },
+  {
+    "university": "University of Southampton",
+    "country": "UK",
+    "city": "Southampton",
+    "qs_ranking": 80,
+    "missing_fields": [
+      "Psychology"
+    ]
+  },
+  {
+    "university": "Durham University",
+    "country": "UK",
+    "city": "Durham",
+    "qs_ranking": 92,
+    "missing_fields": [
+      "Psychology"
+    ]
+  },
+  {
+    "university": "University of St Andrews",
+    "country": "UK",
+    "city": "St Andrews",
+    "qs_ranking": 95,
+    "missing_fields": [
+      "Psychology"
+    ]
+  },
+  {
+    "university": "University of Sheffield",
+    "country": "UK",
+    "city": "Sheffield",
+    "qs_ranking": 105,
+    "missing_fields": [
+      "Psychology"
+    ]
+  },
+  {
+    "university": "University of Nottingham",
+    "country": "UK",
+    "city": "Nottingham",
+    "qs_ranking": 108,
+    "missing_fields": [
+      "Psychology"
+    ]
+  },
+  {
+    "university": "Newcastle University",
+    "country": "UK",
+    "city": "Newcastle",
+    "qs_ranking": 110,
+    "missing_fields": [
+      "Psychology"
+    ]
+  },
+  {
+    "university": "Queen Mary University of London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 130,
+    "missing_fields": [
+      "Psychology"
+    ]
+  },
+  {
+    "university": "Lancaster University",
+    "country": "UK",
+    "city": "Lancaster",
+    "qs_ranking": 140,
+    "missing_fields": [
+      "Psychology"
+    ]
+  },
+  {
+    "university": "University of Exeter",
+    "country": "UK",
+    "city": "Exeter",
+    "qs_ranking": 149,
+    "missing_fields": [
+      "Psychology"
+    ]
+  },
+  {
+    "university": "University of Bath",
+    "country": "UK",
+    "city": "Bath",
+    "qs_ranking": 150,
+    "missing_fields": [
+      "Psychology"
+    ]
+  },
+  {
+    "university": "University of Liverpool",
+    "country": "UK",
+    "city": "Liverpool",
+    "qs_ranking": 165,
+    "missing_fields": [
+      "Psychology"
+    ]
+  },
+  {
+    "university": "University of York",
+    "country": "UK",
+    "city": "York",
+    "qs_ranking": 168,
+    "missing_fields": [
+      "Psychology"
+    ]
+  },
+  {
+    "university": "Cardiff University",
+    "country": "UK",
+    "city": "Cardiff",
+    "qs_ranking": 197,
+    "missing_fields": [
+      "Psychology"
+    ]
+  },
+  {
+    "university": "Queen's University Belfast",
+    "country": "UK",
+    "city": "Belfast",
+    "qs_ranking": 197,
+    "missing_fields": [
+      "Psychology"
+    ]
+  },
+  {
+    "university": "Loughborough University",
+    "country": "UK",
+    "city": "Loughborough",
+    "qs_ranking": 234,
+    "missing_fields": [
+      "Psychology"
+    ]
+  },
+  {
+    "university": "University of Sussex",
+    "country": "UK",
+    "city": "Brighton",
+    "qs_ranking": 246,
+    "missing_fields": [
+      "Psychology"
+    ]
+  },
+  {
+    "university": "University of Surrey",
+    "country": "UK",
+    "city": "Guildford",
+    "qs_ranking": 251,
+    "missing_fields": [
+      "Psychology"
+    ]
+  },
+  {
+    "university": "University of Aberdeen",
+    "country": "UK",
+    "city": "Aberdeen",
+    "qs_ranking": 264,
+    "missing_fields": [
+      "Psychology"
+    ]
+  },
+  {
+    "university": "University of Strathclyde",
+    "country": "UK",
+    "city": "Glasgow",
+    "qs_ranking": 269,
+    "missing_fields": [
+      "Psychology"
+    ]
+  },
+  {
+    "university": "Heriot-Watt University",
+    "country": "UK",
+    "city": "Edinburgh",
+    "qs_ranking": 274,
+    "missing_fields": [
+      "Psychology"
+    ]
+  },
+  {
+    "university": "Swansea University",
+    "country": "UK",
+    "city": "Swansea",
+    "qs_ranking": 312,
+    "missing_fields": [
+      "Psychology"
+    ]
+  },
+  {
+    "university": "University of East Anglia",
+    "country": "UK",
+    "city": "Norwich",
+    "qs_ranking": 313,
+    "missing_fields": [
+      "Psychology"
+    ]
+  },
+  {
+    "university": "Brunel University London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 333,
+    "missing_fields": [
+      "Psychology"
+    ]
+  },
+  {
+    "university": "University of Reading",
+    "country": "UK",
+    "city": "Reading",
+    "qs_ranking": 335,
+    "missing_fields": [
+      "Psychology"
+    ]
+  },
+  {
+    "university": "City, University of London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": 348,
+    "missing_fields": [
+      "Psychology"
+    ]
+  },
+  {
+    "university": "University of Leicester",
+    "country": "UK",
+    "city": "Leicester",
+    "qs_ranking": 348,
+    "missing_fields": [
+      "Psychology"
+    ]
+  },
+  {
+    "university": "Royal Holloway, University of London",
+    "country": "UK",
+    "city": "Egham",
+    "qs_ranking": 391,
+    "missing_fields": [
+      "Psychology"
+    ]
+  },
+  {
+    "university": "University of Dundee",
+    "country": "UK",
+    "city": "Dundee",
+    "qs_ranking": 412,
+    "missing_fields": [
+      "Psychology"
+    ]
+  },
+  {
+    "university": "University of Essex",
+    "country": "UK",
+    "city": "Colchester",
+    "qs_ranking": 412,
+    "missing_fields": [
+      "Psychology"
+    ]
+  },
+  {
+    "university": "Aston University",
+    "country": "UK",
+    "city": "Birmingham",
+    "qs_ranking": 446,
+    "missing_fields": [
+      "Psychology"
+    ]
+  },
+  {
+    "university": "University of Kent",
+    "country": "UK",
+    "city": "Canterbury",
+    "qs_ranking": 470,
+    "missing_fields": [
+      "Psychology"
+    ]
+  },
+  {
+    "university": "University of Stirling",
+    "country": "UK",
+    "city": "Stirling",
+    "qs_ranking": 487,
+    "missing_fields": [
+      "Psychology"
+    ]
+  }
+]

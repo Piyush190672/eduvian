@@ -206,7 +206,6 @@ export default function AuthGate({ stage, toolName, source, children }: AuthGate
         {/* Logo */}
         <Link href="/" className="relative z-10 flex items-center gap-2 w-fit">
           <EduvianLogoMark size={36} />
-          <span className="font-display font-bold text-lg text-white tracking-tight">eduvian<span className="text-indigo-300">AI</span></span>
         </Link>
 
         {/* Main copy */}

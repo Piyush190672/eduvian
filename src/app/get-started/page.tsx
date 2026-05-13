@@ -301,7 +301,6 @@ export default function GetStartedPage() {
       <nav className="flex items-center justify-between px-6 py-4">
         <Link href="/" className="flex items-center gap-2">
           <EduvianLogoMark size={32} />
-          <span className="font-display font-bold text-lg text-white tracking-tight">eduvian<span className="text-indigo-300">AI</span></span>
         </Link>
         <Link href="/" className="text-slate-400 hover:text-white text-sm transition-colors">
           ← Back to home
