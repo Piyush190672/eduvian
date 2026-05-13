@@ -54,6 +54,7 @@ export default function LogoutButton({
     } finally {
       try {
         localStorage.removeItem("eduvian_student");
+        localStorage.removeItem("eduvian_last_active");
       } catch {
         /* ignore */
       }

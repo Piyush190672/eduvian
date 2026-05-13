@@ -60,6 +60,22 @@ export default function GetStartedPage() {
   const router = useRouter();
   const [mode, setMode] = useState<Mode>("choose");
   const [step, setStep] = useState<"details" | "otp">("details");
+
+  // Already signed in? Skip the login/register chooser entirely — the
+  // expected flow when an authenticated user clicks "Get Started" again
+  // is to continue where they left off, not re-enter their email.
+  // 13 May 2026: fix for "going home then back to Get Started prompts
+  // login again even though I'm logged in".
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    try {
+      if (localStorage.getItem("eduvian_student")) {
+        router.replace("/profile");
+      }
+    } catch {
+      /* ignore */
+    }
+  }, [router]);
   // Login can now happen via email-OTP (existing flow) OR password (new
   // 12 May 2026). The user picks one BEFORE submitting their email. The
   // toggle is only visible in "login" mode — register stays OTP-only.
