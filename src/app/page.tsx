@@ -688,16 +688,35 @@ export default function V2LandingPage() {
       {/* ───── BY THE NUMBERS — Programs · Universities · Countries ───── */}
       <section className="bg-white border-b border-stone-200">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 py-20 sm:py-28">
-          <p className="text-[11px] uppercase tracking-[0.25em] text-violet-700 font-semibold mb-8">By the numbers</p>
+          <p className="text-[11px] uppercase tracking-[0.25em] text-violet-700 font-semibold mb-4">By the numbers</p>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-[1.1] mb-12 max-w-3xl">
+            Wider catalogue. <span className="italic font-medium text-violet-700">Better odds.</span> Fewer surprises.
+          </h2>
           <div className="grid sm:grid-cols-3 gap-y-10 gap-x-12">
             {[
-              { v: DB_STATS.verifiedProgramsLabel,     l: "Verified programs",   sub: "Every figure fetched live from the official university page." },
-              { v: DB_STATS.verifiedUniversitiesLabel, l: "Verified universities", sub: "Institutions with at least one program confirmed at source." },
-              { v: DB_STATS.countriesLabel,            l: "Destination countries", sub: "USA, UK, Canada, Australia, Germany, NL, Ireland, France, NZ, Singapore, Malaysia, UAE." },
+              {
+                v: DB_STATS.verifiedProgramsLabel,
+                qualifier: "Verified programs",
+                benefit: "A bigger shortlist, fewer compromises",
+                sub: "The same profile yields a shortlist of 15-25 — not 2-3 you have to settle on.",
+              },
+              {
+                v: DB_STATS.verifiedUniversitiesLabel,
+                qualifier: "Top universities",
+                benefit: "Real backup plans, not just dream picks",
+                sub: "Build your full Safe / Reach / Ambitious mix without leaving the page.",
+              },
+              {
+                v: DB_STATS.countriesLabel,
+                qualifier: "Destinations",
+                benefit: "Cost, visa, and ROI alternatives in one view",
+                sub: "Switch countries if the numbers don't work — without starting your search over.",
+              },
             ].map((s) => (
-              <div key={s.l} className="border-l-2 border-violet-600 pl-6">
-                <p className="font-display text-5xl sm:text-6xl font-bold tracking-tight text-gray-900 mb-2 leading-none tabular-nums">{s.v}</p>
-                <p className="text-sm font-semibold text-gray-900 mb-2">{s.l}</p>
+              <div key={s.qualifier} className="border-l-2 border-violet-600 pl-6">
+                <p className="font-display text-5xl sm:text-6xl font-bold tracking-tight text-gray-900 mb-1 leading-none tabular-nums">{s.v}</p>
+                <p className="text-[11px] font-bold text-violet-700 uppercase tracking-widest mb-4">{s.qualifier}</p>
+                <p className="text-base font-semibold text-gray-900 mb-1.5">{s.benefit}</p>
                 <p className="text-sm text-gray-500 leading-relaxed">{s.sub}</p>
               </div>
             ))}
