@@ -453,14 +453,19 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist,
                 }`}
               >
                 <BarChart2 className="w-4 h-4" />
-                {isInCompare ? "✓ Comparing" : compareDisabled ? "Max 5" : "+ Compare"}
+                {/* "Added" not "Comparing" — clicking this button ADDS the
+                    program to the compare set; the actual comparison only
+                    opens when the user has ≥2 selected and clicks the
+                    sticky Compare bar. "Comparing" read as "started",
+                    which confused users. (13 May 2026) */}
+                {isInCompare ? "✓ Added" : compareDisabled ? "Max 5" : "+ Compare"}
               </button>
             )}
             <a
               href={program.program_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl border border-gray-200 text-gray-600 text-sm font-semibold hover:bg-gray-50 hover:border-gray-300 transition-colors whitespace-nowrap w-full sm:w-auto"
+              className="flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl text-sm font-bold border-2 bg-white text-gray-700 border-gray-300 hover:bg-gray-50 hover:border-gray-400 transition-all whitespace-nowrap w-full sm:w-auto"
             >
               Program Details
               <ExternalLink className="w-3.5 h-3.5" />

@@ -240,22 +240,23 @@ export default function ComparePanel({ programs, onClose, onRemove }: Props) {
         onClick={(e) => e.stopPropagation()}
       >
         {/* ── Header ────────────────────────────────────────────────────── */}
-        <div className="flex-shrink-0 px-6 pt-4 pb-3 border-b border-gray-100">
+        <div className="flex-shrink-0 px-4 sm:px-6 pt-3 sm:pt-4 pb-3 border-b border-gray-100">
           {/* Drag handle */}
-          <div className="w-10 h-1 bg-gray-300 rounded-full mx-auto mb-4" />
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center">
+          <div className="w-10 h-1 bg-gray-300 rounded-full mx-auto mb-3 sm:mb-4" />
+          <div className="flex items-center justify-between gap-3">
+            <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center flex-shrink-0">
                 <BarChart2 className="w-5 h-5 text-white" />
               </div>
-              <div>
-                <h2 className="text-lg font-extrabold text-gray-900">Program Comparison</h2>
-                <p className="text-xs text-gray-400">Side-by-side analysis of {n} programs</p>
+              <div className="min-w-0">
+                <h2 className="text-base sm:text-lg font-extrabold text-gray-900 truncate">Program Comparison</h2>
+                <p className="text-[11px] sm:text-xs text-gray-400 truncate">Side-by-side analysis of {n} programs</p>
               </div>
             </div>
             <button
               onClick={onClose}
-              className="w-9 h-9 rounded-xl border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-gray-50 hover:text-gray-700 transition-all"
+              aria-label="Close comparison"
+              className="flex-shrink-0 w-9 h-9 rounded-xl border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-gray-50 hover:text-gray-700 transition-all"
             >
               <X className="w-5 h-5" />
             </button>
