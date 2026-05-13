@@ -105,6 +105,49 @@ function AutoFilledRow({
   );
 }
 
+// Fee row that auto-fills from DB when the program carries the figure and
+// switches to a highlighted editable input when the value is missing.
+// Replaces the read-only AutoFilledRow for tuition + living so vacant
+// fields prompt the user directly instead of silently passing 0 through
+// to the ROI math.
+function EditableFeeRow({
+  icon: Icon, label, value, onChange, sub, prompt,
+}: {
+  icon: React.ComponentType<{ className?: string }>;
+  label: string;
+  value: number;
+  onChange: (v: number) => void;
+  sub?: string;
+  prompt: string;
+}) {
+  const vacant = !value || value <= 0;
+  if (!vacant) {
+    return <AutoFilledRow icon={Icon} label={label} value={formatCurrency(value)} sub={sub} />;
+  }
+  return (
+    <div className="flex flex-col gap-1.5 px-3.5 py-2.5 bg-amber-50 border-2 border-amber-300 rounded-xl">
+      <div className="flex items-center gap-2">
+        <Icon className="w-4 h-4 text-amber-700 flex-shrink-0" />
+        <p className="text-[10px] font-bold text-amber-900 uppercase tracking-wide leading-none">{label}</p>
+        <span className="ml-auto text-[9px] font-bold uppercase tracking-wide text-amber-900 bg-amber-200/60 px-1.5 py-0.5 rounded-full">Needs input</span>
+      </div>
+      <div className="flex items-center gap-2">
+        <span className="text-amber-900 font-bold text-sm">$</span>
+        <input
+          type="number"
+          min={0}
+          step={1000}
+          placeholder="e.g. 25000"
+          value={value || ""}
+          onChange={(e) => onChange(Math.max(0, parseInt(e.target.value, 10) || 0))}
+          className="flex-1 px-2.5 py-1.5 rounded-lg border border-amber-300 bg-white text-gray-900 font-mono text-sm focus:outline-none focus:ring-2 focus:ring-amber-400"
+        />
+      </div>
+      <p className="text-[10px] text-amber-800 leading-snug">{prompt}</p>
+    </div>
+  );
+}
+
 // ── main component ────────────────────────────────────────────────────────────
 
 export default function ROICalculator() {
@@ -221,7 +264,25 @@ export default function ROICalculator() {
   const tuitionUserSupplied = selectedProgram !== null && !programHasFee && tuition > 0;
   const tuitionAvailable = programHasFee || tuitionUserSupplied;
   const tuitionEstimated = selectedProgram?.tuition_fee_source === "estimated" && programHasFee;
-  const canCalculate = selectedProgram !== null && salary > 0 && tuitionAvailable;
+
+  // Living-cost availability is gated the same way as tuition (13 May 2026).
+  // Older programs in the DB carry avg_living_cost_usd: 0 / null; passing
+  // that into calculateROI inflates ROI by under-counting total investment.
+  const programHasLiving = selectedProgram !== null
+    && typeof selectedProgram.avg_living_cost_usd === "number"
+    && selectedProgram.avg_living_cost_usd > 0;
+  const livingUserSupplied = selectedProgram !== null && !programHasLiving && living > 0;
+  const livingAvailable = programHasLiving || livingUserSupplied;
+
+  // Missing-input summary for the gated empty state. Order matters —
+  // listed top-to-bottom in the placeholder panel.
+  const missingFields: string[] = [];
+  if (selectedProgram !== null) {
+    if (!tuitionAvailable) missingFields.push("Annual tuition fee");
+    if (!livingAvailable)  missingFields.push("Annual living cost");
+  }
+
+  const canCalculate = selectedProgram !== null && salary > 0 && tuitionAvailable && livingAvailable;
 
   const results = useMemo(() => {
     if (!canCalculate) return null;
@@ -526,8 +587,22 @@ export default function ROICalculator() {
                   <div className="grid grid-cols-2 gap-2">
                     <AutoFilledRow icon={MapPin} label="Location" value={city || matchedUni?.country || "—"} />
                     <AutoFilledRow icon={GraduationCap} label="Duration" value={`${durationMonths} months`} sub={`${durationYears.toFixed(1)} academic years`} />
-                    <AutoFilledRow icon={DollarSign} label="Tuition / yr" value={formatCurrency(tuition)} sub="Annual fee" />
-                    <AutoFilledRow icon={DollarSign} label="Living / yr" value={formatCurrency(living)} sub="Avg cost of living" />
+                    <EditableFeeRow
+                      icon={DollarSign}
+                      label="Tuition / yr"
+                      value={tuition}
+                      onChange={setTuition}
+                      sub="Annual fee"
+                      prompt="The official program page doesn't publish an international tuition figure we can verify. Enter the annual fee in USD."
+                    />
+                    <EditableFeeRow
+                      icon={DollarSign}
+                      label="Living / yr"
+                      value={living}
+                      onChange={setLiving}
+                      sub="Avg cost of living"
+                      prompt="No verified average living cost for this city. Enter the annual living budget in USD (rent + food + transit)."
+                    />
                   </div>
 
                   {/* Salary — editable */}
@@ -587,46 +662,42 @@ export default function ROICalculator() {
             initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
             className="lg:col-span-3 space-y-4"
           >
-            {selectedProgram !== null && !programHasFee && !tuitionUserSupplied ? (
-              // No-tuition state: official program page didn't expose a fee.
-              // Replaced the prior dead-end panel (10 May 2026) with an
-              // editable input so the user can type the figure they got from
-              // the university directly. ROI math stays gated until tuition > 0.
-              <div className="bg-amber-50 border border-amber-200 rounded-3xl px-6 py-7 min-h-[400px]">
-                <div className="flex items-start gap-3 mb-5">
-                  <div className="w-10 h-10 rounded-2xl bg-amber-100 border border-amber-300 flex items-center justify-center flex-shrink-0">
-                    <Info className="w-5 h-5 text-amber-700" />
-                  </div>
-                  <div>
-                    <p className="text-gray-900 font-bold text-base mb-1">Tuition fee needed to calculate</p>
-                    <p className="text-gray-700 text-sm leading-relaxed">
-                      The official program page for <span className="font-semibold">{selectedProgram.program_name}</span> at <span className="font-semibold">{matchedUni?.name}</span> doesn&apos;t publish an international student tuition figure we can verify. Enter the annual fee below and we&apos;ll calculate the rest.
-                    </p>
-                  </div>
+            {selectedProgram !== null && missingFields.length > 0 ? (
+              // Gated state: program is selected but one or both fee fields
+              // (tuition, living) are vacant. The inputs themselves live
+              // in the left column (highlighted EditableFeeRow) — this
+              // panel just tells the user what's missing and why metrics
+              // aren't shown, so we don't display misleading numbers from
+              // $0-tuition math.
+              <div className="bg-amber-50 border-2 border-amber-300 rounded-3xl px-6 py-7 min-h-[400px] flex flex-col items-center justify-center text-center">
+                <div className="w-12 h-12 rounded-2xl bg-amber-100 border border-amber-300 flex items-center justify-center mb-4">
+                  <Info className="w-6 h-6 text-amber-700" />
                 </div>
-                <label className="block mb-2 text-[11px] font-bold text-amber-900 uppercase tracking-widest">Annual tuition (USD)</label>
-                <div className="flex items-center gap-2">
-                  <span className="text-amber-900 font-bold text-lg">$</span>
-                  <input
-                    type="number"
-                    min={0}
-                    step={1000}
-                    placeholder="e.g. 45000"
-                    value={tuition || ""}
-                    onChange={(e) => setTuition(Math.max(0, parseInt(e.target.value, 10) || 0))}
-                    className="flex-1 px-3 py-2 rounded-xl border border-amber-300 bg-white text-gray-900 font-mono text-sm focus:outline-none focus:ring-2 focus:ring-amber-400"
-                  />
-                </div>
-                <p className="mt-3 text-[11px] text-amber-800 leading-relaxed">
-                  Confirm the figure with the university&apos;s admissions office before relying on the numbers we compute from it.
+                <p className="text-gray-900 font-bold text-lg mb-1.5">Please input Fees amount</p>
+                <p className="text-gray-700 text-sm leading-relaxed max-w-sm mb-4">
+                  {missingFields.length === 2
+                    ? "The official program page doesn't publish a verifiable tuition fee or living cost. Enter both on the left to see payback period, 10-yr ROI, and break-even salary."
+                    : missingFields[0] === "Annual tuition fee"
+                      ? "The official program page doesn't publish a verifiable international tuition fee. Enter it on the left to see payback period, 10-yr ROI, and break-even salary."
+                      : "No verified average living cost for this city. Enter it on the left to see payback period, 10-yr ROI, and break-even salary."}
                 </p>
-                <a
-                  href={selectedProgram.program_url}
-                  target="_blank" rel="noopener noreferrer"
-                  className="mt-4 inline-flex items-center gap-2 text-xs font-semibold text-amber-800 hover:text-amber-900"
-                >
-                  Open the official program page →
-                </a>
+                <ul className="text-xs text-amber-900 font-semibold space-y-1 mb-4">
+                  {missingFields.map((f) => (
+                    <li key={f} className="flex items-center gap-1.5 justify-center">
+                      <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+                      {f} <span className="text-amber-700/80 font-normal">— needs input</span>
+                    </li>
+                  ))}
+                </ul>
+                {selectedProgram.program_url && (
+                  <a
+                    href={selectedProgram.program_url}
+                    target="_blank" rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-amber-800 hover:text-amber-900"
+                  >
+                    Open the official program page →
+                  </a>
+                )}
               </div>
             ) : !results ? (
               <div className="h-full flex flex-col items-center justify-center py-16 bg-white border border-stone-200 shadow-sm rounded-3xl text-center px-8 min-h-[400px]">
@@ -670,12 +741,19 @@ export default function ROICalculator() {
                       </div>
                     </div>
                   )}
-                  {/* User-entered-fee caveat banner (11 May 2026) */}
-                  {tuitionUserSupplied && (
+                  {/* User-entered-fee caveat banner (11 May 2026 · expanded
+                      13 May to cover living cost too). */}
+                  {(tuitionUserSupplied || livingUserSupplied) && (
                     <div className="bg-amber-50 border border-amber-200 rounded-2xl px-5 py-3 flex items-start gap-3">
                       <Info className="w-4 h-4 text-amber-700 flex-shrink-0 mt-0.5" />
                       <div className="text-xs text-amber-900 leading-relaxed">
-                        <span className="font-bold">Based on the tuition fee you entered.</span> The official program page didn&apos;t publish a verifiable figure, so this calculation uses the value you typed. Re-confirm with the university&apos;s admissions office before acting on these numbers.
+                        <span className="font-bold">
+                          {tuitionUserSupplied && livingUserSupplied
+                            ? "Based on the tuition and living cost you entered."
+                            : tuitionUserSupplied
+                              ? "Based on the tuition fee you entered."
+                              : "Based on the living cost you entered."}
+                        </span> The official program page didn&apos;t publish {tuitionUserSupplied && livingUserSupplied ? "verifiable figures" : "a verifiable figure"}, so this calculation uses the value{tuitionUserSupplied && livingUserSupplied ? "s" : ""} you typed. Re-confirm with the university&apos;s admissions office before acting on these numbers.
                       </div>
                     </div>
                   )}
