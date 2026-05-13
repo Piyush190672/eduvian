@@ -449,16 +449,33 @@ export default function StepAcademic({ profile, onChange }: Props) {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <Label>Work Experience (years)</Label>
-              <Input
-                type="number"
-                min={0}
-                max={30}
-                placeholder="2"
-                value={profile.work_experience_years ?? ""}
-                onChange={(e) =>
-                  onChange({ work_experience_years: parseInt(e.target.value) || 0 })
+              {/* Swapped from a number input to a Select (13 May 2026).
+                  Two issues fixed:
+                  - defaultProfile.work_experience_years === 0 was stuck
+                    in the input because `value={n ?? ""}` only coalesces
+                    null/undefined, not 0 — users couldn't clear it.
+                  - On mobile the number-input chevrons that desktop
+                    Chrome renders don't show, so users had no visible
+                    way to dial values. A dropdown surfaces the
+                    affordance identically on both. */}
+              <Select
+                value={
+                  profile.work_experience_years === undefined || profile.work_experience_years === null
+                    ? ""
+                    : String(profile.work_experience_years)
                 }
-              />
+                onChange={(e) =>
+                  onChange({
+                    work_experience_years: e.target.value === "" ? 0 : parseInt(e.target.value, 10),
+                  })
+                }
+              >
+                <option value="">Select years</option>
+                <option value="0">0 (no work experience)</option>
+                {Array.from({ length: 30 }, (_, i) => i + 1).map((n) => (
+                  <option key={n} value={n}>{n} {n === 1 ? "year" : "years"}</option>
+                ))}
+              </Select>
             </div>
             <div>
               <Label>Work Domain</Label>
