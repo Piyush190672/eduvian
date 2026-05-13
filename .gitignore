@@ -36,3 +36,4 @@ _archive/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+.claude/settings.local.json
