@@ -18,7 +18,7 @@ import {
 } from "lucide-react";
 import { EduvianLogoMark } from "@/components/EduvianLogo";
 import type { ScoredProgram, ProgramTier, StudentProfile } from "@/lib/types";
-import { TARGET_COUNTRIES, BUDGET_VALUES } from "@/lib/types";
+import { BUDGET_VALUES } from "@/lib/types";
 import ProgramCard from "@/components/results/ProgramCard";
 import ShortlistSummary from "@/components/results/ShortlistSummary";
 // ProfileCard moved to /profile-evaluation/[token] (13 May 2026) — the
@@ -215,23 +215,6 @@ export default function ResultsPage() {
   const fields    = [...new Set(allPrograms.map((p) => p.field_of_study))];
   const shortlistedPrograms = allPrograms.filter((p) => shortlisted.has(p.id));
 
-  // ── Build hard-filter chips ───────────────────────────────────────────────
-  const hardFilterChips: { label: string; icon: string }[] = [];
-
-  if (profile.country_preferences?.length) {
-    profile.country_preferences.forEach((code) => {
-      const c = TARGET_COUNTRIES.find((t) => t.code === code);
-      if (c) hardFilterChips.push({ label: c.name, icon: c.flag });
-    });
-  }
-  if (profile.qs_ranking_preference && profile.qs_ranking_preference !== "any") {
-    const labels: Record<string, string> = { top_50: "QS Top 50", top_100: "QS Top 100", top_200: "QS Top 200", top_500: "QS Top 500" };
-    hardFilterChips.push({ label: labels[profile.qs_ranking_preference] ?? "", icon: "🏆" });
-  }
-  if (profile.post_study_work_visa) {
-    hardFilterChips.push({ label: "Post-Study Work Visa", icon: "✈️" });
-  }
-
   const tierPrograms = { safe: safePrograms, reach: reachPrograms, ambitious: ambitiousPrograms };
 
   return (
@@ -294,28 +277,7 @@ export default function ResultsPage() {
             <span className="text-rose-600 font-semibold">{ambitiousPrograms.length} Ambitious</span>
             {" — shortlist the ones you like, then email or download as PDF."}
           </p>
-          <div className="mt-4">
-            <DecisionDisclaimer variant="shortlist" />
-          </div>
         </motion.div>
-
-        {/* Hard filters applied */}
-        {hardFilterChips.length > 0 && (
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.05 }}
-            className="mb-5 p-3.5 rounded-2xl bg-indigo-50 border border-indigo-100 flex flex-wrap items-center gap-2"
-          >
-            <ShieldCheck className="w-4 h-4 text-indigo-500 flex-shrink-0" />
-            <span className="text-xs font-semibold text-indigo-600 mr-1">Hard filters applied:</span>
-            {hardFilterChips.map((chip, i) => (
-              <span key={i} className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white border border-indigo-200 text-xs font-medium text-indigo-700">
-                {chip.icon} {chip.label}
-              </span>
-            ))}
-          </motion.div>
-        )}
 
         {/* Profile summary now lives at /profile-evaluation/[token] —
             see the interstitial page rendered between submit and here. */}
@@ -455,6 +417,14 @@ export default function ResultsPage() {
             </motion.section>
           );
         })}
+
+        {/* Clarification — moved here from the page header (13 May 2026) so
+            users finish browsing the shortlist before encountering the
+            disclaimer, and the check-program panel below sits right next
+            to its natural action prompt. */}
+        <div className="mb-6">
+          <DecisionDisclaimer variant="shortlist" />
+        </div>
 
         {/* Check any program match score */}
         <CheckMatchPanel token={token} />
