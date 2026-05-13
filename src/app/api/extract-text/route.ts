@@ -4,6 +4,27 @@ import { checkBetaAccess, logToolUsage } from "@/lib/beta-gate";
 import { getClientIp, aiToolLimit } from "@/lib/rate-limit";
 import { apiErrorResponse } from "@/lib/api-error";
 
+// ── pdfjs-dist polyfills (Sentry a057c96, 13 May 2026) ─────────────────────
+// pdfjs-dist v5 (loaded transitively by pdf-parse@2 and directly by our
+// fallback path) references DOMMatrix / Path2D / ImageData at module-load
+// time. Vercel's Node runtime doesn't expose any of these as globals, so
+// `await import("pdfjs-dist/...")` throws ReferenceError before the
+// try/catch in the loader can salvage it. getTextContent() — the only
+// pdfjs API this route uses — never actually invokes these classes;
+// they're only needed as identifiers for prototype setup. No-op shims
+// installed once at module top are sufficient and don't leak to other
+// routes (each serverless route boots its own module graph).
+const g = globalThis as Record<string, unknown>;
+if (typeof g.DOMMatrix === "undefined") {
+  g.DOMMatrix = class { constructor(_init?: unknown) { void _init; } };
+}
+if (typeof g.Path2D === "undefined") {
+  g.Path2D = class { constructor(_p?: unknown) { void _p; } };
+}
+if (typeof g.ImageData === "undefined") {
+  g.ImageData = class { constructor(..._args: unknown[]) { void _args; } };
+}
+
 export const maxDuration = 30;
 
 const MAX_FILE_BYTES = 10 * 1024 * 1024; // 10 MB
