@@ -313,17 +313,12 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist,
             {/* Cost & deadline row */}
             <div className="flex flex-wrap items-center gap-4 mt-3 text-sm">
               {tuitionUnavailable ? (
-                <span className="flex items-center gap-2">
-                  <span className="flex items-center gap-1 text-amber-700 text-xs font-medium" title={FEE_UNAVAILABLE_MESSAGE}>
-                    <DollarSign className="w-3.5 h-3.5 text-amber-500" />
-                    {FEE_UNAVAILABLE_SHORT}
-                  </span>
-                  <span
-                    className={`inline-flex items-center px-2 py-0.5 rounded-full border text-[10px] font-bold uppercase tracking-wide ${FEE_STATUS_CLASS.not_available}`}
-                    title="No verified tuition figure on file. Confirm directly with the university."
-                  >
-                    Fee: Not available
-                  </span>
+                // Single visual treatment — the amber inline text alone.
+                // The redundant "FEE: NOT AVAILABLE" pill that used to sit
+                // next to this was removed 13 May 2026 (user feedback).
+                <span className="flex items-center gap-1 text-amber-700 text-xs font-medium" title={FEE_UNAVAILABLE_MESSAGE}>
+                  <DollarSign className="w-3.5 h-3.5 text-amber-500" />
+                  {FEE_UNAVAILABLE_SHORT}
                 </span>
               ) : (
                 <>
@@ -427,12 +422,13 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist,
           </div>
         </div>
 
-        {/* Action buttons */}
+        {/* Action buttons — stack full-width below sm (mobile labels were
+            truncating "Program Det…") and revert to the inline row at sm+. */}
         <div>
-          <div className="flex items-center gap-2">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-2">
             <button
               onClick={onToggleShortlist}
-              className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold border-2 transition-all flex-1 justify-center ${
+              className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold border-2 transition-all justify-center w-full sm:flex-1 ${
                 isShortlisted
                   ? "bg-indigo-500 text-white border-indigo-500 hover:bg-rose-500 hover:border-rose-500"
                   : "bg-white text-indigo-600 border-indigo-400 hover:bg-indigo-50 hover:border-indigo-500"
@@ -448,7 +444,7 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist,
               <button
                 onClick={compareDisabled ? undefined : onToggleCompare}
                 disabled={compareDisabled}
-                className={`flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-sm font-bold border-2 transition-all whitespace-nowrap ${
+                className={`flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl text-sm font-bold border-2 transition-all whitespace-nowrap w-full sm:w-auto ${
                   isInCompare
                     ? "bg-violet-500 text-white border-violet-500 hover:bg-violet-600"
                     : compareDisabled
@@ -464,7 +460,7 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist,
               href={program.program_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl border border-gray-200 text-gray-600 text-sm font-semibold hover:bg-gray-50 hover:border-gray-300 transition-colors whitespace-nowrap"
+              className="flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl border border-gray-200 text-gray-600 text-sm font-semibold hover:bg-gray-50 hover:border-gray-300 transition-colors whitespace-nowrap w-full sm:w-auto"
             >
               Program Details
               <ExternalLink className="w-3.5 h-3.5" />
@@ -473,7 +469,7 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist,
               href={program.apply_url ?? program.program_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-bold hover:shadow-lg hover:shadow-indigo-200 hover:-translate-y-0.5 transition-all whitespace-nowrap"
+              className="flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-bold hover:shadow-lg hover:shadow-indigo-200 hover:-translate-y-0.5 transition-all whitespace-nowrap w-full sm:w-auto"
             >
               Apply Now
               <ExternalLink className="w-3.5 h-3.5" />

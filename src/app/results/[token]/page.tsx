@@ -495,7 +495,7 @@ export default function ResultsPage() {
                       // who picked one program then hit Compare got no
                       // feedback. Now we surface why the action is
                       // unavailable. (13 May 2026)
-                      toast("Pick at least one more program to compare.", { icon: "🔀" });
+                      toast("You've selected 1 program. Add at least one more to compare.", { icon: "ℹ️" });
                     }
                   }}
                   aria-disabled={comparePrograms.length < 2}

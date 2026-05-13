@@ -1,9 +1,27 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Send, Loader2, CheckCircle2 } from "lucide-react";
 import type { ScoredProgram } from "@/lib/types";
+
+// Routes where the verbose "Stuck? Ask AISA" pill competes with action
+// bars (compare strip, ROI panel, etc.). On these routes we collapse the
+// trigger to an icon-only 48px circle, with an idle-pulse animation
+// after 30 s of no user activity so AISA stays discoverable.
+const COMPACT_PATH_PREFIXES = [
+  "/results",
+  "/application-check",
+  "/sop-assistant",
+  "/lor-coach",
+  "/visa-coach",
+  "/roi-calculator",
+  "/parent-decision",
+  "/interview-prep",
+  "/english-test-lab",
+  "/application-tracker",
+];
 
 interface Message {
   role: "user" | "assistant";
@@ -180,6 +198,35 @@ export default function ChatWidget({ programs, studentName = "there" }: ChatWidg
   // track the last user question so the contact form can include it
   const lastUserQuestion = useRef("");
   const bottomRef  = useRef<HTMLDivElement>(null);
+
+  // Path-aware compact mode + 30 s idle pulse for the floating trigger.
+  const pathname = usePathname();
+  const compact  = pathname ? COMPACT_PATH_PREFIXES.some((p) => pathname.startsWith(p)) : false;
+  const [pulse, setPulse] = useState(false);
+
+  // Reset idle timer on any user activity; fire pulse after 30 s of no
+  // activity, then clear after the bounce finishes (~2 s) so it doesn't
+  // animate forever and become wallpaper noise.
+  useEffect(() => {
+    if (open) { setPulse(false); return; }
+    let idleTimer: ReturnType<typeof setTimeout>;
+    let clearTimer: ReturnType<typeof setTimeout>;
+    const reset = () => {
+      setPulse(false);
+      clearTimeout(idleTimer); clearTimeout(clearTimer);
+      idleTimer = setTimeout(() => {
+        setPulse(true);
+        clearTimer = setTimeout(() => setPulse(false), 2400);
+      }, 30_000);
+    };
+    const events: Array<keyof DocumentEventMap> = ["mousemove", "keydown", "click", "scroll", "touchstart"];
+    for (const e of events) document.addEventListener(e, reset, { passive: true });
+    reset();
+    return () => {
+      clearTimeout(idleTimer); clearTimeout(clearTimer);
+      for (const e of events) document.removeEventListener(e, reset);
+    };
+  }, [open]);
   const inputRef   = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -248,12 +295,22 @@ export default function ChatWidget({ programs, studentName = "there" }: ChatWidg
 
   return (
     <>
-      {/* Floating trigger */}
+      {/* Floating trigger — verbose pill on landing-style pages, icon-only
+          on tool / results pages where action bars compete for the same
+          corner. After 30 s idle, runs a gentle bounce so AISA stays
+          discoverable in compact mode. */}
       <motion.button
         onClick={() => setOpen((o) => !o)}
-        className="fixed bottom-6 right-6 z-50 flex items-center gap-2.5 pl-2 pr-5 py-2 rounded-2xl bg-gradient-to-r from-violet-600 to-fuchsia-500 text-white font-bold shadow-2xl shadow-violet-500/40 hover:shadow-violet-500/60 transition-all duration-300 hover:-translate-y-1"
+        className={
+          compact
+            ? "fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r from-violet-600 to-fuchsia-500 text-white shadow-2xl shadow-violet-500/40 hover:shadow-violet-500/60 transition-all duration-300 hover:-translate-y-1"
+            : "fixed bottom-6 right-6 z-50 flex items-center gap-2.5 pl-2 pr-5 py-2 rounded-2xl bg-gradient-to-r from-violet-600 to-fuchsia-500 text-white font-bold shadow-2xl shadow-violet-500/40 hover:shadow-violet-500/60 transition-all duration-300 hover:-translate-y-1"
+        }
         whileTap={{ scale: 0.95 }}
+        animate={!open && pulse ? { y: [0, -8, 0, -4, 0] } : { y: 0 }}
+        transition={!open && pulse ? { duration: 1.4, repeat: 0 } : { duration: 0.2 }}
         aria-label="Stuck? Ask AISA"
+        title={compact ? "Stuck? Ask AISA" : undefined}
       >
         <AnimatePresence mode="wait" initial={false}>
           {open ? (
@@ -267,11 +324,11 @@ export default function ChatWidget({ programs, studentName = "there" }: ChatWidg
             <motion.span key="avatar"
               initial={{ scale: 0.7, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.7, opacity: 0 }} transition={{ duration: 0.15 }}>
-              <AisaAvatar size={36} />
+              <AisaAvatar size={compact ? 32 : 36} />
             </motion.span>
           )}
         </AnimatePresence>
-        <span className="text-sm">Stuck? Ask AISA</span>
+        {!compact && <span className="text-sm font-bold">Stuck? Ask AISA</span>}
         {!open && (
           <span className="absolute -top-1.5 -right-1.5 w-4 h-4 bg-emerald-400 rounded-full border-2 border-white animate-pulse" />
         )}
