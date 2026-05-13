@@ -13,7 +13,7 @@ import {
   MessageSquare,
 } from "lucide-react";
 import { EduvianLogoMark } from "@/components/EduvianLogo";
-import { TARGET_COUNTRIES, BUDGET_LABELS } from "@/lib/types";
+import { TARGET_COUNTRIES, BUDGET_LABELS, intendedFieldLabel } from "@/lib/types";
 import type { StoredSubmission } from "@/lib/store";
 import { useRouter } from "next/navigation";
 
@@ -185,7 +185,7 @@ export default function LeadsPage() {
             phone:             s.profile.phone ?? "—",
             created_at:        s.created_at,
             preferred_country: countryObj ? `${countryObj.flag} ${countryObj.name}` : (countryCode ?? "—"),
-            preferred_stream:  s.profile.intended_field ?? "—",
+            preferred_stream:  intendedFieldLabel(s.profile) || "—",
             token:             s.token,
             total_matched:     (s as StoredSubmission & { total_matched?: number }).total_matched,
             shortlisted_count: s.shortlisted_ids?.length ?? 0,
@@ -424,7 +424,7 @@ export default function LeadsPage() {
                 ["Nationality",   selected.submission.profile.nationality],
                 ["City",          selected.submission.profile.city],
                 ["Level",         selected.submission.profile.degree_level],
-                ["Stream",        selected.submission.profile.intended_field],
+                ["Stream",        intendedFieldLabel(selected.submission.profile)],
                 ["Intake",        `${selected.submission.profile.target_intake_semester} ${selected.submission.profile.target_intake_year}`],
                 ["Budget",        BUDGET_LABELS[selected.submission.profile.budget_range]],
                 ["Degree",        selected.submission.profile.current_degree],

@@ -3,6 +3,7 @@ import { recommendPrograms } from "@/lib/scoring";
 import { PROGRAMS } from "@/data/programs";
 import { submissionStore } from "@/lib/store";
 import type { Program, StudentProfile } from "@/lib/types";
+import { intendedFieldLabel } from "@/lib/types";
 import { apiErrorResponse, captureApiError } from "@/lib/api-error";
 import { scoreStudentProfile } from "@/lib/profile-score";
 import { v4 as uuidv4 } from "uuid";
@@ -43,7 +44,7 @@ async function sendLeadNotification(
       <tr><td><b>Phone</b></td><td>${esc(profile.phone)}</td></tr>
       <tr><td><b>City / nationality</b></td><td>${esc(profile.city)} / ${esc(profile.nationality)}</td></tr>
       <tr><td><b>Degree level</b></td><td>${esc(profile.degree_level)}</td></tr>
-      <tr><td><b>Intended field</b></td><td>${esc(profile.intended_field)}</td></tr>
+      <tr><td><b>Intended field</b></td><td>${esc(intendedFieldLabel(profile))}</td></tr>
       <tr><td><b>Country preference</b></td><td>${esc((profile.country_preferences || []).join(", "))}</td></tr>
       <tr><td><b>Budget</b></td><td>${esc(profile.budget_range)}</td></tr>
       <tr><td><b>Profile category</b></td><td>${esc(profileCategory)}</td></tr>

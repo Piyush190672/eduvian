@@ -3,6 +3,7 @@ import { recommendPrograms } from "@/lib/scoring";
 import { PROGRAMS } from "@/data/programs";
 import { submissionStore } from "@/lib/store";
 import type { Program, StudentProfile, ScoredProgram } from "@/lib/types";
+import { intendedFieldLabel } from "@/lib/types";
 import { getTierLabel, formatCurrency, getCountryFlag } from "@/lib/utils";
 import { scoreStudentProfile, categoryBadgeHtml } from "@/lib/profile-score";
 import { escHtml } from "@/lib/html-escape";
@@ -203,7 +204,7 @@ function buildPDFHtml(profile: StudentProfile, programs: ScoredProgram[]): strin
     </div>
     <div class="profile-grid">
       <div><span>Degree Level</span>${profile.degree_level === "postgraduate" ? "Postgraduate" : "Undergraduate"}</div>
-      <div><span>Field of Study</span>${escHtml(profile.intended_field)}</div>
+      <div><span>Field of Study</span>${escHtml(intendedFieldLabel(profile))}</div>
       <div><span>Nationality</span>${escHtml(profile.nationality)}${profile.city ? ` · ${escHtml(profile.city)}` : ""}</div>
       <div><span>Target Intake</span>${escHtml(profile.target_intake_semester)} ${escHtml(profile.target_intake_year)}</div>
       <div><span>Academic Score</span>${escHtml(profile.academic_score)}${profile.academic_score_type === "gpa" ? " / 4.0 GPA" : "%"}</div>

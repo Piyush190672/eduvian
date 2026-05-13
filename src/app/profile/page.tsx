@@ -70,6 +70,9 @@ function validateStep(step: number, profile: Partial<StudentProfile>): string[] 
 
   if (step === 2) {
     if (!profile.intended_field) missing.push("Intended Field of Study");
+    if (profile.intended_field === "Others" && !profile.intended_field_custom?.trim()) {
+      missing.push("Intended Field of Study (specify your stream)");
+    }
     if (!profile.current_degree?.trim()) missing.push("Current / Completed Degree");
     if (!profile.institution_name?.trim()) missing.push("Institution Name");
     if (!profile.graduation_year) missing.push("Graduation Year");

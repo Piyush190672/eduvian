@@ -1,7 +1,7 @@
 "use client";
 
 import type { StudentProfile, DegreeLevel } from "@/lib/types";
-import { FIELDS_OF_STUDY } from "@/lib/types";
+import { FIELDS_OF_STUDY, OTHER_FIELD_SENTINEL } from "@/lib/types";
 
 interface Props {
   profile: Partial<StudentProfile>;
@@ -150,13 +150,38 @@ export default function StepAcademic({ profile, onChange }: Props) {
         <Label>Intended Field of Study *</Label>
         <Select
           value={profile.intended_field ?? ""}
-          onChange={(e) => onChange({ intended_field: e.target.value })}
+          onChange={(e) => {
+            const v = e.target.value;
+            // Clear the custom free-text when the user moves away from "Others".
+            onChange(
+              v === OTHER_FIELD_SENTINEL
+                ? { intended_field: v }
+                : { intended_field: v, intended_field_custom: "" }
+            );
+          }}
         >
           <option value="">Select your field</option>
           {FIELDS_OF_STUDY.map((f) => (
             <option key={f} value={f}>{f}</option>
           ))}
+          <option value={OTHER_FIELD_SENTINEL}>Others (specify below)</option>
         </Select>
+
+        {profile.intended_field === OTHER_FIELD_SENTINEL && (
+          <div className="mt-2.5">
+            <Input
+              placeholder="e.g. Aerospace Engineering, Animation, Pharmacology"
+              value={profile.intended_field_custom ?? ""}
+              onChange={(e) => onChange({ intended_field_custom: e.target.value })}
+              maxLength={80}
+            />
+            <p className="mt-1.5 text-xs text-gray-500 leading-relaxed">
+              Enter the stream you want to study. We&apos;ll match programs whose
+              field or course name contains this term — keep it specific (one or
+              two words works best).
+            </p>
+          </div>
+        )}
       </div>
 
       <div>

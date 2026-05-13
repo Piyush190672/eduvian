@@ -17,6 +17,7 @@ import {
   Loader2,
 } from "lucide-react";
 import type { StudentProfile } from "@/lib/types";
+import { intendedFieldLabel } from "@/lib/types";
 import {
   scoreStudentProfile,
   getCategoryStyle,
@@ -110,7 +111,7 @@ export default function ProfileCard({ profile, token }: Props) {
                 <GraduationCap className="w-3 h-3" />
                 {DEGREE_LABELS[profile.degree_level] ?? profile.degree_level}
                 {" · "}
-                {profile.intended_field}
+                {intendedFieldLabel(profile)}
               </span>
             </div>
           </div>

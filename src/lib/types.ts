@@ -69,6 +69,11 @@ export interface StudentProfile {
   target_intake_semester: "fall" | "spring" | "summer" | "winter";
   budget_range: BudgetRange;
   intended_field: string;
+  // Free-text intended field, set only when intended_field === OTHER_FIELD_SENTINEL
+  // ("Others"). Captured from the form, surfaced in admin/emails/PDF in place of
+  // "Others", and used by the matching algorithm as a substring filter against
+  // p.field_of_study + p.program_name.
+  intended_field_custom?: string;
   // Hard-filter preferences
   qs_ranking_preference?: "top_50" | "top_100" | "top_200" | "top_500" | "any";
   post_study_work_visa?: boolean;
@@ -211,6 +216,7 @@ export const FIELDS_OF_STUDY = [
   "Law",
   "Arts, Design & Architecture",
   "Social Sciences & Humanities",
+  "Psychology",
   "Economics & Finance",
   "Media & Communications",
   "Environmental & Sustainability Studies",
@@ -219,6 +225,30 @@ export const FIELDS_OF_STUDY = [
   "Agriculture & Veterinary Sciences",
   "Hospitality & Tourism",
 ] as const;
+
+// Sentinel value the form sets on profile.intended_field when the user
+// picks "Others" from the dropdown. The free-text the user types goes
+// into profile.intended_field_custom. Matching falls back to a
+// case-insensitive substring search across program field + name when
+// intended_field === OTHER_FIELD_SENTINEL.
+export const OTHER_FIELD_SENTINEL = "Others" as const;
+
+// Resolves the effective intended-field label for display surfaces (admin
+// tables, ProfileCard, email, PDF). When the user picked "Others" and typed
+// a custom stream, those screens should show the typed stream — not the
+// literal "Others" sentinel. Falls back to "Others" if the custom text is
+// somehow empty (shouldn't happen — form validation blocks submit — but
+// defensive).
+export function intendedFieldLabel(p: {
+  intended_field?: string;
+  intended_field_custom?: string;
+}): string {
+  if (p.intended_field === OTHER_FIELD_SENTINEL) {
+    const custom = (p.intended_field_custom ?? "").trim();
+    return custom ? `${custom} (Other)` : OTHER_FIELD_SENTINEL;
+  }
+  return p.intended_field ?? "";
+}
 
 // ─── Country Regions ──────────────────────────────────────────────────────────
 // Used for sub-country filtering in preferences and matching.

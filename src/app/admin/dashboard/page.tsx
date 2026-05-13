@@ -17,7 +17,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import { EduvianLogoMark } from "@/components/EduvianLogo";
-import { TARGET_COUNTRIES, BUDGET_LABELS } from "@/lib/types";
+import { TARGET_COUNTRIES, BUDGET_LABELS, intendedFieldLabel } from "@/lib/types";
 import type { StoredSubmission } from "@/lib/store";
 import {
   BarChart,
@@ -188,7 +188,7 @@ export default function DashboardPage() {
         phone:         s.profile?.phone     ?? "—",
         status:        "complete" as const,
         country:       countryObj ? `${countryObj.flag} ${countryObj.name}` : (code ?? "—"),
-        stream:        s.profile?.intended_field ?? "—",
+        stream:        (s.profile && intendedFieldLabel(s.profile)) || "—",
         total_matched: s.total_matched,
         token:         s.token,
         profile_category: s.profile_category,

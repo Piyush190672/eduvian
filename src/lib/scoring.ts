@@ -4,7 +4,7 @@ import type {
   ScoredProgram,
   ProgramTier,
 } from "./types";
-import { BUDGET_VALUES, TARGET_COUNTRIES, COUNTRY_REGIONS } from "./types";
+import { BUDGET_VALUES, TARGET_COUNTRIES, COUNTRY_REGIONS, OTHER_FIELD_SENTINEL } from "./types";
 
 // ─── Weight configuration ─────────────────────────────────────────────────────
 // Academic 40%, Budget 20%, Std Test 10%, English/Scholarship/Intake/
@@ -510,7 +510,19 @@ export function recommendPrograms(profile: StudentProfile, programs: Program[]):
   // but the user asked for "strictly stick to the programs in the intended
   // stream only". RELATED_FIELDS is kept above the function for the rare
   // case a future flag wants to re-enable it; not used here.
-  const allowedFields = new Set([profile.intended_field]);
+  //
+  // "Others" branch (13 May 2026): when the user picks "Others" in the
+  // form and types a free-text stream (intended_field_custom), the strict
+  // set-match doesn't work — no program in the DB has "Others" as
+  // field_of_study. Fall back to a case-insensitive substring search
+  // across each program's field_of_study + program_name. Empty custom
+  // text excludes everything (the form should already block submit, but
+  // be defensive).
+  const isCustomField = profile.intended_field === OTHER_FIELD_SENTINEL;
+  const customQuery   = isCustomField
+    ? (profile.intended_field_custom ?? "").trim().toLowerCase()
+    : "";
+  const allowedFields = isCustomField ? null : new Set([profile.intended_field]);
 
   // Build reverse map: country name → country code
   const nameToCode = Object.fromEntries(TARGET_COUNTRIES.map((t) => [t.name, t.code]));
@@ -532,7 +544,13 @@ export function recommendPrograms(profile: StudentProfile, programs: Program[]):
     }
     if (!degreeOk) return false;
 
-    if (!allowedFields.has(p.field_of_study)) return false;
+    if (isCustomField) {
+      if (!customQuery) return false;
+      const haystack = `${p.field_of_study} ${p.program_name}`.toLowerCase();
+      if (!haystack.includes(customQuery)) return false;
+    } else if (!allowedFields!.has(p.field_of_study)) {
+      return false;
+    }
     if (allowedCountries.size > 0 && !allowedCountries.has(p.country)) return false;
 
     // Hard filter: QS ranking preference
