@@ -551,6 +551,19 @@ export function recommendPrograms(profile: StudentProfile, programs: Program[]):
     } else if (!allowedFields!.has(p.field_of_study)) {
       return false;
     }
+
+    // BPS GBC filter — when the user is pursuing Psychology at the
+    // postgraduate level AND has confirmed their undergraduate degree is
+    // NOT BPS-accredited, hide programs that require BPS (typically UK
+    // Health / Clinical / Counselling / Forensic / Educational /
+    // Occupational / Sport / Neuro Psychology Masters). Programs with
+    // requires_bps_accreditation undefined or false are unaffected.
+    if (
+      profile.intended_field === "Psychology"
+      && profile.degree_level === "postgraduate"
+      && profile.bps_accredited === false
+      && p.requires_bps_accreditation === true
+    ) return false;
     if (allowedCountries.size > 0 && !allowedCountries.has(p.country)) return false;
 
     // Hard filter: QS ranking preference

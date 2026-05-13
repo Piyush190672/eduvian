@@ -74,6 +74,12 @@ export interface StudentProfile {
   // "Others", and used by the matching algorithm as a substring filter against
   // p.field_of_study + p.program_name.
   intended_field_custom?: string;
+  // BPS GBC accreditation flag — set only when intended_field === "Psychology"
+  // AND degree_level === "postgraduate". When false, the matcher filters out
+  // programs whose Program.requires_bps_accreditation is true (mainly UK
+  // Health / Clinical / Counselling / Forensic / Educational / Occupational
+  // / Sport / Neuro Psychology Masters). Added 13 May 2026.
+  bps_accredited?: boolean;
   // Hard-filter preferences
   qs_ranking_preference?: "top_50" | "top_100" | "top_200" | "top_500" | "any";
   post_study_work_visa?: boolean;
@@ -152,6 +158,14 @@ export interface Program {
   verified_at?: string | null;
   /** URL whose live content the verification was performed against (typically same as program_url, captured at verification time). */
   verification_source_url?: string | null;
+  /** True when this program requires applicants to hold the BPS Graduate
+   *  Basis for Chartered Membership (GBC) — typical for UK Health /
+   *  Clinical / Counselling / Forensic / Educational / Occupational /
+   *  Sport / Neuro Psychology Masters. When true, candidates without a
+   *  BPS-accredited undergraduate degree are filtered out of matches.
+   *  Undefined / false = no BPS requirement (Conversion MSc, generic MSc
+   *  Psychology, all non-UK psych programs). Added 13 May 2026. */
+  requires_bps_accreditation?: boolean;
 }
 
 // ─── Recommendation Result ────────────────────────────────────────────────────

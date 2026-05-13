@@ -182,6 +182,45 @@ export default function StepAcademic({ profile, onChange }: Props) {
             </p>
           </div>
         )}
+
+        {/* BPS GBC accreditation — UK Psychology Masters (Health, Clinical,
+            Counselling, Forensic, etc.) require an undergraduate degree that
+            meets the BPS Graduate Basis for Chartered Membership. Shown only
+            for Psychology + postgraduate. */}
+        {profile.intended_field === "Psychology" && profile.degree_level === "postgraduate" && (
+          <div className="mt-3 rounded-xl bg-violet-50 border border-violet-200 p-3.5">
+            <Label>Is your current degree program BPS accredited? *</Label>
+            <p className="text-xs text-gray-600 leading-relaxed mb-2.5">
+              Many UK Psychology Masters (Health, Clinical, Counselling, Forensic,
+              Educational, Occupational, Sport, Neuro) require the BPS Graduate Basis
+              for Chartered Membership. If your bachelor&apos;s isn&apos;t BPS-accredited,
+              we&apos;ll only show programs that don&apos;t need it (e.g. Conversion MSc,
+              generic MSc Psychology, non-UK programs).
+            </p>
+            <div className="flex gap-2">
+              {[
+                { v: true,  label: "Yes" },
+                { v: false, label: "No" },
+              ].map(({ v, label }) => {
+                const active = profile.bps_accredited === v;
+                return (
+                  <button
+                    key={String(v)}
+                    type="button"
+                    onClick={() => onChange({ bps_accredited: v })}
+                    className={`flex-1 px-3 py-2 rounded-lg text-sm font-semibold transition-colors border ${
+                      active
+                        ? "bg-violet-600 text-white border-violet-600"
+                        : "bg-white text-gray-700 border-gray-200 hover:border-violet-300"
+                    }`}
+                  >
+                    {label}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        )}
       </div>
 
       <div>
