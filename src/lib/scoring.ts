@@ -201,14 +201,17 @@ function scoreScholarship(_program: Program): number {
 }
 
 function scoreIntake(profile: StudentProfile, program: Program): number {
-  // Post-filter (13 May 2026): the hard filter now excludes BOTH the
-  // explicit-miss case AND the empty/missing-data case, so the only
-  // programs that reach this function have a non-empty intake_semesters
-  // list that includes the user's target intake. Score always 100. The
-  // defensive branches stay so the function remains correct if invoked
-  // outside the filter pipeline.
+  // Programs that fail the intake hard filter are excluded before scoring,
+  // so by the time we get here the only cases are:
+  //  - intake_semesters non-empty AND includes target → match (100)
+  //  - intake_semesters empty (data missing on our side, hard filter
+  //    deliberately let it through) → neutral 60 to avoid penalising the
+  //    program for our data gap. The signal row labels this case as
+  //    "Intake to be checked".
+  // The explicit-false branch is defensive only — it shouldn't fire post-
+  // filter but keeps the function correct if called in isolation.
   if (!Array.isArray(program.intake_semesters) || program.intake_semesters.length === 0) {
-    return 0;
+    return 60;
   }
   return program.intake_semesters.includes(profile.target_intake_semester) ? 100 : 0;
 }
@@ -376,16 +379,15 @@ function isHardDisqualified(profile: StudentProfile, program: Program): boolean 
     if (budgetMax > 0 && totalCost > budgetMax * 1.10) return true;
   }
 
-  // Intake availability — STRICT hard filter (13 May 2026, per user
-  // request). A program is shown ONLY when its intake_semesters list
-  // explicitly includes the user's target intake. Empty / missing data
-  // is now also excluded — applicants can't act on "we don't know if
-  // this program even runs in your intake". Trade-off: programs with
-  // an unset intake_semesters list disappear until we verify them.
-  if (!Array.isArray(program.intake_semesters) || program.intake_semesters.length === 0) {
-    return true;
+  // Intake availability — exclude programs that explicitly DON'T offer
+  // the user's target intake semester. Same data-honest pattern as the
+  // academic / budget filters above: only fires when the program's
+  // intake_semesters list is non-empty AND missing the target. Programs
+  // with empty / missing intake data stay (surfaced as "Intake to be
+  // checked" in the signal row).
+  if (Array.isArray(program.intake_semesters) && program.intake_semesters.length > 0) {
+    if (!program.intake_semesters.includes(profile.target_intake_semester)) return true;
   }
-  if (!program.intake_semesters.includes(profile.target_intake_semester)) return true;
 
   // MBA-only: minimum work experience is a STRICT hard filter. Top MBA
   // programs explicitly require 2-5 years of work experience and routinely

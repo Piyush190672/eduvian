@@ -88,7 +88,13 @@ function getVerdict(signal: string, value: number, isPG: boolean, budgetPct?: nu
     case "scholarship":
       return s === "strong" ? "High scholarship availability" : s === "partial" ? "Some scholarships available" : "Limited scholarships";
     case "intake":
-      return value === 100 ? "Intake available" : "Intake not offered";
+      // value === 60 = empty intake_semesters (data gap on our side) →
+      // "Intake to be checked". value === 100 = target intake confirmed
+      // available. The "missing target" case (value === 0) is hard-
+      // filtered out before scoring so it shouldn't reach the verdict;
+      // kept as a defensive fallback.
+      if (value === 60) return "Intake to be checked";
+      return value === 100 ? "Intake available" : "Intake to be checked";
     case "backlogs":
       return value === 100 ? "No backlogs" : value === 50 ? "1 backlog" : value === 25 ? "2–3 backlogs" : "4+ backlogs";
     case "gap_year":
