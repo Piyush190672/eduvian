@@ -236,8 +236,8 @@ export async function POST(req: NextRequest) {
           <!-- ── FOOTER ─────────────────────────────────────────── -->
           <tr>
             <td style="background:#F8F9FF;padding:24px 40px;border-top:1px solid #e5e7eb;text-align:center;">
-              <p style="margin:0 0 6px;font-size:13px;font-weight:700;color:#6366F1;">eduvianAI</p>
-              <p style="margin:0 0 10px;font-size:12px;color:#9ca3af;">Study abroad, made intelligent.</p>
+              <img src="https://www.eduvianai.com/logo.svg" alt="eduvianAI" width="32" height="32" style="display:inline-block;margin:0 0 8px;border-radius:8px;" />
+              <p style="margin:0 0 10px;font-size:12px;color:#9ca3af;">Independent study-abroad intelligence</p>
               <p style="margin:0 0 8px;font-size:11px;color:#d1d5db;">
                 You're receiving this because you registered at eduvianai.com.<br/>
                 If this wasn't you, please ignore this email.

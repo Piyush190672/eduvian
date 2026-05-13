@@ -223,7 +223,7 @@ function ProfilePageInner() {
 
       const { token } = await res.json();
       toast.success("Profile submitted! Generating your shortlist...");
-      router.push(`/results/${token}`);
+      router.push(`/profile-evaluation/${token}`);
     } catch (err: unknown) {
       const message = err instanceof Error ? err.message : "Something went wrong";
       toast.error(message);

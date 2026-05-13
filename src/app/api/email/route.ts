@@ -137,9 +137,8 @@ export async function POST(req: NextRequest) {
 <body style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f8fafc;margin:0;padding:20px;">
   <div style="max-width:600px;margin:0 auto;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.08);">
     <div style="background:linear-gradient(135deg,#6366f1,#8b5cf6,#ec4899);padding:40px 32px;text-align:center;">
-      <img src="${appUrl}/logo.svg" width="52" height="52" alt="eduvianAI" style="display:block;margin:0 auto 12px;border:0;outline:none;" />
-      <div style="font-size:28px;font-weight:900;color:#fff;letter-spacing:-0.5px;">eduvianAI</div>
-      <div style="color:#e0e7ff;margin-top:4px;font-size:15px;font-weight:700;letter-spacing:0.3px;">Your Global Future, Simplified</div>
+      <img src="${appUrl}/logo.svg" width="52" height="52" alt="eduvianAI" style="display:block;margin:0 auto 8px;border:0;outline:none;border-radius:12px;" />
+      <div style="color:#e0e7ff;font-size:14px;font-weight:600;letter-spacing:0.2px;">Independent study-abroad intelligence</div>
       <div style="color:#e0e7ff;margin-top:8px;font-size:15px;">Your personalized shortlist is ready</div>
     </div>
 
@@ -188,7 +187,7 @@ export async function POST(req: NextRequest) {
 
     <div style="background:#f8fafc;padding:20px 32px;text-align:center;border-top:1px solid #f1f5f9;">
       <div style="color:#9ca3af;font-size:12px;line-height:1.6;">
-        © 2025 eduvianAI · Your Global Future, Simplified<br>
+        © 2026 · Independent study-abroad intelligence<br>
         <a href="${resultsUrl}" style="color:#6366f1;text-decoration:none;">View your shortlist</a>
         &nbsp;·&nbsp;
         <a href="mailto:privacy@eduvianai.com?subject=Unsubscribe" style="color:#6366f1;text-decoration:underline;">Unsubscribe</a>

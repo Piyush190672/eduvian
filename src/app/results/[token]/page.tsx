@@ -21,7 +21,9 @@ import type { ScoredProgram, ProgramTier, StudentProfile } from "@/lib/types";
 import { TARGET_COUNTRIES, BUDGET_VALUES } from "@/lib/types";
 import ProgramCard from "@/components/results/ProgramCard";
 import ShortlistSummary from "@/components/results/ShortlistSummary";
-import ProfileCard from "@/components/results/ProfileCard";
+// ProfileCard moved to /profile-evaluation/[token] (13 May 2026) — the
+// evaluation interstitial is now its own page, with a "Continue to
+// matched programs" button that brings the user here.
 import NavButtons from "@/components/ui/NavButtons";
 import LogoutButton from "@/components/LogoutButton";
 import DecisionDisclaimer from "@/components/DecisionDisclaimer";
@@ -302,8 +304,8 @@ export default function ResultsPage() {
           </motion.div>
         )}
 
-        {/* Profile summary card */}
-        <ProfileCard profile={profile} token={token} />
+        {/* Profile summary now lives at /profile-evaluation/[token] —
+            see the interstitial page rendered between submit and here. */}
 
         {/* Shortlist summary */}
         {shortlisted.size > 0 && (

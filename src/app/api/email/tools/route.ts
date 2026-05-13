@@ -66,9 +66,8 @@ function emailShell(preheader: string, body: string): string {
   <div style="max-width:600px;margin:0 auto;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.08);">
     <!-- Header -->
     <div style="background:linear-gradient(135deg,#6366f1,#8b5cf6,#ec4899);padding:36px 32px;text-align:center;">
-      <img src="https://www.eduvianai.com/logo.svg" width="48" height="48" alt="eduvianAI" style="display:block;margin:0 auto 10px;border:0;outline:none;" />
-      <div style="font-size:26px;font-weight:900;color:#fff;letter-spacing:-0.5px;">eduvianAI</div>
-      <div style="color:#e0e7ff;font-size:13px;font-weight:600;margin-top:3px;">Your Global Future, Simplified</div>
+      <img src="https://www.eduvianai.com/logo.svg" width="48" height="48" alt="eduvianAI" style="display:block;margin:0 auto 8px;border:0;outline:none;border-radius:11px;" />
+      <div style="color:#e0e7ff;font-size:13px;font-weight:600;">Independent study-abroad intelligence</div>
     </div>
     <!-- Body -->
     <div style="padding:28px 32px 24px;">
@@ -77,7 +76,7 @@ function emailShell(preheader: string, body: string): string {
     <!-- Footer -->
     <div style="background:#f8fafc;border-top:1px solid #f1f5f9;padding:16px 32px;text-align:center;">
       <div style="color:#9ca3af;font-size:11px;line-height:1.6;">
-        © 2025 eduvianAI · Your Global Future, Simplified<br/>
+        © 2026 · Independent study-abroad intelligence<br/>
         Salary figures are median graduate outcomes. All amounts in USD. For informational purposes only.<br/>
         <a href="https://www.eduvianai.com" style="color:#6366f1;text-decoration:none;">www.eduvianai.com</a>
         &nbsp;·&nbsp;

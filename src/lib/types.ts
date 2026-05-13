@@ -149,6 +149,22 @@ export interface Program {
   min_gre: number | null;
   min_gmat: number | null;
   min_sat: number | null;
+  // Realistic admission bars — typical median admit profile rather than
+  // the published floor. Populated only for QS top-100 universities via
+  // the realistic-admit-extractor sweep (13 May 2026). Scoring (academic
+  // / std_test / english) prefers these over min_* when present.
+  // Unset on the rest of the DB — scoring falls back to the published
+  // min_* fields, which is fine for less-selective programs where the
+  // published floor ≈ the realistic bar.
+  realistic_min_gpa?: number | null;
+  realistic_min_percentage?: number | null;
+  realistic_min_ielts?: number | null;
+  realistic_min_toefl?: number | null;
+  realistic_min_gre?: number | null;
+  realistic_min_gmat?: number | null;
+  realistic_min_sat?: number | null;
+  realistic_source?: string | null;       // e.g. "U.S. News 2024 median admit"
+  realistic_extracted_at?: string | null; // ISO timestamp
   work_exp_required_years: number | null;
   program_url: string;
   apply_url: string | null;

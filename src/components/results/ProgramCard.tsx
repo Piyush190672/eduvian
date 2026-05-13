@@ -198,9 +198,17 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist,
   // the Budget tile? — no, the English tile. Used by SignalChip → getVerdict
   // when the user's test isn't on the program's accepted list (scoring
   // returns sentinel 7).
+  // Read realistic_min_* in preference to min_* (top-100 sweep, 13 May 2026).
+  const eff = {
+    ielts: program.realistic_min_ielts ?? program.min_ielts,
+    toefl: program.realistic_min_toefl ?? program.min_toefl,
+    gre:   program.realistic_min_gre   ?? program.min_gre,
+    gmat:  program.realistic_min_gmat  ?? program.min_gmat,
+    sat:   program.realistic_min_sat   ?? program.min_sat,
+  };
   const acceptedEnglishTests: string[] = [
-    ((program.min_ielts    ?? 0) > 0) && "IELTS",
-    ((program.min_toefl    ?? 0) > 0) && "TOEFL",
+    ((eff.ielts          ?? 0) > 0) && "IELTS",
+    ((eff.toefl          ?? 0) > 0) && "TOEFL",
     ((program.min_pte      ?? 0) > 0) && "PTE",
     ((program.min_duolingo ?? 0) > 0) && "Duolingo",
   ].filter((x): x is string => typeof x === "string");
@@ -209,8 +217,8 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist,
   // for PG, SAT for UG). Used by the std_test SignalChip to render
   // "Not required" in green when no minimum is published.
   const stdTestRequired = isPG
-    ? (program.min_gre ?? 0) > 0 || (program.min_gmat ?? 0) > 0
-    : (program.min_sat ?? 0) > 0;
+    ? (eff.gre ?? 0) > 0 || (eff.gmat ?? 0) > 0
+    : (eff.sat ?? 0) > 0;
 
   // Signals to display (work_exp only if PG and has a value)
   const signals: { key: keyof typeof bd }[] = [
@@ -233,13 +241,17 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist,
     <div className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden">
       <div className="p-5">
         <div className="flex items-start gap-4">
-          {/* Match score circle */}
+          {/* Match score circle — colour-coded by tier (Safe/Reach/Ambitious)
+              so the score colour and the tier badge always agree.
+              Was previously keyed off absolute score thresholds, which
+              could read green on a Reach-tier program and amber on a
+              Safe-tier program with the QS-prestige-adjusted thresholds. */}
           <div className="flex-shrink-0 flex flex-col items-center">
             <div
               className={`w-14 h-14 rounded-2xl flex items-center justify-center font-black text-lg ${
-                program.match_score >= 80
+                program.tier === "safe"
                   ? "bg-emerald-50 text-emerald-600 border-2 border-emerald-200"
-                  : program.match_score >= 50
+                  : program.tier === "reach"
                   ? "bg-amber-50 text-amber-600 border-2 border-amber-200"
                   : "bg-rose-50 text-rose-600 border-2 border-rose-200"
               }`}

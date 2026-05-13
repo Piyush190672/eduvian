@@ -122,8 +122,8 @@ export async function POST(req: NextRequest) {
 <body style="margin:0;padding:24px;background:#f8fafc;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;">
   <div style="max-width:520px;margin:0 auto;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.06);">
     <div style="background:linear-gradient(135deg,#6366f1,#8b5cf6);padding:28px 32px;text-align:center;color:#fff;">
-      <div style="font-size:22px;font-weight:900;letter-spacing:-0.3px;">eduvianAI</div>
-      <div style="margin-top:4px;font-size:13px;color:#e0e7ff;">Your Global Future, Simplified</div>
+      <img src="https://www.eduvianai.com/logo.svg" alt="eduvianAI" width="40" height="40" style="display:inline-block;border-radius:10px;" />
+      <div style="margin-top:8px;font-size:13px;color:#e0e7ff;">Independent study-abroad intelligence</div>
     </div>
     <div style="padding:32px;color:#1e1b4b;">
       <h2 style="margin:0 0 12px;font-size:18px;">Hey ${firstName},</h2>

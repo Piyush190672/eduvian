@@ -1,0 +1,109 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { Loader2, ArrowRight } from "lucide-react";
+import { EduvianLogoMark } from "@/components/EduvianLogo";
+import LogoutButton from "@/components/LogoutButton";
+import ProfileCard from "@/components/results/ProfileCard";
+import type { StudentProfile } from "@/lib/types";
+
+/**
+ * /profile-evaluation/[token] — interstitial page shown right after a
+ * student submits their profile. Renders the ProfileCard evaluation
+ * (category badge, strengths, gaps) on its own, with a single primary
+ * CTA at the bottom-right that opens the matched-programs page.
+ *
+ * Was originally folded into /results/[token] together with the
+ * shortlist, but having both on one page confused users about what to
+ * focus on. (13 May 2026)
+ */
+export default function ProfileEvaluationPage({ params }: { params: { token: string } }) {
+  const { token } = params;
+
+  const [profile, setProfile] = useState<StudentProfile | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const res = await fetch(`/api/results/${token}`);
+        if (!res.ok) throw new Error("Profile not found");
+        const json = await res.json();
+        if (cancelled) return;
+        setProfile(json.submission.profile as StudentProfile);
+      } catch {
+        if (!cancelled) setError("Could not load your profile evaluation. Please check the link.");
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    })();
+    return () => { cancelled = true; };
+  }, [token]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50/30 flex items-center justify-center">
+        <Loader2 className="w-8 h-8 animate-spin text-violet-600" />
+      </div>
+    );
+  }
+
+  if (error || !profile) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50/30 flex items-center justify-center px-6">
+        <div className="max-w-md text-center">
+          <p className="text-base font-semibold text-rose-700 mb-2">{error ?? "Something went wrong."}</p>
+          <Link href="/profile" className="text-sm text-violet-700 hover:underline">Back to profile</Link>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50/30 pb-32">
+      {/* Nav — logo only, matching the rest of the non-home page convention. */}
+      <nav className="fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-6 py-4 glass border-b border-white/30 bg-white/80 backdrop-blur">
+        <Link href="/" className="flex items-center" aria-label="eduvianAI home">
+          <EduvianLogoMark size={32} />
+        </Link>
+        <div className="flex items-center gap-2">
+          <LogoutButton variant="compact" />
+          <Link
+            href="/account/security"
+            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-xl border border-gray-200 text-sm font-medium text-gray-600 hover:bg-gray-50 transition-all"
+          >
+            Security
+          </Link>
+        </div>
+      </nav>
+
+      <main className="max-w-4xl mx-auto px-6 sm:px-10 pt-24 sm:pt-28">
+        <header className="mb-8 sm:mb-10">
+          <p className="text-[11px] uppercase tracking-[0.25em] text-violet-700 font-semibold mb-3">Step 1 of 2</p>
+          <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-gray-900 leading-tight mb-3">
+            Your <span className="italic font-medium text-violet-700">profile evaluation</span>.
+          </h1>
+          <p className="text-base sm:text-lg text-gray-500 leading-relaxed max-w-2xl">
+            Where you stand on the signals that admission officers actually weigh. Review this, then continue to the programs your profile fits best.
+          </p>
+        </header>
+
+        <ProfileCard profile={profile} token={token} />
+      </main>
+
+      {/* Bottom-right floating CTA — primary next step. */}
+      <div className="fixed bottom-6 right-6 sm:right-10 z-40">
+        <Link
+          href={`/results/${token}`}
+          className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-violet-600 hover:bg-violet-700 text-white text-sm font-bold shadow-2xl shadow-violet-900/30 hover:shadow-xl hover:-translate-y-0.5 transition-all"
+        >
+          Continue to matched programs
+          <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+        </Link>
+      </div>
+    </div>
+  );
+}

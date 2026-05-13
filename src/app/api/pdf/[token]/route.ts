@@ -185,9 +185,15 @@ function buildPDFHtml(profile: StudentProfile, programs: ScoredProgram[]): strin
 <body>
   <!-- Header -->
   <div class="header">
-    <div>
-      <div class="brand">🌍 eduvianAI</div>
-      <div style="font-size:12px;font-weight:600;color:#9ca3af;margin-top:2px;">Your Global Future, Simplified</div>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <svg width="36" height="36" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="eduvianAI">
+        <defs><linearGradient id="g1" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6366F1"/><stop offset="1" stop-color="#A855F7"/></linearGradient></defs>
+        <rect width="36" height="36" rx="10" fill="url(#g1)"/>
+        <ellipse cx="18" cy="18" rx="11" ry="6" stroke="#ffffff" stroke-width="1.2" stroke-opacity="0.4" fill="none" transform="rotate(-30 18 18)"/>
+        <text x="18" y="23.5" text-anchor="middle" fill="#ffffff" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="16" font-weight="800" letter-spacing="-1">e</text>
+        <circle cx="26.5" cy="11.5" r="2" fill="#ffffff" fill-opacity="0.9"/>
+      </svg>
+      <div style="font-size:12px;font-weight:600;color:#9ca3af;">Independent study-abroad intelligence</div>
     </div>
     <div class="student-info">
       <strong>${escHtml(profile.full_name)}</strong>

@@ -21,7 +21,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "eduvianAI — Your Global Future, Simplified",
+  title: "eduvianAI — Independent study-abroad intelligence",
   description:
     "AI-powered program recommendations for study abroad aspirants. Get matched with universities in USA, UK, Australia, Canada, and more.",
   keywords: [
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     "UK universities",
   ],
   openGraph: {
-    title: "eduvianAI — Your Global Future, Simplified",
+    title: "eduvianAI — Independent study-abroad intelligence",
     description:
       "Get personalized university program matches based on your academic profile, budget, and preferences.",
     type: "website",

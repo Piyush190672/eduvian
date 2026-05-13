@@ -156,7 +156,7 @@ export default function AdminLogin() {
             <EduvianLogoMark size={40} />
             <div>
               <span className="font-display font-bold text-2xl text-white tracking-tight">eduvian<span className="text-indigo-300">AI</span></span>
-              <p className="text-sm font-bold text-indigo-300 leading-none">Your Global Future, Simplified</p>
+              <p className="text-sm font-bold text-indigo-300 leading-none">Independent study-abroad intelligence</p>
             </div>
           </Link>
           <h1 className="text-2xl font-bold text-white">Admin Login</h1>

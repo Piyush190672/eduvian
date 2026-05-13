@@ -88,11 +88,29 @@ function toPercentage(profile: StudentProfile): number {
   }
 }
 
-/** Convert program's min requirement to percentage scale */
+/** Convert program's min requirement to percentage scale.
+ *  Prefers realistic_min_* over min_* when present (top-100 sweep,
+ *  13 May 2026) — realistic_min_* is the typical median admit bar
+ *  whereas min_* is the lenient published floor. */
 function programMinToPercentage(program: Program): number {
-  if (program.min_percentage !== null) return program.min_percentage;
-  if (program.min_gpa !== null) return (program.min_gpa / 4.0) * 100;
+  const pct = program.realistic_min_percentage ?? program.min_percentage;
+  if (pct !== null && pct !== undefined) return pct;
+  const gpa = program.realistic_min_gpa ?? program.min_gpa;
+  if (gpa !== null && gpa !== undefined) return (gpa / 4.0) * 100;
   return 0;
+}
+
+/** Tiny helper: prefer realistic_* over min_* when present. */
+function effectiveMin(
+  program: Program,
+  key: "min_ielts" | "min_toefl" | "min_gre" | "min_gmat" | "min_sat",
+): number | null {
+  const realisticKey = ("realistic_" + key) as
+    | "realistic_min_ielts" | "realistic_min_toefl" | "realistic_min_gre"
+    | "realistic_min_gmat"  | "realistic_min_sat";
+  const r = program[realisticKey];
+  if (r !== null && r !== undefined) return r;
+  return program[key];
 }
 
 // ─── Individual signal scorers ────────────────────────────────────────────────
@@ -139,10 +157,10 @@ function scoreEnglish(profile: StudentProfile, program: Program): number {
   let maxPossible: number;
 
   switch (profile.english_test) {
-    case "ielts":    minRequired = program.min_ielts;    maxPossible = 9;   break;
-    case "toefl":    minRequired = program.min_toefl;    maxPossible = 120; break;
-    case "pte":      minRequired = program.min_pte;      maxPossible = 90;  break;
-    case "duolingo": minRequired = program.min_duolingo; maxPossible = 160; break;
+    case "ielts":    minRequired = effectiveMin(program, "min_ielts"); maxPossible = 9;   break;
+    case "toefl":    minRequired = effectiveMin(program, "min_toefl"); maxPossible = 120; break;
+    case "pte":      minRequired = program.min_pte;                    maxPossible = 90;  break;
+    case "duolingo": minRequired = program.min_duolingo;               maxPossible = 160; break;
     default: return 70;
   }
 
@@ -153,9 +171,9 @@ function scoreEnglish(profile: StudentProfile, program: Program): number {
   //      "only XX accepted" verdict in the UI).
   if (!minRequired) {
     const programAcceptsAnyTest =
-      (program.min_ielts ?? 0) > 0 ||
-      (program.min_toefl ?? 0) > 0 ||
-      (program.min_pte   ?? 0) > 0 ||
+      (effectiveMin(program, "min_ielts") ?? 0) > 0 ||
+      (effectiveMin(program, "min_toefl") ?? 0) > 0 ||
+      (program.min_pte      ?? 0) > 0 ||
       (program.min_duolingo ?? 0) > 0;
     if (programAcceptsAnyTest) return 7; // mismatch — handled in UI
     return 80;                            // not required — partial/strong
@@ -288,35 +306,35 @@ function scoreStdTest(profile: StudentProfile, program: Program): number {
   };
 
   if (profile.degree_level === "undergraduate") {
-    // Program doesn't require SAT — surface as strong "Not required"
-    // rather than penalising the student for not taking one. (13 May 2026)
-    if (!program.min_sat) return 100;
+    const minSat = effectiveMin(program, "min_sat");
+    if (!minSat) return 100;
     if (!profile.std_test_ug || profile.std_test_ug === "none") return 30;
     if (profile.std_test_ug === "sat") {
       const score = validScore(profile.std_test_ug_score);
       if (score == null) return 70;
-      if (score >= program.min_sat) return 100;
-      if (score >= program.min_sat - 50) return 60;
+      if (score >= minSat) return 100;
+      if (score >= minSat - 50) return 60;
       return 20;
     }
     return 70;
   } else {
-    // PG: GRE or GMAT not required by the program → strong "Not required".
-    const requiresGreOrGmat = (program.min_gre ?? 0) > 0 || (program.min_gmat ?? 0) > 0;
+    const minGre  = effectiveMin(program, "min_gre");
+    const minGmat = effectiveMin(program, "min_gmat");
+    const requiresGreOrGmat = (minGre ?? 0) > 0 || (minGmat ?? 0) > 0;
     if (!requiresGreOrGmat) return 100;
     if (!profile.std_test_pg || profile.std_test_pg === "none") return 30;
-    if (profile.std_test_pg === "gre" && program.min_gre) {
+    if (profile.std_test_pg === "gre" && minGre) {
       const score = validScore(profile.std_test_pg_score);
       if (score == null) return 70;
-      if (score >= program.min_gre) return 100;
-      if (score >= program.min_gre - 10) return 60;
+      if (score >= minGre) return 100;
+      if (score >= minGre - 10) return 60;
       return 20;
     }
-    if (profile.std_test_pg === "gmat" && program.min_gmat) {
+    if (profile.std_test_pg === "gmat" && minGmat) {
       const score = validScore(profile.std_test_pg_score);
       if (score == null) return 70;
-      if (score >= program.min_gmat) return 100;
-      if (score >= program.min_gmat - 20) return 60;
+      if (score >= minGmat) return 100;
+      if (score >= minGmat - 20) return 60;
       return 20;
     }
     return 70;
