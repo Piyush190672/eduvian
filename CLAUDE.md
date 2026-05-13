@@ -4,7 +4,7 @@ This file is loaded automatically. The full project state, decisions, and ration
 
 ## What this is
 
-Next.js 14 (App Router) study-abroad platform deployed to Vercel at https://www.eduvianai.com. Postgres + RLS in Supabase Cloud (US, Pro plan). Anthropic Claude for AI features, Resend for transactional mail, Sentry for errors. 12 destination countries, **8,007 programs / 8,007 verified at the source (100.0%) / ~535 universities / ~70% with international tuition fee (3,158 of those estimated, 4 with variance notes)** as of 13 May 2026 (handoff #15 — Tier-B tuition sweep complete, Psychology + "Others" stream added, BPS-accreditation gate for UK psych PG, realistic-admit-bars top-100 sweep ready to commit, hero headline carousel, inline-password register flow, 24h idle auto-logout, change-password modal on homepage, mobile alignment audit, brand cleanup purging "Your Global Future, Simplified" across all surfaces), beta-gated to 50 unique users / month (excluding owner). Email OTP **and** password (scrypt) both gate register / login.
+Next.js 14 (App Router) study-abroad platform deployed to Vercel at https://www.eduvianai.com. Postgres + RLS in Supabase Cloud (US, Pro plan). Anthropic Claude for AI features, Resend for transactional mail, Sentry for errors. 12 destination countries, **8,312 programs / 8,312 verified at the source (100.0%) / ~545 universities / ~70% with international tuition fee** as of 13 May 2026 (handoff #16 — UK QS≤500 Psychology PG sweep manually finished (+305 verified), realistic-admit top-100 fill committed (1,623 entries carry `realistic_min_*`), `/profile-evaluation/[token]` criteria always-expanded, `/results/[token]` hard-filter chip strip removed + disclaimer relocated below shortlist, disclaimer copy "AI-generated" → "AI-powered", new `research_paper` scoring signal at 5% PG weight (academic 40%→35%)), beta-gated to 50 unique users / month (excluding owner). Email OTP **and** password (scrypt) both gate register / login.
 
 ## Operating rules — non-negotiable, every session, no exceptions
 
@@ -159,46 +159,62 @@ Audit document: `~/Desktop/EduvianAI-Security-Architecture-Risk-Assessment.docx`
 
 The legal/security/pricing Word docs were generated with `docx`. Pricing Excel via `xlsx`. To regenerate legal: `node scripts/build-legal-docs.js`.
 
-## Open work for the next session (handoff #15, 13 May 2026)
+## Open work for the next session (handoff #16, 13 May 2026 evening)
 
-Pinned in priority order. Snapshot §35 has full handoff-#15 detail. **Two background processes still active at session end** + **one uncommitted data merge** — see §35.16 + items 6-7 below.
+Pinned in priority order. Snapshot §36 has full handoff-#16 detail. **No background processes. Working tree clean.** All handoff-#15 wrap-ups landed (UK psych +305 verified, realistic-admit top-100 committed). Open-work #17 (threshold tuning) closed as **investigated, no tune required** — smoke test left in `scripts/smoke-threshold-cs-pg.ts` as a regression artifact.
 
-**Wrap-ups (first thing next session):**
+**Tier-A — user-driven QA, no API spend (all carry-over from #15):**
 
-1. **Verify UK psych deep sweep landed** (PID 10942, was at 280/283 in verify-batch — **stalled there ~25+ min at handoff end**, last 3 entries appear hung on slow API). `tail -3 /tmp/uk-psych-deep.log` first; if still 280/283, `pkill -f verify-program.ts` to clear stuck workers, then finish manually: `npx tsx scripts/verify/merge.ts && npx tsx scripts/verify/rename-from-page.ts && python3 /tmp/tag-bps.py && npx tsc --noEmit && git add -A && git commit && git push`. The 280 verified outputs are already in `scripts/verify/output/`, no work lost.
-2. **Commit realistic-admit top-100 data fill** — `M src/data/programs.ts` carries 1,623 entries with new `realistic_extracted_at` + `realistic_min_*` fields, uncommitted because the wrapper hit a Python f-string syntax error before commit. **Race risk:** UK psych sweep's final flush may overwrite. Recovery if so: `npx tsx scripts/verify/merge-realistic-admit.ts --input scripts/verify/output/realistic-admit-top100.json` (no API spend — audit JSON is on disk).
-
-**Tier-A — credibility & correctness (user-driven, no code change from me):**
-
-3. **End-to-end QA of the new inline-password register flow** — register fresh email → enter OTP → set password on same screen → land on `/profile-evaluation/<token>` → click "Continue to matched programs" → land on `/results/<token>`. Also test the "Skip — I'll set one later" path.
-4. **Change-password QA** — homepage `Change password` button → modal → wrong current → 401 → toast. Correct current + new + confirm → 200 → "Password changed."
-5. **Mobile sanity sweep on real device** — the §35.15 audit was Playwright-style; real iOS Safari + Android Chrome verification still owed. Pay particular attention to `/results/[token]` nav controls and the per-program action-button stack at < sm.
-6. **Live mic test of USA + AU interview-prep flows** (carried over from handoff #13).
-7. **Confirm `security@eduvianai.com` mailbox** routing (carried over from handoff #14).
+1. **End-to-end QA of the inline-password register flow** — register fresh email → enter OTP → set password on same screen → land on `/profile-evaluation/<token>` → click "Continue to matched programs" → land on `/results/<token>`. Also test the "Skip — I'll set one later" path.
+2. **Change-password QA** — homepage `Change password` button → modal → wrong current → 401 → toast. Correct current + new + confirm → 200 → "Password changed."
+3. **Mobile sanity sweep on real device** — real iOS Safari + Android Chrome. Particular attention to `/results/[token]` nav controls and the per-program action-button stack at < sm. (Also good moment to eyeball the now-relocated DecisionDisclaimer landing right above CheckMatchPanel and the always-expanded Profile criteria.)
+4. **Live mic test of USA + AU interview-prep flows** (carried over from handoff #13).
+5. **Confirm `security@eduvianai.com` mailbox** routing (carried over from handoff #14).
 
 **Tier-B (API spend, await explicit go):**
 
-8. **USA fee uplift beyond 78%** — residential proxy ($50/mo subscription). **Still skipped pending explicit authorisation.**
+6. **USA fee uplift beyond 78%** — residential proxy ($50/mo subscription). Still skipped pending explicit authorisation.
 
 **Tier-C (product surface):**
 
-9. **Button hierarchy reorder on ProgramCard** — promote "View ROI Analysis" to primary visual treatment, demote Apply Now to terminal. User said "ship 1-4 only" of the 5-point polish batch but acknowledged this is the biggest UX lever; revisit when ready.
+7. **Button hierarchy reorder on ProgramCard** — promote "View ROI Analysis" to primary, demote Apply Now to terminal. Deferred from §35.15 polish batch; user said "ship 1-4 only" but acknowledged this is the biggest UX lever.
 
 **Tier-D — security & ops (carrying over):**
 
-10. **M1 CSP** — drop `unsafe-inline` / `unsafe-eval`. 4-6 wk Next.js refactor; roadmap decision needed.
-11. **M3 Zod input validation** — 0/28 routes; cross-cut. ~1-2 days.
-12. **M5 Secrets rotation policy doc** — 90-day cadence for ANTHROPIC_API_KEY, SUPABASE_SECRET_KEY, RESEND_API_KEY, ADMIN_SESSION_SECRET. Doc-only.
-13. **M7 + L3 legal-doc edits** — Privacy Policy §2.2 (tool_usage IP disclosure) + §6 (SCC citation). Touches `scripts/build-legal-docs.js`; **don't push** without attorney sign-off.
-14. **L5 verified_at HMAC signing** — schema + writer rework. Defer.
-15. **I3 Incident response plan** — required for ISO 27001 roadmap.
-16. **I2 + I4** — bug bounty / VRP + pen-testing schedule. Pre-launch.
+8. **M1 CSP** — drop `unsafe-inline` / `unsafe-eval`. 4-6 wk Next.js refactor.
+9. **M3 Zod input validation** — 0/28 routes; cross-cut.
+10. **M5 Secrets rotation policy doc** — 90-day cadence. Doc-only.
+11. **M7 + L3 legal-doc edits** — Privacy Policy §2.2 + §6. Touches `scripts/build-legal-docs.js`; don't push without attorney sign-off.
+12. **L5 verified_at HMAC signing** — schema + writer rework. Defer.
+13. **I3 Incident response plan** — required for ISO 27001 roadmap.
+14. **I2 + I4** — bug bounty / VRP + pen-testing schedule. Pre-launch.
 
-**Tuning task that landed mid-session — pick up here:**
+**New-in-#16 (small, low-risk):**
 
-17. **Relax prestige-adjusted tier thresholds as realistic-admit data lands** — with realistic minima now driving the match score lower at top schools (when the §35.6 sweep lands), the QS-prestige `safeMin / reachMin` deltas across buckets can shrink or disappear entirely. Run a smoke test (20 PG / CS / fall matches) after realistic-admit commits; eyeball that score-tier is monotonic across the shortlist; tune thresholds accordingly.
+15. **Optionally surface the new research_paper signal in the score breakdown UI** — value is in `score_breakdown.research_paper` but nothing displays it yet. `CheckMatchPanel` / `ComparePanel` could mention it for PG profiles. Defer until user asks.
+16. **Profile form integration for UG research_paper** if the user later decides UG students should also be scored on publications — requires adding the question to the UG branch, then bumping `WEIGHTS_UG.research_paper` from 0 to 0.05 and rebalancing.
 
-**Estimated remaining spend:** ~$0 unless Tier-B #8 (USA proxy) gets greenlit. Everything else is code or docs.
+**Estimated remaining spend:** ~$0 unless Tier-B #6 (USA proxy) gets greenlit. Everything else is code or docs.
+
+## Scoring weights (locked as of handoff #16)
+
+| Signal | PG | UG (normalised over 0.95) |
+|---|---|---|
+| Academic         | 35% | 42.1% |
+| Budget           | 20% | 21.1% |
+| Std Test         | 10% | 10.5% |
+| English          |  5% |  5.3% |
+| Scholarship      |  5% |  5.3% |
+| Intake           |  5% |  5.3% |
+| Backlogs         |  5% |  5.3% |
+| Gap Year         |  5% |  5.3% |
+| Work Exp.        |  5% |  —    |
+| Research paper   |  5% |  —    |
+| **Sum**          | 100% | 100% |
+
+Research paper is PG-only — UG profile form doesn't collect `research_papers` / `research_paper_count`, so the signal carries weight 0 in `WEIGHTS_UG`. Rubric: count 0 → 0, count 1 → 60, count 2 → 85, count ≥ 3 → 100.
+
+`scripts/smoke-threshold-cs-pg.ts` is the canonical regression check — edit the profile in-place and re-run after any scoring or weight change to confirm tier distribution stays sane across QS buckets.
 
 ## Tuition fee policy (locked 8 May 2026; provenance UI added 10 May; estimated-fee Layer 2 added 11 May)
 

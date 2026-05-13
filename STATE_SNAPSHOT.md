@@ -1,6 +1,6 @@
 # EduvianAI — Comprehensive State Snapshot for Session Handoff
 
-**Last updated:** 12 May 2026 (handoff #14 — 31 commits on top of handoff #13: password-auth flow, beta-cap to 50/mo, matching-algorithm rewrite (academic + budget + field + intake all hard filters), 4 tuition-data backfill layers, MBA leadership questions + hard filter, English signal honesty fixes, /api/version endpoint, security.txt + RLS hardening)
+**Last updated:** 13 May 2026 evening (handoff #16 — 6 commits on top of handoff #15: UK psych deep sweep manual finish bundled with realistic-admit top-100 fill, smoke test for tier-threshold tuning, full-detail expansion on /profile-evaluation, hard-filter chip strip removed from /results with disclaimer relocated below shortlist, AI-powered copy fix, new research_paper scoring signal at 5% PG weight)
 **Purpose:** Zero-loss handoff between Claude Code sessions. A new session reading this should be able to continue *every* in-flight workstream correctly, respect all user preferences, and avoid all known gotchas.
 
 > **No background processes running.** The chained 7-country prior-year-tuition sweep (wrapper PID 38419, see 7889f120) was user-stopped after 92 / 2,933 entries (~$3.70 of $118 budget). Re-runnable at any time — the script's "already-estimated rows are skipped" rule means a fresh spawn picks up exactly where it left off.
@@ -2856,3 +2856,134 @@ After `2bc83c64` (the snapshot commit), one more change landed:
 **UK psych sweep status update**: PID 10942 has been stuck at **280/283** for ~25+ min — last 3 verify-program calls may have hung on slow API responses or retries. Next session may need to `pkill` the stuck workers and finish the wrapper's remaining phases (merge → BPS tag → tsc → commit → push) manually. The 280 already-verified entries' JSON outputs are on disk in `scripts/verify/output/` so no work is lost.
 
 Vercel deploys all 31 commits via Git push. Build time on data-heavy commits (programs.ts) runs ~3-4 min vs ~1-2 min for code-only. `/api/version` returns the latest SHA — useful for confirming any specific deploy.
+
+---
+
+## §36 Session log — 13 May 2026 evening (handoff #16 — UK psych wrap-up · realistic-admit committed · threshold tuning investigated · results/profile-eval layout polish · research_paper signal added)
+
+**HEAD at session end:** `44b891a8`. **6 commits on `main`** since the handoff-#15 marker (`82d9196b`). DB grew **8,007 → 8,312 verified programs** (100% verified) thanks to the UK Psychology PG sweep finally landing. **Working tree clean. No background processes.**
+
+### 36.1 Wrap-up #1 — UK psych deep sweep manual finish (`34b52237`)
+
+The handoff-#15 sweep (PID 10942) was found still alive at session start (4h27m total) but log frozen at 280/283 since handoff end. A single `verify-program.ts` worker on University of Dundee had been hung 3h38m on slow API. Resolution:
+
+1. `kill 10942 && pkill -f verify-program.ts && pkill -f verify-batch.ts` — all workers stopped, no remaining processes.
+2. `npx tsx scripts/verify/merge.ts` → **305 new verified programs inserted** (more than the 280-ish expected because earlier psych runs' outputs that weren't yet merged also got picked up). DB 8,007 → 8,312.
+3. `npx tsx scripts/verify/rename-from-page.ts` → no-op pass (0 auto-rewrites, 0 review items — page-title alignment already correct).
+4. `python3 /tmp/tag-bps.py` → 297 new psych PG entries tagged with `requires_bps_accreditation`: 48 true (BPS-mandated streams) / 249 false. Existing BPS tag count of 2 also picked up, totalling 50 true / 249 false in the final state.
+5. `npx tsc --noEmit` clean.
+
+### 36.2 Wrap-up #2 — Realistic-admit top-100 fill bundled into same commit
+
+`src/data/programs.ts` carried both changesets simultaneously: the new UK psych entries (added by `merge.ts` above) and the previously-uncommitted realistic-admit field additions (1,623 entries with `realistic_min_*` + `realistic_extracted_at`). The two changesets are disjoint in the file but commingled in the working-copy diff. Splitting via `git add -p` on an 8,312-entry file was the risk-heavy option; opted for a single combined commit with a message that names both pieces explicitly. **Realistic-admit count preserved at 1,623 through the merge** (no overwrite race, the merge.ts logic is field-additive when it touches existing entries).
+
+### 36.3 Tier-threshold tuning investigated — Open-work #17 closed with no change (`c2ea2fed`)
+
+Wrote `scripts/smoke-threshold-cs-pg.ts` — a CLI smoke that runs `recommendPrograms()` against the full DB with a synthetic profile, prints top-20 with per-program QS / score / tier / academic-component / min_gpa / realistic_min_gpa, then buckets the FULL filtered scored set by QS rank to surface tier distribution + median scores. Ran three orthogonal profiles:
+
+| Profile | QS 1-25 distribution | Med score (QS 1-25) |
+|---|---|---|
+| PG/CS strong (GPA 3.8 / GRE 325 / IELTS 7.5) | 0 safe / 7 reach / 4 ambitious | 73 |
+| PG/CS weak (GPA 3.4 / GRE 308 / IELTS 6.5)   | 0 / 3 / 8 | 61 |
+| UG/Eng (88% / SAT 1450 / IELTS 7.0)          | 0 / 5 / 4 | 72 |
+
+All three: monotonic score-tier, clean 6/10/4 (or quota-rebalanced) shortlists, prestige threshold + realistic-admit data doing *complementary* work, not redundant. Confirmed the original concern ("deltas may shrink or disappear") does not surface as a bug — closed #17 as **investigated, no tune required**. Smoke test stays committed as a regression artifact for future drift checks.
+
+Side-effect: tsc surfaced two pre-existing enum typos in the smoke (`visa_history: "none"`, `family_income_inr: "20l_35l"`) — fixed in commit #4 below.
+
+### 36.4 Profile-eval — always show full criteria detail (`70aee003`)
+
+`/profile-evaluation/[token]` rendered the Profile criteria grid behind a click-to-expand toggle (default collapsed). User wanted criteria visible without an extra interaction. Removed the toggle button and its `useState` + `ChevronDown/Up` imports; kept the summary chips (`X full · Y partial · Z not met`) as a static header above the criteria grid which now renders unconditionally.
+
+### 36.5 Results page — strip cleanup + disclaimer relocation (`1ea20410`)
+
+Two simultaneous layout changes on `/results/[token]`:
+
+- **Hard-filter chip strip removed.** The indigo `Hard filters applied: 🇺🇸 USA · 🇬🇧 UK · 🏆 QS Top 100 · ✈️ PSW` strip below the header is gone. The filters are self-evident from the shortlist itself, and the strip ate vertical real-estate above the first program card on mobile. Dropped the now-unused `hardFilterChips` builder block + `TARGET_COUNTRIES` import.
+- **DecisionDisclaimer relocated.** The `variant="shortlist"` disclaimer used to sit under the page subtitle, pushing the first program below the fold. Moved to the end of the tier loop, directly above `CheckMatchPanel` — users now meet the clarification when they're about to act on the list, and the check-program panel that follows is its natural next step.
+
+### 36.6 Disclaimer copy — "AI-generated" → "AI-powered" (`a687efbf`)
+
+One-line change in `src/components/DecisionDisclaimer.tsx` (`shortlist` variant only). Brand-consistent with the homepage eyebrow ("INDEPENDENT AI-POWERED STUDY-ABROAD DECISION INTELLIGENCE") and avoids the slightly-disparaging "AI-generated" framing. Three other "AI-generated" strings in `admin/dashboard`, `application-check` and an `interview-prep` code comment were deliberately left untouched — out of scope for this change.
+
+### 36.7 New research_paper scoring signal — PG only at 5% weight (`44b891a8`)
+
+Added `scoreResearchPaper(profile)` helper in `scoring.ts`, wired into the `scoreProgram()` breakdown and match_score sum. Graduated rubric (PG only — `research_papers` / `research_paper_count` are PG-only profile fields):
+
+| Condition | Score |
+|---|---|
+| `research_papers !== true` OR count = 0 | 0 |
+| count = 1 | 60 |
+| count = 2 | 85 |
+| count ≥ 3 | 100 |
+
+Weight rebalance:
+- `WEIGHTS_PG.academic`: 0.40 → **0.35**
+- `WEIGHTS_PG.research_paper`: **0.05** (new)
+- `WEIGHTS_UG`: untouched (research_paper carries weight 0 for UG; the form doesn't collect papers from UG students).
+
+`ScoredProgram.score_breakdown` gained a `research_paper: number` key. Re-ran the smoke test (PG/CS/fall, GPA 3.6, 2 papers, GRE 318) — produced 6/10/4 tier distribution with monotonic 95→67 top-20. No regressions.
+
+### 36.8 Final PG weight table (as of `44b891a8`)
+
+| Signal | PG weight |
+|---|---|
+| Academic         | 35% |
+| Budget           | 20% |
+| Std Test         | 10% |
+| English          |  5% |
+| Scholarship      |  5% |
+| Intake           |  5% |
+| Backlogs         |  5% |
+| Gap Year         |  5% |
+| Work Exp.        |  5% |
+| Research paper *(new)* | 5% |
+| **Sum**          | 100% |
+
+UG weights untouched — research_paper participates with weight 0 (PG-only signal), the remaining 8 active signals stay normalised to 1.0 over `UG_TOTAL = 0.95`.
+
+### 36.9 Pinned open work for handoff #17
+
+**Tier-A (no API spend, user-driven QA — all carry-over from #15):**
+1. End-to-end QA of the inline-password register flow (register → OTP → set password → /profile-evaluation/<token> → /results/<token>). Skip-password path too.
+2. Change-password QA from homepage `Change password` modal — wrong current → 401 toast; correct current + new → 200 + "Password changed."
+3. Mobile sanity sweep on real device (iOS Safari + Android Chrome). Particular attention to /results/[token] nav controls and per-program action stack at < sm.
+4. Live mic test on USA + AU interview-prep flows (carry-over from handoff #13).
+5. Confirm `security@eduvianai.com` mailbox routing (carry-over from handoff #14).
+
+**Tier-B (API spend, await explicit go):**
+6. USA fee uplift beyond 78% via residential proxy ($50/mo). Still skipped pending authorisation.
+
+**Tier-C (product surface):**
+7. Button hierarchy reorder on ProgramCard (deferred from §35.15 polish batch) — promote "View ROI Analysis" to primary visual treatment.
+
+**Tier-D security / ops (carrying over from #15):**
+8. M1 CSP — drop `unsafe-inline` / `unsafe-eval`. 4-6 wk Next.js refactor.
+9. M3 Zod input validation — 0/28 routes.
+10. M5 Secrets rotation policy doc.
+11. M7 + L3 legal-doc edits — Privacy Policy §2.2 + §6 (don't push without attorney sign-off).
+12. L5 verified_at HMAC signing.
+13. I3 Incident response plan.
+14. I2 + I4 — bug bounty / VRP + pen-testing schedule.
+
+**New-in-#16 (small, low-risk):**
+15. **UI rendering of the new research_paper signal in the score breakdown** — the value is in `score_breakdown.research_paper` but no surface displays it yet. `CheckMatchPanel` / `ComparePanel` could mention it for PG profiles. Optional, defer until user asks.
+16. **Profile form integration for UG research_paper** if user later decides UG students should also be scored on publications — requires adding the question to the UG form branch, then expanding `WEIGHTS_UG.research_paper` to 0.05 and rebalancing.
+
+### 36.10 Estimated remaining API spend across open items
+
+~$0 unless Tier-B #6 (USA proxy subscription) gets greenlit. Everything else is code or docs.
+
+### 36.11 Final state snapshot
+
+```
+HEAD:           44b891a8
+Local main:     = origin/main
+Working tree:   clean
+Background:     none
+Programs:       8,312 / 8,312 verified (100%)
+Countries:      12
+Realistic admit: 1,623 entries with realistic_min_*
+BPS-tagged:     50 true / 249 false on UK PG psych
+```
+
