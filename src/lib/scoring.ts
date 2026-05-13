@@ -285,8 +285,11 @@ function scoreStdTest(profile: StudentProfile, program: Program): number {
   };
 
   if (profile.degree_level === "undergraduate") {
-    if (!profile.std_test_ug || profile.std_test_ug === "none") return 60;
-    if (profile.std_test_ug === "sat" && program.min_sat) {
+    // Program doesn't require SAT — surface as strong "Not required"
+    // rather than penalising the student for not taking one. (13 May 2026)
+    if (!program.min_sat) return 100;
+    if (!profile.std_test_ug || profile.std_test_ug === "none") return 30;
+    if (profile.std_test_ug === "sat") {
       const score = validScore(profile.std_test_ug_score);
       if (score == null) return 70;
       if (score >= program.min_sat) return 100;
@@ -295,9 +298,10 @@ function scoreStdTest(profile: StudentProfile, program: Program): number {
     }
     return 70;
   } else {
-    if (!profile.std_test_pg || profile.std_test_pg === "none") {
-      return program.min_gre || program.min_gmat ? 30 : 70;
-    }
+    // PG: GRE or GMAT not required by the program → strong "Not required".
+    const requiresGreOrGmat = (program.min_gre ?? 0) > 0 || (program.min_gmat ?? 0) > 0;
+    if (!requiresGreOrGmat) return 100;
+    if (!profile.std_test_pg || profile.std_test_pg === "none") return 30;
     if (profile.std_test_pg === "gre" && program.min_gre) {
       const score = validScore(profile.std_test_pg_score);
       if (score == null) return 70;

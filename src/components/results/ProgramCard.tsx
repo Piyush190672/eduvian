@@ -47,7 +47,7 @@ const STATUS_STYLE: Record<SignalStatus, { bg: string; text: string; dot: string
 };
 
 // Human-readable verdict per signal and score
-function getVerdict(signal: string, value: number, isPG: boolean, budgetPct?: number | null, acceptedEnglishTests?: string[]): string {
+function getVerdict(signal: string, value: number, isPG: boolean, budgetPct?: number | null, acceptedEnglishTests?: string[], stdTestRequired?: boolean): string {
   const s = getStatus(value);
   switch (signal) {
     case "academic":
@@ -62,6 +62,10 @@ function getVerdict(signal: string, value: number, isPG: boolean, budgetPct?: nu
       }
       return s === "strong" ? "Well within budget" : s === "partial" ? "Slightly over budget" : "Over budget";
     case "std_test":
+      // Program doesn't publish a GRE/GMAT/SAT minimum — the test isn't
+      // required for this admission, so label it as such (strong/green).
+      // Scoring returns 100 in this case (13 May 2026).
+      if (stdTestRequired === false) return "Not required";
       if (value === 60 || value === 70) return "No test submitted";
       return s === "strong" ? "Score qualifies" : s === "partial" ? "Close to requirement" : "Below requirement";
     case "english":
@@ -118,12 +122,16 @@ interface SignalChipProps {
    *  "Only IELTS / TOEFL accepted" when the user's test type isn't on
    *  the program's accepted list (scoring sentinel value 7). */
   acceptedEnglishTests?: string[];
+  /** True when the program publishes a GRE/GMAT/SAT minimum. When false,
+   *  the std_test chip renders as "Not required" (strong/green) regardless
+   *  of the user's test state. */
+  stdTestRequired?: boolean;
 }
 
-function SignalChip({ signal, value, isPG, budgetPct, acceptedEnglishTests }: SignalChipProps) {
+function SignalChip({ signal, value, isPG, budgetPct, acceptedEnglishTests, stdTestRequired }: SignalChipProps) {
   const status = getStatus(value);
   const style = STATUS_STYLE[status];
-  const verdict = getVerdict(signal, value, isPG, budgetPct, acceptedEnglishTests);
+  const verdict = getVerdict(signal, value, isPG, budgetPct, acceptedEnglishTests, stdTestRequired);
   return (
     <div className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl border ${style.bg} ${
       status === "strong" ? "border-emerald-100" : status === "partial" ? "border-amber-100" : "border-rose-100"
@@ -190,6 +198,13 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist,
     ((program.min_pte      ?? 0) > 0) && "PTE",
     ((program.min_duolingo ?? 0) > 0) && "Duolingo",
   ].filter((x): x is string => typeof x === "string");
+
+  // Whether the program publishes a standardised-test minimum (GRE / GMAT
+  // for PG, SAT for UG). Used by the std_test SignalChip to render
+  // "Not required" in green when no minimum is published.
+  const stdTestRequired = isPG
+    ? (program.min_gre ?? 0) > 0 || (program.min_gmat ?? 0) > 0
+    : (program.min_sat ?? 0) > 0;
 
   // Signals to display (work_exp only if PG and has a value)
   const signals: { key: keyof typeof bd }[] = [
@@ -388,6 +403,7 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist,
                 isPG={isPG}
                 budgetPct={s.key === "budget" ? budgetPct : undefined}
                 acceptedEnglishTests={s.key === "english" ? acceptedEnglishTests : undefined}
+                stdTestRequired={s.key === "std_test" ? stdTestRequired : undefined}
               />
             ))}
           </div>
