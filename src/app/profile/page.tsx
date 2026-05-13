@@ -153,19 +153,24 @@ function ProfilePageInner() {
     })();
   }, [editToken]);
 
-  // Pre-fill name, email, phone from saved student session (only when not editing)
+  // Pre-fill name, email, phone, nationality, city from saved student
+  // session (only when not editing). Nationality + city were added to
+  // the persisted shape 13 May 2026 — users were filling them on every
+  // visit.
   useEffect(() => {
     if (editToken) return; // skip if editing existing submission
     try {
       const raw = localStorage.getItem("eduvian_student");
       if (raw) {
-        const s = JSON.parse(raw) as { name?: string; email?: string; phone?: string };
-        if (s.name || s.email || s.phone) {
+        const s = JSON.parse(raw) as { name?: string; email?: string; phone?: string; nationality?: string; city?: string };
+        if (s.name || s.email || s.phone || s.nationality || s.city) {
           setProfile((prev) => ({
             ...prev,
             ...(s.name && !prev.full_name ? { full_name: s.name } : {}),
             ...(s.email && !prev.email ? { email: s.email } : {}),
             ...(s.phone && !prev.phone ? { phone: s.phone } : {}),
+            ...(s.nationality && !prev.nationality ? { nationality: s.nationality } : {}),
+            ...(s.city && !prev.city ? { city: s.city } : {}),
           }));
           if (s.name) setStudentName(s.name.split(" ")[0]);
         }
@@ -224,6 +229,21 @@ function ProfilePageInner() {
       }
 
       const { token } = await res.json();
+
+      // Persist nationality + city back into the user's local session so
+      // they auto-populate next time. Name / email / phone were already
+      // saved at register-time; this adds the geo fields the form
+      // requires but that the auth flow never asked for.
+      try {
+        const raw = localStorage.getItem("eduvian_student");
+        const prev = raw ? JSON.parse(raw) : {};
+        localStorage.setItem("eduvian_student", JSON.stringify({
+          ...prev,
+          ...(profile.nationality ? { nationality: profile.nationality } : {}),
+          ...(profile.city        ? { city: profile.city }               : {}),
+        }));
+      } catch { /* ignore */ }
+
       toast.success("Profile submitted! Generating your shortlist...");
       router.push(`/profile-evaluation/${token}`);
     } catch (err: unknown) {
