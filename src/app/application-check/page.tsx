@@ -522,9 +522,6 @@ export default function ApplicationCheckPage() {
     <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-0 bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 border-b border-white/10 shadow-lg shadow-black/20">
       <Link href="/" className="flex items-center gap-3 py-4 flex-shrink-0">
         <EduvianLogoMark size={36} />
-        <div>
-          <p className="text-[10px] text-indigo-300 leading-none font-medium">Your Global Future, Simplified</p>
-        </div>
       </Link>
       <div className="flex items-center gap-3 flex-shrink-0">
         <Link href="/" className="flex items-center gap-1.5 px-4 py-2 my-3 rounded-xl border border-white/15 text-slate-300 text-sm font-semibold hover:border-white/30 hover:text-white transition-all">

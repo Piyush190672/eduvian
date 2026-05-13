@@ -240,9 +240,6 @@ function ProfilePageInner() {
       <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 glass border-b border-white/30">
         <Link href="/" className="flex items-center gap-2">
           <EduvianLogoMark size={32} />
-          <div>
-            <p className="text-sm font-bold text-gray-400 leading-none">Your Global Future, Simplified</p>
-          </div>
         </Link>
         <div className="flex items-center gap-3">
           <span className="text-sm text-gray-500">
