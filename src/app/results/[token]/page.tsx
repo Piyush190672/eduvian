@@ -487,12 +487,26 @@ export default function ResultsPage() {
                   Clear all
                 </button>
                 <button
-                  onClick={() => { if (comparePrograms.length >= 2) setShowCompare(true); }}
-                  disabled={comparePrograms.length < 2}
-                  className="flex items-center gap-2 px-5 py-2 rounded-xl bg-gradient-to-r from-violet-500 to-purple-600 text-white text-sm font-bold hover:shadow-lg hover:shadow-violet-200 hover:-translate-y-0.5 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                  onClick={() => {
+                    if (comparePrograms.length >= 2) {
+                      setShowCompare(true);
+                    } else {
+                      // Silent no-op (via disabled) was confusing — users
+                      // who picked one program then hit Compare got no
+                      // feedback. Now we surface why the action is
+                      // unavailable. (13 May 2026)
+                      toast("Pick at least one more program to compare.", { icon: "🔀" });
+                    }
+                  }}
+                  aria-disabled={comparePrograms.length < 2}
+                  className={`flex items-center gap-2 px-5 py-2 rounded-xl text-white text-sm font-bold transition-all ${
+                    comparePrograms.length >= 2
+                      ? "bg-gradient-to-r from-violet-500 to-purple-600 hover:shadow-lg hover:shadow-violet-200 hover:-translate-y-0.5"
+                      : "bg-gradient-to-r from-violet-300 to-purple-300 cursor-pointer"
+                  }`}
                 >
                   <BarChart2 className="w-4 h-4" />
-                  Compare {comparePrograms.length} Programs
+                  Compare {comparePrograms.length} {comparePrograms.length === 1 ? "Program" : "Programs"}
                 </button>
               </div>
             </div>
