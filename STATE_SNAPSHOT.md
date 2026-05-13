@@ -2672,4 +2672,175 @@ MBA programs:                   440 total
 
 Last commit on `main`: `7cdddac9`. Tree clean post-snapshot-refresh commit (the one this section lives in). Background processes: none.
 
+---
+
+## §35 Session log — 13 May 2026 (handoff #15 — Tier-B tuition sweep complete · matching refinements · UK QS-500 psych sweep · realistic-admit Option A · auth UX rebuild · brand cleanup · mobile alignment audit)
+
+**39 commits** on top of `9f894290` (`1fdada82 .. 12b6d9e5`). Plus two in-flight background sweeps still running at session end and one uncommitted data merge (see §35.16). Biggest themes: closing out the resumable Tier-B sweep, a Psychology + free-text "Others" stream addition with a BPS-accreditation gate, a top-100-uni realistic-admit-bars run (Option A from a long tier-threshold debate), an auth-UX rebuild (inline password after OTP, 24h idle, change-password modal), a hero headline carousel, a brand cleanup that purged "Your Global Future, Simplified" everywhere and shipped the violet `e`-mark across PDFs/emails, and a systematic mobile alignment audit that fixed five real overflow bugs.
+
+### 35.1 Tier-B tuition sweep — finished (`b78443ae`)
+
+Resumed the resumable 7-country prior-year-tuition sweep that handoff #14 left at 92/2,933. Two-batch chained nohup (UK/USA/CA/AU/IE/NZ, then DE/FR/MY/UAE/NL/SG @ qs-max 500 — both at concurrency 6). Ran **12h 10m** wall clock (started 12 May 21:08 IST, finished 13 May 09:18 IST). Net: **1,239 new estimated-tuition fills** (vs ~850 projected — 45% over because the model hit credible sources at a higher rate than the pilot). DB coverage **59% → 69.7%** (1,897 → 3,158 estimated rows; total programs with a fee 4,724 → 5,583 / 8,007). Cost ~$36 (under the $50 worst-case). Ten batch-2 errors are transient and will be picked up by any future re-run thanks to the "already-estimated rows are skipped" invariant. `.claude/settings.local.json` gitignored as part of the same commit.
+
+### 35.2 Psychology stream + "Others" free-text (`225b19e3` · `ee064b93`)
+
+- `FIELDS_OF_STUDY` 18 → 19 — added **Psychology** after Social Sciences & Humanities. Migrated **29** programs whose `program_name` matches `/psycholog/i` from their old buckets (mostly Social Sciences) to `field_of_study: "Psychology"` via `/tmp/migrate_psych.py`. Without this the new dropdown returned 0 matches.
+- New `OTHER_FIELD_SENTINEL` ("Others") in `FIELDS_OF_STUDY`. When the user picks it, a conditional text input appears (`StepAcademic.tsx`) writing to a new `StudentProfile.intended_field_custom`. Form validation enforces non-empty when "Others" is chosen.
+- Scoring: when `intended_field === "Others"`, the strict hard-filter `allowedFields.has(p.field_of_study)` is replaced by a case-insensitive substring match against `field_of_study + program_name`. Empty custom text → zero matches (defensive even though form blocks submit).
+- Helper `intendedFieldLabel(profile)` resolves the effective display name across admin tables, ProfileCard, submission email, result PDF — they show the typed stream (with " (Other)" suffix) instead of "Others".
+- **BPS GBC question** (`ee064b93`): UK Psychology Masters in regulated specialisms (Health/Clinical/Counselling/Forensic/Educational/Occupational/Sport/Neuro) require BPS Graduate Basis for Chartered Membership. New `Program.requires_bps_accreditation?: boolean` field. New `StudentProfile.bps_accredited?: boolean` captured by a conditional Yes/No when Psychology + PG. Hard filter: when `bps_accredited === false`, programs with `requires_bps_accreditation === true` are excluded. Backfilled both UK PG psych programs in the DB (Portsmouth + Gloucestershire Health Psych MSc — both regulated).
+
+Smoke-test: Psychology / PG / BPS-Yes → 8 matches; BPS-No → 6 (the two UK Health Psych MSc filtered out).
+
+### 35.3 UK QS-500 Psychology PG sweep — IN FLIGHT at handoff (PID 10942)
+
+Bespoke catalog of **45 UK universities** (QS ≤ 500, dedup'd, all with zero Psychology PG programs in the DB). Built per-university via a new `psych-deep-seed-finder.ts` that asks Claude (Sonnet + web_search) for the **complete set** of PG Psychology specialism URLs per uni (Clinical, Counselling, Health, Forensic, Educational, Occupational, Sport, Neuro, Cognitive, Developmental, Conversion MSc, generic MSc, etc.) rather than one flagship URL per `pg-fields-seed-finder.ts`'s default. Wrapper script: `/tmp/run-uk-psych-deep.sh`. Log: `/tmp/uk-psych-deep.log`.
+
+**Earlier botched run:** first launch shipped the wrong catalog because my regex-split-on-`}` over `programs.ts` returned multi-program chunks with mixed countries, so "Massachusetts Institute of Technology" landed in the cohort as `country: "UK"`. Killed at 25/45 (sunk ~$2 in seed-finder), rebuilt the catalog with per-`university_name:` chunking, relaunched cleanly.
+
+**Status at handoff:** Phase 1 (deep seed-finder) → done. Phase 2 (verify-batch Opus 4.7 concurrency 5 `--skip-existing`) at **280/283** entries · ok=259 / rejected=20 / err=1 · process running 4h+. Once it crosses 283 the wrapper auto-runs merge → BPS regex tag → tsc → commit → push. **Likely landing within 5 min of the next session start.** Next session should `tail -3 /tmp/uk-psych-deep.log` first.
+
+### 35.4 Matching-algorithm refinements
+
+Several smaller tweaks landed and one back-and-forth that ended where it started:
+
+- **Intake hard filter** (`78e8067d` → `7c914822`): briefly tightened so programs with empty `intake_semesters` were also excluded. User reverted — those should stay visible labelled "Intake to be checked" rather than the previous "Intake not offered". Final state: hard filter only excludes the explicit-mismatch case (non-empty list AND missing target). Empty/missing data → score 60 → labelled "Intake to be checked".
+- **Std test scoring + UI** (`a580191b`): programs with no published `min_gre / min_gmat / min_sat` now score 100 on the std_test signal and the chip reads **"Not required"** (strong/green) regardless of the user's test state. Previously these programs read as red gaps for any PG candidate who didn't take a test, penalising the student for a non-requirement. Threaded `stdTestRequired` boolean into `SignalChip → getVerdict`. Smoke-tested at 20 strong / 0 partial / 0 gap on a fall/CS PG profile.
+- **Intake "to be checked" label** (`7c914822`): replaces the previous "Intake not offered" copy on the empty-data branch.
+- **English-test rendering** stays as-is from handoff #14.
+
+### 35.5 Tier-threshold debate → restored prestige-adjusted (`61dd8c82` → `81598ee3`)
+
+User flagged the matching shortlist as "buggy" — a 76% match at QS#234 Loughborough landed in Safe while an 80% match at QS#30 Stanford landed in Reach. Diagnosed and disclosed that this was the **QS-prestige-adjusted thresholds** introduced in `edf3b9b3` (13 Apr 2026, pre-session — none of my commits touched it). First reverted to flat 75/50 thresholds (`61dd8c82`). User asked for a fuller explanation, then said "restore prestige adjustment + go with Option A: better data for QS top-100" — see §35.6. Restored verbatim in `81598ee3`. Future tuning to live alongside / replace the adjustment once realistic-admit data lands.
+
+### 35.6 Realistic-admit top-100 sweep (Option A) — DATA UNCOMMITTED (see §35.16)
+
+To compensate for the published-min flatness across QS buckets (median `min_gpa` is 3.00 across QS 1-25 and QS 700+ alike — universities don't publish realistic admission bars, the prestige adjustment was a heuristic patch), Option A re-extracts realistic median-admit profiles per university.
+
+- New `Program.realistic_min_*` optional fields (`_gpa`, `_percentage`, `_ielts`, `_toefl`, `_gre`, `_gmat`, `_sat`) plus `realistic_source` + `realistic_extracted_at`. Scoring (`programMinToPercentage` + new `effectiveMin` helper for english/std_test) **prefers `realistic_min_*` over `min_*`** when present; the published `min_*` stays untouched for provenance.
+- New `realistic-admit-extractor.ts` — per-uni Sonnet + web_search call asks for typical median admit profile (USNews medians, university class-profile pages, UCAS tariff bands, ATAR cutoffs, etc.). Banned sources: Reddit / Quora / forum posts / undated figures.
+- New `merge-realistic-admit.ts` — applies the per-uni audit to **all programs at each uni** via the per-`university_name:` split pattern, writing `realistic_*` fields after `program_url`.
+- Catalog: 88 unis QS ≤ 100 → 4 with `qs_ranking: 0` (Canadian colleges, no QS rank) filtered out → final cohort **84 unis** covering ~1,621 programs. Wrapper script `/tmp/run-realistic-admit.sh`, log `/tmp/realistic-admit.log`. Cost ~$8.
+
+**Status at handoff:** Phase 1 + Phase 2 (merge) completed; **1,623 program entries now carry `realistic_extracted_at` in the working tree**. Phase 4 (stats) Python f-string had a backslash-in-expression syntax error so `set -e` aborted before commit. Changes are uncommitted (`git status` shows `M src/data/programs.ts`). Next session must commit these — and crucially watch for the UK psych sweep's final flush overwriting them.
+
+### 35.7 Auth UX rebuild
+
+- **Inline password set after OTP** (`3232b069`): the register flow now has three steps — details → OTP → password. After OTP verifies, the form transitions to a password input with live strength checklist (≥8 chars / letter / digit / special). Skip-link below the primary button takes the user to /profile without setting a password (they can still use OTP forever). Header copy adapts per step.
+- **Session-aware /get-started** (`1127236f`): when already signed in, `/get-started` does `router.replace("/profile")` instead of showing the chooser. Fixes the "I logged in, went home, clicked Get Started, it asked me to log in again" complaint.
+- **Homepage Logout button** (`1127236f`): `LogoutButton` (existing) injected into hero nav between "Why choose us" and "Get started", self-hides when no session. Dark-hero styling.
+- **24h idle auto-logout** (`1127236f` → `f2f09000`): new `IdleLogout` invisible component mounted from `layout.tsx`. Tracks user activity (mousemove / keydown / click / scroll / touchstart / wheel, throttled to one write per 5s). Polls every 5min; once `Date.now() - last_active > 24h` and the user is signed in, hits `/api/auth/logout`, clears localStorage, redirects to `/?idle=1`. (Shipped first at 60min, bumped to 24h same session per user request.)
+- **ChangePasswordButton** (`e2ec603f`): new component sitting in homepage nav beside `LogoutButton`. Self-hides for anon visitors. Opens a modal with three fields (current / new / confirm) — current_password posted to `/api/auth/set-password` which 401s if wrong. Replaces the inline `SetPasswordCard` that used to live on /profile (now removed from there).
+- **Profile auto-fill of nationality + city** (`4e25eb5f`): the prefill useEffect now reads `nationality` + `city` from `localStorage.eduvian_student` alongside name/email/phone, and the submit handler writes them back. Fixes the "I keep retyping these every visit" complaint.
+- **Work-exp years dropdown** (`81ac9e4e`): replaced the number input with a Select (0–30 years + "Select years" placeholder). Two bugs fixed simultaneously — `value={profile.work_experience_years ?? ""}` was stuck on 0 because nullish-coalescing doesn't fire on 0, and mobile browsers don't render the desktop number-spinner chevrons.
+
+### 35.8 Hero headline carousel (`11f2623a`)
+
+Replaces the static `"You only decide this once."` headline + subhead + signature with a **5-slide auto-rotating carousel** (7s interval, AnimatePresence crossfade). Each slide has a bold first line, an italic second-line complement, and a body paragraph. Copy locked by user (verbatim — see commit body). Dot indicators below mirror the RHS sample-card dot pattern; click to jump. Min-height guard prevents CLS as line counts vary.
+
+Section-2 headline also reworked: `"One platform. Two audiences. Same verified data."` → **"Students and parents on one trusted platform."** with `Students and parents` carrying the violet-italic accent (`db335421` after `e29cf8ac`).
+
+### 35.9 Brand cleanup
+
+- **"Your Global Future, Simplified" purged** everywhere it rendered as a visible page subtext (`4eac4d02`): 6 user-facing pages — `/results/[token]`, `/profile`, `/application-check`, `/english-test-lab`, `/sop-assistant`, `/application-tracker`. Admin and `<title>` metadata kept the brand name for SEO. PDFs and emails also re-skinned (`09b6cf7a`): inline violet-`e` SVG logo + `"Independent study-abroad intelligence"` subtitle, no `eduvianAI` wordmark in headers. Touches `api/pdf/[token]`, `api/pdf/tools`, `api/auth/send-otp`, `api/email/route`, `api/email/welcome`, `api/email/tools`, `layout.tsx`, `admin/page.tsx`.
+- **Logo tagline** (`c5f74882` → `628fe868` → `57301fbc`): restored from pre-v2 brand history, then tightened to **"Independent study-abroad intelligence"**, then made visible on mobile.
+- **Hero eyebrow** (`fc5d06d3`): `"Independent AI-powered study-abroad decision intelligence"` → **"AI-powered. Independent. Verified at source."**
+- **Hero nav fix** (`15e22d34`): nav was `position: absolute; top: 0` but its containing block resolved to viewport, so it sat at viewport y=0 — behind the BetaBanner (z-100) + SecurityNoticeBanner (z-99) stack. Moved the nav INSIDE the hero `<section className="relative …">` so `top: 0` anchors to the hero instead. Also wired in `public/logo.svg` (the file existed but the homepage nav was wordmark-only).
+- **Logo-only on non-home pages** (`f2f09000`): 13 files compacted — `BrandNav.tsx`, `AuthGate.tsx`, plus 10 page-level files. 32×32 SVG mark only, no wordmark, no tagline. Mobile content no longer pushed off-screen by wordmark width.
+- **Tier-coloured match score** (`09b6cf7a`): the score circle on ProgramCard was keyed off absolute thresholds (≥80 green / ≥50 amber / <50 rose), but the tier badge uses QS-prestige-adjusted thresholds — they could disagree. Score colour now mirrors `program.tier` directly (safe → emerald, reach → amber, ambitious → rose).
+- **Profile-evaluation interstitial** (`09b6cf7a`): `ProfileCard` lifted out of `/results/[token]` into its own `/profile-evaluation/[token]` page. After profile submit, user lands there first; floating bottom-right CTA `"Continue to matched programs →"` proceeds to results. Login flow for returning users still goes directly to `/results/[token]`.
+
+### 35.10 Source-proof badges on homepage sample cards (`102441af`)
+
+The methodology page documented our source-verification model; the homepage cards didn't show it inside the decision UI. New `SourceProof` inline component renders **`SOURCE PROOF  [Official source] [AI estimate] · Last verified 8 May 2026`** + (for program-data cards) a `"Official page checked · Fee source available · Deadline source available"` line. Applied to all 4 hero RHS rotating cards and the 5 DEMOS panels in the `"See what you actually get"` section, with per-card badge mixes (Shortlist = Official+AI, App Score = User+AI, ROI = Official+AI, Visa = Official+Needs-verification, etc.). Reuses the existing `DataBadge` primitive (5 kinds: Official source / AI estimate / User provided / Needs verification / Illustrative).
+
+### 35.11 ROI tools — missing-fee inputs (`20c31ac1` · `87466eb3`)
+
+The standalone `/roi-calculator` and the inline ROI panel on each match card (`InlineProgramROI`) silently passed null tuition through to `calculateROI`, producing "2.2 yrs payback / +2198% 10-yr ROI" on programs with no verified fee.
+
+- New `EditableFeeRow` on `/roi-calculator`: renders as the read-only `AutoFilledRow` when the program carries the figure, and switches to an amber-highlighted editable input (with "Needs input" pill + one-line prompt) when the value is 0/null. Replaces the static Tuition and Living rows.
+- Added `programHasLiving / livingUserSupplied / livingAvailable` to mirror the existing tuition gating. `canCalculate` now requires both `tuitionAvailable AND livingAvailable`. Right-panel placeholder reads **"Please input Fees amount"** and lists exactly which field(s) are missing.
+- User-supplied caveat banner expanded to handle either or both inputs.
+- Same pattern ported into `InlineProgramROI.tsx` (the matched-card panel): when `programHasFee` is false, an amber input row appears with a strength prompt, and the metrics grid is replaced by a "Enter the annual tuition above to see payback period, 10-yr ROI, and break-even salary." placeholder.
+
+### 35.12 Extract-text: pdfjs-dist fallback for stubborn CVs (`b26b7650`)
+
+User reported "Could not extract text from this file" on real CVs. Two real failure modes weren't handled — pdf-parse throwing on quirky PDF formats, and image-only PDFs with no text layer.
+
+- Wrapped extraction in a two-stage chain: pdf-parse v2 first, pdfjs-dist (legacy build, no worker) on throw or empty. Worker resolved via `createRequire(import.meta.url).resolve("pdfjs-dist/legacy/build/pdf.worker.mjs")` — empty `workerSrc` was throwing the second-fallback's `"No GlobalWorkerOptions.workerSrc specified"` error before.
+- Both paths log their exceptions to `console.warn / error` so Sentry sees them.
+- Image-only case (both paths return empty text) now returns a specific 422 message: *"This PDF doesn't have a selectable text layer (e.g. it was exported as image, scanned, or rasterised). Re-export with text preserved, or paste your CV / SOP content into the box below."*
+- `pdfjs-dist` added to `serverComponentsExternalPackages` in `next.config.mjs`.
+
+### 35.13 Application-check + sop-assistant — uniform required marker (`e2ec603f`)
+
+11 occurrences of the red-text `<span className="text-red-500 text-xs">(required)</span>` / `(REQUIRED)` swapped for the asterisk pattern `<span className="text-rose-500" aria-label="required">*</span>` used by the profile form. `/tmp/strip_required.py` did the batch. Visually consistent across the platform now.
+
+### 35.14 Floating "Get started" CTA + chatbot relabel + path-aware AISA (`1fdada82` · `c191b328` · `fe01680a` · `12b6d9e5`)
+
+- **Chatbot label** ("Chat with AISA" → "Ask AISA when you are stuck" → "Stuck? Ask AISA" → smaller across modes via shrinking from w-14/h-14 to w-12/h-12 + tighter pill padding + softer shadow).
+- **Floating Get-started CTA** on the homepage (`c191b328`): new `FloatingGetStartedButton` mounted from `layout.tsx`, hidden until scrollY > 600px and on `/get-started` / `/profile`. Fixed top-right `top-[88px]` (below banner stack), violet pill matching primary CTA style.
+- **Path-aware AISA mode** (`fe01680a`): `usePathname` in `ChatWidget` toggles **compact icon-only** mode on tool/result paths (10 prefixes) — full pill stays on home/destinations/scholarships. 30s idle pulse so AISA stays discoverable in compact mode.
+
+### 35.15 Mobile alignment audit (`94b43dbe` → `172fe407` → `edb47fdf` → `12b6d9e5`)
+
+Triggered by repeated user complaints about mobile rendering. Swept all public pages at 375×812 via Playwright-style DOM queries; found and fixed:
+
+- **Navs sitting behind banner stack** (`94b43dbe`): `/profile-evaluation/[token]` + `/results/[token]` used `fixed top-0` but the BetaBanner (z-100) + SecurityNoticeBanner (z-99) own that coordinate. Anchored each nav via the CSS variables those banners publish: `style={{ top: "calc(var(--beta-banner-h, 0px) + var(--security-notice-h, 0px))" }}`. When banners are dismissed, the calc resolves to 0 and the nav slides up cleanly.
+- **Results nav overflow on mobile**: 5 controls in a single row truncated on 375px. On mobile: hide "Security" + "Modify Profile" labels, icon-only Email + PDF Shortlist buttons (count badge preserved), tighter px-4 nav padding.
+- **`/roi-calculator` grid min-content trap** (`172fe407`): two-panel `lg:grid-cols-5` children were 439px wide on a 375px viewport, clipping inputs. CSS Grid children default to `min-width: auto` (= min-content), so long uni names forced the tracks wider. Added `min-w-0` to both motion.div grid children.
+- **`/profile` framer-motion overflow** (`172fe407`): the form's per-step card had `initial={{ x: 30 }}` / `exit={{ x: -30 }}` which on mobile pushed it 30px past the right edge during animation. Replaced with pure opacity fade.
+- **`/english-test-lab` decorative blurs** (`172fe407`): two `blur-3xl` blobs visible on mobile — the CLAUDE.md known GPU repaint issue. Added `hidden md:block aria-hidden`.
+- **Action-row stacking** (`fe01680a`): the per-card Shortlist / Compare / Program Details / Apply Now row wrapped badly below sm ("Program Det…" truncating). Stacks full-width below sm now.
+- **ComparePanel header tightened** (`edb47fdf`): px-4 sm:px-6, gap-3 + min-w-0 + truncate on the title block, flex-shrink-0 on the close button.
+- **Program Details button** (`edb47fdf`): rebody'd to `border-2` matching Shortlist / Compare so it reads as a peer action.
+- **Compare per-card label** (`edb47fdf`): "✓ Comparing" → "✓ Added" — old label read as "comparison started" (it doesn't — adding requires ≥2 + the sticky-bar Compare click).
+- **No-results panel compact on mobile** (`12b6d9e5`): the "No safe/reach/ambitious matches" empty state was a py-10 stacked block. Collapsed to a single-row pill (`flex items-center py-2.5`) so empty tiers don't push the next tier below the fold.
+
+Pages confirmed clean at 375×812: `/`, `/destinations`, `/methodology`, `/scholarships`, `/parent-decision`, `/visa-coach` (table has its own `overflow-x-auto`), `/application-check`, `/sop-assistant`, `/interview-prep`, `/get-started`.
+
+### 35.16 Working-tree state at handoff #15
+
+Last commit on `main`: `12b6d9e5`. Working tree **NOT clean**:
+- `M src/data/programs.ts` — 1,623 entries carry uncommitted `realistic_extracted_at` + `realistic_min_*` fields from the §35.6 sweep merge. The UK psych sweep (§35.3, PID 10942) is still running and its final `[flush]` writes the file with its own in-memory copy (loaded before the realistic-admit merge). **Race risk**: when UK psych's wrapper auto-commits, the realistic-admit fields may be overwritten.
+- Two background processes:
+  - **PID 10942** — UK psych deep sweep, at 280/283, ~4h+ elapsed. Auto-commits + pushes when done.
+  - Realistic-admit wrapper has exited (Python f-string syntax error in the stats Phase aborted at `set -e`).
+
+**Recovery if UK psych overwrites the realistic-admit fields:** re-run the merge step — the audit JSON (`scripts/verify/output/realistic-admit-top100.json`, 84 unis, 79 KB) is on disk and committed via the wrapper's `git add`. Single command: `npx tsx scripts/verify/merge-realistic-admit.ts --input scripts/verify/output/realistic-admit-top100.json`. No new API spend.
+
+### 35.17 Pinned open work for handoff #16
+
+**Tier-A (no API spend, user-driven):**
+1. **End-to-end QA of the new inline-password register flow** — register fresh email → enter OTP → set password on the same screen → land at `/profile-evaluation/<token>` → click "Continue to matched programs" → land at `/results/<token>`. Skip-password path: same flow, click "Skip — I'll set one later", land at `/profile`.
+2. **Change-password QA** — click `Change password` in homepage nav → modal opens → enter correct current + new + confirm → server changes hash → toast `"Password changed."`. Wrong current → 401 → toast `"Current password is incorrect."`.
+3. **Mobile sanity sweep on real device** — the audit at §35.15 was Playwright-style DOM-query-based; user should verify a real phone (iOS Safari + Android Chrome) renders correctly. Particular attention to `/results/[token]` nav controls and the per-program action-button stack at < sm.
+4. **Live mic test on USA + AU interview-prep flows** (carried over from handoff #14 — still pending).
+5. **Confirm `security@eduvianai.com` mailbox** exists or forwards to `privacy@` (carried over from handoff #14).
+
+**Wrap-ups (likely first 10 min of next session):**
+6. **Verify UK psych deep sweep landed** (PID 10942). `tail -3 /tmp/uk-psych-deep.log` should show `=== DONE` + `git log --oneline -3` should show the auto-commit. If not, the wrapper crashed and needs a manual finish (merge + BPS tag + tsc + commit + push).
+7. **Commit realistic-admit data fill** (§35.16). May require re-running the merge if UK psych overwrote.
+8. **Wire prestige adjustment to taper as realistic-admit data lands** — with realistic minima now driving score lower at top schools, the QS-prestige-adjusted thresholds can be relaxed (smaller `safeMin` deltas across buckets) or removed. Run a sanity pass: 20 PG / CS / fall matches with realistic-admit data committed, eyeball that high-QS schools score correctly LOWER than mid-QS schools. Tune thresholds based on what's needed.
+
+**Tier-B (API spend, await explicit go):**
+9. **Resume/continue any specific data sweeps** — none planned, sweep #1 finished and #2 is in flight finishing this session.
+10. **USA fee uplift beyond 78%** — Tier-B #9 from handoff #14. Residential proxy ($50/mo). Still skipped pending explicit user authorisation.
+
+**Tier-D security / ops:**
+11. **M1 CSP** — drop `unsafe-inline` / `unsafe-eval`. 4-6 wk Next.js refactor; roadmap decision needed.
+12. **M3 Zod input validation** — 0/28 routes; cross-cut. ~1-2 days.
+13. **M5 Secrets rotation policy doc** — 90-day cadence for ANTHROPIC_API_KEY, SUPABASE_SECRET_KEY, RESEND_API_KEY, ADMIN_SESSION_SECRET. Doc-only.
+14. **M7 + L3 legal-doc edits** — Privacy Policy §2.2 (tool_usage IP disclosure) + §6 (SCC citation). Touches `scripts/build-legal-docs.js`; **don't push** without attorney sign-off.
+15. **L5 verified_at HMAC signing** — schema + writer rework. Defer.
+16. **I3 Incident response plan** — required for ISO 27001 roadmap.
+17. **I2 + I4** — bug bounty / VRP + pen-testing schedule. Pre-launch.
+
+**Tier-C (product surface — open ask from this session):**
+18. **Button hierarchy reorder on ProgramCard** (deferred from §35.15 polish batch) — promote "View ROI Analysis" to primary visual treatment, demote Apply Now to terminal action. User said "ship 1-4 only" but acknowledged this is the biggest UX lever in the batch; revisit when ready.
+
+### 35.18 Estimated remaining API spend across open items
+
+~$0 unless Tier-B #10 (USA proxy subscription) gets greenlit. Everything else is code or docs.
+
 Vercel deploys all 31 commits via Git push. Build time on data-heavy commits (programs.ts) runs ~3-4 min vs ~1-2 min for code-only. `/api/version` returns the latest SHA — useful for confirming any specific deploy.

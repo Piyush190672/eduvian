@@ -4,7 +4,7 @@ This file is loaded automatically. The full project state, decisions, and ration
 
 ## What this is
 
-Next.js 14 (App Router) study-abroad platform deployed to Vercel at https://www.eduvianai.com. Postgres + RLS in Supabase Cloud (US, Pro plan). Anthropic Claude for AI features, Resend for transactional mail, Sentry for errors. 12 destination countries, **8,007 programs / 8,007 verified at the source (100.0%) / ~535 universities / ~59% with international tuition fee (1,897 of those estimated, 4 with variance notes)** as of 12 May 2026 (handoff #14 — password-auth flow live, beta cap at 50/mo, matching algorithm rewritten with hard filters on academic + budget + field + intake, four-pass tuition-data fill running, MBA leadership questions + work-exp hard filter, English-signal honesty fixes, /api/version deploy-check endpoint, security.txt + students-RLS hardening), beta-gated to 50 unique users / month (excluding owner). Email OTP **and** password (scrypt) both gate register / login.
+Next.js 14 (App Router) study-abroad platform deployed to Vercel at https://www.eduvianai.com. Postgres + RLS in Supabase Cloud (US, Pro plan). Anthropic Claude for AI features, Resend for transactional mail, Sentry for errors. 12 destination countries, **8,007 programs / 8,007 verified at the source (100.0%) / ~535 universities / ~70% with international tuition fee (3,158 of those estimated, 4 with variance notes)** as of 13 May 2026 (handoff #15 — Tier-B tuition sweep complete, Psychology + "Others" stream added, BPS-accreditation gate for UK psych PG, realistic-admit-bars top-100 sweep ready to commit, hero headline carousel, inline-password register flow, 24h idle auto-logout, change-password modal on homepage, mobile alignment audit, brand cleanup purging "Your Global Future, Simplified" across all surfaces), beta-gated to 50 unique users / month (excluding owner). Email OTP **and** password (scrypt) both gate register / login.
 
 ## Operating rules — non-negotiable, every session, no exceptions
 
@@ -159,36 +159,46 @@ Audit document: `~/Desktop/EduvianAI-Security-Architecture-Risk-Assessment.docx`
 
 The legal/security/pricing Word docs were generated with `docx`. Pricing Excel via `xlsx`. To regenerate legal: `node scripts/build-legal-docs.js`.
 
-## Open work for the next session (handoff #14, 12 May 2026)
+## Open work for the next session (handoff #15, 13 May 2026)
 
-Pinned in priority order. Snapshot §34 has full handoff-#14 detail. No background processes running on session start (the 7-country tuition sweep was user-stopped early at 92/2,933; resumable via the same wrapper command).
+Pinned in priority order. Snapshot §35 has full handoff-#15 detail. **Two background processes still active at session end** + **one uncommitted data merge** — see §35.16 + items 6-7 below.
+
+**Wrap-ups (first thing next session):**
+
+1. **Verify UK psych deep sweep landed** (PID 10942, was at 280/283 in verify-batch). `tail -3 /tmp/uk-psych-deep.log` should show `=== DONE` + `git log --oneline -3` shows the auto-commit. If not, run the wrapper's tail (merge → BPS regex tag → tsc → commit → push) manually.
+2. **Commit realistic-admit top-100 data fill** — `M src/data/programs.ts` carries 1,623 entries with new `realistic_extracted_at` + `realistic_min_*` fields, uncommitted because the wrapper hit a Python f-string syntax error before commit. **Race risk:** UK psych sweep's final flush may overwrite. Recovery if so: `npx tsx scripts/verify/merge-realistic-admit.ts --input scripts/verify/output/realistic-admit-top100.json` (no API spend — audit JSON is on disk).
 
 **Tier-A — credibility & correctness (user-driven, no code change from me):**
-1. **End-to-end password-auth QA** — set a password from `/account/security` (live strength checklist should light up green as 8+ chars / letter / digit / special are met), log out, log back in via the new Password toggle on `/get-started`. The OTP toggle should still work side-by-side.
-2. **Sanity-check the tightened matching results** — academic + budget + field + intake are all hard filters now; some users' shortlists will shrink. Eyeball that the new English-signal verdicts ("Take an English test" / "Only TOEFL accepted by this program") render correctly in the per-program signal row.
-3. **Confirm `security@eduvianai.com` mailbox** exists or forwards to `privacy@` (referenced by the new `/.well-known/security.txt`).
-4. **Live mic test of the new USA + AU two-step interview flows** (carried over from handoff #13 — still pending).
 
-**Tier-B — DB completeness (API spend):**
-5. **Resume the 7-country tuition sweep** — same wrapper command (`--country "UK,USA,Canada,Australia,Ireland,New Zealand"` then `--country "Germany,France,Malaysia,UAE,Netherlands,Singapore" --qs-max 500`). ~2,840 entries remaining, ~$114, ~7 hr at concurrency 6. Hit rate trending ~26-30% on this batch (lower than pilot's 48% — catalog-page noise). Script's "already-estimated rows are skipped" rule means a fresh spawn picks up exactly where the user-stop interrupted.
-6. **USA fee uplift beyond 78%** — Tier-B #9. Residential proxy ($50/mo). **Still skipped pending explicit user authorisation** for paid subscription.
+3. **End-to-end QA of the new inline-password register flow** — register fresh email → enter OTP → set password on same screen → land on `/profile-evaluation/<token>` → click "Continue to matched programs" → land on `/results/<token>`. Also test the "Skip — I'll set one later" path.
+4. **Change-password QA** — homepage `Change password` button → modal → wrong current → 401 → toast. Correct current + new + confirm → 200 → "Password changed."
+5. **Mobile sanity sweep on real device** — the §35.15 audit was Playwright-style; real iOS Safari + Android Chrome verification still owed. Pay particular attention to `/results/[token]` nav controls and the per-program action-button stack at < sm.
+6. **Live mic test of USA + AU interview-prep flows** (carried over from handoff #13).
+7. **Confirm `security@eduvianai.com` mailbox** routing (carried over from handoff #14).
 
-**Tier-C — product surface:** all four (#14, #15, #16, #17) shipped on handoff #13. Nothing new this handoff except QoL on existing surfaces.
+**Tier-B (API spend, await explicit go):**
 
-**Tier-D — security & ops:** (M4, M6, M8, M9, L2, L4, L6, I1 all closed on handoff #13. `students_public_insert` RLS closed on this handoff via `5fcabe5a` + SQL applied.)
+8. **USA fee uplift beyond 78%** — residential proxy ($50/mo subscription). **Still skipped pending explicit authorisation.**
 
-7. **M1 CSP** — drop `unsafe-inline` / `unsafe-eval`. 4-6 wk Next.js refactor; roadmap decision needed.
-8. **M3 Zod input validation** — 0/28 routes; cross-cut. ~1-2 days.
-9. **M5 Secrets rotation policy doc** — 90-day cadence for ANTHROPIC_API_KEY, SUPABASE_SECRET_KEY, RESEND_API_KEY, ADMIN_SESSION_SECRET. Doc-only.
-10. **M7 + L3 legal-doc edits** — Privacy Policy §2.2 (tool_usage IP disclosure) + §6 (SCC citation). Touches `scripts/build-legal-docs.js`; **don't push** without attorney sign-off.
-11. **L5 verified_at HMAC signing** — schema + writer rework. Defer.
-12. **I3 Incident response plan** — required for ISO 27001 roadmap.
-13. **I2 + I4** — bug bounty / VRP + pen-testing schedule. Pre-launch.
+**Tier-C (product surface):**
 
-**Housekeeping:**
-14. **Supabase Studio snippet cleanup** — outstanding from handoff #13 (§33.13). Apply the same triage to any new snippets added since.
+9. **Button hierarchy reorder on ProgramCard** — promote "View ROI Analysis" to primary visual treatment, demote Apply Now to terminal. User said "ship 1-4 only" of the 5-point polish batch but acknowledged this is the biggest UX lever; revisit when ready.
 
-**Estimated remaining spend across remaining items:** ~$114 for the resumed tuition sweep + $50/mo if Tier-B #9 is greenlit. Otherwise zero — all remaining work is code or docs.
+**Tier-D — security & ops (carrying over):**
+
+10. **M1 CSP** — drop `unsafe-inline` / `unsafe-eval`. 4-6 wk Next.js refactor; roadmap decision needed.
+11. **M3 Zod input validation** — 0/28 routes; cross-cut. ~1-2 days.
+12. **M5 Secrets rotation policy doc** — 90-day cadence for ANTHROPIC_API_KEY, SUPABASE_SECRET_KEY, RESEND_API_KEY, ADMIN_SESSION_SECRET. Doc-only.
+13. **M7 + L3 legal-doc edits** — Privacy Policy §2.2 (tool_usage IP disclosure) + §6 (SCC citation). Touches `scripts/build-legal-docs.js`; **don't push** without attorney sign-off.
+14. **L5 verified_at HMAC signing** — schema + writer rework. Defer.
+15. **I3 Incident response plan** — required for ISO 27001 roadmap.
+16. **I2 + I4** — bug bounty / VRP + pen-testing schedule. Pre-launch.
+
+**Tuning task that landed mid-session — pick up here:**
+
+17. **Relax prestige-adjusted tier thresholds as realistic-admit data lands** — with realistic minima now driving the match score lower at top schools (when the §35.6 sweep lands), the QS-prestige `safeMin / reachMin` deltas across buckets can shrink or disappear entirely. Run a smoke test (20 PG / CS / fall matches) after realistic-admit commits; eyeball that score-tier is monotonic across the shortlist; tune thresholds accordingly.
+
+**Estimated remaining spend:** ~$0 unless Tier-B #8 (USA proxy) gets greenlit. Everything else is code or docs.
 
 ## Tuition fee policy (locked 8 May 2026; provenance UI added 10 May; estimated-fee Layer 2 added 11 May)
 
