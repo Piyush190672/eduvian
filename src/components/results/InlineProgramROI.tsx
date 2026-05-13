@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   TrendingUp, Pencil, Check, Zap, ChevronDown, ChevronUp,
   DollarSign, Clock, BarChart3, PiggyBank, Landmark, Target,
+  Info, ExternalLink,
 } from "lucide-react";
 import type { ScoredProgram } from "@/lib/types";
 import { calculateROI, lookupSalary } from "@/lib/roi-calculator";
@@ -132,12 +133,24 @@ export default function InlineProgramROI({ program }: Props) {
   const [editSalary,   setEditSalary]    = useState(false);
   const [salaryInput,  setSalaryInput]   = useState(String(defaultSalary));
 
+  // When the matched program has no verified tuition (annual_tuition_usd
+  // is null or 0), the prior version silently passed 0 to calculateROI,
+  // producing a meaningless "2.2 yrs payback / +2198% ROI" surface. The
+  // user-entered tuition below replaces that; metrics stay gated until
+  // a positive value is committed.
+  const programHasFee = typeof program.annual_tuition_usd === "number"
+    && program.annual_tuition_usd > 0;
+  const [customTuition, setCustomTuition] = useState(0);
+  const effectiveTuition = programHasFee ? program.annual_tuition_usd! : customTuition;
+  const tuitionAvailable = effectiveTuition > 0;
+  const tuitionUserSupplied = !programHasFee && tuitionAvailable;
+
   const roi = calculateROI({
     university_name:    program.university_name,
     country,
     city:               program.city,
     field_of_study:     field,
-    annual_tuition_usd: program.annual_tuition_usd,
+    annual_tuition_usd: effectiveTuition,
     avg_living_cost_usd: program.avg_living_cost_usd,
     duration_months:    program.duration_months,
     scholarship_usd:    scholarship,
@@ -207,7 +220,11 @@ export default function InlineProgramROI({ program }: Props) {
                   `${program.country}`,
                   `${program.field_of_study}`,
                   `${Math.round(program.duration_months / 12 * 10) / 10} yrs`,
-                  program.annual_tuition_usd ? `Tuition ${fmtK(program.annual_tuition_usd)}/yr` : "Tuition: fee unavailable",
+                  programHasFee
+                    ? `Tuition ${fmtK(program.annual_tuition_usd!)}/yr`
+                    : tuitionUserSupplied
+                      ? `Tuition ${fmtK(customTuition)}/yr (you entered)`
+                      : "Tuition — enter below",
                   program.avg_living_cost_usd ? `Living ${fmtK(program.avg_living_cost_usd)}/yr` : "Living: see website",
                 ].map((tag) => (
                   <span
@@ -220,6 +237,68 @@ export default function InlineProgramROI({ program }: Props) {
                 ))}
               </div>
 
+              {/* Tuition-fee input — appears when the matched program's
+                  official page didn't expose a verifiable international
+                  fee. ROI math is gated until a positive value is entered. */}
+              {!programHasFee && (
+                <div className={`rounded-xl border p-3.5 ${
+                  tuitionUserSupplied
+                    ? "bg-amber-500/5 border-amber-500/30"
+                    : "bg-amber-500/10 border-amber-500/40"
+                }`}>
+                  <div className="flex items-start gap-2 mb-2">
+                    <Info className="w-4 h-4 text-amber-300 flex-shrink-0 mt-0.5" />
+                    <div className="flex-1">
+                      <p className="text-[12px] font-bold text-amber-200 mb-0.5">
+                        Annual tuition fee {tuitionUserSupplied ? "(you entered)" : "needed"}
+                      </p>
+                      <p className="text-[11px] text-amber-200/80 leading-snug">
+                        The official program page didn&apos;t publish an international tuition figure we can verify.
+                        {tuitionUserSupplied
+                          ? " ROI below uses the value you typed — re-confirm with the university before relying on these numbers."
+                          : " Enter the annual fee in USD to unlock the ROI metrics."}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-amber-300 font-bold text-sm">$</span>
+                    <input
+                      type="number"
+                      min={0}
+                      step={1000}
+                      placeholder="e.g. 45000"
+                      value={customTuition || ""}
+                      onChange={(e) => setCustomTuition(Math.max(0, parseInt(e.target.value, 10) || 0))}
+                      className="flex-1 px-2.5 py-1.5 rounded-lg bg-white/10 border border-amber-400/40
+                        text-sm text-white font-mono focus:outline-none focus:ring-1 focus:ring-amber-400"
+                    />
+                    <span className="text-[10px] text-amber-300/80 font-semibold uppercase tracking-wide">USD / yr</span>
+                  </div>
+                  {program.program_url && (
+                    <a
+                      href={program.program_url}
+                      target="_blank" rel="noopener noreferrer"
+                      className="mt-2 inline-flex items-center gap-1.5 text-[11px] font-semibold text-amber-300 hover:text-amber-200"
+                    >
+                      Open the official program page <ExternalLink className="w-3 h-3" />
+                    </a>
+                  )}
+                </div>
+              )}
+
+              {!tuitionAvailable ? (
+                // Metrics-gated state: program has no verified tuition and
+                // the user hasn't entered one yet. Render a placeholder
+                // instead of misleading numbers ($0 tuition → fake "2.2 yrs
+                // payback").
+                <div className="rounded-xl bg-slate-900/40 border border-slate-700/50 px-4 py-6 text-center">
+                  <BarChart3 className="w-5 h-5 text-slate-500 mx-auto mb-2" />
+                  <p className="text-[12px] font-semibold text-slate-400">
+                    Enter the annual tuition above to see payback period, 10-yr ROI, and break-even salary.
+                  </p>
+                </div>
+              ) : (
+              <>
               {/* ── Adjustable inputs ────────────────────────────────── */}
               <div className="space-y-3">
                 {/* Scholarship */}
@@ -364,6 +443,8 @@ export default function InlineProgramROI({ program }: Props) {
                     : ` · ${fmtK(roi.breakeven_salary_usd - salary)} below — consider scholarships or budget adjustments`}
                 </span>
               </div>
+              </>
+              )}
             </div>
           </motion.div>
         )}
