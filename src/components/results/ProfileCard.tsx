@@ -7,8 +7,6 @@ import {
   Phone,
   MapPin,
   GraduationCap,
-  ChevronDown,
-  ChevronUp,
   CheckCircle2,
   XCircle,
   MinusCircle,
@@ -36,7 +34,6 @@ const DEGREE_LABELS: Record<string, string> = {
 };
 
 export default function ProfileCard({ profile, token }: Props) {
-  const [expanded, setExpanded] = useState(false);
   const [sendingEmail, setSendingEmail] = useState(false);
 
   const result = scoreStudentProfile(profile);
@@ -161,11 +158,8 @@ export default function ProfileCard({ profile, token }: Props) {
         </p>
       </div>
 
-      {/* Toggle criteria */}
-      <button
-        onClick={() => setExpanded((s) => !s)}
-        className="w-full flex items-center justify-between px-5 py-3 border-t border-white/50 hover:bg-white/30 transition-colors text-sm"
-      >
+      {/* Criteria — always expanded (13 May 2026) */}
+      <div className="px-5 py-3 border-t border-white/50 text-sm">
         <span className="font-semibold text-gray-700 flex items-center gap-2">
           Profile criteria
           <span className="flex items-center gap-1 text-xs font-normal text-gray-500">
@@ -181,43 +175,36 @@ export default function ProfileCard({ profile, token }: Props) {
             {failedCount} not met
           </span>
         </span>
-        {expanded ? (
-          <ChevronUp className="w-4 h-4 text-gray-400" />
-        ) : (
-          <ChevronDown className="w-4 h-4 text-gray-400" />
-        )}
-      </button>
+      </div>
 
-      {expanded && (
-        <div className="px-5 pb-5 grid grid-cols-1 sm:grid-cols-2 gap-2 mt-1">
-          {result.criteria.map((c, i) => (
-            <div
-              key={i}
-              className={`flex items-center gap-2.5 px-3 py-2.5 rounded-xl border text-xs font-medium transition-all ${
-                c.points === c.maxPoints
-                  ? "bg-white/70 border-emerald-100 text-gray-700"
-                  : c.partial
-                  ? "bg-amber-50/60 border-amber-100 text-gray-600"
-                  : "bg-white/40 border-rose-100 text-gray-400"
-              }`}
-            >
-              {c.points === c.maxPoints ? (
-                <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0" />
-              ) : c.partial ? (
-                <MinusCircle className="w-4 h-4 text-amber-400 flex-shrink-0" />
-              ) : (
-                <XCircle className="w-4 h-4 text-rose-400 flex-shrink-0" />
-              )}
-              <span className="flex-1">{c.label}</span>
-              {c.maxPoints > 1 && (
-                <span className="ml-auto text-[10px] font-semibold opacity-60">
-                  {c.points}/{c.maxPoints}
-                </span>
-              )}
-            </div>
-          ))}
-        </div>
-      )}
+      <div className="px-5 pb-5 grid grid-cols-1 sm:grid-cols-2 gap-2 mt-1">
+        {result.criteria.map((c, i) => (
+          <div
+            key={i}
+            className={`flex items-center gap-2.5 px-3 py-2.5 rounded-xl border text-xs font-medium transition-all ${
+              c.points === c.maxPoints
+                ? "bg-white/70 border-emerald-100 text-gray-700"
+                : c.partial
+                ? "bg-amber-50/60 border-amber-100 text-gray-600"
+                : "bg-white/40 border-rose-100 text-gray-400"
+            }`}
+          >
+            {c.points === c.maxPoints ? (
+              <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0" />
+            ) : c.partial ? (
+              <MinusCircle className="w-4 h-4 text-amber-400 flex-shrink-0" />
+            ) : (
+              <XCircle className="w-4 h-4 text-rose-400 flex-shrink-0" />
+            )}
+            <span className="flex-1">{c.label}</span>
+            {c.maxPoints > 1 && (
+              <span className="ml-auto text-[10px] font-semibold opacity-60">
+                {c.points}/{c.maxPoints}
+              </span>
+            )}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
