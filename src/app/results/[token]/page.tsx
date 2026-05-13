@@ -236,12 +236,17 @@ export default function ResultsPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50/30">
-      {/* Nav */}
-      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 glass border-b border-white/30">
+      {/* Nav — anchored below the dismissable banner stack via CSS vars.
+          On mobile only Logo + Logout + PDF (primary action) show; the
+          rest collapse into a smaller set with icon-only buttons.  */}
+      <nav
+        className="fixed left-0 right-0 z-50 flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 glass border-b border-white/30 bg-white/85 backdrop-blur"
+        style={{ top: "calc(var(--beta-banner-h, 0px) + var(--security-notice-h, 0px))" }}
+      >
         <Link href="/" className="flex items-center" aria-label="eduvianAI home">
           <EduvianLogoMark size={32} />
         </Link>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5 sm:gap-2">
           <LogoutButton variant="compact" />
           <Link
             href="/account/security"
@@ -251,21 +256,29 @@ export default function ResultsPage() {
             <ShieldCheck className="w-4 h-4" />
             Security
           </Link>
-          <NavButtons backHref={`/profile?token=${token}`} backLabel="Modify Profile" />
+          <span className="hidden sm:inline-flex">
+            <NavButtons backHref={`/profile?token=${token}`} backLabel="Modify Profile" />
+          </span>
           <button
             onClick={sendEmail}
             disabled={sendingEmail}
-            className="flex items-center gap-1.5 px-4 py-2 rounded-xl border border-gray-200 text-sm font-medium text-gray-600 hover:bg-gray-50 disabled:opacity-50 transition-all"
+            aria-label="Email shortlist"
+            title="Email shortlist"
+            className="flex items-center gap-1.5 px-2.5 sm:px-4 py-2 rounded-xl border border-gray-200 text-sm font-medium text-gray-600 hover:bg-gray-50 disabled:opacity-50 transition-all"
           >
             {sendingEmail ? <Loader2 className="w-4 h-4 animate-spin" /> : <Mail className="w-4 h-4" />}
-            Email Shortlist{shortlisted.size > 0 ? ` (${shortlisted.size})` : ""}
+            <span className="hidden sm:inline">Email Shortlist{shortlisted.size > 0 ? ` (${shortlisted.size})` : ""}</span>
+            <span className="sm:hidden">{shortlisted.size > 0 ? ` (${shortlisted.size})` : ""}</span>
           </button>
           <button
             onClick={downloadPDF}
-            className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-medium hover:shadow-lg hover:shadow-indigo-200 transition-all"
+            aria-label="Download PDF shortlist"
+            title="Download PDF shortlist"
+            className="flex items-center gap-1.5 px-2.5 sm:px-4 py-2 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-medium hover:shadow-lg hover:shadow-indigo-200 transition-all"
           >
             <Download className="w-4 h-4" />
-            PDF Shortlist{shortlisted.size > 0 ? ` (${shortlisted.size})` : ""}
+            <span className="hidden sm:inline">PDF Shortlist{shortlisted.size > 0 ? ` (${shortlisted.size})` : ""}</span>
+            <span className="sm:hidden">{shortlisted.size > 0 ? ` (${shortlisted.size})` : ""}</span>
           </button>
         </div>
       </nav>

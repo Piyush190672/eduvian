@@ -64,8 +64,14 @@ export default function ProfileEvaluationPage({ params }: { params: { token: str
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50/30 pb-32">
-      {/* Nav — logo only, matching the rest of the non-home page convention. */}
-      <nav className="fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-6 py-4 glass border-b border-white/30 bg-white/80 backdrop-blur">
+      {/* Nav — anchored below the BetaBanner + SecurityNoticeBanner stack
+          via the CSS variables those banners publish. Without this offset
+          the fixed nav lands behind the banners (fixed elements ignore
+          body padding-top). */}
+      <nav
+        className="fixed left-0 right-0 z-40 flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 glass border-b border-white/30 bg-white/80 backdrop-blur"
+        style={{ top: "calc(var(--beta-banner-h, 0px) + var(--security-notice-h, 0px))" }}
+      >
         <Link href="/" className="flex items-center" aria-label="eduvianAI home">
           <EduvianLogoMark size={32} />
         </Link>
@@ -80,7 +86,7 @@ export default function ProfileEvaluationPage({ params }: { params: { token: str
         </div>
       </nav>
 
-      <main className="max-w-4xl mx-auto px-6 sm:px-10 pt-24 sm:pt-28">
+      <main className="max-w-4xl mx-auto px-4 sm:px-10 pt-20 sm:pt-28">
         <header className="mb-8 sm:mb-10">
           <p className="text-[11px] uppercase tracking-[0.25em] text-violet-700 font-semibold mb-3">Step 1 of 2</p>
           <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-gray-900 leading-tight mb-3">
