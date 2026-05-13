@@ -63,7 +63,7 @@ function validateStep(step: number, profile: Partial<StudentProfile>): string[] 
   if (step === 1) {
     if (!profile.full_name?.trim()) missing.push("Full Name");
     if (!profile.email?.trim()) missing.push("Email Address");
-    if (!profile.phone?.trim()) missing.push("Phone / WhatsApp");
+    if (!profile.phone?.trim()) missing.push("Phone");
     if (!profile.nationality?.trim()) missing.push("Nationality");
     if (!profile.city?.trim()) missing.push("Current City");
   }
@@ -176,10 +176,21 @@ function ProfilePageInner() {
     if (errors.length > 0) setErrors([]);
   };
 
+  // Scroll the window back to the top whenever the active step changes.
+  // Without this, submitting a step that has errors-then-success leaves
+  // the user scrolled mid-page on the next step's form.
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.scrollTo({ top: 0, behavior: "auto" });
+    }
+  }, [step]);
+
   const next = () => {
     const missing = validateStep(step, profile);
     if (missing.length > 0) {
       setErrors(missing);
+      // Bring validation errors into view at the top of the form.
+      if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "smooth" });
       return;
     }
     setErrors([]);

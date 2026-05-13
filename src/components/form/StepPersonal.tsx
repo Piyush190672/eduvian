@@ -86,7 +86,7 @@ export default function StepPersonal({ profile, onChange }: Props) {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <Label>Phone / WhatsApp *</Label>
+          <Label>Phone *</Label>
           <Input
             placeholder="+91 98765 43210"
             value={profile.phone ?? ""}
