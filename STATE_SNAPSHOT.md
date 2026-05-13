@@ -2843,4 +2843,16 @@ Last commit on `main`: `12b6d9e5`. Working tree **NOT clean**:
 
 ~$0 unless Tier-B #10 (USA proxy subscription) gets greenlit. Everything else is code or docs.
 
+### 35.19 Post-snapshot addendum (5f0b0410)
+
+After `2bc83c64` (the snapshot commit), one more change landed:
+
+- **AISA trigger smaller across all viewports** (`5f0b0410`): user said the previous shrink wasn't enough on home. Three render modes now:
+  - Compact prefix list (tool/result pages): **44×44** icon-only round (was 48×48).
+  - Home + non-compact pages, mobile (< sm): **44×44** icon-only round (was 156×42 pill — text was spilling on narrow viewports).
+  - Home + non-compact pages, sm+: **137×36** slim rounded-full pill (was 156×42) — same "Stuck? Ask AISA" label, tighter padding, less chunky shape.
+  - Avatar unified at 24 across modes (was 26 / 30 / 36).
+
+**UK psych sweep status update**: PID 10942 has been stuck at **280/283** for ~25+ min — last 3 verify-program calls may have hung on slow API responses or retries. Next session may need to `pkill` the stuck workers and finish the wrapper's remaining phases (merge → BPS tag → tsc → commit → push) manually. The 280 already-verified entries' JSON outputs are on disk in `scripts/verify/output/` so no work is lost.
+
 Vercel deploys all 31 commits via Git push. Build time on data-heavy commits (programs.ts) runs ~3-4 min vs ~1-2 min for code-only. `/api/version` returns the latest SHA — useful for confirming any specific deploy.

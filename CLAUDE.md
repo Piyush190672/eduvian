@@ -165,7 +165,7 @@ Pinned in priority order. Snapshot §35 has full handoff-#15 detail. **Two backg
 
 **Wrap-ups (first thing next session):**
 
-1. **Verify UK psych deep sweep landed** (PID 10942, was at 280/283 in verify-batch). `tail -3 /tmp/uk-psych-deep.log` should show `=== DONE` + `git log --oneline -3` shows the auto-commit. If not, run the wrapper's tail (merge → BPS regex tag → tsc → commit → push) manually.
+1. **Verify UK psych deep sweep landed** (PID 10942, was at 280/283 in verify-batch — **stalled there ~25+ min at handoff end**, last 3 entries appear hung on slow API). `tail -3 /tmp/uk-psych-deep.log` first; if still 280/283, `pkill -f verify-program.ts` to clear stuck workers, then finish manually: `npx tsx scripts/verify/merge.ts && npx tsx scripts/verify/rename-from-page.ts && python3 /tmp/tag-bps.py && npx tsc --noEmit && git add -A && git commit && git push`. The 280 verified outputs are already in `scripts/verify/output/`, no work lost.
 2. **Commit realistic-admit top-100 data fill** — `M src/data/programs.ts` carries 1,623 entries with new `realistic_extracted_at` + `realistic_min_*` fields, uncommitted because the wrapper hit a Python f-string syntax error before commit. **Race risk:** UK psych sweep's final flush may overwrite. Recovery if so: `npx tsx scripts/verify/merge-realistic-admit.ts --input scripts/verify/output/realistic-admit-top100.json` (no API spend — audit JSON is on disk).
 
 **Tier-A — credibility & correctness (user-driven, no code change from me):**
