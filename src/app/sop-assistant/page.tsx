@@ -924,7 +924,7 @@ export default function SOPAssistantPage() {
                     </div>
                     <div>
                       <label className="block text-sm font-semibold text-gray-700 mb-1.5">
-                        University Name <span className="text-red-500 text-xs">(required)</span>
+                        University Name <span className="text-rose-500" aria-label="required">*</span>
                       </label>
                       <input
                         name="university"
@@ -942,7 +942,7 @@ export default function SOPAssistantPage() {
                     </div>
                     <div>
                       <label className="block text-sm font-semibold text-gray-700 mb-1.5">
-                        Course / Program <span className="text-red-500 text-xs">(required)</span>
+                        Course / Program <span className="text-rose-500" aria-label="required">*</span>
                       </label>
                       <input
                         name="course"
@@ -1081,7 +1081,7 @@ export default function SOPAssistantPage() {
                     </h2>
                     <div>
                       <label className="block text-sm font-semibold text-gray-700 mb-1">
-                        Opening hook / defining experience <span className="text-red-500 text-xs">(required)</span>
+                        Opening hook / defining experience <span className="text-rose-500" aria-label="required">*</span>
                       </label>
                       <p className="text-xs text-gray-400 mb-2">A specific moment, project, or decision that led you to this field. NOT &apos;since childhood&apos;. Min 3–4 sentences.</p>
                       <textarea

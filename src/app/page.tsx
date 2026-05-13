@@ -9,6 +9,7 @@ import ChatWidget from "@/components/ChatWidget";
 import CountryModal from "@/components/CountryModal";
 import HowItWorksModal from "@/components/HowItWorksModal";
 import LogoutButton from "@/components/LogoutButton";
+import ChangePasswordButton from "@/components/ChangePasswordButton";
 import { DataBadge, type DataProvenance } from "@/components/DataBadge";
 
 // Compact "Source proof" row used inside sample-output cards on the homepage.
@@ -346,9 +347,11 @@ export default function V2LandingPage() {
               <Link href="#destinations" className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors">Destinations</Link>
               <Link href="#scholarships" className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors">Scholarships</Link>
               <Link href="#principles"   className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors">Why choose us</Link>
-              {/* LogoutButton self-hides when no session is present, so this
-                  doesn't add UI for anonymous visitors. Dark-hero styling
-                  overrides the component's default light-mode classes. */}
+              {/* LogoutButton + ChangePasswordButton both self-hide when
+                  no session is present, so they don't add UI for anon
+                  visitors. Dark-hero styling overrides the components'
+                  default light-mode classes. */}
+              <ChangePasswordButton compact />
               <LogoutButton
                 variant="compact"
                 className="flex items-center gap-1.5 px-3 py-2 rounded-full border border-white/20 text-white/80 text-sm font-medium hover:bg-white/10 hover:text-white hover:border-white/40 transition-colors"

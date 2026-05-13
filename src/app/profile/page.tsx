@@ -23,7 +23,9 @@ import Link from "next/link";
 import NavButtons from "@/components/ui/NavButtons";
 import { EduvianLogoMark } from "@/components/EduvianLogo";
 import LogoutButton from "@/components/LogoutButton";
-import SetPasswordCard from "@/components/SetPasswordCard";
+// SetPasswordCard moved to the homepage nav as ChangePasswordButton
+// (13 May 2026) — change-password is now available from anywhere, not
+// only the profile editor.
 
 const STEPS = [
   { id: 1, label: "Personal", icon: User, desc: "About you" },
@@ -420,11 +422,6 @@ function ProfilePageInner() {
         </div>
       </div>
 
-      {/* Optional: let the signed-in user set or change their login
-          password. Renders only when localStorage.eduvian_student is set
-          (i.e. they're authenticated); server still enforces auth on the
-          set-password endpoint. */}
-      <SetPasswordCard />
     </div>
   );
 }

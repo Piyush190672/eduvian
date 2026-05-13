@@ -653,11 +653,11 @@ export default function ApplicationCheckPage() {
                   <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 space-y-4">
                     <h2 className="text-sm font-extrabold text-gray-700 uppercase tracking-wider">Target Application</h2>
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-1.5">University Name <span className="text-red-500 text-xs">(required)</span></label>
+                      <label className="block text-sm font-semibold text-gray-700 mb-1.5">University Name <span className="text-rose-500" aria-label="required">*</span></label>
                       <input name="university" value={form.university} onChange={handleChange} required placeholder="e.g. University of Melbourne" className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition placeholder-gray-400" />
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-1.5">Course / Program <span className="text-red-500 text-xs">(required)</span></label>
+                      <label className="block text-sm font-semibold text-gray-700 mb-1.5">Course / Program <span className="text-rose-500" aria-label="required">*</span></label>
                       <input name="course" value={form.course} onChange={handleChange} required placeholder="e.g. Master of Data Science" className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition placeholder-gray-400" />
                     </div>
                   </div>
@@ -851,7 +851,7 @@ export default function ApplicationCheckPage() {
                     <h2 className="text-sm font-extrabold text-gray-700 uppercase tracking-wider">Target Program</h2>
                     <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-1.5">University <span className="text-red-500 text-xs">(required)</span></label>
+                        <label className="block text-sm font-semibold text-gray-700 mb-1.5">University <span className="text-rose-500" aria-label="required">*</span></label>
                         <input name="university" value={cvInputForm.university} onChange={handleCVInputChange} required placeholder="e.g. UCL" className="w-full px-3 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400 focus:border-transparent transition placeholder-gray-400" />
                       </div>
                       <div>
@@ -865,7 +865,7 @@ export default function ApplicationCheckPage() {
                       </div>
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-1.5">Course / Program <span className="text-red-500 text-xs">(required)</span></label>
+                      <label className="block text-sm font-semibold text-gray-700 mb-1.5">Course / Program <span className="text-rose-500" aria-label="required">*</span></label>
                       <input name="course" value={cvInputForm.course} onChange={handleCVInputChange} required placeholder="e.g. MSc Computer Science" className="w-full px-3 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400 focus:border-transparent transition placeholder-gray-400" />
                     </div>
                   </div>
@@ -873,7 +873,7 @@ export default function ApplicationCheckPage() {
                   <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
                     <div className="flex items-center justify-between mb-1.5">
                       <label className="text-sm font-extrabold text-gray-700 uppercase tracking-wider">
-                        Your CV / Resume <span className="text-red-500 text-xs">(required)</span>
+                        Your CV / Resume <span className="text-rose-500" aria-label="required">*</span>
                       </label>
                       <UploadButton id="cv-assess-upload" onFile={cvAssessUpload.handleFile} uploading={cvAssessUpload.uploading} />
                     </div>
@@ -1032,7 +1032,7 @@ export default function ApplicationCheckPage() {
                     </h2>
                     <div className="grid grid-cols-2 gap-4">
                       <div className="col-span-2 sm:col-span-1">
-                        <label className="block text-sm font-semibold text-gray-700 mb-1.5">Full Name <span className="text-red-500 text-xs">(required)</span></label>
+                        <label className="block text-sm font-semibold text-gray-700 mb-1.5">Full Name <span className="text-rose-500" aria-label="required">*</span></label>
                         <input name="full_name" value={cvBuilderData.full_name} onChange={handleBuilderChange} required placeholder="e.g. Aarav Sharma" className="w-full px-3 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400 focus:border-transparent transition placeholder-gray-400" />
                       </div>
                       <div className="col-span-2 sm:col-span-1">
@@ -1069,7 +1069,7 @@ export default function ApplicationCheckPage() {
                   <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
                     <h2 className="text-sm font-extrabold text-gray-700 uppercase tracking-wider flex items-center gap-2 mb-3">
                       <span className="w-5 h-5 rounded-full bg-violet-500 text-white text-[11px] font-black flex items-center justify-center">3</span>
-                      Education <span className="text-red-500 text-xs">(required)</span>
+                      Education <span className="text-rose-500" aria-label="required">*</span>
                     </h2>
                     <p className="text-xs text-gray-400 mb-3">Include: university name, degree, graduation year, CGPA, and 3–5 relevant subjects. Mention any academic awards.</p>
                     <textarea name="education" value={cvBuilderData.education} onChange={handleBuilderChange} required rows={5} placeholder={`e.g.\nB.Tech Computer Science | XYZ University | 2022–2026 | CGPA: 8.7/10\nRelevant Coursework: Machine Learning, Data Structures & Algorithms, Database Systems, Operating Systems, Statistics\nAchievement: University Merit Scholarship (Top 5% of batch of 300)`} className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400 focus:border-transparent transition placeholder-gray-400 resize-y font-mono" />
@@ -1101,7 +1101,7 @@ export default function ApplicationCheckPage() {
                   <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
                     <h2 className="text-sm font-extrabold text-gray-700 uppercase tracking-wider flex items-center gap-2 mb-3">
                       <span className="w-5 h-5 rounded-full bg-violet-500 text-white text-[11px] font-black flex items-center justify-center">6</span>
-                      Skills <span className="text-red-500 text-xs">(required)</span>
+                      Skills <span className="text-rose-500" aria-label="required">*</span>
                     </h2>
                     <p className="text-xs text-gray-400 mb-3">List your technical skills, tools, and frameworks. Group them if possible.</p>
                     <textarea name="skills" value={cvBuilderData.skills} onChange={handleBuilderChange} required rows={3} placeholder={`e.g.\nProgramming: Python, Java, SQL, JavaScript\nTools/Frameworks: Scikit-learn, Spring Boot, Git, MySQL, React\nConcepts: Machine Learning, Data Structures, REST APIs, Agile`} className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400 focus:border-transparent transition placeholder-gray-400 resize-y font-mono" />
