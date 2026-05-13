@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ArrowUpRight, GraduationCap, ShieldCheck, Sparkles, Users } from "lucide-react";
 import { DB_STATS, universitiesByCountry } from "@/data/db-stats";
 import ChatWidget from "@/components/ChatWidget";
@@ -40,6 +41,45 @@ function SourceProof({
 }
 
 const LAST_VERIFIED_LABEL = "8 May 2026";
+
+// Hero headline carousel — 5 slides auto-rotating every 7s. Each slide
+// shows a bold first line, an italic second-line complement, and a body
+// paragraph. Copy locked 13 May 2026 (user-supplied positioning matrix).
+interface HeroSlide {
+  /** First line — display weight, the assertion. May include emphasis spans. */
+  headline: React.ReactNode;
+  /** Second line — italic complement / promise. */
+  tail: string;
+  /** Body paragraph beneath the headline pair. */
+  body: string;
+}
+const HERO_SLIDES: HeroSlide[] = [
+  {
+    headline: <>You decide only <span className="italic font-medium text-violet-300">once</span>.</>,
+    tail: "Decide with confidence.",
+    body: "EduvianAI helps students and families choose the right study-abroad path with verified data, independent guidance, clear trade-offs, and tools built for every major step — from shortlist to visa.",
+  },
+  {
+    headline: <>Your future deserves more than <span className="italic font-medium text-violet-300">guesswork</span>.</>,
+    tail: "Choose with verified data.",
+    body: "EduvianAI helps students compare courses, countries, costs, applications, interviews, ROI, and visa readiness — while giving parents the clarity they need before committing financially.",
+  },
+  {
+    headline: <>One decision.</>,
+    tail: "Two generations of trust.",
+    body: "Students choose the path. Parents back the investment. EduvianAI gives both the same verified data, clear trade-offs, ROI insights, and next steps before the final decision.",
+  },
+  {
+    headline: <>Too many claims.</>,
+    tail: "One clearer answer.",
+    body: "EduvianAI helps students and families cut through conflicting advice with verified data, transparent trade-offs, and AI tools built around real study-abroad decisions.",
+  },
+  {
+    headline: <>Before you commit.</>,
+    tail: "See the full picture.",
+    body: "EduvianAI helps families understand course fit, university options, total cost, ROI, safety, visa readiness, and key risks before making a major financial decision.",
+  },
+];
 
 // Each stage card carries: stage name + user situation + one-line benefit
 // + one sample output + one primary CTA. Methodology / data-source notes
@@ -250,12 +290,18 @@ export default function V2LandingPage() {
   // Hero RHS shows one sample card at a time, auto-rotating every 3s.
   const [heroCard, setHeroCard] = useState(0);
   const HERO_CARD_COUNT = 4;
+  // Hero LHS headline carousel — 5 slides, auto-rotating every 7s.
+  const [heroSlide, setHeroSlide] = useState(0);
   useEffect(() => {
     const id = setTimeout(() => setActiveDemo((d) => (d + 1) % DEMOS.length), 5000);
     return () => clearTimeout(id);
   }, [activeDemo]);
   useEffect(() => {
     const id = setInterval(() => setHeroCard((c) => (c + 1) % HERO_CARD_COUNT), 3000);
+    return () => clearInterval(id);
+  }, []);
+  useEffect(() => {
+    const id = setInterval(() => setHeroSlide((s) => (s + 1) % HERO_SLIDES.length), 7000);
     return () => clearInterval(id);
   }, []);
 
@@ -322,18 +368,47 @@ export default function V2LandingPage() {
             <p className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.25em] text-violet-300/85 mb-8 font-semibold">
               <Sparkles className="w-3 h-3" /> AI-powered. Independent. Verified at source.
             </p>
-            <h1 className="font-display font-bold text-[2.25rem] leading-[1.08] sm:text-5xl md:text-[3.75rem] tracking-tight mb-7">
-              You only decide this <span className="italic font-medium text-violet-300">once</span>.
-            </h1>
-            <p className="text-lg sm:text-xl text-white/65 leading-relaxed max-w-2xl mb-6">
-              Course, country, cost, visa, ROI, safety — every question your family will ask, answered from official university sources. Honest about the trade-offs.
-            </p>
-            {/* Standalone signature line — italic, softer weight, slightly
-                larger than body. Treats the promise as a seal on the
-                message rather than the last clause of the subhead. */}
-            <p className="font-display italic font-light text-xl sm:text-2xl text-white/80 leading-snug mb-10">
-              Say yes with conviction.
-            </p>
+            {/* Headline carousel — five slides auto-rotating every 7s.
+                Crossfade only (no slide-in) to keep the hero calm. The
+                outer wrapper holds a min-h to prevent CLS as line counts
+                shift between slides. Use position:absolute on each slide
+                so the active and exiting ones overlap during the fade. */}
+            <div className="relative min-h-[300px] sm:min-h-[340px] md:min-h-[380px] mb-2">
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.div
+                  key={heroSlide}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.4 }}
+                  className="absolute inset-0"
+                >
+                  <h1 className="font-display font-bold text-[2.25rem] leading-[1.08] sm:text-5xl md:text-[3.75rem] tracking-tight mb-4">
+                    {HERO_SLIDES[heroSlide].headline}
+                  </h1>
+                  <p className="font-display italic font-light text-xl sm:text-2xl md:text-3xl text-white/80 leading-snug mb-6">
+                    {HERO_SLIDES[heroSlide].tail}
+                  </p>
+                  <p className="text-base sm:text-lg text-white/65 leading-relaxed max-w-2xl">
+                    {HERO_SLIDES[heroSlide].body}
+                  </p>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+            {/* Dot indicators — click to jump, mirroring the RHS sample-card pattern */}
+            <div className="flex items-center gap-2 mb-10">
+              {HERO_SLIDES.map((_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  onClick={() => setHeroSlide(i)}
+                  aria-label={`Show slide ${i + 1} of ${HERO_SLIDES.length}`}
+                  className={`h-1.5 rounded-full transition-all ${
+                    i === heroSlide ? "w-8 bg-violet-400" : "w-3 bg-white/20 hover:bg-white/30"
+                  }`}
+                />
+              ))}
+            </div>
             <div className="flex flex-wrap items-center gap-x-3 gap-y-3">
               <Link
                 href="/get-started"
