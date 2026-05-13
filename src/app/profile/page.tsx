@@ -353,11 +353,11 @@ function ProfilePageInner() {
         <AnimatePresence mode="wait">
           <motion.div
             key={step}
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -30 }}
-            transition={{ duration: 0.25 }}
-            className="bg-white rounded-3xl shadow-sm border border-gray-100 p-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.18 }}
+            className="bg-white rounded-3xl shadow-sm border border-gray-100 p-5 sm:p-8"
           >
             <div className="mb-6">
               <h2 className="text-2xl font-bold text-gray-900">

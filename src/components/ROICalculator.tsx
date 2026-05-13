@@ -403,7 +403,7 @@ export default function ROICalculator() {
           {/* ── Left: Guided input panel ── */}
           <motion.div
             initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
-            className="lg:col-span-2 bg-white border border-stone-200 shadow-sm rounded-3xl p-6 space-y-6"
+            className="min-w-0 lg:col-span-2 bg-white border border-stone-200 shadow-sm rounded-3xl p-6 space-y-6"
           >
 
             {/* ── STEP 1: University ── */}
@@ -660,7 +660,7 @@ export default function ROICalculator() {
           {/* ── Right: Results ── */}
           <motion.div
             initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
-            className="lg:col-span-3 space-y-4"
+            className="min-w-0 lg:col-span-3 space-y-4"
           >
             {selectedProgram !== null && missingFields.length > 0 ? (
               // Gated state: program is selected but one or both fee fields
