@@ -23,6 +23,15 @@ interface RowOnDisk {
   school_type: string | null;
   setting: string | null;
   enrollment_undergrad: number | null;
+  enrollment_total: number | null;
+  graduate_outcome_salary_usd: number | null;
+  graduate_outcome_employment_pct: number | null;
+  ukprn: number | null;
+  student_staff_ratio: number | null;
+  nss_satisfaction_pct: number | null;
+  tef_rating: string | null;
+  russell_group: boolean | null;
+  completion_rate_pct: number | null;
   data_source: string;
   data_extracted_at: string;
 }
@@ -45,6 +54,15 @@ function emitEntry(r: RowOnDisk): string {
     formatField("school_type", r.school_type),
     formatField("setting", r.setting),
     formatField("enrollment_undergrad", r.enrollment_undergrad),
+    formatField("enrollment_total", r.enrollment_total),
+    formatField("graduate_outcome_salary_usd", r.graduate_outcome_salary_usd),
+    formatField("graduate_outcome_employment_pct", r.graduate_outcome_employment_pct),
+    formatField("ukprn", r.ukprn),
+    formatField("student_staff_ratio", r.student_staff_ratio),
+    formatField("nss_satisfaction_pct", r.nss_satisfaction_pct),
+    formatField("tef_rating", r.tef_rating),
+    formatField("russell_group", r.russell_group),
+    formatField("completion_rate_pct", r.completion_rate_pct),
     formatField("data_source", r.data_source),
     formatField("data_extracted_at", r.data_extracted_at),
     "  },",

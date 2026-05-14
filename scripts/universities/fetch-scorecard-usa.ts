@@ -39,8 +39,12 @@ const FIELDS = [
   "latest.admissions.admission_rate.overall",               // 0..1
   "latest.earnings.6_yrs_after_entry.median",               // USD
   "latest.earnings.10_yrs_after_entry.median",              // USD
-  "latest.student.size",                                    // total
+  "latest.student.size",                                    // IPEDS "degree-seeking UG" (NOT total)
   "latest.student.enrollment.undergrad_12_month",           // UG headcount
+  "latest.student.enrollment.all_12_month",                 // total UG+PG headcount
+  "latest.student.demographics.student_faculty_ratio",      // student:staff ratio
+  "latest.completion.completion_rate_4yr_150nt",            // grad rate within 6yr for 4yr instits
+  "latest.completion.completion_rate_less_than_4yr_150nt",  // grad rate within ≤1.5x normal for <4yr instits
 ].join(",");
 
 interface ScorecardSchool {
@@ -55,6 +59,10 @@ interface ScorecardSchool {
   "latest.earnings.10_yrs_after_entry.median"?: number | null;
   "latest.student.size"?: number | null;
   "latest.student.enrollment.undergrad_12_month"?: number | null;
+  "latest.student.enrollment.all_12_month"?: number | null;
+  "latest.student.demographics.student_faculty_ratio"?: number | null;
+  "latest.completion.completion_rate_4yr_150nt"?: number | null;
+  "latest.completion.completion_rate_less_than_4yr_150nt"?: number | null;
 }
 
 interface ScorecardResponse {
@@ -207,6 +215,12 @@ async function main() {
       }
       const acceptRaw = hit["latest.admissions.admission_rate.overall"];
       const accept = acceptRaw != null ? Math.round(acceptRaw * 1000) / 10 : null; // 0.367 → 36.7
+      // Scorecard's 4yr completion rate is the headline for 4yr instits;
+      // <4yr field carries it for community colleges. Take whichever is set.
+      const compRaw =
+        hit["latest.completion.completion_rate_4yr_150nt"] ??
+        hit["latest.completion.completion_rate_less_than_4yr_150nt"];
+      const completionPct = compRaw != null ? Math.round(compRaw * 1000) / 10 : null; // 0.728 → 72.8
       const row = {
         id: slugify(name),
         name,
@@ -220,7 +234,16 @@ async function main() {
         median_earnings_10yr_usd: hit["latest.earnings.10_yrs_after_entry.median"] ?? null,
         school_type: ownershipToType(hit["school.ownership"]),
         setting: localeToSetting(hit["school.locale"]),
-        enrollment_undergrad: hit["latest.student.enrollment.undergrad_12_month"] ?? hit["latest.student.size"] ?? null,
+        enrollment_undergrad: hit["latest.student.enrollment.undergrad_12_month"] ?? null,
+        enrollment_total: hit["latest.student.enrollment.all_12_month"] ?? null,
+        graduate_outcome_salary_usd: null,             // US uses 6yr/10yr fields above, not the HESA 15mo metric
+        graduate_outcome_employment_pct: null,         // not in Scorecard
+        ukprn: null,                                   // UK-only join key
+        student_staff_ratio: hit["latest.student.demographics.student_faculty_ratio"] ?? null,
+        nss_satisfaction_pct: null,                    // UK-only
+        tef_rating: null,                              // UK-only
+        russell_group: null,                           // UK-only
+        completion_rate_pct: completionPct,
         data_source: "U.S. Department of Education College Scorecard (latest)",
         data_extracted_at: new Date().toISOString(),
       };

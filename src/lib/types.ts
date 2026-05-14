@@ -221,6 +221,30 @@ export interface University {
   /** Total undergraduate enrolment headcount. */
   enrollment_undergrad?: number | null;
 
+  // ── Stage 3 additions (14 May 2026, per user request) ────────────────────
+  /** Total enrolment headcount (UG + PG combined). */
+  enrollment_total?: number | null;
+  /** Median graduate salary, converted to USD. Source-specific timing:
+   *  UK HESA Graduate Outcomes = 15 months after grad;
+   *  US Scorecard separately tracks 6yr / 10yr in median_earnings_*_usd. */
+  graduate_outcome_salary_usd?: number | null;
+  /** % of graduates in employment or further study. UK HESA = 15 months
+   *  after grad; US Scorecard tracks separately. 0-100. */
+  graduate_outcome_employment_pct?: number | null;
+  /** UK Provider Reference Number (HESA/OfS join key). UK only. */
+  ukprn?: number | null;
+  /** Students-per-academic-staff. Lower = more individual attention. */
+  student_staff_ratio?: number | null;
+  /** National Student Survey overall satisfaction %. UK only. 0-100. */
+  nss_satisfaction_pct?: number | null;
+  /** Teaching Excellence Framework rating. UK only. */
+  tef_rating?: "gold" | "silver" | "bronze" | "provisional" | null;
+  /** Member of the Russell Group (24 research-intensive UK universities). */
+  russell_group?: boolean | null;
+  /** % of starters who complete the qualification within expected time + grace. 0-100. */
+  completion_rate_pct?: number | null;
+  // ───────────────────────────────────────────────────────────────────────
+
   /** Free-form citation: "College Scorecard 2024", "QS Profile 2024", "HESA Outcomes 2023" */
   data_source?: string | null;
   /** ISO timestamp when this row was last refreshed. */
