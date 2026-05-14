@@ -2,9 +2,15 @@
  * Server-side beta gate.
  *
  * Caps:
- *   - 100 unique users per calendar month (UTC) — owner email excluded
+ *   - 100 NEW unique users per calendar month (UTC) — owner email excluded.
+ *     "Unique" = distinct (email, phone) tuple on the students table.
+ *     **Returning users** (registered before the current month) are NOT
+ *     counted against this cap and continue using the site as long as the
+ *     spend cap below has headroom (14 May 2026).
  *   - Per-user per-tool monthly caps (PER_USER_MONTHLY_CAPS)
- *   - Global monthly spend cap in cents (MAX_MONTHLY_SPEND_CENTS)
+ *   - Global monthly spend cap in cents (MAX_MONTHLY_SPEND_CENTS, default $20).
+ *     This is the *hard* stop — once hit, everyone (including returning users)
+ *     is blocked until the 1st of next month.
  *
  * Owner emails listed in BETA_OWNER_EMAILS (comma-separated) bypass everything.
  * If MONTHLY_UNIQUE_USER_CAP changes here, update the banner copy in
@@ -28,9 +34,9 @@ export const PER_USER_MONTHLY_CAPS: Record<string, number> = {
 
 export const MONTHLY_UNIQUE_USER_CAP = 100;
 
-/** Hard global ceiling on monthly Anthropic spend, in cents. Default $50. */
+/** Hard global ceiling on monthly Anthropic spend, in cents. Default $20. */
 export const MAX_MONTHLY_SPEND_CENTS = parseInt(
-  process.env.MAX_MONTHLY_SPEND_CENTS ?? "5000",
+  process.env.MAX_MONTHLY_SPEND_CENTS ?? "2000",
   10
 );
 
@@ -129,25 +135,18 @@ export async function checkBetaAccess(
   const startOfMonth = startOfMonthUTC();
 
   try {
-    // ── 1. Unique-user count + spend total for the month ──────────────────
-    const { data: monthRows, error: monthErr } = await supabase
+    // ── 1. Spend total for the month — hard ceiling for everyone ──────────
+    const { data: spendRows, error: spendErr } = await supabase
       .from("tool_usage")
-      .select("email, cost_estimate_cents")
+      .select("cost_estimate_cents")
       .gte("created_at", startOfMonth);
+    if (spendErr) throw spendErr;
 
-    if (monthErr) throw monthErr;
-
-    const rows = (monthRows ?? []) as { email: string; cost_estimate_cents: number | null }[];
-    const distinct = new Set(rows.map((r) => r.email.toLowerCase()));
-    const userAlreadyCounted = distinct.has(normalized);
-    const monthlyUniques = distinct.size;
-
-    const monthlySpendCents = rows.reduce(
-      (sum, r) => sum + (r.cost_estimate_cents ?? 0),
+    const monthlySpendCents = (spendRows ?? []).reduce(
+      (sum, r) => sum + ((r as { cost_estimate_cents: number | null }).cost_estimate_cents ?? 0),
       0
     );
 
-    // ── Global spend cap (hard stop) ──────────────────────────────────────
     if (monthlySpendCents >= MAX_MONTHLY_SPEND_CENTS) {
       return {
         allowed: false,
@@ -157,13 +156,44 @@ export async function checkBetaAccess(
       };
     }
 
-    if (!userAlreadyCounted && monthlyUniques >= MONTHLY_UNIQUE_USER_CAP) {
-      return {
-        allowed: false,
-        reason: "beta_full",
-        message:
-          `We're so sorry — this month's user quota of ${MONTHLY_UNIQUE_USER_CAP} is already full. The quota resets on ${nextMonthFirstUTC()}; please come back then and we'll have a spot ready for you. Thanks for your patience while we're in beta!`,
-      };
+    // ── 2. New-user quota — only counts users who FIRST registered this
+    //    month, deduped by (email, phone). Returning users (registered in a
+    //    prior month) skip this check entirely and just need spend headroom.
+    const { data: meRow, error: meErr } = await supabase
+      .from("students")
+      .select("created_at, phone")
+      .eq("email", normalized)
+      .maybeSingle();
+    if (meErr) throw meErr;
+
+    const isReturningUser =
+      !!meRow?.created_at && new Date(meRow.created_at as string).toISOString() < startOfMonth;
+
+    if (!isReturningUser) {
+      const { data: monthRegs, error: regsErr } = await supabase
+        .from("students")
+        .select("email, phone")
+        .gte("created_at", startOfMonth);
+      if (regsErr) throw regsErr;
+
+      const tupleKey = (email: string, phone: string | null | undefined) =>
+        `${email.toLowerCase().trim()}|${(phone ?? "").trim()}`;
+      const newUserTuples = new Set(
+        (monthRegs ?? []).map((r) =>
+          tupleKey((r as { email: string }).email, (r as { phone: string | null }).phone)
+        )
+      );
+      const myTuple = tupleKey(normalized, meRow?.phone as string | null | undefined);
+      const userAlreadyCounted = newUserTuples.has(myTuple);
+
+      if (!userAlreadyCounted && newUserTuples.size >= MONTHLY_UNIQUE_USER_CAP) {
+        return {
+          allowed: false,
+          reason: "beta_full",
+          message:
+            `We're so sorry — this month's new-user quota of ${MONTHLY_UNIQUE_USER_CAP} is already full. The quota resets on ${nextMonthFirstUTC()}; please come back then and we'll have a spot ready for you. Thanks for your patience while we're in beta!`,
+        };
+      }
     }
 
     // ── 2. Per-tool cap for this user ─────────────────────────────────────

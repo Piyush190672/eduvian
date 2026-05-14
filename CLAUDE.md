@@ -113,7 +113,7 @@ Audit document: `~/Desktop/EduvianAI-Security-Architecture-Risk-Assessment.docx`
 | `src/lib/types.ts` | Single source of truth. `TARGET_COUNTRIES` (12), `FIELDS_OF_STUDY` (18). |
 | `src/lib/scoring.ts` | 9-signal `recommendPrograms()`. Tiers: Safe 75-100, Reach 50-74, Ambitious <50. |
 | `src/lib/format-fee.ts` | Null-safe tuition rendering. **Never show $0.** Prefers local currency (`£26,600`) with optional USD parenthetical via `opts.withUsd` — backed by `annual_tuition_amount` + `annual_tuition_currency` on Program. Schema also keeps the legacy `annual_tuition_usd` for filtering / aggregation. |
-| `src/lib/beta-gate.ts` | Per-tool monthly caps + global $50 spend cap. |
+| `src/lib/beta-gate.ts` | Per-tool monthly caps + global $20 spend cap. Unique-user counter dedups on (email, phone) over `students` rows from this month — returning users (registered before this month) skip the new-user cap entirely. |
 | `src/lib/rate-limit.ts` | Upstash sliding-window with in-memory fallback. Must never throw. |
 | `src/lib/user-cookie.ts` | Opaque server-side sessions (H2). |
 | `src/lib/pii-crypto.ts` | AES-256-GCM + emailHash for H7. |
