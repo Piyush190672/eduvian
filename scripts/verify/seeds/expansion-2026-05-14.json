@@ -1,0 +1,3666 @@
+[
+  {
+    "university": "Syracuse University",
+    "country": "USA",
+    "city": "Syracuse, NY",
+    "qs_ranking": 461,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://eng-cs.syr.edu/program/computer-science/"
+  },
+  {
+    "university": "Syracuse University",
+    "country": "USA",
+    "city": "Syracuse, NY",
+    "qs_ranking": 461,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://ischool.syr.edu/academics/applied-data-science-masters-degree/"
+  },
+  {
+    "university": "Syracuse University",
+    "country": "USA",
+    "city": "Syracuse, NY",
+    "qs_ranking": 461,
+    "field_of_study": "Business & Management",
+    "program_url": "https://whitman.syr.edu/programs-and-academics/programs/ms/index.aspx"
+  },
+  {
+    "university": "Syracuse University",
+    "country": "USA",
+    "city": "Syracuse, NY",
+    "qs_ranking": 461,
+    "field_of_study": "MBA",
+    "program_url": "https://onlinebusiness.syr.edu/mba/"
+  },
+  {
+    "university": "Syracuse University",
+    "country": "USA",
+    "city": "Syracuse, NY",
+    "qs_ranking": 461,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://eng-cs.syr.edu/program/mechanical-engineering/"
+  },
+  {
+    "university": "Syracuse University",
+    "country": "USA",
+    "city": "Syracuse, NY",
+    "qs_ranking": 461,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "http://biology.syr.edu/graduate/programs.html"
+  },
+  {
+    "university": "Syracuse University",
+    "country": "USA",
+    "city": "Syracuse, NY",
+    "qs_ranking": 461,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.maxwell.syr.edu/academics/public-health-department/graduate-studies/master-of-public-health"
+  },
+  {
+    "university": "Syracuse University",
+    "country": "USA",
+    "city": "Syracuse, NY",
+    "qs_ranking": 461,
+    "field_of_study": "Law",
+    "program_url": "https://law.syr.edu/admissions/jd-admissions/admissions-information/criteria-for-admission/"
+  },
+  {
+    "university": "Syracuse University",
+    "country": "USA",
+    "city": "Syracuse, NY",
+    "qs_ranking": 461,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://soa.syr.edu/admissions/graduate/march/"
+  },
+  {
+    "university": "Syracuse University",
+    "country": "USA",
+    "city": "Syracuse, NY",
+    "qs_ranking": 461,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.maxwell.syr.edu/socsci/default.asp"
+  },
+  {
+    "university": "Syracuse University",
+    "country": "USA",
+    "city": "Syracuse, NY",
+    "qs_ranking": 461,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.maxwell.syr.edu/academics/economics-department/graduate-studies/master-of-arts"
+  },
+  {
+    "university": "Syracuse University",
+    "country": "USA",
+    "city": "Syracuse, NY",
+    "qs_ranking": 461,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://newhouse.syr.edu/academics/new-media-management/masters/"
+  },
+  {
+    "university": "Syracuse University",
+    "country": "USA",
+    "city": "Syracuse, NY",
+    "qs_ranking": 461,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.maxwell.syr.edu/academics/geography-and-the-environment-department"
+  },
+  {
+    "university": "Syracuse University",
+    "country": "USA",
+    "city": "Syracuse, NY",
+    "qs_ranking": 461,
+    "field_of_study": "Natural Sciences",
+    "program_url": "http://biology.syr.edu/graduate/programs.html"
+  },
+  {
+    "university": "Binghamton University",
+    "country": "USA",
+    "city": "Vestal, NY",
+    "qs_ranking": 571,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.binghamton.edu/computer-science/graduate-programs/mscs/"
+  },
+  {
+    "university": "Binghamton University",
+    "country": "USA",
+    "city": "Vestal, NY",
+    "qs_ranking": 571,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.binghamton.edu/computer-science/graduate-programs/mscs/ms-aitrack.html"
+  },
+  {
+    "university": "Binghamton University",
+    "country": "USA",
+    "city": "Vestal, NY",
+    "qs_ranking": 571,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.binghamton.edu/som/graduate-programs/"
+  },
+  {
+    "university": "Binghamton University",
+    "country": "USA",
+    "city": "Vestal, NY",
+    "qs_ranking": 571,
+    "field_of_study": "MBA",
+    "program_url": "https://www.binghamton.edu/som/graduate-programs/mba/"
+  },
+  {
+    "university": "Binghamton University",
+    "country": "USA",
+    "city": "Vestal, NY",
+    "qs_ranking": 571,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.binghamton.edu/mechanical-engineering/graduate/masters-mechanical-engineering.html"
+  },
+  {
+    "university": "Binghamton University",
+    "country": "USA",
+    "city": "Vestal, NY",
+    "qs_ranking": 571,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.binghamton.edu/biology/graduate/"
+  },
+  {
+    "university": "Binghamton University",
+    "country": "USA",
+    "city": "Vestal, NY",
+    "qs_ranking": 571,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.binghamton.edu/decker/public-health/academics/index.html"
+  },
+  {
+    "university": "Binghamton University",
+    "country": "USA",
+    "city": "Vestal, NY",
+    "qs_ranking": 571,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.binghamton.edu/art/programs/"
+  },
+  {
+    "university": "Binghamton University",
+    "country": "USA",
+    "city": "Vestal, NY",
+    "qs_ranking": 571,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.binghamton.edu/human-development/human-rights/index.html"
+  },
+  {
+    "university": "Binghamton University",
+    "country": "USA",
+    "city": "Vestal, NY",
+    "qs_ranking": 571,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.binghamton.edu/economics/graduate/"
+  },
+  {
+    "university": "Binghamton University",
+    "country": "USA",
+    "city": "Vestal, NY",
+    "qs_ranking": 571,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.binghamton.edu/public-administration-and-policy/academic-programs/sustainable-communities/"
+  },
+  {
+    "university": "Binghamton University",
+    "country": "USA",
+    "city": "Vestal, NY",
+    "qs_ranking": 571,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.binghamton.edu/biochemistry-and-chemical-biology/graduate/index.html"
+  },
+  {
+    "university": "Binghamton University",
+    "country": "USA",
+    "city": "Vestal, NY",
+    "qs_ranking": 571,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.binghamton.edu/decker/nursing/undergraduate/bs.html"
+  },
+  {
+    "university": "Fordham University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 701,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.fordham.edu/academics/departments/computer-and-information-science/academic-programs/graduate-programs/master-of-science-in-computer-science/"
+  },
+  {
+    "university": "Fordham University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 701,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.fordham.edu/academics/departments/computer-and-information-science/academic-programs/graduate-programs/master-of-science-in-data-science/"
+  },
+  {
+    "university": "Fordham University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 701,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.fordham.edu/gabelli-school-of-business/academic-programs-and-admissions/graduate-programs/academic-programs/ms-programs/management/"
+  },
+  {
+    "university": "Fordham University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 701,
+    "field_of_study": "MBA",
+    "program_url": "https://www.fordham.edu/gabelli-school-of-business/academic-programs-and-admissions/graduate-programs/academic-programs/full-time-mba/"
+  },
+  {
+    "university": "Fordham University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 701,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.fordham.edu/academics/departments/physics-and-engineering-physics/curriculum/3-2-cooperative-program-in-engineering/program-details/"
+  },
+  {
+    "university": "Fordham University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 701,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.fordham.edu/graduate-school-of-arts-and-sciences/academics/programs-of-study/master-of-science-in-biotechnology/"
+  },
+  {
+    "university": "Fordham University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 701,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.fordham.edu/graduate-school-of-arts-and-sciences/academics/programs-of-study/master-of-science-in-health-administration/"
+  },
+  {
+    "university": "Fordham University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 701,
+    "field_of_study": "Law",
+    "program_url": "https://www.fordham.edu/school-of-law/admissions/jd-admissions/"
+  },
+  {
+    "university": "Fordham University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 701,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.fordham.edu/academics/departments/visual-arts/"
+  },
+  {
+    "university": "Fordham University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 701,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.fordham.edu/mshs/"
+  },
+  {
+    "university": "Fordham University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 701,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.fordham.edu/academics/departments/economics/graduate-studies/master-of-arts-in-economics/"
+  },
+  {
+    "university": "Fordham University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 701,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.fordham.edu/academics/departments/communication-and-media-studies/master-of-arts-in-public-media/"
+  },
+  {
+    "university": "Fordham University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 701,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.fordham.edu/academics/departments/environmental-studies/"
+  },
+  {
+    "university": "Fordham University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 701,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.fordham.edu/undergraduate-admission/majors-and-minors/natural-science/"
+  },
+  {
+    "university": "Fordham University",
+    "country": "USA",
+    "city": "New York, NY",
+    "qs_ranking": 701,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://www.fordham.edu/school-of-professional-and-continuing-studies/academics/real-estate-institute/academics/graduate-programs/master-of-science-in-hospitality-/"
+  },
+  {
+    "university": "George Mason University",
+    "country": "USA",
+    "city": "Fairfax, VA",
+    "qs_ranking": 651,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://catalog.gmu.edu/colleges-schools/engineering-computing/school-computing/computer-science/computer-science-ms/"
+  },
+  {
+    "university": "George Mason University",
+    "country": "USA",
+    "city": "Fairfax, VA",
+    "qs_ranking": 651,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://catalog.gmu.edu/colleges-schools/engineering-computing/ai-artificial-intelligence-ms/"
+  },
+  {
+    "university": "George Mason University",
+    "country": "USA",
+    "city": "Fairfax, VA",
+    "qs_ranking": 651,
+    "field_of_study": "Business & Management",
+    "program_url": "https://business.gmu.edu/programs/graduate-degree-programs/ms-management"
+  },
+  {
+    "university": "George Mason University",
+    "country": "USA",
+    "city": "Fairfax, VA",
+    "qs_ranking": 651,
+    "field_of_study": "MBA",
+    "program_url": "https://business.gmu.edu/programs/graduate-degree-programs/mba"
+  },
+  {
+    "university": "George Mason University",
+    "country": "USA",
+    "city": "Fairfax, VA",
+    "qs_ranking": 651,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://catalog.gmu.edu/colleges-schools/engineering-computing/engineering/electrical-computer/electrical-engineering-ms/"
+  },
+  {
+    "university": "George Mason University",
+    "country": "USA",
+    "city": "Fairfax, VA",
+    "qs_ranking": 651,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://catalog.gmu.edu/colleges-schools/science/systems-biology/bioinformatics-computational-biology-ms/"
+  },
+  {
+    "university": "George Mason University",
+    "country": "USA",
+    "city": "Fairfax, VA",
+    "qs_ranking": 651,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://publichealth.gmu.edu/program/public-health-mph"
+  },
+  {
+    "university": "George Mason University",
+    "country": "USA",
+    "city": "Fairfax, VA",
+    "qs_ranking": 651,
+    "field_of_study": "Law",
+    "program_url": "https://www.law.gmu.edu/admissions/jd/"
+  },
+  {
+    "university": "George Mason University",
+    "country": "USA",
+    "city": "Fairfax, VA",
+    "qs_ranking": 651,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://catalog.gmu.edu/colleges-schools/visual-performing-arts/art/visual-arts-graphic-design-mfa/"
+  },
+  {
+    "university": "George Mason University",
+    "country": "USA",
+    "city": "Fairfax, VA",
+    "qs_ranking": 651,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://catalog.gmu.edu/colleges-schools/humanities-social-sciences/sociology-anthropology/sociology-ms/"
+  },
+  {
+    "university": "George Mason University",
+    "country": "USA",
+    "city": "Fairfax, VA",
+    "qs_ranking": 651,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://catalog.gmu.edu/colleges-schools/humanities-social-sciences/economics/economics-ma/"
+  },
+  {
+    "university": "George Mason University",
+    "country": "USA",
+    "city": "Fairfax, VA",
+    "qs_ranking": 651,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://catalog.gmu.edu/colleges-schools/humanities-social-sciences/communication/communication-ma/"
+  },
+  {
+    "university": "George Mason University",
+    "country": "USA",
+    "city": "Fairfax, VA",
+    "qs_ranking": 651,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://catalog.gmu.edu/colleges-schools/science/environmental-policy/environmental-science-policy-ms/"
+  },
+  {
+    "university": "George Mason University",
+    "country": "USA",
+    "city": "Fairfax, VA",
+    "qs_ranking": 651,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://catalog.gmu.edu/colleges-schools/science/systems-biology/biology-ms/"
+  },
+  {
+    "university": "George Mason University",
+    "country": "USA",
+    "city": "Fairfax, VA",
+    "qs_ranking": 651,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://nursing.gmu.edu/academics/masters-program"
+  },
+  {
+    "university": "George Mason University",
+    "country": "USA",
+    "city": "Fairfax, VA",
+    "qs_ranking": 651,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://catalog.gmu.edu/colleges-schools/education-human-development/school-sport-recreation-tourism-management/tourism-and-events-management-bs/"
+  },
+  {
+    "university": "James Madison University",
+    "country": "USA",
+    "city": "Harrisonburg, VA",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.jmu.edu/cise/cs/graduate/cybersecurity/index.shtml"
+  },
+  {
+    "university": "James Madison University",
+    "country": "USA",
+    "city": "Harrisonburg, VA",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.jmu.edu/grad/programs/business.shtml"
+  },
+  {
+    "university": "James Madison University",
+    "country": "USA",
+    "city": "Harrisonburg, VA",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://www.jmu.edu/cob/mba/"
+  },
+  {
+    "university": "James Madison University",
+    "country": "USA",
+    "city": "Harrisonburg, VA",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.jmu.edu/academics/undergraduate/majors/engineering.shtml"
+  },
+  {
+    "university": "James Madison University",
+    "country": "USA",
+    "city": "Harrisonburg, VA",
+    "qs_ranking": null,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.jmu.edu/academics/undergraduate/majors/biotechnology.shtml"
+  },
+  {
+    "university": "James Madison University",
+    "country": "USA",
+    "city": "Harrisonburg, VA",
+    "qs_ranking": null,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.jmu.edu/academics/undergraduate/majors/health-sciences.shtml"
+  },
+  {
+    "university": "James Madison University",
+    "country": "USA",
+    "city": "Harrisonburg, VA",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.jmu.edu/academics/undergraduate/majors/architectural-design.shtml"
+  },
+  {
+    "university": "James Madison University",
+    "country": "USA",
+    "city": "Harrisonburg, VA",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.jmu.edu/grad/programs/communication-humanities-social-sciences.shtml"
+  },
+  {
+    "university": "James Madison University",
+    "country": "USA",
+    "city": "Harrisonburg, VA",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.jmu.edu/cob/economics/academics/index.shtml"
+  },
+  {
+    "university": "James Madison University",
+    "country": "USA",
+    "city": "Harrisonburg, VA",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.jmu.edu/academics/undergraduate/majors/media-arts-and-design.shtml"
+  },
+  {
+    "university": "James Madison University",
+    "country": "USA",
+    "city": "Harrisonburg, VA",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.jmu.edu/cise/isat/grad/index.shtml"
+  },
+  {
+    "university": "James Madison University",
+    "country": "USA",
+    "city": "Harrisonburg, VA",
+    "qs_ranking": null,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.jmu.edu/biology/undergraduate/index.shtml"
+  },
+  {
+    "university": "James Madison University",
+    "country": "USA",
+    "city": "Harrisonburg, VA",
+    "qs_ranking": null,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.jmu.edu/chbs/nursing/bsn/index.shtml"
+  },
+  {
+    "university": "James Madison University",
+    "country": "USA",
+    "city": "Harrisonburg, VA",
+    "qs_ranking": null,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://www.jmu.edu/hartschool/hospitality-management/index.shtml"
+  },
+  {
+    "university": "Pratt Institute",
+    "country": "USA",
+    "city": "Brooklyn, NY",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.pratt.edu/information/library-and-information-science/"
+  },
+  {
+    "university": "Pratt Institute",
+    "country": "USA",
+    "city": "Brooklyn, NY",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.pratt.edu/information/data-analytics-and-visualization/"
+  },
+  {
+    "university": "Pratt Institute",
+    "country": "USA",
+    "city": "Brooklyn, NY",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.pratt.edu/art/creative-enterprise-leadership/design-management-mps/"
+  },
+  {
+    "university": "Pratt Institute",
+    "country": "USA",
+    "city": "Brooklyn, NY",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.pratt.edu/design/interior-design/interior-design-mfa/"
+  },
+  {
+    "university": "Pratt Institute",
+    "country": "USA",
+    "city": "Brooklyn, NY",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.pratt.edu/liberal-arts-and-sciences/history-of-art-and-design/history-of-art-and-design-ma/"
+  },
+  {
+    "university": "Pratt Institute",
+    "country": "USA",
+    "city": "Brooklyn, NY",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.pratt.edu/liberal-arts-and-sciences/humanities-and-media-studies/media-studies-ma/"
+  },
+  {
+    "university": "Pratt Institute",
+    "country": "USA",
+    "city": "Brooklyn, NY",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.pratt.edu/architecture/graduate-center-for-planning-and-the-environment/sustainable-environmental-systems-ms/"
+  },
+  {
+    "university": "University of Vermont",
+    "country": "USA",
+    "city": "Burlington, VT",
+    "qs_ranking": 801,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.uvm.edu/cems/cs/program/ms-computer-science"
+  },
+  {
+    "university": "University of Vermont",
+    "country": "USA",
+    "city": "Burlington, VT",
+    "qs_ranking": 801,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://catalogue.uvm.edu/graduate/complexsystemsdatascience/complexsystemsdatasciencems/"
+  },
+  {
+    "university": "University of Vermont",
+    "country": "USA",
+    "city": "Burlington, VT",
+    "qs_ranking": 801,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.uvm.edu/business/program/bachelor-science-business-administration-bsbusadmin"
+  },
+  {
+    "university": "University of Vermont",
+    "country": "USA",
+    "city": "Burlington, VT",
+    "qs_ranking": 801,
+    "field_of_study": "MBA",
+    "program_url": "https://www.uvm.edu/business/simba_admission_process"
+  },
+  {
+    "university": "University of Vermont",
+    "country": "USA",
+    "city": "Burlington, VT",
+    "qs_ranking": 801,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.uvm.edu/cems/ebe/program/ms-electrical-engineering"
+  },
+  {
+    "university": "University of Vermont",
+    "country": "USA",
+    "city": "Burlington, VT",
+    "qs_ranking": 801,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.uvm.edu/larnermed/mmg/program/microbiology-and-molecular-genetics-masters-program"
+  },
+  {
+    "university": "University of Vermont",
+    "country": "USA",
+    "city": "Burlington, VT",
+    "qs_ranking": 801,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.uvm.edu/larnermed/medicinepublichealth/program/public-health"
+  },
+  {
+    "university": "University of Vermont",
+    "country": "USA",
+    "city": "Burlington, VT",
+    "qs_ranking": 801,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.uvm.edu/cas/art"
+  },
+  {
+    "university": "University of Vermont",
+    "country": "USA",
+    "city": "Burlington, VT",
+    "qs_ranking": 801,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.uvm.edu/cess/socialwork/application-and-admissions-master-social-work-msw"
+  },
+  {
+    "university": "University of Vermont",
+    "country": "USA",
+    "city": "Burlington, VT",
+    "qs_ranking": 801,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.uvm.edu/cals/cdae/graduate_programs"
+  },
+  {
+    "university": "University of Vermont",
+    "country": "USA",
+    "city": "Burlington, VT",
+    "qs_ranking": 801,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.uvm.edu/cals/cdae/program/public-communication"
+  },
+  {
+    "university": "University of Vermont",
+    "country": "USA",
+    "city": "Burlington, VT",
+    "qs_ranking": 801,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.uvm.edu/rsenr/leadership-sustainability"
+  },
+  {
+    "university": "University of Vermont",
+    "country": "USA",
+    "city": "Burlington, VT",
+    "qs_ranking": 801,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.uvm.edu/rsenr/program/ms-natural-resources"
+  },
+  {
+    "university": "University of Vermont",
+    "country": "USA",
+    "city": "Burlington, VT",
+    "qs_ranking": 801,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.uvm.edu/cnhs/nursing/program/master-science-nursing"
+  },
+  {
+    "university": "University of Vermont",
+    "country": "USA",
+    "city": "Burlington, VT",
+    "qs_ranking": 801,
+    "field_of_study": "Agriculture & Veterinary Sciences",
+    "program_url": "https://www.uvm.edu/cals/asci/graduate-program"
+  },
+  {
+    "university": "University of Vermont",
+    "country": "USA",
+    "city": "Burlington, VT",
+    "qs_ranking": 801,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://www.uvm.edu/rsenr/bs-parks-recreation-and-tourism"
+  },
+  {
+    "university": "Bucknell University",
+    "country": "USA",
+    "city": "Lewisburg, PA",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.bucknell.edu/academics/college-engineering/majors-departments/computer-science"
+  },
+  {
+    "university": "Bucknell University",
+    "country": "USA",
+    "city": "Lewisburg, PA",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.bucknell.edu/academics/college-arts-sciences/academic-departments-programs/data-science"
+  },
+  {
+    "university": "Bucknell University",
+    "country": "USA",
+    "city": "Lewisburg, PA",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.bucknell.edu/academics/freeman-college-management/majors-departments/management-organizations"
+  },
+  {
+    "university": "Bucknell University",
+    "country": "USA",
+    "city": "Lewisburg, PA",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.bucknell.edu/academics/college-engineering/majors-departments/mechanical-engineering"
+  },
+  {
+    "university": "Bucknell University",
+    "country": "USA",
+    "city": "Lewisburg, PA",
+    "qs_ranking": null,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.bucknell.edu/academics/college-arts-sciences/academic-departments-programs/cell-biology-biochemistry"
+  },
+  {
+    "university": "Bucknell University",
+    "country": "USA",
+    "city": "Lewisburg, PA",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.bucknell.edu/academics/college-arts-sciences/academic-departments-programs/art-art-history"
+  },
+  {
+    "university": "Bucknell University",
+    "country": "USA",
+    "city": "Lewisburg, PA",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.bucknell.edu/academics/college-arts-sciences/academic-departments-programs/comparative-digital-humanities"
+  },
+  {
+    "university": "Bucknell University",
+    "country": "USA",
+    "city": "Lewisburg, PA",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.bucknell.edu/academics/college-arts-sciences/academic-departments-programs/economics"
+  },
+  {
+    "university": "Bucknell University",
+    "country": "USA",
+    "city": "Lewisburg, PA",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://coursecatalog.bucknell.edu/collegeofartsandsciencescurricula/areasofstudy/filmmediasudies/"
+  },
+  {
+    "university": "Bucknell University",
+    "country": "USA",
+    "city": "Lewisburg, PA",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.bucknell.edu/academics/college-arts-sciences/academic-departments-programs/environmental-studies-sciences"
+  },
+  {
+    "university": "Bucknell University",
+    "country": "USA",
+    "city": "Lewisburg, PA",
+    "qs_ranking": null,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.bucknell.edu/academics/college-arts-sciences/academic-departments-programs/biology"
+  },
+  {
+    "university": "University of Maryland, Baltimore County",
+    "country": "USA",
+    "city": "Baltimore, MD",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://umbc.edu/programs/graduate/computer-science-and-electrical-engineering-programs/computer-science-masters/"
+  },
+  {
+    "university": "University of Maryland, Baltimore County",
+    "country": "USA",
+    "city": "Baltimore, MD",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://umbc.edu/programs/graduate/computer-science-and-electrical-engineering-programs/artificial-intelligence-master-of-science/"
+  },
+  {
+    "university": "University of Maryland, Baltimore County",
+    "country": "USA",
+    "city": "Baltimore, MD",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://informationsystems.umbc.edu/home/undergraduate-programs/undergraduate-degree-programs/business-technology-administration/"
+  },
+  {
+    "university": "University of Maryland, Baltimore County",
+    "country": "USA",
+    "city": "Baltimore, MD",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://professionalprograms.umbc.edu/engineering-management/engineering-management-mba/"
+  },
+  {
+    "university": "University of Maryland, Baltimore County",
+    "country": "USA",
+    "city": "Baltimore, MD",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://me.umbc.edu/m-s-program/"
+  },
+  {
+    "university": "University of Maryland, Baltimore County",
+    "country": "USA",
+    "city": "Baltimore, MD",
+    "qs_ranking": null,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://professionalprograms.umbc.edu/biotechnology/"
+  },
+  {
+    "university": "University of Maryland, Baltimore County",
+    "country": "USA",
+    "city": "Baltimore, MD",
+    "qs_ranking": null,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://umbc.edu/programs/undergraduate/sociology-anthropology-and-public-health-programs/public-health-major/"
+  },
+  {
+    "university": "University of Maryland, Baltimore County",
+    "country": "USA",
+    "city": "Baltimore, MD",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://umbc.edu/programs/undergraduate/visual-arts-programs/"
+  },
+  {
+    "university": "University of Maryland, Baltimore County",
+    "country": "USA",
+    "city": "Baltimore, MD",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://cahss.umbc.edu/departments-programs/"
+  },
+  {
+    "university": "University of Maryland, Baltimore County",
+    "country": "USA",
+    "city": "Baltimore, MD",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://umbc.edu/programs/undergraduate/economics-programs/"
+  },
+  {
+    "university": "University of Maryland, Baltimore County",
+    "country": "USA",
+    "city": "Baltimore, MD",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://umbc.edu/programs/undergraduate/media-and-communication-studies-programs/media-and-communication-studies/"
+  },
+  {
+    "university": "University of Maryland, Baltimore County",
+    "country": "USA",
+    "city": "Baltimore, MD",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://ges.umbc.edu/home/graduate-programs/"
+  },
+  {
+    "university": "University of Maryland, Baltimore County",
+    "country": "USA",
+    "city": "Baltimore, MD",
+    "qs_ranking": null,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://umbc.edu/programs/graduate/biology/"
+  },
+  {
+    "university": "University of Maryland, Baltimore County",
+    "country": "USA",
+    "city": "Baltimore, MD",
+    "qs_ranking": null,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://umbc.edu/programs/undergraduate/pre-professional-programs/pre-nursing-programs/"
+  },
+  {
+    "university": "University of New Hampshire",
+    "country": "USA",
+    "city": "Durham, NH",
+    "qs_ranking": 801,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.unh.edu/program/master-science/computer-science"
+  },
+  {
+    "university": "University of New Hampshire",
+    "country": "USA",
+    "city": "Durham, NH",
+    "qs_ranking": 801,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.unh.edu/program/master-science/business-analytics"
+  },
+  {
+    "university": "University of New Hampshire",
+    "country": "USA",
+    "city": "Durham, NH",
+    "qs_ranking": 801,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.unh.edu/program/bachelor-science/business-administration"
+  },
+  {
+    "university": "University of New Hampshire",
+    "country": "USA",
+    "city": "Durham, NH",
+    "qs_ranking": 801,
+    "field_of_study": "MBA",
+    "program_url": "https://www.unh.edu/program/master-business-administration/business-administration-full-time-mba"
+  },
+  {
+    "university": "University of New Hampshire",
+    "country": "USA",
+    "city": "Durham, NH",
+    "qs_ranking": 801,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.unh.edu/program/master-science/mechanical-engineering"
+  },
+  {
+    "university": "University of New Hampshire",
+    "country": "USA",
+    "city": "Durham, NH",
+    "qs_ranking": 801,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://colsa.unh.edu/molecular-cellular-biomedical-sciences/program/ms/molecular-cellular-biotechnology"
+  },
+  {
+    "university": "University of New Hampshire",
+    "country": "USA",
+    "city": "Durham, NH",
+    "qs_ranking": 801,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.unh.edu/program/master-public-health/public-health"
+  },
+  {
+    "university": "University of New Hampshire",
+    "country": "USA",
+    "city": "Durham, NH",
+    "qs_ranking": 801,
+    "field_of_study": "Law",
+    "program_url": "https://law.unh.edu/admissions/jd-admissions"
+  },
+  {
+    "university": "University of New Hampshire",
+    "country": "USA",
+    "city": "Durham, NH",
+    "qs_ranking": 801,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.unh.edu/program/bachelor-arts/interdisciplinary-humanities"
+  },
+  {
+    "university": "University of New Hampshire",
+    "country": "USA",
+    "city": "Durham, NH",
+    "qs_ranking": 801,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://catalog.unh.edu/graduate/programs-study/social-work/social-work-msw/"
+  },
+  {
+    "university": "University of New Hampshire",
+    "country": "USA",
+    "city": "Durham, NH",
+    "qs_ranking": 801,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.unh.edu/program/master-science/economics"
+  },
+  {
+    "university": "University of New Hampshire",
+    "country": "USA",
+    "city": "Durham, NH",
+    "qs_ranking": 801,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.unh.edu/program/bachelor-arts/communication"
+  },
+  {
+    "university": "University of New Hampshire",
+    "country": "USA",
+    "city": "Durham, NH",
+    "qs_ranking": 801,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.unh.edu/program/master-science/natural-resources-environmental-conservation-sustainability"
+  },
+  {
+    "university": "University of New Hampshire",
+    "country": "USA",
+    "city": "Durham, NH",
+    "qs_ranking": 801,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.unh.edu/program/master-science/natural-resources-environment"
+  },
+  {
+    "university": "University of New Hampshire",
+    "country": "USA",
+    "city": "Durham, NH",
+    "qs_ranking": 801,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.unh.edu/program/master-science/nursing-direct-entry"
+  },
+  {
+    "university": "University of New Hampshire",
+    "country": "USA",
+    "city": "Durham, NH",
+    "qs_ranking": 801,
+    "field_of_study": "Agriculture & Veterinary Sciences",
+    "program_url": "https://www.unh.edu/program/master-science/agricultural-sciences"
+  },
+  {
+    "university": "University of New Hampshire",
+    "country": "USA",
+    "city": "Durham, NH",
+    "qs_ranking": 801,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://paulcollege.unh.edu/hospitality-management/program/bs/hotel-hospitality-management-major"
+  },
+  {
+    "university": "University of California, Santa Barbara",
+    "country": "USA",
+    "city": "Santa Barbara, CA",
+    "qs_ranking": 157,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://cs.ucsb.edu/education/graduate/overview"
+  },
+  {
+    "university": "University of California, Santa Barbara",
+    "country": "USA",
+    "city": "Santa Barbara, CA",
+    "qs_ranking": 157,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://ai.cs.ucsb.edu/"
+  },
+  {
+    "university": "University of California, Santa Barbara",
+    "country": "USA",
+    "city": "Santa Barbara, CA",
+    "qs_ranking": 157,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://catalog.ucsb.edu/programs/MSME"
+  },
+  {
+    "university": "University of California, Santa Barbara",
+    "country": "USA",
+    "city": "Santa Barbara, CA",
+    "qs_ranking": 157,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.mcdb.ucsb.edu/academics/graduate"
+  },
+  {
+    "university": "University of California, Santa Barbara",
+    "country": "USA",
+    "city": "Santa Barbara, CA",
+    "qs_ranking": 157,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://arts.ucsb.edu/mfa-program-information/"
+  },
+  {
+    "university": "University of California, Santa Barbara",
+    "country": "USA",
+    "city": "Santa Barbara, CA",
+    "qs_ranking": 157,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.graddiv.ucsb.edu/graduate-programs/departments/latin-american-and-iberian-studies"
+  },
+  {
+    "university": "University of California, Santa Barbara",
+    "country": "USA",
+    "city": "Santa Barbara, CA",
+    "qs_ranking": 157,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://econ.ucsb.edu/programs/graduate"
+  },
+  {
+    "university": "University of California, Santa Barbara",
+    "country": "USA",
+    "city": "Santa Barbara, CA",
+    "qs_ranking": 157,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.comm.ucsb.edu/graduate"
+  },
+  {
+    "university": "University of California, Santa Barbara",
+    "country": "USA",
+    "city": "Santa Barbara, CA",
+    "qs_ranking": 157,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://bren.ucsb.edu/masters-programs/master-environmental-science-and-management"
+  },
+  {
+    "university": "University of California, Santa Barbara",
+    "country": "USA",
+    "city": "Santa Barbara, CA",
+    "qs_ranking": 157,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://catalog.ucsb.edu/programs/MSCHEM"
+  },
+  {
+    "university": "University of California, Irvine",
+    "country": "USA",
+    "city": "Irvine, CA",
+    "qs_ranking": 226,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://mcs.ics.uci.edu/"
+  },
+  {
+    "university": "University of California, Irvine",
+    "country": "USA",
+    "city": "Irvine, CA",
+    "qs_ranking": 226,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://mds.ics.uci.edu/"
+  },
+  {
+    "university": "University of California, Irvine",
+    "country": "USA",
+    "city": "Irvine, CA",
+    "qs_ranking": 226,
+    "field_of_study": "Business & Management",
+    "program_url": "https://merage.uci.edu/programs/masters/master-in-management/index.html"
+  },
+  {
+    "university": "University of California, Irvine",
+    "country": "USA",
+    "city": "Irvine, CA",
+    "qs_ranking": 226,
+    "field_of_study": "MBA",
+    "program_url": "https://merage.uci.edu/programs/mba/full-time-mba/admissions.html"
+  },
+  {
+    "university": "University of California, Irvine",
+    "country": "USA",
+    "city": "Irvine, CA",
+    "qs_ranking": 226,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://meng.eng.uci.edu/"
+  },
+  {
+    "university": "University of California, Irvine",
+    "country": "USA",
+    "city": "Irvine, CA",
+    "qs_ranking": 226,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://mbb.bio.uci.edu/graduates/masters-science-degree-biotechnology/"
+  },
+  {
+    "university": "University of California, Irvine",
+    "country": "USA",
+    "city": "Irvine, CA",
+    "qs_ranking": 226,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://publichealth.uci.edu/admission/graduate-admission/"
+  },
+  {
+    "university": "University of California, Irvine",
+    "country": "USA",
+    "city": "Irvine, CA",
+    "qs_ranking": 226,
+    "field_of_study": "Law",
+    "program_url": "https://www.law.uci.edu/admission/jd.html"
+  },
+  {
+    "university": "University of California, Irvine",
+    "country": "USA",
+    "city": "Irvine, CA",
+    "qs_ranking": 226,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://drama.arts.uci.edu/graduate-programs/design/mfa-design"
+  },
+  {
+    "university": "University of California, Irvine",
+    "country": "USA",
+    "city": "Irvine, CA",
+    "qs_ranking": 226,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.gradstudies.socsci.uci.edu/admissions/masters.php"
+  },
+  {
+    "university": "University of California, Irvine",
+    "country": "USA",
+    "city": "Irvine, CA",
+    "qs_ranking": 226,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://merage.uci.edu/programs/masters/master-finance/index.html"
+  },
+  {
+    "university": "University of California, Irvine",
+    "country": "USA",
+    "city": "Irvine, CA",
+    "qs_ranking": 226,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://catalogue.uci.edu/schoolofhumanities/departmentoffilmandmediastudies/filmandmediastudies_ba/"
+  },
+  {
+    "university": "University of California, Irvine",
+    "country": "USA",
+    "city": "Irvine, CA",
+    "qs_ranking": 226,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://mcrs.bio.uci.edu/"
+  },
+  {
+    "university": "University of California, Irvine",
+    "country": "USA",
+    "city": "Irvine, CA",
+    "qs_ranking": 226,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://catalogue.uci.edu/donaldbrenschoolofinformationandcomputersciences/datascience_master/"
+  },
+  {
+    "university": "University of California, Irvine",
+    "country": "USA",
+    "city": "Irvine, CA",
+    "qs_ranking": 226,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://nursing.uci.edu/degrees-and-programs/masters-entry-program-in-nursing/admissions/"
+  },
+  {
+    "university": "University of California, Davis",
+    "country": "USA",
+    "city": "Davis, CA",
+    "qs_ranking": 123,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://cs.ucdavis.edu/graduate/our-programs/ms-degree"
+  },
+  {
+    "university": "University of California, Davis",
+    "country": "USA",
+    "city": "Davis, CA",
+    "qs_ranking": 123,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://gsm.ucdavis.edu/master-science-business-analytics"
+  },
+  {
+    "university": "University of California, Davis",
+    "country": "USA",
+    "city": "Davis, CA",
+    "qs_ranking": 123,
+    "field_of_study": "Business & Management",
+    "program_url": "https://gsm.ucdavis.edu/full-time-mba"
+  },
+  {
+    "university": "University of California, Davis",
+    "country": "USA",
+    "city": "Davis, CA",
+    "qs_ranking": 123,
+    "field_of_study": "MBA",
+    "program_url": "https://gsm.ucdavis.edu/full-time-mba"
+  },
+  {
+    "university": "University of California, Davis",
+    "country": "USA",
+    "city": "Davis, CA",
+    "qs_ranking": 123,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://mae.ucdavis.edu/graduate/master-of-science"
+  },
+  {
+    "university": "University of California, Davis",
+    "country": "USA",
+    "city": "Davis, CA",
+    "qs_ranking": 123,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://deb.ucdavis.edu/graduate-studies"
+  },
+  {
+    "university": "University of California, Davis",
+    "country": "USA",
+    "city": "Davis, CA",
+    "qs_ranking": 123,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://health.ucdavis.edu/phs/education/mph/prospective.html"
+  },
+  {
+    "university": "University of California, Davis",
+    "country": "USA",
+    "city": "Davis, CA",
+    "qs_ranking": 123,
+    "field_of_study": "Law",
+    "program_url": "https://law.ucdavis.edu/admissions/jd-admissions"
+  },
+  {
+    "university": "University of California, Davis",
+    "country": "USA",
+    "city": "Davis, CA",
+    "qs_ranking": 123,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://arts.ucdavis.edu/design-graduate-program"
+  },
+  {
+    "university": "University of California, Davis",
+    "country": "USA",
+    "city": "Davis, CA",
+    "qs_ranking": 123,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://sociology.ucdavis.edu/graduate"
+  },
+  {
+    "university": "University of California, Davis",
+    "country": "USA",
+    "city": "Davis, CA",
+    "qs_ranking": 123,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://economics.ucdavis.edu/admission-information"
+  },
+  {
+    "university": "University of California, Davis",
+    "country": "USA",
+    "city": "Davis, CA",
+    "qs_ranking": 123,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://communication.ucdavis.edu/masters-program"
+  },
+  {
+    "university": "University of California, Davis",
+    "country": "USA",
+    "city": "Davis, CA",
+    "qs_ranking": 123,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://epm.ucdavis.edu/apply"
+  },
+  {
+    "university": "University of California, Davis",
+    "country": "USA",
+    "city": "Davis, CA",
+    "qs_ranking": 123,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://grad.ucdavis.edu/programs/gccb"
+  },
+  {
+    "university": "University of California, Davis",
+    "country": "USA",
+    "city": "Davis, CA",
+    "qs_ranking": 123,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://health.ucdavis.edu/nursing/admissions/programs/msn.html"
+  },
+  {
+    "university": "University of California, Davis",
+    "country": "USA",
+    "city": "Davis, CA",
+    "qs_ranking": 123,
+    "field_of_study": "Agriculture & Veterinary Sciences",
+    "program_url": "https://www.vetmed.ucdavis.edu/admissions/criteria-admission"
+  },
+  {
+    "university": "California Polytechnic State University",
+    "country": "USA",
+    "city": "San Luis Obispo, CA",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://catalog.calpoly.edu/engineering/computer-science-software/computer-science-ms/"
+  },
+  {
+    "university": "California Polytechnic State University",
+    "country": "USA",
+    "city": "San Luis Obispo, CA",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://gradbusiness.calpoly.edu/ms-business-analytics/"
+  },
+  {
+    "university": "California Polytechnic State University",
+    "country": "USA",
+    "city": "San Luis Obispo, CA",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.calpoly.edu/major/business-administration"
+  },
+  {
+    "university": "California Polytechnic State University",
+    "country": "USA",
+    "city": "San Luis Obispo, CA",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://gradbusiness.calpoly.edu/mba/"
+  },
+  {
+    "university": "California Polytechnic State University",
+    "country": "USA",
+    "city": "San Luis Obispo, CA",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://catalog.calpoly.edu/engineering/mechanical/mechanical-engineering-ms/"
+  },
+  {
+    "university": "California Polytechnic State University",
+    "country": "USA",
+    "city": "San Luis Obispo, CA",
+    "qs_ranking": null,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://bio.calpoly.edu/content/graduate-degrees"
+  },
+  {
+    "university": "California Polytechnic State University",
+    "country": "USA",
+    "city": "San Luis Obispo, CA",
+    "qs_ranking": null,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://catalog.calpoly.edu/science-mathematics/kinesiology-public-health/public-health-bs/"
+  },
+  {
+    "university": "California Polytechnic State University",
+    "country": "USA",
+    "city": "San Luis Obispo, CA",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://architecture.calpoly.edu/prospective/masters"
+  },
+  {
+    "university": "California Polytechnic State University",
+    "country": "USA",
+    "city": "San Luis Obispo, CA",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://socialsciences.calpoly.edu/students/major/sociology"
+  },
+  {
+    "university": "California Polytechnic State University",
+    "country": "USA",
+    "city": "San Luis Obispo, CA",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://orfalea.calpoly.edu/graduate-programs/ms-economics"
+  },
+  {
+    "university": "California Polytechnic State University",
+    "country": "USA",
+    "city": "San Luis Obispo, CA",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://catalog.calpoly.edu/liberal-arts/journalism/journalism-bs/"
+  },
+  {
+    "university": "California Polytechnic State University",
+    "country": "USA",
+    "city": "San Luis Obispo, CA",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://nres.calpoly.edu/ms-environmental-sciences-and-management"
+  },
+  {
+    "university": "California Polytechnic State University",
+    "country": "USA",
+    "city": "San Luis Obispo, CA",
+    "qs_ranking": null,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://bio.calpoly.edu/content/graduate-degrees"
+  },
+  {
+    "university": "California Polytechnic State University",
+    "country": "USA",
+    "city": "San Luis Obispo, CA",
+    "qs_ranking": null,
+    "field_of_study": "Agriculture & Veterinary Sciences",
+    "program_url": "https://cafes.calpoly.edu/grad-programs"
+  },
+  {
+    "university": "California Polytechnic State University",
+    "country": "USA",
+    "city": "San Luis Obispo, CA",
+    "qs_ranking": null,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://eim.calpoly.edu/degree"
+  },
+  {
+    "university": "Santa Clara University",
+    "country": "USA",
+    "city": "Santa Clara, CA",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.scu.edu/engineering/academic-programs/department-of-computer-engineering/graduate/ms-in-computer-science-and-engineering/"
+  },
+  {
+    "university": "Santa Clara University",
+    "country": "USA",
+    "city": "Santa Clara, CA",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.scu.edu/engineering/graduate/ms-ai/"
+  },
+  {
+    "university": "Santa Clara University",
+    "country": "USA",
+    "city": "Santa Clara, CA",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.scu.edu/business/ms/"
+  },
+  {
+    "university": "Santa Clara University",
+    "country": "USA",
+    "city": "Santa Clara, CA",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://www.scu.edu/business/evening-mba/"
+  },
+  {
+    "university": "Santa Clara University",
+    "country": "USA",
+    "city": "Santa Clara, CA",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.scu.edu/engineering/academic-programs/department-of-mechanical-engineering/graduate/msme/"
+  },
+  {
+    "university": "Santa Clara University",
+    "country": "USA",
+    "city": "Santa Clara, CA",
+    "qs_ranking": null,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.scu.edu/engineering/academic-programs/department-of-bioengineering/graduate/"
+  },
+  {
+    "university": "Santa Clara University",
+    "country": "USA",
+    "city": "Santa Clara, CA",
+    "qs_ranking": null,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.scu.edu/cas/public-health/academic-programs/"
+  },
+  {
+    "university": "Santa Clara University",
+    "country": "USA",
+    "city": "Santa Clara, CA",
+    "qs_ranking": null,
+    "field_of_study": "Law",
+    "program_url": "https://law.scu.edu/admissions/our-programs/flex-jd/"
+  },
+  {
+    "university": "Santa Clara University",
+    "country": "USA",
+    "city": "Santa Clara, CA",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.scu.edu/cas/art/academic-programs/"
+  },
+  {
+    "university": "Santa Clara University",
+    "country": "USA",
+    "city": "Santa Clara, CA",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.scu.edu/cas/sociology/"
+  },
+  {
+    "university": "Santa Clara University",
+    "country": "USA",
+    "city": "Santa Clara, CA",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.scu.edu/business/ms/ms-finance-and-analytics/"
+  },
+  {
+    "university": "Santa Clara University",
+    "country": "USA",
+    "city": "Santa Clara, CA",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.scu.edu/cas/communication/academic-programs/"
+  },
+  {
+    "university": "Santa Clara University",
+    "country": "USA",
+    "city": "Santa Clara, CA",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.scu.edu/cas/ess/academic-programs/"
+  },
+  {
+    "university": "Santa Clara University",
+    "country": "USA",
+    "city": "Santa Clara, CA",
+    "qs_ranking": null,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.scu.edu/cas/biology/academic-programs/"
+  },
+  {
+    "university": "University of San Francisco",
+    "country": "USA",
+    "city": "San Francisco, CA",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.usfca.edu/arts-sciences/programs/graduate/computer-science"
+  },
+  {
+    "university": "University of San Francisco",
+    "country": "USA",
+    "city": "San Francisco, CA",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.usfca.edu/arts-sciences/programs/graduate/data-science-artificial-intelligence"
+  },
+  {
+    "university": "University of San Francisco",
+    "country": "USA",
+    "city": "San Francisco, CA",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.usfca.edu/management/programs/graduate/mim"
+  },
+  {
+    "university": "University of San Francisco",
+    "country": "USA",
+    "city": "San Francisco, CA",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://www.usfca.edu/management/programs/graduate/mba/full-time"
+  },
+  {
+    "university": "University of San Francisco",
+    "country": "USA",
+    "city": "San Francisco, CA",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.usfca.edu/arts-sciences/programs/undergraduate/engineering"
+  },
+  {
+    "university": "University of San Francisco",
+    "country": "USA",
+    "city": "San Francisco, CA",
+    "qs_ranking": null,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.usfca.edu/arts-sciences/programs/graduate/biotechnology"
+  },
+  {
+    "university": "University of San Francisco",
+    "country": "USA",
+    "city": "San Francisco, CA",
+    "qs_ranking": null,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.usfca.edu/nursing/programs/graduate/public-health"
+  },
+  {
+    "university": "University of San Francisco",
+    "country": "USA",
+    "city": "San Francisco, CA",
+    "qs_ranking": null,
+    "field_of_study": "Law",
+    "program_url": "https://www.usfca.edu/law/programs/jd"
+  },
+  {
+    "university": "University of San Francisco",
+    "country": "USA",
+    "city": "San Francisco, CA",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.usfca.edu/arts-sciences/programs/graduate/writing-mfa"
+  },
+  {
+    "university": "University of San Francisco",
+    "country": "USA",
+    "city": "San Francisco, CA",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.usfca.edu/arts-sciences/programs/undergraduate/communication-studies"
+  },
+  {
+    "university": "University of San Francisco",
+    "country": "USA",
+    "city": "San Francisco, CA",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.usfca.edu/management/programs/undergraduate/finance/program-overview"
+  },
+  {
+    "university": "University of San Francisco",
+    "country": "USA",
+    "city": "San Francisco, CA",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.usfca.edu/arts-sciences/programs/undergraduate/media-studies"
+  },
+  {
+    "university": "University of San Francisco",
+    "country": "USA",
+    "city": "San Francisco, CA",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.usfca.edu/arts-sciences/programs/graduate/environmental-management"
+  },
+  {
+    "university": "University of San Francisco",
+    "country": "USA",
+    "city": "San Francisco, CA",
+    "qs_ranking": null,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.usfca.edu/arts-sciences/programs/undergraduate/environmental-science"
+  },
+  {
+    "university": "University of San Francisco",
+    "country": "USA",
+    "city": "San Francisco, CA",
+    "qs_ranking": null,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.usfca.edu/nursing/programs/graduate/masters-nursing"
+  },
+  {
+    "university": "University of San Francisco",
+    "country": "USA",
+    "city": "San Francisco, CA",
+    "qs_ranking": null,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://www.usfca.edu/management/programs/undergraduate/hospitality-management"
+  },
+  {
+    "university": "Chapman University",
+    "country": "USA",
+    "city": "Orange, CA",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.chapman.edu/engineering/academic-programs/undergraduate-programs/bs-computer-science.aspx"
+  },
+  {
+    "university": "Chapman University",
+    "country": "USA",
+    "city": "Orange, CA",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.chapman.edu/scst/graduate/ms-computational-science.aspx"
+  },
+  {
+    "university": "Chapman University",
+    "country": "USA",
+    "city": "Orange, CA",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.chapman.edu/business/academic-programs/graduate/prospective-students/programs/index.aspx"
+  },
+  {
+    "university": "Chapman University",
+    "country": "USA",
+    "city": "Orange, CA",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://www.chapman.edu/business/academic-programs/graduate/prospective-students/programs/full-time-mba.aspx"
+  },
+  {
+    "university": "Chapman University",
+    "country": "USA",
+    "city": "Orange, CA",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.chapman.edu/engineering/academic-programs/graduate-programs/index.aspx"
+  },
+  {
+    "university": "Chapman University",
+    "country": "USA",
+    "city": "Orange, CA",
+    "qs_ranking": null,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.chapman.edu/scst/undergraduate/bs-biochemistry.aspx"
+  },
+  {
+    "university": "Chapman University",
+    "country": "USA",
+    "city": "Orange, CA",
+    "qs_ranking": null,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.chapman.edu/crean/academic-programs/undergraduate-programs/bs-health-sciences.aspx"
+  },
+  {
+    "university": "Chapman University",
+    "country": "USA",
+    "city": "Orange, CA",
+    "qs_ranking": null,
+    "field_of_study": "Law",
+    "program_url": "https://www.chapman.edu/law/academic-programs/jd/index.aspx"
+  },
+  {
+    "university": "Chapman University",
+    "country": "USA",
+    "city": "Orange, CA",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.chapman.edu/wilkinson/art/index.aspx"
+  },
+  {
+    "university": "Chapman University",
+    "country": "USA",
+    "city": "Orange, CA",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.chapman.edu/wilkinson/graduate-studies/ma-international-studies/index.aspx"
+  },
+  {
+    "university": "Chapman University",
+    "country": "USA",
+    "city": "Orange, CA",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.chapman.edu/business/academic-programs/graduate/prospective-students/programs/ms-in-finance.aspx"
+  },
+  {
+    "university": "Chapman University",
+    "country": "USA",
+    "city": "Orange, CA",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.chapman.edu/communication/graduate/index.aspx"
+  },
+  {
+    "university": "Chapman University",
+    "country": "USA",
+    "city": "Orange, CA",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.chapman.edu/scst/undergraduate/bs-environmental-science-policy.aspx"
+  },
+  {
+    "university": "Chapman University",
+    "country": "USA",
+    "city": "Orange, CA",
+    "qs_ranking": null,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.chapman.edu/scst/undergraduate/bs-biological-sciences.aspx"
+  },
+  {
+    "university": "Harvey Mudd College",
+    "country": "USA",
+    "city": "Claremont, CA",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.hmc.edu/cs/academic-programs/cs-major/"
+  },
+  {
+    "university": "Harvey Mudd College",
+    "country": "USA",
+    "city": "Claremont, CA",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.hmc.edu/academics/emphases/data-science/"
+  },
+  {
+    "university": "Harvey Mudd College",
+    "country": "USA",
+    "city": "Claremont, CA",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.hmc.edu/engineering/curriculum/degree-requirements/"
+  },
+  {
+    "university": "Harvey Mudd College",
+    "country": "USA",
+    "city": "Claremont, CA",
+    "qs_ranking": null,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.hmc.edu/biology/programs/biology-major/"
+  },
+  {
+    "university": "Harvey Mudd College",
+    "country": "USA",
+    "city": "Claremont, CA",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.hmc.edu/hixon-center/environmental-analysis-at-harvey-mudd/"
+  },
+  {
+    "university": "Harvey Mudd College",
+    "country": "USA",
+    "city": "Claremont, CA",
+    "qs_ranking": null,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.hmc.edu/chemistry/curriculum/chemistry-major/"
+  },
+  {
+    "university": "Harvey Mudd College",
+    "country": "USA",
+    "city": "Claremont, CA",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.hmc.edu/academics/majors/"
+  },
+  {
+    "university": "Pomona College",
+    "country": "USA",
+    "city": "Claremont, CA",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.pomona.edu/academics/majors/computer-science"
+  },
+  {
+    "university": "Pomona College",
+    "country": "USA",
+    "city": "Claremont, CA",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.pomona.edu/academics/majors/data-science"
+  },
+  {
+    "university": "Pomona College",
+    "country": "USA",
+    "city": "Claremont, CA",
+    "qs_ranking": null,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.pomona.edu/academics/majors/molecular-biology"
+  },
+  {
+    "university": "Pomona College",
+    "country": "USA",
+    "city": "Claremont, CA",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.pomona.edu/academics/majors/art"
+  },
+  {
+    "university": "Pomona College",
+    "country": "USA",
+    "city": "Claremont, CA",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.pomona.edu/academics/majors/sociology"
+  },
+  {
+    "university": "Pomona College",
+    "country": "USA",
+    "city": "Claremont, CA",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.pomona.edu/academics/majors/economics"
+  },
+  {
+    "university": "Pomona College",
+    "country": "USA",
+    "city": "Claremont, CA",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.pomona.edu/academics/majors/media-studies"
+  },
+  {
+    "university": "Pomona College",
+    "country": "USA",
+    "city": "Claremont, CA",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.pomona.edu/academics/majors/environmental-analysis"
+  },
+  {
+    "university": "Pomona College",
+    "country": "USA",
+    "city": "Claremont, CA",
+    "qs_ranking": null,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.pomona.edu/academics/majors/physics"
+  },
+  {
+    "university": "Brigham Young University",
+    "country": "USA",
+    "city": "Provo, UT",
+    "qs_ranking": 451,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://gradstudies.byu.edu/program/computer-science-ms"
+  },
+  {
+    "university": "Brigham Young University",
+    "country": "USA",
+    "city": "Provo, UT",
+    "qs_ranking": 451,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://datascience.byu.edu/degrees"
+  },
+  {
+    "university": "Brigham Young University",
+    "country": "USA",
+    "city": "Provo, UT",
+    "qs_ranking": 451,
+    "field_of_study": "Business & Management",
+    "program_url": "https://marriott.byu.edu/students/explore/grad/"
+  },
+  {
+    "university": "Brigham Young University",
+    "country": "USA",
+    "city": "Provo, UT",
+    "qs_ranking": 451,
+    "field_of_study": "MBA",
+    "program_url": "https://marriott.byu.edu/mba/"
+  },
+  {
+    "university": "Brigham Young University",
+    "country": "USA",
+    "city": "Provo, UT",
+    "qs_ranking": 451,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://gradstudies.byu.edu/program/civil-engineering-ms"
+  },
+  {
+    "university": "Brigham Young University",
+    "country": "USA",
+    "city": "Provo, UT",
+    "qs_ranking": 451,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://pws.byu.edu/genetics-and-biotechnology-masters"
+  },
+  {
+    "university": "Brigham Young University",
+    "country": "USA",
+    "city": "Provo, UT",
+    "qs_ranking": 451,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://ph.byu.edu/mph"
+  },
+  {
+    "university": "Brigham Young University",
+    "country": "USA",
+    "city": "Provo, UT",
+    "qs_ranking": 451,
+    "field_of_study": "Law",
+    "program_url": "https://law.byu.edu/jd-program"
+  },
+  {
+    "university": "Brigham Young University",
+    "country": "USA",
+    "city": "Provo, UT",
+    "qs_ranking": 451,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://art.byu.edu/mfa-art"
+  },
+  {
+    "university": "Brigham Young University",
+    "country": "USA",
+    "city": "Provo, UT",
+    "qs_ranking": 451,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://gradstudies.byu.edu/program/psychology-ms"
+  },
+  {
+    "university": "Brigham Young University",
+    "country": "USA",
+    "city": "Provo, UT",
+    "qs_ranking": 451,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://marriott.byu.edu/bsfin/"
+  },
+  {
+    "university": "Brigham Young University",
+    "country": "USA",
+    "city": "Provo, UT",
+    "qs_ranking": 451,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://comms.byu.edu/academics/mass-communications-m-a"
+  },
+  {
+    "university": "Brigham Young University",
+    "country": "USA",
+    "city": "Provo, UT",
+    "qs_ranking": 451,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://pws.byu.edu/environmental-science/environmental-science-masters"
+  },
+  {
+    "university": "Brigham Young University",
+    "country": "USA",
+    "city": "Provo, UT",
+    "qs_ranking": 451,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://biology.byu.edu/ms-biology"
+  },
+  {
+    "university": "Brigham Young University",
+    "country": "USA",
+    "city": "Provo, UT",
+    "qs_ranking": 451,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://nursing.byu.edu/undergraduate-program"
+  },
+  {
+    "university": "Brigham Young University",
+    "country": "USA",
+    "city": "Provo, UT",
+    "qs_ranking": 451,
+    "field_of_study": "Agriculture & Veterinary Sciences",
+    "program_url": "https://pws.byu.edu/genetics-and-biotechnology-masters"
+  },
+  {
+    "university": "Brigham Young University",
+    "country": "USA",
+    "city": "Provo, UT",
+    "qs_ranking": 451,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://marriott.byu.edu/experience-design-management/"
+  },
+  {
+    "university": "University of Georgia",
+    "country": "USA",
+    "city": "Athens, GA",
+    "qs_ranking": 461,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.cs.uga.edu/ms-computer-science-non-thesis-option"
+  },
+  {
+    "university": "University of Georgia",
+    "country": "USA",
+    "city": "Athens, GA",
+    "qs_ranking": 461,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.ai.uga.edu/ms-artificial-intelligence"
+  },
+  {
+    "university": "University of Georgia",
+    "country": "USA",
+    "city": "Athens, GA",
+    "qs_ranking": 461,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.terry.uga.edu/mba/fulltime/admissions/"
+  },
+  {
+    "university": "University of Georgia",
+    "country": "USA",
+    "city": "Athens, GA",
+    "qs_ranking": 461,
+    "field_of_study": "MBA",
+    "program_url": "https://www.terry.uga.edu/mba/fulltime/admissions/"
+  },
+  {
+    "university": "University of Georgia",
+    "country": "USA",
+    "city": "Athens, GA",
+    "qs_ranking": 461,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.engineering.uga.edu/ms-engineering/mechanical"
+  },
+  {
+    "university": "University of Georgia",
+    "country": "USA",
+    "city": "Athens, GA",
+    "qs_ranking": 461,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://grad.uga.edu/degree/mbb-biomanufacturing-and-bioprocessing/"
+  },
+  {
+    "university": "University of Georgia",
+    "country": "USA",
+    "city": "Athens, GA",
+    "qs_ranking": 461,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://publichealth.uga.edu/apply-now/master-of-public-health-program/"
+  },
+  {
+    "university": "University of Georgia",
+    "country": "USA",
+    "city": "Athens, GA",
+    "qs_ranking": 461,
+    "field_of_study": "Law",
+    "program_url": "https://www.law.uga.edu/jd-admissions"
+  },
+  {
+    "university": "University of Georgia",
+    "country": "USA",
+    "city": "Athens, GA",
+    "qs_ranking": 461,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://art.uga.edu/mfa/"
+  },
+  {
+    "university": "University of Georgia",
+    "country": "USA",
+    "city": "Athens, GA",
+    "qs_ranking": 461,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://grad.uga.edu/degree/ma-sociology/"
+  },
+  {
+    "university": "University of Georgia",
+    "country": "USA",
+    "city": "Athens, GA",
+    "qs_ranking": 461,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://grad.uga.edu/degree/ma-economics/"
+  },
+  {
+    "university": "University of Georgia",
+    "country": "USA",
+    "city": "Athens, GA",
+    "qs_ranking": 461,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://grad.uga.edu/degree/ma-journalism-and-mass-communication/"
+  },
+  {
+    "university": "University of Georgia",
+    "country": "USA",
+    "city": "Athens, GA",
+    "qs_ranking": 461,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://ecology.uga.edu/degree/masters-icas/"
+  },
+  {
+    "university": "University of Georgia",
+    "country": "USA",
+    "city": "Athens, GA",
+    "qs_ranking": 461,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://grad.uga.edu/degree/ms-ecology/"
+  },
+  {
+    "university": "University of Georgia",
+    "country": "USA",
+    "city": "Athens, GA",
+    "qs_ranking": 461,
+    "field_of_study": "Agriculture & Veterinary Sciences",
+    "program_url": "https://grad.uga.edu/degree/ms-animal-and-dairy-science/"
+  },
+  {
+    "university": "University of Georgia",
+    "country": "USA",
+    "city": "Athens, GA",
+    "qs_ranking": 461,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://www.caes.uga.edu/students/undergraduate-programs/majors/hospitality-and-food-industry-management.html"
+  },
+  {
+    "university": "Louisiana State University",
+    "country": "USA",
+    "city": "Baton Rouge, LA",
+    "qs_ranking": 706,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.lsu.edu/eng/cse/programs/graduate_program/graduate_masters.php"
+  },
+  {
+    "university": "Louisiana State University",
+    "country": "USA",
+    "city": "Baton Rouge, LA",
+    "qs_ranking": 706,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://online.lsu.edu/online-degree-programs/graduate/ms-computer-science/"
+  },
+  {
+    "university": "Louisiana State University",
+    "country": "USA",
+    "city": "Baton Rouge, LA",
+    "qs_ranking": 706,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.lsu.edu/business/academics/graduate-programs.php"
+  },
+  {
+    "university": "Louisiana State University",
+    "country": "USA",
+    "city": "Baton Rouge, LA",
+    "qs_ranking": 706,
+    "field_of_study": "MBA",
+    "program_url": "https://www.lsu.edu/business/mba/full-time-mba.php"
+  },
+  {
+    "university": "Louisiana State University",
+    "country": "USA",
+    "city": "Baton Rouge, LA",
+    "qs_ranking": 706,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.lsu.edu/eng/cee/academics/graduate/ms-civil-engineering.php"
+  },
+  {
+    "university": "Louisiana State University",
+    "country": "USA",
+    "city": "Baton Rouge, LA",
+    "qs_ranking": 706,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.lsu.edu/science/biosci/programs/graduate/biological-sciences.php"
+  },
+  {
+    "university": "Louisiana State University",
+    "country": "USA",
+    "city": "Baton Rouge, LA",
+    "qs_ranking": 706,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://online.lsu.edu/online-degree-programs/graduate/master-public-health/"
+  },
+  {
+    "university": "Louisiana State University",
+    "country": "USA",
+    "city": "Baton Rouge, LA",
+    "qs_ranking": 706,
+    "field_of_study": "Law",
+    "program_url": "https://law.lsu.edu/academics/curriculum/jdcl/"
+  },
+  {
+    "university": "Louisiana State University",
+    "country": "USA",
+    "city": "Baton Rouge, LA",
+    "qs_ranking": 706,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://design.lsu.edu/architecture/programs/master-of-architecture/"
+  },
+  {
+    "university": "Louisiana State University",
+    "country": "USA",
+    "city": "Baton Rouge, LA",
+    "qs_ranking": 706,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.lsu.edu/hss/english/graduate_program/welcome.php"
+  },
+  {
+    "university": "Louisiana State University",
+    "country": "USA",
+    "city": "Baton Rouge, LA",
+    "qs_ranking": 706,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.lsu.edu/business/finance/master-financial-economics.php"
+  },
+  {
+    "university": "Louisiana State University",
+    "country": "USA",
+    "city": "Baton Rouge, LA",
+    "qs_ranking": 706,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.lsu.edu/manship/graduate-programs/degrees/master-of-mass-comm.php"
+  },
+  {
+    "university": "Louisiana State University",
+    "country": "USA",
+    "city": "Baton Rouge, LA",
+    "qs_ranking": 706,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.lsu.edu/cce/academics/graduate/envs/envs-masters.php"
+  },
+  {
+    "university": "Louisiana State University",
+    "country": "USA",
+    "city": "Baton Rouge, LA",
+    "qs_ranking": 706,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.lsu.edu/science/student-services/degree-programs/master-natural-science.php"
+  },
+  {
+    "university": "Louisiana State University",
+    "country": "USA",
+    "city": "Baton Rouge, LA",
+    "qs_ranking": 706,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://online.lsu.edu/online-degree-programs/undergraduate/bachelor-science-nursing/"
+  },
+  {
+    "university": "Louisiana State University",
+    "country": "USA",
+    "city": "Baton Rouge, LA",
+    "qs_ranking": 706,
+    "field_of_study": "Agriculture & Veterinary Sciences",
+    "program_url": "https://www.lsu.edu/vetmed/index.php"
+  },
+  {
+    "university": "Louisiana State University",
+    "country": "USA",
+    "city": "Baton Rouge, LA",
+    "qs_ranking": 706,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://online.lsu.edu/online-degree-programs/graduate/hospitality-and-tourism-management/"
+  },
+  {
+    "university": "Southern Methodist University",
+    "country": "USA",
+    "city": "Dallas, TX",
+    "qs_ranking": 601,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.smu.edu/lyle/departments/cs/ms-in-computer-science"
+  },
+  {
+    "university": "Southern Methodist University",
+    "country": "USA",
+    "city": "Dallas, TX",
+    "qs_ranking": 601,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://datascience.smu.edu/"
+  },
+  {
+    "university": "Southern Methodist University",
+    "country": "USA",
+    "city": "Dallas, TX",
+    "qs_ranking": 601,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.smu.edu/cox/business-degrees/masters-programs/ms-management"
+  },
+  {
+    "university": "Southern Methodist University",
+    "country": "USA",
+    "city": "Dallas, TX",
+    "qs_ranking": 601,
+    "field_of_study": "MBA",
+    "program_url": "https://www.smu.edu/cox/business-degrees/mba-programs/two-year-mba"
+  },
+  {
+    "university": "Southern Methodist University",
+    "country": "USA",
+    "city": "Dallas, TX",
+    "qs_ranking": 601,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.smu.edu/lyle/graduate"
+  },
+  {
+    "university": "Southern Methodist University",
+    "country": "USA",
+    "city": "Dallas, TX",
+    "qs_ranking": 601,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.smu.edu/dedman/academics/departments/biological-sciences/graduate"
+  },
+  {
+    "university": "Southern Methodist University",
+    "country": "USA",
+    "city": "Dallas, TX",
+    "qs_ranking": 601,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.smu.edu/dedman/academics/departments/anthropology/undergraduate/health-and-society"
+  },
+  {
+    "university": "Southern Methodist University",
+    "country": "USA",
+    "city": "Dallas, TX",
+    "qs_ranking": 601,
+    "field_of_study": "Law",
+    "program_url": "https://www.smu.edu/law/academics/jd-programs"
+  },
+  {
+    "university": "Southern Methodist University",
+    "country": "USA",
+    "city": "Dallas, TX",
+    "qs_ranking": 601,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.smu.edu/meadows/areasofstudy/art/graduatestudies/admissions"
+  },
+  {
+    "university": "Southern Methodist University",
+    "country": "USA",
+    "city": "Dallas, TX",
+    "qs_ranking": 601,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.smu.edu/dedman/academics/departments/history/graduate/ma"
+  },
+  {
+    "university": "Southern Methodist University",
+    "country": "USA",
+    "city": "Dallas, TX",
+    "qs_ranking": 601,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.smu.edu/dedman/academics/departments/economics/graduate/ma"
+  },
+  {
+    "university": "Southern Methodist University",
+    "country": "USA",
+    "city": "Dallas, TX",
+    "qs_ranking": 601,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.smu.edu/meadows/areasofstudy/journalism"
+  },
+  {
+    "university": "Southern Methodist University",
+    "country": "USA",
+    "city": "Dallas, TX",
+    "qs_ranking": 601,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.smu.edu/lyle/departments/multidisciplinary-programs/ma-in-sustainability-and-development"
+  },
+  {
+    "university": "Southern Methodist University",
+    "country": "USA",
+    "city": "Dallas, TX",
+    "qs_ranking": 601,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.smu.edu/dedman/academics/departments/biological-sciences/graduate"
+  },
+  {
+    "university": "Baylor University",
+    "country": "USA",
+    "city": "Waco, TX",
+    "qs_ranking": 601,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.ecs.baylor.edu/students-academics/degree-programs/graduate-degrees/master-science-computer-science"
+  },
+  {
+    "university": "Baylor University",
+    "country": "USA",
+    "city": "Waco, TX",
+    "qs_ranking": 601,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://hankamer.baylor.edu/msba/programs"
+  },
+  {
+    "university": "Baylor University",
+    "country": "USA",
+    "city": "Waco, TX",
+    "qs_ranking": 601,
+    "field_of_study": "Business & Management",
+    "program_url": "https://hankamer.baylor.edu/graduate"
+  },
+  {
+    "university": "Baylor University",
+    "country": "USA",
+    "city": "Waco, TX",
+    "qs_ranking": 601,
+    "field_of_study": "MBA",
+    "program_url": "https://hankamer.baylor.edu/mba/full-time"
+  },
+  {
+    "university": "Baylor University",
+    "country": "USA",
+    "city": "Waco, TX",
+    "qs_ranking": 601,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.ecs.baylor.edu/students-academics/degree-programs/graduate-degrees/master-science-mechanical-engineering"
+  },
+  {
+    "university": "Baylor University",
+    "country": "USA",
+    "city": "Waco, TX",
+    "qs_ranking": 601,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://biology.artsandsciences.baylor.edu/graduate/programs-and-degrees/master-science-biology"
+  },
+  {
+    "university": "Baylor University",
+    "country": "USA",
+    "city": "Waco, TX",
+    "qs_ranking": 601,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://publichealth.robbins.baylor.edu/graduate-programs/master-public-health/campus-master-public-health-mph"
+  },
+  {
+    "university": "Baylor University",
+    "country": "USA",
+    "city": "Waco, TX",
+    "qs_ranking": 601,
+    "field_of_study": "Law",
+    "program_url": "https://law.baylor.edu/why-baylor-law/academics/degree-programs"
+  },
+  {
+    "university": "Baylor University",
+    "country": "USA",
+    "city": "Waco, TX",
+    "qs_ranking": 601,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://hsd.robbins.baylor.edu/master-architecture"
+  },
+  {
+    "university": "Baylor University",
+    "country": "USA",
+    "city": "Waco, TX",
+    "qs_ranking": 601,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://communication.artsandsciences.baylor.edu/graduate/masters-program"
+  },
+  {
+    "university": "Baylor University",
+    "country": "USA",
+    "city": "Waco, TX",
+    "qs_ranking": 601,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://hankamer.baylor.edu/mseco/degree"
+  },
+  {
+    "university": "Baylor University",
+    "country": "USA",
+    "city": "Waco, TX",
+    "qs_ranking": 601,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://journalism.artsandsciences.baylor.edu/mamj/ma-program"
+  },
+  {
+    "university": "Baylor University",
+    "country": "USA",
+    "city": "Waco, TX",
+    "qs_ranking": 601,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://catalog.baylor.edu/graduate-school/curriculum-departments-institutes-instruction/college-arts-sciences/environmental-science/"
+  },
+  {
+    "university": "Baylor University",
+    "country": "USA",
+    "city": "Waco, TX",
+    "qs_ranking": 601,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://physics.artsandsciences.baylor.edu/graduate/graduate-programs/master-arts-and-master-science"
+  },
+  {
+    "university": "Baylor University",
+    "country": "USA",
+    "city": "Waco, TX",
+    "qs_ranking": 601,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://nursing.baylor.edu/academics/undergraduate-bsn-program-resources/traditional-bsn-track"
+  },
+  {
+    "university": "University of Louisville",
+    "country": "USA",
+    "city": "Louisville, KY",
+    "qs_ranking": 951,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://catalog.louisville.edu/graduate/programs-study/master-of-science-computer-science/"
+  },
+  {
+    "university": "University of Louisville",
+    "country": "USA",
+    "city": "Louisville, KY",
+    "qs_ranking": 951,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://catalog.louisville.edu/graduate/programs-study/master-science-artificial-intelligence-in-medicine/"
+  },
+  {
+    "university": "University of Louisville",
+    "country": "USA",
+    "city": "Louisville, KY",
+    "qs_ranking": 951,
+    "field_of_study": "Business & Management",
+    "program_url": "https://catalog.louisville.edu/graduate/programs-study/master-science-business-analytics/"
+  },
+  {
+    "university": "University of Louisville",
+    "country": "USA",
+    "city": "Louisville, KY",
+    "qs_ranking": 951,
+    "field_of_study": "MBA",
+    "program_url": "https://business.louisville.edu/online-master-business-administration"
+  },
+  {
+    "university": "University of Louisville",
+    "country": "USA",
+    "city": "Louisville, KY",
+    "qs_ranking": 951,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://catalog.louisville.edu/graduate/programs-study/master-of-science-mechanical-engineering/"
+  },
+  {
+    "university": "University of Louisville",
+    "country": "USA",
+    "city": "Louisville, KY",
+    "qs_ranking": 951,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://catalog.louisville.edu/graduate/programs-study/master-science-bioengineering/"
+  },
+  {
+    "university": "University of Louisville",
+    "country": "USA",
+    "city": "Louisville, KY",
+    "qs_ranking": 951,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://catalog.louisville.edu/graduate/programs-study/master-public-health/"
+  },
+  {
+    "university": "University of Louisville",
+    "country": "USA",
+    "city": "Louisville, KY",
+    "qs_ranking": 951,
+    "field_of_study": "Law",
+    "program_url": "https://law.louisville.edu/academics/juris-doctor-program"
+  },
+  {
+    "university": "University of Louisville",
+    "country": "USA",
+    "city": "Louisville, KY",
+    "qs_ranking": 951,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://catalog.louisville.edu/graduate/programs-study/master-fine-arts-studio-art-design/"
+  },
+  {
+    "university": "University of Louisville",
+    "country": "USA",
+    "city": "Louisville, KY",
+    "qs_ranking": 951,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://catalog.louisville.edu/graduate/programs-study/master-arts-anthropology/"
+  },
+  {
+    "university": "University of Louisville",
+    "country": "USA",
+    "city": "Louisville, KY",
+    "qs_ranking": 951,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://catalog.louisville.edu/undergraduate/majors/business-economics-bs/"
+  },
+  {
+    "university": "University of Louisville",
+    "country": "USA",
+    "city": "Louisville, KY",
+    "qs_ranking": 951,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://catalog.louisville.edu/graduate/programs-study/master-arts-communication/"
+  },
+  {
+    "university": "University of Louisville",
+    "country": "USA",
+    "city": "Louisville, KY",
+    "qs_ranking": 951,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://catalog.louisville.edu/graduate/programs-study/master-of-arts-master-of-science-in-interdisciplinary-studies-concentration-in-sustainability/"
+  },
+  {
+    "university": "University of Louisville",
+    "country": "USA",
+    "city": "Louisville, KY",
+    "qs_ranking": 951,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://catalog.louisville.edu/graduate/programs-study/master-science-biology/"
+  },
+  {
+    "university": "University of Louisville",
+    "country": "USA",
+    "city": "Louisville, KY",
+    "qs_ranking": 951,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://catalog.louisville.edu/graduate/programs-study/master-science-nursing/"
+  },
+  {
+    "university": "University of South Carolina",
+    "country": "USA",
+    "city": "Columbia, SC",
+    "qs_ranking": 501,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://sc.edu/study/majors_and_degrees/computer-science-ms.php"
+  },
+  {
+    "university": "University of South Carolina",
+    "country": "USA",
+    "city": "Columbia, SC",
+    "qs_ranking": 501,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://sc.edu/study/colleges_schools/engineering_and_computing/academics/graduate_programs/artificial_intelligence_certificate/"
+  },
+  {
+    "university": "University of South Carolina",
+    "country": "USA",
+    "city": "Columbia, SC",
+    "qs_ranking": 501,
+    "field_of_study": "Business & Management",
+    "program_url": "https://sc.edu/study/colleges_schools/moore/study/masters_programs/"
+  },
+  {
+    "university": "University of South Carolina",
+    "country": "USA",
+    "city": "Columbia, SC",
+    "qs_ranking": 501,
+    "field_of_study": "MBA",
+    "program_url": "https://sc.edu/study/colleges_schools/moore/study/business_administration/fulltime_mba_programs/one_year_mba/index.php"
+  },
+  {
+    "university": "University of South Carolina",
+    "country": "USA",
+    "city": "Columbia, SC",
+    "qs_ranking": 501,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://sc.edu/study/majors_and_degrees/mechanical-engineering-ms.php"
+  },
+  {
+    "university": "University of South Carolina",
+    "country": "USA",
+    "city": "Columbia, SC",
+    "qs_ranking": 501,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://sc.edu/study/majors_and_degrees/biomedical-sciences-ms.php"
+  },
+  {
+    "university": "University of South Carolina",
+    "country": "USA",
+    "city": "Columbia, SC",
+    "qs_ranking": 501,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://sc.edu/study/colleges_schools/public_health/study/graduate_degrees/mph.php"
+  },
+  {
+    "university": "University of South Carolina",
+    "country": "USA",
+    "city": "Columbia, SC",
+    "qs_ranking": 501,
+    "field_of_study": "Law",
+    "program_url": "https://sc.edu/study/colleges_schools/law/academics/degrees/jd_program/"
+  },
+  {
+    "university": "University of South Carolina",
+    "country": "USA",
+    "city": "Columbia, SC",
+    "qs_ranking": 501,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://sc.edu/study/colleges_schools/artsandsciences/visual_art_and_design/study/graduate/index.php"
+  },
+  {
+    "university": "University of South Carolina",
+    "country": "USA",
+    "city": "Columbia, SC",
+    "qs_ranking": 501,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://sc.edu/study/majors_and_degrees/sociology.php"
+  },
+  {
+    "university": "University of South Carolina",
+    "country": "USA",
+    "city": "Columbia, SC",
+    "qs_ranking": 501,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://sc.edu/study/colleges_schools/moore/study/economics/degree_programs/master_of_arts_in_economics/"
+  },
+  {
+    "university": "University of South Carolina",
+    "country": "USA",
+    "city": "Columbia, SC",
+    "qs_ranking": 501,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://sc.edu/study/colleges_schools/cic/academic_programs/masters/journalism_and_mass_communication/master_of_mass_communication/index.php"
+  },
+  {
+    "university": "University of South Carolina",
+    "country": "USA",
+    "city": "Columbia, SC",
+    "qs_ranking": 501,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://sc.edu/study/colleges_schools/artsandsciences/earth_ocean_and_environment/study/graduate/earth_environment_resource_management/"
+  },
+  {
+    "university": "University of South Carolina",
+    "country": "USA",
+    "city": "Columbia, SC",
+    "qs_ranking": 501,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://sc.edu/study/colleges_schools/graduate_school/apply/degree_programs-application-requirements/physics-ms/"
+  },
+  {
+    "university": "University of South Carolina",
+    "country": "USA",
+    "city": "Columbia, SC",
+    "qs_ranking": 501,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://sc.edu/study/colleges_schools/nursing/academic_programs/graduate_programs/masters_programs/"
+  },
+  {
+    "university": "University of South Carolina",
+    "country": "USA",
+    "city": "Columbia, SC",
+    "qs_ranking": 501,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://sc.edu/study/colleges_schools/hrsm/study/degreeprograms/intl_hospitality_management_mihtm/"
+  },
+  {
+    "university": "University of Oklahoma",
+    "country": "USA",
+    "city": "Norman, OK",
+    "qs_ranking": 651,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.ou.edu/coe/cs/academics/graduate"
+  },
+  {
+    "university": "University of Oklahoma",
+    "country": "USA",
+    "city": "Norman, OK",
+    "qs_ranking": 651,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.ou.edu/coe/dsai"
+  },
+  {
+    "university": "University of Oklahoma",
+    "country": "USA",
+    "city": "Norman, OK",
+    "qs_ranking": 651,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.ou.edu/price/divisions"
+  },
+  {
+    "university": "University of Oklahoma",
+    "country": "USA",
+    "city": "Norman, OK",
+    "qs_ranking": 651,
+    "field_of_study": "MBA",
+    "program_url": "https://www.ou.edu/price/mba/full-time"
+  },
+  {
+    "university": "University of Oklahoma",
+    "country": "USA",
+    "city": "Norman, OK",
+    "qs_ranking": 651,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.ou.edu/coe/ece/academics/graduate_programs/m_s_ece"
+  },
+  {
+    "university": "University of Oklahoma",
+    "country": "USA",
+    "city": "Norman, OK",
+    "qs_ranking": 651,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.ou.edu/coe/sbme/academics/graduate"
+  },
+  {
+    "university": "University of Oklahoma",
+    "country": "USA",
+    "city": "Norman, OK",
+    "qs_ranking": 651,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://online.ou.edu/programs/graduate/public-health/"
+  },
+  {
+    "university": "University of Oklahoma",
+    "country": "USA",
+    "city": "Norman, OK",
+    "qs_ranking": 651,
+    "field_of_study": "Law",
+    "program_url": "https://law.ou.edu/jd"
+  },
+  {
+    "university": "University of Oklahoma",
+    "country": "USA",
+    "city": "Norman, OK",
+    "qs_ranking": 651,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://architecture.ou.edu/architecture-degree-requirements/"
+  },
+  {
+    "university": "University of Oklahoma",
+    "country": "USA",
+    "city": "Norman, OK",
+    "qs_ranking": 651,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.ou.edu/cas/humanrelations/academics/graduate/master-of-human-relations"
+  },
+  {
+    "university": "University of Oklahoma",
+    "country": "USA",
+    "city": "Norman, OK",
+    "qs_ranking": 651,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.ou.edu/price/graduate-degree-programs/finance-master-science"
+  },
+  {
+    "university": "University of Oklahoma",
+    "country": "USA",
+    "city": "Norman, OK",
+    "qs_ranking": 651,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://online.ou.edu/program/ma-in-strategic-communication-and-digital-strategy/"
+  },
+  {
+    "university": "University of Oklahoma",
+    "country": "USA",
+    "city": "Norman, OK",
+    "qs_ranking": 651,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.ou.edu/coe/scbme/academics/sustainability"
+  },
+  {
+    "university": "University of Oklahoma",
+    "country": "USA",
+    "city": "Norman, OK",
+    "qs_ranking": 651,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.ou.edu/cas/chemistry/academics/graduate/degrees"
+  },
+  {
+    "university": "University of Oklahoma",
+    "country": "USA",
+    "city": "Norman, OK",
+    "qs_ranking": 651,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://online.ou.edu/program/bs-in-nursing/"
+  },
+  {
+    "university": "Florida Atlantic University",
+    "country": "USA",
+    "city": "Boca Raton, FL",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.fau.edu/engineering/eecs/graduate/ms/computer-science/"
+  },
+  {
+    "university": "Florida Atlantic University",
+    "country": "USA",
+    "city": "Boca Raton, FL",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.fau.edu/engineering/eecs/graduate/ms/artificial-intelligence/"
+  },
+  {
+    "university": "Florida Atlantic University",
+    "country": "USA",
+    "city": "Boca Raton, FL",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://business.fau.edu/masters-phd/master-of-science/"
+  },
+  {
+    "university": "Florida Atlantic University",
+    "country": "USA",
+    "city": "Boca Raton, FL",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://business.fau.edu/masters-phd/mba-program/mba/"
+  },
+  {
+    "university": "Florida Atlantic University",
+    "country": "USA",
+    "city": "Boca Raton, FL",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.fau.edu/engineering/ome/graduate/ms/mechanical/"
+  },
+  {
+    "university": "Florida Atlantic University",
+    "country": "USA",
+    "city": "Boca Raton, FL",
+    "qs_ranking": null,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://biology.fau.edu/academics/graduate/index.php"
+  },
+  {
+    "university": "Florida Atlantic University",
+    "country": "USA",
+    "city": "Boca Raton, FL",
+    "qs_ranking": null,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.fau.edu/medicine/graduate/masters/"
+  },
+  {
+    "university": "Florida Atlantic University",
+    "country": "USA",
+    "city": "Boca Raton, FL",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.fau.edu/artsandletters/architecture/barch/"
+  },
+  {
+    "university": "Florida Atlantic University",
+    "country": "USA",
+    "city": "Boca Raton, FL",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.fau.edu/artsandletters/graduate-studies/the-social-sciences/"
+  },
+  {
+    "university": "Florida Atlantic University",
+    "country": "USA",
+    "city": "Boca Raton, FL",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://business.fau.edu/masters-phd/economics/"
+  },
+  {
+    "university": "Florida Atlantic University",
+    "country": "USA",
+    "city": "Boca Raton, FL",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.fau.edu/artsandletters/scms/grad-comm/"
+  },
+  {
+    "university": "Florida Atlantic University",
+    "country": "USA",
+    "city": "Boca Raton, FL",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.fau.edu/science/envirosci/esms-program/"
+  },
+  {
+    "university": "Florida Atlantic University",
+    "country": "USA",
+    "city": "Boca Raton, FL",
+    "qs_ranking": null,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://biology.fau.edu/academics/graduate/ms-programs.php"
+  },
+  {
+    "university": "Florida Atlantic University",
+    "country": "USA",
+    "city": "Boca Raton, FL",
+    "qs_ranking": null,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.fau.edu/nursing/academics/bachelor-of-science-nursing-program/"
+  },
+  {
+    "university": "Florida Atlantic University",
+    "country": "USA",
+    "city": "Boca Raton, FL",
+    "qs_ranking": null,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://business.fau.edu/masters-phd/mba-program/mba/hospitality-and-tourism-management/"
+  },
+  {
+    "university": "University of Memphis",
+    "country": "USA",
+    "city": "Memphis, TN",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.memphis.edu/cs/programs/ms_computer_science.php"
+  },
+  {
+    "university": "University of Memphis",
+    "country": "USA",
+    "city": "Memphis, TN",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.memphis.edu/datascience/"
+  },
+  {
+    "university": "University of Memphis",
+    "country": "USA",
+    "city": "Memphis, TN",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.memphis.edu/fcbegrad/mba/"
+  },
+  {
+    "university": "University of Memphis",
+    "country": "USA",
+    "city": "Memphis, TN",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://mba.memphis.edu/"
+  },
+  {
+    "university": "University of Memphis",
+    "country": "USA",
+    "city": "Memphis, TN",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.memphis.edu/herff/departments/degrees-ug.php"
+  },
+  {
+    "university": "University of Memphis",
+    "country": "USA",
+    "city": "Memphis, TN",
+    "qs_ranking": null,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.memphis.edu/biology/graduate/"
+  },
+  {
+    "university": "University of Memphis",
+    "country": "USA",
+    "city": "Memphis, TN",
+    "qs_ranking": null,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.memphis.edu/publichealth/academics/degrees-programs/ebe-mph-epi.php"
+  },
+  {
+    "university": "University of Memphis",
+    "country": "USA",
+    "city": "Memphis, TN",
+    "qs_ranking": null,
+    "field_of_study": "Law",
+    "program_url": "https://www.memphis.edu/law/current-students/degree-programs.php"
+  },
+  {
+    "university": "University of Memphis",
+    "country": "USA",
+    "city": "Memphis, TN",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.memphis.edu/architecture/admissions.php"
+  },
+  {
+    "university": "University of Memphis",
+    "country": "USA",
+    "city": "Memphis, TN",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.memphis.edu/uofmglobal/degrees/socialscience.php"
+  },
+  {
+    "university": "University of Memphis",
+    "country": "USA",
+    "city": "Memphis, TN",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.memphis.edu/fcbegrad/specialized/ma-econ.php"
+  },
+  {
+    "university": "University of Memphis",
+    "country": "USA",
+    "city": "Memphis, TN",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.memphis.edu/jrsm/graduate_program/"
+  },
+  {
+    "university": "University of Memphis",
+    "country": "USA",
+    "city": "Memphis, TN",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.memphis.edu/healthsciences/graduate/environmental-nutrition-ms.php"
+  },
+  {
+    "university": "University of Memphis",
+    "country": "USA",
+    "city": "Memphis, TN",
+    "qs_ranking": null,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.memphis.edu/chem/programs/masters.php"
+  },
+  {
+    "university": "University of Memphis",
+    "country": "USA",
+    "city": "Memphis, TN",
+    "qs_ranking": null,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.memphis.edu/nursing/program-admit/msn/msnprograms.php"
+  },
+  {
+    "university": "University of Memphis",
+    "country": "USA",
+    "city": "Memphis, TN",
+    "qs_ranking": null,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://www.memphis.edu/wilson/hospitality/mals.php"
+  },
+  {
+    "university": "Georgia State University",
+    "country": "USA",
+    "city": "Atlanta, GA",
+    "qs_ranking": 561,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.gsu.edu/program/computer-science-ms/"
+  },
+  {
+    "university": "Georgia State University",
+    "country": "USA",
+    "city": "Atlanta, GA",
+    "qs_ranking": 561,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.gsu.edu/program/data-science-analytics-msa/"
+  },
+  {
+    "university": "Georgia State University",
+    "country": "USA",
+    "city": "Atlanta, GA",
+    "qs_ranking": 561,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.gsu.edu/program/management-bba/"
+  },
+  {
+    "university": "Georgia State University",
+    "country": "USA",
+    "city": "Atlanta, GA",
+    "qs_ranking": 561,
+    "field_of_study": "MBA",
+    "program_url": "https://robinson.gsu.edu/program/mba/"
+  },
+  {
+    "university": "Georgia State University",
+    "country": "USA",
+    "city": "Atlanta, GA",
+    "qs_ranking": 561,
+    "field_of_study": "Biotechnology & Life Sciences",
+    "program_url": "https://www.gsu.edu/program/biology-ms/"
+  },
+  {
+    "university": "Georgia State University",
+    "country": "USA",
+    "city": "Atlanta, GA",
+    "qs_ranking": 561,
+    "field_of_study": "Medicine & Public Health",
+    "program_url": "https://www.gsu.edu/program/health-promotion-and-behavior-mph/"
+  },
+  {
+    "university": "Georgia State University",
+    "country": "USA",
+    "city": "Atlanta, GA",
+    "qs_ranking": 561,
+    "field_of_study": "Law",
+    "program_url": "https://law.gsu.edu/admissions/how-to-apply/jd/"
+  },
+  {
+    "university": "Georgia State University",
+    "country": "USA",
+    "city": "Atlanta, GA",
+    "qs_ranking": 561,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.gsu.edu/program/graphic-design-mfa/"
+  },
+  {
+    "university": "Georgia State University",
+    "country": "USA",
+    "city": "Atlanta, GA",
+    "qs_ranking": 561,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.gsu.edu/program/sociology-ma/"
+  },
+  {
+    "university": "Georgia State University",
+    "country": "USA",
+    "city": "Atlanta, GA",
+    "qs_ranking": 561,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.gsu.edu/program/economics-ma/"
+  },
+  {
+    "university": "Georgia State University",
+    "country": "USA",
+    "city": "Atlanta, GA",
+    "qs_ranking": 561,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.gsu.edu/program/communications-studies-ma/"
+  },
+  {
+    "university": "Georgia State University",
+    "country": "USA",
+    "city": "Atlanta, GA",
+    "qs_ranking": 561,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.gsu.edu/program/geosciences-ms-water-sciences-concentration/"
+  },
+  {
+    "university": "Georgia State University",
+    "country": "USA",
+    "city": "Atlanta, GA",
+    "qs_ranking": 561,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://www.gsu.edu/program/neuroscience-ms/"
+  },
+  {
+    "university": "Georgia State University",
+    "country": "USA",
+    "city": "Atlanta, GA",
+    "qs_ranking": 561,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.gsu.edu/program/nursing-ms/"
+  },
+  {
+    "university": "Georgia State University",
+    "country": "USA",
+    "city": "Atlanta, GA",
+    "qs_ranking": 561,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://www.gsu.edu/program/hospitality-administration-bba/"
+  },
+  {
+    "university": "University of Law",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.law.ac.uk/study/postgraduate/computer-science/msc-computer-science-conversion/"
+  },
+  {
+    "university": "University of Law",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.law.ac.uk/study/postgraduate/business/msc-artificial-intelligence-for-business/"
+  },
+  {
+    "university": "University of Law",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.law.ac.uk/study/postgraduate/business/msc-strategic-business-management/"
+  },
+  {
+    "university": "University of Law",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://www.law.ac.uk/study/postgraduate/business/mba-masters-in-business-administration/"
+  },
+  {
+    "university": "University of Law",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": null,
+    "field_of_study": "Law",
+    "program_url": "https://www.law.ac.uk/study/postgraduate/law/llm-master-of-laws-general/"
+  },
+  {
+    "university": "University of Law",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.law.ac.uk/study/postgraduate/criminology/msc-criminology-and-criminal-justice/"
+  },
+  {
+    "university": "University of Law",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.law.ac.uk/study/postgraduate/business/msc-corporate-financial-management/"
+  },
+  {
+    "university": "University of Law",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.law.ac.uk/study/postgraduate/law/llm-media-law-and-defamation/"
+  },
+  {
+    "university": "University of Law",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.law.ac.uk/study/postgraduate/law/llm-environmental-law/"
+  },
+  {
+    "university": "Regent's University London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.regents.ac.uk/postgraduate/business-management/msc-emerging-technologies-in-business"
+  },
+  {
+    "university": "Regent's University London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.regents.ac.uk/postgraduate/data-science/msc-data-science-in-business"
+  },
+  {
+    "university": "Regent's University London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.regents.ac.uk/postgraduate/business-management/ma-international-business-new-model"
+  },
+  {
+    "university": "Regent's University London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": null,
+    "field_of_study": "Law",
+    "program_url": "https://www.regents.ac.uk/undergraduate/llb-law"
+  },
+  {
+    "university": "Regent's University London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.regents.ac.uk/undergraduate/ba-hons-architecture"
+  },
+  {
+    "university": "Regent's University London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.regents.ac.uk/postgraduate/psychotherapy-psychology/msc-psychology"
+  },
+  {
+    "university": "Regent's University London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.regents.ac.uk/postgraduate/finance/msc-finance-and-financial-technology"
+  },
+  {
+    "university": "Regent's University London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.regents.ac.uk/postgraduate/ma-media-digital-communications"
+  },
+  {
+    "university": "Regent's University London",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": null,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://www.regents.ac.uk/postgraduate/business-management/ma-luxury-hospitality-management"
+  },
+  {
+    "university": "BPP University",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.bpp.com/leadership-and-management/msc-technology-management"
+  },
+  {
+    "university": "BPP University",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.bpp.com/leadership-and-management/msc-management-data-analytics"
+  },
+  {
+    "university": "BPP University",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://www.bpp.com/leadership-and-management/msc-management"
+  },
+  {
+    "university": "BPP University",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.bpp.com/leadership-and-management/msc-engineering-management"
+  },
+  {
+    "university": "BPP University",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": null,
+    "field_of_study": "Law",
+    "program_url": "https://www.bpp.com/law/llm-master-of-laws"
+  },
+  {
+    "university": "BPP University",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": null,
+    "field_of_study": "Nursing & Allied Health",
+    "program_url": "https://www.bpp.com/nursing-and-healthcare/msc-healthcare-leadership-and-management"
+  },
+  {
+    "university": "BPP University",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://www.bpp.com/courses/accountancy-and-tax/postgraduate/msc-accounting-and-finance"
+  },
+  {
+    "university": "BPP University",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.bpp.com/leadership-and-management/msc-management-digital-marketing"
+  },
+  {
+    "university": "BPP University",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": null,
+    "field_of_study": "Hospitality & Tourism",
+    "program_url": "https://www.bpp.com/leadership-and-management/msc-management-hospitality-management"
+  },
+  {
+    "university": "Royal College of Art",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.rca.ac.uk/study/programme-finder/computer-science-mphil-phd/"
+  },
+  {
+    "university": "Royal College of Art",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://www.rca.ac.uk/study/programme-finder/computer-science-mphil-phd/"
+  },
+  {
+    "university": "Royal College of Art",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.rca.ac.uk/study/programme-finder/innovation-design-engineering-ma-msc/"
+  },
+  {
+    "university": "Royal College of Art",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.rca.ac.uk/study/programme-finder/architecture-ma/"
+  },
+  {
+    "university": "Royal College of Art",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.rca.ac.uk/study/programme-finder/arts-humanities-mfa/"
+  },
+  {
+    "university": "Royal College of Art",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.rca.ac.uk/study/programme-finder/communication-mfa/"
+  },
+  {
+    "university": "Royal College of Art",
+    "country": "UK",
+    "city": "London",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.rca.ac.uk/study/programme-finder/environmental-architecture-ma/"
+  }
+]

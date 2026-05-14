@@ -1,4 +1,30 @@
 {
+  "Adelphi University": {
+    "id": "adelphi-university",
+    "name": "Adelphi University",
+    "country": "USA",
+    "scorecard_id": 188429,
+    "scorecard_name": "Adelphi University",
+    "scorecard_city": "Garden City",
+    "scorecard_state": "NY",
+    "acceptance_rate": 65.9,
+    "median_earnings_6yr_usd": 63688,
+    "median_earnings_10yr_usd": 75482,
+    "school_type": "private_nonprofit",
+    "setting": "suburban",
+    "enrollment_undergrad": 5510,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 12,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 67.2,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:56:54.698Z"
+  },
   "American University": {
     "id": "american-university",
     "name": "American University",
@@ -23,7 +49,7 @@
     "russell_group": null,
     "completion_rate_pct": 50,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:51:20.040Z"
+    "data_extracted_at": "2026-05-14T16:56:55.510Z"
   },
   "Arizona State University": {
     "id": "arizona-state-university",
@@ -49,7 +75,7 @@
     "russell_group": null,
     "completion_rate_pct": 68,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:51:20.854Z"
+    "data_extracted_at": "2026-05-14T16:56:56.330Z"
   },
   "Auburn University": {
     "id": "auburn-university",
@@ -75,7 +101,59 @@
     "russell_group": null,
     "completion_rate_pct": 82,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:51:23.618Z"
+    "data_extracted_at": "2026-05-14T16:56:57.053Z"
+  },
+  "Baylor University": {
+    "id": "baylor-university",
+    "name": "Baylor University",
+    "country": "USA",
+    "scorecard_id": 223232,
+    "scorecard_name": "Baylor University",
+    "scorecard_city": "Waco",
+    "scorecard_state": "TX",
+    "acceptance_rate": 51.3,
+    "median_earnings_6yr_usd": 56532,
+    "median_earnings_10yr_usd": 65793,
+    "school_type": "private_nonprofit",
+    "setting": "urban",
+    "enrollment_undergrad": 16036,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 15,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 80,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:56:57.847Z"
+  },
+  "Binghamton University": {
+    "id": "binghamton-university",
+    "name": "Binghamton University",
+    "country": "USA",
+    "scorecard_id": 196079,
+    "scorecard_name": "Binghamton University",
+    "scorecard_city": "Vestal",
+    "scorecard_state": "NY",
+    "acceptance_rate": 38.6,
+    "median_earnings_6yr_usd": 61621,
+    "median_earnings_10yr_usd": 80596,
+    "school_type": "public",
+    "setting": "suburban",
+    "enrollment_undergrad": 16074,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 18,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 81.6,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:56:58.501Z"
   },
   "Boston College": {
     "id": "boston-college",
@@ -101,7 +179,7 @@
     "russell_group": null,
     "completion_rate_pct": 90.8,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:51:25.315Z"
+    "data_extracted_at": "2026-05-14T16:56:59.226Z"
   },
   "Boston University": {
     "id": "boston-university",
@@ -127,7 +205,33 @@
     "russell_group": null,
     "completion_rate_pct": 88.7,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:51:26.331Z"
+    "data_extracted_at": "2026-05-14T16:56:59.945Z"
+  },
+  "Bradley University": {
+    "id": "bradley-university",
+    "name": "Bradley University",
+    "country": "USA",
+    "scorecard_id": 143358,
+    "scorecard_name": "Bradley University",
+    "scorecard_city": "Peoria",
+    "scorecard_state": "IL",
+    "acceptance_rate": 76.8,
+    "median_earnings_6yr_usd": 59114,
+    "median_earnings_10yr_usd": 66852,
+    "school_type": "private_nonprofit",
+    "setting": "urban",
+    "enrollment_undergrad": 3979,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 11,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 76.2,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:57:00.612Z"
   },
   "Brandeis University": {
     "id": "brandeis-university",
@@ -153,7 +257,33 @@
     "russell_group": null,
     "completion_rate_pct": 86,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:51:27.434Z"
+    "data_extracted_at": "2026-05-14T16:57:01.340Z"
+  },
+  "Brigham Young University": {
+    "id": "brigham-young-university",
+    "name": "Brigham Young University",
+    "country": "USA",
+    "scorecard_id": 230038,
+    "scorecard_name": "Brigham Young University",
+    "scorecard_city": "Provo",
+    "scorecard_state": "UT",
+    "acceptance_rate": 67.8,
+    "median_earnings_6yr_usd": 58450,
+    "median_earnings_10yr_usd": 75790,
+    "school_type": "private_nonprofit",
+    "setting": "urban",
+    "enrollment_undergrad": 36407,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 21,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 81,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:57:02.015Z"
   },
   "Brown University": {
     "id": "brown-university",
@@ -179,7 +309,33 @@
     "russell_group": null,
     "completion_rate_pct": 95.7,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:51:28.630Z"
+    "data_extracted_at": "2026-05-14T16:57:02.880Z"
+  },
+  "Bucknell University": {
+    "id": "bucknell-university",
+    "name": "Bucknell University",
+    "country": "USA",
+    "scorecard_id": 211291,
+    "scorecard_name": "Bucknell University",
+    "scorecard_city": "Lewisburg",
+    "scorecard_state": "PA",
+    "acceptance_rate": 28.9,
+    "median_earnings_6yr_usd": 78852,
+    "median_earnings_10yr_usd": 93807,
+    "school_type": "private_nonprofit",
+    "setting": "suburban",
+    "enrollment_undergrad": 3966,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 9,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 86.3,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:57:03.598Z"
   },
   "California Institute of Technology": {
     "id": "california-institute-of-technology",
@@ -205,7 +361,111 @@
     "russell_group": null,
     "completion_rate_pct": 94.4,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:51:30.632Z"
+    "data_extracted_at": "2026-05-14T16:57:04.462Z"
+  },
+  "California Polytechnic State University": {
+    "id": "california-polytechnic-state-university",
+    "name": "California Polytechnic State University",
+    "country": "USA",
+    "scorecard_id": 110422,
+    "scorecard_name": "California Polytechnic State University-San Luis Obispo",
+    "scorecard_city": "San Luis Obispo",
+    "scorecard_state": "CA",
+    "acceptance_rate": 31.3,
+    "median_earnings_6yr_usd": 72358,
+    "median_earnings_10yr_usd": 90768,
+    "school_type": "public",
+    "setting": "suburban",
+    "enrollment_undergrad": 22726,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 19,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 86.4,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:57:05.251Z"
+  },
+  "California State Polytechnic University, Pomona": {
+    "id": "california-state-polytechnic-university-pomona",
+    "name": "California State Polytechnic University, Pomona",
+    "country": "USA",
+    "scorecard_id": 110529,
+    "scorecard_name": "California State Polytechnic University-Pomona",
+    "scorecard_city": "Pomona",
+    "scorecard_state": "CA",
+    "acceptance_rate": 75.2,
+    "median_earnings_6yr_usd": 54466,
+    "median_earnings_10yr_usd": 71902,
+    "school_type": "public",
+    "setting": "suburban",
+    "enrollment_undergrad": 26537,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 25,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 68.4,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:57:05.954Z"
+  },
+  "California State University, East Bay": {
+    "id": "california-state-university-east-bay",
+    "name": "California State University, East Bay",
+    "country": "USA",
+    "scorecard_id": 110565,
+    "scorecard_name": "California State University-Fullerton",
+    "scorecard_city": "Fullerton",
+    "scorecard_state": "CA",
+    "acceptance_rate": 90.5,
+    "median_earnings_6yr_usd": 48558,
+    "median_earnings_10yr_usd": 62951,
+    "school_type": "public",
+    "setting": "suburban",
+    "enrollment_undergrad": 41134,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 26,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 70.2,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:57:06.771Z"
+  },
+  "California State University, Fresno": {
+    "id": "california-state-university-fresno",
+    "name": "California State University, Fresno",
+    "country": "USA",
+    "scorecard_id": 110574,
+    "scorecard_name": "California State University-East Bay",
+    "scorecard_city": "Hayward",
+    "scorecard_state": "CA",
+    "acceptance_rate": 97.4,
+    "median_earnings_6yr_usd": 55546,
+    "median_earnings_10yr_usd": 71401,
+    "school_type": "public",
+    "setting": "suburban",
+    "enrollment_undergrad": 12028,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 22,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 48,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:57:07.586Z"
   },
   "California State University, Fullerton": {
     "id": "california-state-university-fullerton",
@@ -231,7 +491,7 @@
     "russell_group": null,
     "completion_rate_pct": 57,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:51:32.357Z"
+    "data_extracted_at": "2026-05-14T16:57:08.307Z"
   },
   "California State University, Long Beach": {
     "id": "california-state-university-long-beach",
@@ -257,7 +517,7 @@
     "russell_group": null,
     "completion_rate_pct": 68.9,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:51:35.498Z"
+    "data_extracted_at": "2026-05-14T16:57:08.974Z"
   },
   "California State University, Northridge": {
     "id": "california-state-university-northridge",
@@ -283,7 +543,33 @@
     "russell_group": null,
     "completion_rate_pct": 57,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:51:36.699Z"
+    "data_extracted_at": "2026-05-14T16:57:09.637Z"
+  },
+  "California State University, Sacramento": {
+    "id": "california-state-university-sacramento",
+    "name": "California State University, Sacramento",
+    "country": "USA",
+    "scorecard_id": 110617,
+    "scorecard_name": "California State University-Sacramento",
+    "scorecard_city": "Sacramento",
+    "scorecard_state": "CA",
+    "acceptance_rate": 94,
+    "median_earnings_6yr_usd": 51074,
+    "median_earnings_10yr_usd": 64876,
+    "school_type": "public",
+    "setting": "urban",
+    "enrollment_undergrad": 33342,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 24,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 56.3,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:57:10.565Z"
   },
   "Carnegie Mellon University": {
     "id": "carnegie-mellon-university",
@@ -309,7 +595,7 @@
     "russell_group": null,
     "completion_rate_pct": 94.1,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:51:38.157Z"
+    "data_extracted_at": "2026-05-14T16:57:11.481Z"
   },
   "Case Western Reserve University": {
     "id": "case-western-reserve-university",
@@ -335,7 +621,33 @@
     "russell_group": null,
     "completion_rate_pct": 87.2,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:51:39.249Z"
+    "data_extracted_at": "2026-05-14T16:57:12.404Z"
+  },
+  "Chapman University": {
+    "id": "chapman-university",
+    "name": "Chapman University",
+    "country": "USA",
+    "scorecard_id": 111948,
+    "scorecard_name": "Chapman University",
+    "scorecard_city": "Orange",
+    "scorecard_state": "CA",
+    "acceptance_rate": 65.4,
+    "median_earnings_6yr_usd": 58080,
+    "median_earnings_10yr_usd": 70070,
+    "school_type": "private_nonprofit",
+    "setting": "urban",
+    "enrollment_undergrad": 8182,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 12,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 81.9,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:57:13.325Z"
   },
   "Clemson University": {
     "id": "clemson-university",
@@ -361,7 +673,33 @@
     "russell_group": null,
     "completion_rate_pct": 86.6,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:51:41.288Z"
+    "data_extracted_at": "2026-05-14T16:57:13.988Z"
+  },
+  "Cleveland State University": {
+    "id": "cleveland-state-university",
+    "name": "Cleveland State University",
+    "country": "USA",
+    "scorecard_id": 202134,
+    "scorecard_name": "Cleveland State University",
+    "scorecard_city": "Cleveland",
+    "scorecard_state": "OH",
+    "acceptance_rate": 91.3,
+    "median_earnings_6yr_usd": 44625,
+    "median_earnings_10yr_usd": 52131,
+    "school_type": "public",
+    "setting": "urban",
+    "enrollment_undergrad": 10981,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 16,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 50.6,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:57:14.657Z"
   },
   "College of William & Mary": {
     "id": "college-of-william-and-mary",
@@ -387,7 +725,7 @@
     "russell_group": null,
     "completion_rate_pct": 89.4,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:51:42.286Z"
+    "data_extracted_at": "2026-05-14T16:57:15.303Z"
   },
   "Colorado School of Mines": {
     "id": "colorado-school-of-mines",
@@ -413,7 +751,7 @@
     "russell_group": null,
     "completion_rate_pct": 81.7,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:51:44.110Z"
+    "data_extracted_at": "2026-05-14T16:57:15.965Z"
   },
   "Colorado State University": {
     "id": "colorado-state-university",
@@ -439,7 +777,7 @@
     "russell_group": null,
     "completion_rate_pct": 66.5,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:51:44.821Z"
+    "data_extracted_at": "2026-05-14T16:57:16.912Z"
   },
   "Columbia University": {
     "id": "columbia-university",
@@ -465,7 +803,7 @@
     "russell_group": null,
     "completion_rate_pct": 96.1,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:51:45.959Z"
+    "data_extracted_at": "2026-05-14T16:57:17.628Z"
   },
   "Cornell University": {
     "id": "cornell-university",
@@ -491,7 +829,7 @@
     "russell_group": null,
     "completion_rate_pct": 95.4,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:51:46.775Z"
+    "data_extracted_at": "2026-05-14T16:57:18.290Z"
   },
   "Dartmouth College": {
     "id": "dartmouth-college",
@@ -517,7 +855,33 @@
     "russell_group": null,
     "completion_rate_pct": 95.5,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:51:47.476Z"
+    "data_extracted_at": "2026-05-14T16:57:18.959Z"
+  },
+  "DePaul University": {
+    "id": "depaul-university",
+    "name": "DePaul University",
+    "country": "USA",
+    "scorecard_id": 144740,
+    "scorecard_name": "DePaul University",
+    "scorecard_city": "Chicago",
+    "scorecard_state": "IL",
+    "acceptance_rate": 75.9,
+    "median_earnings_6yr_usd": 54695,
+    "median_earnings_10yr_usd": 68751,
+    "school_type": "private_nonprofit",
+    "setting": "urban",
+    "enrollment_undergrad": 15813,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 17,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 67.8,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:57:19.695Z"
   },
   "Drexel University": {
     "id": "drexel-university",
@@ -543,7 +907,7 @@
     "russell_group": null,
     "completion_rate_pct": 78.2,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:51:49.436Z"
+    "data_extracted_at": "2026-05-14T16:57:20.390Z"
   },
   "Duke University": {
     "id": "duke-university",
@@ -569,7 +933,7 @@
     "russell_group": null,
     "completion_rate_pct": 96.8,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:51:50.666Z"
+    "data_extracted_at": "2026-05-14T16:57:21.047Z"
   },
   "Emory University": {
     "id": "emory-university",
@@ -595,7 +959,59 @@
     "russell_group": null,
     "completion_rate_pct": 91.1,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:51:51.795Z"
+    "data_extracted_at": "2026-05-14T16:57:21.827Z"
+  },
+  "Florida Atlantic University": {
+    "id": "florida-atlantic-university",
+    "name": "Florida Atlantic University",
+    "country": "USA",
+    "scorecard_id": 133669,
+    "scorecard_name": "Florida Atlantic University",
+    "scorecard_city": "Boca Raton",
+    "scorecard_state": "FL",
+    "acceptance_rate": 66.1,
+    "median_earnings_6yr_usd": 45647,
+    "median_earnings_10yr_usd": 56746,
+    "school_type": "public",
+    "setting": "urban",
+    "enrollment_undergrad": 30148,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 24,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 62.6,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:57:22.543Z"
+  },
+  "Florida Institute of Technology": {
+    "id": "florida-institute-of-technology",
+    "name": "Florida Institute of Technology",
+    "country": "USA",
+    "scorecard_id": 133881,
+    "scorecard_name": "Florida Institute of Technology",
+    "scorecard_city": "Melbourne",
+    "scorecard_state": "FL",
+    "acceptance_rate": 57.7,
+    "median_earnings_6yr_usd": 41941,
+    "median_earnings_10yr_usd": 43137,
+    "school_type": "private_nonprofit",
+    "setting": "urban",
+    "enrollment_undergrad": 3653,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 13,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 63.5,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:57:23.257Z"
   },
   "Florida International University": {
     "id": "florida-international-university",
@@ -621,7 +1037,33 @@
     "russell_group": null,
     "completion_rate_pct": 74.4,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:51:52.510Z"
+    "data_extracted_at": "2026-05-14T16:57:23.973Z"
+  },
+  "Florida Polytechnic University": {
+    "id": "florida-polytechnic-university",
+    "name": "Florida Polytechnic University",
+    "country": "USA",
+    "scorecard_id": 482936,
+    "scorecard_name": "Florida Polytechnic University",
+    "scorecard_city": "Lakeland",
+    "scorecard_state": "FL",
+    "acceptance_rate": 57.5,
+    "median_earnings_6yr_usd": 77545,
+    "median_earnings_10yr_usd": null,
+    "school_type": "public",
+    "setting": "rural",
+    "enrollment_undergrad": 1688,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 17,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 54.9,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:57:24.693Z"
   },
   "Florida State University": {
     "id": "florida-state-university",
@@ -647,7 +1089,59 @@
     "russell_group": null,
     "completion_rate_pct": 85.6,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:51:53.210Z"
+    "data_extracted_at": "2026-05-14T16:57:25.408Z"
+  },
+  "Fordham University": {
+    "id": "fordham-university",
+    "name": "Fordham University",
+    "country": "USA",
+    "scorecard_id": 191241,
+    "scorecard_name": "Fordham University",
+    "scorecard_city": "Bronx",
+    "scorecard_state": "NY",
+    "acceptance_rate": 59.3,
+    "median_earnings_6yr_usd": 68008,
+    "median_earnings_10yr_usd": 85569,
+    "school_type": "private_nonprofit",
+    "setting": "urban",
+    "enrollment_undergrad": 11053,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 14,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 81.9,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:57:26.140Z"
+  },
+  "George Mason University": {
+    "id": "george-mason-university",
+    "name": "George Mason University",
+    "country": "USA",
+    "scorecard_id": 232186,
+    "scorecard_name": "George Mason University",
+    "scorecard_city": "Fairfax",
+    "scorecard_state": "VA",
+    "acceptance_rate": 87.5,
+    "median_earnings_6yr_usd": 60536,
+    "median_earnings_10yr_usd": 76343,
+    "school_type": "public",
+    "setting": "suburban",
+    "enrollment_undergrad": 33763,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 16,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 67.8,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:57:26.929Z"
   },
   "George Washington University": {
     "id": "george-washington-university",
@@ -673,7 +1167,7 @@
     "russell_group": null,
     "completion_rate_pct": 84,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:51:54.307Z"
+    "data_extracted_at": "2026-05-14T16:57:27.646Z"
   },
   "Georgetown University": {
     "id": "georgetown-university",
@@ -699,7 +1193,7 @@
     "russell_group": null,
     "completion_rate_pct": 94.8,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:51:57.292Z"
+    "data_extracted_at": "2026-05-14T16:57:28.582Z"
   },
   "Georgia Institute of Technology": {
     "id": "georgia-institute-of-technology",
@@ -725,7 +1219,7 @@
     "russell_group": null,
     "completion_rate_pct": 94,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:51:58.396Z"
+    "data_extracted_at": "2026-05-14T16:57:29.240Z"
   },
   "Harvard University": {
     "id": "harvard-university",
@@ -751,7 +1245,33 @@
     "russell_group": null,
     "completion_rate_pct": 97.6,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:51:59.990Z"
+    "data_extracted_at": "2026-05-14T16:57:29.900Z"
+  },
+  "Harvey Mudd College": {
+    "id": "harvey-mudd-college",
+    "name": "Harvey Mudd College",
+    "country": "USA",
+    "scorecard_id": 115409,
+    "scorecard_name": "Harvey Mudd College",
+    "scorecard_city": "Claremont",
+    "scorecard_state": "CA",
+    "acceptance_rate": 12.7,
+    "median_earnings_6yr_usd": 115107,
+    "median_earnings_10yr_usd": 138687,
+    "school_type": "private_nonprofit",
+    "setting": "suburban",
+    "enrollment_undergrad": 1016,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 8,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 91.9,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:57:30.652Z"
   },
   "Hofstra University": {
     "id": "hofstra-university",
@@ -777,7 +1297,7 @@
     "russell_group": null,
     "completion_rate_pct": 68.5,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:52:01.016Z"
+    "data_extracted_at": "2026-05-14T16:57:31.347Z"
   },
   "Howard University": {
     "id": "howard-university",
@@ -803,7 +1323,7 @@
     "russell_group": null,
     "completion_rate_pct": 70,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:52:02.751Z"
+    "data_extracted_at": "2026-05-14T16:57:32.008Z"
   },
   "Illinois Institute of Technology": {
     "id": "illinois-institute-of-technology",
@@ -829,7 +1349,7 @@
     "russell_group": null,
     "completion_rate_pct": 75.2,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:52:03.877Z"
+    "data_extracted_at": "2026-05-14T16:57:32.678Z"
   },
   "Indiana University Bloomington": {
     "id": "indiana-university-bloomington",
@@ -855,7 +1375,7 @@
     "russell_group": null,
     "completion_rate_pct": 80.2,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:52:05.110Z"
+    "data_extracted_at": "2026-05-14T16:57:33.439Z"
   },
   "Iowa State University": {
     "id": "iowa-state-university",
@@ -881,7 +1401,33 @@
     "russell_group": null,
     "completion_rate_pct": 75.3,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:52:06.232Z"
+    "data_extracted_at": "2026-05-14T16:57:34.216Z"
+  },
+  "James Madison University": {
+    "id": "james-madison-university",
+    "name": "James Madison University",
+    "country": "USA",
+    "scorecard_id": 232423,
+    "scorecard_name": "James Madison University",
+    "scorecard_city": "Harrisonburg",
+    "scorecard_state": "VA",
+    "acceptance_rate": 71.5,
+    "median_earnings_6yr_usd": 57438,
+    "median_earnings_10yr_usd": 69954,
+    "school_type": "public",
+    "setting": "urban",
+    "enrollment_undergrad": 22601,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 17,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 79.7,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:57:34.932Z"
   },
   "Johns Hopkins University": {
     "id": "johns-hopkins-university",
@@ -907,7 +1453,7 @@
     "russell_group": null,
     "completion_rate_pct": 93.8,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:52:07.459Z"
+    "data_extracted_at": "2026-05-14T16:57:35.648Z"
   },
   "Kansas State University": {
     "id": "kansas-state-university",
@@ -933,7 +1479,85 @@
     "russell_group": null,
     "completion_rate_pct": 71.1,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:52:08.178Z"
+    "data_extracted_at": "2026-05-14T16:57:36.467Z"
+  },
+  "Kent State University": {
+    "id": "kent-state-university",
+    "name": "Kent State University",
+    "country": "USA",
+    "scorecard_id": 203517,
+    "scorecard_name": "Kent State University at Kent",
+    "scorecard_city": "Kent",
+    "scorecard_state": "OH",
+    "acceptance_rate": 86.3,
+    "median_earnings_6yr_usd": 40179,
+    "median_earnings_10yr_usd": 45388,
+    "school_type": "public",
+    "setting": "suburban",
+    "enrollment_undergrad": 26208,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 20,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 63.7,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:57:37.187Z"
+  },
+  "Lamar University": {
+    "id": "lamar-university",
+    "name": "Lamar University",
+    "country": "USA",
+    "scorecard_id": 226091,
+    "scorecard_name": "Lamar University",
+    "scorecard_city": "Beaumont",
+    "scorecard_state": "TX",
+    "acceptance_rate": 86.4,
+    "median_earnings_6yr_usd": 47077,
+    "median_earnings_10yr_usd": 49652,
+    "school_type": "public",
+    "setting": "urban",
+    "enrollment_undergrad": 9728,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 20,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 37.3,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:57:37.839Z"
+  },
+  "Lawrence Technological University": {
+    "id": "lawrence-technological-university",
+    "name": "Lawrence Technological University",
+    "country": "USA",
+    "scorecard_id": 170675,
+    "scorecard_name": "Lawrence Technological University",
+    "scorecard_city": "Southfield",
+    "scorecard_state": "MI",
+    "acceptance_rate": 55.9,
+    "median_earnings_6yr_usd": 58827,
+    "median_earnings_10yr_usd": 69151,
+    "school_type": "private_nonprofit",
+    "setting": "urban",
+    "enrollment_undergrad": 2719,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 11,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 60.6,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:57:38.493Z"
   },
   "Lehigh University": {
     "id": "lehigh-university",
@@ -959,7 +1583,85 @@
     "russell_group": null,
     "completion_rate_pct": 87.9,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:52:08.892Z"
+    "data_extracted_at": "2026-05-14T16:57:39.156Z"
+  },
+  "Lewis University": {
+    "id": "lewis-university",
+    "name": "Lewis University",
+    "country": "USA",
+    "scorecard_id": 146612,
+    "scorecard_name": "Lewis University",
+    "scorecard_city": "Romeoville",
+    "scorecard_state": "IL",
+    "acceptance_rate": 71.3,
+    "median_earnings_6yr_usd": 56095,
+    "median_earnings_10yr_usd": 66099,
+    "school_type": "private_nonprofit",
+    "setting": "suburban",
+    "enrollment_undergrad": 4793,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 13,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 66.6,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:57:39.818Z"
+  },
+  "Long Island University": {
+    "id": "long-island-university",
+    "name": "Long Island University",
+    "country": "USA",
+    "scorecard_id": 192448,
+    "scorecard_name": "Long Island University",
+    "scorecard_city": "Brookville",
+    "scorecard_state": "NY",
+    "acceptance_rate": 86.2,
+    "median_earnings_6yr_usd": 47543,
+    "median_earnings_10yr_usd": 59950,
+    "school_type": "private_nonprofit",
+    "setting": "suburban",
+    "enrollment_undergrad": 12861,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 15,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 57.1,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:57:40.564Z"
+  },
+  "Louisiana State University": {
+    "id": "louisiana-state-university",
+    "name": "Louisiana State University",
+    "country": "USA",
+    "scorecard_id": 159391,
+    "scorecard_name": "Louisiana State University and Agricultural & Mechanical College",
+    "scorecard_city": "Baton Rouge",
+    "scorecard_state": "LA",
+    "acceptance_rate": 73.3,
+    "median_earnings_6yr_usd": 49218,
+    "median_earnings_10yr_usd": 61251,
+    "school_type": "public",
+    "setting": "urban",
+    "enrollment_undergrad": 35589,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 21,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 68.8,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:57:41.385Z"
   },
   "Loyola Marymount University": {
     "id": "loyola-marymount-university",
@@ -985,7 +1687,33 @@
     "russell_group": null,
     "completion_rate_pct": 78.9,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:52:09.582Z"
+    "data_extracted_at": "2026-05-14T16:57:42.101Z"
+  },
+  "Loyola University Chicago": {
+    "id": "loyola-university-chicago",
+    "name": "Loyola University Chicago",
+    "country": "USA",
+    "scorecard_id": 146719,
+    "scorecard_name": "Loyola University Chicago",
+    "scorecard_city": "Chicago",
+    "scorecard_state": "IL",
+    "acceptance_rate": 81.6,
+    "median_earnings_6yr_usd": 58411,
+    "median_earnings_10yr_usd": 71530,
+    "school_type": "private_nonprofit",
+    "setting": "urban",
+    "enrollment_undergrad": 13772,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 13,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 73,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:57:42.815Z"
   },
   "Marquette University": {
     "id": "marquette-university",
@@ -1011,7 +1739,7 @@
     "russell_group": null,
     "completion_rate_pct": 83.2,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:52:11.355Z"
+    "data_extracted_at": "2026-05-14T16:57:43.691Z"
   },
   "Massachusetts Institute of Technology": {
     "id": "massachusetts-institute-of-technology",
@@ -1037,7 +1765,85 @@
     "russell_group": null,
     "completion_rate_pct": 96.4,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:52:12.250Z"
+    "data_extracted_at": "2026-05-14T16:57:44.347Z"
+  },
+  "Miami University": {
+    "id": "miami-university",
+    "name": "Miami University",
+    "country": "USA",
+    "scorecard_id": 204024,
+    "scorecard_name": "Miami University-Oxford",
+    "scorecard_city": "Oxford",
+    "scorecard_state": "OH",
+    "acceptance_rate": 75.4,
+    "median_earnings_6yr_usd": 49773,
+    "median_earnings_10yr_usd": 55076,
+    "school_type": "public",
+    "setting": "suburban",
+    "enrollment_undergrad": 17144,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 16,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 79.8,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:57:45.070Z"
+  },
+  "Michigan State University": {
+    "id": "michigan-state-university",
+    "name": "Michigan State University",
+    "country": "USA",
+    "scorecard_id": 171100,
+    "scorecard_name": "Michigan State University",
+    "scorecard_city": "East Lansing",
+    "scorecard_state": "MI",
+    "acceptance_rate": 84.8,
+    "median_earnings_6yr_usd": 55084,
+    "median_earnings_10yr_usd": 67253,
+    "school_type": "public",
+    "setting": "urban",
+    "enrollment_undergrad": 42929,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 17,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 80.7,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:57:45.888Z"
+  },
+  "Michigan Technological University": {
+    "id": "michigan-technological-university",
+    "name": "Michigan Technological University",
+    "country": "USA",
+    "scorecard_id": 171128,
+    "scorecard_name": "Michigan Technological University",
+    "scorecard_city": "Houghton",
+    "scorecard_state": "MI",
+    "acceptance_rate": 92.4,
+    "median_earnings_6yr_usd": 69672,
+    "median_earnings_10yr_usd": 78198,
+    "school_type": "public",
+    "setting": "suburban",
+    "enrollment_undergrad": 6197,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 13,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 68.1,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:57:46.605Z"
   },
   "Mississippi State University": {
     "id": "mississippi-state-university",
@@ -1063,7 +1869,7 @@
     "russell_group": null,
     "completion_rate_pct": 66.7,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:52:13.400Z"
+    "data_extracted_at": "2026-05-14T16:57:47.527Z"
   },
   "Missouri University of Science and Technology": {
     "id": "missouri-university-of-science-and-technology",
@@ -1089,7 +1895,7 @@
     "russell_group": null,
     "completion_rate_pct": 64.4,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:52:14.108Z"
+    "data_extracted_at": "2026-05-14T16:57:48.243Z"
   },
   "NYU Stern School of Business": {
     "id": "nyu-stern-school-of-business",
@@ -1115,7 +1921,7 @@
     "russell_group": null,
     "completion_rate_pct": 87.6,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:52:14.862Z"
+    "data_extracted_at": "2026-05-14T16:57:48.961Z"
   },
   "New Jersey Institute of Technology": {
     "id": "new-jersey-institute-of-technology",
@@ -1141,7 +1947,7 @@
     "russell_group": null,
     "completion_rate_pct": 72.8,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:52:15.654Z"
+    "data_extracted_at": "2026-05-14T16:57:49.696Z"
   },
   "New Mexico State University": {
     "id": "new-mexico-state-university",
@@ -1167,7 +1973,33 @@
     "russell_group": null,
     "completion_rate_pct": 55.2,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:52:17.226Z"
+    "data_extracted_at": "2026-05-14T16:57:50.393Z"
+  },
+  "New York Institute of Technology": {
+    "id": "new-york-institute-of-technology",
+    "name": "New York Institute of Technology",
+    "country": "USA",
+    "scorecard_id": 194091,
+    "scorecard_name": "New York Institute of Technology",
+    "scorecard_city": "Old Westbury",
+    "scorecard_state": "NY",
+    "acceptance_rate": 81,
+    "median_earnings_6yr_usd": 52559,
+    "median_earnings_10yr_usd": 70080,
+    "school_type": "private_nonprofit",
+    "setting": "rural",
+    "enrollment_undergrad": 3537,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 12,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 58.8,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:57:51.110Z"
   },
   "New York University": {
     "id": "new-york-university",
@@ -1193,7 +2025,7 @@
     "russell_group": null,
     "completion_rate_pct": 87.6,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:52:18.000Z"
+    "data_extracted_at": "2026-05-14T16:57:51.826Z"
   },
   "North Carolina State University": {
     "id": "north-carolina-state-university",
@@ -1219,7 +2051,7 @@
     "russell_group": null,
     "completion_rate_pct": 84.8,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:52:18.711Z"
+    "data_extracted_at": "2026-05-14T16:57:52.504Z"
   },
   "Northeastern University": {
     "id": "northeastern-university",
@@ -1245,7 +2077,59 @@
     "russell_group": null,
     "completion_rate_pct": 90.5,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:52:19.546Z"
+    "data_extracted_at": "2026-05-14T16:57:53.190Z"
+  },
+  "Northern Arizona University": {
+    "id": "northern-arizona-university",
+    "name": "Northern Arizona University",
+    "country": "USA",
+    "scorecard_id": 105330,
+    "scorecard_name": "Northern Arizona University",
+    "scorecard_city": "Flagstaff",
+    "scorecard_state": "AZ",
+    "acceptance_rate": 89.6,
+    "median_earnings_6yr_usd": 47308,
+    "median_earnings_10yr_usd": 54384,
+    "school_type": "public",
+    "setting": "urban",
+    "enrollment_undergrad": 25247,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 19,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 61.3,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:57:53.878Z"
+  },
+  "Northern Illinois University": {
+    "id": "northern-illinois-university",
+    "name": "Northern Illinois University",
+    "country": "USA",
+    "scorecard_id": 147703,
+    "scorecard_name": "Northern Illinois University",
+    "scorecard_city": "Dekalb",
+    "scorecard_state": "IL",
+    "acceptance_rate": 69.8,
+    "median_earnings_6yr_usd": 46113,
+    "median_earnings_10yr_usd": 57808,
+    "school_type": "public",
+    "setting": "suburban",
+    "enrollment_undergrad": 12379,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 15,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 48.7,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:57:54.593Z"
   },
   "Northwestern University": {
     "id": "northwestern-university",
@@ -1271,7 +2155,7 @@
     "russell_group": null,
     "completion_rate_pct": 95.1,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:52:20.282Z"
+    "data_extracted_at": "2026-05-14T16:57:55.311Z"
   },
   "Ohio State University": {
     "id": "ohio-state-university",
@@ -1297,7 +2181,7 @@
     "russell_group": null,
     "completion_rate_pct": 87.7,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:52:21.897Z"
+    "data_extracted_at": "2026-05-14T16:57:56.212Z"
   },
   "Oklahoma State University": {
     "id": "oklahoma-state-university",
@@ -1323,7 +2207,7 @@
     "russell_group": null,
     "completion_rate_pct": 68.2,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:52:23.018Z"
+    "data_extracted_at": "2026-05-14T16:57:56.894Z"
   },
   "Oregon State University": {
     "id": "oregon-state-university",
@@ -1349,7 +2233,7 @@
     "russell_group": null,
     "completion_rate_pct": 70.1,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:52:24.041Z"
+    "data_extracted_at": "2026-05-14T16:57:57.616Z"
   },
   "Pace University": {
     "id": "pace-university",
@@ -1375,7 +2259,7 @@
     "russell_group": null,
     "completion_rate_pct": 60,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:52:24.745Z"
+    "data_extracted_at": "2026-05-14T16:57:58.380Z"
   },
   "Penn State University": {
     "id": "penn-state-university",
@@ -1401,7 +2285,7 @@
     "russell_group": null,
     "completion_rate_pct": 86.1,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:52:25.752Z"
+    "data_extracted_at": "2026-05-14T16:57:59.177Z"
   },
   "Pennsylvania State University": {
     "id": "pennsylvania-state-university",
@@ -1427,7 +2311,7 @@
     "russell_group": null,
     "completion_rate_pct": 34.2,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:52:26.611Z"
+    "data_extracted_at": "2026-05-14T16:58:00.030Z"
   },
   "Pepperdine University": {
     "id": "pepperdine-university",
@@ -1453,7 +2337,59 @@
     "russell_group": null,
     "completion_rate_pct": 83.4,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:52:27.312Z"
+    "data_extracted_at": "2026-05-14T16:58:00.737Z"
+  },
+  "Pomona College": {
+    "id": "pomona-college",
+    "name": "Pomona College",
+    "country": "USA",
+    "scorecard_id": 121345,
+    "scorecard_name": "Pomona College",
+    "scorecard_city": "Claremont",
+    "scorecard_state": "CA",
+    "acceptance_rate": 7.1,
+    "median_earnings_6yr_usd": 60850,
+    "median_earnings_10yr_usd": 77779,
+    "school_type": "private_nonprofit",
+    "setting": "suburban",
+    "enrollment_undergrad": 1763,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 7,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 93.2,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:58:01.453Z"
+  },
+  "Pratt Institute": {
+    "id": "pratt-institute",
+    "name": "Pratt Institute",
+    "country": "USA",
+    "scorecard_id": 194578,
+    "scorecard_name": "Pratt Institute-Main",
+    "scorecard_city": "Brooklyn",
+    "scorecard_state": "NY",
+    "acceptance_rate": 73.3,
+    "median_earnings_6yr_usd": 45060,
+    "median_earnings_10yr_usd": 54295,
+    "school_type": "private_nonprofit",
+    "setting": "urban",
+    "enrollment_undergrad": 4517,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 9,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 73.5,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:58:02.243Z"
   },
   "Princeton University": {
     "id": "princeton-university",
@@ -1479,7 +2415,7 @@
     "russell_group": null,
     "completion_rate_pct": 97.6,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:52:28.964Z"
+    "data_extracted_at": "2026-05-14T16:58:02.915Z"
   },
   "Purdue University": {
     "id": "purdue-university",
@@ -1505,7 +2441,33 @@
     "russell_group": null,
     "completion_rate_pct": 83.1,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:52:30.125Z"
+    "data_extracted_at": "2026-05-14T16:58:03.644Z"
+  },
+  "Quinnipiac University": {
+    "id": "quinnipiac-university",
+    "name": "Quinnipiac University",
+    "country": "USA",
+    "scorecard_id": 130226,
+    "scorecard_name": "Quinnipiac University",
+    "scorecard_city": "Hamden",
+    "scorecard_state": "CT",
+    "acceptance_rate": 72.2,
+    "median_earnings_6yr_usd": 65744,
+    "median_earnings_10yr_usd": 83759,
+    "school_type": "private_nonprofit",
+    "setting": "suburban",
+    "enrollment_undergrad": 6946,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 12,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 75.7,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:58:04.320Z"
   },
   "Rensselaer Polytechnic Institute": {
     "id": "rensselaer-polytechnic-institute",
@@ -1531,7 +2493,7 @@
     "russell_group": null,
     "completion_rate_pct": 83.6,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:52:31.312Z"
+    "data_extracted_at": "2026-05-14T16:58:05.139Z"
   },
   "Rice University": {
     "id": "rice-university",
@@ -1557,7 +2519,7 @@
     "russell_group": null,
     "completion_rate_pct": 94.6,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:52:32.318Z"
+    "data_extracted_at": "2026-05-14T16:58:05.861Z"
   },
   "Rochester Institute of Technology": {
     "id": "rochester-institute-of-technology",
@@ -1583,7 +2545,7 @@
     "russell_group": null,
     "completion_rate_pct": 69.9,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:52:33.207Z"
+    "data_extracted_at": "2026-05-14T16:58:06.513Z"
   },
   "Rutgers University": {
     "id": "rutgers-university",
@@ -1609,7 +2571,7 @@
     "russell_group": null,
     "completion_rate_pct": 83.6,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:52:35.307Z"
+    "data_extracted_at": "2026-05-14T16:58:07.289Z"
   },
   "Rutgers University–New Brunswick": {
     "id": "rutgers-university-new-brunswick",
@@ -1635,7 +2597,7 @@
     "russell_group": null,
     "completion_rate_pct": 83.6,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:52:36.445Z"
+    "data_extracted_at": "2026-05-14T16:58:08.006Z"
   },
   "Saint Louis University": {
     "id": "saint-louis-university",
@@ -1661,7 +2623,59 @@
     "russell_group": null,
     "completion_rate_pct": 79.5,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:52:38.180Z"
+    "data_extracted_at": "2026-05-14T16:58:08.722Z"
+  },
+  "Saint Peter's University": {
+    "id": "saint-peter-s-university",
+    "name": "Saint Peter's University",
+    "country": "USA",
+    "scorecard_id": 186432,
+    "scorecard_name": "Saint Peter's University",
+    "scorecard_city": "Jersey City",
+    "scorecard_state": "NJ",
+    "acceptance_rate": 90.3,
+    "median_earnings_6yr_usd": 42470,
+    "median_earnings_10yr_usd": 57815,
+    "school_type": "private_nonprofit",
+    "setting": "urban",
+    "enrollment_undergrad": 3011,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 12,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 58.3,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:58:09.442Z"
+  },
+  "Sam Houston State University": {
+    "id": "sam-houston-state-university",
+    "name": "Sam Houston State University",
+    "country": "USA",
+    "scorecard_id": 227881,
+    "scorecard_name": "Sam Houston State University",
+    "scorecard_city": "Huntsville",
+    "scorecard_state": "TX",
+    "acceptance_rate": 90.3,
+    "median_earnings_6yr_usd": 45337,
+    "median_earnings_10yr_usd": 54211,
+    "school_type": "public",
+    "setting": "suburban",
+    "enrollment_undergrad": 19844,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 19,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 54.8,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:58:10.101Z"
   },
   "San Diego State University": {
     "id": "san-diego-state-university",
@@ -1687,7 +2701,33 @@
     "russell_group": null,
     "completion_rate_pct": 76.4,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:52:39.914Z"
+    "data_extracted_at": "2026-05-14T16:58:10.769Z"
+  },
+  "San Francisco State University": {
+    "id": "san-francisco-state-university",
+    "name": "San Francisco State University",
+    "country": "USA",
+    "scorecard_id": 122597,
+    "scorecard_name": "San Francisco State University",
+    "scorecard_city": "San Francisco",
+    "scorecard_state": "CA",
+    "acceptance_rate": 96.4,
+    "median_earnings_6yr_usd": 52650,
+    "median_earnings_10yr_usd": 68077,
+    "school_type": "public",
+    "setting": "urban",
+    "enrollment_undergrad": 23534,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 19,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 50.4,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:58:11.490Z"
   },
   "San Jose State University": {
     "id": "san-jose-state-university",
@@ -1713,7 +2753,111 @@
     "russell_group": null,
     "completion_rate_pct": 69.2,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:52:41.252Z"
+    "data_extracted_at": "2026-05-14T16:58:12.205Z"
+  },
+  "Santa Clara University": {
+    "id": "santa-clara-university",
+    "name": "Santa Clara University",
+    "country": "USA",
+    "scorecard_id": 122931,
+    "scorecard_name": "Santa Clara University",
+    "scorecard_city": "Santa Clara",
+    "scorecard_state": "CA",
+    "acceptance_rate": 48,
+    "median_earnings_6yr_usd": 91198,
+    "median_earnings_10yr_usd": 109183,
+    "school_type": "private_nonprofit",
+    "setting": "urban",
+    "enrollment_undergrad": 6468,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 11,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 87.9,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:58:12.865Z"
+  },
+  "Savannah College of Art and Design": {
+    "id": "savannah-college-of-art-and-design",
+    "name": "Savannah College of Art and Design",
+    "country": "USA",
+    "scorecard_id": 140951,
+    "scorecard_name": "Savannah College of Art and Design",
+    "scorecard_city": "Savannah",
+    "scorecard_state": "GA",
+    "acceptance_rate": 83,
+    "median_earnings_6yr_usd": 34110,
+    "median_earnings_10yr_usd": 45954,
+    "school_type": "private_nonprofit",
+    "setting": "urban",
+    "enrollment_undergrad": 16171,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 21,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 69.4,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:58:13.517Z"
+  },
+  "Southern Illinois University Edwardsville": {
+    "id": "southern-illinois-university-edwardsville",
+    "name": "Southern Illinois University Edwardsville",
+    "country": "USA",
+    "scorecard_id": 149231,
+    "scorecard_name": "Southern Illinois University Edwardsville",
+    "scorecard_city": "Edwardsville",
+    "scorecard_state": "IL",
+    "acceptance_rate": 97.5,
+    "median_earnings_6yr_usd": 46384,
+    "median_earnings_10yr_usd": 56346,
+    "school_type": "public",
+    "setting": "suburban",
+    "enrollment_undergrad": 10167,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 15,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 57,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:58:14.221Z"
+  },
+  "Southern Methodist University": {
+    "id": "southern-methodist-university",
+    "name": "Southern Methodist University",
+    "country": "USA",
+    "scorecard_id": 228246,
+    "scorecard_name": "Southern Methodist University",
+    "scorecard_city": "Dallas",
+    "scorecard_state": "TX",
+    "acceptance_rate": 63.4,
+    "median_earnings_6yr_usd": 65556,
+    "median_earnings_10yr_usd": 78354,
+    "school_type": "private_nonprofit",
+    "setting": "suburban",
+    "enrollment_undergrad": 7491,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 11,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 84.3,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:58:14.971Z"
   },
   "Stanford University": {
     "id": "stanford-university",
@@ -1739,7 +2883,7 @@
     "russell_group": null,
     "completion_rate_pct": 91.9,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:52:44.493Z"
+    "data_extracted_at": "2026-05-14T16:58:15.635Z"
   },
   "Stevens Institute of Technology": {
     "id": "stevens-institute-of-technology",
@@ -1765,7 +2909,7 @@
     "russell_group": null,
     "completion_rate_pct": 86.9,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:52:45.555Z"
+    "data_extracted_at": "2026-05-14T16:58:16.294Z"
   },
   "Stony Brook University": {
     "id": "stony-brook-university",
@@ -1791,7 +2935,33 @@
     "russell_group": null,
     "completion_rate_pct": 75.6,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:52:47.147Z"
+    "data_extracted_at": "2026-05-14T16:58:16.956Z"
+  },
+  "Syracuse University": {
+    "id": "syracuse-university",
+    "name": "Syracuse University",
+    "country": "USA",
+    "scorecard_id": 196413,
+    "scorecard_name": "Syracuse University",
+    "scorecard_city": "Syracuse",
+    "scorecard_state": "NY",
+    "acceptance_rate": 45.9,
+    "median_earnings_6yr_usd": 60459,
+    "median_earnings_10yr_usd": 79164,
+    "school_type": "private_nonprofit",
+    "setting": "urban",
+    "enrollment_undergrad": 28695,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 15,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 83.6,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:58:17.607Z"
   },
   "Temple University": {
     "id": "temple-university",
@@ -1817,7 +2987,7 @@
     "russell_group": null,
     "completion_rate_pct": 75.1,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:52:47.856Z"
+    "data_extracted_at": "2026-05-14T16:58:18.349Z"
   },
   "Texas A&M University": {
     "id": "texas-aandm-university",
@@ -1843,7 +3013,33 @@
     "russell_group": null,
     "completion_rate_pct": 40.2,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:52:50.059Z"
+    "data_extracted_at": "2026-05-14T16:58:19.066Z"
+  },
+  "Texas State University": {
+    "id": "texas-state-university",
+    "name": "Texas State University",
+    "country": "USA",
+    "scorecard_id": 228459,
+    "scorecard_name": "Texas State University",
+    "scorecard_city": "San Marcos",
+    "scorecard_state": "TX",
+    "acceptance_rate": 89.3,
+    "median_earnings_6yr_usd": 46716,
+    "median_earnings_10yr_usd": 56906,
+    "school_type": "public",
+    "setting": "urban",
+    "enrollment_undergrad": 37218,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 21,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 55.3,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:58:19.787Z"
   },
   "Texas Tech University": {
     "id": "texas-tech-university",
@@ -1869,7 +3065,59 @@
     "russell_group": null,
     "completion_rate_pct": 68.7,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:52:51.082Z"
+    "data_extracted_at": "2026-05-14T16:58:20.501Z"
+  },
+  "Texas Woman's University": {
+    "id": "texas-woman-s-university",
+    "name": "Texas Woman's University",
+    "country": "USA",
+    "scorecard_id": 229179,
+    "scorecard_name": "Texas Woman's University",
+    "scorecard_city": "Denton",
+    "scorecard_state": "TX",
+    "acceptance_rate": 96.1,
+    "median_earnings_6yr_usd": 48773,
+    "median_earnings_10yr_usd": 56544,
+    "school_type": "public",
+    "setting": "urban",
+    "enrollment_undergrad": 12119,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 16,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 49.1,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:58:21.320Z"
+  },
+  "The New School": {
+    "id": "the-new-school",
+    "name": "The New School",
+    "country": "USA",
+    "scorecard_id": 193654,
+    "scorecard_name": "The New School",
+    "scorecard_city": "New York",
+    "scorecard_state": "NY",
+    "acceptance_rate": 63.5,
+    "median_earnings_6yr_usd": 38210,
+    "median_earnings_10yr_usd": 52901,
+    "school_type": "private_nonprofit",
+    "setting": "urban",
+    "enrollment_undergrad": 8010,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 9,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 69.4,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:58:21.982Z"
   },
   "Tufts University": {
     "id": "tufts-university",
@@ -1895,7 +3143,7 @@
     "russell_group": null,
     "completion_rate_pct": 93.5,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:52:52.752Z"
+    "data_extracted_at": "2026-05-14T16:58:22.634Z"
   },
   "Tulane University": {
     "id": "tulane-university",
@@ -1921,7 +3169,7 @@
     "russell_group": null,
     "completion_rate_pct": 86.1,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:52:54.564Z"
+    "data_extracted_at": "2026-05-14T16:58:23.350Z"
   },
   "UC Riverside": {
     "id": "uc-riverside",
@@ -1947,7 +3195,7 @@
     "russell_group": null,
     "completion_rate_pct": 83,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:52:56.723Z"
+    "data_extracted_at": "2026-05-14T16:58:24.084Z"
   },
   "UC Santa Cruz": {
     "id": "uc-santa-cruz",
@@ -1973,7 +3221,7 @@
     "russell_group": null,
     "completion_rate_pct": 75.1,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:52:57.847Z"
+    "data_extracted_at": "2026-05-14T16:58:24.799Z"
   },
   "UCLA": {
     "id": "ucla",
@@ -1999,7 +3247,33 @@
     "russell_group": null,
     "completion_rate_pct": 92.6,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:52:59.076Z"
+    "data_extracted_at": "2026-05-14T16:58:25.619Z"
+  },
+  "University at Albany, SUNY": {
+    "id": "university-at-albany-suny",
+    "name": "University at Albany, SUNY",
+    "country": "USA",
+    "scorecard_id": 196060,
+    "scorecard_name": "University at Albany",
+    "scorecard_city": "Albany",
+    "scorecard_state": "NY",
+    "acceptance_rate": 69.1,
+    "median_earnings_6yr_usd": 51380,
+    "median_earnings_10yr_usd": 67979,
+    "school_type": "public",
+    "setting": "urban",
+    "enrollment_undergrad": 21800,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 16,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 61.5,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:58:26.337Z"
   },
   "University at Buffalo (SUNY)": {
     "id": "university-at-buffalo-suny",
@@ -2025,7 +3299,7 @@
     "russell_group": null,
     "completion_rate_pct": 75.2,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:52:59.835Z"
+    "data_extracted_at": "2026-05-14T16:58:27.056Z"
   },
   "University at Buffalo, SUNY": {
     "id": "university-at-buffalo-suny",
@@ -2051,7 +3325,33 @@
     "russell_group": null,
     "completion_rate_pct": 75.2,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:53:00.594Z"
+    "data_extracted_at": "2026-05-14T16:58:27.772Z"
+  },
+  "University of Akron": {
+    "id": "university-of-akron",
+    "name": "University of Akron",
+    "country": "USA",
+    "scorecard_id": 200800,
+    "scorecard_name": "University of Akron Main Campus",
+    "scorecard_city": "Akron",
+    "scorecard_state": "OH",
+    "acceptance_rate": 59.7,
+    "median_earnings_6yr_usd": 42269,
+    "median_earnings_10yr_usd": 46600,
+    "school_type": "public",
+    "setting": "urban",
+    "enrollment_undergrad": 12664,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 17,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 51.9,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:58:28.589Z"
   },
   "University of Alabama": {
     "id": "university-of-alabama",
@@ -2077,7 +3377,7 @@
     "russell_group": null,
     "completion_rate_pct": 73.4,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:53:01.323Z"
+    "data_extracted_at": "2026-05-14T16:58:29.306Z"
   },
   "University of Arizona": {
     "id": "university-of-arizona",
@@ -2103,7 +3403,7 @@
     "russell_group": null,
     "completion_rate_pct": 67.5,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:53:02.554Z"
+    "data_extracted_at": "2026-05-14T16:58:30.064Z"
   },
   "University of Arkansas": {
     "id": "university-of-arkansas",
@@ -2129,7 +3429,33 @@
     "russell_group": null,
     "completion_rate_pct": 70.5,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:53:03.780Z"
+    "data_extracted_at": "2026-05-14T16:58:30.815Z"
+  },
+  "University of Bridgeport": {
+    "id": "university-of-bridgeport",
+    "name": "University of Bridgeport",
+    "country": "USA",
+    "scorecard_id": 128744,
+    "scorecard_name": "University of Bridgeport",
+    "scorecard_city": "Bridgeport",
+    "scorecard_state": "CT",
+    "acceptance_rate": 83,
+    "median_earnings_6yr_usd": 38575,
+    "median_earnings_10yr_usd": 50323,
+    "school_type": "private_nonprofit",
+    "setting": "urban",
+    "enrollment_undergrad": 2338,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 15,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 41.2,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:58:31.492Z"
   },
   "University of California, Berkeley": {
     "id": "university-of-california-berkeley",
@@ -2155,7 +3481,59 @@
     "russell_group": null,
     "completion_rate_pct": 92.8,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:53:05.011Z"
+    "data_extracted_at": "2026-05-14T16:58:32.246Z"
+  },
+  "University of California, Davis": {
+    "id": "university-of-california-davis",
+    "name": "University of California, Davis",
+    "country": "USA",
+    "scorecard_id": 110644,
+    "scorecard_name": "University of California-Davis",
+    "scorecard_city": "Davis",
+    "scorecard_state": "CA",
+    "acceptance_rate": 41.8,
+    "median_earnings_6yr_usd": 58461,
+    "median_earnings_10yr_usd": 80838,
+    "school_type": "public",
+    "setting": "suburban",
+    "enrollment_undergrad": 33618,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 22,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 85.7,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:58:33.094Z"
+  },
+  "University of California, Irvine": {
+    "id": "university-of-california-irvine",
+    "name": "University of California, Irvine",
+    "country": "USA",
+    "scorecard_id": 110653,
+    "scorecard_name": "University of California-Irvine",
+    "scorecard_city": "Irvine",
+    "scorecard_state": "CA",
+    "acceptance_rate": 28.6,
+    "median_earnings_6yr_usd": 56210,
+    "median_earnings_10yr_usd": 80735,
+    "school_type": "public",
+    "setting": "urban",
+    "enrollment_undergrad": 30893,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 19,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 86.9,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:58:33.774Z"
   },
   "University of California, Los Angeles": {
     "id": "university-of-california-los-angeles",
@@ -2181,7 +3559,7 @@
     "russell_group": null,
     "completion_rate_pct": 92.6,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:53:08.329Z"
+    "data_extracted_at": "2026-05-14T16:58:34.502Z"
   },
   "University of California, San Diego": {
     "id": "university-of-california-san-diego",
@@ -2207,7 +3585,33 @@
     "russell_group": null,
     "completion_rate_pct": 86.1,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:53:09.419Z"
+    "data_extracted_at": "2026-05-14T16:58:35.250Z"
+  },
+  "University of California, Santa Barbara": {
+    "id": "university-of-california-santa-barbara",
+    "name": "University of California, Santa Barbara",
+    "country": "USA",
+    "scorecard_id": 110705,
+    "scorecard_name": "University of California-Santa Barbara",
+    "scorecard_city": "Santa Barbara",
+    "scorecard_state": "CA",
+    "acceptance_rate": 33,
+    "median_earnings_6yr_usd": 56852,
+    "median_earnings_10yr_usd": 74915,
+    "school_type": "public",
+    "setting": "suburban",
+    "enrollment_undergrad": 24660,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 17,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 83,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:58:36.027Z"
   },
   "University of Central Florida": {
     "id": "university-of-central-florida",
@@ -2233,7 +3637,7 @@
     "russell_group": null,
     "completion_rate_pct": 78,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:53:10.439Z"
+    "data_extracted_at": "2026-05-14T16:58:36.885Z"
   },
   "University of Chicago": {
     "id": "university-of-chicago",
@@ -2259,7 +3663,7 @@
     "russell_group": null,
     "completion_rate_pct": 95.9,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:53:11.257Z"
+    "data_extracted_at": "2026-05-14T16:58:37.603Z"
   },
   "University of Cincinnati": {
     "id": "university-of-cincinnati",
@@ -2285,7 +3689,7 @@
     "russell_group": null,
     "completion_rate_pct": 75,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:53:13.411Z"
+    "data_extracted_at": "2026-05-14T16:58:38.318Z"
   },
   "University of Colorado Boulder": {
     "id": "university-of-colorado-boulder",
@@ -2311,7 +3715,7 @@
     "russell_group": null,
     "completion_rate_pct": 74.2,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:53:15.761Z"
+    "data_extracted_at": "2026-05-14T16:58:38.984Z"
   },
   "University of Connecticut": {
     "id": "university-of-connecticut",
@@ -2337,7 +3741,33 @@
     "russell_group": null,
     "completion_rate_pct": 83.3,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:53:16.889Z"
+    "data_extracted_at": "2026-05-14T16:58:39.752Z"
+  },
+  "University of Dayton": {
+    "id": "university-of-dayton",
+    "name": "University of Dayton",
+    "country": "USA",
+    "scorecard_id": 202480,
+    "scorecard_name": "University of Dayton",
+    "scorecard_city": "Dayton",
+    "scorecard_state": "OH",
+    "acceptance_rate": 65.5,
+    "median_earnings_6yr_usd": 62477,
+    "median_earnings_10yr_usd": 75537,
+    "school_type": "private_nonprofit",
+    "setting": "urban",
+    "enrollment_undergrad": 8454,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 14,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 80.2,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:58:40.474Z"
   },
   "University of Delaware": {
     "id": "university-of-delaware",
@@ -2363,7 +3793,33 @@
     "russell_group": null,
     "completion_rate_pct": 80.6,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:53:19.448Z"
+    "data_extracted_at": "2026-05-14T16:58:41.187Z"
+  },
+  "University of Detroit Mercy": {
+    "id": "university-of-detroit-mercy",
+    "name": "University of Detroit Mercy",
+    "country": "USA",
+    "scorecard_id": 169716,
+    "scorecard_name": "University of Detroit Mercy",
+    "scorecard_city": "Detroit",
+    "scorecard_state": "MI",
+    "acceptance_rate": 75.4,
+    "median_earnings_6yr_usd": 64534,
+    "median_earnings_10yr_usd": 71030,
+    "school_type": "private_nonprofit",
+    "setting": "urban",
+    "enrollment_undergrad": 3609,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 12,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 67.2,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:58:42.005Z"
   },
   "University of Florida": {
     "id": "university-of-florida",
@@ -2389,7 +3845,59 @@
     "russell_group": null,
     "completion_rate_pct": 91.1,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:53:20.606Z"
+    "data_extracted_at": "2026-05-14T16:58:42.822Z"
+  },
+  "University of Georgia": {
+    "id": "university-of-georgia",
+    "name": "University of Georgia",
+    "country": "USA",
+    "scorecard_id": 139959,
+    "scorecard_name": "University of Georgia",
+    "scorecard_city": "Athens",
+    "scorecard_state": "GA",
+    "acceptance_rate": 37.7,
+    "median_earnings_6yr_usd": 57565,
+    "median_earnings_10yr_usd": 68726,
+    "school_type": "public",
+    "setting": "urban",
+    "enrollment_undergrad": 34495,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 17,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 89.7,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:58:43.548Z"
+  },
+  "University of Hartford": {
+    "id": "university-of-hartford",
+    "name": "University of Hartford",
+    "country": "USA",
+    "scorecard_id": 129525,
+    "scorecard_name": "University of Hartford",
+    "scorecard_city": "West Hartford",
+    "scorecard_state": "CT",
+    "acceptance_rate": 95.8,
+    "median_earnings_6yr_usd": 42581,
+    "median_earnings_10yr_usd": 60823,
+    "school_type": "private_nonprofit",
+    "setting": "urban",
+    "enrollment_undergrad": 4412,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 11,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 54.4,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:58:44.395Z"
   },
   "University of Hawaii at Manoa": {
     "id": "university-of-hawaii-at-manoa",
@@ -2415,7 +3923,7 @@
     "russell_group": null,
     "completion_rate_pct": 64.3,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:53:21.706Z"
+    "data_extracted_at": "2026-05-14T16:58:45.056Z"
   },
   "University of Houston": {
     "id": "university-of-houston",
@@ -2441,7 +3949,33 @@
     "russell_group": null,
     "completion_rate_pct": 64.6,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:53:22.521Z"
+    "data_extracted_at": "2026-05-14T16:58:45.953Z"
+  },
+  "University of Houston-Clear Lake": {
+    "id": "university-of-houston-clear-lake",
+    "name": "University of Houston-Clear Lake",
+    "country": "USA",
+    "scorecard_id": 225414,
+    "scorecard_name": "University of Houston-Clear Lake",
+    "scorecard_city": "Houston",
+    "scorecard_state": "TX",
+    "acceptance_rate": 90.5,
+    "median_earnings_6yr_usd": 52098,
+    "median_earnings_10yr_usd": 59004,
+    "school_type": "public",
+    "setting": "urban",
+    "enrollment_undergrad": 7335,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 15,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 51.6,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:58:46.757Z"
   },
   "University of Illinois at Chicago": {
     "id": "university-of-illinois-at-chicago",
@@ -2467,7 +4001,33 @@
     "russell_group": null,
     "completion_rate_pct": 61.6,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:53:23.736Z"
+    "data_extracted_at": "2026-05-14T16:58:47.532Z"
+  },
+  "University of Illinois at Urbana-Champaign": {
+    "id": "university-of-illinois-at-urbana-champaign",
+    "name": "University of Illinois at Urbana-Champaign",
+    "country": "USA",
+    "scorecard_id": 145637,
+    "scorecard_name": "University of Illinois Urbana-Champaign",
+    "scorecard_city": "Champaign",
+    "scorecard_state": "IL",
+    "acceptance_rate": 42.4,
+    "median_earnings_6yr_usd": 64802,
+    "median_earnings_10yr_usd": 81054,
+    "school_type": "public",
+    "setting": "urban",
+    "enrollment_undergrad": 37468,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 20,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 85.1,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:58:48.251Z"
   },
   "University of Iowa": {
     "id": "university-of-iowa",
@@ -2493,7 +4053,7 @@
     "russell_group": null,
     "completion_rate_pct": 74.6,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:53:25.592Z"
+    "data_extracted_at": "2026-05-14T16:58:48.922Z"
   },
   "University of Kansas": {
     "id": "university-of-kansas",
@@ -2519,7 +4079,7 @@
     "russell_group": null,
     "completion_rate_pct": 68.8,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:53:27.743Z"
+    "data_extracted_at": "2026-05-14T16:58:49.686Z"
   },
   "University of Kentucky": {
     "id": "university-of-kentucky",
@@ -2545,7 +4105,33 @@
     "russell_group": null,
     "completion_rate_pct": 71.4,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:53:29.484Z"
+    "data_extracted_at": "2026-05-14T16:58:50.503Z"
+  },
+  "University of Louisville": {
+    "id": "university-of-louisville",
+    "name": "University of Louisville",
+    "country": "USA",
+    "scorecard_id": 157289,
+    "scorecard_name": "University of Louisville",
+    "scorecard_city": "Louisville",
+    "scorecard_state": "KY",
+    "acceptance_rate": 79.4,
+    "median_earnings_6yr_usd": 46571,
+    "median_earnings_10yr_usd": 53899,
+    "school_type": "public",
+    "setting": "urban",
+    "enrollment_undergrad": 18681,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 14,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 61.2,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:58:51.324Z"
   },
   "University of Maryland": {
     "id": "university-of-maryland",
@@ -2571,7 +4157,33 @@
     "russell_group": null,
     "completion_rate_pct": 88.6,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:53:30.615Z"
+    "data_extracted_at": "2026-05-14T16:58:52.141Z"
+  },
+  "University of Maryland, Baltimore County": {
+    "id": "university-of-maryland-baltimore-county",
+    "name": "University of Maryland, Baltimore County",
+    "country": "USA",
+    "scorecard_id": 163268,
+    "scorecard_name": "University of Maryland-Baltimore County",
+    "scorecard_city": "Baltimore",
+    "scorecard_state": "MD",
+    "acceptance_rate": 72.4,
+    "median_earnings_6yr_usd": 55137,
+    "median_earnings_10yr_usd": 69960,
+    "school_type": "public",
+    "setting": "suburban",
+    "enrollment_undergrad": 11570,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 17,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 70,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:58:52.860Z"
   },
   "University of Massachusetts Amherst": {
     "id": "university-of-massachusetts-amherst",
@@ -2597,7 +4209,85 @@
     "russell_group": null,
     "completion_rate_pct": 83.3,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:53:31.837Z"
+    "data_extracted_at": "2026-05-14T16:58:53.549Z"
+  },
+  "University of Massachusetts Boston": {
+    "id": "university-of-massachusetts-boston",
+    "name": "University of Massachusetts Boston",
+    "country": "USA",
+    "scorecard_id": 166638,
+    "scorecard_name": "University of Massachusetts-Boston",
+    "scorecard_city": "Boston",
+    "scorecard_state": "MA",
+    "acceptance_rate": 83.8,
+    "median_earnings_6yr_usd": 53521,
+    "median_earnings_10yr_usd": 65865,
+    "school_type": "public",
+    "setting": "urban",
+    "enrollment_undergrad": 13718,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 15,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 49.4,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:58:54.293Z"
+  },
+  "University of Massachusetts Lowell": {
+    "id": "university-of-massachusetts-lowell",
+    "name": "University of Massachusetts Lowell",
+    "country": "USA",
+    "scorecard_id": 166513,
+    "scorecard_name": "University of Massachusetts-Lowell",
+    "scorecard_city": "Lowell",
+    "scorecard_state": "MA",
+    "acceptance_rate": 83,
+    "median_earnings_6yr_usd": 61467,
+    "median_earnings_10yr_usd": 64874,
+    "school_type": "public",
+    "setting": "suburban",
+    "enrollment_undergrad": 14497,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 17,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 64.8,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:58:55.012Z"
+  },
+  "University of Memphis": {
+    "id": "university-of-memphis",
+    "name": "University of Memphis",
+    "country": "USA",
+    "scorecard_id": 220862,
+    "scorecard_name": "University of Memphis",
+    "scorecard_city": "Memphis",
+    "scorecard_state": "TN",
+    "acceptance_rate": 72,
+    "median_earnings_6yr_usd": 40921,
+    "median_earnings_10yr_usd": 48458,
+    "school_type": "public",
+    "setting": "urban",
+    "enrollment_undergrad": 19263,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 16,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 50.9,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:58:55.675Z"
   },
   "University of Miami": {
     "id": "university-of-miami",
@@ -2623,7 +4313,7 @@
     "russell_group": null,
     "completion_rate_pct": 83.7,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:53:33.785Z"
+    "data_extracted_at": "2026-05-14T16:58:56.445Z"
   },
   "University of Michigan": {
     "id": "university-of-michigan",
@@ -2649,7 +4339,7 @@
     "russell_group": null,
     "completion_rate_pct": 93.2,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:53:35.941Z"
+    "data_extracted_at": "2026-05-14T16:58:57.263Z"
   },
   "University of Minnesota": {
     "id": "university-of-minnesota",
@@ -2675,7 +4365,7 @@
     "russell_group": null,
     "completion_rate_pct": 85.3,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:53:37.352Z"
+    "data_extracted_at": "2026-05-14T16:58:57.992Z"
   },
   "University of Mississippi": {
     "id": "university-of-mississippi",
@@ -2701,7 +4391,7 @@
     "russell_group": null,
     "completion_rate_pct": 71.7,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:53:38.494Z"
+    "data_extracted_at": "2026-05-14T16:58:58.681Z"
   },
   "University of Missouri": {
     "id": "university-of-missouri",
@@ -2727,7 +4417,85 @@
     "russell_group": null,
     "completion_rate_pct": 74.9,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:53:39.575Z"
+    "data_extracted_at": "2026-05-14T16:58:59.449Z"
+  },
+  "University of Nebraska-Lincoln": {
+    "id": "university-of-nebraska-lincoln",
+    "name": "University of Nebraska-Lincoln",
+    "country": "USA",
+    "scorecard_id": 181464,
+    "scorecard_name": "University of Nebraska-Lincoln",
+    "scorecard_city": "Lincoln",
+    "scorecard_state": "NE",
+    "acceptance_rate": 87.5,
+    "median_earnings_6yr_usd": 47692,
+    "median_earnings_10yr_usd": 56887,
+    "school_type": "public",
+    "setting": "urban",
+    "enrollment_undergrad": 20244,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 17,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 67,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:59:00.184Z"
+  },
+  "University of New Hampshire": {
+    "id": "university-of-new-hampshire",
+    "name": "University of New Hampshire",
+    "country": "USA",
+    "scorecard_id": 183044,
+    "scorecard_name": "University of New Hampshire-Main Campus",
+    "scorecard_city": "Durham",
+    "scorecard_state": "NH",
+    "acceptance_rate": 88.2,
+    "median_earnings_6yr_usd": 53671,
+    "median_earnings_10yr_usd": 66479,
+    "school_type": "public",
+    "setting": "suburban",
+    "enrollment_undergrad": 12025,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 17,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 76.1,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:59:01.052Z"
+  },
+  "University of New Haven": {
+    "id": "university-of-new-haven",
+    "name": "University of New Haven",
+    "country": "USA",
+    "scorecard_id": 129941,
+    "scorecard_name": "University of New Haven",
+    "scorecard_city": "West Haven",
+    "scorecard_state": "CT",
+    "acceptance_rate": 60.4,
+    "median_earnings_6yr_usd": 49829,
+    "median_earnings_10yr_usd": 60126,
+    "school_type": "private_nonprofit",
+    "setting": "suburban",
+    "enrollment_undergrad": 5603,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 17,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 63.1,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:59:01.715Z"
   },
   "University of New Mexico": {
     "id": "university-of-new-mexico",
@@ -2753,7 +4521,7 @@
     "russell_group": null,
     "completion_rate_pct": 54.7,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:53:40.317Z"
+    "data_extracted_at": "2026-05-14T16:59:02.391Z"
   },
   "University of North Carolina at Chapel Hill": {
     "id": "university-of-north-carolina-at-chapel-hill",
@@ -2779,7 +4547,85 @@
     "russell_group": null,
     "completion_rate_pct": 91.2,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:53:42.999Z"
+    "data_extracted_at": "2026-05-14T16:59:03.101Z"
+  },
+  "University of North Carolina at Charlotte": {
+    "id": "university-of-north-carolina-at-charlotte",
+    "name": "University of North Carolina at Charlotte",
+    "country": "USA",
+    "scorecard_id": 199139,
+    "scorecard_name": "University of North Carolina at Charlotte",
+    "scorecard_city": "Charlotte",
+    "scorecard_state": "NC",
+    "acceptance_rate": 79.6,
+    "median_earnings_6yr_usd": 48812,
+    "median_earnings_10yr_usd": 57289,
+    "school_type": "public",
+    "setting": "urban",
+    "enrollment_undergrad": 26495,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 21,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 69,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:59:03.900Z"
+  },
+  "University of North Dakota": {
+    "id": "university-of-north-dakota",
+    "name": "University of North Dakota",
+    "country": "USA",
+    "scorecard_id": 200280,
+    "scorecard_name": "University of North Dakota",
+    "scorecard_city": "Grand Forks",
+    "scorecard_state": "ND",
+    "acceptance_rate": 76.9,
+    "median_earnings_6yr_usd": 54588,
+    "median_earnings_10yr_usd": 63552,
+    "school_type": "public",
+    "setting": "urban",
+    "enrollment_undergrad": 13613,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 17,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 60.5,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:59:04.558Z"
+  },
+  "University of North Texas": {
+    "id": "university-of-north-texas",
+    "name": "University of North Texas",
+    "country": "USA",
+    "scorecard_id": 227216,
+    "scorecard_name": "University of North Texas",
+    "scorecard_city": "Denton",
+    "scorecard_state": "TX",
+    "acceptance_rate": 72.2,
+    "median_earnings_6yr_usd": 46304,
+    "median_earnings_10yr_usd": 57010,
+    "school_type": "public",
+    "setting": "urban",
+    "enrollment_undergrad": 37182,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 25,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 60.7,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:59:05.250Z"
   },
   "University of Notre Dame": {
     "id": "university-of-notre-dame",
@@ -2805,7 +4651,33 @@
     "russell_group": null,
     "completion_rate_pct": 95.2,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:53:45.356Z"
+    "data_extracted_at": "2026-05-14T16:59:05.966Z"
+  },
+  "University of Oklahoma": {
+    "id": "university-of-oklahoma",
+    "name": "University of Oklahoma",
+    "country": "USA",
+    "scorecard_id": 207500,
+    "scorecard_name": "University of Oklahoma-Norman Campus",
+    "scorecard_city": "Norman",
+    "scorecard_state": "OK",
+    "acceptance_rate": 76.6,
+    "median_earnings_6yr_usd": 52216,
+    "median_earnings_10yr_usd": 63126,
+    "school_type": "public",
+    "setting": "suburban",
+    "enrollment_undergrad": 24081,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 18,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 75.3,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:59:06.785Z"
   },
   "University of Oregon": {
     "id": "university-of-oregon",
@@ -2831,7 +4703,7 @@
     "russell_group": null,
     "completion_rate_pct": 71.7,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:53:48.325Z"
+    "data_extracted_at": "2026-05-14T16:59:07.604Z"
   },
   "University of Pennsylvania": {
     "id": "university-of-pennsylvania",
@@ -2857,7 +4729,7 @@
     "russell_group": null,
     "completion_rate_pct": 96.5,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:53:49.438Z"
+    "data_extracted_at": "2026-05-14T16:59:08.357Z"
   },
   "University of Pittsburgh": {
     "id": "university-of-pittsburgh",
@@ -2883,7 +4755,7 @@
     "russell_group": null,
     "completion_rate_pct": 85.5,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:53:50.581Z"
+    "data_extracted_at": "2026-05-14T16:59:09.140Z"
   },
   "University of Rochester": {
     "id": "university-of-rochester",
@@ -2909,7 +4781,7 @@
     "russell_group": null,
     "completion_rate_pct": 85.4,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:53:52.216Z"
+    "data_extracted_at": "2026-05-14T16:59:09.810Z"
   },
   "University of San Diego": {
     "id": "university-of-san-diego",
@@ -2935,7 +4807,85 @@
     "russell_group": null,
     "completion_rate_pct": 83.7,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:53:53.762Z"
+    "data_extracted_at": "2026-05-14T16:59:10.574Z"
+  },
+  "University of San Francisco": {
+    "id": "university-of-san-francisco",
+    "name": "University of San Francisco",
+    "country": "USA",
+    "scorecard_id": 122612,
+    "scorecard_name": "University of San Francisco",
+    "scorecard_city": "San Francisco",
+    "scorecard_state": "CA",
+    "acceptance_rate": 61.7,
+    "median_earnings_6yr_usd": 69951,
+    "median_earnings_10yr_usd": 89812,
+    "school_type": "private_nonprofit",
+    "setting": "urban",
+    "enrollment_undergrad": 6231,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 11,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 70.1,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:59:11.292Z"
+  },
+  "University of South Carolina": {
+    "id": "university-of-south-carolina",
+    "name": "University of South Carolina",
+    "country": "USA",
+    "scorecard_id": 218663,
+    "scorecard_name": "University of South Carolina-Columbia",
+    "scorecard_city": "Columbia",
+    "scorecard_state": "SC",
+    "acceptance_rate": 60.2,
+    "median_earnings_6yr_usd": 50621,
+    "median_earnings_10yr_usd": 62177,
+    "school_type": "public",
+    "setting": "urban",
+    "enrollment_undergrad": 30016,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 19,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 78.8,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:59:12.009Z"
+  },
+  "University of South Dakota": {
+    "id": "university-of-south-dakota",
+    "name": "University of South Dakota",
+    "country": "USA",
+    "scorecard_id": 219471,
+    "scorecard_name": "University of South Dakota",
+    "scorecard_city": "Vermillion",
+    "scorecard_state": "SD",
+    "acceptance_rate": 98.8,
+    "median_earnings_6yr_usd": 46290,
+    "median_earnings_10yr_usd": 51926,
+    "school_type": "public",
+    "setting": "suburban",
+    "enrollment_undergrad": 9110,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 16,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 59.9,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:59:12.924Z"
   },
   "University of South Florida": {
     "id": "university-of-south-florida",
@@ -2961,7 +4911,7 @@
     "russell_group": null,
     "completion_rate_pct": 76.8,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:53:55.946Z"
+    "data_extracted_at": "2026-05-14T16:59:13.850Z"
   },
   "University of Southern California": {
     "id": "university-of-southern-california",
@@ -2987,7 +4937,7 @@
     "russell_group": null,
     "completion_rate_pct": 91.8,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:53:58.054Z"
+    "data_extracted_at": "2026-05-14T16:59:14.520Z"
   },
   "University of Tennessee": {
     "id": "university-of-tennessee",
@@ -3013,7 +4963,7 @@
     "russell_group": null,
     "completion_rate_pct": 73.9,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:54:03.725Z"
+    "data_extracted_at": "2026-05-14T16:59:15.284Z"
   },
   "University of Tennessee Knoxville": {
     "id": "university-of-tennessee-knoxville",
@@ -3039,7 +4989,33 @@
     "russell_group": null,
     "completion_rate_pct": 73.9,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:54:04.762Z"
+    "data_extracted_at": "2026-05-14T16:59:15.973Z"
+  },
+  "University of Texas Rio Grande Valley": {
+    "id": "university-of-texas-rio-grande-valley",
+    "name": "University of Texas Rio Grande Valley",
+    "country": "USA",
+    "scorecard_id": 227368,
+    "scorecard_name": "The University of Texas Rio Grande Valley",
+    "scorecard_city": "Edinburg",
+    "scorecard_state": "TX",
+    "acceptance_rate": 94.2,
+    "median_earnings_6yr_usd": 35812,
+    "median_earnings_10yr_usd": 49620,
+    "school_type": "public",
+    "setting": "urban",
+    "enrollment_undergrad": 32723,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 20,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 50.9,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:59:16.634Z"
   },
   "University of Texas at Arlington": {
     "id": "university-of-texas-at-arlington",
@@ -3065,7 +5041,7 @@
     "russell_group": null,
     "completion_rate_pct": 54,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:54:06.859Z"
+    "data_extracted_at": "2026-05-14T16:59:17.302Z"
   },
   "University of Texas at Austin": {
     "id": "university-of-texas-at-austin",
@@ -3091,7 +5067,7 @@
     "russell_group": null,
     "completion_rate_pct": 88.9,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:54:08.499Z"
+    "data_extracted_at": "2026-05-14T16:59:18.047Z"
   },
   "University of Texas at Dallas": {
     "id": "university-of-texas-at-dallas",
@@ -3117,7 +5093,7 @@
     "russell_group": null,
     "completion_rate_pct": 75.7,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:54:10.448Z"
+    "data_extracted_at": "2026-05-14T16:59:18.765Z"
   },
   "University of Texas at San Antonio": {
     "id": "university-of-texas-at-san-antonio",
@@ -3143,7 +5119,59 @@
     "russell_group": null,
     "completion_rate_pct": 52.6,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:54:11.569Z"
+    "data_extracted_at": "2026-05-14T16:59:19.587Z"
+  },
+  "University of Toledo": {
+    "id": "university-of-toledo",
+    "name": "University of Toledo",
+    "country": "USA",
+    "scorecard_id": 206084,
+    "scorecard_name": "University of Toledo",
+    "scorecard_city": "Toledo",
+    "scorecard_state": "OH",
+    "acceptance_rate": 92,
+    "median_earnings_6yr_usd": 44162,
+    "median_earnings_10yr_usd": 50632,
+    "school_type": "public",
+    "setting": "urban",
+    "enrollment_undergrad": 13431,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 18,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 57,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:59:20.302Z"
+  },
+  "University of Tulsa": {
+    "id": "university-of-tulsa",
+    "name": "University of Tulsa",
+    "country": "USA",
+    "scorecard_id": 207971,
+    "scorecard_name": "University of Tulsa",
+    "scorecard_city": "Tulsa",
+    "scorecard_state": "OK",
+    "acceptance_rate": 61.5,
+    "median_earnings_6yr_usd": 54779,
+    "median_earnings_10yr_usd": 61408,
+    "school_type": "private_nonprofit",
+    "setting": "urban",
+    "enrollment_undergrad": 2756,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 10,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 72.3,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:59:20.964Z"
   },
   "University of Utah": {
     "id": "university-of-utah",
@@ -3169,7 +5197,33 @@
     "russell_group": null,
     "completion_rate_pct": 65.1,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:54:12.633Z"
+    "data_extracted_at": "2026-05-14T16:59:21.738Z"
+  },
+  "University of Vermont": {
+    "id": "university-of-vermont",
+    "name": "University of Vermont",
+    "country": "USA",
+    "scorecard_id": 231174,
+    "scorecard_name": "University of Vermont",
+    "scorecard_city": "Burlington",
+    "scorecard_state": "VT",
+    "acceptance_rate": 65.3,
+    "median_earnings_6yr_usd": 48164,
+    "median_earnings_10yr_usd": 62472,
+    "school_type": "public",
+    "setting": "urban",
+    "enrollment_undergrad": 13642,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 17,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 78.6,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:59:22.458Z"
   },
   "University of Virginia": {
     "id": "university-of-virginia",
@@ -3195,7 +5249,7 @@
     "russell_group": null,
     "completion_rate_pct": 95.6,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:54:14.028Z"
+    "data_extracted_at": "2026-05-14T16:59:23.213Z"
   },
   "University of Washington": {
     "id": "university-of-washington",
@@ -3221,7 +5275,7 @@
     "russell_group": null,
     "completion_rate_pct": 85.2,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:54:15.245Z"
+    "data_extracted_at": "2026-05-14T16:59:23.952Z"
   },
   "University of Wisconsin-Madison": {
     "id": "university-of-wisconsin-madison",
@@ -3247,7 +5301,33 @@
     "russell_group": null,
     "completion_rate_pct": 89.6,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:54:16.287Z"
+    "data_extracted_at": "2026-05-14T16:59:24.608Z"
+  },
+  "University of Wisconsin-Milwaukee": {
+    "id": "university-of-wisconsin-milwaukee",
+    "name": "University of Wisconsin-Milwaukee",
+    "country": "USA",
+    "scorecard_id": 240453,
+    "scorecard_name": "University of Wisconsin-Milwaukee",
+    "scorecard_city": "Milwaukee",
+    "scorecard_state": "WI",
+    "acceptance_rate": 90.7,
+    "median_earnings_6yr_usd": 45851,
+    "median_earnings_10yr_usd": 54990,
+    "school_type": "public",
+    "setting": "urban",
+    "enrollment_undergrad": 21020,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 17,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 49.3,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:59:25.277Z"
   },
   "Vanderbilt University": {
     "id": "vanderbilt-university",
@@ -3273,7 +5353,7 @@
     "russell_group": null,
     "completion_rate_pct": 93.5,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:54:18.123Z"
+    "data_extracted_at": "2026-05-14T16:59:25.928Z"
   },
   "Virginia Tech": {
     "id": "virginia-tech",
@@ -3299,7 +5379,7 @@
     "russell_group": null,
     "completion_rate_pct": 86.2,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:54:19.354Z"
+    "data_extracted_at": "2026-05-14T16:59:26.669Z"
   },
   "Wake Forest University": {
     "id": "wake-forest-university",
@@ -3325,7 +5405,7 @@
     "russell_group": null,
     "completion_rate_pct": 89.2,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:54:20.683Z"
+    "data_extracted_at": "2026-05-14T16:59:27.453Z"
   },
   "Washington State University": {
     "id": "washington-state-university",
@@ -3351,7 +5431,7 @@
     "russell_group": null,
     "completion_rate_pct": 60.5,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:54:23.552Z"
+    "data_extracted_at": "2026-05-14T16:59:28.325Z"
   },
   "Washington University in St. Louis": {
     "id": "washington-university-in-st-louis",
@@ -3377,7 +5457,85 @@
     "russell_group": null,
     "completion_rate_pct": 94.3,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:54:25.456Z"
+    "data_extracted_at": "2026-05-14T16:59:29.111Z"
+  },
+  "Wayne State University": {
+    "id": "wayne-state-university",
+    "name": "Wayne State University",
+    "country": "USA",
+    "scorecard_id": 172644,
+    "scorecard_name": "Wayne State University",
+    "scorecard_city": "Detroit",
+    "scorecard_state": "MI",
+    "acceptance_rate": 81.2,
+    "median_earnings_6yr_usd": 45207,
+    "median_earnings_10yr_usd": 53493,
+    "school_type": "public",
+    "setting": "urban",
+    "enrollment_undergrad": 18699,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 14,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 58.4,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:59:29.769Z"
+  },
+  "West Virginia University": {
+    "id": "west-virginia-university",
+    "name": "West Virginia University",
+    "country": "USA",
+    "scorecard_id": 238032,
+    "scorecard_name": "West Virginia University",
+    "scorecard_city": "Morgantown",
+    "scorecard_state": "WV",
+    "acceptance_rate": 89,
+    "median_earnings_6yr_usd": 45181,
+    "median_earnings_10yr_usd": 55939,
+    "school_type": "public",
+    "setting": "urban",
+    "enrollment_undergrad": 20425,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 19,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 64.7,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:59:30.510Z"
+  },
+  "Western Illinois University": {
+    "id": "western-illinois-university",
+    "name": "Western Illinois University",
+    "country": "USA",
+    "scorecard_id": 149772,
+    "scorecard_name": "Western Illinois University",
+    "scorecard_city": "Macomb",
+    "scorecard_state": "IL",
+    "acceptance_rate": 71.2,
+    "median_earnings_6yr_usd": 43057,
+    "median_earnings_10yr_usd": 54163,
+    "school_type": "public",
+    "setting": "suburban",
+    "enrollment_undergrad": 5706,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 12,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 45.2,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:59:31.163Z"
   },
   "Wichita State University": {
     "id": "wichita-state-university",
@@ -3403,7 +5561,7 @@
     "russell_group": null,
     "completion_rate_pct": 51,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:54:26.827Z"
+    "data_extracted_at": "2026-05-14T16:59:31.824Z"
   },
   "Worcester Polytechnic Institute": {
     "id": "worcester-polytechnic-institute",
@@ -3429,7 +5587,33 @@
     "russell_group": null,
     "completion_rate_pct": 89.7,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:54:27.954Z"
+    "data_extracted_at": "2026-05-14T16:59:32.488Z"
+  },
+  "Wright State University": {
+    "id": "wright-state-university",
+    "name": "Wright State University",
+    "country": "USA",
+    "scorecard_id": 206604,
+    "scorecard_name": "Wright State University-Main Campus",
+    "scorecard_city": "Dayton",
+    "scorecard_state": "OH",
+    "acceptance_rate": 96.3,
+    "median_earnings_6yr_usd": 42229,
+    "median_earnings_10yr_usd": 49500,
+    "school_type": "public",
+    "setting": "suburban",
+    "enrollment_undergrad": 8116,
+    "enrollment_total": null,
+    "graduate_outcome_salary_usd": null,
+    "graduate_outcome_employment_pct": null,
+    "ukprn": null,
+    "student_staff_ratio": 16,
+    "nss_satisfaction_pct": null,
+    "tef_rating": null,
+    "russell_group": null,
+    "completion_rate_pct": 41.7,
+    "data_source": "U.S. Department of Education College Scorecard (latest)",
+    "data_extracted_at": "2026-05-14T16:59:33.202Z"
   },
   "Yale University": {
     "id": "yale-university",
@@ -3455,7 +5639,7 @@
     "russell_group": null,
     "completion_rate_pct": 95.7,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:54:29.285Z"
+    "data_extracted_at": "2026-05-14T16:59:33.923Z"
   },
   "Yeshiva University": {
     "id": "yeshiva-university",
@@ -3481,6 +5665,6 @@
     "russell_group": null,
     "completion_rate_pct": 83.2,
     "data_source": "U.S. Department of Education College Scorecard (latest)",
-    "data_extracted_at": "2026-05-14T09:54:39.565Z"
+    "data_extracted_at": "2026-05-14T16:59:34.608Z"
   }
 }

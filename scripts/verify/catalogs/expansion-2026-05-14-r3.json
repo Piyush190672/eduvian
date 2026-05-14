@@ -1,0 +1,22 @@
+[
+  { "university": "DePaul University",                          "country": "USA", "city": "Chicago, IL",      "qs_ranking": 801 },
+  { "university": "Loyola University Chicago",                  "country": "USA", "city": "Chicago, IL",      "qs_ranking": 801 },
+  { "university": "Adelphi University",                         "country": "USA", "city": "Garden City, NY",  "qs_ranking": null },
+  { "university": "Quinnipiac University",                      "country": "USA", "city": "Hamden, CT",       "qs_ranking": null },
+  { "university": "University of Hartford",                     "country": "USA", "city": "West Hartford, CT","qs_ranking": null },
+  { "university": "University of Detroit Mercy",                "country": "USA", "city": "Detroit, MI",      "qs_ranking": null },
+  { "university": "University of Tulsa",                        "country": "USA", "city": "Tulsa, OK",        "qs_ranking": null },
+  { "university": "Bradley University",                         "country": "USA", "city": "Peoria, IL",       "qs_ranking": null },
+  { "university": "Florida Institute of Technology",            "country": "USA", "city": "Melbourne, FL",    "qs_ranking": 801 },
+  { "university": "Michigan Technological University",          "country": "USA", "city": "Houghton, MI",     "qs_ranking": 801 },
+  { "university": "University of Nebraska-Lincoln",             "country": "USA", "city": "Lincoln, NE",      "qs_ranking": 561 },
+  { "university": "West Virginia University",                   "country": "USA", "city": "Morgantown, WV",   "qs_ranking": 851 },
+  { "university": "University of Massachusetts Lowell",         "country": "USA", "city": "Lowell, MA",       "qs_ranking": 851 },
+  { "university": "University of Massachusetts Boston",         "country": "USA", "city": "Boston, MA",       "qs_ranking": null },
+  { "university": "University of North Carolina at Charlotte",  "country": "USA", "city": "Charlotte, NC",    "qs_ranking": 851 },
+  { "university": "Miami University",                           "country": "USA", "city": "Oxford, OH",       "qs_ranking": 851 },
+  { "university": "University of Akron",                        "country": "USA", "city": "Akron, OH",        "qs_ranking": null },
+  { "university": "The New School",                             "country": "USA", "city": "New York, NY",     "qs_ranking": 706 },
+  { "university": "Rhode Island School of Design",              "country": "USA", "city": "Providence, RI",   "qs_ranking": null },
+  { "university": "Savannah College of Art and Design",         "country": "USA", "city": "Savannah, GA",     "qs_ranking": null }
+]
