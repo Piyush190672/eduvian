@@ -237,26 +237,130 @@ export default function StepTests({ profile, onChange }: Props) {
               onChange({
                 std_test_pg: v as StudentProfile["std_test_pg"],
                 std_test_pg_score: undefined,
+                std_test_pg_verbal: undefined,
+                std_test_pg_quant: undefined,
+                std_test_pg_awa: undefined,
+                std_test_pg_data_insights: undefined,
               })
             }
           />
-          {profile.std_test_pg && profile.std_test_pg !== "none" && (
-            <div className="mt-3">
-              <Label>
-                {profile.std_test_pg === "gre"
-                  ? "GRE Score (260–340)"
-                  : "GMAT Score (200–800)"}
-              </Label>
-              <Input
-                type="number"
-                min={profile.std_test_pg === "gre" ? 260 : 200}
-                max={profile.std_test_pg === "gre" ? 340 : 800}
-                placeholder={profile.std_test_pg === "gre" ? "315" : "650"}
-                value={profile.std_test_pg_score ?? ""}
-                onChange={(e) =>
-                  onChange({ std_test_pg_score: parseInt(e.target.value) })
-                }
-              />
+          {profile.std_test_pg === "gre" && (
+            <div className="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div>
+                <Label>Verbal (130–170)</Label>
+                <Input
+                  type="number"
+                  min={130}
+                  max={170}
+                  placeholder="158"
+                  value={profile.std_test_pg_verbal ?? ""}
+                  onChange={(e) => {
+                    const v = parseInt(e.target.value);
+                    const q = profile.std_test_pg_quant ?? 0;
+                    onChange({
+                      std_test_pg_verbal: v,
+                      std_test_pg_score: Number.isFinite(v) && q ? v + q : undefined,
+                    });
+                  }}
+                />
+              </div>
+              <div>
+                <Label>Quant (130–170)</Label>
+                <Input
+                  type="number"
+                  min={130}
+                  max={170}
+                  placeholder="162"
+                  value={profile.std_test_pg_quant ?? ""}
+                  onChange={(e) => {
+                    const q = parseInt(e.target.value);
+                    const v = profile.std_test_pg_verbal ?? 0;
+                    onChange({
+                      std_test_pg_quant: q,
+                      std_test_pg_score: Number.isFinite(q) && v ? v + q : undefined,
+                    });
+                  }}
+                />
+              </div>
+              <div>
+                <Label>AWA (0–6)</Label>
+                <Input
+                  type="number"
+                  step={0.5}
+                  min={0}
+                  max={6}
+                  placeholder="4.0"
+                  value={profile.std_test_pg_awa ?? ""}
+                  onChange={(e) =>
+                    onChange({ std_test_pg_awa: parseFloat(e.target.value) })
+                  }
+                />
+              </div>
+              {profile.std_test_pg_score ? (
+                <p className="text-[11px] text-gray-500 sm:col-span-3">
+                  Composite (V+Q): <span className="font-semibold text-gray-700">{profile.std_test_pg_score}/340</span>
+                </p>
+              ) : null}
+            </div>
+          )}
+          {profile.std_test_pg === "gmat" && (
+            <div className="mt-3 grid grid-cols-1 sm:grid-cols-4 gap-3">
+              <div>
+                <Label>Total (205–805)</Label>
+                <Input
+                  type="number"
+                  min={205}
+                  max={805}
+                  step={10}
+                  placeholder="645"
+                  value={profile.std_test_pg_score ?? ""}
+                  onChange={(e) =>
+                    onChange({ std_test_pg_score: parseInt(e.target.value) })
+                  }
+                />
+              </div>
+              <div>
+                <Label>Verbal (60–90)</Label>
+                <Input
+                  type="number"
+                  min={60}
+                  max={90}
+                  placeholder="82"
+                  value={profile.std_test_pg_verbal ?? ""}
+                  onChange={(e) =>
+                    onChange({ std_test_pg_verbal: parseInt(e.target.value) })
+                  }
+                />
+              </div>
+              <div>
+                <Label>Quant (60–90)</Label>
+                <Input
+                  type="number"
+                  min={60}
+                  max={90}
+                  placeholder="84"
+                  value={profile.std_test_pg_quant ?? ""}
+                  onChange={(e) =>
+                    onChange({ std_test_pg_quant: parseInt(e.target.value) })
+                  }
+                />
+              </div>
+              <div>
+                <Label>Data Insights (60–90)</Label>
+                <Input
+                  type="number"
+                  min={60}
+                  max={90}
+                  placeholder="80"
+                  value={profile.std_test_pg_data_insights ?? ""}
+                  onChange={(e) =>
+                    onChange({ std_test_pg_data_insights: parseInt(e.target.value) })
+                  }
+                />
+              </div>
+              <p className="text-[11px] text-gray-500 sm:col-span-4">
+                GMAT Focus Edition (post-Nov 2023). For old-format scores, enter the Total only; sub-scores can be left blank.
+              </p>
             </div>
           )}
         </div>

@@ -60,7 +60,18 @@ export interface StudentProfile {
   std_test_ug?: StdTestUG;
   std_test_ug_score?: number;
   std_test_pg?: StdTestPG;
+  /** Composite score. GRE: Verbal+Quant = 260-340. GMAT: Total = 205-805. */
   std_test_pg_score?: number;
+  /** GRE Verbal (130-170) OR GMAT Verbal (60-90). Optional — composite still
+   *  drives matching; sections are stored for display + future signal
+   *  refinement. (14 May 2026.) */
+  std_test_pg_verbal?: number;
+  /** GRE Quant (130-170) OR GMAT Quant (60-90). */
+  std_test_pg_quant?: number;
+  /** GRE Analytical Writing Assessment (0-6, 0.5 increments). GRE only. */
+  std_test_pg_awa?: number;
+  /** GMAT Data Insights (60-90). GMAT only. */
+  std_test_pg_data_insights?: number;
 
   // Step 4 — Preferences
   country_preferences: string[]; // ordered array, up to 10 countries
