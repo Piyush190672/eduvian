@@ -30,7 +30,7 @@ void __dirname;
 
 const FIELDS = [
   "Computer Science & IT",
-  "Artificial Intelligence & Data Science",
+  "Artificial Intelligence",
   "Business & Management",
   "MBA",
   "Engineering (Mechanical/Civil/Electrical)",

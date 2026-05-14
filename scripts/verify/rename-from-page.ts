@@ -54,7 +54,7 @@ const UG_RE = reFromKeywords(UG_KEYWORDS);
 
 const FIELD_KEYWORDS: Record<string, string[]> = {
   "Computer Science & IT": ["computer science", "computing", "informatics", "information technology", "software", "computer engineering", "computer systems", "information systems"],
-  "Artificial Intelligence & Data Science": ["artificial intelligence", "machine learning", "data science", "data analytics", "statistical learning", "neural"],
+  "Artificial Intelligence": ["artificial intelligence", "machine learning", "data science", "data analytics", "statistical learning", "neural"],
   "Business & Management": ["business", "management", "marketing", "supply chain", "operations", "human resource", "entrepreneur", "strategy"],
   "MBA": ["MBA", "business administration"],
   "Engineering (Mechanical/Civil/Electrical)": ["engineering", "mechanical", "civil", "electrical", "electronic", "EECS", "robotics", "aerospace", "aeronautical", "manufacturing"],

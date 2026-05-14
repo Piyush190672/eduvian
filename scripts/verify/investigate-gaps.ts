@@ -40,7 +40,7 @@ const reKw = (k: string[]) => new RegExp(`\\b(${k.map((x) => x.replace(/[.*+?^${
 const PG_RE = reKw(PG), UG_RE = reKw(UG);
 const FIELDS: Record<string, string[]> = {
   "Computer Science & IT": ["computer science","computing","informatics","information technology","software","computer engineering","information systems"],
-  "Artificial Intelligence & Data Science": ["artificial intelligence","machine learning","data science","data analytics","statistical learning","neural"],
+  "Artificial Intelligence": ["artificial intelligence","machine learning","data science","data analytics","statistical learning","neural"],
   "Business & Management": ["business","management","marketing","supply chain","operations","entrepreneur"],
   "MBA": ["MBA","business administration"],
   "Engineering (Mechanical/Civil/Electrical)": ["engineering","mechanical","civil","electrical","electronic","EECS","robotics","aerospace","aeronautical","manufacturing"],

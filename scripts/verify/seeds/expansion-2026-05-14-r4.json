@@ -1,0 +1,122 @@
+[
+  {
+    "university": "Embry-Riddle Aeronautical University",
+    "country": "USA",
+    "city": "Daytona Beach, FL",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://daytonabeach.embryriddle.edu/academics/undergraduate/degrees/computer-science-bs/"
+  },
+  {
+    "university": "Embry-Riddle Aeronautical University",
+    "country": "USA",
+    "city": "Daytona Beach, FL",
+    "qs_ranking": null,
+    "field_of_study": "Artificial Intelligence & Data Science",
+    "program_url": "https://daytonabeach.embryriddle.edu/academics/graduate/degrees/data-science-ms/"
+  },
+  {
+    "university": "Embry-Riddle Aeronautical University",
+    "country": "USA",
+    "city": "Daytona Beach, FL",
+    "qs_ranking": null,
+    "field_of_study": "Business & Management",
+    "program_url": "https://daytonabeach.embryriddle.edu/academics/undergraduate/degrees/business-administration-bs/"
+  },
+  {
+    "university": "Embry-Riddle Aeronautical University",
+    "country": "USA",
+    "city": "Daytona Beach, FL",
+    "qs_ranking": null,
+    "field_of_study": "MBA",
+    "program_url": "https://daytonabeach.embryriddle.edu/academics/graduate/degrees/business-administration-mba/"
+  },
+  {
+    "university": "Embry-Riddle Aeronautical University",
+    "country": "USA",
+    "city": "Daytona Beach, FL",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://daytonabeach.embryriddle.edu/academics/graduate/degrees/mechanical-engineering-msme/"
+  },
+  {
+    "university": "Embry-Riddle Aeronautical University",
+    "country": "USA",
+    "city": "Daytona Beach, FL",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://daytonabeach.embryriddle.edu/academics/undergraduate/degrees/human-factors-psychology-bs/"
+  },
+  {
+    "university": "Embry-Riddle Aeronautical University",
+    "country": "USA",
+    "city": "Daytona Beach, FL",
+    "qs_ranking": null,
+    "field_of_study": "Economics & Finance",
+    "program_url": "https://daytonabeach.embryriddle.edu/academics/undergraduate/degrees/economics-bs/"
+  },
+  {
+    "university": "Embry-Riddle Aeronautical University",
+    "country": "USA",
+    "city": "Daytona Beach, FL",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://daytonabeach.embryriddle.edu/academics/undergraduate/degrees/environmental-science-bs/"
+  },
+  {
+    "university": "Embry-Riddle Aeronautical University",
+    "country": "USA",
+    "city": "Daytona Beach, FL",
+    "qs_ranking": null,
+    "field_of_study": "Natural Sciences",
+    "program_url": "https://daytonabeach.embryriddle.edu/academics/undergraduate/degrees/engineering-physics-bs/"
+  },
+  {
+    "university": "Rhode Island School of Design",
+    "country": "USA",
+    "city": "Providence, RI",
+    "qs_ranking": null,
+    "field_of_study": "Computer Science & IT",
+    "program_url": "https://www.risd.edu/academics/art-computation"
+  },
+  {
+    "university": "Rhode Island School of Design",
+    "country": "USA",
+    "city": "Providence, RI",
+    "qs_ranking": null,
+    "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+    "program_url": "https://www.risd.edu/academics/design-engineering"
+  },
+  {
+    "university": "Rhode Island School of Design",
+    "country": "USA",
+    "city": "Providence, RI",
+    "qs_ranking": null,
+    "field_of_study": "Arts, Design & Architecture",
+    "program_url": "https://www.risd.edu/academics/graphic-design/masters-programs"
+  },
+  {
+    "university": "Rhode Island School of Design",
+    "country": "USA",
+    "city": "Providence, RI",
+    "qs_ranking": null,
+    "field_of_study": "Social Sciences & Humanities",
+    "program_url": "https://www.risd.edu/academics/history-philosophy-and-social-sciences/concentration"
+  },
+  {
+    "university": "Rhode Island School of Design",
+    "country": "USA",
+    "city": "Providence, RI",
+    "qs_ranking": null,
+    "field_of_study": "Media & Communications",
+    "program_url": "https://www.risd.edu/academics/digital-media/masters-program"
+  },
+  {
+    "university": "Rhode Island School of Design",
+    "country": "USA",
+    "city": "Providence, RI",
+    "qs_ranking": null,
+    "field_of_study": "Environmental & Sustainability Studies",
+    "program_url": "https://www.risd.edu/academics/concentrations/ncss"
+  }
+]

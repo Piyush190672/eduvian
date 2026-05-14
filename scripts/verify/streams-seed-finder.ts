@@ -47,9 +47,9 @@ interface SeedOut {
 // stream is a hidden track / elective inside a generic-titled degree.
 const STREAM_MAP: Record<string, { field: string; hint: string }> = {
   "Cybersecurity":       { field: "Computer Science & IT",                       hint: "Any master's degree whose program name contains Cybersecurity / Information Security / Cyber Defense — including combined degrees like 'MSc Computer Science with Cybersecurity'." },
-  "Machine Learning":    { field: "Artificial Intelligence & Data Science",      hint: "Any master's degree whose program name contains Machine Learning — including combined degrees like 'MSc CS with Machine Learning'." },
-  "AI":                  { field: "Artificial Intelligence & Data Science",      hint: "Any master's degree whose program name contains Artificial Intelligence / AI — including combined degrees like 'MSc CS with AI'." },
-  "Data Science":        { field: "Artificial Intelligence & Data Science",      hint: "Any master's degree whose program name contains Data Science — including combined degrees like 'MSc Statistics with Data Science'." },
+  "Machine Learning":    { field: "Artificial Intelligence",      hint: "Any master's degree whose program name contains Machine Learning — including combined degrees like 'MSc CS with Machine Learning'." },
+  "AI":                  { field: "Artificial Intelligence",      hint: "Any master's degree whose program name contains Artificial Intelligence / AI — including combined degrees like 'MSc CS with AI'." },
+  "Data Science":        { field: "Artificial Intelligence",      hint: "Any master's degree whose program name contains Data Science — including combined degrees like 'MSc Statistics with Data Science'." },
   "Business Analytics":  { field: "Business & Management",                       hint: "Any master's degree whose program name contains Business Analytics or Analytics — including 'MS Analytics', 'MSc Business Analytics', or 'MBA Business Analytics specialization'." },
   "Healthcare":          { field: "Medicine & Public Health",                    hint: "Any healthcare-related master's: MPH (Public Health), Master's in Healthcare Administration / Health Informatics / Health Policy / Health Management / Clinical Research." },
   "Fine Arts":           { field: "Arts, Design & Architecture",                 hint: "Master of Fine Arts (MFA) — studio art, visual arts, creative writing, theatre/film MFA — NOT design or architecture." },

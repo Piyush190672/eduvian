@@ -67,8 +67,8 @@ const NON_PSW_DEGREE_PATTERN =
 
 // ─── Related fields (expand pool for students) ────────────────────────────────
 const RELATED_FIELDS: Record<string, string[]> = {
-  "Computer Science & IT":                   ["Artificial Intelligence & Data Science"],
-  "Artificial Intelligence & Data Science":  ["Computer Science & IT"],
+  "Computer Science & IT":                   ["Artificial Intelligence"],
+  "Artificial Intelligence":  ["Computer Science & IT"],
   "Business & Management":                   ["MBA", "Economics & Finance"],
   "MBA":                                     ["Business & Management"],
   "Economics & Finance":                     ["Business & Management"],

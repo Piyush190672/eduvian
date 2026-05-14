@@ -6,7 +6,7 @@ Reclassify programs in `Computer Science & IT` / `Artificial Intelligence
   - "Cybersecurity"                          (new)
   - "Data Science"                           (new)
   - "Computer Science & IT"                  (kept)
-  - "Artificial Intelligence & Data Science" (kept; renamed semantically
+  - "Artificial Intelligence" (kept; renamed semantically
                                               to mean "AI focus" in practice)
 
 Rules — case-insensitive substring matches on `program_name`:
@@ -28,9 +28,9 @@ Rules — case-insensitive substring matches on `program_name`:
 
   Cybersecurity always wins the primary slot when present.
   Otherwise, if both AI and Data Science keywords match → primary
-    stays "Artificial Intelligence & Data Science", alias = ["Data Science"].
+    stays "Artificial Intelligence", alias = ["Data Science"].
   If only Data Science → primary becomes "Data Science", alias = [].
-  If only AI → primary stays "Artificial Intelligence & Data Science",
+  If only AI → primary stays "Artificial Intelligence",
     alias = [].
   If neither (pure CS) → primary stays "Computer Science & IT".
 
@@ -38,7 +38,7 @@ Rules — case-insensitive substring matches on `program_name`:
     - Cybersecurity programs that are clearly in CS curriculum (e.g. "MSc
       Computer Science - Cyber Track") get field_aliases: ["Computer Science & IT"].
     - Data Science programs that explicitly mention AI also get
-      field_aliases: ["Artificial Intelligence & Data Science"].
+      field_aliases: ["Artificial Intelligence"].
 
 Walks programs.ts via brace parser, edits each entry's
 `field_of_study` and `field_aliases` lines in place, preserves other
@@ -131,13 +131,13 @@ def classify(program_name: str, current_field: str) -> tuple[str, list[str]]:
     # No cyber. Look at data + AI.
     if has_data and has_ai:
         # Dual program — keep AI&DS as primary, alias Data Science.
-        return ("Artificial Intelligence & Data Science", ["Data Science"])
+        return ("Artificial Intelligence", ["Data Science"])
     if has_data:
         # Pure data — primary becomes Data Science, alias AI&DS for back-compat.
-        return ("Data Science", ["Artificial Intelligence & Data Science"])
+        return ("Data Science", ["Artificial Intelligence"])
     if has_ai:
         # Pure AI — keep AI&DS.
-        return ("Artificial Intelligence & Data Science", [])
+        return ("Artificial Intelligence", [])
 
     # Neither data nor AI — return current. The matcher will keep
     # CS & IT programs unchanged.
@@ -163,7 +163,7 @@ def main(dry_run: bool) -> int:
             continue
         current = fos_m.group(1)
         # Only reclassify programs currently in the two source streams.
-        if current not in ("Computer Science & IT", "Artificial Intelligence & Data Science"):
+        if current not in ("Computer Science & IT", "Artificial Intelligence"):
             out_pieces.append(ent)
             continue
 

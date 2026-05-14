@@ -7,7 +7,7 @@ export type SalaryCountry =
 
 export type FieldOfStudy =
   | "Computer Science & IT"
-  | "Artificial Intelligence & Data Science"
+  | "Artificial Intelligence"
   | "Business & Management"
   | "MBA"
   | "Economics & Finance"
@@ -62,7 +62,7 @@ export const SALARY_LOOKUP: Record<SalaryCountry, Record<FieldOfStudy, number>> 
   // Elite university-specific values are in UNIVERSITY_SALARY_OVERRIDES below.
   USA: {
     "Computer Science & IT":                       92000,  // NACE 2024 CS master's median ~$90-95K; BLS 15-1252
-    "Artificial Intelligence & Data Science":      98000,  // NACE ML/AI grad; Glassdoor DS master's $95-102K
+    "Artificial Intelligence":      98000,  // NACE ML/AI grad; Glassdoor DS master's $95-102K
     "Business & Management":                       68000,  // NACE Business master's median $64-72K
     "MBA":                                         90000,  // GMAC 2024: AACSB mid-tier MBA median base ~$88-95K
     "Economics & Finance":                         76000,  // BLS Financial Analysts 13-2051; CFA entry $72-80K
@@ -85,7 +85,7 @@ export const SALARY_LOOKUP: Record<SalaryCountry, Record<FieldOfStudy, number>> 
   //   NHS Band 5 2024/25; High Fliers Graduate Market 2024.
   UK: {
     "Computer Science & IT":                       50000,  // £39.4K — HESA CS / Glassdoor Grad SE; revised up
-    "Artificial Intelligence & Data Science":      53000,  // £41.7K — Glassdoor Grad DS + MSc AI premium
+    "Artificial Intelligence":      53000,  // £41.7K — Glassdoor Grad DS + MSc AI premium
     "Business & Management":                       42000,  // £33.1K — MSc Business / Management baseline
     "MBA":                                         82000,  // £64.6K — Warwick/Manchester/Bath MBA median 2024
     "Economics & Finance":                         52000,  // £40.9K — MSc Finance; ISE Finance & Prof Services
@@ -106,7 +106,7 @@ export const SALARY_LOOKUP: Record<SalaryCountry, Record<FieldOfStudy, number>> 
   // AUD × 0.65. Base = mid-ranked Australian university PGT graduate.
   Australia: {
     "Computer Science & IT":                       52000,  // ACS 2024: CS grad AUD 80K; SEEK mid-range
-    "Artificial Intelligence & Data Science":      58000,  // QILT PGT DS/AI AUD 89K; SEEK AI roles
+    "Artificial Intelligence":      58000,  // QILT PGT DS/AI AUD 89K; SEEK AI roles
     "Business & Management":                       47000,  // QILT PGT Business AUD 72K
     "MBA":                                         80000,  // Top AU MBA (Melb, AGSM, MGSM) AUD 123K median
     "Economics & Finance":                         49000,  // Finance analyst entry AUD 75K
@@ -127,7 +127,7 @@ export const SALARY_LOOKUP: Record<SalaryCountry, Record<FieldOfStudy, number>> 
   // CAD × 0.73. Base = mid-ranked Canadian university PGT graduate.
   Canada: {
     "Computer Science & IT":                       62000,  // Glassdoor Canada new grad dev CAD 85K; revised up
-    "Artificial Intelligence & Data Science":      67000,  // AI/ML Canada CAD 92K; strong talent demand
+    "Artificial Intelligence":      67000,  // AI/ML Canada CAD 92K; strong talent demand
     "Business & Management":                       40000,  // Business admin entry CAD 55K
     "MBA":                                         73000,  // Rotman/Ivey/Schulich MBA median CAD 100K = $73K
     "Economics & Finance":                         44000,  // Finance analyst NOC 11101 CAD 60K
@@ -148,7 +148,7 @@ export const SALARY_LOOKUP: Record<SalaryCountry, Record<FieldOfStudy, number>> 
   // EUR × 1.08. Base = mid-ranked German/European university PGT graduate.
   Germany: {
     "Computer Science & IT":                       57000,  // Stepstone 2024: IT/Informatiker median EUR 53K = $57K
-    "Artificial Intelligence & Data Science":      61000,  // AI/ML Germany EUR 56K; hot market $61K
+    "Artificial Intelligence":      61000,  // AI/ML Germany EUR 56K; hot market $61K
     "Business & Management":                       46000,  // BWL/Management entry EUR 43K
     "MBA":                                         68000,  // German MBA (Mannheim/WHU/ESMT) EUR 63K avg = $68K
     "Economics & Finance":                         46000,  // Finance/Economics entry EUR 43K
@@ -170,7 +170,7 @@ export const SALARY_LOOKUP: Record<SalaryCountry, Record<FieldOfStudy, number>> 
   // level — those are handled via UNIVERSITY_SALARY_OVERRIDES for accuracy).
   Singapore: {
     "Computer Science & IT":                       44000,  // Mid-tier SG tech entry SGD 5,000/month × 12 × 0.74
-    "Artificial Intelligence & Data Science":      48000,  // AI/DS mid-tier SG SGD 5,400/month
+    "Artificial Intelligence":      48000,  // AI/DS mid-tier SG SGD 5,400/month
     "Business & Management":                       37000,  // Business mid-tier SG SGD 4,200/month
     "MBA":                                         55000,  // Mid-tier SG MBA SGD 6,200/month
     "Economics & Finance":                         38000,  // Economics entry SGD 4,300/month
@@ -191,7 +191,7 @@ export const SALARY_LOOKUP: Record<SalaryCountry, Record<FieldOfStudy, number>> 
   // NZD × 0.60. Base = mid-ranked NZ university PGT graduate.
   "New Zealand": {
     "Computer Science & IT":                       39000,  // MBIE IT median NZD 65K entry
-    "Artificial Intelligence & Data Science":      40800,  // DS/AI entry NZD 68K
+    "Artificial Intelligence":      40800,  // DS/AI entry NZD 68K
     "Business & Management":                       33000,  // Business entry NZD 55K
     "MBA":                                         43200,  // NZ MBA NZD 70-80K avg; mid-tier NZD 72K
     "Economics & Finance":                         33600,  // Finance entry NZD 56K
@@ -212,7 +212,7 @@ export const SALARY_LOOKUP: Record<SalaryCountry, Record<FieldOfStudy, number>> 
   // EUR × 1.08. Ireland is a major pharma/tech hub — biotech/CS skew upwards.
   Ireland: {
     "Computer Science & IT":                       43300,  // GradIreland 2024: tech entry EUR 38-48K
-    "Artificial Intelligence & Data Science":      45400,  // AI/ML Dublin tech firms EUR 40-55K
+    "Artificial Intelligence":      45400,  // AI/ML Dublin tech firms EUR 40-55K
     "Business & Management":                       32400,  // Business entry EUR 28-36K; revised up
     "MBA":                                         54000,  // Smurfit/DCU MBA EUR 48-60K
     "Economics & Finance":                         32400,  // Finance entry EUR 30-40K
@@ -234,7 +234,7 @@ export const SALARY_LOOKUP: Record<SalaryCountry, Record<FieldOfStudy, number>> 
   // (handled by ranking premium). Base = post-Masters non-Grande-École entry.
   France: {
     "Computer Science & IT":                       48600,  // Glassdoor France software entry EUR 42-52K
-    "Artificial Intelligence & Data Science":      50400,  // AI/ML Paris EUR 44-58K; demand premium
+    "Artificial Intelligence":      50400,  // AI/ML Paris EUR 44-58K; demand premium
     "Business & Management":                       36700,  // Business/Gestion entry EUR 32-42K
     "MBA":                                         59400,  // French MBA (mid-tier) EUR 48-62K; HEC/INSEAD premium via ranking
     "Economics & Finance":                         41000,  // Finance entry EUR 36-48K
@@ -255,7 +255,7 @@ export const SALARY_LOOKUP: Record<SalaryCountry, Record<FieldOfStudy, number>> 
   // AED × 0.27. Tax-free salaries; figures are gross (no income tax in UAE).
   UAE: {
     "Computer Science & IT":                       40500,  // UAE tech entry AED 130-180K; mid-tier AED 150K
-    "Artificial Intelligence & Data Science":      43200,  // AI/ML UAE AED 140-200K; strong demand AED 160K
+    "Artificial Intelligence":      43200,  // AI/ML UAE AED 140-200K; strong demand AED 160K
     "Business & Management":                       32400,  // Business entry AED 100-150K; mid AED 120K
     "MBA":                                         51300,  // UAE MBA AED 160-240K; mid AED 190K
     "Economics & Finance":                         38900,  // Finance/banking UAE AED 130-160K
@@ -276,7 +276,7 @@ export const SALARY_LOOKUP: Record<SalaryCountry, Record<FieldOfStudy, number>> 
   // MYR × 0.22. Figures represent fresh PGT graduate entry salaries.
   Malaysia: {
     "Computer Science & IT":                       13200,  // Jobstreet 2024: CS grad MYR 4,500-5,500/month; mid MYR 60K
-    "Artificial Intelligence & Data Science":      15400,  // AI/ML Malaysia MYR 5,000-7,000/month; hot market MYR 70K
+    "Artificial Intelligence":      15400,  // AI/ML Malaysia MYR 5,000-7,000/month; hot market MYR 70K
     "Business & Management":                       10000,  // Business entry MYR 3,000-4,000/month; MYR 45K
     "MBA":                                         15400,  // Malaysian MBA MYR 5,500-7,500/month; MYR 70K
     "Economics & Finance":                          9900,  // Finance analyst MYR 3,500-4,500/month; MYR 45K
@@ -319,17 +319,17 @@ export const UNIVERSITY_SALARY_OVERRIDES: Partial<Record<string, Partial<Record<
   },
   "Stanford University": {
     "MBA":                                       182000,  // GSB 2024 Employment Report: median base $177K + signing
-    "Artificial Intelligence & Data Science":    162000,  // Stanford AI MS → FAANG/OpenAI/Google DeepMind
+    "Artificial Intelligence":    162000,  // Stanford AI MS → FAANG/OpenAI/Google DeepMind
     "Computer Science & IT":                     158000,  // Stanford CS → top-tier tech; Levels.fyi
   },
   "Massachusetts Institute of Technology": {
     "Computer Science & IT":                     158000,  // MIT EECS MS → FAANG; Levels.fyi median base
-    "Artificial Intelligence & Data Science":    162000,  // MIT AI/ML → AI labs; OpenAI/Google/Meta
+    "Artificial Intelligence":    162000,  // MIT AI/ML → AI labs; OpenAI/Google/Meta
     "Engineering (Mechanical/Civil/Electrical)": 115000,  // MIT AeroAstro/Mech Eng → defense/aerospace
     "Natural Sciences":                           96000,  // MIT hard sciences MS/PhD → biotech/research/finance
   },
   "Carnegie Mellon University": {
-    "Artificial Intelligence & Data Science":    148000,  // CMU ML MSc → AI companies; median base ~$145-152K
+    "Artificial Intelligence":    148000,  // CMU ML MSc → AI companies; median base ~$145-152K
     "Computer Science & IT":                     145000,  // CMU MSCS/MCSD → top-tier tech
   },
   "University of Pennsylvania": {
@@ -405,11 +405,11 @@ export const UNIVERSITY_SALARY_OVERRIDES: Partial<Record<string, Partial<Record<
     "Law":                                         94000,  // LSE LLM → Magic Circle/US firms; £74K
   },
   "Imperial College London": {
-    "Artificial Intelligence & Data Science":      96000,  // Imperial MSc AI → London tech/finance; £76K
+    "Artificial Intelligence":      96000,  // Imperial MSc AI → London tech/finance; £76K
     "Engineering (Mechanical/Civil/Electrical)":   80000,  // Imperial Eng → top engineering firms; £63K
   },
   "University College London": {
-    "Artificial Intelligence & Data Science":      90000,  // UCL MSc DS → London tech; £71K
+    "Artificial Intelligence":      90000,  // UCL MSc DS → London tech; £71K
     "Computer Science & IT":                       86000,  // UCL CS → London tech; £68K
   },
 
@@ -425,14 +425,14 @@ export const UNIVERSITY_SALARY_OVERRIDES: Partial<Record<string, Partial<Record<
   // ── Singapore: Top institutions (base is calibrated below NUS/NTU level) ─
   "National University of Singapore": {
     "Computer Science & IT":                      58000,  // NUS CS MSc: SGD 6,700/month = $59K; MOE GES 2023
-    "Artificial Intelligence & Data Science":      62000,  // NUS AI/CS MSc: SGD 7,000-7,500/month
+    "Artificial Intelligence":      62000,  // NUS AI/CS MSc: SGD 7,000-7,500/month
     "Economics & Finance":                         52000,  // NUS Finance/Econ: SGD 5,800/month
     "Business & Management":                       50000,  // NUS Business: SGD 5,600/month
     "MBA":                                         72000,  // NUS MBA: SGD 8,200+/month → $73K
     "Engineering (Mechanical/Civil/Electrical)":   50000,  // NUS Eng: SGD 5,600/month
   },
   "Nanyang Technological University": {
-    "Artificial Intelligence & Data Science":      62000,  // NTU MSc AI: SGD 7,200-8,000/month
+    "Artificial Intelligence":      62000,  // NTU MSc AI: SGD 7,200-8,000/month
     "Computer Science & IT":                       58000,  // NTU CS: SGD 6,500-7,000/month
     "Engineering (Mechanical/Civil/Electrical)":   50000,  // NTU Eng: SGD 5,600/month
     "Business & Management":                       49000,  // NTU Business: SGD 5,500/month
@@ -447,13 +447,13 @@ export const UNIVERSITY_SALARY_OVERRIDES: Partial<Record<string, Partial<Record<
   // ── Germany: Research-intensive universities ──────────────────────────────
   "Technical University of Munich": {
     "Computer Science & IT":                       72000,  // TUM Informatics → Munich/Berlin tech; EUR 67K = $72K
-    "Artificial Intelligence & Data Science":      76000,  // TUM AI/ML → SAP/BMW/Siemens AI; EUR 70K = $76K
+    "Artificial Intelligence":      76000,  // TUM AI/ML → SAP/BMW/Siemens AI; EUR 70K = $76K
     "Engineering (Mechanical/Civil/Electrical)":   64000,  // TUM Mech/Aero Eng → BMW/Siemens; EUR 59K = $64K
   },
 
   // ── Australia: Group of Eight ────────────────────────────────────────────
   "University of Melbourne": {
-    "Artificial Intelligence & Data Science":      70000,  // UMelb Data Science Masters: AUD 108K = $70K
+    "Artificial Intelligence":      70000,  // UMelb Data Science Masters: AUD 108K = $70K
     "Computer Science & IT":                       66000,  // UMelb CS Masters: AUD 102K = $66K
   },
   "University of Sydney": {
@@ -468,18 +468,18 @@ export const UNIVERSITY_SALARY_OVERRIDES: Partial<Record<string, Partial<Record<
     "Business & Management":                       58000,  // UQ Business: AUD 89K = $58K
   },
   "Monash University": {
-    "Artificial Intelligence & Data Science":      62000,  // Monash AI Eng: AUD 95K = $62K
+    "Artificial Intelligence":      62000,  // Monash AI Eng: AUD 95K = $62K
     "Engineering (Mechanical/Civil/Electrical)":   60000,  // Monash Eng: AUD 92K = $60K
   },
 
   // ── Canada: Top institutions ──────────────────────────────────────────────
   "University of Toronto": {
     "Computer Science & IT":                       76000,  // UofT MScAC → tech/FAANG Canada; CAD 104K = $76K
-    "Artificial Intelligence & Data Science":      80000,  // UofT AI → Vector Institute; CAD 110K = $80K
+    "Artificial Intelligence":      80000,  // UofT AI → Vector Institute; CAD 110K = $80K
   },
   "University of British Columbia": {
     "Computer Science & IT":                       72000,  // UBC CS MSc → Vancouver/Seattle; CAD 99K = $72K
-    "Artificial Intelligence & Data Science":      76000,  // UBC AI/ML → tech sector; CAD 104K = $76K
+    "Artificial Intelligence":      76000,  // UBC AI/ML → tech sector; CAD 104K = $76K
   },
   "McGill University": {
     "Engineering (Mechanical/Civil/Electrical)":   66000,  // McGill Eng → Montreal aerospace/pharma; CAD 90K = $66K
@@ -489,7 +489,7 @@ export const UNIVERSITY_SALARY_OVERRIDES: Partial<Record<string, Partial<Record<
   // ── Ireland: Tech hub institutions ───────────────────────────────────────
   "Trinity College Dublin": {
     "Computer Science & IT":                       58000,  // TCD CS → Dublin tech firms (Google/Meta/Amazon); EUR 54K
-    "Artificial Intelligence & Data Science":      60000,  // TCD AI → MNCs in Dublin; EUR 56K
+    "Artificial Intelligence":      60000,  // TCD AI → MNCs in Dublin; EUR 56K
   },
 };
 

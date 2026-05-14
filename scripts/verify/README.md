@@ -15,7 +15,7 @@
 # Verify a single program (writes to scripts/verify/output/<slug>.json)
 npx tsx scripts/verify/verify-program.ts \
   --university "University of Cambridge" \
-  --field "Artificial Intelligence & Data Science" \
+  --field "Artificial Intelligence" \
   --url "https://www.mlmi.eng.cam.ac.uk/"
 
 # Verify a batch from a seed file

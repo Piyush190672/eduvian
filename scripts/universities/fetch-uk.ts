@@ -54,33 +54,44 @@ interface UniRow {
 
 const SYSTEM_PROMPT = `You are a careful data extractor for a UK higher-education comparison tool.
 
-When asked about a UK university, search the web for authoritative
-sources (HESA, Office for Students, Discover Uni / discoveruni.gov.uk,
-Complete University Guide, Universities UK, the university's own
-official stats page) and return STRICTLY a JSON object with the
-requested fields.
+You will use the web_search tool aggressively — up to 5 searches per
+university — to find all the requested fields from authoritative
+sources. Cover EACH field with a targeted search. Don't return null
+just because the first search didn't find something — search again
+with different terms.
 
-Hard rules:
+Search-plan template per university (use as many of the 5 as needed):
+  1. "<uni name> HESA student enrolment 2022/23 OR 2023/24" — gets
+     enrollment_undergrad + enrollment_total + ukprn from HESA tables
+     or the university's own facts page.
+  2. "<uni name> graduate outcomes 15 months salary employment HESA"
+     — gets graduate_outcome_salary_gbp + graduate_outcome_employment_pct.
+  3. "<uni name> NSS overall satisfaction 2024" — gets nss_satisfaction_pct.
+  4. "<uni name> TEF 2023 outcome" — gets tef_rating.
+  5. "<uni name> student staff ratio Complete University Guide" — gets
+     student_staff_ratio + completion_rate_pct.
+
+Hard rules on output:
 - Return JSON only. No prose, no fences, no commentary.
-- If a value isn't published or you can't find it on an authoritative
-  source, set the field to null. Never invent or estimate.
+- If after searching you genuinely cannot find a value on any
+  authoritative source, set the field to null. Never invent or estimate.
 - For boolean fields, return true / false / null.
 - For tef_rating, return one of: "gold", "silver", "bronze",
   "provisional", or null. Lowercase. TEF 2023 outcomes are current.
 - For graduate_outcome_salary_gbp, return the HESA Graduate Outcomes
-  Survey 15-month median in GBP for the most recent published year
-  (typically 2020/21 cohort surveyed in 2022).
+  Survey 15-month median in GBP (typically 2020/21 cohort surveyed in
+  2022). Round to the nearest 1000.
 - For graduate_outcome_employment_pct, return the HESA Graduate
   Outcomes "in employment or further study 15 months after graduation"
-  percentage (0-100).
-- For enrolment numbers, use the HESA Student Record from the most
-  recent published year. enrollment_undergrad = UG headcount.
-  enrollment_total = UG + PG combined headcount.
+  percentage (0-100). Round to nearest whole number.
+- For enrolment numbers, use the HESA Student Record latest year.
+  enrollment_undergrad = UG headcount. enrollment_total = UG + PG
+  combined headcount.
 - For completion_rate_pct, prefer the HESA / OfS "qualifying within
-  expected time + grace" rate; otherwise the headline "completion rate"
-  on Discover Uni's institution-level page.
-- For nss_satisfaction_pct, return the most recent published
-  "overall satisfaction" % (currently published as Q1+Q2 score).
+  expected time + grace" rate; otherwise the Discover Uni / Complete
+  University Guide headline completion %.
+- For nss_satisfaction_pct, return the most recent published "overall
+  satisfaction" % from the National Student Survey.
 - For student_staff_ratio, return students per academic staff as a
   number (e.g., 17.5 means 17.5 students per staff member).
 - For ukprn, return the integer Provider Reference Number.`;
@@ -138,7 +149,7 @@ async function fetchOne(
       {
         type: "web_search_20250305",
         name: "web_search",
-        max_uses: 3,
+        max_uses: 5,
       } as unknown as Anthropic.Messages.Tool,
     ],
     messages: [{ role: "user", content: USER_PROMPT_TEMPLATE(uni) }],

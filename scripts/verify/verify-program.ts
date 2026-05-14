@@ -14,7 +14,7 @@
  *     --country "UK" \
  *     --city "Cambridge" \
  *     --qs 5 \
- *     --field "Artificial Intelligence & Data Science" \
+ *     --field "Artificial Intelligence" \
  *     --url "https://www.mlmi.eng.cam.ac.uk/"
  *
  * Required env: ANTHROPIC_API_KEY

@@ -129,7 +129,7 @@ export interface Program {
   field_of_study: string;
   /** Cross-listed fields for programs that span multiple streams
    *  (e.g. "MSc Artificial Intelligence and Data Science" lives under
-   *  `field_of_study: "Artificial Intelligence & Data Science"` AND
+   *  `field_of_study: "Artificial Intelligence"` AND
    *  `field_aliases: ["Data Science"]` so a student picking either
    *  stream finds it). Each entry must be one of FIELDS_OF_STUDY.
    *  Added 14 May 2026 alongside the Cybersecurity / Data Science split. */
@@ -322,7 +322,7 @@ export type CountryCode = (typeof TARGET_COUNTRIES)[number]["code"];
 
 export const FIELDS_OF_STUDY = [
   "Computer Science & IT",
-  "Artificial Intelligence & Data Science",
+  "Artificial Intelligence",
   "Data Science",
   "Cybersecurity",
   "Business & Management",

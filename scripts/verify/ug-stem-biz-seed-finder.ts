@@ -23,7 +23,7 @@ import { readFileSync, writeFileSync } from "node:fs";
 
 const TARGET_FIELDS = [
   "Computer Science & IT",
-  "Artificial Intelligence & Data Science",
+  "Artificial Intelligence",
   "Engineering (Mechanical/Civil/Electrical)",
   "Architecture",
   "Biotechnology & Life Sciences",

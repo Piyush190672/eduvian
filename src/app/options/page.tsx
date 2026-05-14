@@ -64,7 +64,7 @@ const FIELD_SELECTIVITY: Record<string, number> = {
   "Medicine & Public Health":                0.55,
   "MBA":                                     0.65,
   "Law":                                     0.70,
-  "Artificial Intelligence & Data Science":  0.80,
+  "Artificial Intelligence":  0.80,
   "Computer Science & IT":                   0.85,
   "Business & Management":                   0.90,
   "Economics & Finance":                     0.90,
