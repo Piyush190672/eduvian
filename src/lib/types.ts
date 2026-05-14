@@ -184,6 +184,49 @@ export interface Program {
   requires_bps_accreditation?: boolean;
 }
 
+// ─── University (sidecar to Program) ─────────────────────────────────────────
+//
+// University-level facts that are CONSTANT across every Program at the same
+// university. Kept as a sidecar table rather than denormalised onto every
+// Program row so we don't write the same Cornell acceptance rate to ~17
+// program rows with drift risk on each re-verify (14 May 2026).
+//
+// Coverage builds in stages:
+//   - Stage 2 (planned): College Scorecard API → US universities
+//   - Stage 3 (planned): HESA / Discover Uni → UK universities
+//   - Stage 4 (planned): Claude web_search via QS profile + US News Global
+//                        for non-US / non-UK universities
+//
+// Lookups: use lookupUniversity(name) from src/data/universities-helpers.ts;
+// it canonicalises whitespace / "The " / "&"→"and" before matching.
+
+export interface University {
+  /** URL-safe slug derived from `name`; stable primary key. */
+  id: string;
+  /** Canonical display name. Must match a Program.university_name (after
+   *  normalisation) for the lookup to resolve. */
+  name: string;
+  country: string;
+
+  /** Admission acceptance rate as a percentage (0-100). Null = unknown. */
+  acceptance_rate?: number | null;
+  /** Median annual earnings of graduates 6 years after enrolment, USD. */
+  median_earnings_6yr_usd?: number | null;
+  /** Median annual earnings of graduates 10 years after enrolment, USD. */
+  median_earnings_10yr_usd?: number | null;
+  /** Public vs private (with NFP/FP split where US Scorecard provides it). */
+  school_type?: "public" | "private_nonprofit" | "private_forprofit" | "private" | null;
+  /** Locale of the main campus. */
+  setting?: "urban" | "suburban" | "rural" | null;
+  /** Total undergraduate enrolment headcount. */
+  enrollment_undergrad?: number | null;
+
+  /** Free-form citation: "College Scorecard 2024", "QS Profile 2024", "HESA Outcomes 2023" */
+  data_source?: string | null;
+  /** ISO timestamp when this row was last refreshed. */
+  data_extracted_at?: string | null;
+}
+
 // ─── Recommendation Result ────────────────────────────────────────────────────
 
 export type ProgramTier = "safe" | "reach" | "ambitious";
