@@ -193,6 +193,15 @@ Pinned in priority order. Snapshot §36 has full handoff-#16 detail. **No backgr
 
 15. **Optionally surface the new research_paper signal in the score breakdown UI** — value is in `score_breakdown.research_paper` but nothing displays it yet. `CheckMatchPanel` / `ComparePanel` could mention it for PG profiles. Defer until user asks.
 16. **Profile form integration for UG research_paper** if the user later decides UG students should also be scored on publications — requires adding the question to the UG branch, then bumping `WEIGHTS_UG.research_paper` from 0 to 0.05 and rebalancing.
+17. **Re-verify 7 broken-name program rows** in `src/data/programs.ts` whose `program_name` ends with a literal backslash (artefact of the verify-pipeline bug that caused the 96-row duplicate cleanup on 14 May). Cosmetic only — these programs already match correctly; just the display label is garbled. Affected rows:
+    - Martin Luther University Halle-Wittenberg · "Postgraduate Studies \\"
+    - Kiel University · "M.Sc. \\"
+    - University of Augsburg · "MBA \\"
+    - IMT Atlantique · "Master of Science in Engineering \\"
+    - University of Nantes · "Master CPM - Parcours \\"
+    - Sciences Po · "Bachelor of Arts and Sciences (BASC): \\" (env spec)
+    - Sciences Po · "Bachelor of Arts and Sciences (BASC) : \\" (AI spec)
+    Fix: for each row, fetch the `verification_source_url` and overwrite `program_name` only with whatever's currently on the live page. ~$0.50 in Opus 4.7 calls. User asked to schedule this on 14 May; `/schedule` couldn't reach claude.ai, so it's parked here.
 
 **Estimated remaining spend:** ~$0 unless Tier-B #6 (USA proxy) gets greenlit. Everything else is code or docs.
 
