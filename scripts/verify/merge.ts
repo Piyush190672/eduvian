@@ -4,8 +4,30 @@
  * Reads all verified JSON files from scripts/verify/output/ and appends them as
  * ProgramEntry objects to src/data/programs.ts (right before the closing `])`).
  *
- * Skips entries that already exist in programs.ts (matched by
- * university_name + program_name).
+ * Skips entries that already exist in programs.ts (matched by a 3-key
+ * tuple — university_name + program_name + degree_level — all case-
+ * insensitive after whitespace trim).
+ *
+ * History (14 May 2026):
+ *
+ * Previous (uni + program_name) case-SENSITIVE key let "AI Track" vs
+ * "AI track" duplicate through (real user report). Cleanup: 96 historical
+ * duplicates removed by scripts/verify/dedupe-programs.py.
+ *
+ * Briefly tried tighter 4-key (adding field_of_study) and 5-key (adding
+ * specialization) but both produced false-positive re-inserts on re-
+ * verification: the verifier returns slightly different metadata on re-
+ * runs (Brown's "MS in Computer Science" → spec "General CS" → "General";
+ * Oregon State's "Architectural Engineering" → fos "Architecture" →
+ * "Arts, Design & Architecture"). 250-300 false positives at 4-key, 367
+ * at 5-key. The 3-key fold accepts a known trade-off: ~5 same-name-
+ * different-faculty cases get incorrectly conflated (most notably
+ * Universiti Putra Malaysia's "Master by Coursework" offered by both
+ * Science and Business faculties — same name, distinct programs). Of
+ * those 5 cases in the current DB, 4 look like field-tagging artefacts
+ * (CS vs AI&DS at the same uni) and only Putra is unambiguous. The
+ * scripts/verify/dedupe-programs.py safety net catches anything that
+ * slips through; re-run it periodically.
  *
  * Usage: npx tsx scripts/verify/merge.ts
  */
@@ -28,11 +50,80 @@ if (closeIdx === -1) {
   process.exit(1);
 }
 
+// Build the 3-key set from existing programs.ts. We walk the array
+// char-by-char (brace counter tracking strings) rather than regex —
+// the file's accumulated history mixes `},`, `},,`, and `},,,` entry
+// separators and a non-greedy `[\s\S]*?` regex misses ~134 of 8,216
+// entries (different field order, missing fields, or punctuation
+// variants). Per CLAUDE.md: "Brace walkers must track strings."
+function parseProgramEntries(text: string): string[] {
+  const arrayOpen = text.indexOf("([");
+  const arrayClose = text.lastIndexOf("]) as ProgramEntry[]");
+  const body = text.slice(arrayOpen + 2, arrayClose);
+  const entries: string[] = [];
+  let i = 0;
+  const n = body.length;
+  while (i < n) {
+    // Skip whitespace, commas, and `// ...` line comments between entries.
+    while (i < n) {
+      const c = body[i];
+      if (c === " " || c === "\t" || c === "\n" || c === ",") { i++; continue; }
+      if (c === "/" && body[i + 1] === "/") {
+        const nl = body.indexOf("\n", i);
+        i = nl >= 0 ? nl + 1 : n;
+        continue;
+      }
+      break;
+    }
+    if (i >= n) break;
+    if (body[i] !== "{") {
+      throw new Error(`merge.ts brace parser: unexpected char ${JSON.stringify(body[i])} at offset ${i}`);
+    }
+    const start = i;
+    let depth = 0;
+    let inStr = false;
+    while (i < n) {
+      const c = body[i];
+      if (inStr) {
+        if (c === "\\") { i += 2; continue; }
+        if (c === '"') inStr = false;
+        i++;
+        continue;
+      }
+      if (c === '"') inStr = true;
+      else if (c === "{") depth++;
+      else if (c === "}") {
+        depth--;
+        if (depth === 0) { i++; break; }
+      }
+      i++;
+    }
+    entries.push(body.slice(start, i));
+  }
+  return entries;
+}
+
+function extractField(entry: string, key: string): string {
+  const m = entry.match(new RegExp(`${key}:\\s*"([^"]*)"`));
+  return m ? m[1] : "";
+}
+
 const existing = new Set<string>();
-const re = /university_name:\s*"([^"]+)"[\s\S]*?program_name:\s*"([^"]+)"/g;
-let m;
-while ((m = re.exec(programsTs)) !== null) {
-  existing.add(`${m[1]}|${m[2]}`);
+for (const entry of parseProgramEntries(programsTs)) {
+  const uni = extractField(entry, "university_name");
+  const pn = extractField(entry, "program_name");
+  const dl = extractField(entry, "degree_level"); // may be "" when DB carries null
+  if (!uni || !pn) continue; // identity requires uni + pn; dl may be empty
+  existing.add(makeKey(uni, pn, dl));
+}
+
+/** Build the 3-key dedup string, case-folded + whitespace-trimmed. */
+function makeKey(uni: string, pn: string, dl: string): string {
+  return [
+    uni.toLowerCase().trim(),
+    pn.toLowerCase().trim(),
+    (dl ?? "").toLowerCase().trim(),
+  ].join("|");
 }
 
 // Only these 12 countries are in scope. Programs from any other country (e.g.
@@ -49,7 +140,7 @@ let outOfScope = 0;
 for (const f of files) {
   const v = JSON.parse(readFileSync(join(OUT_DIR, f), "utf8"));
   if (!TARGET_COUNTRIES.has(v.country)) { outOfScope++; continue; }
-  const key = `${v.university_name}|${v.program_name}`;
+  const key = makeKey(v.university_name, v.program_name, v.degree_level);
   if (existing.has(key)) { skipped++; continue; }
 
   const block = `  {

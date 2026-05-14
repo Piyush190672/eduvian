@@ -48,7 +48,8 @@ def parse_entries(text: str) -> tuple[str, list[tuple[int, int]], str]:
     Trailing commas + whitespace up to (but not including) the next `{`
     or the array close are absorbed into the entry's span.
     """
-    array_open = text.index("([\n")
+    # Robust to both `([\n` (legacy) and `([{` (this script's own output).
+    array_open = text.index("([")
     array_close = text.rindex("]) as ProgramEntry[];")
     header = text[: array_open + 2]
     footer = text[array_close:]
