@@ -251,6 +251,9 @@ export default function CheckMatchPanel({ token }: Props) {
                               ...(breakdown.work_experience > 0
                                 ? [["Work Experience", breakdown.work_experience] as [string, number]]
                                 : []),
+                              ...(breakdown.research_paper > 0
+                                ? [["Research Papers", breakdown.research_paper] as [string, number]]
+                                : []),
                             ] as [string, number][]
                           ).map(([label, raw]) => {
                             const isStrong  = raw >= 80;

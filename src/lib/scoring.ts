@@ -9,9 +9,13 @@ import { getPrestigeBucket } from "./prestige";
 
 // ─── Weight configuration ─────────────────────────────────────────────────────
 // PG: Academic 35%, Budget 20%, Std Test 10%, English/Scholarship/Intake/
-//     Backlogs/Gap Year/Work Exp/Research Paper each 5%. (Research Paper
-//     added 13 May 2026; academic reduced 5% to fund it.)
-// UG: Same as PG minus Work Exp and Research Paper, normalised to 1.0.
+//     Backlogs/Gap Year/Work Exp/Research Paper each 5% (Research Paper
+//     added 13 May 2026; academic reduced 5% to fund it).
+// UG: Same shape as PG minus Work Exp. Research Paper is now collected
+//     from UG profiles too (14 May 2026, after user request) and carries
+//     the same 5% weight as PG. The 5% that was previously assigned to
+//     Work Exp redistributes to Research Paper, keeping the raw sum at
+//     exactly 1.0 so no normalisation is needed.
 
 const WEIGHTS_PG = {
   academic:        0.35,
@@ -26,20 +30,17 @@ const WEIGHTS_PG = {
   research_paper:  0.05,
 };
 
-// UG has no work_exp and no research_paper — normalize the remaining 8
-// signals to sum to 1.0.
-const UG_TOTAL = 0.95; // sum without work_experience (research_paper is PG-only)
 const WEIGHTS_UG = {
-  academic:        0.40 / UG_TOTAL,
-  budget:          0.20 / UG_TOTAL,
-  std_test:        0.10 / UG_TOTAL,
-  english:         0.05 / UG_TOTAL,
-  scholarship:     0.05 / UG_TOTAL,
-  intake:          0.05 / UG_TOTAL,
-  backlogs:        0.05 / UG_TOTAL,
-  gap_year:        0.05 / UG_TOTAL,
+  academic:        0.35,
+  budget:          0.20,
+  std_test:        0.10,
+  english:         0.05,
+  scholarship:     0.05,
+  intake:          0.05,
+  backlogs:        0.05,
+  gap_year:        0.05,
   work_experience: 0,
-  research_paper:  0,
+  research_paper:  0.05,
 };
 
 // ─── Countries offering strong Post-Study Work Visas ─────────────────────────
@@ -485,7 +486,7 @@ export function scoreProgram(profile: StudentProfile, program: Program): ScoredP
     std_test:        scoreStdTest(profile, program),
     backlogs:        scoreBacklogs(profile),
     gap_year:        scoreGapYear(profile),
-    research_paper:  isPG ? scoreResearchPaper(profile) : 0,
+    research_paper:  scoreResearchPaper(profile),
   };
 
   const match_score = Math.round(

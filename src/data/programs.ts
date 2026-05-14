@@ -61326,19 +61326,6 @@ export const PROGRAMS = ([{
 {
     university_name: "Martin Luther University Halle-Wittenberg",
     country: "Germany", city: "Halle", qs_ranking: null,
-    program_name: "Postgraduate Studies \"Legum Magister\" (LL.M.)", degree_level: "postgraduate",
-    duration_months: null, field_of_study: "Law", specialization: "General",
-    annual_tuition_usd: null, avg_living_cost_usd: 12100,
-    intake_semesters: ["winter","summer"], application_deadline: null,
-    min_gpa: null, min_percentage: null, min_ielts: null, min_toefl: null, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null,
-    program_url: "https://www.jura.uni-halle.de/studium_lehre_pruefung/studium_lehre/magisterstudium/?lang=en",
-    apply_url: null,
-    verified_at: "2026-05-03T16:51:09.950Z", verification_source_url: "https://www.jura.uni-halle.de/studium_lehre_pruefung/studium_lehre/magisterstudium/?lang=en",
-  },
-{
-    university_name: "Martin Luther University Halle-Wittenberg",
-    country: "Germany", city: "Halle", qs_ranking: null,
     program_name: "Soziologie (Master - 120 LP)", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Social Sciences & Humanities", specialization: "General",
     annual_tuition_usd: null, avg_living_cost_usd: 12100,
@@ -66290,19 +66277,6 @@ export const PROGRAMS = ([{
 {
     university_name: "Kiel University",
     country: "Germany", city: "Kiel", qs_ranking: 410,
-    program_name: "M.Sc. \"Sustainability, Society and the Environment\"", degree_level: "postgraduate",
-    duration_months: null, field_of_study: "Environmental & Sustainability Studies", specialization: "General",
-    annual_tuition_usd: null, avg_living_cost_usd: 12100,
-    intake_semesters: [], application_deadline: null,
-    min_gpa: null, min_percentage: null, min_ielts: null, min_toefl: null, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null,
-    program_url: "https://www.sustainability.uni-kiel.de/en/taught-masters/master-of-science-sustainability-society-and-the-environment-1/master-of-science-sustainability-society-and-the-environment",
-    apply_url: "https://my.uni-assist.de/",
-    verified_at: "2026-05-04T05:40:19.032Z", verification_source_url: "https://www.sustainability.uni-kiel.de/en/taught-masters/master-of-science-sustainability-society-and-the-environment-1/master-of-science-sustainability-society-and-the-environment",
-  },
-{
-    university_name: "Kiel University",
-    country: "Germany", city: "Kiel", qs_ranking: 410,
     program_name: "Master Computer Science", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Computer Science & IT", specialization: "General",
     annual_tuition_usd: null, avg_living_cost_usd: 12100,
@@ -68934,19 +68908,6 @@ export const PROGRAMS = ([{
     program_url: "https://www.uni-augsburg.de/en/studium/studienangebot/uebersicht/law-stex/",
     apply_url: null,
     verified_at: "2026-05-04T05:42:23.802Z", verification_source_url: "https://www.uni-augsburg.de/en/studium/studienangebot/uebersicht/law-stex/",
-  },
-{
-    university_name: "University of Augsburg",
-    country: "Germany", city: "Augsburg", qs_ranking: null,
-    program_name: "MBA \"Unternehmensführung\" der Universität Augsburg", degree_level: "postgraduate",
-    duration_months: 20, field_of_study: "MBA", specialization: "Unternehmensführung",
-    annual_tuition_usd: null, avg_living_cost_usd: 12100,
-    intake_semesters: [], application_deadline: null,
-    min_gpa: null, min_percentage: null, min_ielts: null, min_toefl: null, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 1,
-    program_url: "https://www.zww.uni-augsburg.de/mba/mba-studiengang/auf-einen-blick.html",
-    apply_url: null,
-    verified_at: "2026-05-04T05:42:07.321Z", verification_source_url: "https://www.zww.uni-augsburg.de/mba/mba-studiengang/auf-einen-blick.html",
   },
 {
     university_name: "University of Augsburg",
@@ -74405,19 +74366,6 @@ export const PROGRAMS = ([{
 {
     university_name: "IMT Atlantique",
     country: "France", city: "Nantes", qs_ranking: null,
-    program_name: "Master of Science in Engineering \"Diplôme d'Ingénieur\"", degree_level: "postgraduate",
-    duration_months: null, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "General",
-    annual_tuition_usd: null, avg_living_cost_usd: 8000,
-    intake_semesters: [], application_deadline: null,
-    min_gpa: null, min_percentage: null, min_ielts: null, min_toefl: null, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null,
-    program_url: "https://www.imt-atlantique.fr/en/study/engineering",
-    apply_url: null,
-    verified_at: "2026-05-04T09:34:51.061Z", verification_source_url: "https://www.imt-atlantique.fr/en/study/engineering",
-  },
-{
-    university_name: "IMT Atlantique",
-    country: "France", city: "Nantes", qs_ranking: null,
     program_name: "Master of Science (MSc) in Information Technologies - IT", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Computer Science & IT", specialization: "General",
     annual_tuition_usd: null, avg_living_cost_usd: 8000,
@@ -78217,19 +78165,6 @@ export const PROGRAMS = ([{
     program_url: "https://flce.univ-nantes.fr/offre-de-formation/master-ccs/humanites-environnementales",
     apply_url: null,
     verified_at: "2026-05-04T09:35:22.284Z", verification_source_url: "https://flce.univ-nantes.fr/offre-de-formation/master-ccs/humanites-environnementales",
-  },
-{
-    university_name: "University of Nantes",
-    country: "France", city: "Nantes", qs_ranking: null,
-    program_name: "Master CPM - Parcours \"Médiation Culturelle et Communication Internationale\" (MCCI)", degree_level: "postgraduate",
-    duration_months: 24, field_of_study: "Media & Communications", specialization: "Médiation Culturelle et Communication Internationale",
-    annual_tuition_usd: null, avg_living_cost_usd: 8000,
-    intake_semesters: [], application_deadline: null,
-    min_gpa: null, min_percentage: 60, min_ielts: null, min_toefl: null, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null,
-    program_url: "https://flce.univ-nantes.fr/offre-de-formation/master-ccs/mcci",
-    apply_url: null,
-    verified_at: "2026-05-04T09:35:30.451Z", verification_source_url: "https://flce.univ-nantes.fr/offre-de-formation/master-ccs/mcci",
   },
 {
     university_name: "University of Nantes",
@@ -87051,19 +86986,6 @@ export const PROGRAMS = ([{
     realistic_extracted_at: "2026-05-13T14:52:18.034Z",
     apply_url: null,
     verified_at: "2026-05-07T17:20:50.730Z", verification_source_url: "https://www.rwth-aachen.de/go/id/bkxh?lidx=1",
-  },
-{
-    university_name: "Sciences Po",
-    country: "France", city: "Paris", qs_ranking: 273,
-    program_name: "Bachelor of Arts and Sciences (BASC): \"Environment, Society and Sustainability\", Dual Degree with the University of Reims Champagne-Ardenne", degree_level: "undergraduate",
-    duration_months: null, field_of_study: "Environmental & Sustainability Studies", specialization: "Environment, Society and Sustainability",
-    annual_tuition_usd: 16692, annual_tuition_currency: "EUR", tuition_fee_source: "estimated", annual_tuition_amount: 15456, avg_living_cost_usd: 14000,
-    intake_semesters: [], application_deadline: null,
-    min_gpa: null, min_percentage: null, min_ielts: null, min_toefl: null, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null,
-    program_url: "https://www.sciencespo.fr/college/en/academics/bachelor-arts-sciences/university-reims-champagne-ardenne/",
-    apply_url: null,
-    verified_at: "2026-05-07T17:45:13.449Z", verification_source_url: "https://www.sciencespo.fr/college/en/academics/bachelor-arts-sciences/university-reims-champagne-ardenne/",
   },
 {
     university_name: "Simon Fraser University",
@@ -111710,20 +111632,6 @@ export const PROGRAMS = ([{
 {
     university_name: "Sciences Po",
     country: "France", city: "Paris", qs_ranking: 273,
-    program_name: "Bachelor of Arts and Sciences (BASC) : \"Algorithms and decisions\", Dual Degree with Université Paris Cité", degree_level: "undergraduate",
-    duration_months: null, field_of_study: "Artificial Intelligence & Data Science", specialization: "Algorithms and decisions",
-    annual_tuition_usd: 16692, annual_tuition_amount: 15456, annual_tuition_currency: "EUR", tuition_fee_source: "estimated",
-    avg_living_cost_usd: 14000, avg_living_cost_amount: null, avg_living_cost_currency: null,
-    intake_semesters: [], application_deadline: null,
-    min_gpa: null, min_percentage: null, min_ielts: null, min_toefl: null, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null,
-    program_url: "https://www.sciencespo.fr/college/en/academics/bachelor-arts-sciences/ufr-mathematics-universite-paris/",
-    apply_url: null,
-    verified_at: "2026-05-10T04:09:34.775Z", verification_source_url: "https://www.sciencespo.fr/college/en/academics/bachelor-arts-sciences/ufr-mathematics-universite-paris/",
-  },
-{
-    university_name: "Sciences Po",
-    country: "France", city: "Paris", qs_ranking: 273,
     program_name: "Bachelor of Arts and Sciences (BASC): Politics of Life and Identities, Dual Degree with Université Paris Cité", degree_level: "undergraduate",
     duration_months: null, field_of_study: "Biotechnology & Life Sciences", specialization: "Politics of Life and Identities",
     annual_tuition_usd: 16692, annual_tuition_amount: 15456, annual_tuition_currency: "EUR", tuition_fee_source: "estimated",
@@ -121366,8 +121274,7 @@ export const PROGRAMS = ([{
     verified_at: "2026-05-13T12:11:41.590Z", verification_source_url: "https://www.york.ac.uk/study/postgraduate-taught/courses/msc-psychology-education-conversion-programme/",
   },
 
-  // ─── Verified additions (auto-merged) ──────────────
-  {
+{
     university_name: "Adelphi University",
     country: "USA", city: "Garden City, NY", qs_ranking: null,
     program_name: "Art and Design Education", degree_level: "undergraduate",
@@ -121381,7 +121288,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.adelphi.edu/one-stop/educational-cost/tuition/undergraduate/",
     verified_at: "2026-05-14T14:55:53.578Z", verification_source_url: "https://www.adelphi.edu/program/undergraduate/art-design-education/",
   },
-  {
+{
     university_name: "Adelphi University",
     country: "USA", city: "Garden City, NY", qs_ranking: null,
     program_name: "Biology Graduate Program", degree_level: "postgraduate",
@@ -121395,7 +121302,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:48:51.552Z", verification_source_url: "https://www.adelphi.edu/program/graduate/biology/",
   },
-  {
+{
     university_name: "Adelphi University",
     country: "USA", city: "Garden City, NY", qs_ranking: null,
     program_name: "BS in Finance", degree_level: "undergraduate",
@@ -121409,7 +121316,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:21:47.436Z", verification_source_url: "https://www.adelphi.edu/program/undergraduate/finance/",
   },
-  {
+{
     university_name: "Adelphi University",
     country: "USA", city: "Garden City, NY", qs_ranking: null,
     program_name: "Business Management Certificate", degree_level: "postgraduate",
@@ -121423,7 +121330,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.adelphi.edu/admissions/graduate/",
     verified_at: "2026-05-14T14:48:44.413Z", verification_source_url: "https://www.adelphi.edu/program/graduate/management/",
   },
-  {
+{
     university_name: "Adelphi University",
     country: "USA", city: "Garden City, NY", qs_ranking: null,
     program_name: "Communications", degree_level: "undergraduate",
@@ -121437,7 +121344,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:06:43.357Z", verification_source_url: "https://www.adelphi.edu/program/undergraduate/communications/",
   },
-  {
+{
     university_name: "Adelphi University",
     country: "USA", city: "Garden City, NY", qs_ranking: null,
     program_name: "Master of Public Health", degree_level: "postgraduate",
@@ -121451,7 +121358,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:48:53.304Z", verification_source_url: "https://www.adelphi.edu/program/graduate/master-of-public-health/",
   },
-  {
+{
     university_name: "Adelphi University",
     country: "USA", city: "Garden City, NY", qs_ranking: null,
     program_name: "MBA and Professional Accelerated MBA", degree_level: "postgraduate",
@@ -121465,7 +121372,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:48:45.225Z", verification_source_url: "https://www.adelphi.edu/program/graduate/mba/",
   },
-  {
+{
     university_name: "Adelphi University",
     country: "USA", city: "Garden City, NY", qs_ranking: null,
     program_name: "MS in Artificial Intelligence and Machine Learning", degree_level: "postgraduate",
@@ -121479,7 +121386,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:48:39.037Z", verification_source_url: "https://www.adelphi.edu/program/graduate/artificial-intelligence-and-machine-learning/",
   },
-  {
+{
     university_name: "Adelphi University",
     country: "USA", city: "Garden City, NY", qs_ranking: null,
     program_name: "Nursing", degree_level: "undergraduate",
@@ -121493,7 +121400,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.adelphi.edu/program/undergraduate/nursing-degree/",
     verified_at: "2026-05-14T14:56:21.043Z", verification_source_url: "https://www.adelphi.edu/program/undergraduate/nursing-degree/",
   },
-  {
+{
     university_name: "Baylor University",
     country: "USA", city: "Waco, TX", qs_ranking: 601,
     program_name: "Environmental Science", degree_level: "postgraduate",
@@ -121507,7 +121414,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:11:29.224Z", verification_source_url: "https://catalog.baylor.edu/graduate-school/curriculum-departments-institutes-instruction/college-arts-sciences/environmental-science/",
   },
-  {
+{
     university_name: "Baylor University",
     country: "USA", city: "Waco, TX", qs_ranking: 601,
     program_name: "Full-Time MBA", degree_level: "postgraduate",
@@ -121521,7 +121428,7 @@ export const PROGRAMS = ([{
     apply_url: "https://hankamer.baylor.edu/mba/full-time/admissions/tuition",
     verified_at: "2026-05-14T12:10:57.643Z", verification_source_url: "https://hankamer.baylor.edu/mba/full-time",
   },
-  {
+{
     university_name: "Baylor University",
     country: "USA", city: "Waco, TX", qs_ranking: 601,
     program_name: "Juris Doctor", degree_level: "postgraduate",
@@ -121535,7 +121442,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:11:08.588Z", verification_source_url: "https://law.baylor.edu/why-baylor-law/academics/degree-programs",
   },
-  {
+{
     university_name: "Baylor University",
     country: "USA", city: "Waco, TX", qs_ranking: 601,
     program_name: "MA in Communication", degree_level: "postgraduate",
@@ -121549,7 +121456,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:11:13.811Z", verification_source_url: "https://communication.artsandsciences.baylor.edu/graduate/masters-program",
   },
-  {
+{
     university_name: "Baylor University",
     country: "USA", city: "Waco, TX", qs_ranking: 601,
     program_name: "Master of Architecture", degree_level: "postgraduate",
@@ -121563,7 +121470,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:11:14.508Z", verification_source_url: "https://hsd.robbins.baylor.edu/master-architecture",
   },
-  {
+{
     university_name: "Baylor University",
     country: "USA", city: "Waco, TX", qs_ranking: 601,
     program_name: "Master of Arts and Master of Science", degree_level: "postgraduate",
@@ -121577,7 +121484,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:11:26.281Z", verification_source_url: "https://physics.artsandsciences.baylor.edu/graduate/graduate-programs/master-arts-and-master-science",
   },
-  {
+{
     university_name: "Baylor University",
     country: "USA", city: "Waco, TX", qs_ranking: 601,
     program_name: "Master of Arts in Journalism, Public Relations and New Media", degree_level: "postgraduate",
@@ -121591,7 +121498,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:11:21.305Z", verification_source_url: "https://journalism.artsandsciences.baylor.edu/mamj/ma-program",
   },
-  {
+{
     university_name: "Baylor University",
     country: "USA", city: "Waco, TX", qs_ranking: 601,
     program_name: "Master of Public Health", degree_level: "postgraduate",
@@ -121605,7 +121512,7 @@ export const PROGRAMS = ([{
     apply_url: "https://publichealth.robbins.baylor.edu/graduate-programs/master-public-health/campus-master-public-health-mph",
     verified_at: "2026-05-14T12:11:09.178Z", verification_source_url: "https://publichealth.robbins.baylor.edu/graduate-programs/master-public-health/campus-master-public-health-mph",
   },
-  {
+{
     university_name: "Baylor University",
     country: "USA", city: "Waco, TX", qs_ranking: 601,
     program_name: "Master of Science in Biology", degree_level: "postgraduate",
@@ -121619,7 +121526,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:10:48.662Z", verification_source_url: "https://biology.artsandsciences.baylor.edu/graduate/programs-and-degrees/master-science-biology",
   },
-  {
+{
     university_name: "Baylor University",
     country: "USA", city: "Waco, TX", qs_ranking: 601,
     program_name: "Master of Science in Computer Science", degree_level: "postgraduate",
@@ -121633,7 +121540,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:10:36.528Z", verification_source_url: "https://www.ecs.baylor.edu/students-academics/degree-programs/graduate-degrees/master-science-computer-science",
   },
-  {
+{
     university_name: "Baylor University",
     country: "USA", city: "Waco, TX", qs_ranking: 601,
     program_name: "Master of Science in Economics", degree_level: "postgraduate",
@@ -121647,7 +121554,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:11:23.538Z", verification_source_url: "https://hankamer.baylor.edu/mseco/degree",
   },
-  {
+{
     university_name: "Baylor University",
     country: "USA", city: "Waco, TX", qs_ranking: 601,
     program_name: "MSBA", degree_level: "postgraduate",
@@ -121661,7 +121568,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:10:34.892Z", verification_source_url: "https://hankamer.baylor.edu/msba/programs",
   },
-  {
+{
     university_name: "Baylor University",
     country: "USA", city: "Waco, TX", qs_ranking: 601,
     program_name: "Traditional BSN Track", degree_level: "undergraduate",
@@ -121675,7 +121582,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:11:40.222Z", verification_source_url: "https://nursing.baylor.edu/academics/undergraduate-bsn-program-resources/traditional-bsn-track",
   },
-  {
+{
     university_name: "Binghamton University",
     country: "USA", city: "Vestal, NY", qs_ranking: 571,
     program_name: "Art and Design Programs", degree_level: "undergraduate",
@@ -121689,7 +121596,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:35:10.500Z", verification_source_url: "https://www.binghamton.edu/art/programs/",
   },
-  {
+{
     university_name: "Binghamton University",
     country: "USA", city: "Vestal, NY", qs_ranking: 571,
     program_name: "Bachelor of Science (BS) in Nursing", degree_level: "undergraduate",
@@ -121703,7 +121610,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.binghamton.edu/decker/nursing/undergraduate/bs.html",
     verified_at: "2026-05-14T11:35:35.476Z", verification_source_url: "https://www.binghamton.edu/decker/nursing/undergraduate/bs.html",
   },
-  {
+{
     university_name: "Binghamton University",
     country: "USA", city: "Vestal, NY", qs_ranking: 571,
     program_name: "Biochemistry and Chemical Biology Graduate Program", degree_level: "postgraduate",
@@ -121717,7 +121624,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:35:27.324Z", verification_source_url: "https://www.binghamton.edu/biochemistry-and-chemical-biology/graduate/index.html",
   },
-  {
+{
     university_name: "Binghamton University",
     country: "USA", city: "Vestal, NY", qs_ranking: 571,
     program_name: "Biological Sciences (PhD, MS, MA)", degree_level: "postgraduate",
@@ -121731,7 +121638,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:35:13.243Z", verification_source_url: "https://www.binghamton.edu/biology/graduate/",
   },
-  {
+{
     university_name: "Binghamton University",
     country: "USA", city: "Vestal, NY", qs_ranking: 571,
     program_name: "Economics (PhD, MA)", degree_level: "postgraduate",
@@ -121745,7 +121652,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:35:19.620Z", verification_source_url: "https://www.binghamton.edu/economics/graduate/",
   },
-  {
+{
     university_name: "Binghamton University",
     country: "USA", city: "Vestal, NY", qs_ranking: 571,
     program_name: "Master of Business Administration (MBA)", degree_level: "postgraduate",
@@ -121759,7 +121666,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:34:56.378Z", verification_source_url: "https://www.binghamton.edu/som/graduate-programs/mba/",
   },
-  {
+{
     university_name: "Binghamton University",
     country: "USA", city: "Vestal, NY", qs_ranking: 571,
     program_name: "Master of Public Health (MPH)", degree_level: "postgraduate",
@@ -121773,7 +121680,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.binghamton.edu/grad-school/cost-funding/funding-opportunities/",
     verified_at: "2026-05-14T11:35:10.761Z", verification_source_url: "https://www.binghamton.edu/decker/public-health/academics/index.html",
   },
-  {
+{
     university_name: "Binghamton University",
     country: "USA", city: "Vestal, NY", qs_ranking: 571,
     program_name: "Master of Science in Human Rights", degree_level: "postgraduate",
@@ -121787,7 +121694,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:35:12.200Z", verification_source_url: "https://www.binghamton.edu/human-development/human-rights/index.html",
   },
-  {
+{
     university_name: "Binghamton University",
     country: "USA", city: "Vestal, NY", qs_ranking: 571,
     program_name: "Master of Science in Mechanical Engineering", degree_level: "postgraduate",
@@ -121801,7 +121708,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:34:58.377Z", verification_source_url: "https://www.binghamton.edu/mechanical-engineering/graduate/masters-mechanical-engineering.html",
   },
-  {
+{
     university_name: "Binghamton University",
     country: "USA", city: "Vestal, NY", qs_ranking: 571,
     program_name: "MS in Computer Science: Artificial Intelligence Track", degree_level: "postgraduate",
@@ -121815,7 +121722,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:34:48.256Z", verification_source_url: "https://www.binghamton.edu/computer-science/graduate-programs/mscs/ms-aitrack.html",
   },
-  {
+{
     university_name: "Binghamton University",
     country: "USA", city: "Vestal, NY", qs_ranking: 571,
     program_name: "MS in Computer Science", degree_level: "postgraduate",
@@ -121829,7 +121736,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:34:41.167Z", verification_source_url: "https://www.binghamton.edu/computer-science/graduate-programs/mscs/",
   },
-  {
+{
     university_name: "Binghamton University",
     country: "USA", city: "Vestal, NY", qs_ranking: 571,
     program_name: "School of Management Graduate Programs", degree_level: "postgraduate",
@@ -121843,7 +121750,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:34:53.943Z", verification_source_url: "https://www.binghamton.edu/som/graduate-programs/",
   },
-  {
+{
     university_name: "Binghamton University",
     country: "USA", city: "Vestal, NY", qs_ranking: 571,
     program_name: "Sustainable Communities (MS)", degree_level: "postgraduate",
@@ -121857,7 +121764,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:35:26.170Z", verification_source_url: "https://www.binghamton.edu/public-administration-and-policy/academic-programs/sustainable-communities/",
   },
-  {
+{
     university_name: "BPP University",
     country: "UK", city: "London", qs_ranking: null,
     program_name: "LLM Master of Laws", degree_level: "postgraduate",
@@ -121871,7 +121778,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:48:30.422Z", verification_source_url: "https://www.bpp.com/law/llm-master-of-laws",
   },
-  {
+{
     university_name: "BPP University",
     country: "UK", city: "London", qs_ranking: null,
     program_name: "MSc Accounting and Finance", degree_level: "postgraduate",
@@ -121885,7 +121792,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:48:33.992Z", verification_source_url: "https://www.bpp.com/courses/accountancy-and-tax/postgraduate/msc-accounting-and-finance",
   },
-  {
+{
     university_name: "BPP University",
     country: "UK", city: "London", qs_ranking: null,
     program_name: "MSc Engineering Management", degree_level: "postgraduate",
@@ -121899,7 +121806,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:48:15.786Z", verification_source_url: "https://www.bpp.com/leadership-and-management/msc-engineering-management",
   },
-  {
+{
     university_name: "BPP University",
     country: "UK", city: "London", qs_ranking: null,
     program_name: "MSc Healthcare Leadership and Management", degree_level: "postgraduate",
@@ -121913,7 +121820,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:48:30.772Z", verification_source_url: "https://www.bpp.com/nursing-and-healthcare/msc-healthcare-leadership-and-management",
   },
-  {
+{
     university_name: "BPP University",
     country: "UK", city: "London", qs_ranking: null,
     program_name: "MSc Management with Data Analytics", degree_level: "postgraduate",
@@ -121927,7 +121834,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:47:56.937Z", verification_source_url: "https://www.bpp.com/leadership-and-management/msc-management-data-analytics",
   },
-  {
+{
     university_name: "BPP University",
     country: "UK", city: "London", qs_ranking: null,
     program_name: "MSc Management with Digital Marketing", degree_level: "postgraduate",
@@ -121941,7 +121848,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:48:32.359Z", verification_source_url: "https://www.bpp.com/leadership-and-management/msc-management-digital-marketing",
   },
-  {
+{
     university_name: "BPP University",
     country: "UK", city: "London", qs_ranking: null,
     program_name: "MSc Management with Hospitality Management", degree_level: "postgraduate",
@@ -121955,7 +121862,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:48:48.667Z", verification_source_url: "https://www.bpp.com/leadership-and-management/msc-management-hospitality-management",
   },
-  {
+{
     university_name: "BPP University",
     country: "UK", city: "London", qs_ranking: null,
     program_name: "MSc Management", degree_level: "postgraduate",
@@ -121969,7 +121876,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:48:16.106Z", verification_source_url: "https://www.bpp.com/leadership-and-management/msc-management",
   },
-  {
+{
     university_name: "BPP University",
     country: "UK", city: "London", qs_ranking: null,
     program_name: "MSc Technology Management", degree_level: "postgraduate",
@@ -121983,7 +121890,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:47:55.917Z", verification_source_url: "https://www.bpp.com/leadership-and-management/msc-technology-management",
   },
-  {
+{
     university_name: "Bradley University",
     country: "USA", city: "Peoria, IL", qs_ranking: null,
     program_name: "Computer Science (MS)", degree_level: "postgraduate",
@@ -121997,7 +121904,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:27:24.474Z", verification_source_url: "https://www.bradley.edu/academics/programs/computer-science-ms/",
   },
-  {
+{
     university_name: "Bradley University",
     country: "USA", city: "Peoria, IL", qs_ranking: null,
     program_name: "Economics & Finance Department", degree_level: "undergraduate",
@@ -122011,7 +121918,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:27:58.215Z", verification_source_url: "https://www.bradley.edu/academics/departments/economics-and-finance/",
   },
-  {
+{
     university_name: "Bradley University",
     country: "USA", city: "Peoria, IL", qs_ranking: null,
     program_name: "Environmental Science", degree_level: "undergraduate",
@@ -122025,7 +121932,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:28:07.259Z", verification_source_url: "https://www.bradley.edu/academics/programs/environmental-science/",
   },
-  {
+{
     university_name: "Bradley University",
     country: "USA", city: "Peoria, IL", qs_ranking: null,
     program_name: "Hospitality Leadership", degree_level: "undergraduate",
@@ -122039,7 +121946,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:28:13.502Z", verification_source_url: "https://www.bradley.edu/academic/departments/fcs/major/hospitality/",
   },
-  {
+{
     university_name: "Bradley University",
     country: "USA", city: "Peoria, IL", qs_ranking: null,
     program_name: "Master of Arts in English", degree_level: "postgraduate",
@@ -122053,7 +121960,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:27:47.646Z", verification_source_url: "https://catalog.bradley.edu/graduate/programs/master-arts-english/",
   },
-  {
+{
     university_name: "Bradley University",
     country: "USA", city: "Peoria, IL", qs_ranking: null,
     program_name: "Master of Arts in Sports Communication", degree_level: "postgraduate",
@@ -122067,7 +121974,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:27:53.098Z", verification_source_url: "https://catalog.bradley.edu/graduate/programs/master-arts-sports-communication/",
   },
-  {
+{
     university_name: "Bradley University",
     country: "USA", city: "Peoria, IL", qs_ranking: null,
     program_name: "Master of Business Administration", degree_level: "postgraduate",
@@ -122081,7 +121988,7 @@ export const PROGRAMS = ([{
     apply_url: "http://www.bradley.edu/mba",
     verified_at: "2026-05-14T15:27:37.294Z", verification_source_url: "https://catalog.bradley.edu/graduate/programs/master-business-administration/",
   },
-  {
+{
     university_name: "Bradley University",
     country: "USA", city: "Peoria, IL", qs_ranking: null,
     program_name: "Master of Science in Biochemistry", degree_level: "postgraduate",
@@ -122095,7 +122002,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:27:35.928Z", verification_source_url: "https://catalog.bradley.edu/graduate/programs/master-science-biochemistry/",
   },
-  {
+{
     university_name: "Bradley University",
     country: "USA", city: "Peoria, IL", qs_ranking: null,
     program_name: "Master of Science in Biology", degree_level: "postgraduate",
@@ -122109,7 +122016,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:28:00.587Z", verification_source_url: "https://catalog.bradley.edu/graduate/programs/master-science-biology/",
   },
-  {
+{
     university_name: "Bradley University",
     country: "USA", city: "Peoria, IL", qs_ranking: null,
     program_name: "Master of Science in Data Science and Analytics – Computational Data Science", degree_level: "postgraduate",
@@ -122123,7 +122030,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:27:38.318Z", verification_source_url: "https://www.bradley.edu/academics/programs/computational-data-science-ms/",
   },
-  {
+{
     university_name: "Bradley University",
     country: "USA", city: "Peoria, IL", qs_ranking: null,
     program_name: "Mechanical Engineering (MS)", degree_level: "postgraduate",
@@ -122137,7 +122044,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:27:43.481Z", verification_source_url: "https://www.bradley.edu/academics/programs/mechanical-engineering-ms/",
   },
-  {
+{
     university_name: "Bradley University",
     country: "USA", city: "Peoria, IL", qs_ranking: null,
     program_name: "Nursing", degree_level: "undergraduate",
@@ -122151,7 +122058,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:28:11.599Z", verification_source_url: "https://www.bradley.edu/academics/programs/nursing/",
   },
-  {
+{
     university_name: "Bradley University",
     country: "USA", city: "Peoria, IL", qs_ranking: null,
     program_name: "Public Health Education", degree_level: "undergraduate",
@@ -122165,7 +122072,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:27:49.677Z", verification_source_url: "https://www.bradley.edu/academics/programs/public-health-education/",
   },
-  {
+{
     university_name: "Brigham Young University",
     country: "USA", city: "Provo, UT", qs_ranking: 451,
     program_name: "Bachelor's Degree Options", degree_level: "undergraduate",
@@ -122179,7 +122086,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:49:20.385Z", verification_source_url: "https://datascience.byu.edu/degrees",
   },
-  {
+{
     university_name: "Brigham Young University",
     country: "USA", city: "Provo, UT", qs_ranking: 451,
     program_name: "Environmental Science & Sustainability MS", degree_level: "postgraduate",
@@ -122193,7 +122100,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:49:57.314Z", verification_source_url: "https://pws.byu.edu/environmental-science/environmental-science-masters",
   },
-  {
+{
     university_name: "Brigham Young University",
     country: "USA", city: "Provo, UT", qs_ranking: 451,
     program_name: "Finance", degree_level: "undergraduate",
@@ -122207,7 +122114,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:49:47.146Z", verification_source_url: "https://marriott.byu.edu/bsfin/",
   },
-  {
+{
     university_name: "Brigham Young University",
     country: "USA", city: "Provo, UT", qs_ranking: 451,
     program_name: "Genetics and Biotechnology Masters", degree_level: "postgraduate",
@@ -122221,7 +122128,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:50:05.814Z", verification_source_url: "https://pws.byu.edu/genetics-and-biotechnology-masters",
   },
-  {
+{
     university_name: "Brigham Young University",
     country: "USA", city: "Provo, UT", qs_ranking: 451,
     program_name: "Graduate Programs", degree_level: "postgraduate",
@@ -122235,7 +122142,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:49:28.440Z", verification_source_url: "https://marriott.byu.edu/students/explore/grad/",
   },
-  {
+{
     university_name: "Brigham Young University",
     country: "USA", city: "Provo, UT", qs_ranking: 451,
     program_name: "Mass Communications, M.A.", degree_level: "postgraduate",
@@ -122249,7 +122156,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:49:56.040Z", verification_source_url: "https://comms.byu.edu/academics/mass-communications-m-a",
   },
-  {
+{
     university_name: "Brigham Young University",
     country: "USA", city: "Provo, UT", qs_ranking: 451,
     program_name: "Master of Public Health", degree_level: "postgraduate",
@@ -122263,7 +122170,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:49:44.006Z", verification_source_url: "https://ph.byu.edu/mph",
   },
-  {
+{
     university_name: "Brigham Young University",
     country: "USA", city: "Provo, UT", qs_ranking: 451,
     program_name: "MBA Program", degree_level: "postgraduate",
@@ -122277,7 +122184,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:49:28.613Z", verification_source_url: "https://marriott.byu.edu/mba/",
   },
-  {
+{
     university_name: "Brigham Young University",
     country: "USA", city: "Provo, UT", qs_ranking: 451,
     program_name: "MFA in Art", degree_level: "postgraduate",
@@ -122291,7 +122198,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:49:50.258Z", verification_source_url: "https://art.byu.edu/mfa-art",
   },
-  {
+{
     university_name: "Brigham Young University",
     country: "USA", city: "Provo, UT", qs_ranking: 451,
     program_name: "MS Biology", degree_level: "postgraduate",
@@ -122305,7 +122212,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:50:00.067Z", verification_source_url: "https://biology.byu.edu/ms-biology",
   },
-  {
+{
     university_name: "Brigham Young University",
     country: "USA", city: "Provo, UT", qs_ranking: 451,
     program_name: "The BYU Law JD Program", degree_level: "postgraduate",
@@ -122319,7 +122226,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:49:39.935Z", verification_source_url: "https://law.byu.edu/jd-program",
   },
-  {
+{
     university_name: "Brigham Young University",
     country: "USA", city: "Provo, UT", qs_ranking: 451,
     program_name: "Undergraduate Program", degree_level: "undergraduate",
@@ -122333,7 +122240,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:50:02.932Z", verification_source_url: "https://nursing.byu.edu/undergraduate-program",
   },
-  {
+{
     university_name: "British Columbia Institute of Technology (BCIT)",
     country: "Canada", city: "Burnaby, BC", qs_ranking: null,
     program_name: "Computer Systems Technology, Diploma, Full-time", degree_level: "undergraduate",
@@ -122347,7 +122254,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-04-27T10:56:38.271Z", verification_source_url: "https://www.bcit.ca/programs/computer-systems-technology-diploma-full-time-5500dipma/",
   },
-  {
+{
     university_name: "Bucknell University",
     country: "USA", city: "Lewisburg, PA", qs_ranking: null,
     program_name: "Art & Art History", degree_level: "undergraduate",
@@ -122361,7 +122268,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.bucknell.edu/admissions-aid/tuition-fees-financial-aid",
     verified_at: "2026-05-14T11:40:35.552Z", verification_source_url: "https://www.bucknell.edu/academics/college-arts-sciences/academic-departments-programs/art-art-history",
   },
-  {
+{
     university_name: "Bucknell University",
     country: "USA", city: "Lewisburg, PA", qs_ranking: null,
     program_name: "Bachelor of Arts in Environmental Studies", degree_level: "undergraduate",
@@ -122375,7 +122282,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.bucknell.edu/admissions-aid/tuition-fees-financial-aid",
     verified_at: "2026-05-14T11:40:47.492Z", verification_source_url: "https://www.bucknell.edu/academics/college-arts-sciences/academic-departments-programs/environmental-studies-sciences",
   },
-  {
+{
     university_name: "Bucknell University",
     country: "USA", city: "Lewisburg, PA", qs_ranking: null,
     program_name: "Bachelor of Science in Business Administration - Management & Organizations", degree_level: "undergraduate",
@@ -122389,7 +122296,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.bucknell.edu/admissions-aid/apply-bucknell",
     verified_at: "2026-05-14T11:40:16.437Z", verification_source_url: "https://www.bucknell.edu/academics/freeman-college-management/majors-departments/management-organizations",
   },
-  {
+{
     university_name: "Bucknell University",
     country: "USA", city: "Lewisburg, PA", qs_ranking: null,
     program_name: "Biology", degree_level: "undergraduate",
@@ -122403,7 +122310,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.bucknell.edu/admissions-aid/tuition-fees-financial-aid",
     verified_at: "2026-05-14T11:40:53.595Z", verification_source_url: "https://www.bucknell.edu/academics/college-arts-sciences/academic-departments-programs/biology",
   },
-  {
+{
     university_name: "Bucknell University",
     country: "USA", city: "Lewisburg, PA", qs_ranking: null,
     program_name: "Cell Biology/Biochemistry", degree_level: "undergraduate",
@@ -122417,7 +122324,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.bucknell.edu/admissions-aid/tuition-fees-financial-aid",
     verified_at: "2026-05-14T11:40:24.846Z", verification_source_url: "https://www.bucknell.edu/academics/college-arts-sciences/academic-departments-programs/cell-biology-biochemistry",
   },
-  {
+{
     university_name: "Bucknell University",
     country: "USA", city: "Lewisburg, PA", qs_ranking: null,
     program_name: "Comparative & Digital Humanities", degree_level: "undergraduate",
@@ -122431,7 +122338,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.bucknell.edu/admissions-aid",
     verified_at: "2026-05-14T11:40:39.219Z", verification_source_url: "https://www.bucknell.edu/academics/college-arts-sciences/academic-departments-programs/comparative-digital-humanities",
   },
-  {
+{
     university_name: "Bucknell University",
     country: "USA", city: "Lewisburg, PA", qs_ranking: null,
     program_name: "Computer Science", degree_level: "undergraduate",
@@ -122445,7 +122352,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.bucknell.edu/admissions-aid/apply-bucknell",
     verified_at: "2026-05-14T11:40:10.316Z", verification_source_url: "https://www.bucknell.edu/academics/college-engineering/majors-departments/computer-science",
   },
-  {
+{
     university_name: "Bucknell University",
     country: "USA", city: "Lewisburg, PA", qs_ranking: null,
     program_name: "Data Science", degree_level: "undergraduate",
@@ -122459,7 +122366,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:40:15.855Z", verification_source_url: "https://www.bucknell.edu/academics/college-arts-sciences/academic-departments-programs/data-science",
   },
-  {
+{
     university_name: "Bucknell University",
     country: "USA", city: "Lewisburg, PA", qs_ranking: null,
     program_name: "Economics", degree_level: "undergraduate",
@@ -122473,7 +122380,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.bucknell.edu/admissions-aid/tuition-fees-financial-aid",
     verified_at: "2026-05-14T11:40:40.531Z", verification_source_url: "https://www.bucknell.edu/academics/college-arts-sciences/academic-departments-programs/economics",
   },
-  {
+{
     university_name: "Bucknell University",
     country: "USA", city: "Lewisburg, PA", qs_ranking: null,
     program_name: "Mechanical Engineering", degree_level: "undergraduate",
@@ -122487,7 +122394,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.bucknell.edu/admissions-aid/tuition-fees-financial-aid",
     verified_at: "2026-05-14T11:40:21.471Z", verification_source_url: "https://www.bucknell.edu/academics/college-engineering/majors-departments/mechanical-engineering",
   },
-  {
+{
     university_name: "California Polytechnic State University",
     country: "USA", city: "San Luis Obispo, CA", qs_ranking: null,
     program_name: "Business Administration", degree_level: "undergraduate",
@@ -122501,7 +122408,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:45:25.657Z", verification_source_url: "https://www.calpoly.edu/major/business-administration",
   },
-  {
+{
     university_name: "California Polytechnic State University",
     country: "USA", city: "San Luis Obispo, CA", qs_ranking: null,
     program_name: "Computer Science (MS)", degree_level: "postgraduate",
@@ -122515,7 +122422,7 @@ export const PROGRAMS = ([{
     apply_url: "https://csc.calpoly.edu/gr/",
     verified_at: "2026-05-14T11:45:12.383Z", verification_source_url: "https://catalog.calpoly.edu/engineering/computer-science-software/computer-science-ms/",
   },
-  {
+{
     university_name: "California Polytechnic State University",
     country: "USA", city: "San Luis Obispo, CA", qs_ranking: null,
     program_name: "Journalism (BS)", degree_level: "undergraduate",
@@ -122529,7 +122436,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:45:40.528Z", verification_source_url: "https://catalog.calpoly.edu/liberal-arts/journalism/journalism-bs/",
   },
-  {
+{
     university_name: "California Polytechnic State University",
     country: "USA", city: "San Luis Obispo, CA", qs_ranking: null,
     program_name: "M.S. Environmental Sciences and Management", degree_level: "postgraduate",
@@ -122543,7 +122450,7 @@ export const PROGRAMS = ([{
     apply_url: "https://admissions.calpoly.edu/applicants/graduate/process.html",
     verified_at: "2026-05-14T11:45:44.679Z", verification_source_url: "https://nres.calpoly.edu/ms-environmental-sciences-and-management",
   },
-  {
+{
     university_name: "California Polytechnic State University",
     country: "USA", city: "San Luis Obispo, CA", qs_ranking: null,
     program_name: "Master of Business Administration (MBA)", degree_level: "postgraduate",
@@ -122557,7 +122464,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:45:24.577Z", verification_source_url: "https://gradbusiness.calpoly.edu/mba/",
   },
-  {
+{
     university_name: "California Polytechnic State University",
     country: "USA", city: "San Luis Obispo, CA", qs_ranking: null,
     program_name: "Master of Science in Biological Sciences", degree_level: "postgraduate",
@@ -122571,7 +122478,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.calstate.edu/apply",
     verified_at: "2026-05-14T11:45:50.958Z", verification_source_url: "https://bio.calpoly.edu/content/graduate-degrees",
   },
-  {
+{
     university_name: "California Polytechnic State University",
     country: "USA", city: "San Luis Obispo, CA", qs_ranking: null,
     program_name: "Mechanical Engineering (MS)", degree_level: "postgraduate",
@@ -122585,7 +122492,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:45:23.658Z", verification_source_url: "https://catalog.calpoly.edu/engineering/mechanical/mechanical-engineering-ms/",
   },
-  {
+{
     university_name: "California Polytechnic State University",
     country: "USA", city: "San Luis Obispo, CA", qs_ranking: null,
     program_name: "MS Business Analytics", degree_level: "postgraduate",
@@ -122599,7 +122506,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:45:14.497Z", verification_source_url: "https://gradbusiness.calpoly.edu/ms-business-analytics/",
   },
-  {
+{
     university_name: "California Polytechnic State University",
     country: "USA", city: "San Luis Obispo, CA", qs_ranking: null,
     program_name: "MS Quantitative Economics", degree_level: "postgraduate",
@@ -122613,7 +122520,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:45:44.282Z", verification_source_url: "https://orfalea.calpoly.edu/graduate-programs/ms-economics",
   },
-  {
+{
     university_name: "California Polytechnic State University",
     country: "USA", city: "San Luis Obispo, CA", qs_ranking: null,
     program_name: "Public Health (BS)", degree_level: "undergraduate",
@@ -122627,7 +122534,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:45:28.123Z", verification_source_url: "https://catalog.calpoly.edu/science-mathematics/kinesiology-public-health/public-health-bs/",
   },
-  {
+{
     university_name: "California Polytechnic State University",
     country: "USA", city: "San Luis Obispo, CA", qs_ranking: null,
     program_name: "Recreation, Parks, & Tourism Administration", degree_level: "undergraduate",
@@ -122641,7 +122548,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:45:56.477Z", verification_source_url: "https://eim.calpoly.edu/degree",
   },
-  {
+{
     university_name: "California Polytechnic State University",
     country: "USA", city: "San Luis Obispo, CA", qs_ranking: null,
     program_name: "Sociology, Bachelor of Arts", degree_level: "undergraduate",
@@ -122655,7 +122562,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:45:37.599Z", verification_source_url: "https://socialsciences.calpoly.edu/students/major/sociology",
   },
-  {
+{
     university_name: "California State Polytechnic University, Pomona",
     country: "USA", city: "Pomona, CA", qs_ranking: null,
     program_name: "Animal Health Science", degree_level: "undergraduate",
@@ -122669,7 +122576,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:21:40.052Z", verification_source_url: "https://www.cpp.edu/programs/agri/ahs/animal-health-science.shtml",
   },
-  {
+{
     university_name: "California State Polytechnic University, Pomona",
     country: "USA", city: "Pomona, CA", qs_ranking: null,
     program_name: "Bachelor of Architecture", degree_level: "undergraduate",
@@ -122683,7 +122590,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:21:04.834Z", verification_source_url: "https://www.cpp.edu/env/architecture/program-degrees-admissions/bachelor-of-architecture.shtml",
   },
-  {
+{
     university_name: "California State Polytechnic University, Pomona",
     country: "USA", city: "Pomona, CA", qs_ranking: null,
     program_name: "Biological Science, M.S.: 30 units", degree_level: "postgraduate",
@@ -122697,7 +122604,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:21:36.989Z", verification_source_url: "https://catalog.cpp.edu/preview_program.php?catoid=36&poid=9561",
   },
-  {
+{
     university_name: "California State Polytechnic University, Pomona",
     country: "USA", city: "Pomona, CA", qs_ranking: null,
     program_name: "Biotechnology", degree_level: "undergraduate",
@@ -122711,7 +122618,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:21:01.772Z", verification_source_url: "https://www.cpp.edu/programs/sci/biological-sciences/biotechnology.shtml",
   },
-  {
+{
     university_name: "California State Polytechnic University, Pomona",
     country: "USA", city: "Pomona, CA", qs_ranking: null,
     program_name: "Computer Science, M.S.", degree_level: "postgraduate",
@@ -122725,7 +122632,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:20:12.382Z", verification_source_url: "https://catalog.cpp.edu/preview_program.php?catoid=61&poid=15917",
   },
-  {
+{
     university_name: "California State Polytechnic University, Pomona",
     country: "USA", city: "Pomona, CA", qs_ranking: null,
     program_name: "Economics, B.S.", degree_level: "undergraduate",
@@ -122739,7 +122646,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:21:13.103Z", verification_source_url: "https://www.cpp.edu/class/economics/undergraduate-program/degree.shtml",
   },
-  {
+{
     university_name: "California State Polytechnic University, Pomona",
     country: "USA", city: "Pomona, CA", qs_ranking: null,
     program_name: "Environmental Biology, B.S.", degree_level: "undergraduate",
@@ -122753,7 +122660,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:21:36.353Z", verification_source_url: "https://catalog.cpp.edu/preview_program.php?catoid=36&poid=9560",
   },
-  {
+{
     university_name: "California State Polytechnic University, Pomona",
     country: "USA", city: "Pomona, CA", qs_ranking: null,
     program_name: "Master of Science in Computer Science", degree_level: "postgraduate",
@@ -122767,7 +122674,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:20:09.462Z", verification_source_url: "https://www.cpp.edu/sci/computer-science/prospective-graduate-students/program-information.shtml",
   },
-  {
+{
     university_name: "California State Polytechnic University, Pomona",
     country: "USA", city: "Pomona, CA", qs_ranking: null,
     program_name: "MBA", degree_level: "postgraduate",
@@ -122781,7 +122688,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:20:28.459Z", verification_source_url: "https://www.cpp.edu/programs/cba/gp/masters-business-administration-mba.shtml",
   },
-  {
+{
     university_name: "California State Polytechnic University, Pomona",
     country: "USA", city: "Pomona, CA", qs_ranking: null,
     program_name: "MS degree in Engineering", degree_level: "postgraduate",
@@ -122795,7 +122702,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:20:23.883Z", verification_source_url: "https://www.cpp.edu/engineering/ece/msee/index.shtml",
   },
-  {
+{
     university_name: "California State Polytechnic University, Pomona",
     country: "USA", city: "Pomona, CA", qs_ranking: null,
     program_name: "MS in Hospitality Management", degree_level: "postgraduate",
@@ -122809,7 +122716,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.calstate.edu/apply",
     verified_at: "2026-05-14T15:21:58.205Z", verification_source_url: "https://www.cpp.edu/cpge/degree-programs/hospitality/admissions.shtml",
   },
-  {
+{
     university_name: "California State University, East Bay",
     country: "USA", city: "Hayward, CA", qs_ranking: null,
     program_name: "Bachelor of Arts in Communication", degree_level: "undergraduate",
@@ -122823,7 +122730,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:27:53.505Z", verification_source_url: "https://www.csueastbay.edu/communication/comm-ba/index.html",
   },
-  {
+{
     university_name: "California State University, East Bay",
     country: "USA", city: "Hayward, CA", qs_ranking: null,
     program_name: "Biotechnology Certificate Program (BCP)", degree_level: "postgraduate",
@@ -122837,7 +122744,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:27:20.616Z", verification_source_url: "https://www.csueastbay.edu/biology/graduate-program/biotechnology-certificate-program-bcp/index.html",
   },
-  {
+{
     university_name: "California State University, East Bay",
     country: "USA", city: "Hayward, CA", qs_ranking: null,
     program_name: "College of Letters, Arts, and Social Sciences", degree_level: null,
@@ -122851,7 +122758,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:27:40.936Z", verification_source_url: "https://www.csueastbay.edu/class/",
   },
-  {
+{
     university_name: "California State University, East Bay",
     country: "USA", city: "Hayward, CA", qs_ranking: null,
     program_name: "Construction Management, M.S / Engineering Management, M.S.", degree_level: "postgraduate",
@@ -122865,7 +122772,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:27:19.593Z", verification_source_url: "https://www.csueastbay.edu/engineering/programs-degrees/graduate-degrees.html",
   },
-  {
+{
     university_name: "California State University, East Bay",
     country: "USA", city: "Hayward, CA", qs_ranking: null,
     program_name: "Environmental Geosciences, M.S.", degree_level: "postgraduate",
@@ -122879,7 +122786,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.calstate.edu/apply",
     verified_at: "2026-05-14T15:27:56.156Z", verification_source_url: "https://www.csueastbay.edu/earth/graduate-program/index.html",
   },
-  {
+{
     university_name: "California State University, East Bay",
     country: "USA", city: "Hayward, CA", qs_ranking: null,
     program_name: "Graduate Business Programs", degree_level: "postgraduate",
@@ -122893,7 +122800,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:27:12.997Z", verification_source_url: "https://www.csueastbay.edu/cbe/graduate-programs.html",
   },
-  {
+{
     university_name: "California State University, East Bay",
     country: "USA", city: "Hayward, CA", qs_ranking: null,
     program_name: "M.S. Chemistry, Biochemistry Concentration, Plan B", degree_level: "postgraduate",
@@ -122907,7 +122814,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:28:00.175Z", verification_source_url: "https://www.csueastbay.edu/chemistry/graduate/msbiochemb.html",
   },
-  {
+{
     university_name: "California State University, East Bay",
     country: "USA", city: "Hayward, CA", qs_ranking: null,
     program_name: "M.S. in Hospitality, Recreation and Tourism", degree_level: "postgraduate",
@@ -122921,7 +122828,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.csueastbay.edu/financialaid/prospective-students1/cost-of-attendance.html",
     verified_at: "2026-05-14T15:28:18.093Z", verification_source_url: "https://www.csueastbay.edu/hrt/grad/index.html",
   },
-  {
+{
     university_name: "California State University, East Bay",
     country: "USA", city: "Hayward, CA", qs_ranking: null,
     program_name: "Master of Business Administration (MBA) - Finance Concentration", degree_level: "postgraduate",
@@ -122935,7 +122842,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:27:39.970Z", verification_source_url: "https://www.csueastbay.edu/acct-fin/graduate-program.html",
   },
-  {
+{
     university_name: "California State University, East Bay",
     country: "USA", city: "Hayward, CA", qs_ranking: null,
     program_name: "Master of Science in Computer Science", degree_level: "postgraduate",
@@ -122949,7 +122856,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:26:53.933Z", verification_source_url: "https://www.csueastbay.edu/cs/degrees-programs1/csms.html",
   },
-  {
+{
     university_name: "California State University, East Bay",
     country: "USA", city: "Hayward, CA", qs_ranking: null,
     program_name: "Master of Science in Nursing", degree_level: "postgraduate",
@@ -122963,7 +122870,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:28:06.202Z", verification_source_url: "https://www.csueastbay.edu/nursing/msn-programs/index.html",
   },
-  {
+{
     university_name: "California State University, East Bay",
     country: "USA", city: "Hayward, CA", qs_ranking: null,
     program_name: "MBA with Concentrations", degree_level: "postgraduate",
@@ -122977,7 +122884,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:27:13.870Z", verification_source_url: "https://www.csueastbay.edu/mba/programs/mba-with-concentrations.html",
   },
-  {
+{
     university_name: "California State University, East Bay",
     country: "USA", city: "Hayward, CA", qs_ranking: null,
     program_name: "MS Computer Science Artificial Intelligence & Machine Learning Concentration", degree_level: "postgraduate",
@@ -122991,7 +122898,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:27:00.892Z", verification_source_url: "https://www.csueastbay.edu/cs/old-course-descriptions/cs-4810.html",
   },
-  {
+{
     university_name: "California State University, East Bay",
     country: "USA", city: "Hayward, CA", qs_ranking: null,
     program_name: "Public Health, B.S.", degree_level: "undergraduate",
@@ -123005,7 +122912,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:27:35.707Z", verification_source_url: "https://www.csueastbay.edu/health/degrees-and-programs/index.html",
   },
-  {
+{
     university_name: "California State University, Fresno",
     country: "USA", city: "Fresno, CA", qs_ranking: null,
     program_name: "B.A. in Mass Communication and Journalism", degree_level: "undergraduate",
@@ -123019,7 +122926,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:28:45.199Z", verification_source_url: "https://cah.fresnostate.edu/mcj/academics/index.html",
   },
-  {
+{
     university_name: "California State University, Fresno",
     country: "USA", city: "Fresno, CA", qs_ranking: null,
     program_name: "B.S. Business Administration", degree_level: "undergraduate",
@@ -123033,7 +122940,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:28:23.268Z", verification_source_url: "https://craig.fresnostate.edu/about/degreesoffered.html",
   },
-  {
+{
     university_name: "California State University, Fresno",
     country: "USA", city: "Fresno, CA", qs_ranking: null,
     program_name: "Degrees and Programs - School of Art, Design and Art History", degree_level: null,
@@ -123047,7 +122954,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:28:36.921Z", verification_source_url: "https://cah.fresnostate.edu/artanddesign/degrees-programs/index.html",
   },
-  {
+{
     university_name: "California State University, Fresno",
     country: "USA", city: "Fresno, CA", qs_ranking: null,
     program_name: "Department of Economics", degree_level: "undergraduate",
@@ -123061,7 +122968,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:28:40.363Z", verification_source_url: "https://craig.fresnostate.edu/econ/index.html",
   },
-  {
+{
     university_name: "California State University, Fresno",
     country: "USA", city: "Fresno, CA", qs_ranking: null,
     program_name: "Department of Information Systems and Decision Sciences", degree_level: null,
@@ -123075,7 +122982,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:28:13.376Z", verification_source_url: "https://craig.fresnostate.edu/isds/index.html",
   },
-  {
+{
     university_name: "California State University, Fresno",
     country: "USA", city: "Fresno, CA", qs_ranking: null,
     program_name: "M.A. in English", degree_level: "postgraduate",
@@ -123089,7 +122996,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:28:41.613Z", verification_source_url: "https://cah.fresnostate.edu/english/academics/engl-ma.html",
   },
-  {
+{
     university_name: "California State University, Fresno",
     country: "USA", city: "Fresno, CA", qs_ranking: null,
     program_name: "M.S. in Earth and Environmental Science", degree_level: "postgraduate",
@@ -123103,7 +123010,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:28:52.302Z", verification_source_url: "https://csm.fresnostate.edu/ees/degrees-programs/grad.html",
   },
-  {
+{
     university_name: "California State University, Fresno",
     country: "USA", city: "Fresno, CA", qs_ranking: null,
     program_name: "Master of Public Health Program", degree_level: "postgraduate",
@@ -123117,7 +123024,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:28:33.633Z", verification_source_url: "https://chhs.fresnostate.edu/public-health/graduate-program/index.html",
   },
-  {
+{
     university_name: "California State University, Fresno",
     country: "USA", city: "Fresno, CA", qs_ranking: null,
     program_name: "Master of Science degree program in Computer Science", degree_level: "postgraduate",
@@ -123131,7 +123038,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:28:08.881Z", verification_source_url: "https://csm.fresnostate.edu/csci/degrees/grad/index.html",
   },
-  {
+{
     university_name: "California State University, Fresno",
     country: "USA", city: "Fresno, CA", qs_ranking: null,
     program_name: "Master of Science in Nursing", degree_level: "postgraduate",
@@ -123145,7 +123052,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:28:53.430Z", verification_source_url: "https://chhs.fresnostate.edu/nursing/degrees-programs/msn.html",
   },
-  {
+{
     university_name: "California State University, Fresno",
     country: "USA", city: "Fresno, CA", qs_ranking: null,
     program_name: "Master of Science Mechanical Engineering (MSME)", degree_level: "postgraduate",
@@ -123159,7 +123066,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:28:25.459Z", verification_source_url: "https://engineering.fresnostate.edu/mechanical/graduate.html",
   },
-  {
+{
     university_name: "California State University, Fresno",
     country: "USA", city: "Fresno, CA", qs_ranking: null,
     program_name: "MBA", degree_level: "postgraduate",
@@ -123173,7 +123080,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:28:21.879Z", verification_source_url: "https://craig.fresnostate.edu/grad-business/mba.html",
   },
-  {
+{
     university_name: "California State University, Fresno",
     country: "USA", city: "Fresno, CA", qs_ranking: null,
     program_name: "MS in Animal Sciences", degree_level: "postgraduate",
@@ -123187,7 +123094,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:29:24.312Z", verification_source_url: "https://jcast.fresnostate.edu/asae/degrees-and-programs/index.html",
   },
-  {
+{
     university_name: "California State University, Fresno",
     country: "USA", city: "Fresno, CA", qs_ranking: null,
     program_name: "MS in Biotechnology", degree_level: "postgraduate",
@@ -123201,7 +123108,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:28:29.119Z", verification_source_url: "https://csm.fresnostate.edu/biology/biotech/index.html",
   },
-  {
+{
     university_name: "California State University, Fresno",
     country: "USA", city: "Fresno, CA", qs_ranking: null,
     program_name: "The B.A. Degree in Natural Sciences - Biology Option", degree_level: "undergraduate",
@@ -123215,7 +123122,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:28:51.223Z", verification_source_url: "https://csm.fresnostate.edu/student-prog/degrees/ba-natsci.html",
   },
-  {
+{
     university_name: "California State University, Sacramento",
     country: "USA", city: "Sacramento, CA", qs_ranking: null,
     program_name: "BFA in Architecture Studies", degree_level: "undergraduate",
@@ -123229,7 +123136,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:26:03.447Z", verification_source_url: "https://catalog.csus.edu/colleges/arts-letters/design/interior-architecture/bfa-architecture-studies/",
   },
-  {
+{
     university_name: "California State University, Sacramento",
     country: "USA", city: "Sacramento, CA", qs_ranking: null,
     program_name: "Graduate Programs - College of Business", degree_level: "postgraduate",
@@ -123243,7 +123150,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:22:13.838Z", verification_source_url: "https://www.csus.edu/college/business-administration/graduate/",
   },
-  {
+{
     university_name: "California State University, Sacramento",
     country: "USA", city: "Sacramento, CA", qs_ranking: null,
     program_name: "MA in Communication Studies", degree_level: "postgraduate",
@@ -123257,7 +123164,7 @@ export const PROGRAMS = ([{
     apply_url: "http://www.csus.edu/gradstudies/",
     verified_at: "2026-05-14T15:26:33.245Z", verification_source_url: "https://catalog.csus.edu/colleges/arts-letters/communication-studies/communication-studies/ma-in-communication-studies/",
   },
-  {
+{
     university_name: "California State University, Sacramento",
     country: "USA", city: "Sacramento, CA", qs_ranking: null,
     program_name: "Master of Business Administration", degree_level: "postgraduate",
@@ -123271,7 +123178,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:22:18.539Z", verification_source_url: "https://www.csus.edu/college/business-administration/graduate/mba-master-of-business-administration/",
   },
-  {
+{
     university_name: "California State University, Sacramento",
     country: "USA", city: "Sacramento, CA", qs_ranking: null,
     program_name: "Master of Public Health", degree_level: "postgraduate",
@@ -123285,7 +123192,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:26:03.996Z", verification_source_url: "https://catalog.csus.edu/colleges/health-human-services/public-health/master-of-public-health/",
   },
-  {
+{
     university_name: "California State University, Sacramento",
     country: "USA", city: "Sacramento, CA", qs_ranking: null,
     program_name: "Master of Science in Business Analytics", degree_level: "postgraduate",
@@ -123299,7 +123206,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.calstate.edu/apply",
     verified_at: "2026-05-14T15:22:10.876Z", verification_source_url: "https://www.csus.edu/college/business-administration/graduate/ms-business-analytics.html",
   },
-  {
+{
     university_name: "California State University, Sacramento",
     country: "USA", city: "Sacramento, CA", qs_ranking: null,
     program_name: "Master of Science in Finance", degree_level: "postgraduate",
@@ -123313,7 +123220,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.calstate.edu/apply",
     verified_at: "2026-05-14T15:26:33.418Z", verification_source_url: "https://www.csus.edu/college/business-administration/graduate/ms-finance.html",
   },
-  {
+{
     university_name: "California State University, Sacramento",
     country: "USA", city: "Sacramento, CA", qs_ranking: null,
     program_name: "Master of Science in Nursing", degree_level: "postgraduate",
@@ -123327,7 +123234,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:26:52.165Z", verification_source_url: "https://www.csus.edu/college/health-human-services/nursing/graduate-program.html",
   },
-  {
+{
     university_name: "California State University, Sacramento",
     country: "USA", city: "Sacramento, CA", qs_ranking: null,
     program_name: "MS Degree in Environmental Studies", degree_level: "postgraduate",
@@ -123341,7 +123248,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:26:31.744Z", verification_source_url: "https://www.csus.edu/college/social-sciences-interdisciplinary-studies/environmental-studies/envs-masters.html",
   },
-  {
+{
     university_name: "California State University, Sacramento",
     country: "USA", city: "Sacramento, CA", qs_ranking: null,
     program_name: "MS in Biological Sciences", degree_level: "postgraduate",
@@ -123355,7 +123262,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:26:41.688Z", verification_source_url: "https://catalog.csus.edu/colleges/natural-sciences-mathematics/biological-sciences/ms-in-biological-science-general/",
   },
-  {
+{
     university_name: "California State University, Sacramento",
     country: "USA", city: "Sacramento, CA", qs_ranking: null,
     program_name: "MS in Biotechnology", degree_level: "postgraduate",
@@ -123369,7 +123276,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.csus.edu/graduate-studies/future-students/graduate-programs-deadlines.html",
     verified_at: "2026-05-14T15:26:10.557Z", verification_source_url: "https://catalog.csus.edu/colleges/natural-sciences-mathematics/biological-sciences/ms-biotechnology/",
   },
-  {
+{
     university_name: "California State University, Sacramento",
     country: "USA", city: "Sacramento, CA", qs_ranking: null,
     program_name: "MS in Civil Engineering", degree_level: "postgraduate",
@@ -123383,7 +123290,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:22:23.527Z", verification_source_url: "https://catalog.csus.edu/colleges/engineering-computer-science/engineering-civil/ms-in-civil-engineering/",
   },
-  {
+{
     university_name: "California State University, Sacramento",
     country: "USA", city: "Sacramento, CA", qs_ranking: null,
     program_name: "MS in Computer Science", degree_level: "postgraduate",
@@ -123397,7 +123304,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:21:54.858Z", verification_source_url: "https://catalog.csus.edu/colleges/engineering-computer-science/computer-science/ms-in-computer-science/",
   },
-  {
+{
     university_name: "Chapman University",
     country: "USA", city: "Orange, CA", qs_ranking: null,
     program_name: "BS in Biochemistry and Molecular Biology", degree_level: "undergraduate",
@@ -123411,7 +123318,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:48:00.584Z", verification_source_url: "https://www.chapman.edu/scst/undergraduate/bs-biochemistry.aspx",
   },
-  {
+{
     university_name: "Chapman University",
     country: "USA", city: "Orange, CA", qs_ranking: null,
     program_name: "BS in Biological Sciences", degree_level: "undergraduate",
@@ -123425,7 +123332,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:48:34.936Z", verification_source_url: "https://www.chapman.edu/scst/undergraduate/bs-biological-sciences.aspx",
   },
-  {
+{
     university_name: "Chapman University",
     country: "USA", city: "Orange, CA", qs_ranking: null,
     program_name: "BS in Computer Science", degree_level: "undergraduate",
@@ -123439,7 +123346,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:47:40.903Z", verification_source_url: "https://www.chapman.edu/engineering/academic-programs/undergraduate-programs/bs-computer-science.aspx",
   },
-  {
+{
     university_name: "Chapman University",
     country: "USA", city: "Orange, CA", qs_ranking: null,
     program_name: "BS in Environmental Science and Policy", degree_level: "undergraduate",
@@ -123453,7 +123360,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:48:35.553Z", verification_source_url: "https://www.chapman.edu/scst/undergraduate/bs-environmental-science-policy.aspx",
   },
-  {
+{
     university_name: "Chapman University",
     country: "USA", city: "Orange, CA", qs_ranking: null,
     program_name: "BS in Health Sciences", degree_level: "undergraduate",
@@ -123467,7 +123374,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:48:12.805Z", verification_source_url: "https://www.chapman.edu/crean/academic-programs/undergraduate-programs/bs-health-sciences.aspx",
   },
-  {
+{
     university_name: "Chapman University",
     country: "USA", city: "Orange, CA", qs_ranking: null,
     program_name: "Department of Art", degree_level: "undergraduate",
@@ -123481,7 +123388,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:48:13.149Z", verification_source_url: "https://www.chapman.edu/wilkinson/art/index.aspx",
   },
-  {
+{
     university_name: "Chapman University",
     country: "USA", city: "Orange, CA", qs_ranking: null,
     program_name: "Full-Time MBA", degree_level: "postgraduate",
@@ -123495,7 +123402,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:47:53.607Z", verification_source_url: "https://www.chapman.edu/business/academic-programs/graduate/prospective-students/programs/full-time-mba.aspx",
   },
-  {
+{
     university_name: "Chapman University",
     country: "USA", city: "Orange, CA", qs_ranking: null,
     program_name: "Graduate Business Degree Programs", degree_level: "postgraduate",
@@ -123509,7 +123416,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:47:49.019Z", verification_source_url: "https://www.chapman.edu/business/academic-programs/graduate/prospective-students/programs/index.aspx",
   },
-  {
+{
     university_name: "Chapman University",
     country: "USA", city: "Orange, CA", qs_ranking: null,
     program_name: "Graduate Programs - School of Communication", degree_level: "postgraduate",
@@ -123523,7 +123430,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:48:36.788Z", verification_source_url: "https://www.chapman.edu/communication/graduate/index.aspx",
   },
-  {
+{
     university_name: "Chapman University",
     country: "USA", city: "Orange, CA", qs_ranking: null,
     program_name: "JD - Full time", degree_level: "postgraduate",
@@ -123537,7 +123444,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.chapman.edu/admission/graduate/apply/index.aspx",
     verified_at: "2026-05-14T11:48:15.823Z", verification_source_url: "https://www.chapman.edu/law/academic-programs/jd/index.aspx",
   },
-  {
+{
     university_name: "Chapman University",
     country: "USA", city: "Orange, CA", qs_ranking: null,
     program_name: "Master of Arts in International Studies", degree_level: "postgraduate",
@@ -123551,7 +123458,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.chapman.edu/wilkinson/graduate-studies/ma-international-studies/index.aspx",
     verified_at: "2026-05-14T11:48:15.200Z", verification_source_url: "https://www.chapman.edu/wilkinson/graduate-studies/ma-international-studies/index.aspx",
   },
-  {
+{
     university_name: "Chapman University",
     country: "USA", city: "Orange, CA", qs_ranking: null,
     program_name: "Master of Science in Computational and Data Sciences", degree_level: "postgraduate",
@@ -123565,7 +123472,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.chapman.edu/admission/graduate/index.aspx",
     verified_at: "2026-05-14T11:47:50.513Z", verification_source_url: "https://www.chapman.edu/scst/graduate/ms-computational-science.aspx",
   },
-  {
+{
     university_name: "Chapman University",
     country: "USA", city: "Orange, CA", qs_ranking: null,
     program_name: "MS in Electrical Engineering and Computer Science", degree_level: "postgraduate",
@@ -123579,7 +123486,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:47:53.520Z", verification_source_url: "https://www.chapman.edu/engineering/academic-programs/graduate-programs/index.aspx",
   },
-  {
+{
     university_name: "Chapman University",
     country: "USA", city: "Orange, CA", qs_ranking: null,
     program_name: "MS in Finance", degree_level: "postgraduate",
@@ -123593,7 +123500,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:48:25.555Z", verification_source_url: "https://www.chapman.edu/business/academic-programs/graduate/prospective-students/programs/ms-in-finance.aspx",
   },
-  {
+{
     university_name: "Cleveland State University",
     country: "USA", city: "Cleveland, OH", qs_ranking: null,
     program_name: "Art & Design", degree_level: "undergraduate",
@@ -123607,7 +123514,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:54:17.325Z", verification_source_url: "https://artsandsciences.csuohio.edu/art/welcome-art-design",
   },
-  {
+{
     university_name: "Cleveland State University",
     country: "USA", city: "Cleveland, OH", qs_ranking: null,
     program_name: "Bachelor of Science in Data Science", degree_level: "undergraduate",
@@ -123621,7 +123528,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:53:47.206Z", verification_source_url: "https://engineering.csuohio.edu/cs/bachelor-science-in-data-science-0",
   },
-  {
+{
     university_name: "Cleveland State University",
     country: "USA", city: "Cleveland, OH", qs_ranking: null,
     program_name: "Consortium of Eastern Ohio Master of Public Health Program", degree_level: "postgraduate",
@@ -123635,7 +123542,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:54:10.519Z", verification_source_url: "https://health.csuohio.edu/health-sci/welcome-consortium-eastern-ohio-master-public-health-program",
   },
-  {
+{
     university_name: "Cleveland State University",
     country: "USA", city: "Cleveland, OH", qs_ranking: null,
     program_name: "Doctor of Nursing Practice (DNP) and Master of Science in Nursing (MSN)", degree_level: "postgraduate",
@@ -123649,7 +123556,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:54:43.593Z", verification_source_url: "https://health.csuohio.edu/graduate-programs",
   },
-  {
+{
     university_name: "Cleveland State University",
     country: "USA", city: "Cleveland, OH", qs_ranking: null,
     program_name: "Economics", degree_level: null,
@@ -123663,7 +123570,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:54:22.340Z", verification_source_url: "https://business.csuohio.edu/economics",
   },
-  {
+{
     university_name: "Cleveland State University",
     country: "USA", city: "Cleveland, OH", qs_ranking: null,
     program_name: "Graduate Programs - Biological, Geological, and Environmental Sciences", degree_level: "postgraduate",
@@ -123677,7 +123584,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:54:02.942Z", verification_source_url: "https://artsandsciences.csuohio.edu/bges/graduate-programs",
   },
-  {
+{
     university_name: "Cleveland State University",
     country: "USA", city: "Cleveland, OH", qs_ranking: null,
     program_name: "Master of Arts in Environmental Studies", degree_level: "postgraduate",
@@ -123691,7 +123598,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:54:28.715Z", verification_source_url: "https://levin.csuohio.edu/maes",
   },
-  {
+{
     university_name: "Cleveland State University",
     country: "USA", city: "Cleveland, OH", qs_ranking: null,
     program_name: "Master of Business Administration (MBA)", degree_level: "postgraduate",
@@ -123705,7 +123612,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:53:59.202Z", verification_source_url: "https://business.csuohio.edu/academics/mba",
   },
-  {
+{
     university_name: "Cleveland State University",
     country: "USA", city: "Cleveland, OH", qs_ranking: null,
     program_name: "Master of Computer Science", degree_level: "postgraduate",
@@ -123719,7 +123626,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:53:43.509Z", verification_source_url: "https://engineering.csuohio.edu/cs/master-computer-science",
   },
-  {
+{
     university_name: "Cleveland State University",
     country: "USA", city: "Cleveland, OH", qs_ranking: null,
     program_name: "Master of Science, Electrical Engineering", degree_level: "postgraduate",
@@ -123733,7 +123640,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:54:01.606Z", verification_source_url: "https://engineering.csuohio.edu/ece/master-science-electrical-engineering",
   },
-  {
+{
     university_name: "Cleveland State University",
     country: "USA", city: "Cleveland, OH", qs_ranking: null,
     program_name: "The JD Application Process", degree_level: "postgraduate",
@@ -123747,7 +123654,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:54:07.574Z", verification_source_url: "https://www.law.csuohio.edu/admissions/apply",
   },
-  {
+{
     university_name: "DePaul University",
     country: "USA", city: "Chicago, IL", qs_ranking: 801,
     program_name: "Biological Sciences Master of Science", degree_level: "postgraduate",
@@ -123761,7 +123668,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:24:59.983Z", verification_source_url: "https://csh.depaul.edu/academics/biological-sciences/graduate/biological-sciences-ms/Pages/default.aspx",
   },
-  {
+{
     university_name: "DePaul University",
     country: "USA", city: "Chicago, IL", qs_ranking: 801,
     program_name: "Finance Master of Science", degree_level: "postgraduate",
@@ -123775,7 +123682,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:35:23.307Z", verification_source_url: "https://business.depaul.edu/academics/finance-and-real-estate/graduate/finance-ms/Pages/default.aspx",
   },
-  {
+{
     university_name: "DePaul University",
     country: "USA", city: "Chicago, IL", qs_ranking: 801,
     program_name: "Hospitality Leadership", degree_level: "undergraduate",
@@ -123789,7 +123696,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:35:40.672Z", verification_source_url: "https://business.depaul.edu/academics/hospitality-sports-business/majors-minors/hospitality-bsb/Pages/default.aspx",
   },
-  {
+{
     university_name: "DePaul University",
     country: "USA", city: "Chicago, IL", qs_ranking: 801,
     program_name: "Intelligent Systems Engineering", degree_level: "undergraduate",
@@ -123803,7 +123710,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:24:48.275Z", verification_source_url: "https://www.depaul.edu/academics/programs/bs-in-intelligent-systems-engineering",
   },
-  {
+{
     university_name: "DePaul University",
     country: "USA", city: "Chicago, IL", qs_ranking: 801,
     program_name: "Interdisciplinary Studies", degree_level: "postgraduate",
@@ -123817,7 +123724,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:25:07.483Z", verification_source_url: "https://www.depaul.edu/academics/programs/interdisciplinary-self-designed-program",
   },
-  {
+{
     university_name: "DePaul University",
     country: "USA", city: "Chicago, IL", qs_ranking: 801,
     program_name: "Juris Doctor", degree_level: "postgraduate",
@@ -123831,7 +123738,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:25:04.519Z", verification_source_url: "https://law.depaul.edu/academics/jd-programs/Pages/default.aspx",
   },
-  {
+{
     university_name: "DePaul University",
     country: "USA", city: "Chicago, IL", qs_ranking: 801,
     program_name: "Master of Business Administration", degree_level: "postgraduate",
@@ -123845,7 +123752,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:24:50.389Z", verification_source_url: "https://www.depaul.edu/academics/programs/mba",
   },
-  {
+{
     university_name: "DePaul University",
     country: "USA", city: "Chicago, IL", qs_ranking: 801,
     program_name: "Master of Public Health", degree_level: "postgraduate",
@@ -123859,7 +123766,7 @@ export const PROGRAMS = ([{
     apply_url: "https://csh.depaul.edu/admission/graduate/tuition-and-aid",
     verified_at: "2026-05-14T14:25:08.279Z", verification_source_url: "https://csh.depaul.edu/academics/health-sciences/graduate/public-health-mph/Pages/default.aspx",
   },
-  {
+{
     university_name: "DePaul University",
     country: "USA", city: "Chicago, IL", qs_ranking: 801,
     program_name: "Master's Entry to Nursing Practice (MENP) program for Non-Nurses (MS)", degree_level: "postgraduate",
@@ -123873,7 +123780,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:35:38.235Z", verification_source_url: "https://csh.depaul.edu/academics/nursing/graduate/Pages/default.aspx",
   },
-  {
+{
     university_name: "DePaul University",
     country: "USA", city: "Chicago, IL", qs_ranking: 801,
     program_name: "MS in Artificial Intelligence", degree_level: "postgraduate",
@@ -123887,7 +123794,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:24:48.036Z", verification_source_url: "https://www.depaul.edu/academics/programs/ms-in-artificial-intelligence",
   },
-  {
+{
     university_name: "DePaul University",
     country: "USA", city: "Chicago, IL", qs_ranking: 801,
     program_name: "MS in Computer Science", degree_level: "postgraduate",
@@ -123901,7 +123808,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:24:49.458Z", verification_source_url: "https://www.depaul.edu/academics/programs/ms-in-computer-science",
   },
-  {
+{
     university_name: "Florida Atlantic University",
     country: "USA", city: "Boca Raton, FL", qs_ranking: null,
     program_name: "Bachelor of Science in Nursing Program", degree_level: "undergraduate",
@@ -123915,7 +123822,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:25:59.489Z", verification_source_url: "https://www.fau.edu/nursing/academics/bachelor-of-science-nursing-program/",
   },
-  {
+{
     university_name: "Florida Atlantic University",
     country: "USA", city: "Boca Raton, FL", qs_ranking: null,
     program_name: "Graduate Degree Programs (M.S./P.S.M./Ph.D.)", degree_level: "postgraduate",
@@ -123929,7 +123836,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:25:15.424Z", verification_source_url: "https://biology.fau.edu/academics/graduate/index.php",
   },
-  {
+{
     university_name: "Florida Atlantic University",
     country: "USA", city: "Boca Raton, FL", qs_ranking: null,
     program_name: "M.S. Biology", degree_level: "postgraduate",
@@ -123943,7 +123850,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:26:04.683Z", verification_source_url: "https://biology.fau.edu/academics/graduate/ms-programs.php",
   },
-  {
+{
     university_name: "Florida Atlantic University",
     country: "USA", city: "Boca Raton, FL", qs_ranking: null,
     program_name: "MA in Communication Studies", degree_level: "postgraduate",
@@ -123957,7 +123864,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:25:44.765Z", verification_source_url: "https://www.fau.edu/artsandletters/scms/grad-comm/",
   },
-  {
+{
     university_name: "Florida Atlantic University",
     country: "USA", city: "Boca Raton, FL", qs_ranking: null,
     program_name: "Master of Science in Economics", degree_level: "postgraduate",
@@ -123971,7 +123878,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:25:36.922Z", verification_source_url: "https://business.fau.edu/masters-phd/economics/",
   },
-  {
+{
     university_name: "Florida Atlantic University",
     country: "USA", city: "Boca Raton, FL", qs_ranking: null,
     program_name: "Master of Science with Major in Environmental Science", degree_level: "postgraduate",
@@ -123985,7 +123892,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:25:52.844Z", verification_source_url: "https://www.fau.edu/science/envirosci/esms-program/",
   },
-  {
+{
     university_name: "Florida Atlantic University",
     country: "USA", city: "Boca Raton, FL", qs_ranking: null,
     program_name: "Master of Science", degree_level: "postgraduate",
@@ -123999,7 +123906,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:25:06.251Z", verification_source_url: "https://business.fau.edu/masters-phd/master-of-science/",
   },
-  {
+{
     university_name: "Florida Atlantic University",
     country: "USA", city: "Boca Raton, FL", qs_ranking: null,
     program_name: "Master's Degree (M.S.) in Biomedical Science", degree_level: "postgraduate",
@@ -124013,7 +123920,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:25:26.179Z", verification_source_url: "https://www.fau.edu/medicine/graduate/masters/",
   },
-  {
+{
     university_name: "Florida Atlantic University",
     country: "USA", city: "Boca Raton, FL", qs_ranking: null,
     program_name: "MS with Major in Artificial Intelligence", degree_level: "postgraduate",
@@ -124027,7 +123934,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:24:56.848Z", verification_source_url: "https://www.fau.edu/engineering/eecs/graduate/ms/artificial-intelligence/",
   },
-  {
+{
     university_name: "Florida Atlantic University",
     country: "USA", city: "Boca Raton, FL", qs_ranking: null,
     program_name: "MS with Major in Computer Science", degree_level: "postgraduate",
@@ -124041,7 +123948,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:24:58.134Z", verification_source_url: "https://www.fau.edu/engineering/eecs/graduate/ms/computer-science/",
   },
-  {
+{
     university_name: "Florida Atlantic University",
     country: "USA", city: "Boca Raton, FL", qs_ranking: null,
     program_name: "MS with Major in Mechanical Engineering", degree_level: "postgraduate",
@@ -124055,7 +123962,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:25:15.712Z", verification_source_url: "https://www.fau.edu/engineering/ome/graduate/ms/mechanical/",
   },
-  {
+{
     university_name: "Florida Atlantic University",
     country: "USA", city: "Boca Raton, FL", qs_ranking: null,
     program_name: "Online MBA (OMBA) in Hospitality and Tourism Management", degree_level: "postgraduate",
@@ -124069,7 +123976,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:26:04.458Z", verification_source_url: "https://business.fau.edu/masters-phd/mba-program/mba/hospitality-and-tourism-management/",
   },
-  {
+{
     university_name: "Florida Atlantic University",
     country: "USA", city: "Boca Raton, FL", qs_ranking: null,
     program_name: "Professional Bachelor of Architecture", degree_level: "undergraduate",
@@ -124083,7 +123990,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:25:39.483Z", verification_source_url: "https://www.fau.edu/artsandletters/architecture/barch/",
   },
-  {
+{
     university_name: "Florida Atlantic University",
     country: "USA", city: "Boca Raton, FL", qs_ranking: null,
     program_name: "Traditional MBA", degree_level: "postgraduate",
@@ -124097,7 +124004,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:25:12.715Z", verification_source_url: "https://business.fau.edu/masters-phd/mba-program/mba/",
   },
-  {
+{
     university_name: "Florida Institute of Technology",
     country: "USA", city: "Melbourne, FL", qs_ranking: 801,
     program_name: "Biotechnology, M.S.", degree_level: "postgraduate",
@@ -124111,7 +124018,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:28:42.897Z", verification_source_url: "https://www.fit.edu/programs/biotechnology-ms/",
   },
-  {
+{
     university_name: "Florida Institute of Technology",
     country: "USA", city: "Melbourne, FL", qs_ranking: 801,
     program_name: "Business Administration, MBA", degree_level: "postgraduate",
@@ -124125,7 +124032,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:28:28.856Z", verification_source_url: "https://www.fit.edu/programs/business-administration-mba/",
   },
-  {
+{
     university_name: "Florida Institute of Technology",
     country: "USA", city: "Melbourne, FL", qs_ranking: 801,
     program_name: "Computer Science, M.S.", degree_level: "postgraduate",
@@ -124139,7 +124046,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:28:23.710Z", verification_source_url: "https://www.fit.edu/programs/computer-science-ms/",
   },
-  {
+{
     university_name: "Florida Institute of Technology",
     country: "USA", city: "Melbourne, FL", qs_ranking: 801,
     program_name: "Environmental Science, M.S.", degree_level: "postgraduate",
@@ -124153,7 +124060,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.fit.edu/apply/",
     verified_at: "2026-05-14T15:29:18.869Z", verification_source_url: "https://www.fit.edu/programs/environmental-science-ms/",
   },
-  {
+{
     university_name: "Florida Institute of Technology",
     country: "USA", city: "Melbourne, FL", qs_ranking: 801,
     program_name: "Finance, B.S.", degree_level: "undergraduate",
@@ -124167,7 +124074,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:29:11.909Z", verification_source_url: "https://www.fit.edu/programs/finance-bs/",
   },
-  {
+{
     university_name: "Florida Institute of Technology",
     country: "USA", city: "Melbourne, FL", qs_ranking: 801,
     program_name: "Global Strategic Communication, M.S.", degree_level: "postgraduate",
@@ -124181,7 +124088,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.fit.edu/apply",
     verified_at: "2026-05-14T15:29:16.363Z", verification_source_url: "https://www.fit.edu/programs/global-strategic-communication-ms/",
   },
-  {
+{
     university_name: "Florida Institute of Technology",
     country: "USA", city: "Melbourne, FL", qs_ranking: 801,
     program_name: "Human-Centered Design, M.S.", degree_level: "postgraduate",
@@ -124195,7 +124102,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:28:47.142Z", verification_source_url: "https://www.fit.edu/programs/human-centered-design-ms/",
   },
-  {
+{
     university_name: "Florida Institute of Technology",
     country: "USA", city: "Melbourne, FL", qs_ranking: 801,
     program_name: "Humanities, B.A.", degree_level: "undergraduate",
@@ -124209,7 +124116,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:28:54.792Z", verification_source_url: "https://www.fit.edu/programs/humanities-ba/",
   },
-  {
+{
     university_name: "Florida Institute of Technology",
     country: "USA", city: "Melbourne, FL", qs_ranking: 801,
     program_name: "Humanities - Prelaw, B.A.", degree_level: "undergraduate",
@@ -124223,7 +124130,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.fit.edu/apply/",
     verified_at: "2026-05-14T15:28:48.360Z", verification_source_url: "https://www.fit.edu/programs/humanities-prelaw-ba/",
   },
-  {
+{
     university_name: "Florida Institute of Technology",
     country: "USA", city: "Melbourne, FL", qs_ranking: 801,
     program_name: "Management, M.S.", degree_level: "postgraduate",
@@ -124237,7 +124144,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:28:28.927Z", verification_source_url: "https://www.fit.edu/programs/management-ms/",
   },
-  {
+{
     university_name: "Florida Institute of Technology",
     country: "USA", city: "Melbourne, FL", qs_ranking: 801,
     program_name: "Mechanical Engineering, M.S.", degree_level: "postgraduate",
@@ -124251,7 +124158,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.fit.edu/apply/",
     verified_at: "2026-05-14T15:28:35.013Z", verification_source_url: "https://www.fit.edu/programs/mechanical-engineering-ms/",
   },
-  {
+{
     university_name: "Florida Polytechnic University",
     country: "USA", city: "Lakeland, FL", qs_ranking: null,
     program_name: "Bachelor of Science in Biomedical Sciences", degree_level: "undergraduate",
@@ -124265,7 +124172,7 @@ export const PROGRAMS = ([{
     apply_url: "https://floridapoly.edu/academics/programs/ocom-bs-do/",
     verified_at: "2026-05-14T16:30:15.297Z", verification_source_url: "https://floridapoly.edu/academics/programs/ocom-bs-do/",
   },
-  {
+{
     university_name: "Florida Polytechnic University",
     country: "USA", city: "Lakeland, FL", qs_ranking: null,
     program_name: "Bachelor of Science in Business Analytics", degree_level: "undergraduate",
@@ -124279,7 +124186,7 @@ export const PROGRAMS = ([{
     apply_url: "https://floridapoly.edu/admissions/undergraduate-tuition/",
     verified_at: "2026-05-14T16:29:48.864Z", verification_source_url: "https://floridapoly.edu/academics/programs/business-analytics/",
   },
-  {
+{
     university_name: "Florida Polytechnic University",
     country: "USA", city: "Lakeland, FL", qs_ranking: null,
     program_name: "Bachelor of Science in Environmental Engineering", degree_level: "undergraduate",
@@ -124293,7 +124200,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:30:14.498Z", verification_source_url: "https://floridapoly.edu/academics/programs/environmental-engineering/",
   },
-  {
+{
     university_name: "Florida Polytechnic University",
     country: "USA", city: "Lakeland, FL", qs_ranking: null,
     program_name: "Bachelor of Science in Mechanical Engineering", degree_level: "undergraduate",
@@ -124307,7 +124214,7 @@ export const PROGRAMS = ([{
     apply_url: "https://floridapoly.edu/admissions/undergraduate-tuition/",
     verified_at: "2026-05-14T16:29:49.091Z", verification_source_url: "https://floridapoly.edu/academics/programs/mechanical-engineering/",
   },
-  {
+{
     university_name: "Florida Polytechnic University",
     country: "USA", city: "Lakeland, FL", qs_ranking: null,
     program_name: "Master of Science in Computer Science", degree_level: "postgraduate",
@@ -124321,7 +124228,7 @@ export const PROGRAMS = ([{
     apply_url: "https://floridapoly.edu/academics/graduate/computer-science.php",
     verified_at: "2026-05-14T16:29:44.438Z", verification_source_url: "https://floridapoly.edu/academics/graduate/computer-science.php",
   },
-  {
+{
     university_name: "Florida Polytechnic University",
     country: "USA", city: "Lakeland, FL", qs_ranking: null,
     program_name: "Master of Science in Data Science", degree_level: "postgraduate",
@@ -124335,7 +124242,7 @@ export const PROGRAMS = ([{
     apply_url: "https://floridapoly.edu/academics/graduate/data-science.php",
     verified_at: "2026-05-14T16:29:50.205Z", verification_source_url: "https://floridapoly.edu/academics/graduate/data-science.php",
   },
-  {
+{
     university_name: "Fordham University",
     country: "USA", city: "New York, NY", qs_ranking: 701,
     program_name: "3-2 Cooperative Program in Engineering", degree_level: "undergraduate",
@@ -124349,7 +124256,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:36:01.512Z", verification_source_url: "https://www.fordham.edu/academics/departments/physics-and-engineering-physics/curriculum/3-2-cooperative-program-in-engineering/program-details/",
   },
-  {
+{
     university_name: "Fordham University",
     country: "USA", city: "New York, NY", qs_ranking: 701,
     program_name: "Environmental Studies Program", degree_level: "undergraduate",
@@ -124363,7 +124270,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:36:28.897Z", verification_source_url: "https://www.fordham.edu/academics/departments/environmental-studies/",
   },
-  {
+{
     university_name: "Fordham University",
     country: "USA", city: "New York, NY", qs_ranking: 701,
     program_name: "Full-time (MBA) Master's in Business Administration", degree_level: "postgraduate",
@@ -124377,7 +124284,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:35:49.205Z", verification_source_url: "https://www.fordham.edu/gabelli-school-of-business/academic-programs-and-admissions/graduate-programs/academic-programs/full-time-mba/",
   },
-  {
+{
     university_name: "Fordham University",
     country: "USA", city: "New York, NY", qs_ranking: 701,
     program_name: "J.D.", degree_level: "postgraduate",
@@ -124391,7 +124298,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.fordham.edu/school-of-law/admissions/jd-admissions/",
     verified_at: "2026-05-14T11:36:07.053Z", verification_source_url: "https://www.fordham.edu/school-of-law/admissions/jd-admissions/",
   },
-  {
+{
     university_name: "Fordham University",
     country: "USA", city: "New York, NY", qs_ranking: 701,
     program_name: "Master of Arts in Economics", degree_level: "postgraduate",
@@ -124405,7 +124312,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:36:24.852Z", verification_source_url: "https://www.fordham.edu/academics/departments/economics/graduate-studies/master-of-arts-in-economics/",
   },
-  {
+{
     university_name: "Fordham University",
     country: "USA", city: "New York, NY", qs_ranking: 701,
     program_name: "Master of Arts in Public Media", degree_level: "postgraduate",
@@ -124419,7 +124326,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:36:29.512Z", verification_source_url: "https://www.fordham.edu/academics/departments/communication-and-media-studies/master-of-arts-in-public-media/",
   },
-  {
+{
     university_name: "Fordham University",
     country: "USA", city: "New York, NY", qs_ranking: 701,
     program_name: "Master of Science in Biotechnology Enterprise", degree_level: "postgraduate",
@@ -124433,7 +124340,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.fordham.edu/graduate-school-of-arts-and-sciences/admissions/how-to-apply/",
     verified_at: "2026-05-14T11:36:02.071Z", verification_source_url: "https://www.fordham.edu/graduate-school-of-arts-and-sciences/academics/programs-of-study/master-of-science-in-biotechnology/",
   },
-  {
+{
     university_name: "Fordham University",
     country: "USA", city: "New York, NY", qs_ranking: 701,
     program_name: "Master of Science in Computer Science", degree_level: "postgraduate",
@@ -124447,7 +124354,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:35:36.896Z", verification_source_url: "https://www.fordham.edu/academics/departments/computer-and-information-science/academic-programs/graduate-programs/master-of-science-in-computer-science/",
   },
-  {
+{
     university_name: "Fordham University",
     country: "USA", city: "New York, NY", qs_ranking: 701,
     program_name: "Master of Science in Data Science", degree_level: "postgraduate",
@@ -124461,7 +124368,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.fordham.edu/academics/departments/computer-and-information-science/academic-programs/graduate-programs/master-of-science-in-data-science/",
     verified_at: "2026-05-14T11:35:43.478Z", verification_source_url: "https://www.fordham.edu/academics/departments/computer-and-information-science/academic-programs/graduate-programs/master-of-science-in-data-science/",
   },
-  {
+{
     university_name: "Fordham University",
     country: "USA", city: "New York, NY", qs_ranking: 701,
     program_name: "Master of Science in Health Administration", degree_level: "postgraduate",
@@ -124475,7 +124382,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.fordham.edu/graduate-school-of-arts-and-sciences/admissions/how-to-apply/",
     verified_at: "2026-05-14T11:36:07.224Z", verification_source_url: "https://www.fordham.edu/graduate-school-of-arts-and-sciences/academics/programs-of-study/master-of-science-in-health-administration/",
   },
-  {
+{
     university_name: "Fordham University",
     country: "USA", city: "New York, NY", qs_ranking: 701,
     program_name: "Master of Science in Hospitality (MSH)", degree_level: "postgraduate",
@@ -124489,7 +124396,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.fordham.edu/school-of-professional-and-continuing-studies/academics/real-estate-institute/academics/graduate-programs/apply-to-hospitality-programs/",
     verified_at: "2026-05-14T11:36:48.766Z", verification_source_url: "https://www.fordham.edu/school-of-professional-and-continuing-studies/academics/real-estate-institute/academics/graduate-programs/master-of-science-in-hospitality-/",
   },
-  {
+{
     university_name: "Fordham University",
     country: "USA", city: "New York, NY", qs_ranking: 701,
     program_name: "Master of Science in Humanitarian Studies", degree_level: "postgraduate",
@@ -124503,7 +124410,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.fordham.edu/mshs/",
     verified_at: "2026-05-14T11:36:25.034Z", verification_source_url: "https://www.fordham.edu/mshs/",
   },
-  {
+{
     university_name: "Fordham University",
     country: "USA", city: "New York, NY", qs_ranking: 701,
     program_name: "Master's (MS) in Management", degree_level: "postgraduate",
@@ -124517,7 +124424,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:35:48.134Z", verification_source_url: "https://www.fordham.edu/gabelli-school-of-business/academic-programs-and-admissions/graduate-programs/academic-programs/ms-programs/management/",
   },
-  {
+{
     university_name: "Fordham University",
     country: "USA", city: "New York, NY", qs_ranking: 701,
     program_name: "Natural Science", degree_level: "undergraduate",
@@ -124531,7 +124438,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:36:33.665Z", verification_source_url: "https://www.fordham.edu/undergraduate-admission/majors-and-minors/natural-science/",
   },
-  {
+{
     university_name: "Fordham University",
     country: "USA", city: "New York, NY", qs_ranking: 701,
     program_name: "Visual Arts Program", degree_level: "undergraduate",
@@ -124545,7 +124452,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:36:11.065Z", verification_source_url: "https://www.fordham.edu/academics/departments/visual-arts/",
   },
-  {
+{
     university_name: "George Mason University",
     country: "USA", city: "Fairfax, VA", qs_ranking: 651,
     program_name: "AI: Artificial Intelligence, MS", degree_level: "postgraduate",
@@ -124559,7 +124466,7 @@ export const PROGRAMS = ([{
     apply_url: "https://cec.gmu.edu/application-requirements-and-deadlines",
     verified_at: "2026-05-14T11:36:44.537Z", verification_source_url: "https://catalog.gmu.edu/colleges-schools/engineering-computing/ai-artificial-intelligence-ms/",
   },
-  {
+{
     university_name: "George Mason University",
     country: "USA", city: "Fairfax, VA", qs_ranking: 651,
     program_name: "Bioinformatics and Computational Biology, MS", degree_level: "postgraduate",
@@ -124573,7 +124480,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:36:59.546Z", verification_source_url: "https://catalog.gmu.edu/colleges-schools/science/systems-biology/bioinformatics-computational-biology-ms/",
   },
-  {
+{
     university_name: "George Mason University",
     country: "USA", city: "Fairfax, VA", qs_ranking: 651,
     program_name: "Biology, MS", degree_level: "postgraduate",
@@ -124587,7 +124494,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:37:24.894Z", verification_source_url: "https://catalog.gmu.edu/colleges-schools/science/systems-biology/biology-ms/",
   },
-  {
+{
     university_name: "George Mason University",
     country: "USA", city: "Fairfax, VA", qs_ranking: 651,
     program_name: "Communication, MA", degree_level: "postgraduate",
@@ -124601,7 +124508,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:37:19.614Z", verification_source_url: "https://catalog.gmu.edu/colleges-schools/humanities-social-sciences/communication/communication-ma/",
   },
-  {
+{
     university_name: "George Mason University",
     country: "USA", city: "Fairfax, VA", qs_ranking: 651,
     program_name: "Computer Science, MS", degree_level: "postgraduate",
@@ -124615,7 +124522,7 @@ export const PROGRAMS = ([{
     apply_url: "https://cec.gmu.edu/admissions/graduate-admissions/application-requirements-and-deadlines",
     verified_at: "2026-05-14T11:36:42.025Z", verification_source_url: "https://catalog.gmu.edu/colleges-schools/engineering-computing/school-computing/computer-science/computer-science-ms/",
   },
-  {
+{
     university_name: "George Mason University",
     country: "USA", city: "Fairfax, VA", qs_ranking: 651,
     program_name: "Costello Flex MBA", degree_level: "postgraduate",
@@ -124629,7 +124536,7 @@ export const PROGRAMS = ([{
     apply_url: "https://business.gmu.edu/programs/graduate-degree-programs/mba",
     verified_at: "2026-05-14T11:36:55.273Z", verification_source_url: "https://business.gmu.edu/programs/graduate-degree-programs/mba",
   },
-  {
+{
     university_name: "George Mason University",
     country: "USA", city: "Fairfax, VA", qs_ranking: 651,
     program_name: "Economics, MA", degree_level: "postgraduate",
@@ -124643,7 +124550,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:37:14.270Z", verification_source_url: "https://catalog.gmu.edu/colleges-schools/humanities-social-sciences/economics/economics-ma/",
   },
-  {
+{
     university_name: "George Mason University",
     country: "USA", city: "Fairfax, VA", qs_ranking: 651,
     program_name: "Electrical Engineering, MS", degree_level: "postgraduate",
@@ -124657,7 +124564,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:36:57.549Z", verification_source_url: "https://catalog.gmu.edu/colleges-schools/engineering-computing/engineering/electrical-computer/electrical-engineering-ms/",
   },
-  {
+{
     university_name: "George Mason University",
     country: "USA", city: "Fairfax, VA", qs_ranking: 651,
     program_name: "Environmental Science and Policy, MS", degree_level: "postgraduate",
@@ -124671,7 +124578,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:37:24.131Z", verification_source_url: "https://catalog.gmu.edu/colleges-schools/science/environmental-policy/environmental-science-policy-ms/",
   },
-  {
+{
     university_name: "George Mason University",
     country: "USA", city: "Fairfax, VA", qs_ranking: 651,
     program_name: "JD Admissions", degree_level: "postgraduate",
@@ -124685,7 +124592,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:37:04.321Z", verification_source_url: "https://www.law.gmu.edu/admissions/jd/",
   },
-  {
+{
     university_name: "George Mason University",
     country: "USA", city: "Fairfax, VA", qs_ranking: 651,
     program_name: "Master of Science in Nursing (MSN) Program", degree_level: "postgraduate",
@@ -124699,7 +124606,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:37:28.458Z", verification_source_url: "https://nursing.gmu.edu/academics/masters-program",
   },
-  {
+{
     university_name: "George Mason University",
     country: "USA", city: "Fairfax, VA", qs_ranking: 651,
     program_name: "MS in Management", degree_level: "postgraduate",
@@ -124713,7 +124620,7 @@ export const PROGRAMS = ([{
     apply_url: "https://business.gmu.edu/programs/graduate-degree-programs/ms-management",
     verified_at: "2026-05-14T11:36:53.346Z", verification_source_url: "https://business.gmu.edu/programs/graduate-degree-programs/ms-management",
   },
-  {
+{
     university_name: "George Mason University",
     country: "USA", city: "Fairfax, VA", qs_ranking: 651,
     program_name: "Public Health, MPH", degree_level: "postgraduate",
@@ -124727,7 +124634,7 @@ export const PROGRAMS = ([{
     apply_url: "https://publichealth.gmu.edu/admissions/graduate-admissions/application-fee-waiver",
     verified_at: "2026-05-14T11:37:10.017Z", verification_source_url: "https://publichealth.gmu.edu/program/public-health-mph",
   },
-  {
+{
     university_name: "George Mason University",
     country: "USA", city: "Fairfax, VA", qs_ranking: 651,
     program_name: "Tourism and Events Management, BS", degree_level: "undergraduate",
@@ -124741,7 +124648,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:37:28.875Z", verification_source_url: "https://catalog.gmu.edu/colleges-schools/education-human-development/school-sport-recreation-tourism-management/tourism-and-events-management-bs/",
   },
-  {
+{
     university_name: "Harvey Mudd College",
     country: "USA", city: "Claremont, CA", qs_ranking: null,
     program_name: "Biology Major Program", degree_level: "undergraduate",
@@ -124755,7 +124662,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:48:48.715Z", verification_source_url: "https://www.hmc.edu/biology/programs/biology-major/",
   },
-  {
+{
     university_name: "Harvey Mudd College",
     country: "USA", city: "Claremont, CA", qs_ranking: null,
     program_name: "Chemistry Major", degree_level: "undergraduate",
@@ -124769,7 +124676,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:48:48.112Z", verification_source_url: "https://www.hmc.edu/chemistry/curriculum/chemistry-major/",
   },
-  {
+{
     university_name: "Harvey Mudd College",
     country: "USA", city: "Claremont, CA", qs_ranking: null,
     program_name: "Computer Science Major", degree_level: "undergraduate",
@@ -124783,7 +124690,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:48:29.360Z", verification_source_url: "https://www.hmc.edu/cs/academic-programs/cs-major/",
   },
-  {
+{
     university_name: "Harvey Mudd College",
     country: "USA", city: "Claremont, CA", qs_ranking: null,
     program_name: "Emphasis in Data Science", degree_level: "undergraduate",
@@ -124797,7 +124704,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:48:37.642Z", verification_source_url: "https://www.hmc.edu/academics/emphases/data-science/",
   },
-  {
+{
     university_name: "Harvey Mudd College",
     country: "USA", city: "Claremont, CA", qs_ranking: null,
     program_name: "Emphasis in Environmental Analysis", degree_level: "undergraduate",
@@ -124811,7 +124718,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:48:46.506Z", verification_source_url: "https://www.hmc.edu/hixon-center/environmental-analysis-at-harvey-mudd/",
   },
-  {
+{
     university_name: "Harvey Mudd College",
     country: "USA", city: "Claremont, CA", qs_ranking: null,
     program_name: "Engineering Degree Requirements", degree_level: "undergraduate",
@@ -124825,21 +124732,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:48:40.997Z", verification_source_url: "https://www.hmc.edu/engineering/curriculum/degree-requirements/",
   },
-  {
-    university_name: "IMT Atlantique",
-    country: "France", city: "Nantes", qs_ranking: null,
-    program_name: "Master of Science in Engineering \"Diplôme d'Ingénieur\"", degree_level: "postgraduate",
-    duration_months: null, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "General",
-    annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
-    avg_living_cost_usd: null, avg_living_cost_amount: null, avg_living_cost_currency: null,
-    intake_semesters: [], application_deadline: null,
-    min_gpa: null, min_percentage: null, min_ielts: null, min_toefl: null, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null,
-    program_url: "https://www.imt-atlantique.fr/en/study/engineering",
-    apply_url: null,
-    verified_at: "2026-05-04T09:34:51.061Z", verification_source_url: "https://www.imt-atlantique.fr/en/study/engineering",
-  },
-  {
+{
     university_name: "James Madison University",
     country: "USA", city: "Harrisonburg, VA", qs_ranking: null,
     program_name: "Architectural Design", degree_level: "undergraduate",
@@ -124853,7 +124746,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:38:15.360Z", verification_source_url: "https://www.jmu.edu/academics/undergraduate/majors/architectural-design.shtml",
   },
-  {
+{
     university_name: "James Madison University",
     country: "USA", city: "Harrisonburg, VA", qs_ranking: null,
     program_name: "Biology", degree_level: "undergraduate",
@@ -124867,7 +124760,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:38:40.610Z", verification_source_url: "https://www.jmu.edu/biology/undergraduate/index.shtml",
   },
-  {
+{
     university_name: "James Madison University",
     country: "USA", city: "Harrisonburg, VA", qs_ranking: null,
     program_name: "Biotechnology", degree_level: "undergraduate",
@@ -124881,7 +124774,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.jmu.edu/admissions/tuition-financial-aid-and-scholarships.shtml",
     verified_at: "2026-05-14T11:37:54.406Z", verification_source_url: "https://www.jmu.edu/academics/undergraduate/majors/biotechnology.shtml",
   },
-  {
+{
     university_name: "James Madison University",
     country: "USA", city: "Harrisonburg, VA", qs_ranking: null,
     program_name: "Economics", degree_level: "undergraduate",
@@ -124895,7 +124788,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:38:19.299Z", verification_source_url: "https://www.jmu.edu/cob/economics/academics/index.shtml",
   },
-  {
+{
     university_name: "James Madison University",
     country: "USA", city: "Harrisonburg, VA", qs_ranking: null,
     program_name: "Engineering", degree_level: "undergraduate",
@@ -124909,7 +124802,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:37:54.956Z", verification_source_url: "https://www.jmu.edu/academics/undergraduate/majors/engineering.shtml",
   },
-  {
+{
     university_name: "James Madison University",
     country: "USA", city: "Harrisonburg, VA", qs_ranking: null,
     program_name: "Graduate Business Programs", degree_level: "postgraduate",
@@ -124923,7 +124816,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.jmu.edu/grad/prospective-graduate-students/apply-now/index.shtml",
     verified_at: "2026-05-14T11:37:50.567Z", verification_source_url: "https://www.jmu.edu/grad/programs/business.shtml",
   },
-  {
+{
     university_name: "James Madison University",
     country: "USA", city: "Harrisonburg, VA", qs_ranking: null,
     program_name: "Health Sciences", degree_level: "undergraduate",
@@ -124937,7 +124830,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:38:15.504Z", verification_source_url: "https://www.jmu.edu/academics/undergraduate/majors/health-sciences.shtml",
   },
-  {
+{
     university_name: "James Madison University",
     country: "USA", city: "Harrisonburg, VA", qs_ranking: null,
     program_name: "Hospitality Management", degree_level: "undergraduate",
@@ -124951,7 +124844,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:38:44.227Z", verification_source_url: "https://www.jmu.edu/hartschool/hospitality-management/index.shtml",
   },
-  {
+{
     university_name: "James Madison University",
     country: "USA", city: "Harrisonburg, VA", qs_ranking: null,
     program_name: "M.S. in Computer Science - Cybersecurity", degree_level: "postgraduate",
@@ -124965,7 +124858,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:37:50.938Z", verification_source_url: "https://www.jmu.edu/cise/cs/graduate/cybersecurity/index.shtml",
   },
-  {
+{
     university_name: "James Madison University",
     country: "USA", city: "Harrisonburg, VA", qs_ranking: null,
     program_name: "M.S. in Integrated Science and Technology - Environmental Management and Sustainability Concentration", degree_level: "postgraduate",
@@ -124979,7 +124872,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:38:42.732Z", verification_source_url: "https://www.jmu.edu/cise/isat/grad/index.shtml",
   },
-  {
+{
     university_name: "James Madison University",
     country: "USA", city: "Harrisonburg, VA", qs_ranking: null,
     program_name: "Master of Business Administration", degree_level: "postgraduate",
@@ -124993,7 +124886,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.jmu.edu/cob/mba/",
     verified_at: "2026-05-14T11:37:51.764Z", verification_source_url: "https://www.jmu.edu/cob/mba/",
   },
-  {
+{
     university_name: "James Madison University",
     country: "USA", city: "Harrisonburg, VA", qs_ranking: null,
     program_name: "Media Arts and Design", degree_level: "undergraduate",
@@ -125007,7 +124900,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.jmu.edu/admissions/tuition-financial-aid-and-scholarships.shtml",
     verified_at: "2026-05-14T11:38:21.478Z", verification_source_url: "https://www.jmu.edu/academics/undergraduate/majors/media-arts-and-design.shtml",
   },
-  {
+{
     university_name: "James Madison University",
     country: "USA", city: "Harrisonburg, VA", qs_ranking: null,
     program_name: "Programs in Communication, Humanities and Social Sciences", degree_level: "postgraduate",
@@ -125021,7 +124914,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.jmu.edu/grad/admissions/index.shtml",
     verified_at: "2026-05-14T11:38:17.353Z", verification_source_url: "https://www.jmu.edu/grad/programs/communication-humanities-social-sciences.shtml",
   },
-  {
+{
     university_name: "Kent State University",
     country: "USA", city: "Kent, OH", qs_ranking: 706,
     program_name: "Artificial Intelligence - M.S.", degree_level: "postgraduate",
@@ -125035,7 +124928,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.kent.edu/node/951656",
     verified_at: "2026-05-14T13:16:43.562Z", verification_source_url: "https://www.kent.edu/cs/ms-degree-artificial-intelligence-ai",
   },
-  {
+{
     university_name: "Kent State University",
     country: "USA", city: "Kent, OH", qs_ranking: 706,
     program_name: "Biological Sciences - Cell Biology and Molecular Genetics - M.S.", degree_level: "postgraduate",
@@ -125049,7 +124942,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T13:16:58.183Z", verification_source_url: "https://www.kent.edu/biology/biological-sciences-cell-biology-and-molecular-genetics-ms",
   },
-  {
+{
     university_name: "Kent State University",
     country: "USA", city: "Kent, OH", qs_ranking: 706,
     program_name: "Computer Science - M.S.", degree_level: "postgraduate",
@@ -125063,7 +124956,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T13:16:40.855Z", verification_source_url: "https://www.kent.edu/cs/computer-science-ms",
   },
-  {
+{
     university_name: "Kent State University",
     country: "USA", city: "Kent, OH", qs_ranking: 706,
     program_name: "Full-Time M.B.A. Program", degree_level: "postgraduate",
@@ -125077,7 +124970,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T13:16:49.804Z", verification_source_url: "https://www.kent.edu/business/mba-ft",
   },
-  {
+{
     university_name: "Kent State University",
     country: "USA", city: "Kent, OH", qs_ranking: 706,
     program_name: "Master's Programs in Business", degree_level: "postgraduate",
@@ -125091,7 +124984,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T13:16:48.945Z", verification_source_url: "https://www.kent.edu/business/masters",
   },
-  {
+{
     university_name: "Kent State University",
     country: "USA", city: "Kent, OH", qs_ranking: 706,
     program_name: "Mechatronics Engineering - M.S.", degree_level: "postgraduate",
@@ -125105,21 +124998,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T13:16:57.641Z", verification_source_url: "https://www.kent.edu/engineering/mechatronics-engineering-ms",
   },
-  {
-    university_name: "Kiel University",
-    country: "Germany", city: "Kiel", qs_ranking: 410,
-    program_name: "M.Sc. \"Sustainability, Society and the Environment\"", degree_level: "postgraduate",
-    duration_months: null, field_of_study: "Environmental & Sustainability Studies", specialization: "General",
-    annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
-    avg_living_cost_usd: null, avg_living_cost_amount: null, avg_living_cost_currency: null,
-    intake_semesters: [], application_deadline: null,
-    min_gpa: null, min_percentage: null, min_ielts: null, min_toefl: null, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null,
-    program_url: "https://www.sustainability.uni-kiel.de/en/taught-masters/master-of-science-sustainability-society-and-the-environment-1/master-of-science-sustainability-society-and-the-environment",
-    apply_url: "https://my.uni-assist.de/",
-    verified_at: "2026-05-04T05:40:19.032Z", verification_source_url: "https://www.sustainability.uni-kiel.de/en/taught-masters/master-of-science-sustainability-society-and-the-environment-1/master-of-science-sustainability-society-and-the-environment",
-  },
-  {
+{
     university_name: "Kwantlen Polytechnic University",
     country: "Canada", city: "Surrey, BC", qs_ranking: null,
     program_name: "Bachelor of Applied Science in Sustainable Agriculture", degree_level: "undergraduate",
@@ -125133,7 +125012,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-04-27T10:57:49.241Z", verification_source_url: "https://www.kpu.ca/agriculture",
   },
-  {
+{
     university_name: "Kwantlen Polytechnic University",
     country: "Canada", city: "Surrey, BC", qs_ranking: null,
     program_name: "Bachelor of Design in Fashion and Technology", degree_level: "undergraduate",
@@ -125147,7 +125026,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-04-27T10:57:46.290Z", verification_source_url: "https://www.kpu.ca/design/fashion",
   },
-  {
+{
     university_name: "Lamar University",
     country: "USA", city: "Beaumont, TX", qs_ranking: null,
     program_name: "Bachelor of Science in Nursing (BSN)", degree_level: "undergraduate",
@@ -125161,7 +125040,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:51:16.207Z", verification_source_url: "https://www.lamar.edu/nursing-health-professions/nursing/degrees/undergraduate-degrees/index.html",
   },
-  {
+{
     university_name: "Lamar University",
     country: "USA", city: "Beaumont, TX", qs_ranking: null,
     program_name: "Bachelor's Degree in Communication – Broadcasting", degree_level: "undergraduate",
@@ -125175,7 +125054,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.lamar.edu/admissions/apply-now/index.html",
     verified_at: "2026-05-14T12:51:06.501Z", verification_source_url: "https://www.lamar.edu/academics/degrees/communication/communication-broadcasting-degree.html",
   },
-  {
+{
     university_name: "Lamar University",
     country: "USA", city: "Beaumont, TX", qs_ranking: null,
     program_name: "Bachelor's Degree in Finance", degree_level: "undergraduate",
@@ -125189,7 +125068,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.lamar.edu/academics/degrees/economics-finance/finance-degree.html",
     verified_at: "2026-05-14T12:51:02.027Z", verification_source_url: "https://www.lamar.edu/academics/degrees/economics-finance/finance-degree.html",
   },
-  {
+{
     university_name: "Lamar University",
     country: "USA", city: "Beaumont, TX", qs_ranking: null,
     program_name: "Bachelor's Degree in Graphic Design", degree_level: "undergraduate",
@@ -125203,7 +125082,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:50:57.332Z", verification_source_url: "https://www.lamar.edu/academics/degrees/art-design/graphic-design-degree.html",
   },
-  {
+{
     university_name: "Lamar University",
     country: "USA", city: "Beaumont, TX", qs_ranking: null,
     program_name: "Data Analytics Certificate", degree_level: "undergraduate",
@@ -125217,7 +125096,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:50:39.601Z", verification_source_url: "https://degree.lamar.edu/online-programs/business/bus-certificates/data-analytics-cert/",
   },
-  {
+{
     university_name: "Lamar University",
     country: "USA", city: "Beaumont, TX", qs_ranking: null,
     program_name: "Graduate Degrees", degree_level: "postgraduate",
@@ -125231,7 +125110,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:50:53.741Z", verification_source_url: "https://www.lamar.edu/arts-sciences/graduate-degrees/index.html",
   },
-  {
+{
     university_name: "Lamar University",
     country: "USA", city: "Beaumont, TX", qs_ranking: null,
     program_name: "Master of Business Administration", degree_level: "postgraduate",
@@ -125245,7 +125124,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:50:40.744Z", verification_source_url: "https://www.lamar.edu/business/degrees-and-certificates/graduate/mba/",
   },
-  {
+{
     university_name: "Lamar University",
     country: "USA", city: "Beaumont, TX", qs_ranking: null,
     program_name: "Master of Engineering", degree_level: "postgraduate",
@@ -125259,7 +125138,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:50:42.572Z", verification_source_url: "https://www.lamar.edu/engineering/degrees-and-programs/master-of-engineering.html",
   },
-  {
+{
     university_name: "Lamar University",
     country: "USA", city: "Beaumont, TX", qs_ranking: null,
     program_name: "Master of Public Health", degree_level: "postgraduate",
@@ -125273,7 +125152,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:50:49.515Z", verification_source_url: "https://www.lamar.edu/education/health-kinesiology/degrees-and-programs/graduate/master-public-health.html",
   },
-  {
+{
     university_name: "Lamar University",
     country: "USA", city: "Beaumont, TX", qs_ranking: null,
     program_name: "Master of Science Biology", degree_level: "postgraduate",
@@ -125287,7 +125166,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:50:44.563Z", verification_source_url: "https://www.lamar.edu/arts-sciences/biology/degrees/master-of-science-biology.html",
   },
-  {
+{
     university_name: "Lamar University",
     country: "USA", city: "Beaumont, TX", qs_ranking: null,
     program_name: "Master of Science in Hospitality Management", degree_level: "postgraduate",
@@ -125301,7 +125180,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:51:25.194Z", verification_source_url: "https://degree.lamar.edu/online-programs/business/master-of-science-hospitality-management/",
   },
-  {
+{
     university_name: "Lamar University",
     country: "USA", city: "Beaumont, TX", qs_ranking: null,
     program_name: "Master's Degree in Chemistry", degree_level: "postgraduate",
@@ -125315,7 +125194,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.lamar.edu/academics/degrees/chemistry-biochemistry/chemistry-masters-degree.html",
     verified_at: "2026-05-14T12:51:12.290Z", verification_source_url: "https://www.lamar.edu/academics/degrees/chemistry-biochemistry/chemistry-masters-degree.html",
   },
-  {
+{
     university_name: "Lamar University",
     country: "USA", city: "Beaumont, TX", qs_ranking: null,
     program_name: "Master's Degree in Computer Science", degree_level: "postgraduate",
@@ -125329,7 +125208,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.lamar.edu/academics/degrees/computer-science/computer-science-masters-degree.html",
     verified_at: "2026-05-14T12:50:35.979Z", verification_source_url: "https://www.lamar.edu/academics/degrees/computer-science/computer-science-masters-degree.html",
   },
-  {
+{
     university_name: "Lamar University",
     country: "USA", city: "Beaumont, TX", qs_ranking: null,
     program_name: "Master's Degree in Environmental Studies", degree_level: "postgraduate",
@@ -125343,7 +125222,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.lamar.edu/academics/degrees/civil-and-environmental-engineering/environmental-studies-masters-degree.html",
     verified_at: "2026-05-14T12:51:08.409Z", verification_source_url: "https://www.lamar.edu/academics/degrees/civil-and-environmental-engineering/environmental-studies-masters-degree.html",
   },
-  {
+{
     university_name: "Langara College",
     country: "Canada", city: "Vancouver, BC", qs_ranking: null,
     program_name: "Journalism - Diploma", degree_level: "undergraduate",
@@ -125357,7 +125236,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-04-27T10:57:24.318Z", verification_source_url: "https://langara.ca/programs-and-courses/programs/journalism/",
   },
-  {
+{
     university_name: "Lawrence Technological University",
     country: "USA", city: "Southfield, MI", qs_ranking: null,
     program_name: "Bachelor of Arts in Media Communication", degree_level: "undergraduate",
@@ -125371,7 +125250,7 @@ export const PROGRAMS = ([{
     apply_url: "https://ltu.edu/admissions/",
     verified_at: "2026-05-14T15:19:54.602Z", verification_source_url: "https://ltu.edu/programs/undergrad-media-communication/",
   },
-  {
+{
     university_name: "Lawrence Technological University",
     country: "USA", city: "Southfield, MI", qs_ranking: null,
     program_name: "Bachelor of Science in Chemistry - Concentration in Biochemistry and Chemical Biology", degree_level: "undergraduate",
@@ -125385,7 +125264,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:17:45.601Z", verification_source_url: "https://ltu.edu/programs/chemistry-concentration-in-biochemistry-and-chemical-biology/",
   },
-  {
+{
     university_name: "Lawrence Technological University",
     country: "USA", city: "Southfield, MI", qs_ranking: null,
     program_name: "Bachelor of Science in Nursing", degree_level: "undergraduate",
@@ -125399,7 +125278,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:19:59.261Z", verification_source_url: "https://ltu.edu/programs/nursing/",
   },
-  {
+{
     university_name: "Lawrence Technological University",
     country: "USA", city: "Southfield, MI", qs_ranking: null,
     program_name: "Department of Humanities, Social Sciences, and Communication", degree_level: "undergraduate",
@@ -125413,7 +125292,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:18:07.566Z", verification_source_url: "https://ltu.edu/arts-and-sciences/department-of-humanities-social-sciences-and-communication/",
   },
-  {
+{
     university_name: "Lawrence Technological University",
     country: "USA", city: "Southfield, MI", qs_ranking: null,
     program_name: "Department of Natural Sciences", degree_level: "undergraduate",
@@ -125427,7 +125306,7 @@ export const PROGRAMS = ([{
     apply_url: "https://ltu.edu/admissions/",
     verified_at: "2026-05-14T15:19:54.310Z", verification_source_url: "https://ltu.edu/arts-and-sciences/department-of-natural-sciences/",
   },
-  {
+{
     university_name: "Lawrence Technological University",
     country: "USA", city: "Southfield, MI", qs_ranking: null,
     program_name: "Doctor of Health Sciences", degree_level: "postgraduate",
@@ -125441,7 +125320,7 @@ export const PROGRAMS = ([{
     apply_url: "https://ltu.edu/apply",
     verified_at: "2026-05-14T15:18:00.966Z", verification_source_url: "https://ltu.edu/programs/doctor-of-health-sciences/",
   },
-  {
+{
     university_name: "Lawrence Technological University",
     country: "USA", city: "Southfield, MI", qs_ranking: null,
     program_name: "Master of Architecture", degree_level: "postgraduate",
@@ -125455,7 +125334,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:18:02.901Z", verification_source_url: "https://ltu.edu/programs/grad-architecture/",
   },
-  {
+{
     university_name: "Lawrence Technological University",
     country: "USA", city: "Southfield, MI", qs_ranking: null,
     program_name: "Master of Business Administration (MBA)", degree_level: "postgraduate",
@@ -125469,7 +125348,7 @@ export const PROGRAMS = ([{
     apply_url: "https://ltu.edu/admissions/graduate",
     verified_at: "2026-05-14T15:17:34.944Z", verification_source_url: "https://ltu.edu/programs/master-of-business-administration/",
   },
-  {
+{
     university_name: "Lawrence Technological University",
     country: "USA", city: "Southfield, MI", qs_ranking: null,
     program_name: "Master of Science in Artificial Intelligence", degree_level: "postgraduate",
@@ -125483,7 +125362,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:07:16.435Z", verification_source_url: "https://ltu.edu/programs/master-of-science-artificial-intelligence/",
   },
-  {
+{
     university_name: "Lawrence Technological University",
     country: "USA", city: "Southfield, MI", qs_ranking: null,
     program_name: "Master of Science in Business Data Analytics", degree_level: "postgraduate",
@@ -125497,7 +125376,7 @@ export const PROGRAMS = ([{
     apply_url: "https://ltu.edu/admissions/graduate",
     verified_at: "2026-05-14T15:07:19.311Z", verification_source_url: "https://ltu.edu/programs/master-of-science-business-data-analytics/",
   },
-  {
+{
     university_name: "Lawrence Technological University",
     country: "USA", city: "Southfield, MI", qs_ranking: null,
     program_name: "Master of Science in Computer Science", degree_level: "postgraduate",
@@ -125511,7 +125390,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:07:05.316Z", verification_source_url: "https://ltu.edu/programs/master-of-science-in-computer-science/",
   },
-  {
+{
     university_name: "Lewis University",
     country: "USA", city: "Romeoville, IL", qs_ranking: null,
     program_name: "Art & Design", degree_level: "undergraduate",
@@ -125525,7 +125404,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.lewisu.edu/admissions/apply.htm",
     verified_at: "2026-05-14T16:31:05.105Z", verification_source_url: "https://www.lewisu.edu/academics/artdesign/index.htm",
   },
-  {
+{
     university_name: "Lewis University",
     country: "USA", city: "Romeoville, IL", qs_ranking: null,
     program_name: "Artificial Intelligence / Master of Science", degree_level: "postgraduate",
@@ -125539,7 +125418,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:30:21.282Z", verification_source_url: "https://catalog.lewisu.edu/graduate/aviation-science-technology/engineering-computing-mathematical-sciences/artificial-intelligence-master/",
   },
-  {
+{
     university_name: "Lewis University",
     country: "USA", city: "Romeoville, IL", qs_ranking: null,
     program_name: "Biology, B.S.", degree_level: "undergraduate",
@@ -125553,7 +125432,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.lewisu.edu/welcome/admission/apply.htm",
     verified_at: "2026-05-14T16:30:42.469Z", verification_source_url: "https://www.lewisu.edu/academics/biology/index.htm",
   },
-  {
+{
     university_name: "Lewis University",
     country: "USA", city: "Romeoville, IL", qs_ranking: null,
     program_name: "Computer Science, M.S.", degree_level: "postgraduate",
@@ -125567,7 +125446,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:30:19.518Z", verification_source_url: "https://www.lewisu.edu/academics/mscomputerscience/",
   },
-  {
+{
     university_name: "Lewis University",
     country: "USA", city: "Romeoville, IL", qs_ranking: null,
     program_name: "Digital Media and Journalism, B.A.", degree_level: "undergraduate",
@@ -125581,7 +125460,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.lewisu.edu/admissions/apply.htm",
     verified_at: "2026-05-14T16:31:21.811Z", verification_source_url: "https://www.lewisu.edu/academics/digitalmedia/",
   },
-  {
+{
     university_name: "Lewis University",
     country: "USA", city: "Romeoville, IL", qs_ranking: null,
     program_name: "Electrical and Computer Engineering, M.S.", degree_level: "postgraduate",
@@ -125595,7 +125474,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.lewisu.edu/admissions/graduate/index.htm",
     verified_at: "2026-05-14T16:30:46.777Z", verification_source_url: "https://www.lewisu.edu/academics/mselectrical-computer-engineering/index.htm",
   },
-  {
+{
     university_name: "Lewis University",
     country: "USA", city: "Romeoville, IL", qs_ranking: null,
     program_name: "Environmental Science, B.S.", degree_level: "undergraduate",
@@ -125609,7 +125488,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.lewisu.edu/admissions/apply.htm",
     verified_at: "2026-05-14T16:31:26.528Z", verification_source_url: "https://www.lewisu.edu/academics/envsci/",
   },
-  {
+{
     university_name: "Lewis University",
     country: "USA", city: "Romeoville, IL", qs_ranking: null,
     program_name: "Finance / Master of Science", degree_level: "postgraduate",
@@ -125623,7 +125502,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:31:07.032Z", verification_source_url: "https://catalog.lewisu.edu/graduate/business/graduate-management/finance-master-science/",
   },
-  {
+{
     university_name: "Lewis University",
     country: "USA", city: "Romeoville, IL", qs_ranking: null,
     program_name: "Graduate School of Management", degree_level: "postgraduate",
@@ -125637,7 +125516,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.lewisu.edu/welcome/admissions/graduate.htm",
     verified_at: "2026-05-14T16:30:35.952Z", verification_source_url: "https://www.lewisu.edu/academics/gsm/",
   },
-  {
+{
     university_name: "Lewis University",
     country: "USA", city: "Romeoville, IL", qs_ranking: null,
     program_name: "Hospitality Management / Bachelor of Arts", degree_level: "undergraduate",
@@ -125651,7 +125530,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:31:32.238Z", verification_source_url: "https://catalog.lewisu.edu/undergraduate/business/organizational-leadership/hospitality-management-bachelor-arts/",
   },
-  {
+{
     university_name: "Lewis University",
     country: "USA", city: "Romeoville, IL", qs_ranking: null,
     program_name: "Master of Business Administration (MBA)", degree_level: "postgraduate",
@@ -125665,7 +125544,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.lewisu.edu/academics/mba/",
     verified_at: "2026-05-14T16:30:40.673Z", verification_source_url: "https://www.lewisu.edu/academics/mba/",
   },
-  {
+{
     university_name: "Lewis University",
     country: "USA", city: "Romeoville, IL", qs_ranking: null,
     program_name: "Master of Science Nursing, M.S.N.", degree_level: "postgraduate",
@@ -125679,7 +125558,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:31:36.884Z", verification_source_url: "https://www.lewisu.edu/MSN/",
   },
-  {
+{
     university_name: "Lewis University",
     country: "USA", city: "Romeoville, IL", qs_ranking: null,
     program_name: "Public Health, B.S.", degree_level: "undergraduate",
@@ -125693,7 +125572,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.lewisu.edu/admissions/index.htm",
     verified_at: "2026-05-14T16:30:57.226Z", verification_source_url: "https://www.lewisu.edu/academics/public-health/index.htm",
   },
-  {
+{
     university_name: "Long Island University",
     country: "USA", city: "Brookville, NY", qs_ranking: null,
     program_name: "BS Hospitality Management", degree_level: "undergraduate",
@@ -125707,7 +125586,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:36:01.807Z", verification_source_url: "https://www.liu.edu/school-of-hospitality-management/BS-hospitality-management",
   },
-  {
+{
     university_name: "Long Island University",
     country: "USA", city: "Brookville, NY", qs_ranking: null,
     program_name: "BS Nursing", degree_level: "undergraduate",
@@ -125721,7 +125600,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:35:49.426Z", verification_source_url: "https://liu.edu/brooklyn/academics/Harriet-Rothkopf-Heilbrunn-School-of-Nursing/Academic-Programs/BS-Nursing",
   },
-  {
+{
     university_name: "Long Island University",
     country: "USA", city: "Brookville, NY", qs_ranking: null,
     program_name: "M.S. in Biology", degree_level: "postgraduate",
@@ -125735,7 +125614,7 @@ export const PROGRAMS = ([{
     apply_url: "https://my.liu.edu/",
     verified_at: "2026-05-14T14:35:42.290Z", verification_source_url: "https://liu.edu/brooklyn/academics/college-of-liberal-arts/academic-programs/MS-Biology",
   },
-  {
+{
     university_name: "Long Island University",
     country: "USA", city: "Brookville, NY", qs_ranking: null,
     program_name: "Master of Business Administration (MBA)", degree_level: "postgraduate",
@@ -125749,7 +125628,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:24:32.549Z", verification_source_url: "https://liu.edu/post/academics/school-of-business/programs/master-of-business-administration",
   },
-  {
+{
     university_name: "Long Island University",
     country: "USA", city: "Brookville, NY", qs_ranking: null,
     program_name: "Master of Public Health (MPH)", degree_level: "postgraduate",
@@ -125763,7 +125642,7 @@ export const PROGRAMS = ([{
     apply_url: "https://liu.edu/brooklyn/admissions",
     verified_at: "2026-05-14T14:24:53.657Z", verification_source_url: "https://liu.edu/brooklyn/academics/school-of-health-professions/academic-programs/master-public-health",
   },
-  {
+{
     university_name: "Long Island University",
     country: "USA", city: "Brookville, NY", qs_ranking: null,
     program_name: "MS Biomedical Sciences", degree_level: "postgraduate",
@@ -125777,7 +125656,7 @@ export const PROGRAMS = ([{
     apply_url: "https://liu.edu/post/academics/school-of-health-professions/programs/MS-biomedical-sciences",
     verified_at: "2026-05-14T14:24:51.496Z", verification_source_url: "https://liu.edu/post/academics/school-of-health-professions/programs/MS-biomedical-sciences",
   },
-  {
+{
     university_name: "Long Island University",
     country: "USA", city: "Brookville, NY", qs_ranking: null,
     program_name: "MS Comparative Biomedical and Veterinary Sciences", degree_level: "postgraduate",
@@ -125791,7 +125670,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:35:57.330Z", verification_source_url: "https://liu.edu/vetmed/education/master-of-science-in-comparative-biomedical-and-veterinary-sciences",
   },
-  {
+{
     university_name: "Louisiana State University",
     country: "USA", city: "Baton Rouge, LA", qs_ranking: 706,
     program_name: "Doctor of Veterinary Medicine", degree_level: "postgraduate",
@@ -125805,7 +125684,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:09:13.868Z", verification_source_url: "https://www.lsu.edu/vetmed/index.php",
   },
-  {
+{
     university_name: "Louisiana State University",
     country: "USA", city: "Baton Rouge, LA", qs_ranking: 706,
     program_name: "Graduate Program in English", degree_level: "postgraduate",
@@ -125819,7 +125698,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:03:28.146Z", verification_source_url: "https://www.lsu.edu/hss/english/graduate_program/welcome.php",
   },
-  {
+{
     university_name: "Louisiana State University",
     country: "USA", city: "Baton Rouge, LA", qs_ranking: 706,
     program_name: "Graduate Programs", degree_level: "postgraduate",
@@ -125833,7 +125712,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:01:54.263Z", verification_source_url: "https://www.lsu.edu/business/academics/graduate-programs.php",
   },
-  {
+{
     university_name: "Louisiana State University",
     country: "USA", city: "Baton Rouge, LA", qs_ranking: 706,
     program_name: "Graduate Studies in Biological Sciences", degree_level: "postgraduate",
@@ -125847,7 +125726,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:03:08.690Z", verification_source_url: "https://www.lsu.edu/science/biosci/programs/graduate/biological-sciences.php",
   },
-  {
+{
     university_name: "Louisiana State University",
     country: "USA", city: "Baton Rouge, LA", qs_ranking: 706,
     program_name: "Juris Doctor and Optional Graduate Diploma in Comparative Law", degree_level: "postgraduate",
@@ -125861,7 +125740,7 @@ export const PROGRAMS = ([{
     apply_url: "https://law.lsu.edu/admissions/",
     verified_at: "2026-05-14T12:03:25.979Z", verification_source_url: "https://law.lsu.edu/academics/curriculum/jdcl/",
   },
-  {
+{
     university_name: "Louisiana State University",
     country: "USA", city: "Baton Rouge, LA", qs_ranking: 706,
     program_name: "Master of Architecture", degree_level: "postgraduate",
@@ -125875,7 +125754,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:03:23.210Z", verification_source_url: "https://design.lsu.edu/architecture/programs/master-of-architecture/",
   },
-  {
+{
     university_name: "Louisiana State University",
     country: "USA", city: "Baton Rouge, LA", qs_ranking: 706,
     program_name: "Master of Financial Economics", degree_level: "postgraduate",
@@ -125889,7 +125768,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:03:42.613Z", verification_source_url: "https://www.lsu.edu/business/finance/master-financial-economics.php",
   },
-  {
+{
     university_name: "Louisiana State University",
     country: "USA", city: "Baton Rouge, LA", qs_ranking: 706,
     program_name: "Master of Mass Communication", degree_level: "postgraduate",
@@ -125903,7 +125782,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.lsu.edu/graduateschool/admissions/international_admissions.php",
     verified_at: "2026-05-14T12:03:44.037Z", verification_source_url: "https://www.lsu.edu/manship/graduate-programs/degrees/master-of-mass-comm.php",
   },
-  {
+{
     university_name: "Louisiana State University",
     country: "USA", city: "Baton Rouge, LA", qs_ranking: 706,
     program_name: "Master of Natural Sciences", degree_level: "postgraduate",
@@ -125917,7 +125796,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.lsu.edu/gradapply",
     verified_at: "2026-05-14T12:03:49.707Z", verification_source_url: "https://www.lsu.edu/science/student-services/degree-programs/master-natural-science.php",
   },
-  {
+{
     university_name: "Louisiana State University",
     country: "USA", city: "Baton Rouge, LA", qs_ranking: 706,
     program_name: "Master's degree in Environmental Sciences", degree_level: "postgraduate",
@@ -125931,7 +125810,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:03:50.711Z", verification_source_url: "https://www.lsu.edu/cce/academics/graduate/envs/envs-masters.php",
   },
-  {
+{
     university_name: "Louisiana State University",
     country: "USA", city: "Baton Rouge, LA", qs_ranking: 706,
     program_name: "MS - Civil Engineering", degree_level: "postgraduate",
@@ -125945,7 +125824,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:02:07.173Z", verification_source_url: "https://www.lsu.edu/eng/cee/academics/graduate/ms-civil-engineering.php",
   },
-  {
+{
     university_name: "Louisiana State University",
     country: "USA", city: "Baton Rouge, LA", qs_ranking: 706,
     program_name: "Online Bachelor of Science in Nursing: RN to BSN", degree_level: "undergraduate",
@@ -125959,7 +125838,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:09:35.400Z", verification_source_url: "https://online.lsu.edu/online-degree-programs/undergraduate/bachelor-science-nursing/",
   },
-  {
+{
     university_name: "Louisiana State University",
     country: "USA", city: "Baton Rouge, LA", qs_ranking: 706,
     program_name: "Online Master of Public Health", degree_level: "postgraduate",
@@ -125973,7 +125852,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:03:20.077Z", verification_source_url: "https://online.lsu.edu/online-degree-programs/graduate/master-public-health/",
   },
-  {
+{
     university_name: "Louisiana State University",
     country: "USA", city: "Baton Rouge, LA", qs_ranking: 706,
     program_name: "Online Master of Science in Computer Science", degree_level: "postgraduate",
@@ -125987,7 +125866,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:01:58.631Z", verification_source_url: "https://online.lsu.edu/online-degree-programs/graduate/ms-computer-science/",
   },
-  {
+{
     university_name: "Louisiana State University",
     country: "USA", city: "Baton Rouge, LA", qs_ranking: 706,
     program_name: "Two-Year MBA (Flores MBA Program)", degree_level: "postgraduate",
@@ -126001,7 +125880,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:02:10.191Z", verification_source_url: "https://www.lsu.edu/business/mba/full-time-mba.php",
   },
-  {
+{
     university_name: "Loyola University Chicago",
     country: "USA", city: "Chicago, IL", qs_ranking: 801,
     program_name: "Biology MS", degree_level: "postgraduate",
@@ -126015,7 +125894,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:48:26.342Z", verification_source_url: "https://gpem.luc.edu/portal/program?name=biologyms",
   },
-  {
+{
     university_name: "Loyola University Chicago",
     country: "USA", city: "Chicago, IL", qs_ranking: 801,
     program_name: "Data Science MS", degree_level: "postgraduate",
@@ -126029,7 +125908,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:35:58.931Z", verification_source_url: "https://gpem.luc.edu/portal/program?name=datasciencems",
   },
-  {
+{
     university_name: "Loyola University Chicago",
     country: "USA", city: "Chicago, IL", qs_ranking: 801,
     program_name: "Environmental Science and Sustainability MS", degree_level: "postgraduate",
@@ -126043,7 +125922,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:48:17.695Z", verification_source_url: "https://gpem.luc.edu/portal/program?name=environmentalscienceandsustainabilityms",
   },
-  {
+{
     university_name: "Loyola University Chicago",
     country: "USA", city: "Chicago, IL", qs_ranking: 801,
     program_name: "Finance MS", degree_level: "postgraduate",
@@ -126057,7 +125936,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:38:05.358Z", verification_source_url: "https://gpem.luc.edu/portal/program?name=financems",
   },
-  {
+{
     university_name: "Loyola University Chicago",
     country: "USA", city: "Chicago, IL", qs_ranking: 801,
     program_name: "Full-Time JD", degree_level: "postgraduate",
@@ -126071,7 +125950,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:37:34.681Z", verification_source_url: "https://www.luc.edu/law/academics/degreeprograms/jurisdoctor/full-timejd/",
   },
-  {
+{
     university_name: "Loyola University Chicago",
     country: "USA", city: "Chicago, IL", qs_ranking: 801,
     program_name: "Graduate Degrees", degree_level: "postgraduate",
@@ -126085,7 +125964,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:35:45.316Z", verification_source_url: "https://www.luc.edu/quinlan/academics/graduatedegrees/",
   },
-  {
+{
     university_name: "Loyola University Chicago",
     country: "USA", city: "Chicago, IL", qs_ranking: 801,
     program_name: "Master of Science in Nursing", degree_level: "postgraduate",
@@ -126099,7 +125978,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:48:17.732Z", verification_source_url: "https://www.luc.edu/nursing/academics/degreeprograms/graduatedegrees/masterofscienceinnursing/",
   },
-  {
+{
     university_name: "Loyola University Chicago",
     country: "USA", city: "Chicago, IL", qs_ranking: 801,
     program_name: "Master of Science (MS) in Biochemistry and Molecular Biology", degree_level: "postgraduate",
@@ -126113,7 +125992,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:36:01.353Z", verification_source_url: "https://www.luc.edu/stritch/bioethics/../mastersinbiochemistryandmolecularbiology/",
   },
-  {
+{
     university_name: "Loyola University Chicago",
     country: "USA", city: "Chicago, IL", qs_ranking: 801,
     program_name: "MBA: Next Generation", degree_level: "postgraduate",
@@ -126127,7 +126006,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:37:31.248Z", verification_source_url: "https://gpem.luc.edu/portal/program?name=mbanextgeneration",
   },
-  {
+{
     university_name: "Loyola University Chicago",
     country: "USA", city: "Chicago, IL", qs_ranking: 801,
     program_name: "MS in Computer Science", degree_level: "postgraduate",
@@ -126141,7 +126020,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.luc.edu/cs/academics/graduateprograms/mscs/",
     verified_at: "2026-05-14T14:38:00.191Z", verification_source_url: "https://www.luc.edu/cs/academics/graduateprograms/mscs/",
   },
-  {
+{
     university_name: "Loyola University Chicago",
     country: "USA", city: "Chicago, IL", qs_ranking: 801,
     program_name: "MS in Global Strategic Communication", degree_level: "postgraduate",
@@ -126155,7 +126034,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.luc.edu/soc/graduate/global-strategic-communication/",
     verified_at: "2026-05-14T14:38:09.709Z", verification_source_url: "https://www.luc.edu/soc/graduate/global-strategic-communication/",
   },
-  {
+{
     university_name: "Loyola University Chicago",
     country: "USA", city: "Chicago, IL", qs_ranking: 801,
     program_name: "Public Health MPH", degree_level: "postgraduate",
@@ -126169,7 +126048,7 @@ export const PROGRAMS = ([{
     apply_url: "https://gpem.luc.edu/portal/program?name=publichealthmph",
     verified_at: "2026-05-14T14:37:40.164Z", verification_source_url: "https://gpem.luc.edu/portal/program?name=publichealthmph",
   },
-  {
+{
     university_name: "Loyola University Chicago",
     country: "USA", city: "Chicago, IL", qs_ranking: 801,
     program_name: "Women's Studies and Gender Studies MA", degree_level: "postgraduate",
@@ -126183,21 +126062,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:37:55.030Z", verification_source_url: "https://gpem.luc.edu/portal/program?name=womensstudiesandgenderstudiesma",
   },
-  {
-    university_name: "Martin Luther University Halle-Wittenberg",
-    country: "Germany", city: "Halle", qs_ranking: null,
-    program_name: "Postgraduate Studies \"Legum Magister\" (LL.M.)", degree_level: "postgraduate",
-    duration_months: null, field_of_study: "Law", specialization: "General",
-    annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
-    avg_living_cost_usd: null, avg_living_cost_amount: null, avg_living_cost_currency: null,
-    intake_semesters: ["winter","summer"], application_deadline: null,
-    min_gpa: null, min_percentage: null, min_ielts: null, min_toefl: null, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null,
-    program_url: "https://www.jura.uni-halle.de/studium_lehre_pruefung/studium_lehre/magisterstudium/?lang=en",
-    apply_url: null,
-    verified_at: "2026-05-03T16:51:09.950Z", verification_source_url: "https://www.jura.uni-halle.de/studium_lehre_pruefung/studium_lehre/magisterstudium/?lang=en",
-  },
-  {
+{
     university_name: "Miami University",
     country: "USA", city: "Oxford, OH", qs_ranking: 851,
     program_name: "Architecture, B.A.", degree_level: "undergraduate",
@@ -126211,7 +126076,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:32:10.894Z", verification_source_url: "https://programs.miamioh.edu/programs/architecture-ba/",
   },
-  {
+{
     university_name: "Miami University",
     country: "USA", city: "Oxford, OH", qs_ranking: 851,
     program_name: "Bachelor of Science in Artificial Intelligence", degree_level: "undergraduate",
@@ -126225,7 +126090,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:31:38.689Z", verification_source_url: "https://programs.miamioh.edu/programs/artificial-intelligence-b-s/",
   },
-  {
+{
     university_name: "Miami University",
     country: "USA", city: "Oxford, OH", qs_ranking: 851,
     program_name: "Biology Graduate Programs", degree_level: "postgraduate",
@@ -126239,7 +126104,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:32:44.971Z", verification_source_url: "https://miamioh.edu/cas/graduate-programs/biology/index.html",
   },
-  {
+{
     university_name: "Miami University",
     country: "USA", city: "Oxford, OH", qs_ranking: 851,
     program_name: "Biomedical Science, M.M.Sc. - Master of Medical Science", degree_level: "postgraduate",
@@ -126253,7 +126118,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:32:16.563Z", verification_source_url: "https://miamioh.edu/cas/graduate-studies/medical-sciences/biomedical-science/index.html",
   },
-  {
+{
     university_name: "Miami University",
     country: "USA", city: "Oxford, OH", qs_ranking: 851,
     program_name: "Business Administration, MBA", degree_level: "postgraduate",
@@ -126267,7 +126132,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:32:03.055Z", verification_source_url: "https://miamioh.edu/fsb/graduate-programs/mba/index.html",
   },
-  {
+{
     university_name: "Miami University",
     country: "USA", city: "Oxford, OH", qs_ranking: 851,
     program_name: "Economics, M.A.", degree_level: "postgraduate",
@@ -126281,7 +126146,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:32:29.663Z", verification_source_url: "https://programs.miamioh.edu/programs/economics-ma-2/",
   },
-  {
+{
     university_name: "Miami University",
     country: "USA", city: "Oxford, OH", qs_ranking: 851,
     program_name: "Master of Environmental Science", degree_level: "postgraduate",
@@ -126295,7 +126160,7 @@ export const PROGRAMS = ([{
     apply_url: "https://miamioh.edu/cas/graduate-programs/environmental-science/index.html",
     verified_at: "2026-05-14T16:32:41.208Z", verification_source_url: "https://miamioh.edu/cas/graduate-programs/environmental-science/index.html",
   },
-  {
+{
     university_name: "Miami University",
     country: "USA", city: "Oxford, OH", qs_ranking: 851,
     program_name: "Master of Science in Computer Science", degree_level: "postgraduate",
@@ -126309,7 +126174,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:31:24.633Z", verification_source_url: "https://programs.miamioh.edu/programs/computer-science-ms-cs/",
   },
-  {
+{
     university_name: "Miami University",
     country: "USA", city: "Oxford, OH", qs_ranking: 851,
     program_name: "Mechanical Engineering, B.S.", degree_level: "undergraduate",
@@ -126323,7 +126188,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:31:54.701Z", verification_source_url: "https://programs.miamioh.edu/programs/mechanical-engineering-bs-egr/",
   },
-  {
+{
     university_name: "Miami University",
     country: "USA", city: "Oxford, OH", qs_ranking: 851,
     program_name: "Media and Communication, B.A.", degree_level: "undergraduate",
@@ -126337,7 +126202,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:32:30.330Z", verification_source_url: "https://programs.miamioh.edu/programs/media-and-communication-ba/",
   },
-  {
+{
     university_name: "Miami University",
     country: "USA", city: "Oxford, OH", qs_ranking: 851,
     program_name: "Nursing, BSN", degree_level: "undergraduate",
@@ -126351,7 +126216,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:32:47.292Z", verification_source_url: "https://programs.miamioh.edu/programs/nursing-bsn/",
   },
-  {
+{
     university_name: "Michigan State University",
     country: "USA", city: "East Lansing, MI", qs_ranking: 130,
     program_name: "B.A. in Hospitality Business", degree_level: "undergraduate",
@@ -126365,7 +126230,7 @@ export const PROGRAMS = ([{
     apply_url: "https://broad.msu.edu/hospitality-business/hospitality-business-major/admissions/",
     verified_at: "2026-05-14T12:27:00.925Z", verification_source_url: "https://broad.msu.edu/hospitality-business/hospitality-business-major/admissions/",
   },
-  {
+{
     university_name: "Michigan State University",
     country: "USA", city: "East Lansing, MI", qs_ranking: 130,
     program_name: "Biomedical Engineering (M.S.)", degree_level: "postgraduate",
@@ -126379,7 +126244,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:26:26.652Z", verification_source_url: "https://engineering.msu.edu/academics/majors-degrees/biomedical-engineering-ms",
   },
-  {
+{
     university_name: "Michigan State University",
     country: "USA", city: "East Lansing, MI", qs_ranking: 130,
     program_name: "Community Sustainability - Master of Science", degree_level: "postgraduate",
@@ -126393,7 +126258,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:26:50.261Z", verification_source_url: "https://reg.msu.edu/academicprograms/ProgramDetail.aspx?Program=CMTYSUS_MS",
   },
-  {
+{
     university_name: "Michigan State University",
     country: "USA", city: "East Lansing, MI", qs_ranking: 130,
     program_name: "Computer Science (M.S.)", degree_level: "postgraduate",
@@ -126407,7 +126272,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:26:13.597Z", verification_source_url: "https://engineering.msu.edu/academics/majors-degrees/computer-science-ms",
   },
-  {
+{
     university_name: "Michigan State University",
     country: "USA", city: "East Lansing, MI", qs_ranking: 130,
     program_name: "DVM Program", degree_level: "postgraduate",
@@ -126421,7 +126286,7 @@ export const PROGRAMS = ([{
     apply_url: "https://cvm.msu.edu/future-students/dvm/application-process",
     verified_at: "2026-05-14T12:27:00.645Z", verification_source_url: "https://cvm.msu.edu/future-students/dvm/application-process",
   },
-  {
+{
     university_name: "Michigan State University",
     country: "USA", city: "East Lansing, MI", qs_ranking: 130,
     program_name: "Full-Time MBA", degree_level: "postgraduate",
@@ -126435,7 +126300,7 @@ export const PROGRAMS = ([{
     apply_url: "https://broad.msu.edu/masters/mba/admissions/",
     verified_at: "2026-05-14T12:26:27.910Z", verification_source_url: "https://broad.msu.edu/masters/mba/admissions/",
   },
-  {
+{
     university_name: "Michigan State University",
     country: "USA", city: "East Lansing, MI", qs_ranking: 130,
     program_name: "M.S. in Finance", degree_level: "postgraduate",
@@ -126449,7 +126314,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:26:48.647Z", verification_source_url: "https://broad.msu.edu/masters/finance/curriculum/",
   },
-  {
+{
     university_name: "Michigan State University",
     country: "USA", city: "East Lansing, MI", qs_ranking: 130,
     program_name: "Master of Arts in Environmental Design", degree_level: "postgraduate",
@@ -126463,7 +126328,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:26:32.479Z", verification_source_url: "https://www.canr.msu.edu/spdc/programs/Environmental-Design/index",
   },
-  {
+{
     university_name: "Michigan State University",
     country: "USA", city: "East Lansing, MI", qs_ranking: 130,
     program_name: "Master of Arts in Media and Information", degree_level: "postgraduate",
@@ -126477,7 +126342,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:26:53.382Z", verification_source_url: "https://comartsci.msu.edu/academics/academic-departments/media-information/graduate/master-arts-media-and-information",
   },
-  {
+{
     university_name: "Michigan State University",
     country: "USA", city: "East Lansing, MI", qs_ranking: 130,
     program_name: "Master of Public Health", degree_level: "postgraduate",
@@ -126491,7 +126356,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:26:33.656Z", verification_source_url: "https://mph.msu.edu/academics/master-of-public-health-program",
   },
-  {
+{
     university_name: "Michigan State University",
     country: "USA", city: "East Lansing, MI", qs_ranking: 130,
     program_name: "Master of Science in Data Science", degree_level: "postgraduate",
@@ -126505,7 +126370,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:26:14.689Z", verification_source_url: "https://msds.msu.edu/",
   },
-  {
+{
     university_name: "Michigan State University",
     country: "USA", city: "East Lansing, MI", qs_ranking: 130,
     program_name: "Master of Science in Management, Strategy & Leadership - Strategic Management", degree_level: "postgraduate",
@@ -126519,7 +126384,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:26:16.189Z", verification_source_url: "https://broad.msu.edu/masters/management-strategy-and-leadership-strategic-management/",
   },
-  {
+{
     university_name: "Michigan State University",
     country: "USA", city: "East Lansing, MI", qs_ranking: 130,
     program_name: "Michigan State University College of Law", degree_level: null,
@@ -126533,7 +126398,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:26:37.018Z", verification_source_url: "https://www.law.msu.edu/admissions/index.html",
   },
-  {
+{
     university_name: "Michigan State University",
     country: "USA", city: "East Lansing, MI", qs_ranking: 130,
     program_name: "MSN or DNP Nurse Practitioner programs", degree_level: "postgraduate",
@@ -126547,7 +126412,7 @@ export const PROGRAMS = ([{
     apply_url: "https://nursing.msu.edu/graduate/nursepractitioner/admissions",
     verified_at: "2026-05-14T12:26:58.249Z", verification_source_url: "https://nursing.msu.edu/graduate/nursepractitioner/admissions",
   },
-  {
+{
     university_name: "Michigan Technological University",
     country: "USA", city: "Houghton, MI", qs_ranking: 801,
     program_name: "Biological Sciences MS, PhD", degree_level: "postgraduate",
@@ -126561,7 +126426,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.mtu.edu/gradschool/admissions/apply/",
     verified_at: "2026-05-14T15:29:51.437Z", verification_source_url: "https://www.mtu.edu/gradschool/programs/degrees/biological-sciences/",
   },
-  {
+{
     university_name: "Michigan Technological University",
     country: "USA", city: "Houghton, MI", qs_ranking: 801,
     program_name: "Communication, Culture, and Media BA", degree_level: "undergraduate",
@@ -126575,7 +126440,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:40:09.023Z", verification_source_url: "https://www.mtu.edu/humanities/undergraduate/ccm/",
   },
-  {
+{
     university_name: "Michigan Technological University",
     country: "USA", city: "Houghton, MI", qs_ranking: 801,
     program_name: "Computer Science MS, PhD", degree_level: "postgraduate",
@@ -126589,7 +126454,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.mtu.edu/gradschool/admissions/apply/",
     verified_at: "2026-05-14T15:29:34.621Z", verification_source_url: "https://www.mtu.edu/gradschool/programs/degrees/computer-science/",
   },
-  {
+{
     university_name: "Michigan Technological University",
     country: "USA", city: "Houghton, MI", qs_ranking: 801,
     program_name: "Data Science MS", degree_level: "postgraduate",
@@ -126603,7 +126468,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:29:28.907Z", verification_source_url: "https://www.mtu.edu/data-science/graduate/masters/",
   },
-  {
+{
     university_name: "Michigan Technological University",
     country: "USA", city: "Houghton, MI", qs_ranking: 801,
     program_name: "Engineering Management MEM", degree_level: "postgraduate",
@@ -126617,7 +126482,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.mtu.edu/gradschool/admissions/apply/",
     verified_at: "2026-05-14T15:29:37.130Z", verification_source_url: "https://www.mtu.edu/business/graduate/engineering-management/",
   },
-  {
+{
     university_name: "Michigan Technological University",
     country: "USA", city: "Houghton, MI", qs_ranking: 801,
     program_name: "Finance BS", degree_level: "undergraduate",
@@ -126631,7 +126496,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:40:07.995Z", verification_source_url: "https://www.mtu.edu/business/undergraduate/finance/",
   },
-  {
+{
     university_name: "Michigan Technological University",
     country: "USA", city: "Houghton, MI", qs_ranking: 801,
     program_name: "Forestry MF", degree_level: "postgraduate",
@@ -126645,7 +126510,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.mtu.edu/gradschool/admissions/apply/",
     verified_at: "2026-05-14T15:40:27.152Z", verification_source_url: "https://www.mtu.edu/gradschool/programs/degrees/forestry/",
   },
-  {
+{
     university_name: "Michigan Technological University",
     country: "USA", city: "Houghton, MI", qs_ranking: 801,
     program_name: "MS, Mechanical Engineering", degree_level: "postgraduate",
@@ -126659,7 +126524,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.mtu.edu/gradschool/admissions/apply/",
     verified_at: "2026-05-14T15:29:47.360Z", verification_source_url: "https://www.mtu.edu/gradschool/programs/degrees/mechanical-engineering/",
   },
-  {
+{
     university_name: "Michigan Technological University",
     country: "USA", city: "Houghton, MI", qs_ranking: 801,
     program_name: "Nursing BS", degree_level: "undergraduate",
@@ -126673,7 +126538,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:40:24.642Z", verification_source_url: "https://www.mtu.edu/biological/undergraduate/nursing/",
   },
-  {
+{
     university_name: "Michigan Technological University",
     country: "USA", city: "Houghton, MI", qs_ranking: 801,
     program_name: "Physics MS, PhD", degree_level: "postgraduate",
@@ -126687,7 +126552,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.mtu.edu/gradschool/admissions/",
     verified_at: "2026-05-14T15:40:12.912Z", verification_source_url: "https://www.mtu.edu/gradschool/programs/degrees/physics/",
   },
-  {
+{
     university_name: "Michigan Technological University",
     country: "USA", city: "Houghton, MI", qs_ranking: 801,
     program_name: "Public Health Informatics Certificate", degree_level: "postgraduate",
@@ -126701,7 +126566,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:29:50.932Z", verification_source_url: "https://www.mtu.edu/health-informatics/certificates/public-health/",
   },
-  {
+{
     university_name: "Michigan Technological University",
     country: "USA", city: "Houghton, MI", qs_ranking: 801,
     program_name: "Sustainable Communities MS", degree_level: "postgraduate",
@@ -126715,7 +126580,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.mtu.edu/gradschool/admissions/apply/",
     verified_at: "2026-05-14T15:40:13.614Z", verification_source_url: "https://www.mtu.edu/gradschool/programs/degrees/sustainable-communities/",
   },
-  {
+{
     university_name: "Michigan Technological University",
     country: "USA", city: "Houghton, MI", qs_ranking: 801,
     program_name: "Tech MBA®", degree_level: "postgraduate",
@@ -126729,7 +126594,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.mtu.edu/gradschool/admissions/apply/",
     verified_at: "2026-05-14T15:29:37.128Z", verification_source_url: "https://www.mtu.edu/business/graduate/techmba/",
   },
-  {
+{
     university_name: "New York Institute of Technology",
     country: "USA", city: "Old Westbury, NY", qs_ranking: null,
     program_name: "Bioengineering, M.S.", degree_level: "postgraduate",
@@ -126743,7 +126608,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T13:51:49.809Z", verification_source_url: "https://www.nyit.edu/academics/degrees/bioengineering-ms/",
   },
-  {
+{
     university_name: "New York Institute of Technology",
     country: "USA", city: "Old Westbury, NY", qs_ranking: null,
     program_name: "Biology, B.S.", degree_level: "undergraduate",
@@ -126757,7 +126622,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:02:27.926Z", verification_source_url: "https://www.nyit.edu/academics/degrees/biology-bs/",
   },
-  {
+{
     university_name: "New York Institute of Technology",
     country: "USA", city: "Old Westbury, NY", qs_ranking: null,
     program_name: "Department of Architecture", degree_level: null,
@@ -126771,7 +126636,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:02:06.752Z", verification_source_url: "https://www.nyit.edu/academics/architecture-and-design/architecture/",
   },
-  {
+{
     university_name: "New York Institute of Technology",
     country: "USA", city: "Old Westbury, NY", qs_ranking: null,
     program_name: "Electrical & Computer Engineering, M.S.", degree_level: "postgraduate",
@@ -126785,7 +126650,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T13:51:45.193Z", verification_source_url: "https://www.nyit.edu/degrees/electrical_computer_engineering_ms",
   },
-  {
+{
     university_name: "New York Institute of Technology",
     country: "USA", city: "Old Westbury, NY", qs_ranking: null,
     program_name: "Management, M.B.A. – Finance", degree_level: "postgraduate",
@@ -126799,7 +126664,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:02:21.444Z", verification_source_url: "https://www.nyit.edu/academics/degrees/management-mba-finance/",
   },
-  {
+{
     university_name: "New York Institute of Technology",
     country: "USA", city: "Old Westbury, NY", qs_ranking: null,
     program_name: "Management, M.B.A.", degree_level: "postgraduate",
@@ -126813,7 +126678,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.nyit.edu/admissions/costs-and-aid/tuition-and-costs/",
     verified_at: "2026-05-14T13:51:44.462Z", verification_source_url: "https://www.nyit.edu/academics/degrees/management-mba/",
   },
-  {
+{
     university_name: "New York Institute of Technology",
     country: "USA", city: "Old Westbury, NY", qs_ranking: null,
     program_name: "Master of Public Health (M.P.H.)", degree_level: "postgraduate",
@@ -126827,7 +126692,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:02:06.615Z", verification_source_url: "https://www.nyit.edu/academics/degrees/public-health-mph/",
   },
-  {
+{
     university_name: "New York Institute of Technology",
     country: "USA", city: "Old Westbury, NY", qs_ranking: null,
     program_name: "Nursing, B.S.", degree_level: "undergraduate",
@@ -126841,7 +126706,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:02:25.688Z", verification_source_url: "https://www.nyit.edu/academics/health-professions/nursing/",
   },
-  {
+{
     university_name: "Northern Arizona University",
     country: "USA", city: "Flagstaff, AZ", qs_ranking: null,
     program_name: "Biology, Master of Science", degree_level: "postgraduate",
@@ -126855,7 +126720,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:33:11.515Z", verification_source_url: "https://catalog.nau.edu/Catalog/details?plan=BIOMS",
   },
-  {
+{
     university_name: "Northern Arizona University",
     country: "USA", city: "Flagstaff, AZ", qs_ranking: null,
     program_name: "Business Administration, Master of Business Administration", degree_level: "postgraduate",
@@ -126869,7 +126734,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:32:35.605Z", verification_source_url: "https://catalog.nau.edu/Catalog/details?plan=BUSADMMBA",
   },
-  {
+{
     university_name: "Northern Arizona University",
     country: "USA", city: "Flagstaff, AZ", qs_ranking: null,
     program_name: "Communication, Master of Arts", degree_level: "postgraduate",
@@ -126883,7 +126748,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:33:04.962Z", verification_source_url: "https://catalog.nau.edu/Catalog/details?plan=APCOMMA",
   },
-  {
+{
     university_name: "Northern Arizona University",
     country: "USA", city: "Flagstaff, AZ", qs_ranking: null,
     program_name: "Computational and Applied Data Science, Master of Science", degree_level: "postgraduate",
@@ -126897,7 +126762,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:32:31.697Z", verification_source_url: "https://catalog.nau.edu/Catalog/details?plan=CADSMS",
   },
-  {
+{
     university_name: "Northern Arizona University",
     country: "USA", city: "Flagstaff, AZ", qs_ranking: null,
     program_name: "Computer Science, Master of Science", degree_level: "postgraduate",
@@ -126911,7 +126776,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:32:28.963Z", verification_source_url: "https://catalog.nau.edu/Catalog/details?plan=CSMS",
   },
-  {
+{
     university_name: "Northern Arizona University",
     country: "USA", city: "Flagstaff, AZ", qs_ranking: null,
     program_name: "Environmental and Sustainability Studies, Bachelor of Science", degree_level: "undergraduate",
@@ -126925,7 +126790,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:33:13.899Z", verification_source_url: "https://catalog.nau.edu/Catalog/details?plan=ENVSTDBSX",
   },
-  {
+{
     university_name: "Northern Arizona University",
     country: "USA", city: "Flagstaff, AZ", qs_ranking: null,
     program_name: "Finance, Bachelor of Science in Business Administration", degree_level: "undergraduate",
@@ -126939,7 +126804,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:33:04.879Z", verification_source_url: "https://catalog.nau.edu/Catalog/details?plan=FINBSBAX",
   },
-  {
+{
     university_name: "Northern Arizona University",
     country: "USA", city: "Flagstaff, AZ", qs_ranking: null,
     program_name: "Hotel and Restaurant Management, Bachelor of Science", degree_level: "undergraduate",
@@ -126953,7 +126818,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:33:18.353Z", verification_source_url: "https://catalog.nau.edu/Catalog/details?plan=HRMBSX",
   },
-  {
+{
     university_name: "Northern Arizona University",
     country: "USA", city: "Flagstaff, AZ", qs_ranking: null,
     program_name: "Interior Design, Bachelor of Science", degree_level: "undergraduate",
@@ -126967,7 +126832,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:32:55.382Z", verification_source_url: "https://catalog.nau.edu/Catalog/details?plan=IDBSX",
   },
-  {
+{
     university_name: "Northern Arizona University",
     country: "USA", city: "Flagstaff, AZ", qs_ranking: null,
     program_name: "MBA in Business Administration", degree_level: "postgraduate",
@@ -126981,7 +126846,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:32:51.042Z", verification_source_url: "https://nau.edu/franke-college-business/graduate/mba-business-administration/",
   },
-  {
+{
     university_name: "Northern Arizona University",
     country: "USA", city: "Flagstaff, AZ", qs_ranking: null,
     program_name: "Nursing, Master of Science", degree_level: "postgraduate",
@@ -126995,7 +126860,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:33:22.256Z", verification_source_url: "https://catalog.nau.edu/Catalog/details?plan=NURADMS",
   },
-  {
+{
     university_name: "Northern Arizona University",
     country: "USA", city: "Flagstaff, AZ", qs_ranking: null,
     program_name: "Public Health - Health Promotion, Master of Public Health", degree_level: "postgraduate",
@@ -127009,7 +126874,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:32:51.597Z", verification_source_url: "https://catalog.nau.edu/Catalog/details?plan=HSMPH",
   },
-  {
+{
     university_name: "Northern Illinois University",
     country: "USA", city: "DeKalb, IL", qs_ranking: null,
     program_name: "Graduate Business Programs", degree_level: "postgraduate",
@@ -127023,7 +126888,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:37:37.131Z", verification_source_url: "https://www.cob.niu.edu/academics/graduate.shtml",
   },
-  {
+{
     university_name: "Northern Illinois University",
     country: "USA", city: "DeKalb, IL", qs_ranking: null,
     program_name: "Graduate Programs in Biological Sciences", degree_level: "postgraduate",
@@ -127037,7 +126902,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:48:49.624Z", verification_source_url: "https://www.niu.edu/clas/biology/academics/graduate-studies/index.shtml",
   },
-  {
+{
     university_name: "Northern Illinois University",
     country: "USA", city: "DeKalb, IL", qs_ranking: null,
     program_name: "Juris Doctor (J.D.)", degree_level: "postgraduate",
@@ -127051,7 +126916,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:48:17.570Z", verification_source_url: "https://www.niu.edu/law/academics/juris-doctor/index.shtml",
   },
-  {
+{
     university_name: "Northern Illinois University",
     country: "USA", city: "DeKalb, IL", qs_ranking: null,
     program_name: "M.S. in earth, atmosphere and environment", degree_level: "postgraduate",
@@ -127065,7 +126930,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:48:43.340Z", verification_source_url: "https://www.niu.edu/earth-atmosphere-environment/graduate/index.shtml",
   },
-  {
+{
     university_name: "Northern Illinois University",
     country: "USA", city: "DeKalb, IL", qs_ranking: null,
     program_name: "Master of Arts in Communication Studies", degree_level: "postgraduate",
@@ -127079,7 +126944,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.niu.edu/grad/admissions/index.shtml",
     verified_at: "2026-05-14T14:48:36.131Z", verification_source_url: "https://www.niu.edu/clas/academics/graduate-programs/communication-studies.shtml",
   },
-  {
+{
     university_name: "Northern Illinois University",
     country: "USA", city: "DeKalb, IL", qs_ranking: null,
     program_name: "Master of Public Health (M.P.H.)", degree_level: "postgraduate",
@@ -127093,7 +126958,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:38:09.592Z", verification_source_url: "https://www.chhs.niu.edu/health-studies/programs/public-health/graduate/index.shtml",
   },
-  {
+{
     university_name: "Northern Illinois University",
     country: "USA", city: "DeKalb, IL", qs_ranking: null,
     program_name: "Master of Science in Business Analytics and AI", degree_level: "postgraduate",
@@ -127107,7 +126972,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:37:36.929Z", verification_source_url: "https://www.cob.niu.edu/academics/omis/ms-data-analytics/index.shtml",
   },
-  {
+{
     university_name: "Northern Illinois University",
     country: "USA", city: "DeKalb, IL", qs_ranking: null,
     program_name: "Master of Science in Computer Science", degree_level: "postgraduate",
@@ -127121,7 +126986,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:37:56.601Z", verification_source_url: "https://www.niu.edu/clas/academics/graduate-programs/computer-science.shtml",
   },
-  {
+{
     university_name: "Northern Illinois University",
     country: "USA", city: "DeKalb, IL", qs_ranking: null,
     program_name: "Master of Science in Finance", degree_level: "postgraduate",
@@ -127135,7 +127000,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:48:28.738Z", verification_source_url: "https://www.cob.niu.edu/academics/finance/ms/index.shtml",
   },
-  {
+{
     university_name: "Northern Illinois University",
     country: "USA", city: "DeKalb, IL", qs_ranking: null,
     program_name: "Master of Science in Mechanical Engineering", degree_level: "postgraduate",
@@ -127149,7 +127014,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:37:53.018Z", verification_source_url: "https://www.niu.edu/ceet/academics/mechanical-engineering/ms-mechanical-engineering.shtml",
   },
-  {
+{
     university_name: "Northern Illinois University",
     country: "USA", city: "DeKalb, IL", qs_ranking: null,
     program_name: "Master of Science (M.S.) in Nursing", degree_level: "postgraduate",
@@ -127163,7 +127028,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:48:50.407Z", verification_source_url: "https://www.chhs.niu.edu/nursing/programs/ms/index.shtml",
   },
-  {
+{
     university_name: "Northern Illinois University",
     country: "USA", city: "DeKalb, IL", qs_ranking: null,
     program_name: "MBA at Northern Illinois University", degree_level: "postgraduate",
@@ -127177,7 +127042,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:37:50.945Z", verification_source_url: "https://www.cob.niu.edu/academics/mba/index.shtml",
   },
-  {
+{
     university_name: "Pomona College",
     country: "USA", city: "Claremont, CA", qs_ranking: null,
     program_name: "Art Major", degree_level: "undergraduate",
@@ -127191,7 +127056,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:48:59.246Z", verification_source_url: "https://www.pomona.edu/academics/majors/art",
   },
-  {
+{
     university_name: "Pomona College",
     country: "USA", city: "Claremont, CA", qs_ranking: null,
     program_name: "Computer Science Major", degree_level: "undergraduate",
@@ -127205,7 +127070,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:48:52.656Z", verification_source_url: "https://www.pomona.edu/academics/majors/computer-science",
   },
-  {
+{
     university_name: "Pomona College",
     country: "USA", city: "Claremont, CA", qs_ranking: null,
     program_name: "Data Science Minor", degree_level: "undergraduate",
@@ -127219,7 +127084,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:48:57.674Z", verification_source_url: "https://www.pomona.edu/academics/majors/data-science",
   },
-  {
+{
     university_name: "Pomona College",
     country: "USA", city: "Claremont, CA", qs_ranking: null,
     program_name: "Economics Major", degree_level: "undergraduate",
@@ -127233,7 +127098,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:49:04.108Z", verification_source_url: "https://www.pomona.edu/academics/majors/economics",
   },
-  {
+{
     university_name: "Pomona College",
     country: "USA", city: "Claremont, CA", qs_ranking: null,
     program_name: "Environmental Analysis Major", degree_level: "undergraduate",
@@ -127247,7 +127112,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:49:11.565Z", verification_source_url: "https://www.pomona.edu/academics/majors/environmental-analysis",
   },
-  {
+{
     university_name: "Pomona College",
     country: "USA", city: "Claremont, CA", qs_ranking: null,
     program_name: "Media Studies Major", degree_level: "undergraduate",
@@ -127261,7 +127126,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:49:08.806Z", verification_source_url: "https://www.pomona.edu/academics/majors/media-studies",
   },
-  {
+{
     university_name: "Pomona College",
     country: "USA", city: "Claremont, CA", qs_ranking: null,
     program_name: "Molecular Biology Major", degree_level: "undergraduate",
@@ -127275,7 +127140,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:48:59.321Z", verification_source_url: "https://www.pomona.edu/academics/majors/molecular-biology",
   },
-  {
+{
     university_name: "Pomona College",
     country: "USA", city: "Claremont, CA", qs_ranking: null,
     program_name: "Physics Major", degree_level: "undergraduate",
@@ -127289,7 +127154,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:49:11.561Z", verification_source_url: "https://www.pomona.edu/academics/majors/physics",
   },
-  {
+{
     university_name: "Pomona College",
     country: "USA", city: "Claremont, CA", qs_ranking: null,
     program_name: "Sociology Major", degree_level: "undergraduate",
@@ -127303,7 +127168,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:48:59.939Z", verification_source_url: "https://www.pomona.edu/academics/majors/sociology",
   },
-  {
+{
     university_name: "Pratt Institute",
     country: "USA", city: "Brooklyn, NY", qs_ranking: null,
     program_name: "Data Analytics and Visualization, MS", degree_level: "postgraduate",
@@ -127317,7 +127182,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:38:51.809Z", verification_source_url: "https://www.pratt.edu/information/data-analytics-and-visualization/",
   },
-  {
+{
     university_name: "Pratt Institute",
     country: "USA", city: "Brooklyn, NY", qs_ranking: null,
     program_name: "Design Management, MPS", degree_level: "postgraduate",
@@ -127331,7 +127196,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:38:48.271Z", verification_source_url: "https://www.pratt.edu/art/creative-enterprise-leadership/design-management-mps/",
   },
-  {
+{
     university_name: "Pratt Institute",
     country: "USA", city: "Brooklyn, NY", qs_ranking: null,
     program_name: "History of Art and Design, MA", degree_level: "postgraduate",
@@ -127345,7 +127210,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:38:58.260Z", verification_source_url: "https://www.pratt.edu/liberal-arts-and-sciences/history-of-art-and-design/history-of-art-and-design-ma/",
   },
-  {
+{
     university_name: "Pratt Institute",
     country: "USA", city: "Brooklyn, NY", qs_ranking: null,
     program_name: "Interior Design, MFA", degree_level: "postgraduate",
@@ -127359,7 +127224,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:38:52.775Z", verification_source_url: "https://www.pratt.edu/design/interior-design/interior-design-mfa/",
   },
-  {
+{
     university_name: "Pratt Institute",
     country: "USA", city: "Brooklyn, NY", qs_ranking: null,
     program_name: "Library and Information Science, MS", degree_level: "postgraduate",
@@ -127373,7 +127238,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:38:36.666Z", verification_source_url: "https://www.pratt.edu/information/library-and-information-science/",
   },
-  {
+{
     university_name: "Pratt Institute",
     country: "USA", city: "Brooklyn, NY", qs_ranking: null,
     program_name: "Media Studies, MA", degree_level: "postgraduate",
@@ -127387,7 +127252,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.pratt.edu/graduate-admissions/apply/",
     verified_at: "2026-05-14T11:38:57.558Z", verification_source_url: "https://www.pratt.edu/liberal-arts-and-sciences/humanities-and-media-studies/media-studies-ma/",
   },
-  {
+{
     university_name: "Pratt Institute",
     country: "USA", city: "Brooklyn, NY", qs_ranking: null,
     program_name: "Sustainable Environmental Systems, MS", degree_level: "postgraduate",
@@ -127401,7 +127266,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:39:01.507Z", verification_source_url: "https://www.pratt.edu/architecture/graduate-center-for-planning-and-the-environment/sustainable-environmental-systems-ms/",
   },
-  {
+{
     university_name: "Princeton University",
     country: "USA", city: "Princeton, NJ", qs_ranking: 22,
     program_name: "Computer Science", degree_level: "undergraduate",
@@ -127415,7 +127280,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-07T11:24:55.472Z", verification_source_url: "https://ua.princeton.edu/fields-study/departmental-majors-degree-bachelor-arts/computer-science",
   },
-  {
+{
     university_name: "Princeton University",
     country: "USA", city: "Princeton, NJ", qs_ranking: 22,
     program_name: "Mechanical and Aerospace Engineering", degree_level: "undergraduate",
@@ -127429,7 +127294,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-07T11:24:55.255Z", verification_source_url: "https://mae.princeton.edu/undergraduate/degree-program",
   },
-  {
+{
     university_name: "Princeton University",
     country: "USA", city: "Princeton, NJ", qs_ranking: 22,
     program_name: "Molecular Biology", degree_level: "undergraduate",
@@ -127443,7 +127308,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-07T11:24:56.479Z", verification_source_url: "https://ua.princeton.edu/fields-study/departmental-majors-degree-bachelor-arts/molecular-biology",
   },
-  {
+{
     university_name: "Quinnipiac University",
     country: "USA", city: "Hamden, CT", qs_ranking: null,
     program_name: "BA in Environmental Policy and Sustainability", degree_level: "undergraduate",
@@ -127457,7 +127322,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:17:44.029Z", verification_source_url: "https://www.qu.edu/schools/arts-and-sciences/programs/bachelors-degree/ba-in-environmental-policy-and-sustainability/",
   },
-  {
+{
     university_name: "Quinnipiac University",
     country: "USA", city: "Hamden, CT", qs_ranking: null,
     program_name: "BA in Graphic and Interactive Design", degree_level: "undergraduate",
@@ -127471,7 +127336,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:07:18.395Z", verification_source_url: "https://www.qu.edu/schools/communications/programs/bachelors-degree/graphic-and-interactive-design/",
   },
-  {
+{
     university_name: "Quinnipiac University",
     country: "USA", city: "Hamden, CT", qs_ranking: null,
     program_name: "BA in Sociology", degree_level: "undergraduate",
@@ -127485,7 +127350,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:17:44.187Z", verification_source_url: "https://www.qu.edu/schools/arts-and-sciences/programs/bachelors-degree/sociology/",
   },
-  {
+{
     university_name: "Quinnipiac University",
     country: "USA", city: "Hamden, CT", qs_ranking: null,
     program_name: "BS in Biology", degree_level: "undergraduate",
@@ -127499,7 +127364,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:17:50.777Z", verification_source_url: "https://www.qu.edu/schools/arts-and-sciences/programs/bachelors-degree/biology/",
   },
-  {
+{
     university_name: "Quinnipiac University",
     country: "USA", city: "Hamden, CT", qs_ranking: null,
     program_name: "BS in Economics", degree_level: "undergraduate",
@@ -127513,7 +127378,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:17:45.495Z", verification_source_url: "https://www.qu.edu/schools/arts-and-sciences/programs/bachelors-degree/economics/",
   },
-  {
+{
     university_name: "Quinnipiac University",
     country: "USA", city: "Hamden, CT", qs_ranking: null,
     program_name: "BS in Nursing", degree_level: "undergraduate",
@@ -127527,7 +127392,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:18:10.949Z", verification_source_url: "https://www.qu.edu/schools/nursing/programs/bachelors-degree/nursing/",
   },
-  {
+{
     university_name: "Quinnipiac University",
     country: "USA", city: "Hamden, CT", qs_ranking: null,
     program_name: "JD Full-Time Program", degree_level: "postgraduate",
@@ -127541,7 +127406,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:07:10.541Z", verification_source_url: "https://law.qu.edu/programs/juris-doctor/full-time-jd/",
   },
-  {
+{
     university_name: "Quinnipiac University",
     country: "USA", city: "Hamden, CT", qs_ranking: null,
     program_name: "MBA in Business Administration", degree_level: "postgraduate",
@@ -127555,7 +127420,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:06:53.283Z", verification_source_url: "https://www.qu.edu/schools/business/programs/masters-degree/mba/",
   },
-  {
+{
     university_name: "Quinnipiac University",
     country: "USA", city: "Hamden, CT", qs_ranking: null,
     program_name: "MD Program", degree_level: "postgraduate",
@@ -127569,7 +127434,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:07:09.154Z", verification_source_url: "https://medicine.qu.edu/academics/",
   },
-  {
+{
     university_name: "Quinnipiac University",
     country: "USA", city: "Hamden, CT", qs_ranking: null,
     program_name: "MS in Applied AI and Business Analytics", degree_level: "postgraduate",
@@ -127583,7 +127448,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:56:26.487Z", verification_source_url: "https://grad.qu.edu/programs/online-masters-degree/applied-ai-and-business-analytics/",
   },
-  {
+{
     university_name: "Quinnipiac University",
     country: "USA", city: "Hamden, CT", qs_ranking: null,
     program_name: "MS in Computer Science", degree_level: "postgraduate",
@@ -127597,7 +127462,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:56:24.736Z", verification_source_url: "https://www.qu.edu/schools/engineering/programs/masters-degrees/computer-science/",
   },
-  {
+{
     university_name: "Quinnipiac University",
     country: "USA", city: "Hamden, CT", qs_ranking: null,
     program_name: "MS in Molecular and Cell Biology", degree_level: "postgraduate",
@@ -127611,7 +127476,7 @@ export const PROGRAMS = ([{
     apply_url: "https://grad.qu.edu/programs/masters-degree/molecular-cell-biology/",
     verified_at: "2026-05-14T15:07:08.386Z", verification_source_url: "https://grad.qu.edu/programs/masters-degree/molecular-cell-biology/",
   },
-  {
+{
     university_name: "Regent's University London",
     country: "UK", city: "London", qs_ranking: null,
     program_name: "BA (Hons) Architecture", degree_level: "undergraduate",
@@ -127625,7 +127490,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:35:35.547Z", verification_source_url: "https://www.regents.ac.uk/undergraduate/ba-hons-architecture",
   },
-  {
+{
     university_name: "Regent's University London",
     country: "UK", city: "London", qs_ranking: null,
     program_name: "LLB Law", degree_level: "undergraduate",
@@ -127639,7 +127504,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:40:24.394Z", verification_source_url: "https://www.regents.ac.uk/undergraduate/llb-law",
   },
-  {
+{
     university_name: "Regent's University London",
     country: "UK", city: "London", qs_ranking: null,
     program_name: "MA Global Media and Communications", degree_level: "postgraduate",
@@ -127653,7 +127518,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:48:13.548Z", verification_source_url: "https://www.regents.ac.uk/postgraduate/ma-media-digital-communications",
   },
-  {
+{
     university_name: "Regent's University London",
     country: "UK", city: "London", qs_ranking: null,
     program_name: "MA International Business", degree_level: "postgraduate",
@@ -127667,7 +127532,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:40:20.934Z", verification_source_url: "https://www.regents.ac.uk/postgraduate/business-management/ma-international-business-new-model",
   },
-  {
+{
     university_name: "Regent's University London",
     country: "UK", city: "London", qs_ranking: null,
     program_name: "MA Luxury Hospitality Management", degree_level: "postgraduate",
@@ -127681,7 +127546,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:48:11.931Z", verification_source_url: "https://www.regents.ac.uk/postgraduate/business-management/ma-luxury-hospitality-management",
   },
-  {
+{
     university_name: "Regent's University London",
     country: "UK", city: "London", qs_ranking: null,
     program_name: "MSc Data Science in Business", degree_level: "postgraduate",
@@ -127695,7 +127560,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:40:18.449Z", verification_source_url: "https://www.regents.ac.uk/postgraduate/data-science/msc-data-science-in-business",
   },
-  {
+{
     university_name: "Regent's University London",
     country: "UK", city: "London", qs_ranking: null,
     program_name: "MSc Finance and Financial Technology", degree_level: "postgraduate",
@@ -127709,7 +127574,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:40:25.854Z", verification_source_url: "https://www.regents.ac.uk/postgraduate/finance/msc-finance-and-financial-technology",
   },
-  {
+{
     university_name: "Regent's University London",
     country: "UK", city: "London", qs_ranking: null,
     program_name: "MSc Psychology (Conversion)", degree_level: "postgraduate",
@@ -127723,7 +127588,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:37:55.790Z", verification_source_url: "https://www.regents.ac.uk/postgraduate/psychotherapy-psychology/msc-psychology",
   },
-  {
+{
     university_name: "Royal College of Art",
     country: "UK", city: "London", qs_ranking: null,
     program_name: "Architecture MA", degree_level: "postgraduate",
@@ -127737,7 +127602,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.rca.ac.uk/study/apply-to-study/",
     verified_at: "2026-05-14T12:49:17.061Z", verification_source_url: "https://www.rca.ac.uk/study/programme-finder/architecture-ma/",
   },
-  {
+{
     university_name: "Royal College of Art",
     country: "UK", city: "London", qs_ranking: null,
     program_name: "Arts & Humanities MFA", degree_level: "postgraduate",
@@ -127751,7 +127616,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.rca.ac.uk/study/apply-to-study/",
     verified_at: "2026-05-14T12:49:17.419Z", verification_source_url: "https://www.rca.ac.uk/study/programme-finder/arts-humanities-mfa/",
   },
-  {
+{
     university_name: "Royal College of Art",
     country: "UK", city: "London", qs_ranking: null,
     program_name: "Communication MFA", degree_level: "postgraduate",
@@ -127765,7 +127630,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.rca.ac.uk/study/apply-to-study/",
     verified_at: "2026-05-14T12:49:25.760Z", verification_source_url: "https://www.rca.ac.uk/study/programme-finder/communication-mfa/",
   },
-  {
+{
     university_name: "Royal College of Art",
     country: "UK", city: "London", qs_ranking: null,
     program_name: "Computer Science MPhil/PhD", degree_level: "postgraduate",
@@ -127779,7 +127644,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.rca.ac.uk/study/apply-to-study/",
     verified_at: "2026-05-14T12:49:05.614Z", verification_source_url: "https://www.rca.ac.uk/study/programme-finder/computer-science-mphil-phd/",
   },
-  {
+{
     university_name: "Royal College of Art",
     country: "UK", city: "London", qs_ranking: null,
     program_name: "Environmental Architecture MA", degree_level: "postgraduate",
@@ -127793,7 +127658,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.rca.ac.uk/study/apply-to-study/",
     verified_at: "2026-05-14T12:49:33.870Z", verification_source_url: "https://www.rca.ac.uk/study/programme-finder/environmental-architecture-ma/",
   },
-  {
+{
     university_name: "Royal College of Art",
     country: "UK", city: "London", qs_ranking: null,
     program_name: "Innovation Design Engineering MA/MSc", degree_level: "postgraduate",
@@ -127807,7 +127672,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.rca.ac.uk/study/apply-to-study/",
     verified_at: "2026-05-14T12:49:11.735Z", verification_source_url: "https://www.rca.ac.uk/study/programme-finder/innovation-design-engineering-ma-msc/",
   },
-  {
+{
     university_name: "Saint Peter's University",
     country: "USA", city: "Jersey City, NJ", qs_ranking: null,
     program_name: "Bachelor of Science in Health Sciences", degree_level: "undergraduate",
@@ -127821,7 +127686,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:13:25.361Z", verification_source_url: "https://www.saintpeters.edu/academics/undergraduate-programs/health-sciences/",
   },
-  {
+{
     university_name: "Saint Peter's University",
     country: "USA", city: "Jersey City, NJ", qs_ranking: null,
     program_name: "Biotechnology", degree_level: "undergraduate",
@@ -127835,7 +127700,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:13:25.379Z", verification_source_url: "https://www.saintpeters.edu/academics/undergraduate-programs/applied-science-and-technology/curriculum/biotechnology/",
   },
-  {
+{
     university_name: "Saint Peter's University",
     country: "USA", city: "Jersey City, NJ", qs_ranking: null,
     program_name: "Business Administration", degree_level: "undergraduate",
@@ -127849,7 +127714,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:12:59.681Z", verification_source_url: "https://www.saintpeters.edu/academics/undergraduate-programs/business/",
   },
-  {
+{
     university_name: "Saint Peter's University",
     country: "USA", city: "Jersey City, NJ", qs_ranking: null,
     program_name: "Communication and Media Culture", degree_level: "undergraduate",
@@ -127863,7 +127728,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:13:18.864Z", verification_source_url: "https://www.saintpeters.edu/academics/undergraduate-programs/communication/",
   },
-  {
+{
     university_name: "Saint Peter's University",
     country: "USA", city: "Jersey City, NJ", qs_ranking: null,
     program_name: "Environmental Studies", degree_level: "undergraduate",
@@ -127877,7 +127742,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:21:47.047Z", verification_source_url: "https://www.saintpeters.edu/academics/undergraduate-programs/environmental-studies/",
   },
-  {
+{
     university_name: "Saint Peter's University",
     country: "USA", city: "Jersey City, NJ", qs_ranking: null,
     program_name: "M.S. in Cyber Security", degree_level: "postgraduate",
@@ -127891,7 +127756,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:12:59.558Z", verification_source_url: "https://www.saintpeters.edu/academics/graduate-programs/master-of-science-in-cyber-security/",
   },
-  {
+{
     university_name: "Saint Peter's University",
     country: "USA", city: "Jersey City, NJ", qs_ranking: null,
     program_name: "Master of Arts in Communication and Public Relations", degree_level: "postgraduate",
@@ -127905,7 +127770,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:23:49.029Z", verification_source_url: "https://www.saintpeters.edu/academics/graduate-programs/master-of-arts-communication-and-public-relations/",
   },
-  {
+{
     university_name: "Saint Peter's University",
     country: "USA", city: "Jersey City, NJ", qs_ranking: null,
     program_name: "Master of Business Administration (MBA)", degree_level: "postgraduate",
@@ -127919,7 +127784,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:12:58.895Z", verification_source_url: "https://www.saintpeters.edu/academics/graduate-programs/business/master-of-business-administration/",
   },
-  {
+{
     university_name: "Saint Peter's University",
     country: "USA", city: "Jersey City, NJ", qs_ranking: null,
     program_name: "Master of Science in Data Science", degree_level: "postgraduate",
@@ -127933,7 +127798,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:13:00.945Z", verification_source_url: "https://www.saintpeters.edu/academics/graduate-programs/master-of-science-in-data-science/",
   },
-  {
+{
     university_name: "Saint Peter's University",
     country: "USA", city: "Jersey City, NJ", qs_ranking: null,
     program_name: "Master of Science in Finance", degree_level: "postgraduate",
@@ -127947,7 +127812,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:23:47.775Z", verification_source_url: "https://www.saintpeters.edu/academics/graduate-programs/business/master-of-science-in-finance/",
   },
-  {
+{
     university_name: "Saint Peter's University",
     country: "USA", city: "Jersey City, NJ", qs_ranking: null,
     program_name: "Master of Science in Nursing", degree_level: "postgraduate",
@@ -127961,7 +127826,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:24:06.422Z", verification_source_url: "https://www.saintpeters.edu/academics/graduate-programs/nursing/master-of-science-in-nursing/",
   },
-  {
+{
     university_name: "Saint Peter's University",
     country: "USA", city: "Jersey City, NJ", qs_ranking: null,
     program_name: "Sociology, Urban Studies & Anthropology", degree_level: "undergraduate",
@@ -127975,7 +127840,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:13:26.873Z", verification_source_url: "https://www.saintpeters.edu/academics/undergraduate-programs/sociology-urban-studies/",
   },
-  {
+{
     university_name: "Sam Houston State University",
     country: "USA", city: "Huntsville, TX", qs_ranking: null,
     program_name: "Bachelor of Arts, Major in Media and Communication: Journalism Concentration", degree_level: "undergraduate",
@@ -127989,7 +127854,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:50:14.903Z", verification_source_url: "https://catalog.shsu.edu/undergraduate/colleges-academic-departments/arts-and-media/mass-communication/ba-mass-communication-multi-platform-journalism/",
   },
-  {
+{
     university_name: "Sam Houston State University",
     country: "USA", city: "Huntsville, TX", qs_ranking: null,
     program_name: "Bachelor of Science, Major in Chemistry for Professional Chemists", degree_level: "undergraduate",
@@ -128003,7 +127868,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:50:17.389Z", verification_source_url: "https://catalog.shsu.edu/undergraduate/colleges-academic-departments/science-and-engineering-technology/chemistry/bs-chemistry-professional-chemists/",
   },
-  {
+{
     university_name: "Sam Houston State University",
     country: "USA", city: "Huntsville, TX", qs_ranking: null,
     program_name: "Bachelor of Science, Major in Environmental Science (Sustainability)", degree_level: "undergraduate",
@@ -128017,7 +127882,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:50:14.399Z", verification_source_url: "https://catalog.shsu.edu/undergraduate/colleges-academic-departments/science-and-engineering-technology/environmental-geosciences/bs-environmental-science-sustainability/",
   },
-  {
+{
     university_name: "Sam Houston State University",
     country: "USA", city: "Huntsville, TX", qs_ranking: null,
     program_name: "Bachelor of Science, Major in Interior Design", degree_level: "undergraduate",
@@ -128031,7 +127896,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:50:03.851Z", verification_source_url: "https://catalog.shsu.edu/undergraduate/colleges-academic-departments/health-sciences/human-sciences/bs-interior-design/",
   },
-  {
+{
     university_name: "Sam Houston State University",
     country: "USA", city: "Huntsville, TX", qs_ranking: null,
     program_name: "Bachelor of Science, Major in Nursing (BSN)", degree_level: "undergraduate",
@@ -128045,7 +127910,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:50:28.360Z", verification_source_url: "https://catalog.shsu.edu/undergraduate/colleges-academic-departments/health-sciences/nursing/bsn-nursing/",
   },
-  {
+{
     university_name: "Sam Houston State University",
     country: "USA", city: "Huntsville, TX", qs_ranking: null,
     program_name: "Computing and Data Science, MS", degree_level: "postgraduate",
@@ -128059,7 +127924,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:49:44.808Z", verification_source_url: "https://www.shsu.edu/programs/graduate/computing-and-data-science/",
   },
-  {
+{
     university_name: "Sam Houston State University",
     country: "USA", city: "Huntsville, TX", qs_ranking: null,
     program_name: "Department of Economics & International Business", degree_level: null,
@@ -128073,7 +127938,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:50:14.510Z", verification_source_url: "https://catalog.shsu.edu/graduate-and-professional/college-departments/business-administration/economics-international-business/",
   },
-  {
+{
     university_name: "Sam Houston State University",
     country: "USA", city: "Huntsville, TX", qs_ranking: null,
     program_name: "Master of Arts in Sociology", degree_level: "postgraduate",
@@ -128087,7 +127952,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:50:16.616Z", verification_source_url: "https://catalog.shsu.edu/graduate-and-professional/college-departments/humanities-social-sciences/sociology/sociology-ma/",
   },
-  {
+{
     university_name: "Sam Houston State University",
     country: "USA", city: "Huntsville, TX", qs_ranking: null,
     program_name: "Master of Business Administration", degree_level: "postgraduate",
@@ -128101,7 +127966,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:49:59.919Z", verification_source_url: "https://www.shsu.edu/programs/graduate/business-administration/",
   },
-  {
+{
     university_name: "Sam Houston State University",
     country: "USA", city: "Huntsville, TX", qs_ranking: null,
     program_name: "Master of Public Health", degree_level: "postgraduate",
@@ -128115,7 +127980,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:50:01.579Z", verification_source_url: "https://catalog.shsu.edu/graduate-and-professional/college-departments/health-sciences/public-health/mph/",
   },
-  {
+{
     university_name: "Sam Houston State University",
     country: "USA", city: "Huntsville, TX", qs_ranking: null,
     program_name: "Master of Science in Biology", degree_level: "postgraduate",
@@ -128129,7 +127994,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:50:00.723Z", verification_source_url: "https://catalog.shsu.edu/graduate-and-professional/college-departments/science-and-engineering-technology/biological-science/biology-ms/",
   },
-  {
+{
     university_name: "Sam Houston State University",
     country: "USA", city: "Huntsville, TX", qs_ranking: null,
     program_name: "Master of Science in Computing and Data Science", degree_level: "postgraduate",
@@ -128143,7 +128008,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:49:44.755Z", verification_source_url: "https://catalog.shsu.edu/graduate-and-professional/college-departments/science-and-engineering-technology/computer-science/computing-data-science-ms/",
   },
-  {
+{
     university_name: "Sam Houston State University",
     country: "USA", city: "Huntsville, TX", qs_ranking: null,
     program_name: "Master of Science in Engineering Technology and Management", degree_level: "postgraduate",
@@ -128157,7 +128022,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:50:01.620Z", verification_source_url: "https://catalog.shsu.edu/graduate-and-professional/college-departments/science-and-engineering-technology/engineering-technology/msetm/",
   },
-  {
+{
     university_name: "Sam Houston State University",
     country: "USA", city: "Huntsville, TX", qs_ranking: null,
     program_name: "School of Agricultural Sciences", degree_level: "undergraduate",
@@ -128171,7 +128036,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:50:29.596Z", verification_source_url: "https://catalog.shsu.edu/undergraduate/colleges-academic-departments/science-and-engineering-technology/agricultural-science/",
   },
-  {
+{
     university_name: "San Francisco State University",
     country: "USA", city: "San Francisco, CA", qs_ranking: null,
     program_name: "Bachelor of Science in Hospitality, Tourism, and Event Management", degree_level: "undergraduate",
@@ -128185,7 +128050,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:40:37.806Z", verification_source_url: "https://bulletin.sfsu.edu/colleges/business/hospitality-tourism-management/bs-hospitality-tourism-management/",
   },
-  {
+{
     university_name: "San Francisco State University",
     country: "USA", city: "San Francisco, CA", qs_ranking: null,
     program_name: "Certificate in Paralegal Studies", degree_level: "undergraduate",
@@ -128199,7 +128064,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:29:56.643Z", verification_source_url: "https://bulletin.sfsu.edu/colleges/extended-learning/paralegal-studies/",
   },
-  {
+{
     university_name: "San Francisco State University",
     country: "USA", city: "San Francisco, CA", qs_ranking: null,
     program_name: "Graduate Programs - School of the Environment", degree_level: "postgraduate",
@@ -128213,7 +128078,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:40:25.526Z", verification_source_url: "https://environment.sfsu.edu/graduate-programs",
   },
-  {
+{
     university_name: "San Francisco State University",
     country: "USA", city: "San Francisco, CA", qs_ranking: null,
     program_name: "Master of Arts in Broadcast and Electronic Communication Arts", degree_level: "postgraduate",
@@ -128227,7 +128092,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www2.calstate.edu/apply/",
     verified_at: "2026-05-14T15:40:17.525Z", verification_source_url: "https://bulletin.sfsu.edu/colleges/liberal-creative-arts/broadcast-electronic-communication-arts/ma-broadcast-electronic-communication-arts/",
   },
-  {
+{
     university_name: "San Francisco State University",
     country: "USA", city: "San Francisco, CA", qs_ranking: null,
     program_name: "Master of Arts in Design", degree_level: "postgraduate",
@@ -128241,7 +128106,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:40:07.925Z", verification_source_url: "https://bulletin.sfsu.edu/colleges/liberal-creative-arts/design-industry/ma-design/",
   },
-  {
+{
     university_name: "San Francisco State University",
     country: "USA", city: "San Francisco, CA", qs_ranking: null,
     program_name: "Master of Arts in Humanities", degree_level: "postgraduate",
@@ -128255,7 +128120,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:40:08.829Z", verification_source_url: "https://bulletin.sfsu.edu/colleges/liberal-creative-arts/humanities-cwl/ma-humanities/",
   },
-  {
+{
     university_name: "San Francisco State University",
     country: "USA", city: "San Francisco, CA", qs_ranking: null,
     program_name: "Master of Business Administration (MBA)", degree_level: "postgraduate",
@@ -128269,7 +128134,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:29:41.641Z", verification_source_url: "https://cob.sfsu.edu/graduate-programs/mba",
   },
-  {
+{
     university_name: "San Francisco State University",
     country: "USA", city: "San Francisco, CA", qs_ranking: null,
     program_name: "Master of Public Health", degree_level: "postgraduate",
@@ -128283,7 +128148,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:29:48.888Z", verification_source_url: "https://bulletin.sfsu.edu/colleges/health-social-sciences/public-health/mph/",
   },
-  {
+{
     university_name: "San Francisco State University",
     country: "USA", city: "San Francisco, CA", qs_ranking: null,
     program_name: "Master of Science in Biomedical Science: Concentration in Biotechnology", degree_level: "postgraduate",
@@ -128297,7 +128162,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:40:25.355Z", verification_source_url: "https://bulletin.sfsu.edu/colleges/science-engineering/biology/ms-biomedical-science-concentration-biotechnology/",
   },
-  {
+{
     university_name: "San Francisco State University",
     country: "USA", city: "San Francisco, CA", qs_ranking: null,
     program_name: "Master of Science in Business Analytics (MSBA)", degree_level: "postgraduate",
@@ -128311,7 +128176,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:29:24.938Z", verification_source_url: "https://cob.sfsu.edu/graduate-programs/business-analytics",
   },
-  {
+{
     university_name: "San Francisco State University",
     country: "USA", city: "San Francisco, CA", qs_ranking: null,
     program_name: "Master of Science in Computer Science", degree_level: "postgraduate",
@@ -128325,7 +128190,7 @@ export const PROGRAMS = ([{
     apply_url: "https://cs.sfsu.edu/grads/prospective-graduates",
     verified_at: "2026-05-14T15:29:30.581Z", verification_source_url: "https://bulletin.sfsu.edu/colleges/science-engineering/computer-science/ms-computer-science/",
   },
-  {
+{
     university_name: "San Francisco State University",
     country: "USA", city: "San Francisco, CA", qs_ranking: null,
     program_name: "Master of Science in Data Science and Artificial Intelligence", degree_level: "postgraduate",
@@ -128339,7 +128204,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:29:27.849Z", verification_source_url: "https://bulletin.sfsu.edu/colleges/science-engineering/computer-science/ms-data-science-artificial-intelligence/",
   },
-  {
+{
     university_name: "San Francisco State University",
     country: "USA", city: "San Francisco, CA", qs_ranking: null,
     program_name: "Master of Science in Mechanical Engineering", degree_level: "postgraduate",
@@ -128353,7 +128218,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:29:39.779Z", verification_source_url: "https://bulletin.sfsu.edu/colleges/science-engineering/engineering/ms-mechanical-engineering/",
   },
-  {
+{
     university_name: "San Francisco State University",
     country: "USA", city: "San Francisco, CA", qs_ranking: null,
     program_name: "Master of Science in Quantitative Economics", degree_level: "postgraduate",
@@ -128367,7 +128232,7 @@ export const PROGRAMS = ([{
     apply_url: "http://cob.sfsu.edu/economics/graduate-programs",
     verified_at: "2026-05-14T15:40:08.773Z", verification_source_url: "https://bulletin.sfsu.edu/colleges/business/economics/ma-economics/",
   },
-  {
+{
     university_name: "Santa Clara University",
     country: "USA", city: "Santa Clara, CA", qs_ranking: null,
     program_name: "Art and Art History", degree_level: "undergraduate",
@@ -128381,7 +128246,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:46:25.172Z", verification_source_url: "https://www.scu.edu/cas/art/academic-programs/",
   },
-  {
+{
     university_name: "Santa Clara University",
     country: "USA", city: "Santa Clara, CA", qs_ranking: null,
     program_name: "Bachelor of Arts in Communication", degree_level: "undergraduate",
@@ -128395,7 +128260,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:46:32.593Z", verification_source_url: "https://www.scu.edu/cas/communication/academic-programs/",
   },
-  {
+{
     university_name: "Santa Clara University",
     country: "USA", city: "Santa Clara, CA", qs_ranking: null,
     program_name: "Biology", degree_level: "undergraduate",
@@ -128409,7 +128274,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:46:40.919Z", verification_source_url: "https://www.scu.edu/cas/biology/academic-programs/",
   },
-  {
+{
     university_name: "Santa Clara University",
     country: "USA", city: "Santa Clara, CA", qs_ranking: null,
     program_name: "Department of Bioengineering Graduate", degree_level: "postgraduate",
@@ -128423,7 +128288,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:46:16.285Z", verification_source_url: "https://www.scu.edu/engineering/academic-programs/department-of-bioengineering/graduate/",
   },
-  {
+{
     university_name: "Santa Clara University",
     country: "USA", city: "Santa Clara, CA", qs_ranking: null,
     program_name: "Department of Sociology", degree_level: "undergraduate",
@@ -128437,7 +128302,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:46:28.949Z", verification_source_url: "https://www.scu.edu/cas/sociology/",
   },
-  {
+{
     university_name: "Santa Clara University",
     country: "USA", city: "Santa Clara, CA", qs_ranking: null,
     program_name: "Environmental Studies and Sciences", degree_level: "undergraduate",
@@ -128451,7 +128316,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:46:40.352Z", verification_source_url: "https://www.scu.edu/cas/ess/academic-programs/",
   },
-  {
+{
     university_name: "Santa Clara University",
     country: "USA", city: "Santa Clara, CA", qs_ranking: null,
     program_name: "Evening MBA", degree_level: "postgraduate",
@@ -128465,7 +128330,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:46:08.689Z", verification_source_url: "https://www.scu.edu/business/evening-mba/",
   },
-  {
+{
     university_name: "Santa Clara University",
     country: "USA", city: "Santa Clara, CA", qs_ranking: null,
     program_name: "Flex J.D.", degree_level: "postgraduate",
@@ -128479,7 +128344,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:46:24.335Z", verification_source_url: "https://law.scu.edu/admissions/our-programs/flex-jd/",
   },
-  {
+{
     university_name: "Santa Clara University",
     country: "USA", city: "Santa Clara, CA", qs_ranking: null,
     program_name: "M.S. in Computer Science and Engineering", degree_level: "postgraduate",
@@ -128493,7 +128358,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:46:00.272Z", verification_source_url: "https://www.scu.edu/engineering/academic-programs/department-of-computer-engineering/graduate/ms-in-computer-science-and-engineering/",
   },
-  {
+{
     university_name: "Santa Clara University",
     country: "USA", city: "Santa Clara, CA", qs_ranking: null,
     program_name: "Master of Science in Artificial Intelligence", degree_level: "postgraduate",
@@ -128507,7 +128372,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:46:01.092Z", verification_source_url: "https://www.scu.edu/engineering/graduate/ms-ai/",
   },
-  {
+{
     university_name: "Santa Clara University",
     country: "USA", city: "Santa Clara, CA", qs_ranking: null,
     program_name: "Master of Science in Mechanical Engineering", degree_level: "postgraduate",
@@ -128521,7 +128386,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:46:12.778Z", verification_source_url: "https://www.scu.edu/engineering/academic-programs/department-of-mechanical-engineering/graduate/msme/",
   },
-  {
+{
     university_name: "Santa Clara University",
     country: "USA", city: "Santa Clara, CA", qs_ranking: null,
     program_name: "Master of Science Programs", degree_level: "postgraduate",
@@ -128535,7 +128400,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:46:08.032Z", verification_source_url: "https://www.scu.edu/business/ms/",
   },
-  {
+{
     university_name: "Santa Clara University",
     country: "USA", city: "Santa Clara, CA", qs_ranking: null,
     program_name: "MS in Finance & Analytics", degree_level: "postgraduate",
@@ -128549,7 +128414,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:46:34.408Z", verification_source_url: "https://www.scu.edu/business/ms/ms-finance-and-analytics/",
   },
-  {
+{
     university_name: "Santa Clara University",
     country: "USA", city: "Santa Clara, CA", qs_ranking: null,
     program_name: "Public Health Science", degree_level: "undergraduate",
@@ -128563,7 +128428,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:46:16.562Z", verification_source_url: "https://www.scu.edu/cas/public-health/academic-programs/",
   },
-  {
+{
     university_name: "Savannah College of Art and Design",
     country: "USA", city: "Savannah, GA", qs_ranking: null,
     program_name: "B.Des. in applied AI", degree_level: "undergraduate",
@@ -128577,7 +128442,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:35:16.350Z", verification_source_url: "https://www.scad.edu/academics/programs/applied-ai/degrees/bdes",
   },
-  {
+{
     university_name: "Savannah College of Art and Design",
     country: "USA", city: "Savannah, GA", qs_ranking: null,
     program_name: "M.A. in art history", degree_level: "postgraduate",
@@ -128591,7 +128456,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:35:37.364Z", verification_source_url: "https://www.scad.edu/academics/programs/art-history/degrees/ma",
   },
-  {
+{
     university_name: "Savannah College of Art and Design",
     country: "USA", city: "Savannah, GA", qs_ranking: null,
     program_name: "M.A. in Creative Business Leadership", degree_level: "postgraduate",
@@ -128605,7 +128470,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:35:26.123Z", verification_source_url: "https://www.scad.edu/academics/programs/creative-business-leadership/degrees/ma",
   },
-  {
+{
     university_name: "Savannah College of Art and Design",
     country: "USA", city: "Savannah, GA", qs_ranking: null,
     program_name: "M.A. in design for sustainability", degree_level: "postgraduate",
@@ -128619,7 +128484,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:35:51.766Z", verification_source_url: "https://www.scad.edu/academics/programs/design-sustainability/degrees/ma",
   },
-  {
+{
     university_name: "Savannah College of Art and Design",
     country: "USA", city: "Savannah, GA", qs_ranking: null,
     program_name: "M.Arch. professional master of architecture", degree_level: "postgraduate",
@@ -128633,7 +128498,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:35:35.465Z", verification_source_url: "https://www.scad.edu/academics/programs/architecture/degrees/march",
   },
-  {
+{
     university_name: "Savannah College of Art and Design",
     country: "USA", city: "Savannah, GA", qs_ranking: null,
     program_name: "M.B.I. in creative business leadership", degree_level: "postgraduate",
@@ -128647,7 +128512,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:35:30.956Z", verification_source_url: "https://www.scad.edu/academics/programs/creative-business-leadership/degrees/mbi",
   },
-  {
+{
     university_name: "Savannah College of Art and Design",
     country: "USA", city: "Savannah, GA", qs_ranking: null,
     program_name: "M.F.A. in advertising", degree_level: "postgraduate",
@@ -128661,7 +128526,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:35:47.015Z", verification_source_url: "https://www.scad.edu/academics/programs/advertising/degrees/mfa",
   },
-  {
+{
     university_name: "Savannah College of Art and Design",
     country: "USA", city: "Savannah, GA", qs_ranking: null,
     program_name: "M.F.A. in interactive design and game development", degree_level: "postgraduate",
@@ -128675,35 +128540,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:35:09.715Z", verification_source_url: "https://www.scad.edu/academics/programs/interactive-design-and-game-development/degrees/mfa",
   },
-  {
-    university_name: "Sciences Po",
-    country: "France", city: "Paris", qs_ranking: 273,
-    program_name: "Bachelor of Arts and Sciences (BASC) : \"Algorithms and decisions\", Dual Degree with Université Paris Cité", degree_level: "undergraduate",
-    duration_months: null, field_of_study: "Artificial Intelligence & Data Science", specialization: "Algorithms and decisions",
-    annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
-    avg_living_cost_usd: null, avg_living_cost_amount: null, avg_living_cost_currency: null,
-    intake_semesters: [], application_deadline: null,
-    min_gpa: null, min_percentage: null, min_ielts: null, min_toefl: null, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null,
-    program_url: "https://www.sciencespo.fr/college/en/academics/bachelor-arts-sciences/ufr-mathematics-universite-paris/",
-    apply_url: null,
-    verified_at: "2026-05-10T04:09:34.775Z", verification_source_url: "https://www.sciencespo.fr/college/en/academics/bachelor-arts-sciences/ufr-mathematics-universite-paris/",
-  },
-  {
-    university_name: "Sciences Po",
-    country: "France", city: "Paris", qs_ranking: 273,
-    program_name: "Bachelor of Arts and Sciences (BASC): \"Environment, Society and Sustainability\", Dual Degree with the University of Reims Champagne-Ardenne", degree_level: "undergraduate",
-    duration_months: null, field_of_study: "Environmental & Sustainability Studies", specialization: "Environment, Society and Sustainability",
-    annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
-    avg_living_cost_usd: null, avg_living_cost_amount: null, avg_living_cost_currency: null,
-    intake_semesters: [], application_deadline: null,
-    min_gpa: null, min_percentage: null, min_ielts: null, min_toefl: null, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null,
-    program_url: "https://www.sciencespo.fr/college/en/academics/bachelor-arts-sciences/university-reims-champagne-ardenne/",
-    apply_url: null,
-    verified_at: "2026-05-07T17:45:13.449Z", verification_source_url: "https://www.sciencespo.fr/college/en/academics/bachelor-arts-sciences/university-reims-champagne-ardenne/",
-  },
-  {
+{
     university_name: "Southern Illinois University Edwardsville",
     country: "USA", city: "Edwardsville, IL", qs_ranking: null,
     program_name: "Art - Studio Concentration (MFA)", degree_level: "postgraduate",
@@ -128717,7 +128554,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:56:21.543Z", verification_source_url: "https://www.siue.edu/academics/graduate/degrees-and-programs/art-studio/",
   },
-  {
+{
     university_name: "Southern Illinois University Edwardsville",
     country: "USA", city: "Edwardsville, IL", qs_ranking: null,
     program_name: "Biological Sciences (MA, MS)", degree_level: "postgraduate",
@@ -128731,7 +128568,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:56:20.968Z", verification_source_url: "https://www.siue.edu/academics/graduate/degrees-and-programs/biological-sciences/",
   },
-  {
+{
     university_name: "Southern Illinois University Edwardsville",
     country: "USA", city: "Edwardsville, IL", qs_ranking: null,
     program_name: "Business Administration (BS)", degree_level: "undergraduate",
@@ -128745,7 +128582,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:56:06.095Z", verification_source_url: "https://www.siue.edu/academics/undergraduate/degrees-and-programs/business-administration/",
   },
-  {
+{
     university_name: "Southern Illinois University Edwardsville",
     country: "USA", city: "Edwardsville, IL", qs_ranking: null,
     program_name: "Business Administration (MBA)", degree_level: "postgraduate",
@@ -128759,7 +128596,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:56:08.926Z", verification_source_url: "https://www.siue.edu/academics/graduate/degrees-and-programs/mba/",
   },
-  {
+{
     university_name: "Southern Illinois University Edwardsville",
     country: "USA", city: "Edwardsville, IL", qs_ranking: null,
     program_name: "Chemistry (MS)", degree_level: "postgraduate",
@@ -128773,7 +128610,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:06:51.728Z", verification_source_url: "https://www.siue.edu/academics/graduate/degrees-and-programs/chemistry/",
   },
-  {
+{
     university_name: "Southern Illinois University Edwardsville",
     country: "USA", city: "Edwardsville, IL", qs_ranking: null,
     program_name: "Computer Science (MS)", degree_level: "postgraduate",
@@ -128787,7 +128624,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:55:53.342Z", verification_source_url: "https://www.siue.edu/academics/graduate/degrees-and-programs/computer-science/",
   },
-  {
+{
     university_name: "Southern Illinois University Edwardsville",
     country: "USA", city: "Edwardsville, IL", qs_ranking: null,
     program_name: "Data Science Post-Baccalaureate Certificate", degree_level: "postgraduate",
@@ -128801,7 +128638,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:55:55.219Z", verification_source_url: "https://www.siue.edu/academics/graduate/degrees-and-programs/certificates/data-science-pbc.shtml",
   },
-  {
+{
     university_name: "Southern Illinois University Edwardsville",
     country: "USA", city: "Edwardsville, IL", qs_ranking: null,
     program_name: "Economics (BA, BS)", degree_level: "undergraduate",
@@ -128815,7 +128652,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:06:39.268Z", verification_source_url: "https://www.siue.edu/academics/undergraduate/degrees-and-programs/economics/",
   },
-  {
+{
     university_name: "Southern Illinois University Edwardsville",
     country: "USA", city: "Edwardsville, IL", qs_ranking: null,
     program_name: "Environmental Sciences (MS)", degree_level: "postgraduate",
@@ -128829,7 +128666,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:06:41.438Z", verification_source_url: "https://www.siue.edu/academics/graduate/degrees-and-programs/environmental-sciences/",
   },
-  {
+{
     university_name: "Southern Illinois University Edwardsville",
     country: "USA", city: "Edwardsville, IL", qs_ranking: null,
     program_name: "Graduate Degrees and Programs - School of Nursing", degree_level: "postgraduate",
@@ -128843,7 +128680,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:06:55.471Z", verification_source_url: "https://www.siue.edu/nursing/academic-programs/graduate/index.shtml",
   },
-  {
+{
     university_name: "Southern Illinois University Edwardsville",
     country: "USA", city: "Edwardsville, IL", qs_ranking: null,
     program_name: "Mechanical Engineering (MS)", degree_level: "postgraduate",
@@ -128857,7 +128694,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:56:07.907Z", verification_source_url: "https://www.siue.edu/academics/graduate/degrees-and-programs/mechanical-engineering/",
   },
-  {
+{
     university_name: "Southern Illinois University Edwardsville",
     country: "USA", city: "Edwardsville, IL", qs_ranking: null,
     program_name: "Media Studies (MS)", degree_level: "postgraduate",
@@ -128871,7 +128708,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:06:40.684Z", verification_source_url: "https://www.siue.edu/academics/graduate/degrees-and-programs/media-studies/",
   },
-  {
+{
     university_name: "Southern Illinois University Edwardsville",
     country: "USA", city: "Edwardsville, IL", qs_ranking: null,
     program_name: "Public Health (MPH)", degree_level: "postgraduate",
@@ -128885,7 +128722,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:56:21.679Z", verification_source_url: "https://www.siue.edu/academics/graduate/degrees-and-programs/public-health/",
   },
-  {
+{
     university_name: "Southern Methodist University",
     country: "USA", city: "Dallas, TX", qs_ranking: 601,
     program_name: "B.A. in Journalism", degree_level: "undergraduate",
@@ -128899,7 +128736,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:10:16.669Z", verification_source_url: "https://www.smu.edu/meadows/areasofstudy/journalism",
   },
-  {
+{
     university_name: "Southern Methodist University",
     country: "USA", city: "Dallas, TX", qs_ranking: 601,
     program_name: "Full-Time Two-Year MBA", degree_level: "postgraduate",
@@ -128913,7 +128750,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:09:38.627Z", verification_source_url: "https://www.smu.edu/cox/business-degrees/mba-programs/two-year-mba",
   },
-  {
+{
     university_name: "Southern Methodist University",
     country: "USA", city: "Dallas, TX", qs_ranking: 601,
     program_name: "Graduate Programs - Department of Biological Sciences", degree_level: "postgraduate",
@@ -128927,7 +128764,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:10:34.365Z", verification_source_url: "https://www.smu.edu/dedman/academics/departments/biological-sciences/graduate",
   },
-  {
+{
     university_name: "Southern Methodist University",
     country: "USA", city: "Dallas, TX", qs_ranking: 601,
     program_name: "Health and Society Major", degree_level: "undergraduate",
@@ -128941,7 +128778,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:09:53.166Z", verification_source_url: "https://www.smu.edu/dedman/academics/departments/anthropology/undergraduate/health-and-society",
   },
-  {
+{
     university_name: "Southern Methodist University",
     country: "USA", city: "Dallas, TX", qs_ranking: 601,
     program_name: "J.D. Programs", degree_level: "postgraduate",
@@ -128955,7 +128792,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:09:55.842Z", verification_source_url: "https://www.smu.edu/law/academics/jd-programs",
   },
-  {
+{
     university_name: "Southern Methodist University",
     country: "USA", city: "Dallas, TX", qs_ranking: 601,
     program_name: "M.A. in Sustainability and Development", degree_level: "postgraduate",
@@ -128969,7 +128806,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:10:36.923Z", verification_source_url: "https://www.smu.edu/lyle/departments/multidisciplinary-programs/ma-in-sustainability-and-development",
   },
-  {
+{
     university_name: "Southern Methodist University",
     country: "USA", city: "Dallas, TX", qs_ranking: 601,
     program_name: "M.F.A. in Art", degree_level: "postgraduate",
@@ -128983,7 +128820,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:10:12.964Z", verification_source_url: "https://www.smu.edu/meadows/areasofstudy/art/graduatestudies/admissions",
   },
-  {
+{
     university_name: "Southern Methodist University",
     country: "USA", city: "Dallas, TX", qs_ranking: 601,
     program_name: "Master of Science in Management", degree_level: "postgraduate",
@@ -128997,7 +128834,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:09:35.729Z", verification_source_url: "https://www.smu.edu/cox/business-degrees/masters-programs/ms-management",
   },
-  {
+{
     university_name: "Southern Methodist University",
     country: "USA", city: "Dallas, TX", qs_ranking: 601,
     program_name: "Masters Program", degree_level: "postgraduate",
@@ -129011,7 +128848,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:10:11.145Z", verification_source_url: "https://www.smu.edu/dedman/academics/departments/history/graduate/ma",
   },
-  {
+{
     university_name: "Southern Methodist University",
     country: "USA", city: "Dallas, TX", qs_ranking: 601,
     program_name: "Masters Programs - Department of Economics", degree_level: "postgraduate",
@@ -129025,7 +128862,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:10:14.838Z", verification_source_url: "https://www.smu.edu/dedman/academics/departments/economics/graduate/ma",
   },
-  {
+{
     university_name: "Southern Methodist University",
     country: "USA", city: "Dallas, TX", qs_ranking: 601,
     program_name: "Online Master of Science in Data Science", degree_level: "postgraduate",
@@ -129039,7 +128876,7 @@ export const PROGRAMS = ([{
     apply_url: "https://datascience.smu.edu/admissions/tuition-and-financial-aid/",
     verified_at: "2026-05-14T12:09:33.389Z", verification_source_url: "https://datascience.smu.edu/",
   },
-  {
+{
     university_name: "Syracuse University",
     country: "USA", city: "Syracuse, NY", qs_ranking: 461,
     program_name: "Applied Data Science Master's Degree", degree_level: "postgraduate",
@@ -129053,7 +128890,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:34:07.431Z", verification_source_url: "https://ischool.syr.edu/academics/applied-data-science-masters-degree/",
   },
-  {
+{
     university_name: "Syracuse University",
     country: "USA", city: "Syracuse, NY", qs_ranking: 461,
     program_name: "Bachelor of Science in Computer Science", degree_level: "undergraduate",
@@ -129067,7 +128904,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:34:03.303Z", verification_source_url: "https://eng-cs.syr.edu/program/computer-science/",
   },
-  {
+{
     university_name: "Syracuse University",
     country: "USA", city: "Syracuse, NY", qs_ranking: 461,
     program_name: "Geography and the Environment Department", degree_level: null,
@@ -129081,7 +128918,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:34:37.981Z", verification_source_url: "https://www.maxwell.syr.edu/academics/geography-and-the-environment-department",
   },
-  {
+{
     university_name: "Syracuse University",
     country: "USA", city: "Syracuse, NY", qs_ranking: 461,
     program_name: "Graduate Programs", degree_level: "postgraduate",
@@ -129095,7 +128932,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:34:06.259Z", verification_source_url: "https://whitman.syr.edu/programs-and-academics/programs/ms/index.aspx",
   },
-  {
+{
     university_name: "Syracuse University",
     country: "USA", city: "Syracuse, NY", qs_ranking: 461,
     program_name: "Graduate Study in Biology", degree_level: "postgraduate",
@@ -129109,7 +128946,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:34:39.608Z", verification_source_url: "http://biology.syr.edu/graduate/programs.html",
   },
-  {
+{
     university_name: "Syracuse University",
     country: "USA", city: "Syracuse, NY", qs_ranking: 461,
     program_name: "J.D. Admissions", degree_level: "postgraduate",
@@ -129123,7 +128960,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:34:21.623Z", verification_source_url: "https://law.syr.edu/admissions/jd-admissions/admissions-information/criteria-for-admission/",
   },
-  {
+{
     university_name: "Syracuse University",
     country: "USA", city: "Syracuse, NY", qs_ranking: 461,
     program_name: "Master of Architecture", degree_level: "postgraduate",
@@ -129137,7 +128974,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:34:17.198Z", verification_source_url: "https://soa.syr.edu/admissions/graduate/march/",
   },
-  {
+{
     university_name: "Syracuse University",
     country: "USA", city: "Syracuse, NY", qs_ranking: 461,
     program_name: "Master of Arts (MA) in Economics", degree_level: "postgraduate",
@@ -129151,7 +128988,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:34:31.766Z", verification_source_url: "https://www.maxwell.syr.edu/academics/economics-department/graduate-studies/master-of-arts",
   },
-  {
+{
     university_name: "Syracuse University",
     country: "USA", city: "Syracuse, NY", qs_ranking: 461,
     program_name: "Master of Public Health", degree_level: "postgraduate",
@@ -129165,7 +129002,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:34:20.469Z", verification_source_url: "https://www.maxwell.syr.edu/academics/public-health-department/graduate-studies/master-of-public-health",
   },
-  {
+{
     university_name: "Syracuse University",
     country: "USA", city: "Syracuse, NY", qs_ranking: 461,
     program_name: "Master's in Advanced Media Management", degree_level: "postgraduate",
@@ -129179,7 +129016,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:34:47.870Z", verification_source_url: "https://newhouse.syr.edu/academics/new-media-management/masters/",
   },
-  {
+{
     university_name: "Syracuse University",
     country: "USA", city: "Syracuse, NY", qs_ranking: 461,
     program_name: "Mechanical Engineering", degree_level: null,
@@ -129193,7 +129030,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:34:03.407Z", verification_source_url: "https://eng-cs.syr.edu/program/mechanical-engineering/",
   },
-  {
+{
     university_name: "Syracuse University",
     country: "USA", city: "Syracuse, NY", qs_ranking: 461,
     program_name: "Social Science PhD Program", degree_level: "postgraduate",
@@ -129207,7 +129044,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:34:24.461Z", verification_source_url: "https://www.maxwell.syr.edu/socsci/default.asp",
   },
-  {
+{
     university_name: "Texas State University",
     country: "USA", city: "San Marcos, TX", qs_ranking: null,
     program_name: "Master of Arts (M.A.) Major in Digital Media Communication (Professional Project Option)", degree_level: "postgraduate",
@@ -129221,7 +129058,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:49:26.503Z", verification_source_url: "https://mycatalog.txstate.edu/graduate/fine-arts-communication/journalism-mass/mass-communication-ma/",
   },
-  {
+{
     university_name: "Texas State University",
     country: "USA", city: "San Marcos, TX", qs_ranking: null,
     program_name: "Master of Arts (M.A.) Major in Legal Studies", degree_level: "postgraduate",
@@ -129235,7 +129072,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:49:11.451Z", verification_source_url: "https://mycatalog.txstate.edu/graduate/liberal-arts/political-science/legal-studies-ma/",
   },
-  {
+{
     university_name: "Texas State University",
     country: "USA", city: "San Marcos, TX", qs_ranking: null,
     program_name: "Master of Business Administration (M.B.A.) Major in Business Administration (Full-Time Cohort)", degree_level: "postgraduate",
@@ -129249,7 +129086,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:48:46.702Z", verification_source_url: "https://mycatalog.txstate.edu/graduate/mccoy-business-administration/mba/",
   },
-  {
+{
     university_name: "Texas State University",
     country: "USA", city: "San Marcos, TX", qs_ranking: null,
     program_name: "Master of Business Administration (M.B.A.) Major in Business Administration (General Flex Non-thesis Option)", degree_level: "postgraduate",
@@ -129263,7 +129100,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:48:43.747Z", verification_source_url: "https://mycatalog.txstate.edu/graduate/mccoy-business-administration/business-genflex-nonthesis-mba/",
   },
-  {
+{
     university_name: "Texas State University",
     country: "USA", city: "San Marcos, TX", qs_ranking: null,
     program_name: "Master of Fine Arts (M.F.A.) Major in Communication Design", degree_level: "postgraduate",
@@ -129277,7 +129114,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:49:08.417Z", verification_source_url: "https://mycatalog.txstate.edu/graduate/fine-arts-communication/art-design/communication-design-mfa/",
   },
-  {
+{
     university_name: "Texas State University",
     country: "USA", city: "San Marcos, TX", qs_ranking: null,
     program_name: "Master of Public Health (M.P.H.) Major in Public Health (Health Policy & Management Concentration) - Accelerated Online Program", degree_level: "postgraduate",
@@ -129291,7 +129128,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:49:05.084Z", verification_source_url: "https://mycatalog.txstate.edu/graduate/education/health-human-performance/public-health-policy-management-mph/",
   },
-  {
+{
     university_name: "Texas State University",
     country: "USA", city: "San Marcos, TX", qs_ranking: null,
     program_name: "Master of Science in Nursing (M.S.N.) Major in Family Nurse Practitioner", degree_level: "postgraduate",
@@ -129305,7 +129142,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:49:33.624Z", verification_source_url: "https://mycatalog.txstate.edu/graduate/health-professions/st-davids-nursing/family-nurse-practitioner-msn/",
   },
-  {
+{
     university_name: "Texas State University",
     country: "USA", city: "San Marcos, TX", qs_ranking: null,
     program_name: "Master of Science in Recreation and Leisure Services (M.S.R.L.S.) Major in Recreation and Sport Management (Non-thesis Option)", degree_level: "postgraduate",
@@ -129319,7 +129156,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:49:48.958Z", verification_source_url: "https://mycatalog.txstate.edu/graduate/education/health-human-performance/recreation-management-msrls/",
   },
-  {
+{
     university_name: "Texas State University",
     country: "USA", city: "San Marcos, TX", qs_ranking: null,
     program_name: "Master of Science (M.S.) Major in Artificial Intelligence", degree_level: "postgraduate",
@@ -129333,7 +129170,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:48:42.499Z", verification_source_url: "https://mycatalog.txstate.edu/graduate/science-engineering/computer/computerscience-artificial-intelligence-ms/",
   },
-  {
+{
     university_name: "Texas State University",
     country: "USA", city: "San Marcos, TX", qs_ranking: null,
     program_name: "Master of Science (M.S.) Major in Biology (Thesis Option)", degree_level: "postgraduate",
@@ -129347,7 +129184,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:48:56.274Z", verification_source_url: "https://mycatalog.txstate.edu/graduate/science-engineering/biology/biology-thesis-nominor-ms/",
   },
-  {
+{
     university_name: "Texas State University",
     country: "USA", city: "San Marcos, TX", qs_ranking: null,
     program_name: "Master of Science (M.S.) Major in Chemistry", degree_level: "postgraduate",
@@ -129361,7 +129198,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:49:27.842Z", verification_source_url: "https://mycatalog.txstate.edu/graduate/science-engineering/chemistry-biochemistry/chemistry-ms/",
   },
-  {
+{
     university_name: "Texas State University",
     country: "USA", city: "San Marcos, TX", qs_ranking: null,
     program_name: "Master of Science (M.S.) Major in Computer Science (Non-thesis Option)", degree_level: "postgraduate",
@@ -129375,7 +129212,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:48:35.486Z", verification_source_url: "https://mycatalog.txstate.edu/graduate/science-engineering/computer/ms/",
   },
-  {
+{
     university_name: "Texas State University",
     country: "USA", city: "San Marcos, TX", qs_ranking: null,
     program_name: "Master of Science (M.S.) Major in Engineering (Mechanical and Manufacturing Engineering Project Option)", degree_level: "postgraduate",
@@ -129389,7 +129226,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:48:51.127Z", verification_source_url: "https://mycatalog.txstate.edu/graduate/science-engineering/ingram-school/engineering-mechandmanufacturing-project-ms/",
   },
-  {
+{
     university_name: "Texas State University",
     country: "USA", city: "San Marcos, TX", qs_ranking: null,
     program_name: "Master of Science (M.S.) Major in Integrated Agricultural Sciences (Professional Option)", degree_level: "postgraduate",
@@ -129403,7 +129240,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:49:43.031Z", verification_source_url: "https://mycatalog.txstate.edu/graduate/science-engineering/agriculturalsciences/integrated-agsciences-nonthesis-ms/",
   },
-  {
+{
     university_name: "Texas State University",
     country: "USA", city: "San Marcos, TX", qs_ranking: null,
     program_name: "Master of Science (M.S.) Major in Quantitative Finance and Economics (Non-thesis Option)", degree_level: "postgraduate",
@@ -129417,7 +129254,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:49:21.484Z", verification_source_url: "https://mycatalog.txstate.edu/graduate/mccoy-business-administration/finance-economics/quantitative-finance-economics-nonthesis/",
   },
-  {
+{
     university_name: "Texas State University",
     country: "USA", city: "San Marcos, TX", qs_ranking: null,
     program_name: "Master of Science (M.S.) Major in Sustainability Studies (Non-thesis Option)", degree_level: "postgraduate",
@@ -129431,7 +129268,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:49:27.537Z", verification_source_url: "https://mycatalog.txstate.edu/graduate/liberal-arts/sociology/sustainability-studies-ms/",
   },
-  {
+{
     university_name: "Texas Woman's University",
     country: "USA", city: "Denton, TX", qs_ranking: null,
     program_name: "Bachelor of Science in Environmental Science", degree_level: "undergraduate",
@@ -129445,7 +129282,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:32:15.313Z", verification_source_url: "https://catalog.twu.edu/undergraduate/arts-sciences/environmental-science/environmental-science-bs/",
   },
-  {
+{
     university_name: "Texas Woman's University",
     country: "USA", city: "Denton, TX", qs_ranking: null,
     program_name: "Bachelor of Science in Nursing (BSN)", degree_level: "undergraduate",
@@ -129459,7 +129296,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:32:27.567Z", verification_source_url: "https://twu.edu/nursing/undergraduate-programs/",
   },
-  {
+{
     university_name: "Texas Woman's University",
     country: "USA", city: "Denton, TX", qs_ranking: null,
     program_name: "BBA in Finance", degree_level: "undergraduate",
@@ -129473,7 +129310,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:32:11.667Z", verification_source_url: "https://twu.edu/accounting-finance/undergraduate-programs/bba-in-finance/",
   },
-  {
+{
     university_name: "Texas Woman's University",
     country: "USA", city: "Denton, TX", qs_ranking: null,
     program_name: "BS in Computer Science", degree_level: "undergraduate",
@@ -129487,7 +129324,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:31:37.282Z", verification_source_url: "https://twu.edu/computer-science/degree-programs/bs-in-computer-science/",
   },
-  {
+{
     university_name: "Texas Woman's University",
     country: "USA", city: "Denton, TX", qs_ranking: null,
     program_name: "Dual Degree in Mathematics and Engineering", degree_level: "undergraduate",
@@ -129501,7 +129338,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:31:51.382Z", verification_source_url: "https://twu.edu/mathematics-engineering/",
   },
-  {
+{
     university_name: "Texas Woman's University",
     country: "USA", city: "Denton, TX", qs_ranking: null,
     program_name: "Master of Business Administration (General Business)", degree_level: "postgraduate",
@@ -129515,7 +129352,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:31:49.231Z", verification_source_url: "https://catalog.twu.edu/graduate/business/management-marketing/general-master-business-administration-mba/",
   },
-  {
+{
     university_name: "Texas Woman's University",
     country: "USA", city: "Denton, TX", qs_ranking: null,
     program_name: "Master of Public Health", degree_level: "postgraduate",
@@ -129529,7 +129366,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:32:08.697Z", verification_source_url: "https://twu.edu/health-studies/graduate-programs/master-of-public-health/",
   },
-  {
+{
     university_name: "Texas Woman's University",
     country: "USA", city: "Denton, TX", qs_ranking: null,
     program_name: "Master of Science in Data Science & Informatics (Data Science/Data Analytics)", degree_level: "postgraduate",
@@ -129543,7 +129380,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:31:44.076Z", verification_source_url: "https://catalog.twu.edu/graduate/arts-sciences/computer-science/informatics-data-science-analytics-ms/",
   },
-  {
+{
     university_name: "Texas Woman's University",
     country: "USA", city: "Denton, TX", qs_ranking: null,
     program_name: "Master of Social Work", degree_level: "postgraduate",
@@ -129557,7 +129394,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:32:03.314Z", verification_source_url: "https://catalog.twu.edu/graduate/arts-sciences/social-work/master-social-work/",
   },
-  {
+{
     university_name: "Texas Woman's University",
     country: "USA", city: "Denton, TX", qs_ranking: null,
     program_name: "MBA – General Business", degree_level: "postgraduate",
@@ -129571,7 +129408,7 @@ export const PROGRAMS = ([{
     apply_url: "https://twu.edu/management-marketing/graduate-programs/mba-general-business/",
     verified_at: "2026-05-14T16:31:49.058Z", verification_source_url: "https://twu.edu/management-marketing/graduate-programs/mba-general-business/",
   },
-  {
+{
     university_name: "Texas Woman's University",
     country: "USA", city: "Denton, TX", qs_ranking: null,
     program_name: "MS in Chemistry", degree_level: "postgraduate",
@@ -129585,7 +129422,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:32:19.312Z", verification_source_url: "https://twu.edu/chemistry-biochemistry/graduate-program/",
   },
-  {
+{
     university_name: "Texas Woman's University",
     country: "USA", city: "Denton, TX", qs_ranking: null,
     program_name: "Professional Science Master's in Biotechnology", degree_level: "postgraduate",
@@ -129599,7 +129436,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:32:00.762Z", verification_source_url: "https://twu.edu/biotechnology/",
   },
-  {
+{
     university_name: "The New School",
     country: "USA", city: "New York, NY", qs_ranking: 706,
     program_name: "Architecture (MArch)", degree_level: "postgraduate",
@@ -129613,7 +129450,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:34:39.858Z", verification_source_url: "https://www.newschool.edu/parsons/masters-architecture/",
   },
-  {
+{
     university_name: "The New School",
     country: "USA", city: "New York, NY", qs_ranking: 706,
     program_name: "Data Visualization MS", degree_level: "postgraduate",
@@ -129627,7 +129464,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:34:23.619Z", verification_source_url: "https://www.newschool.edu/parsons/ms-data-visualization/",
   },
-  {
+{
     university_name: "The New School",
     country: "USA", city: "New York, NY", qs_ranking: 706,
     program_name: "Design and Technology (MFA)", degree_level: "postgraduate",
@@ -129641,7 +129478,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:34:19.490Z", verification_source_url: "https://www.newschool.edu/parsons/mfa-design-technology/",
   },
-  {
+{
     university_name: "The New School",
     country: "USA", city: "New York, NY", qs_ranking: 706,
     program_name: "Economics (MS)", degree_level: "postgraduate",
@@ -129655,7 +129492,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:34:47.981Z", verification_source_url: "https://www.newschool.edu/nssr/ms-economics/",
   },
-  {
+{
     university_name: "The New School",
     country: "USA", city: "New York, NY", qs_ranking: 706,
     program_name: "Environmental Policy and Sustainability Management (MS)", degree_level: "postgraduate",
@@ -129669,7 +129506,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:35:04.891Z", verification_source_url: "https://www.newschool.edu/parsons/ms-environmental-policy-sustainability-management/",
   },
-  {
+{
     university_name: "The New School",
     country: "USA", city: "New York, NY", qs_ranking: 706,
     program_name: "Interdisciplinary Science", degree_level: "undergraduate",
@@ -129683,7 +129520,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:35:14.026Z", verification_source_url: "https://www.newschool.edu/lang/interdisciplinary-science/",
   },
-  {
+{
     university_name: "The New School",
     country: "USA", city: "New York, NY", qs_ranking: 706,
     program_name: "Media Studies (MA)", degree_level: "postgraduate",
@@ -129697,7 +129534,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:34:55.719Z", verification_source_url: "https://www.newschool.edu/parsons/ma-media-studies/",
   },
-  {
+{
     university_name: "The New School",
     country: "USA", city: "New York, NY", qs_ranking: 706,
     program_name: "Sociology", degree_level: "postgraduate",
@@ -129711,7 +129548,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:34:45.406Z", verification_source_url: "https://www.newschool.edu/nssr/sociology/",
   },
-  {
+{
     university_name: "The New School",
     country: "USA", city: "New York, NY", qs_ranking: 706,
     program_name: "Strategic Design and Management MS", degree_level: "postgraduate",
@@ -129725,7 +129562,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:34:27.725Z", verification_source_url: "https://www.newschool.edu/parsons/masters-design-management/",
   },
-  {
+{
     university_name: "TU Darmstadt",
     country: "Germany", city: "Darmstadt", qs_ranking: 273,
     program_name: "Umweltingenieurwissenschaften", degree_level: "undergraduate",
@@ -129739,7 +129576,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-10T04:09:30.860Z", verification_source_url: "https://www.tu-darmstadt.de/studieren/studieninteressierte/studienangebot_studiengaenge/studiengang_178368.en.jsp",
   },
-  {
+{
     university_name: "University at Albany, SUNY",
     country: "USA", city: "Albany, NY", qs_ranking: 801,
     program_name: "Bachelor of Science in Business Administration", degree_level: "undergraduate",
@@ -129753,7 +129590,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:28:06.137Z", verification_source_url: "https://www.albany.edu/business/programs/bs-business-administration",
   },
-  {
+{
     university_name: "University at Albany, SUNY",
     country: "USA", city: "Albany, NY", qs_ranking: 801,
     program_name: "Bachelor of Science in Nursing", degree_level: "undergraduate",
@@ -129767,7 +129604,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:30:34.081Z", verification_source_url: "https://www.albany.edu/cihs/programs/bs-nursing-rn",
   },
-  {
+{
     university_name: "University at Albany, SUNY",
     country: "USA", city: "Albany, NY", qs_ranking: 801,
     program_name: "Master of Arts in Communication", degree_level: "postgraduate",
@@ -129781,7 +129618,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:30:38.132Z", verification_source_url: "https://www.albany.edu/communication/programs/ma-communication",
   },
-  {
+{
     university_name: "University at Albany, SUNY",
     country: "USA", city: "Albany, NY", qs_ranking: 801,
     program_name: "Master of Arts in Economics", degree_level: "postgraduate",
@@ -129795,7 +129632,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:28:28.235Z", verification_source_url: "https://www.albany.edu/economics/programs/ma-economics",
   },
-  {
+{
     university_name: "University at Albany, SUNY",
     country: "USA", city: "Albany, NY", qs_ranking: 801,
     program_name: "Master of Arts in Social Studies", degree_level: "postgraduate",
@@ -129809,7 +129646,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:28:31.086Z", verification_source_url: "https://www.albany.edu/history/programs/ma-social-studies",
   },
-  {
+{
     university_name: "University at Albany, SUNY",
     country: "USA", city: "Albany, NY", qs_ranking: 801,
     program_name: "Master of Business Administration in Business Administration", degree_level: "postgraduate",
@@ -129823,7 +129660,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:28:08.921Z", verification_source_url: "https://www.albany.edu/business/programs/mba-master-business-administration",
   },
-  {
+{
     university_name: "University at Albany, SUNY",
     country: "USA", city: "Albany, NY", qs_ranking: 801,
     program_name: "Master of Fine Arts in Studio Art", degree_level: "postgraduate",
@@ -129837,7 +129674,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:28:28.088Z", verification_source_url: "https://www.albany.edu/art/programs/mfa-studio-art",
   },
-  {
+{
     university_name: "University at Albany, SUNY",
     country: "USA", city: "Albany, NY", qs_ranking: 801,
     program_name: "Master of Science in Biomedical Sciences", degree_level: "postgraduate",
@@ -129851,7 +129688,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:28:18.888Z", verification_source_url: "https://www.albany.edu/cihs/programs/ms-biomedical-sciences",
   },
-  {
+{
     university_name: "University at Albany, SUNY",
     country: "USA", city: "Albany, NY", qs_ranking: 801,
     program_name: "Master of Science in Data Science", degree_level: "postgraduate",
@@ -129865,7 +129702,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:28:05.810Z", verification_source_url: "https://www.albany.edu/math/programs/ms-data-science",
   },
-  {
+{
     university_name: "University at Albany, SUNY",
     country: "USA", city: "Albany, NY", qs_ranking: 801,
     program_name: "Master of Science in Environmental and Sustainable Engineering", degree_level: "postgraduate",
@@ -129879,7 +129716,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:30:32.007Z", verification_source_url: "https://www.albany.edu/environmental-sustainable-engineering/programs/ms-environmental-and-sustainable-engineering",
   },
-  {
+{
     university_name: "University at Albany, SUNY",
     country: "USA", city: "Albany, NY", qs_ranking: 801,
     program_name: "MS Electrical and Computer Engineering", degree_level: "postgraduate",
@@ -129893,7 +129730,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:28:09.058Z", verification_source_url: "https://www.albany.edu/ece/programs/ms-electrical-and-computer-engineering",
   },
-  {
+{
     university_name: "University of Akron",
     country: "USA", city: "Akron, OH", qs_ranking: null,
     program_name: "Biology MS", degree_level: "postgraduate",
@@ -129907,7 +129744,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.uakron.edu/graduate/admissions/apply",
     verified_at: "2026-05-14T16:34:03.309Z", verification_source_url: "https://www.uakron.edu/biology/academics/ms-program/biology-masters-overview.dot",
   },
-  {
+{
     university_name: "University of Akron",
     country: "USA", city: "Akron, OH", qs_ranking: null,
     program_name: "Environmental Studies, Certificate", degree_level: "postgraduate",
@@ -129921,7 +129758,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:33:53.609Z", verification_source_url: "https://bulletin.uakron.edu/graduate/colleges-programs/arts-sciences/geosciences/environmental-studies-certificate/",
   },
-  {
+{
     university_name: "University of Akron",
     country: "USA", city: "Akron, OH", qs_ranking: null,
     program_name: "Flexible Interdisciplinary MBA", degree_level: "postgraduate",
@@ -129935,7 +129772,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:33:13.631Z", verification_source_url: "https://www.uakron.edu/cba/graduate/programs/mba/",
   },
-  {
+{
     university_name: "University of Akron",
     country: "USA", city: "Akron, OH", qs_ranking: null,
     program_name: "Graphic Design, BFA", degree_level: "undergraduate",
@@ -129949,7 +129786,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:33:39.770Z", verification_source_url: "https://bulletin.uakron.edu/undergraduate/colleges-programs/arts-sciences/art/graphic-design-bfa/",
   },
-  {
+{
     university_name: "University of Akron",
     country: "USA", city: "Akron, OH", qs_ranking: null,
     program_name: "J.D. program", degree_level: "postgraduate",
@@ -129963,7 +129800,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:33:34.442Z", verification_source_url: "https://www.uakron.edu/law/curriculum/jd.dot",
   },
-  {
+{
     university_name: "University of Akron",
     country: "USA", city: "Akron, OH", qs_ranking: null,
     program_name: "M.S. in Computer Science", degree_level: "postgraduate",
@@ -129977,7 +129814,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:33:02.661Z", verification_source_url: "https://www.uakron.edu/computer/cs/computer-science-ms",
   },
-  {
+{
     university_name: "University of Akron",
     country: "USA", city: "Akron, OH", qs_ranking: null,
     program_name: "Master of Arts in Strategic Communication", degree_level: "postgraduate",
@@ -129991,7 +129828,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:33:58.800Z", verification_source_url: "https://www.uakron.edu/online/degrees/master-communication",
   },
-  {
+{
     university_name: "University of Akron",
     country: "USA", city: "Akron, OH", qs_ranking: null,
     program_name: "Master of Biology", degree_level: "postgraduate",
@@ -130005,7 +129842,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:33:27.269Z", verification_source_url: "https://www.uakron.edu/biology/academics/ms-program/",
   },
-  {
+{
     university_name: "University of Akron",
     country: "USA", city: "Akron, OH", qs_ranking: null,
     program_name: "Master of Business Administration (MBA)", degree_level: "postgraduate",
@@ -130019,7 +129856,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:33:08.199Z", verification_source_url: "https://www.uakron.edu/cba/graduate/programs/interdisciplinary-mba",
   },
-  {
+{
     university_name: "University of Akron",
     country: "USA", city: "Akron, OH", qs_ranking: null,
     program_name: "Master of Public Health (MPH)", degree_level: "postgraduate",
@@ -130033,7 +129870,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:33:29.022Z", verification_source_url: "https://www.uakron.edu/online/degrees/masters-public-health",
   },
-  {
+{
     university_name: "University of Akron",
     country: "USA", city: "Akron, OH", qs_ranking: null,
     program_name: "Master of Science in Economics", degree_level: "postgraduate",
@@ -130047,7 +129884,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:33:53.062Z", verification_source_url: "https://www.uakron.edu/cba/graduate/programs/mse",
   },
-  {
+{
     university_name: "University of Akron",
     country: "USA", city: "Akron, OH", qs_ranking: null,
     program_name: "Master of Science in Management - Business Analytics (MSM-BA) - Information Systems Concentration", degree_level: "postgraduate",
@@ -130061,7 +129898,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:33:06.038Z", verification_source_url: "https://www.uakron.edu/cba/graduate/programs/msm-info-systems",
   },
-  {
+{
     university_name: "University of Akron",
     country: "USA", city: "Akron, OH", qs_ranking: null,
     program_name: "Master of Science in Mechanical Engineering", degree_level: "postgraduate",
@@ -130075,7 +129912,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:33:24.259Z", verification_source_url: "https://www.uakron.edu/engineering/me/graduate/m-s-mechanical-engineering",
   },
-  {
+{
     university_name: "University of Akron",
     country: "USA", city: "Akron, OH", qs_ranking: null,
     program_name: "Master of Science in Nursing", degree_level: "postgraduate",
@@ -130089,21 +129926,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:34:14.325Z", verification_source_url: "https://www.uakron.edu/nursing/academic-programs/graduate-programs/msn/index.dot",
   },
-  {
-    university_name: "University of Augsburg",
-    country: "Germany", city: "Augsburg", qs_ranking: null,
-    program_name: "MBA \"Unternehmensführung\" der Universität Augsburg", degree_level: "postgraduate",
-    duration_months: 20, field_of_study: "MBA", specialization: "Unternehmensführung",
-    annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
-    avg_living_cost_usd: null, avg_living_cost_amount: null, avg_living_cost_currency: null,
-    intake_semesters: [], application_deadline: null,
-    min_gpa: null, min_percentage: null, min_ielts: null, min_toefl: null, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 1,
-    program_url: "https://www.zww.uni-augsburg.de/mba/mba-studiengang/auf-einen-blick.html",
-    apply_url: null,
-    verified_at: "2026-05-04T05:42:07.321Z", verification_source_url: "https://www.zww.uni-augsburg.de/mba/mba-studiengang/auf-einen-blick.html",
-  },
-  {
+{
     university_name: "University of Bonn",
     country: "Germany", city: "Bonn", qs_ranking: 232,
     program_name: "Economics", degree_level: "undergraduate",
@@ -130117,7 +129940,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.uni-bonn.de/application-portal",
     verified_at: "2026-05-10T04:05:26.958Z", verification_source_url: "https://www.uni-bonn.de/en/studying/degree-programs/degree-programs-a-z/economics-bsc",
   },
-  {
+{
     university_name: "University of Bridgeport",
     country: "USA", city: "Bridgeport, CT", qs_ranking: null,
     program_name: "BSN Nursing Program", degree_level: "undergraduate",
@@ -130131,7 +129954,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T13:31:46.583Z", verification_source_url: "https://www.bridgeport.edu/academics/programs/nursing-bs/",
   },
-  {
+{
     university_name: "University of Bridgeport",
     country: "USA", city: "Bridgeport, CT", qs_ranking: null,
     program_name: "Computer Science Master's Program", degree_level: "postgraduate",
@@ -130145,7 +129968,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.bridgeport.edu/academics/programs/computer-science-ms/",
     verified_at: "2026-05-14T13:22:57.610Z", verification_source_url: "https://www.bridgeport.edu/academics/programs/computer-science-ms/",
   },
-  {
+{
     university_name: "University of Bridgeport",
     country: "USA", city: "Bridgeport, CT", qs_ranking: null,
     program_name: "Finance MS", degree_level: "postgraduate",
@@ -130159,7 +129982,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T13:42:14.791Z", verification_source_url: "https://www.bridgeport.edu/academics/programs/finance-ms/",
   },
-  {
+{
     university_name: "University of Bridgeport",
     country: "USA", city: "Bridgeport, CT", qs_ranking: null,
     program_name: "Master of Arts in Criminal Justice and Human Security", degree_level: "postgraduate",
@@ -130173,7 +129996,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T13:23:21.595Z", verification_source_url: "https://www.bridgeport.edu/academics/programs/criminal-justice-hum-sec-ma/",
   },
-  {
+{
     university_name: "University of Bridgeport",
     country: "USA", city: "Bridgeport, CT", qs_ranking: null,
     program_name: "Master's in Artificial Intelligence (AI)", degree_level: "postgraduate",
@@ -130187,7 +130010,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T13:23:05.884Z", verification_source_url: "https://www.bridgeport.edu/academics/programs/artificial-intelligence-ms/",
   },
-  {
+{
     university_name: "University of Bridgeport",
     country: "USA", city: "Bridgeport, CT", qs_ranking: null,
     program_name: "Master's in Biology", degree_level: "postgraduate",
@@ -130201,7 +130024,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T13:23:16.140Z", verification_source_url: "https://www.bridgeport.edu/academics/programs/biology-ma-ms/",
   },
-  {
+{
     university_name: "University of Bridgeport",
     country: "USA", city: "Bridgeport, CT", qs_ranking: null,
     program_name: "Master's in Public Health (MPH) Online", degree_level: "postgraduate",
@@ -130215,7 +130038,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T13:23:17.526Z", verification_source_url: "https://www.bridgeport.edu/academics/programs/public-health-mph/",
   },
-  {
+{
     university_name: "University of California, Davis",
     country: "USA", city: "Davis, CA", qs_ranking: 123,
     program_name: "Chemistry and Chemical Biology", degree_level: "postgraduate",
@@ -130229,7 +130052,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:45:05.921Z", verification_source_url: "https://grad.ucdavis.edu/programs/gccb",
   },
-  {
+{
     university_name: "University of California, Davis",
     country: "USA", city: "Davis, CA", qs_ranking: 123,
     program_name: "Designated Emphasis in Biotechnology (DEB)", degree_level: "postgraduate",
@@ -130243,7 +130066,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:44:27.271Z", verification_source_url: "https://deb.ucdavis.edu/graduate-studies",
   },
-  {
+{
     university_name: "University of California, Davis",
     country: "USA", city: "Davis, CA", qs_ranking: 123,
     program_name: "Doctor of Veterinary Medicine (DVM)", degree_level: "postgraduate",
@@ -130257,7 +130080,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:45:13.386Z", verification_source_url: "https://www.vetmed.ucdavis.edu/admissions/criteria-admission",
   },
-  {
+{
     university_name: "University of California, Davis",
     country: "USA", city: "Davis, CA", qs_ranking: 123,
     program_name: "Full-Time MBA", degree_level: "postgraduate",
@@ -130271,7 +130094,7 @@ export const PROGRAMS = ([{
     apply_url: "https://gsm.ucdavis.edu/full-time-mba",
     verified_at: "2026-05-14T11:44:29.754Z", verification_source_url: "https://gsm.ucdavis.edu/full-time-mba",
   },
-  {
+{
     university_name: "University of California, Davis",
     country: "USA", city: "Davis, CA", qs_ranking: 123,
     program_name: "Graduate Program of Environmental Policy and Management", degree_level: "postgraduate",
@@ -130285,7 +130108,7 @@ export const PROGRAMS = ([{
     apply_url: "https://epm.ucdavis.edu/apply",
     verified_at: "2026-05-14T11:44:54.397Z", verification_source_url: "https://epm.ucdavis.edu/apply",
   },
-  {
+{
     university_name: "University of California, Davis",
     country: "USA", city: "Davis, CA", qs_ranking: 123,
     program_name: "J.D. Admissions", degree_level: "postgraduate",
@@ -130299,7 +130122,7 @@ export const PROGRAMS = ([{
     apply_url: "https://law.ucdavis.edu/admissions/jd-admissions",
     verified_at: "2026-05-14T11:44:48.503Z", verification_source_url: "https://law.ucdavis.edu/admissions/jd-admissions",
   },
-  {
+{
     university_name: "University of California, Davis",
     country: "USA", city: "Davis, CA", qs_ranking: 123,
     program_name: "M.S. in Mechanical and Aerospace Engineering", degree_level: "postgraduate",
@@ -130313,7 +130136,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:44:24.161Z", verification_source_url: "https://mae.ucdavis.edu/graduate/master-of-science",
   },
-  {
+{
     university_name: "University of California, Davis",
     country: "USA", city: "Davis, CA", qs_ranking: 123,
     program_name: "Master of Public Health", degree_level: "postgraduate",
@@ -130327,7 +130150,7 @@ export const PROGRAMS = ([{
     apply_url: "https://grad.ucdavis.edu/apply",
     verified_at: "2026-05-14T11:44:42.363Z", verification_source_url: "https://health.ucdavis.edu/phs/education/mph/prospective.html",
   },
-  {
+{
     university_name: "University of California, Davis",
     country: "USA", city: "Davis, CA", qs_ranking: 123,
     program_name: "Master of Science in Business Analytics", degree_level: "postgraduate",
@@ -130341,7 +130164,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:44:24.872Z", verification_source_url: "https://gsm.ucdavis.edu/master-science-business-analytics",
   },
-  {
+{
     university_name: "University of California, Davis",
     country: "USA", city: "Davis, CA", qs_ranking: 123,
     program_name: "Master of Science in Computer Science", degree_level: "postgraduate",
@@ -130355,7 +130178,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:44:09.312Z", verification_source_url: "https://cs.ucdavis.edu/graduate/our-programs/ms-degree",
   },
-  {
+{
     university_name: "University of California, Davis",
     country: "USA", city: "Davis, CA", qs_ranking: 123,
     program_name: "Master's Entry Program in Nursing", degree_level: "postgraduate",
@@ -130369,7 +130192,7 @@ export const PROGRAMS = ([{
     apply_url: "https://nursingcas.org/",
     verified_at: "2026-05-14T11:45:06.128Z", verification_source_url: "https://health.ucdavis.edu/nursing/admissions/programs/msn.html",
   },
-  {
+{
     university_name: "University of California, Davis",
     country: "USA", city: "Davis, CA", qs_ranking: 123,
     program_name: "Master's Program", degree_level: "postgraduate",
@@ -130383,7 +130206,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:44:56.213Z", verification_source_url: "https://communication.ucdavis.edu/masters-program",
   },
-  {
+{
     university_name: "University of California, Davis",
     country: "USA", city: "Davis, CA", qs_ranking: 123,
     program_name: "MFA in Design", degree_level: "postgraduate",
@@ -130397,7 +130220,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:44:37.637Z", verification_source_url: "https://arts.ucdavis.edu/design-graduate-program",
   },
-  {
+{
     university_name: "University of California, Davis",
     country: "USA", city: "Davis, CA", qs_ranking: 123,
     program_name: "Ph.D. in Economics", degree_level: "postgraduate",
@@ -130411,7 +130234,7 @@ export const PROGRAMS = ([{
     apply_url: "https://grad.ucdavis.edu/admissions/admission-requirements/test-score-requirements",
     verified_at: "2026-05-14T11:44:52.832Z", verification_source_url: "https://economics.ucdavis.edu/admission-information",
   },
-  {
+{
     university_name: "University of California, Davis",
     country: "USA", city: "Davis, CA", qs_ranking: 123,
     program_name: "Ph.D. program in Sociology", degree_level: "postgraduate",
@@ -130425,7 +130248,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:44:43.347Z", verification_source_url: "https://sociology.ucdavis.edu/graduate",
   },
-  {
+{
     university_name: "University of California, Irvine",
     country: "USA", city: "Irvine, CA", qs_ranking: 226,
     program_name: "Film and Media Studies, B.A.", degree_level: "undergraduate",
@@ -130439,7 +130262,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:43:52.325Z", verification_source_url: "https://catalogue.uci.edu/schoolofhumanities/departmentoffilmandmediastudies/filmandmediastudies_ba/",
   },
-  {
+{
     university_name: "University of California, Irvine",
     country: "USA", city: "Irvine, CA", qs_ranking: 226,
     program_name: "Full-Time MBA", degree_level: "postgraduate",
@@ -130453,7 +130276,7 @@ export const PROGRAMS = ([{
     apply_url: "https://merage.uci.edu/programs/mba/full-time-mba/admissions.html",
     verified_at: "2026-05-14T11:43:39.359Z", verification_source_url: "https://merage.uci.edu/programs/mba/full-time-mba/admissions.html",
   },
-  {
+{
     university_name: "University of California, Irvine",
     country: "USA", city: "Irvine, CA", qs_ranking: 226,
     program_name: "J.D.", degree_level: "postgraduate",
@@ -130467,7 +130290,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:43:43.781Z", verification_source_url: "https://www.law.uci.edu/admission/jd.html",
   },
-  {
+{
     university_name: "University of California, Irvine",
     country: "USA", city: "Irvine, CA", qs_ranking: 226,
     program_name: "Master in Management", degree_level: "postgraduate",
@@ -130481,7 +130304,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:43:37.849Z", verification_source_url: "https://merage.uci.edu/programs/masters/master-in-management/index.html",
   },
-  {
+{
     university_name: "University of California, Irvine",
     country: "USA", city: "Irvine, CA", qs_ranking: 226,
     program_name: "Master of Computer Science", degree_level: "postgraduate",
@@ -130495,7 +130318,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:43:10.228Z", verification_source_url: "https://mcs.ics.uci.edu/",
   },
-  {
+{
     university_name: "University of California, Irvine",
     country: "USA", city: "Irvine, CA", qs_ranking: 226,
     program_name: "Master of Data Science", degree_level: "postgraduate",
@@ -130509,7 +130332,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:44:03.356Z", verification_source_url: "https://catalogue.uci.edu/donaldbrenschoolofinformationandcomputersciences/datascience_master/",
   },
-  {
+{
     university_name: "University of California, Irvine",
     country: "USA", city: "Irvine, CA", qs_ranking: 226,
     program_name: "Master of Engineering", degree_level: "postgraduate",
@@ -130523,7 +130346,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:43:26.163Z", verification_source_url: "https://meng.eng.uci.edu/",
   },
-  {
+{
     university_name: "University of California, Irvine",
     country: "USA", city: "Irvine, CA", qs_ranking: 226,
     program_name: "Master of Finance", degree_level: "postgraduate",
@@ -130537,7 +130360,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:44:07.204Z", verification_source_url: "https://merage.uci.edu/programs/masters/master-finance/index.html",
   },
-  {
+{
     university_name: "University of California, Irvine",
     country: "USA", city: "Irvine, CA", qs_ranking: 226,
     program_name: "Master of Public Health", degree_level: "postgraduate",
@@ -130551,7 +130374,7 @@ export const PROGRAMS = ([{
     apply_url: "https://publichealth.uci.edu/admission/graduate-admission/",
     verified_at: "2026-05-14T11:43:39.938Z", verification_source_url: "https://publichealth.uci.edu/admission/graduate-admission/",
   },
-  {
+{
     university_name: "University of California, Irvine",
     country: "USA", city: "Irvine, CA", qs_ranking: 226,
     program_name: "Master's Entry Program in Nursing", degree_level: "postgraduate",
@@ -130565,7 +130388,7 @@ export const PROGRAMS = ([{
     apply_url: "https://grad.uci.edu/admissions/applying-to-uci/fee-waivers.php",
     verified_at: "2026-05-14T11:44:08.129Z", verification_source_url: "https://nursing.uci.edu/degrees-and-programs/masters-entry-program-in-nursing/admissions/",
   },
-  {
+{
     university_name: "University of California, Irvine",
     country: "USA", city: "Irvine, CA", qs_ranking: 226,
     program_name: "Masters in Conservation and Restoration Science", degree_level: "postgraduate",
@@ -130579,7 +130402,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:44:00.607Z", verification_source_url: "https://mcrs.bio.uci.edu/",
   },
-  {
+{
     university_name: "University of California, Irvine",
     country: "USA", city: "Irvine, CA", qs_ranking: 226,
     program_name: "Masters of Science Degree in Biotechnology", degree_level: "postgraduate",
@@ -130593,7 +130416,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:43:29.445Z", verification_source_url: "https://mbb.bio.uci.edu/graduates/masters-science-degree-biotechnology/",
   },
-  {
+{
     university_name: "University of California, Santa Barbara",
     country: "USA", city: "Santa Barbara, CA", qs_ranking: 157,
     program_name: "Bachelor of Science in Artificial Intelligence", degree_level: "undergraduate",
@@ -130607,7 +130430,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:42:37.475Z", verification_source_url: "https://ai.cs.ucsb.edu/",
   },
-  {
+{
     university_name: "University of California, Santa Barbara",
     country: "USA", city: "Santa Barbara, CA", qs_ranking: 157,
     program_name: "Chemistry - MS", degree_level: "postgraduate",
@@ -130621,7 +130444,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:43:13.883Z", verification_source_url: "https://catalog.ucsb.edu/programs/MSCHEM",
   },
-  {
+{
     university_name: "University of California, Santa Barbara",
     country: "USA", city: "Santa Barbara, CA", qs_ranking: 157,
     program_name: "Latin American and Iberian Studies", degree_level: "postgraduate",
@@ -130635,7 +130458,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.graddiv.ucsb.edu/eapp",
     verified_at: "2026-05-14T11:42:59.658Z", verification_source_url: "https://www.graddiv.ucsb.edu/graduate-programs/departments/latin-american-and-iberian-studies",
   },
-  {
+{
     university_name: "University of California, Santa Barbara",
     country: "USA", city: "Santa Barbara, CA", qs_ranking: 157,
     program_name: "MA/PhD Program in Communication", degree_level: "postgraduate",
@@ -130649,7 +130472,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:42:58.160Z", verification_source_url: "https://www.comm.ucsb.edu/graduate",
   },
-  {
+{
     university_name: "University of California, Santa Barbara",
     country: "USA", city: "Santa Barbara, CA", qs_ranking: 157,
     program_name: "Master of Environmental Science and Management", degree_level: "postgraduate",
@@ -130663,7 +130486,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:43:11.658Z", verification_source_url: "https://bren.ucsb.edu/masters-programs/master-environmental-science-and-management",
   },
-  {
+{
     university_name: "University of California, Santa Barbara",
     country: "USA", city: "Santa Barbara, CA", qs_ranking: 157,
     program_name: "Master of Science and PhD in Computer Science", degree_level: "postgraduate",
@@ -130677,7 +130500,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:42:37.368Z", verification_source_url: "https://cs.ucsb.edu/education/graduate/overview",
   },
-  {
+{
     university_name: "University of California, Santa Barbara",
     country: "USA", city: "Santa Barbara, CA", qs_ranking: 157,
     program_name: "Mechanical Engineering - MS", degree_level: "postgraduate",
@@ -130691,7 +130514,7 @@ export const PROGRAMS = ([{
     apply_url: "https://me.ucsb.edu/graduate/graduate-admissions",
     verified_at: "2026-05-14T11:42:47.251Z", verification_source_url: "https://catalog.ucsb.edu/programs/MSME",
   },
-  {
+{
     university_name: "University of California, Santa Barbara",
     country: "USA", city: "Santa Barbara, CA", qs_ranking: 157,
     program_name: "MFA Program", degree_level: "postgraduate",
@@ -130705,7 +130528,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:42:49.793Z", verification_source_url: "https://arts.ucsb.edu/mfa-program-information/",
   },
-  {
+{
     university_name: "University of California, Santa Barbara",
     country: "USA", city: "Santa Barbara, CA", qs_ranking: 157,
     program_name: "PhD Program", degree_level: "postgraduate",
@@ -130719,7 +130542,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:43:13.318Z", verification_source_url: "https://econ.ucsb.edu/programs/graduate",
   },
-  {
+{
     university_name: "University of Connecticut",
     country: "USA", city: "Storrs, CT", qs_ranking: 565,
     program_name: "Graduate Faculty Directory", degree_level: null,
@@ -130733,7 +130556,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-04-27T10:52:31.727Z", verification_source_url: "https://nursing.uconn.edu/graduate/",
   },
-  {
+{
     university_name: "University of Connecticut",
     country: "USA", city: "Storrs, CT", qs_ranking: 565,
     program_name: "JD Academic Regulations", degree_level: null,
@@ -130747,7 +130570,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-04-27T10:52:18.602Z", verification_source_url: "https://www.law.uconn.edu/jd/",
   },
-  {
+{
     university_name: "University of Dayton",
     country: "USA", city: "Dayton, OH", qs_ranking: 801,
     program_name: "Biology M.S.", degree_level: "postgraduate",
@@ -130761,7 +130584,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T13:16:32.504Z", verification_source_url: "https://udayton.edu/academics/programs/biology-ms/index.php",
   },
-  {
+{
     university_name: "University of Dayton",
     country: "USA", city: "Dayton, OH", qs_ranking: 801,
     program_name: "Communication (B.A.)", degree_level: "undergraduate",
@@ -130775,7 +130598,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T13:16:26.953Z", verification_source_url: "https://udayton.edu/academics/programs/communication-ba/index.php",
   },
-  {
+{
     university_name: "University of Dayton",
     country: "USA", city: "Dayton, OH", qs_ranking: 801,
     program_name: "Data Analytics B.S.", degree_level: "undergraduate",
@@ -130789,7 +130612,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T13:03:26.502Z", verification_source_url: "https://udayton.edu/academics/programs/data-analytics-bs/index.php",
   },
-  {
+{
     university_name: "University of Dayton",
     country: "USA", city: "Dayton, OH", qs_ranking: 801,
     program_name: "Juris Doctor Program", degree_level: "postgraduate",
@@ -130803,7 +130626,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T13:07:32.696Z", verification_source_url: "https://udayton.edu/law/jd-programs/index.php",
   },
-  {
+{
     university_name: "University of Dayton",
     country: "USA", city: "Dayton, OH", qs_ranking: 801,
     program_name: "Master of Business Administration (On-Campus)", degree_level: "postgraduate",
@@ -130817,7 +130640,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T13:07:36.001Z", verification_source_url: "https://udayton.edu/academics/programs/mba/campus/index.php",
   },
-  {
+{
     university_name: "University of Dayton",
     country: "USA", city: "Dayton, OH", qs_ranking: 801,
     program_name: "Master of Business Administration", degree_level: "postgraduate",
@@ -130831,7 +130654,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T13:15:59.829Z", verification_source_url: "https://udayton.edu/academics/programs/mba/index.php",
   },
-  {
+{
     university_name: "University of Dayton",
     country: "USA", city: "Dayton, OH", qs_ranking: 801,
     program_name: "Master of Computer Science", degree_level: "postgraduate",
@@ -130845,7 +130668,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T13:03:25.241Z", verification_source_url: "https://udayton.edu/academics/programs/computer-science-mcs/index.php",
   },
-  {
+{
     university_name: "University of Dayton",
     country: "USA", city: "Dayton, OH", qs_ranking: 801,
     program_name: "Master of Science in Biology", degree_level: "postgraduate",
@@ -130859,7 +130682,7 @@ export const PROGRAMS = ([{
     apply_url: "https://udayton.edu/apply/graduate/index.php",
     verified_at: "2026-05-14T13:16:00.819Z", verification_source_url: "https://udayton.edu/academics/programs/biology-ms/index.php",
   },
-  {
+{
     university_name: "University of Dayton",
     country: "USA", city: "Dayton, OH", qs_ranking: 801,
     program_name: "Mechanical Engineering M.S.", degree_level: "postgraduate",
@@ -130873,7 +130696,7 @@ export const PROGRAMS = ([{
     apply_url: "https://udayton.edu/apply/graduate/",
     verified_at: "2026-05-14T13:16:00.243Z", verification_source_url: "https://udayton.edu/academics/programs/mech-engineering-ms/index.php",
   },
-  {
+{
     university_name: "University of Dayton",
     country: "USA", city: "Dayton, OH", qs_ranking: 801,
     program_name: "Nursing (BSN)", degree_level: "undergraduate",
@@ -130887,7 +130710,7 @@ export const PROGRAMS = ([{
     apply_url: "https://udayton.edu/apply/",
     verified_at: "2026-05-14T13:16:41.194Z", verification_source_url: "https://udayton.edu/academics/programs/nursing-bsn/index.php",
   },
-  {
+{
     university_name: "University of Dayton",
     country: "USA", city: "Dayton, OH", qs_ranking: 801,
     program_name: "Sustainability B.A., B.S.", degree_level: "undergraduate",
@@ -130901,7 +130724,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T13:16:33.675Z", verification_source_url: "https://udayton.edu/academics/programs/sustainability-ba-bs/index.php",
   },
-  {
+{
     university_name: "University of Detroit Mercy",
     country: "USA", city: "Detroit, MI", qs_ranking: null,
     program_name: "Bachelor of Electrical Engineering", degree_level: "undergraduate",
@@ -130915,7 +130738,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:22:04.850Z", verification_source_url: "https://eng-sci.udmercy.edu/academics/engineering/electrical-computer/",
   },
-  {
+{
     university_name: "University of Detroit Mercy",
     country: "USA", city: "Detroit, MI", qs_ranking: null,
     program_name: "Bachelor of Science in Biology", degree_level: "undergraduate",
@@ -130929,7 +130752,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:22:08.599Z", verification_source_url: "https://eng-sci.udmercy.edu/academics/science/biology/",
   },
-  {
+{
     university_name: "University of Detroit Mercy",
     country: "USA", city: "Detroit, MI", qs_ranking: null,
     program_name: "Bachelor of Science in Business Administration", degree_level: "undergraduate",
@@ -130943,7 +130766,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:21:55.792Z", verification_source_url: "https://business.udmercy.edu/programs/undergrad/bus-admin",
   },
-  {
+{
     university_name: "University of Detroit Mercy",
     country: "USA", city: "Detroit, MI", qs_ranking: null,
     program_name: "Bachelor of Science in Computer Science (BSCS)", degree_level: "undergraduate",
@@ -130957,7 +130780,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:21:50.875Z", verification_source_url: "https://eng-sci.udmercy.edu/academics/engineering/computer-science/",
   },
-  {
+{
     university_name: "University of Detroit Mercy",
     country: "USA", city: "Detroit, MI", qs_ranking: null,
     program_name: "Communication Studies", degree_level: "undergraduate",
@@ -130971,7 +130794,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:26:09.721Z", verification_source_url: "https://chass.udmercy.edu/academics/cst/",
   },
-  {
+{
     university_name: "University of Detroit Mercy",
     country: "USA", city: "Detroit, MI", qs_ranking: null,
     program_name: "Environmental Engineering", degree_level: null,
@@ -130985,7 +130808,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:26:12.863Z", verification_source_url: "https://eng-sci.udmercy.edu/academics/engineering/environmental/",
   },
-  {
+{
     university_name: "University of Detroit Mercy",
     country: "USA", city: "Detroit, MI", qs_ranking: null,
     program_name: "Master of Arts in Financial Economics", degree_level: "postgraduate",
@@ -130999,7 +130822,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:22:25.643Z", verification_source_url: "https://chass.udmercy.edu/academics/econ/master-of-arts-in-financial-economics.php",
   },
-  {
+{
     university_name: "University of Detroit Mercy",
     country: "USA", city: "Detroit, MI", qs_ranking: null,
     program_name: "Master of Business Administration", degree_level: "postgraduate",
@@ -131013,7 +130836,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:21:55.860Z", verification_source_url: "https://business.udmercy.edu/programs/grad/mba.php",
   },
-  {
+{
     university_name: "University of Detroit Mercy",
     country: "USA", city: "Detroit, MI", qs_ranking: null,
     program_name: "Master of Health Services Administration (MHSA)", degree_level: "postgraduate",
@@ -131027,7 +130850,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:22:09.978Z", verification_source_url: "https://healthprofessions.udmercy.edu/academics/hsa/grad.php",
   },
-  {
+{
     university_name: "University of Detroit Mercy",
     country: "USA", city: "Detroit, MI", qs_ranking: null,
     program_name: "Master of Science in Applied Data Analytics", degree_level: "postgraduate",
@@ -131041,7 +130864,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:21:51.862Z", verification_source_url: "https://www.udmercy.edu/academics/catalog/graduate2025-2026/colleges/chass/applied-data-analytics.php",
   },
-  {
+{
     university_name: "University of Detroit Mercy",
     country: "USA", city: "Detroit, MI", qs_ranking: null,
     program_name: "US JD", degree_level: "postgraduate",
@@ -131055,7 +130878,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:22:14.520Z", verification_source_url: "https://law.udmercy.edu/academics/programs-offered/jd.php",
   },
-  {
+{
     university_name: "University of Georgia",
     country: "USA", city: "Athens, GA", qs_ranking: 461,
     program_name: "Full-Time MBA", degree_level: "postgraduate",
@@ -131069,7 +130892,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.terry.uga.edu/mba/fulltime/admissions/",
     verified_at: "2026-05-14T11:50:46.354Z", verification_source_url: "https://www.terry.uga.edu/mba/fulltime/admissions/",
   },
-  {
+{
     university_name: "University of Georgia",
     country: "USA", city: "Athens, GA", qs_ranking: 461,
     program_name: "Hospitality and Food Industry Management", degree_level: "undergraduate",
@@ -131083,7 +130906,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:01:33.528Z", verification_source_url: "https://www.caes.uga.edu/students/undergraduate-programs/majors/hospitality-and-food-industry-management.html",
   },
-  {
+{
     university_name: "University of Georgia",
     country: "USA", city: "Athens, GA", qs_ranking: 461,
     program_name: "J.D.", degree_level: "postgraduate",
@@ -131097,7 +130920,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.law.uga.edu/jd-admissions",
     verified_at: "2026-05-14T11:50:51.899Z", verification_source_url: "https://www.law.uga.edu/jd-admissions",
   },
-  {
+{
     university_name: "University of Georgia",
     country: "USA", city: "Athens, GA", qs_ranking: 461,
     program_name: "M.S. in Ecology (ICAS, Thesis Option)", degree_level: "postgraduate",
@@ -131111,7 +130934,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:51:07.853Z", verification_source_url: "https://ecology.uga.edu/degree/masters-icas/",
   },
-  {
+{
     university_name: "University of Georgia",
     country: "USA", city: "Athens, GA", qs_ranking: 461,
     program_name: "MA, Economics", degree_level: "postgraduate",
@@ -131125,7 +130948,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:51:12.795Z", verification_source_url: "https://grad.uga.edu/degree/ma-economics/",
   },
-  {
+{
     university_name: "University of Georgia",
     country: "USA", city: "Athens, GA", qs_ranking: 461,
     program_name: "MA, Journalism & Mass Communication", degree_level: "postgraduate",
@@ -131139,7 +130962,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:51:22.141Z", verification_source_url: "https://grad.uga.edu/degree/ma-journalism-and-mass-communication/",
   },
-  {
+{
     university_name: "University of Georgia",
     country: "USA", city: "Athens, GA", qs_ranking: 461,
     program_name: "MA, Sociology", degree_level: "postgraduate",
@@ -131153,7 +130976,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:51:12.440Z", verification_source_url: "https://grad.uga.edu/degree/ma-sociology/",
   },
-  {
+{
     university_name: "University of Georgia",
     country: "USA", city: "Athens, GA", qs_ranking: 461,
     program_name: "Master of Fine Arts", degree_level: "postgraduate",
@@ -131167,7 +130990,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:50:55.676Z", verification_source_url: "https://art.uga.edu/mfa/",
   },
-  {
+{
     university_name: "University of Georgia",
     country: "USA", city: "Athens, GA", qs_ranking: 461,
     program_name: "Master of Public Health (MPH)", degree_level: "postgraduate",
@@ -131181,7 +131004,7 @@ export const PROGRAMS = ([{
     apply_url: "https://publichealth.uga.edu/apply-now/master-of-public-health-program/",
     verified_at: "2026-05-14T11:50:47.534Z", verification_source_url: "https://publichealth.uga.edu/apply-now/master-of-public-health-program/",
   },
-  {
+{
     university_name: "University of Georgia",
     country: "USA", city: "Athens, GA", qs_ranking: 461,
     program_name: "MS, Animal & Dairy Science", degree_level: "postgraduate",
@@ -131195,7 +131018,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:01:53.234Z", verification_source_url: "https://grad.uga.edu/degree/ms-animal-and-dairy-science/",
   },
-  {
+{
     university_name: "University of Georgia",
     country: "USA", city: "Athens, GA", qs_ranking: 461,
     program_name: "MS, Ecology", degree_level: "postgraduate",
@@ -131209,7 +131032,7 @@ export const PROGRAMS = ([{
     apply_url: "https://grad.uga.edu/apply/",
     verified_at: "2026-05-14T12:01:33.358Z", verification_source_url: "https://grad.uga.edu/degree/ms-ecology/",
   },
-  {
+{
     university_name: "University of Georgia",
     country: "USA", city: "Athens, GA", qs_ranking: 461,
     program_name: "MS Engineering – Mechanical Engineering Emphasis", degree_level: "postgraduate",
@@ -131223,7 +131046,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:50:21.638Z", verification_source_url: "https://www.engineering.uga.edu/ms-engineering/mechanical",
   },
-  {
+{
     university_name: "University of Georgia",
     country: "USA", city: "Athens, GA", qs_ranking: 461,
     program_name: "MS in Artificial Intelligence", degree_level: "postgraduate",
@@ -131237,7 +131060,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:50:11.134Z", verification_source_url: "https://www.ai.uga.edu/ms-artificial-intelligence",
   },
-  {
+{
     university_name: "University of Georgia",
     country: "USA", city: "Athens, GA", qs_ranking: 461,
     program_name: "MS in Computer Science (Non-Thesis Option)", degree_level: "postgraduate",
@@ -131251,7 +131074,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:50:07.895Z", verification_source_url: "https://www.cs.uga.edu/ms-computer-science-non-thesis-option",
   },
-  {
+{
     university_name: "University of Groningen",
     country: "Netherlands", city: "Groningen", qs_ranking: 139,
     program_name: "Computing Science", degree_level: "undergraduate",
@@ -131265,7 +131088,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.rug.nl/bachelors/computing-science/?lang=en",
     verified_at: "2026-05-10T03:43:15.817Z", verification_source_url: "https://www.rug.nl/bachelors/computing-science/?lang=en",
   },
-  {
+{
     university_name: "University of Groningen",
     country: "Netherlands", city: "Groningen", qs_ranking: 139,
     program_name: "Physics", degree_level: "undergraduate",
@@ -131279,7 +131102,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.rug.nl/bachelors/physics/?lang=en",
     verified_at: "2026-05-10T03:43:28.218Z", verification_source_url: "https://www.rug.nl/bachelors/physics/?lang=en",
   },
-  {
+{
     university_name: "University of Hartford",
     country: "USA", city: "West Hartford, CT", qs_ranking: null,
     program_name: "B.S. in Management", degree_level: "undergraduate",
@@ -131293,7 +131116,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:20:07.884Z", verification_source_url: "https://www.hartford.edu/academics/schools-colleges/barney/academics/management-marketing-and-entrepreneurship/bs-in-management.aspx",
   },
-  {
+{
     university_name: "University of Hartford",
     country: "USA", city: "West Hartford, CT", qs_ranking: null,
     program_name: "BA in Economics", degree_level: "undergraduate",
@@ -131307,7 +131130,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:21:12.124Z", verification_source_url: "https://www.hartford.edu/academics/schools-colleges/arts-sciences/academics/departments-and-centers/politics-economics-and-international-studies/ba-in-economics.aspx",
   },
-  {
+{
     university_name: "University of Hartford",
     country: "USA", city: "West Hartford, CT", qs_ranking: null,
     program_name: "BA in Paralegal Studies", degree_level: "undergraduate",
@@ -131321,7 +131144,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:20:59.965Z", verification_source_url: "https://www.hartford.edu/academics/graduate-professional-studies/programs/paralegal-studies/ba-in-paralegal-studies.aspx",
   },
-  {
+{
     university_name: "University of Hartford",
     country: "USA", city: "West Hartford, CT", qs_ranking: null,
     program_name: "Bachelor of Science in Biology", degree_level: "undergraduate",
@@ -131335,7 +131158,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:21:33.039Z", verification_source_url: "https://www.hartford.edu/academics/schools-colleges/arts-sciences/academics/departments-and-centers/biology/bs-in-biology.aspx",
   },
-  {
+{
     university_name: "University of Hartford",
     country: "USA", city: "West Hartford, CT", qs_ranking: null,
     program_name: "Bachelor of Science in Finance", degree_level: "undergraduate",
@@ -131349,7 +131172,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:21:06.896Z", verification_source_url: "https://www.hartford.edu/academics/schools-colleges/barney/academics/accounting-and-finance/bs-in-finance.aspx",
   },
-  {
+{
     university_name: "University of Hartford",
     country: "USA", city: "West Hartford, CT", qs_ranking: null,
     program_name: "Bachelor of Science in Health Sciences", degree_level: "undergraduate",
@@ -131363,7 +131186,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:20:21.867Z", verification_source_url: "https://www.hartford.edu/academics/schools-colleges/enhp/academics/department-of-health-sciences/bs-in-health-sciences.aspx",
   },
-  {
+{
     university_name: "University of Hartford",
     country: "USA", city: "West Hartford, CT", qs_ranking: null,
     program_name: "BS in Data Science", degree_level: "undergraduate",
@@ -131377,7 +131200,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:20:08.570Z", verification_source_url: "https://www.hartford.edu/academics/schools-colleges/arts-sciences/academics/departments-and-centers/mathematics/bs-in-data-science.aspx",
   },
-  {
+{
     university_name: "University of Hartford",
     country: "USA", city: "West Hartford, CT", qs_ranking: null,
     program_name: "BS in Environmental Science", degree_level: "undergraduate",
@@ -131391,7 +131214,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:21:32.388Z", verification_source_url: "https://www.hartford.edu/academics/schools-colleges/arts-sciences/academics/interdisciplinary-programs/bs-in-environmental-science.aspx",
   },
-  {
+{
     university_name: "University of Hartford",
     country: "USA", city: "West Hartford, CT", qs_ranking: null,
     program_name: "Department of Nursing", degree_level: null,
@@ -131405,7 +131228,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:21:37.016Z", verification_source_url: "https://www.hartford.edu/academics/schools-colleges/enhp/academics/department-of-nursing/default.aspx",
   },
-  {
+{
     university_name: "University of Hartford",
     country: "USA", city: "West Hartford, CT", qs_ranking: null,
     program_name: "MA in Integrated Communication", degree_level: "postgraduate",
@@ -131419,7 +131242,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:21:36.990Z", verification_source_url: "https://www.hartford.edu/academics/schools-colleges/arts-sciences/academics/departments-and-centers/communication/ma-in-integrated-communication.aspx",
   },
-  {
+{
     university_name: "University of Hartford",
     country: "USA", city: "West Hartford, CT", qs_ranking: null,
     program_name: "Master of Architecture", degree_level: "postgraduate",
@@ -131433,7 +131256,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:21:00.136Z", verification_source_url: "https://www.hartford.edu/academics/schools-colleges/ceta/academics/department-of-architecture/master-of-architecture.aspx",
   },
-  {
+{
     university_name: "University of Hartford",
     country: "USA", city: "West Hartford, CT", qs_ranking: null,
     program_name: "MS in Computer Science", degree_level: "postgraduate",
@@ -131447,7 +131270,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:18:08.342Z", verification_source_url: "https://www.hartford.edu/academics/schools-colleges/arts-sciences/academics/departments-and-centers/computing-sciences/ms-computer-science.aspx",
   },
-  {
+{
     university_name: "University of Houston-Clear Lake",
     country: "USA", city: "Houston, TX", qs_ranking: null,
     program_name: "Art and Design B.F.A. with Graphic Design Concentration", degree_level: "undergraduate",
@@ -131461,7 +131284,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:52:22.001Z", verification_source_url: "https://www.uhcl.edu/academics/degrees/art-design-bfa-graphic-design-concentration",
   },
-  {
+{
     university_name: "University of Houston-Clear Lake",
     country: "USA", city: "Houston, TX", qs_ranking: null,
     program_name: "Bachelor of Science in Biological Sciences", degree_level: "undergraduate",
@@ -131475,7 +131298,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.uhcl.edu/admissions/apply/",
     verified_at: "2026-05-14T12:52:49.902Z", verification_source_url: "https://www.uhcl.edu/academics/degrees/biological-science-bs",
   },
-  {
+{
     university_name: "University of Houston-Clear Lake",
     country: "USA", city: "Houston, TX", qs_ranking: null,
     program_name: "Biotechnology M.S.", degree_level: "postgraduate",
@@ -131489,7 +131312,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.uhcl.edu/admissions/how-to-apply/",
     verified_at: "2026-05-14T12:52:03.011Z", verification_source_url: "https://www.uhcl.edu/academics/degrees/biotechnology-ms",
   },
-  {
+{
     university_name: "University of Houston-Clear Lake",
     country: "USA", city: "Houston, TX", qs_ranking: null,
     program_name: "Business Administration MBA", degree_level: "postgraduate",
@@ -131503,7 +131326,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:51:41.647Z", verification_source_url: "https://www.uhcl.edu/academics/degrees/business-administration-mba",
   },
-  {
+{
     university_name: "University of Houston-Clear Lake",
     country: "USA", city: "Houston, TX", qs_ranking: null,
     program_name: "Computer Science M.S.", degree_level: "postgraduate",
@@ -131517,7 +131340,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:51:39.701Z", verification_source_url: "https://www.uhcl.edu/academics/degrees/computer-science-ms",
   },
-  {
+{
     university_name: "University of Houston-Clear Lake",
     country: "USA", city: "Houston, TX", qs_ranking: null,
     program_name: "Digital Media Studies M.A.", degree_level: "postgraduate",
@@ -131531,7 +131354,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:52:41.888Z", verification_source_url: "https://www.uhcl.edu/academics/degrees/digital-media-studies-ma",
   },
-  {
+{
     university_name: "University of Houston-Clear Lake",
     country: "USA", city: "Houston, TX", qs_ranking: null,
     program_name: "Engineering Management M.S.", degree_level: "postgraduate",
@@ -131545,7 +131368,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.uhcl.edu/admissions/apply/",
     verified_at: "2026-05-14T12:51:51.324Z", verification_source_url: "https://www.uhcl.edu/academics/degrees/engineering-management-ms",
   },
-  {
+{
     university_name: "University of Houston-Clear Lake",
     country: "USA", city: "Houston, TX", qs_ranking: null,
     program_name: "Environmental Science M.S.", degree_level: "postgraduate",
@@ -131559,7 +131382,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.uhcl.edu/admissions/apply/",
     verified_at: "2026-05-14T12:52:36.103Z", verification_source_url: "https://www.uhcl.edu/academics/degrees/environmental-science-ms",
   },
-  {
+{
     university_name: "University of Houston-Clear Lake",
     country: "USA", city: "Houston, TX", qs_ranking: null,
     program_name: "Exercise and Health Sciences M.S.", degree_level: "postgraduate",
@@ -131573,7 +131396,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:52:12.265Z", verification_source_url: "https://www.uhcl.edu/academics/degrees/exercise-health-sciences-ms",
   },
-  {
+{
     university_name: "University of Houston-Clear Lake",
     country: "USA", city: "Houston, TX", qs_ranking: null,
     program_name: "Finance M.S.", degree_level: "postgraduate",
@@ -131587,7 +131410,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.uhcl.edu/admissions/how-to-apply/graduate.aspx",
     verified_at: "2026-05-14T12:52:30.242Z", verification_source_url: "https://www.uhcl.edu/academics/degrees/finance-ms",
   },
-  {
+{
     university_name: "University of Houston-Clear Lake",
     country: "USA", city: "Houston, TX", qs_ranking: null,
     program_name: "Legal Studies B.S.", degree_level: "undergraduate",
@@ -131601,7 +131424,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:52:06.380Z", verification_source_url: "https://www.uhcl.edu/academics/degrees/legal-studies-bs",
   },
-  {
+{
     university_name: "University of Houston-Clear Lake",
     country: "USA", city: "Houston, TX", qs_ranking: null,
     program_name: "Management Information Systems M.S.", degree_level: "postgraduate",
@@ -131615,7 +131438,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:51:46.187Z", verification_source_url: "https://www.uhcl.edu/academics/degrees/management-information-systems-ms",
   },
-  {
+{
     university_name: "University of Houston-Clear Lake",
     country: "USA", city: "Houston, TX", qs_ranking: null,
     program_name: "Master of Science in Data Science", degree_level: "postgraduate",
@@ -131629,7 +131452,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.uhcl.edu/admissions/apply/",
     verified_at: "2026-05-14T12:51:39.222Z", verification_source_url: "https://www.uhcl.edu/academics/degrees/data-science-ms",
   },
-  {
+{
     university_name: "University of Houston-Clear Lake",
     country: "USA", city: "Houston, TX", qs_ranking: null,
     program_name: "Nursing Education and Leadership, M.S.N.", degree_level: "postgraduate",
@@ -131643,7 +131466,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.uhcl.edu/admissions/apply/",
     verified_at: "2026-05-14T12:52:51.293Z", verification_source_url: "https://www.uhcl.edu/academics/degrees/nursing-education-and-leadership-msn",
   },
-  {
+{
     university_name: "University of Houston-Clear Lake",
     country: "USA", city: "Houston, TX", qs_ranking: null,
     program_name: "Sociology M.A.", degree_level: "postgraduate",
@@ -131657,7 +131480,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.uhcl.edu/admissions/apply/",
     verified_at: "2026-05-14T12:52:18.358Z", verification_source_url: "https://www.uhcl.edu/academics/degrees/sociology-ma",
   },
-  {
+{
     university_name: "University of Illinois at Urbana-Champaign",
     country: "USA", city: "Urbana-Champaign, IL", qs_ranking: 65,
     program_name: "Architecture, MArch", degree_level: "postgraduate",
@@ -131671,7 +131494,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:25:44.312Z", verification_source_url: "https://catalog.illinois.edu/graduate/faa/architecture-march/",
   },
-  {
+{
     university_name: "University of Illinois at Urbana-Champaign",
     country: "USA", city: "Urbana-Champaign, IL", qs_ranking: 65,
     program_name: "Graduate Tracks", degree_level: "postgraduate",
@@ -131685,7 +131508,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:25:31.661Z", verification_source_url: "https://siebelschool.illinois.edu/academics/graduate/tracks",
   },
-  {
+{
     university_name: "University of Illinois at Urbana-Champaign",
     country: "USA", city: "Urbana-Champaign, IL", qs_ranking: 65,
     program_name: "JD Program", degree_level: "postgraduate",
@@ -131699,7 +131522,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:25:49.642Z", verification_source_url: "https://law.illinois.edu/academics/degree-programs/jd-program/",
   },
-  {
+{
     university_name: "University of Illinois at Urbana-Champaign",
     country: "USA", city: "Urbana-Champaign, IL", qs_ranking: 65,
     program_name: "Journalism, MS", degree_level: "postgraduate",
@@ -131713,7 +131536,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:25:53.295Z", verification_source_url: "https://catalog.illinois.edu/graduate/media/journalism-ms/",
   },
-  {
+{
     university_name: "University of Illinois at Urbana-Champaign",
     country: "USA", city: "Urbana-Champaign, IL", qs_ranking: 65,
     program_name: "M.S. in Bioengineering", degree_level: "postgraduate",
@@ -131727,7 +131550,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:25:39.464Z", verification_source_url: "https://bioengineering.illinois.edu/academics/graduate/ms",
   },
-  {
+{
     university_name: "University of Illinois at Urbana-Champaign",
     country: "USA", city: "Urbana-Champaign, IL", qs_ranking: 65,
     program_name: "Master of Computer Science in Urbana-Champaign", degree_level: "postgraduate",
@@ -131741,7 +131564,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:25:30.262Z", verification_source_url: "https://siebelschool.illinois.edu/academics/graduate/professional-mcs/campus-master-computer-science",
   },
-  {
+{
     university_name: "University of Illinois at Urbana-Champaign",
     country: "USA", city: "Urbana-Champaign, IL", qs_ranking: 65,
     program_name: "Master of Public Health", degree_level: "postgraduate",
@@ -131755,7 +131578,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:25:37.500Z", verification_source_url: "https://hk.illinois.edu/academics/graduate-programs/master-of-public-health/",
   },
-  {
+{
     university_name: "University of Illinois at Urbana-Champaign",
     country: "USA", city: "Urbana-Champaign, IL", qs_ranking: 65,
     program_name: "Master of Science in Finance", degree_level: "postgraduate",
@@ -131769,7 +131592,7 @@ export const PROGRAMS = ([{
     apply_url: "https://giesbusiness.illinois.edu/msf/tuition",
     verified_at: "2026-05-14T12:25:59.745Z", verification_source_url: "https://giesbusiness.illinois.edu/msf",
   },
-  {
+{
     university_name: "University of Illinois at Urbana-Champaign",
     country: "USA", city: "Urbana-Champaign, IL", qs_ranking: 65,
     program_name: "Master of Science in Management (MSM)", degree_level: "postgraduate",
@@ -131783,7 +131606,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:25:29.342Z", verification_source_url: "https://giesbusiness.illinois.edu/msm",
   },
-  {
+{
     university_name: "University of Illinois at Urbana-Champaign",
     country: "USA", city: "Urbana-Champaign, IL", qs_ranking: 65,
     program_name: "Master of Veterinary Science", degree_level: "postgraduate",
@@ -131797,7 +131620,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:26:06.873Z", verification_source_url: "https://vetmed.illinois.edu/mvs/",
   },
-  {
+{
     university_name: "University of Illinois at Urbana-Champaign",
     country: "USA", city: "Urbana-Champaign, IL", qs_ranking: 65,
     program_name: "Masters in Business Administration (MBA)", degree_level: "postgraduate",
@@ -131811,7 +131634,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:25:23.048Z", verification_source_url: "https://giesbusiness.illinois.edu/academics/graduate/gies-mba",
   },
-  {
+{
     university_name: "University of Illinois at Urbana-Champaign",
     country: "USA", city: "Urbana-Champaign, IL", qs_ranking: 65,
     program_name: "Mechanical Engineering, MS", degree_level: "postgraduate",
@@ -131825,7 +131648,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:25:24.031Z", verification_source_url: "https://catalog.illinois.edu/graduate/engineering/mechanical-engineering-ms/",
   },
-  {
+{
     university_name: "University of Illinois at Urbana-Champaign",
     country: "USA", city: "Urbana-Champaign, IL", qs_ranking: 65,
     program_name: "Natural Resources & Environmental Sciences, MS", degree_level: "postgraduate",
@@ -131839,7 +131662,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:25:58.400Z", verification_source_url: "https://catalog.illinois.edu/graduate/aces/natural-resources-environmental-sciences-ms/",
   },
-  {
+{
     university_name: "University of Illinois at Urbana-Champaign",
     country: "USA", city: "Urbana-Champaign, IL", qs_ranking: 65,
     program_name: "Physics, MS", degree_level: "postgraduate",
@@ -131853,7 +131676,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:25:58.155Z", verification_source_url: "https://catalog.illinois.edu/graduate/engineering/physics-ms/",
   },
-  {
+{
     university_name: "University of Illinois at Urbana-Champaign",
     country: "USA", city: "Urbana-Champaign, IL", qs_ranking: 65,
     program_name: "Recreation, Sport & Tourism, MS", degree_level: "postgraduate",
@@ -131867,7 +131690,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:26:06.589Z", verification_source_url: "https://catalog.illinois.edu/graduate/ahs/recreation-sport-tourism-ms/",
   },
-  {
+{
     university_name: "University of Illinois at Urbana-Champaign",
     country: "USA", city: "Urbana-Champaign, IL", qs_ranking: 65,
     program_name: "Social Work, MSW", degree_level: "postgraduate",
@@ -131881,7 +131704,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:25:45.347Z", verification_source_url: "https://catalog.illinois.edu/graduate/socw/social-work-msw/",
   },
-  {
+{
     university_name: "University of Law",
     country: "UK", city: "London", qs_ranking: null,
     program_name: "LLM Environmental Law", degree_level: "postgraduate",
@@ -131895,7 +131718,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:30:35.761Z", verification_source_url: "https://www.law.ac.uk/study/postgraduate/law/llm-environmental-law/",
   },
-  {
+{
     university_name: "University of Law",
     country: "UK", city: "London", qs_ranking: null,
     program_name: "LLM Master of Laws (General)", degree_level: "postgraduate",
@@ -131909,7 +131732,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:28:36.841Z", verification_source_url: "https://www.law.ac.uk/study/postgraduate/law/llm-master-of-laws-general/",
   },
-  {
+{
     university_name: "University of Law",
     country: "UK", city: "London", qs_ranking: null,
     program_name: "LLM Media Law, Privacy and Defamation", degree_level: "postgraduate",
@@ -131923,7 +131746,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:30:28.043Z", verification_source_url: "https://www.law.ac.uk/study/postgraduate/law/llm-media-law-and-defamation/",
   },
-  {
+{
     university_name: "University of Law",
     country: "UK", city: "London", qs_ranking: null,
     program_name: "Master of Business Administration (MBA)", degree_level: "postgraduate",
@@ -131937,7 +131760,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.law.ac.uk/study/postgraduate/business/mba-masters-in-business-administration/",
     verified_at: "2026-05-14T12:28:25.492Z", verification_source_url: "https://www.law.ac.uk/study/postgraduate/business/mba-masters-in-business-administration/",
   },
-  {
+{
     university_name: "University of Law",
     country: "UK", city: "London", qs_ranking: null,
     program_name: "MSc Artificial Intelligence for Business", degree_level: "postgraduate",
@@ -131951,7 +131774,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:28:21.696Z", verification_source_url: "https://www.law.ac.uk/study/postgraduate/business/msc-artificial-intelligence-for-business/",
   },
-  {
+{
     university_name: "University of Law",
     country: "UK", city: "London", qs_ranking: null,
     program_name: "MSc Computer Science (Conversion)", degree_level: "postgraduate",
@@ -131965,7 +131788,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:28:13.937Z", verification_source_url: "https://www.law.ac.uk/study/postgraduate/computer-science/msc-computer-science-conversion/",
   },
-  {
+{
     university_name: "University of Law",
     country: "UK", city: "London", qs_ranking: null,
     program_name: "MSc Corporate Financial Management", degree_level: "postgraduate",
@@ -131979,7 +131802,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.law.ac.uk/study/postgraduate/business/msc-corporate-financial-management/",
     verified_at: "2026-05-14T12:30:38.291Z", verification_source_url: "https://www.law.ac.uk/study/postgraduate/business/msc-corporate-financial-management/",
   },
-  {
+{
     university_name: "University of Law",
     country: "UK", city: "London", qs_ranking: null,
     program_name: "MSc Criminology and Criminal Justice", degree_level: "postgraduate",
@@ -131993,7 +131816,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:30:33.143Z", verification_source_url: "https://www.law.ac.uk/study/postgraduate/criminology/msc-criminology-and-criminal-justice/",
   },
-  {
+{
     university_name: "University of Law",
     country: "UK", city: "London", qs_ranking: null,
     program_name: "MSc Strategic Business Management", degree_level: "postgraduate",
@@ -132007,7 +131830,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:28:24.543Z", verification_source_url: "https://www.law.ac.uk/study/postgraduate/business/msc-strategic-business-management/",
   },
-  {
+{
     university_name: "University of Louisville",
     country: "USA", city: "Louisville, KY", qs_ranking: 951,
     program_name: "Artificial Intelligence in Medicine (MS)", degree_level: "postgraduate",
@@ -132021,7 +131844,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:11:37.983Z", verification_source_url: "https://catalog.louisville.edu/graduate/programs-study/master-science-artificial-intelligence-in-medicine/",
   },
-  {
+{
     university_name: "University of Louisville",
     country: "USA", city: "Louisville, KY", qs_ranking: 951,
     program_name: "Bioengineering (MS)", degree_level: "postgraduate",
@@ -132035,7 +131858,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:11:52.818Z", verification_source_url: "https://catalog.louisville.edu/graduate/programs-study/master-science-bioengineering/",
   },
-  {
+{
     university_name: "University of Louisville",
     country: "USA", city: "Louisville, KY", qs_ranking: 951,
     program_name: "Biology (MS)", degree_level: "postgraduate",
@@ -132049,7 +131872,7 @@ export const PROGRAMS = ([{
     apply_url: "https://graduate.louisville.edu",
     verified_at: "2026-05-14T12:12:17.323Z", verification_source_url: "https://catalog.louisville.edu/graduate/programs-study/master-science-biology/",
   },
-  {
+{
     university_name: "University of Louisville",
     country: "USA", city: "Louisville, KY", qs_ranking: 951,
     program_name: "Business Analytics (MS)", degree_level: "postgraduate",
@@ -132063,7 +131886,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:11:40.403Z", verification_source_url: "https://catalog.louisville.edu/graduate/programs-study/master-science-business-analytics/",
   },
-  {
+{
     university_name: "University of Louisville",
     country: "USA", city: "Louisville, KY", qs_ranking: 951,
     program_name: "Business Economics (BS)", degree_level: "undergraduate",
@@ -132077,7 +131900,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:12:05.421Z", verification_source_url: "https://catalog.louisville.edu/undergraduate/majors/business-economics-bs/",
   },
-  {
+{
     university_name: "University of Louisville",
     country: "USA", city: "Louisville, KY", qs_ranking: 951,
     program_name: "Communication (MA)", degree_level: "postgraduate",
@@ -132091,7 +131914,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:12:15.068Z", verification_source_url: "https://catalog.louisville.edu/graduate/programs-study/master-arts-communication/",
   },
-  {
+{
     university_name: "University of Louisville",
     country: "USA", city: "Louisville, KY", qs_ranking: 951,
     program_name: "Computer Science (MS)", degree_level: "postgraduate",
@@ -132105,7 +131928,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:11:36.231Z", verification_source_url: "https://catalog.louisville.edu/graduate/programs-study/master-of-science-computer-science/",
   },
-  {
+{
     university_name: "University of Louisville",
     country: "USA", city: "Louisville, KY", qs_ranking: 951,
     program_name: "Juris Doctor Program", degree_level: "postgraduate",
@@ -132119,7 +131942,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:12:08.917Z", verification_source_url: "https://law.louisville.edu/academics/juris-doctor-program",
   },
-  {
+{
     university_name: "University of Louisville",
     country: "USA", city: "Louisville, KY", qs_ranking: 951,
     program_name: "Master of Arts in Anthropology", degree_level: "postgraduate",
@@ -132133,7 +131956,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:12:03.706Z", verification_source_url: "https://catalog.louisville.edu/graduate/programs-study/master-arts-anthropology/",
   },
-  {
+{
     university_name: "University of Louisville",
     country: "USA", city: "Louisville, KY", qs_ranking: 951,
     program_name: "Mechanical Engineering (MS)", degree_level: "postgraduate",
@@ -132147,7 +131970,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:11:50.873Z", verification_source_url: "https://catalog.louisville.edu/graduate/programs-study/master-of-science-mechanical-engineering/",
   },
-  {
+{
     university_name: "University of Louisville",
     country: "USA", city: "Louisville, KY", qs_ranking: 951,
     program_name: "Nursing (MSN)", degree_level: "postgraduate",
@@ -132161,7 +131984,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:12:21.084Z", verification_source_url: "https://catalog.louisville.edu/graduate/programs-study/master-science-nursing/",
   },
-  {
+{
     university_name: "University of Louisville",
     country: "USA", city: "Louisville, KY", qs_ranking: 951,
     program_name: "Online MBA", degree_level: "postgraduate",
@@ -132175,7 +131998,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:11:53.484Z", verification_source_url: "https://business.louisville.edu/online-master-business-administration",
   },
-  {
+{
     university_name: "University of Louisville",
     country: "USA", city: "Louisville, KY", qs_ranking: 951,
     program_name: "Public Health (MPH)", degree_level: "postgraduate",
@@ -132189,7 +132012,7 @@ export const PROGRAMS = ([{
     apply_url: "https://sophas.liaisoncas.com/",
     verified_at: "2026-05-14T12:11:52.911Z", verification_source_url: "https://catalog.louisville.edu/graduate/programs-study/master-public-health/",
   },
-  {
+{
     university_name: "University of Louisville",
     country: "USA", city: "Louisville, KY", qs_ranking: 951,
     program_name: "Studio Art and Design (MFA)", degree_level: "postgraduate",
@@ -132203,7 +132026,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:12:06.070Z", verification_source_url: "https://catalog.louisville.edu/graduate/programs-study/master-fine-arts-studio-art-design/",
   },
-  {
+{
     university_name: "University of Maryland, Baltimore County",
     country: "USA", city: "Baltimore, MD", qs_ranking: null,
     program_name: "Bachelor of Arts in Media and Communication Studies", degree_level: "undergraduate",
@@ -132217,7 +132040,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:41:18.213Z", verification_source_url: "https://umbc.edu/programs/undergraduate/media-and-communication-studies-programs/media-and-communication-studies/",
   },
-  {
+{
     university_name: "University of Maryland, Baltimore County",
     country: "USA", city: "Baltimore, MD", qs_ranking: null,
     program_name: "Bachelor of Arts in Public Health", degree_level: "undergraduate",
@@ -132231,7 +132054,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:41:05.144Z", verification_source_url: "https://umbc.edu/programs/undergraduate/sociology-anthropology-and-public-health-programs/public-health-major/",
   },
-  {
+{
     university_name: "University of Maryland, Baltimore County",
     country: "USA", city: "Baltimore, MD", qs_ranking: null,
     program_name: "Biology Graduate Programs", degree_level: "postgraduate",
@@ -132245,7 +132068,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:41:20.379Z", verification_source_url: "https://umbc.edu/programs/graduate/biology/",
   },
-  {
+{
     university_name: "University of Maryland, Baltimore County",
     country: "USA", city: "Baltimore, MD", qs_ranking: null,
     program_name: "Business Technology Administration", degree_level: "undergraduate",
@@ -132259,7 +132082,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:40:51.450Z", verification_source_url: "https://informationsystems.umbc.edu/home/undergraduate-programs/undergraduate-degree-programs/business-technology-administration/",
   },
-  {
+{
     university_name: "University of Maryland, Baltimore County",
     country: "USA", city: "Baltimore, MD", qs_ranking: null,
     program_name: "Economics Undergraduate Programs", degree_level: "undergraduate",
@@ -132273,7 +132096,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:41:13.196Z", verification_source_url: "https://umbc.edu/programs/undergraduate/economics-programs/",
   },
-  {
+{
     university_name: "University of Maryland, Baltimore County",
     country: "USA", city: "Baltimore, MD", qs_ranking: null,
     program_name: "Geography and Environmental Systems", degree_level: "postgraduate",
@@ -132287,7 +132110,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:41:20.107Z", verification_source_url: "https://ges.umbc.edu/home/graduate-programs/",
   },
-  {
+{
     university_name: "University of Maryland, Baltimore County",
     country: "USA", city: "Baltimore, MD", qs_ranking: null,
     program_name: "M.S. Program", degree_level: "postgraduate",
@@ -132301,7 +132124,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:41:00.346Z", verification_source_url: "https://me.umbc.edu/m-s-program/",
   },
-  {
+{
     university_name: "University of Maryland, Baltimore County",
     country: "USA", city: "Baltimore, MD", qs_ranking: null,
     program_name: "Master of Professional Studies: Biotechnology", degree_level: "postgraduate",
@@ -132315,7 +132138,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:41:11.725Z", verification_source_url: "https://professionalprograms.umbc.edu/biotechnology/",
   },
-  {
+{
     university_name: "University of Maryland, Baltimore County",
     country: "USA", city: "Baltimore, MD", qs_ranking: null,
     program_name: "Master of Science in Artificial Intelligence", degree_level: "postgraduate",
@@ -132329,7 +132152,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:40:52.017Z", verification_source_url: "https://umbc.edu/programs/graduate/computer-science-and-electrical-engineering-programs/artificial-intelligence-master-of-science/",
   },
-  {
+{
     university_name: "University of Maryland, Baltimore County",
     country: "USA", city: "Baltimore, MD", qs_ranking: null,
     program_name: "Master of Science in Computer Science", degree_level: "postgraduate",
@@ -132343,7 +132166,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:40:49.789Z", verification_source_url: "https://umbc.edu/programs/graduate/computer-science-and-electrical-engineering-programs/computer-science-masters/",
   },
-  {
+{
     university_name: "University of Maryland, Baltimore County",
     country: "USA", city: "Baltimore, MD", qs_ranking: null,
     program_name: "Pre-Nursing", degree_level: "undergraduate",
@@ -132357,7 +132180,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:41:24.938Z", verification_source_url: "https://umbc.edu/programs/undergraduate/pre-professional-programs/pre-nursing-programs/",
   },
-  {
+{
     university_name: "University of Maryland, Baltimore County",
     country: "USA", city: "Baltimore, MD", qs_ranking: null,
     program_name: "Professional Engineering & MBA Program", degree_level: "postgraduate",
@@ -132371,7 +132194,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:41:05.738Z", verification_source_url: "https://professionalprograms.umbc.edu/engineering-management/engineering-management-mba/",
   },
-  {
+{
     university_name: "University of Maryland, Baltimore County",
     country: "USA", city: "Baltimore, MD", qs_ranking: null,
     program_name: "Visual Arts Undergraduate Programs", degree_level: "undergraduate",
@@ -132385,7 +132208,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:41:03.946Z", verification_source_url: "https://umbc.edu/programs/undergraduate/visual-arts-programs/",
   },
-  {
+{
     university_name: "University of Massachusetts Boston",
     country: "USA", city: "Boston, MA", qs_ranking: null,
     program_name: "Applied Economics MA", degree_level: "postgraduate",
@@ -132399,7 +132222,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.umb.edu/academics/program-finder/applied-economics-ma/",
     verified_at: "2026-05-14T16:31:51.549Z", verification_source_url: "https://www.umb.edu/academics/program-finder/applied-economics-ma/",
   },
-  {
+{
     university_name: "University of Massachusetts Boston",
     country: "USA", city: "Boston, MA", qs_ranking: null,
     program_name: "Art BA", degree_level: "undergraduate",
@@ -132413,7 +132236,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:23:18.284Z", verification_source_url: "https://www.umb.edu/academics/program-finder/art-ba/",
   },
-  {
+{
     university_name: "University of Massachusetts Boston",
     country: "USA", city: "Boston, MA", qs_ranking: null,
     program_name: "Biotechnology and Biomedical Sciences (MS)", degree_level: "postgraduate",
@@ -132427,7 +132250,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:23:05.083Z", verification_source_url: "https://www.umb.edu/academics/program-finder/biotechnology-biomedical-science-ms/",
   },
-  {
+{
     university_name: "University of Massachusetts Boston",
     country: "USA", city: "Boston, MA", qs_ranking: null,
     program_name: "Business Administration MBA", degree_level: "postgraduate",
@@ -132441,7 +132264,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:23:02.964Z", verification_source_url: "https://www.umb.edu/academics/program-finder/business-administration-mba/",
   },
-  {
+{
     university_name: "University of Massachusetts Boston",
     country: "USA", city: "Boston, MA", qs_ranking: null,
     program_name: "Business Analytics MS", degree_level: "postgraduate",
@@ -132455,7 +132278,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:22:40.455Z", verification_source_url: "https://www.umb.edu/academics/program-finder/business-analytics-ms/",
   },
-  {
+{
     university_name: "University of Massachusetts Boston",
     country: "USA", city: "Boston, MA", qs_ranking: null,
     program_name: "Chemistry MS", degree_level: "postgraduate",
@@ -132469,7 +132292,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:27:44.829Z", verification_source_url: "https://www.umb.edu/academics/program-finder/chemistry-ms/",
   },
-  {
+{
     university_name: "University of Massachusetts Boston",
     country: "USA", city: "Boston, MA", qs_ranking: null,
     program_name: "Communication BA", degree_level: "undergraduate",
@@ -132483,7 +132306,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:31:52.196Z", verification_source_url: "https://www.umb.edu/academics/program-finder/communication-ba/",
   },
-  {
+{
     university_name: "University of Massachusetts Boston",
     country: "USA", city: "Boston, MA", qs_ranking: null,
     program_name: "Computer Science MS", degree_level: "postgraduate",
@@ -132497,7 +132320,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:22:39.219Z", verification_source_url: "https://www.umb.edu/academics/program-finder/computer-science-ms/",
   },
-  {
+{
     university_name: "University of Massachusetts Boston",
     country: "USA", city: "Boston, MA", qs_ranking: null,
     program_name: "Engineering", degree_level: "undergraduate",
@@ -132511,7 +132334,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:23:00.356Z", verification_source_url: "https://www.umb.edu/science-mathematics/academic-departments/engineering/",
   },
-  {
+{
     university_name: "University of Massachusetts Boston",
     country: "USA", city: "Boston, MA", qs_ranking: null,
     program_name: "Environmental Sciences MS", degree_level: "postgraduate",
@@ -132525,7 +132348,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:27:29.817Z", verification_source_url: "https://www.umb.edu/academics/program-finder/environmental-sciences-ms/",
   },
-  {
+{
     university_name: "University of Massachusetts Boston",
     country: "USA", city: "Boston, MA", qs_ranking: null,
     program_name: "Finance MS", degree_level: "postgraduate",
@@ -132539,7 +132362,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:27:24.072Z", verification_source_url: "https://www.umb.edu/academics/program-finder/finance-ms/",
   },
-  {
+{
     university_name: "University of Massachusetts Boston",
     country: "USA", city: "Boston, MA", qs_ranking: null,
     program_name: "Nursing MS", degree_level: "postgraduate",
@@ -132553,7 +132376,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:27:51.250Z", verification_source_url: "https://www.umb.edu/academics/program-finder/nursing-ms/",
   },
-  {
+{
     university_name: "University of Massachusetts Boston",
     country: "USA", city: "Boston, MA", qs_ranking: null,
     program_name: "Urban Public Health BS", degree_level: "undergraduate",
@@ -132567,7 +132390,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.umb.edu/academics/program-finder/urban-public-health-bs/",
     verified_at: "2026-05-14T16:23:07.255Z", verification_source_url: "https://www.umb.edu/academics/program-finder/urban-public-health-bs/",
   },
-  {
+{
     university_name: "University of Massachusetts Lowell",
     country: "USA", city: "Lowell, MA", qs_ranking: 851,
     program_name: "Architectural Studies Minor", degree_level: "undergraduate",
@@ -132581,7 +132404,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:13:47.581Z", verification_source_url: "https://www.uml.edu/fahss/art/programs-of-study/architectural-studies-minor.aspx",
   },
-  {
+{
     university_name: "University of Massachusetts Lowell",
     country: "USA", city: "Lowell, MA", qs_ranking: 851,
     program_name: "Digital Media Major, Bachelor of Arts (B.A.)", degree_level: "undergraduate",
@@ -132595,7 +132418,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:21:55.898Z", verification_source_url: "https://www.uml.edu/fahss/digital-media/digital-media-major.aspx",
   },
-  {
+{
     university_name: "University of Massachusetts Lowell",
     country: "USA", city: "Lowell, MA", qs_ranking: 851,
     program_name: "Master of Business Administration - MBA", degree_level: "postgraduate",
@@ -132609,7 +132432,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:13:41.679Z", verification_source_url: "https://www.uml.edu/msb/programs/masters-programs/mba/",
   },
-  {
+{
     university_name: "University of Massachusetts Lowell",
     country: "USA", city: "Lowell, MA", qs_ranking: 851,
     program_name: "Master of Science in Business Analytics", degree_level: "postgraduate",
@@ -132623,7 +132446,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:13:15.139Z", verification_source_url: "https://www.uml.edu/msb/departments/operations-info-systems/programs/msba.aspx",
   },
-  {
+{
     university_name: "University of Massachusetts Lowell",
     country: "USA", city: "Lowell, MA", qs_ranking: 851,
     program_name: "Master of Science in Computer Science", degree_level: "postgraduate",
@@ -132637,7 +132460,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:07:00.653Z", verification_source_url: "https://www.uml.edu/sciences/computer-science/programs/masters/",
   },
-  {
+{
     university_name: "University of Massachusetts Lowell",
     country: "USA", city: "Lowell, MA", qs_ranking: 851,
     program_name: "Master of Science in Engineering (M.S.E.) in Mechanical Engineering", degree_level: "postgraduate",
@@ -132651,7 +132474,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:13:40.988Z", verification_source_url: "https://www.uml.edu/engineering/mechanical-industrial/programs-of-study/masters/masters-mse-mechanical.aspx",
   },
-  {
+{
     university_name: "University of Massachusetts Lowell",
     country: "USA", city: "Lowell, MA", qs_ranking: 851,
     program_name: "Master of Science in Environmental Studies", degree_level: "postgraduate",
@@ -132665,7 +132488,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:22:15.471Z", verification_source_url: "https://www.uml.edu/sciences/eeas/programs/graduate/masters.aspx",
   },
-  {
+{
     university_name: "University of Massachusetts Lowell",
     country: "USA", city: "Lowell, MA", qs_ranking: 851,
     program_name: "Master of Science in Finance", degree_level: "postgraduate",
@@ -132679,7 +132502,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.uml.edu/msb/departments/finance/programs/ms-finance.aspx",
     verified_at: "2026-05-14T16:21:57.742Z", verification_source_url: "https://www.uml.edu/msb/departments/finance/programs/ms-finance.aspx",
   },
-  {
+{
     university_name: "University of Massachusetts Lowell",
     country: "USA", city: "Lowell, MA", qs_ranking: 851,
     program_name: "Master of Science in Nursing", degree_level: "postgraduate",
@@ -132693,7 +132516,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:22:17.499Z", verification_source_url: "https://www.uml.edu/health-sciences/nursing/programs/masters/masters.aspx",
   },
-  {
+{
     university_name: "University of Massachusetts Lowell",
     country: "USA", city: "Lowell, MA", qs_ranking: 851,
     program_name: "Master of Science (M.S.) in Biological Sciences", degree_level: "postgraduate",
@@ -132707,7 +132530,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.uml.edu/sciences/biology/programs-of-study/masters.aspx",
     verified_at: "2026-05-14T16:22:19.037Z", verification_source_url: "https://www.uml.edu/sciences/biology/programs-of-study/masters.aspx",
   },
-  {
+{
     university_name: "University of Massachusetts Lowell",
     country: "USA", city: "Lowell, MA", qs_ranking: 851,
     program_name: "Master's Degrees in Public Health", degree_level: "postgraduate",
@@ -132721,7 +132544,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:13:30.707Z", verification_source_url: "https://www.uml.edu/health-sciences/public-health/programs-of-study/masters/",
   },
-  {
+{
     university_name: "University of Massachusetts Lowell",
     country: "USA", city: "Lowell, MA", qs_ranking: 851,
     program_name: "Master's Program in Community Social Psychology", degree_level: "postgraduate",
@@ -132735,7 +132558,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:22:47.736Z", verification_source_url: "https://www.uml.edu/catalog/graduate/fahss/psychology/masters-program.aspx",
   },
-  {
+{
     university_name: "University of Memphis",
     country: "USA", city: "Memphis, TN", qs_ranking: null,
     program_name: "Degree Programs", degree_level: "postgraduate",
@@ -132749,7 +132572,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:26:40.783Z", verification_source_url: "https://www.memphis.edu/law/current-students/degree-programs.php",
   },
-  {
+{
     university_name: "University of Memphis",
     country: "USA", city: "Memphis, TN", qs_ranking: null,
     program_name: "Engineering Undergraduate Majors, Minors and Concentrations", degree_level: "undergraduate",
@@ -132763,7 +132586,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:26:27.392Z", verification_source_url: "https://www.memphis.edu/herff/departments/degrees-ug.php",
   },
-  {
+{
     university_name: "University of Memphis",
     country: "USA", city: "Memphis, TN", qs_ranking: null,
     program_name: "Environmental Nutrition (MS)", degree_level: "postgraduate",
@@ -132777,7 +132600,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:27:02.356Z", verification_source_url: "https://www.memphis.edu/healthsciences/graduate/environmental-nutrition-ms.php",
   },
-  {
+{
     university_name: "University of Memphis",
     country: "USA", city: "Memphis, TN", qs_ranking: null,
     program_name: "Graduate Program in Biological Sciences", degree_level: "postgraduate",
@@ -132791,7 +132614,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:26:32.747Z", verification_source_url: "https://www.memphis.edu/biology/graduate/",
   },
-  {
+{
     university_name: "University of Memphis",
     country: "USA", city: "Memphis, TN", qs_ranking: null,
     program_name: "MA in Economics", degree_level: "postgraduate",
@@ -132805,7 +132628,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:26:52.380Z", verification_source_url: "https://www.memphis.edu/fcbegrad/specialized/ma-econ.php",
   },
-  {
+{
     university_name: "University of Memphis",
     country: "USA", city: "Memphis, TN", qs_ranking: null,
     program_name: "MA in Journalism and Strategic Media", degree_level: "postgraduate",
@@ -132819,7 +132642,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:26:58.148Z", verification_source_url: "https://www.memphis.edu/jrsm/graduate_program/",
   },
-  {
+{
     university_name: "University of Memphis",
     country: "USA", city: "Memphis, TN", qs_ranking: null,
     program_name: "Master of Architecture", degree_level: "postgraduate",
@@ -132833,7 +132656,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:26:45.282Z", verification_source_url: "https://www.memphis.edu/architecture/admissions.php",
   },
-  {
+{
     university_name: "University of Memphis",
     country: "USA", city: "Memphis, TN", qs_ranking: null,
     program_name: "Master of Business Administration (MBA)", degree_level: "postgraduate",
@@ -132847,7 +132670,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:26:23.621Z", verification_source_url: "https://www.memphis.edu/fcbegrad/mba/",
   },
-  {
+{
     university_name: "University of Memphis",
     country: "USA", city: "Memphis, TN", qs_ranking: null,
     program_name: "Master of Public Health (MPH) with concentration in Epidemiology", degree_level: "postgraduate",
@@ -132861,7 +132684,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:26:35.166Z", verification_source_url: "https://www.memphis.edu/publichealth/academics/degrees-programs/ebe-mph-epi.php",
   },
-  {
+{
     university_name: "University of Memphis",
     country: "USA", city: "Memphis, TN", qs_ranking: null,
     program_name: "Master of Science (Chemistry)", degree_level: "postgraduate",
@@ -132875,7 +132698,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:27:08.629Z", verification_source_url: "https://www.memphis.edu/chem/programs/masters.php",
   },
-  {
+{
     university_name: "University of Memphis",
     country: "USA", city: "Memphis, TN", qs_ranking: null,
     program_name: "Master of Science in Nursing (MSN)", degree_level: "postgraduate",
@@ -132889,7 +132712,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:27:12.916Z", verification_source_url: "https://www.memphis.edu/nursing/program-admit/msn/msnprograms.php",
   },
-  {
+{
     university_name: "University of Memphis",
     country: "USA", city: "Memphis, TN", qs_ranking: null,
     program_name: "Master's of Business Administration", degree_level: "postgraduate",
@@ -132903,7 +132726,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:26:15.122Z", verification_source_url: "https://mba.memphis.edu/",
   },
-  {
+{
     university_name: "University of Memphis",
     country: "USA", city: "Memphis, TN", qs_ranking: null,
     program_name: "Masters Degree in Data Science", degree_level: "postgraduate",
@@ -132917,7 +132740,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:26:17.113Z", verification_source_url: "https://www.memphis.edu/datascience/",
   },
-  {
+{
     university_name: "University of Memphis",
     country: "USA", city: "Memphis, TN", qs_ranking: null,
     program_name: "MS Computer Science", degree_level: "postgraduate",
@@ -132931,21 +132754,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:26:10.091Z", verification_source_url: "https://www.memphis.edu/cs/programs/ms_computer_science.php",
   },
-  {
-    university_name: "University of Nantes",
-    country: "France", city: "Nantes", qs_ranking: null,
-    program_name: "Master CPM - Parcours \"Médiation Culturelle et Communication Internationale\" (MCCI)", degree_level: "postgraduate",
-    duration_months: 24, field_of_study: "Media & Communications", specialization: "Médiation Culturelle et Communication Internationale",
-    annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
-    avg_living_cost_usd: null, avg_living_cost_amount: null, avg_living_cost_currency: null,
-    intake_semesters: [], application_deadline: null,
-    min_gpa: null, min_percentage: 60, min_ielts: null, min_toefl: null, min_pte: null, min_duolingo: null,
-    min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: null,
-    program_url: "https://flce.univ-nantes.fr/offre-de-formation/master-ccs/mcci",
-    apply_url: null,
-    verified_at: "2026-05-04T09:35:30.451Z", verification_source_url: "https://flce.univ-nantes.fr/offre-de-formation/master-ccs/mcci",
-  },
-  {
+{
     university_name: "University of Nebraska-Lincoln",
     country: "USA", city: "Lincoln, NE", qs_ranking: 561,
     program_name: "Computer Science (MS)", degree_level: "postgraduate",
@@ -132959,7 +132768,7 @@ export const PROGRAMS = ([{
     apply_url: "https://graduate.unl.edu/admissions/tuition-and-fees/",
     verified_at: "2026-05-14T15:40:41.011Z", verification_source_url: "https://graduate.unl.edu/academics/programs/COMP-MS/",
   },
-  {
+{
     university_name: "University of Nebraska-Lincoln",
     country: "USA", city: "Lincoln, NE", qs_ranking: 561,
     program_name: "Graduate Certificate in Artificial Intelligence", degree_level: "postgraduate",
@@ -132973,7 +132782,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:40:31.448Z", verification_source_url: "https://computing.unl.edu/ai-graduate-certificate/",
   },
-  {
+{
     university_name: "University of Nebraska-Lincoln",
     country: "USA", city: "Lincoln, NE", qs_ranking: 561,
     program_name: "Graduate Program in Physics and Astronomy", degree_level: "postgraduate",
@@ -132987,7 +132796,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:48:00.139Z", verification_source_url: "https://www.unl.edu/physics/graduate",
   },
-  {
+{
     university_name: "University of Nebraska-Lincoln",
     country: "USA", city: "Lincoln, NE", qs_ranking: 561,
     program_name: "Hospitality Management Specialization (M.S.)", degree_level: "postgraduate",
@@ -133001,7 +132810,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:48:04.959Z", verification_source_url: "https://cehs.unl.edu/nhs/programs/hospitality-restaurant-and-tourism-management/",
   },
-  {
+{
     university_name: "University of Nebraska-Lincoln",
     country: "USA", city: "Lincoln, NE", qs_ranking: 561,
     program_name: "Integrated Media Communications", degree_level: "postgraduate",
@@ -133015,7 +132824,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:47:41.384Z", verification_source_url: "https://journalism.unl.edu/integrated-media-communications/",
   },
-  {
+{
     university_name: "University of Nebraska-Lincoln",
     country: "USA", city: "Lincoln, NE", qs_ranking: 561,
     program_name: "Juris Doctor (J.D.)", degree_level: "postgraduate",
@@ -133029,7 +132838,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:47:21.463Z", verification_source_url: "https://law.unl.edu/prospective-student/degree-programs/",
   },
-  {
+{
     university_name: "University of Nebraska-Lincoln",
     country: "USA", city: "Lincoln, NE", qs_ranking: 561,
     program_name: "M.S. in Environmental Engineering", degree_level: "postgraduate",
@@ -133043,7 +132852,7 @@ export const PROGRAMS = ([{
     apply_url: "https://go.unl.edu/gradapp",
     verified_at: "2026-05-14T15:47:48.610Z", verification_source_url: "https://engineering.unl.edu/civil/prospective-students/ms-environmental-engineering/",
   },
-  {
+{
     university_name: "University of Nebraska-Lincoln",
     country: "USA", city: "Lincoln, NE", qs_ranking: 561,
     program_name: "M.S. in Finance", degree_level: "postgraduate",
@@ -133057,7 +132866,7 @@ export const PROGRAMS = ([{
     apply_url: "https://business.unl.edu/graduate-programs/online-masters-programs/ms-finance/",
     verified_at: "2026-05-14T15:47:51.969Z", verification_source_url: "https://business.unl.edu/graduate-programs/online-masters-programs/ms-finance/",
   },
-  {
+{
     university_name: "University of Nebraska-Lincoln",
     country: "USA", city: "Lincoln, NE", qs_ranking: 561,
     program_name: "Master of Architecture", degree_level: "postgraduate",
@@ -133071,7 +132880,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:47:21.483Z", verification_source_url: "https://architecture.unl.edu/prospective-student/professional-programs/",
   },
-  {
+{
     university_name: "University of Nebraska-Lincoln",
     country: "USA", city: "Lincoln, NE", qs_ranking: 561,
     program_name: "Master's Programs", degree_level: "postgraduate",
@@ -133085,7 +132894,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:40:45.407Z", verification_source_url: "https://business.unl.edu/graduate-programs/masters-programs/",
   },
-  {
+{
     university_name: "University of Nebraska-Lincoln",
     country: "USA", city: "Lincoln, NE", qs_ranking: 561,
     program_name: "Mechanical Engineering and Applied Mechanics (MS)", degree_level: "postgraduate",
@@ -133099,7 +132908,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:47:31.788Z", verification_source_url: "https://graduate.unl.edu/academics/programs/MEAM-MS/",
   },
-  {
+{
     university_name: "University of Nebraska-Lincoln",
     country: "USA", city: "Lincoln, NE", qs_ranking: 561,
     program_name: "Nebraska MBA", degree_level: "postgraduate",
@@ -133113,7 +132922,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:47:12.988Z", verification_source_url: "https://business.unl.edu/mba/",
   },
-  {
+{
     university_name: "University of Nebraska-Lincoln",
     country: "USA", city: "Lincoln, NE", qs_ranking: 561,
     program_name: "Ph.D. in Integrative Biomedical Sciences", degree_level: "postgraduate",
@@ -133127,7 +132936,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:48:07.839Z", verification_source_url: "https://vbms.unl.edu/academic-programs/graduate-program/",
   },
-  {
+{
     university_name: "University of Nebraska-Lincoln",
     country: "USA", city: "Lincoln, NE", qs_ranking: 561,
     program_name: "Sociology (MA)", degree_level: "postgraduate",
@@ -133141,7 +132950,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:47:40.030Z", verification_source_url: "https://graduate.unl.edu/academics/programs/SOCI-MA/",
   },
-  {
+{
     university_name: "University of New Hampshire",
     country: "USA", city: "Durham, NH", qs_ranking: 801,
     program_name: "Agricultural Sciences, M.S.", degree_level: "postgraduate",
@@ -133155,7 +132964,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.unh.edu/program/master-science/agricultural-sciences",
     verified_at: "2026-05-14T11:42:48.191Z", verification_source_url: "https://www.unh.edu/program/master-science/agricultural-sciences",
   },
-  {
+{
     university_name: "University of New Hampshire",
     country: "USA", city: "Durham, NH", qs_ranking: 801,
     program_name: "Business Administration, B.S.", degree_level: "undergraduate",
@@ -133169,7 +132978,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:41:44.033Z", verification_source_url: "https://www.unh.edu/program/bachelor-science/business-administration",
   },
-  {
+{
     university_name: "University of New Hampshire",
     country: "USA", city: "Durham, NH", qs_ranking: 801,
     program_name: "Business Administration: Full-Time, M.B.A.", degree_level: "postgraduate",
@@ -133183,7 +132992,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.unh.edu/program/master-business-administration/business-administration-full-time-mba",
     verified_at: "2026-05-14T11:41:45.496Z", verification_source_url: "https://www.unh.edu/program/master-business-administration/business-administration-full-time-mba",
   },
-  {
+{
     university_name: "University of New Hampshire",
     country: "USA", city: "Durham, NH", qs_ranking: 801,
     program_name: "Business Analytics, M.S.", degree_level: "postgraduate",
@@ -133197,7 +133006,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.unh.edu/program/master-science/business-analytics",
     verified_at: "2026-05-14T11:41:40.815Z", verification_source_url: "https://www.unh.edu/program/master-science/business-analytics",
   },
-  {
+{
     university_name: "University of New Hampshire",
     country: "USA", city: "Durham, NH", qs_ranking: 801,
     program_name: "Communication, B.A.", degree_level: "undergraduate",
@@ -133211,7 +133020,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.unh.edu/admissions/apply",
     verified_at: "2026-05-14T11:42:24.069Z", verification_source_url: "https://www.unh.edu/program/bachelor-arts/communication",
   },
-  {
+{
     university_name: "University of New Hampshire",
     country: "USA", city: "Durham, NH", qs_ranking: 801,
     program_name: "Computer Science, M.S.", degree_level: "postgraduate",
@@ -133225,7 +133034,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.unh.edu/program/master-science/computer-science",
     verified_at: "2026-05-14T11:41:37.504Z", verification_source_url: "https://www.unh.edu/program/master-science/computer-science",
   },
-  {
+{
     university_name: "University of New Hampshire",
     country: "USA", city: "Durham, NH", qs_ranking: 801,
     program_name: "Economics, M.S.", degree_level: "postgraduate",
@@ -133239,7 +133048,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.unh.edu/program/master-science/economics",
     verified_at: "2026-05-14T11:42:24.067Z", verification_source_url: "https://www.unh.edu/program/master-science/economics",
   },
-  {
+{
     university_name: "University of New Hampshire",
     country: "USA", city: "Durham, NH", qs_ranking: 801,
     program_name: "Interdisciplinary Humanities, B.A.", degree_level: "undergraduate",
@@ -133253,7 +133062,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.unh.edu/admissions/apply",
     verified_at: "2026-05-14T11:42:06.752Z", verification_source_url: "https://www.unh.edu/program/bachelor-arts/interdisciplinary-humanities",
   },
-  {
+{
     university_name: "University of New Hampshire",
     country: "USA", city: "Durham, NH", qs_ranking: 801,
     program_name: "Juris Doctor (J.D.)", degree_level: "postgraduate",
@@ -133267,7 +133076,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:42:04.378Z", verification_source_url: "https://law.unh.edu/admissions/jd-admissions",
   },
-  {
+{
     university_name: "University of New Hampshire",
     country: "USA", city: "Durham, NH", qs_ranking: 801,
     program_name: "Mechanical Engineering, M.S.", degree_level: "postgraduate",
@@ -133281,7 +133090,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.unh.edu/program/master-science/mechanical-engineering",
     verified_at: "2026-05-14T11:41:48.035Z", verification_source_url: "https://www.unh.edu/program/master-science/mechanical-engineering",
   },
-  {
+{
     university_name: "University of New Hampshire",
     country: "USA", city: "Durham, NH", qs_ranking: 801,
     program_name: "Molecular and Cellular Biotechnology, M.S.", degree_level: "postgraduate",
@@ -133295,7 +133104,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:41:58.567Z", verification_source_url: "https://colsa.unh.edu/molecular-cellular-biomedical-sciences/program/ms/molecular-cellular-biotechnology",
   },
-  {
+{
     university_name: "University of New Hampshire",
     country: "USA", city: "Durham, NH", qs_ranking: 801,
     program_name: "Natural Resources and the Environment, M.S.", degree_level: "postgraduate",
@@ -133309,7 +133118,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.unh.edu/program/master-science/natural-resources-environment",
     verified_at: "2026-05-14T11:42:26.959Z", verification_source_url: "https://www.unh.edu/program/master-science/natural-resources-environment",
   },
-  {
+{
     university_name: "University of New Hampshire",
     country: "USA", city: "Durham, NH", qs_ranking: 801,
     program_name: "Natural Resources: Environmental Conservation and Sustainability, M.S.", degree_level: "postgraduate",
@@ -133323,7 +133132,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.unh.edu/program/master-science/natural-resources-environmental-conservation-sustainability",
     verified_at: "2026-05-14T11:42:25.924Z", verification_source_url: "https://www.unh.edu/program/master-science/natural-resources-environmental-conservation-sustainability",
   },
-  {
+{
     university_name: "University of New Hampshire",
     country: "USA", city: "Durham, NH", qs_ranking: 801,
     program_name: "Nursing: Direct Entry, M.S.", degree_level: "postgraduate",
@@ -133337,7 +133146,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.unh.edu/program/master-science/nursing-direct-entry",
     verified_at: "2026-05-14T11:42:30.613Z", verification_source_url: "https://www.unh.edu/program/master-science/nursing-direct-entry",
   },
-  {
+{
     university_name: "University of New Hampshire",
     country: "USA", city: "Durham, NH", qs_ranking: 801,
     program_name: "Public Health, M.P.H.", degree_level: "postgraduate",
@@ -133351,7 +133160,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:42:03.174Z", verification_source_url: "https://www.unh.edu/program/master-public-health/public-health",
   },
-  {
+{
     university_name: "University of New Hampshire",
     country: "USA", city: "Durham, NH", qs_ranking: 801,
     program_name: "Social Work (M.S.W.)", degree_level: "postgraduate",
@@ -133365,7 +133174,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:42:02.138Z", verification_source_url: "https://catalog.unh.edu/graduate/programs-study/social-work/social-work-msw/",
   },
-  {
+{
     university_name: "University of New Haven",
     country: "USA", city: "West Haven, CT", qs_ranking: null,
     program_name: "Bachelor of Arts in Communication", degree_level: "undergraduate",
@@ -133379,7 +133188,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T13:42:43.389Z", verification_source_url: "https://www.newhaven.edu/arts-sciences/undergraduate-programs/communication/index.php",
   },
-  {
+{
     university_name: "University of New Haven",
     country: "USA", city: "West Haven, CT", qs_ranking: null,
     program_name: "Bachelor of Science in Health Sciences", degree_level: "undergraduate",
@@ -133393,7 +133202,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T13:42:52.151Z", verification_source_url: "https://www.newhaven.edu/health-sciences/undergraduate-programs/health-sciences/index.php",
   },
-  {
+{
     university_name: "University of New Haven",
     country: "USA", city: "West Haven, CT", qs_ranking: null,
     program_name: "Bachelor of Science in Legal Studies", degree_level: "undergraduate",
@@ -133407,7 +133216,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T13:42:26.428Z", verification_source_url: "https://www.newhaven.edu/arts-sciences/undergraduate-programs/legal-studies/index.php",
   },
-  {
+{
     university_name: "University of New Haven",
     country: "USA", city: "West Haven, CT", qs_ranking: null,
     program_name: "Finance and Financial Analytics, M.S.", degree_level: "postgraduate",
@@ -133421,7 +133230,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T13:42:37.375Z", verification_source_url: "https://www.newhaven.edu/business/graduate-programs/finance/index.php",
   },
-  {
+{
     university_name: "University of New Haven",
     country: "USA", city: "West Haven, CT", qs_ranking: null,
     program_name: "Full-Time MBA", degree_level: "postgraduate",
@@ -133435,7 +133244,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T13:31:55.619Z", verification_source_url: "https://www.newhaven.edu/business/graduate-programs/mba/index.php",
   },
-  {
+{
     university_name: "University of New Haven",
     country: "USA", city: "West Haven, CT", qs_ranking: null,
     program_name: "Hospitality and Tourism Management, B.S.", degree_level: "undergraduate",
@@ -133449,7 +133258,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T14:02:05.326Z", verification_source_url: "https://www.newhaven.edu/business/undergraduate-programs/hospitality-tourism-management/index.php",
   },
-  {
+{
     university_name: "University of New Haven",
     country: "USA", city: "West Haven, CT", qs_ranking: null,
     program_name: "Master of Public Health", degree_level: "postgraduate",
@@ -133463,7 +133272,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T13:42:14.721Z", verification_source_url: "https://www.newhaven.edu/health-sciences/graduate-programs/public-health/index.php",
   },
-  {
+{
     university_name: "University of New Haven",
     country: "USA", city: "West Haven, CT", qs_ranking: null,
     program_name: "Master of Science in Artificial Intelligence", degree_level: "postgraduate",
@@ -133477,7 +133286,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T13:31:37.894Z", verification_source_url: "https://www.newhaven.edu/engineering/graduate-programs/artificial-intelligence/index.php",
   },
-  {
+{
     university_name: "University of New Haven",
     country: "USA", city: "West Haven, CT", qs_ranking: null,
     program_name: "Master of Science in Cellular & Molecular Biology", degree_level: "postgraduate",
@@ -133491,7 +133300,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T13:32:02.579Z", verification_source_url: "https://www.newhaven.edu/arts-sciences/graduate-programs/cellular-molecular-biology/index.php",
   },
-  {
+{
     university_name: "University of New Haven",
     country: "USA", city: "West Haven, CT", qs_ranking: null,
     program_name: "Master of Science in Chemistry", degree_level: "postgraduate",
@@ -133505,7 +133314,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T13:42:49.429Z", verification_source_url: "https://www.newhaven.edu/engineering/graduate-programs/chemistry/index.php",
   },
-  {
+{
     university_name: "University of New Haven",
     country: "USA", city: "West Haven, CT", qs_ranking: null,
     program_name: "Master of Science in Environmental Science", degree_level: "postgraduate",
@@ -133519,7 +133328,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T13:42:46.034Z", verification_source_url: "https://www.newhaven.edu/arts-sciences/graduate-programs/environmental-science/index.php",
   },
-  {
+{
     university_name: "University of New Haven",
     country: "USA", city: "West Haven, CT", qs_ranking: null,
     program_name: "Master of Science in Mechanical Engineering", degree_level: "postgraduate",
@@ -133533,7 +133342,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T13:32:01.250Z", verification_source_url: "https://www.newhaven.edu/engineering/graduate-programs/mechanical-engineering/index.php",
   },
-  {
+{
     university_name: "University of North Carolina at Charlotte",
     country: "USA", city: "Charlotte, NC", qs_ranking: 851,
     program_name: "Artificial Intelligence, M.S.", degree_level: "postgraduate",
@@ -133547,7 +133356,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:29:57.807Z", verification_source_url: "https://academics.charlotte.edu/program/artificial-intelligence-m-s-on-campus/",
   },
-  {
+{
     university_name: "University of North Carolina at Charlotte",
     country: "USA", city: "Charlotte, NC", qs_ranking: 851,
     program_name: "Chemistry, M.S.", degree_level: "postgraduate",
@@ -133561,7 +133370,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:31:03.768Z", verification_source_url: "https://academics.charlotte.edu/program/chemistry-m-s-on-campus/",
   },
-  {
+{
     university_name: "University of North Carolina at Charlotte",
     country: "USA", city: "Charlotte, NC", qs_ranking: 851,
     program_name: "Communication Studies, M.A.", degree_level: "postgraduate",
@@ -133575,7 +133384,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:30:51.768Z", verification_source_url: "https://academics.charlotte.edu/program/communication-studies-m-a-on-campus/",
   },
-  {
+{
     university_name: "University of North Carolina at Charlotte",
     country: "USA", city: "Charlotte, NC", qs_ranking: 851,
     program_name: "Computer Science, M.S.", degree_level: "postgraduate",
@@ -133589,7 +133398,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:27:58.418Z", verification_source_url: "https://academics.charlotte.edu/program/computer-science-m-s-on-campus/",
   },
-  {
+{
     university_name: "University of North Carolina at Charlotte",
     country: "USA", city: "Charlotte, NC", qs_ranking: 851,
     program_name: "Economics, M.S.", degree_level: "postgraduate",
@@ -133603,7 +133412,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:30:45.913Z", verification_source_url: "https://academics.charlotte.edu/program/economics-m-s-dubois-center/",
   },
-  {
+{
     university_name: "University of North Carolina at Charlotte",
     country: "USA", city: "Charlotte, NC", qs_ranking: 851,
     program_name: "JL Price Master of Business Administration", degree_level: "postgraduate",
@@ -133617,7 +133426,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:30:10.524Z", verification_source_url: "https://mba.charlotte.edu/program-overview/",
   },
-  {
+{
     university_name: "University of North Carolina at Charlotte",
     country: "USA", city: "Charlotte, NC", qs_ranking: 851,
     program_name: "Master of Architecture", degree_level: "postgraduate",
@@ -133631,7 +133440,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:30:35.831Z", verification_source_url: "https://academics.charlotte.edu/program/architecture-m-arch-on-campus/",
   },
-  {
+{
     university_name: "University of North Carolina at Charlotte",
     country: "USA", city: "Charlotte, NC", qs_ranking: 851,
     program_name: "Master of Science in Earth Sciences", degree_level: "postgraduate",
@@ -133645,7 +133454,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:31:05.392Z", verification_source_url: "https://geoearth.charlotte.edu/graduate-programs/masters-earth-sciences/",
   },
-  {
+{
     university_name: "University of North Carolina at Charlotte",
     country: "USA", city: "Charlotte, NC", qs_ranking: 851,
     program_name: "Master of Science in Nursing", degree_level: "postgraduate",
@@ -133659,7 +133468,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:31:23.120Z", verification_source_url: "https://nursing.charlotte.edu/msn/",
   },
-  {
+{
     university_name: "University of North Carolina at Charlotte",
     country: "USA", city: "Charlotte, NC", qs_ranking: 851,
     program_name: "Master's in Bioinformatics", degree_level: "postgraduate",
@@ -133673,7 +133482,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:30:24.070Z", verification_source_url: "https://cci.charlotte.edu/academics/bioinformatics/bioinformatics-ms-program/",
   },
-  {
+{
     university_name: "University of North Carolina at Charlotte",
     country: "USA", city: "Charlotte, NC", qs_ranking: 851,
     program_name: "Public Health, MPH", degree_level: "postgraduate",
@@ -133687,7 +133496,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:30:30.391Z", verification_source_url: "https://academics.charlotte.edu/program/public-health-mph-on-campus/",
   },
-  {
+{
     university_name: "University of North Dakota",
     country: "USA", city: "Grand Forks, ND", qs_ranking: null,
     program_name: "Business Management", degree_level: "undergraduate",
@@ -133701,7 +133510,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:13:21.815Z", verification_source_url: "https://und.edu/programs/management-bba/index.html",
   },
-  {
+{
     university_name: "University of North Dakota",
     country: "USA", city: "Grand Forks, ND", qs_ranking: null,
     program_name: "Chemistry Master's", degree_level: "postgraduate",
@@ -133715,7 +133524,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:22:38.483Z", verification_source_url: "https://und.edu/programs/chemistry-ms/index.html",
   },
-  {
+{
     university_name: "University of North Dakota",
     country: "USA", city: "Grand Forks, ND", qs_ranking: null,
     program_name: "Earth System Science and Policy Master's (M.S. or M.E.M.)", degree_level: "postgraduate",
@@ -133729,7 +133538,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:22:29.092Z", verification_source_url: "https://und.edu/programs/earth-system-science-and-policy-ms-mem/index.html",
   },
-  {
+{
     university_name: "University of North Dakota",
     country: "USA", city: "Grand Forks, ND", qs_ranking: null,
     program_name: "Family Nurse Practitioner (M.S.)", degree_level: "postgraduate",
@@ -133743,7 +133552,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:22:41.364Z", verification_source_url: "https://und.edu/programs/family-nurse-practitioner-ms/index.html",
   },
-  {
+{
     university_name: "University of North Dakota",
     country: "USA", city: "Grand Forks, ND", qs_ranking: null,
     program_name: "Juris Doctor (J.D.)", degree_level: "postgraduate",
@@ -133757,7 +133566,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:13:43.285Z", verification_source_url: "https://und.edu/programs/law-jd/index.html",
   },
-  {
+{
     university_name: "University of North Dakota",
     country: "USA", city: "Grand Forks, ND", qs_ranking: null,
     program_name: "Master of Public Health", degree_level: "postgraduate",
@@ -133771,7 +133580,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:13:47.580Z", verification_source_url: "https://und.edu/programs/public-health-mph/index.html",
   },
-  {
+{
     university_name: "University of North Dakota",
     country: "USA", city: "Grand Forks, ND", qs_ranking: null,
     program_name: "Master of Science in Applied Economics & Predictive Analytics", degree_level: "postgraduate",
@@ -133785,7 +133594,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:22:15.397Z", verification_source_url: "https://und.edu/programs/applied-economics-ms/index.html",
   },
-  {
+{
     university_name: "University of North Dakota",
     country: "USA", city: "Grand Forks, ND", qs_ranking: null,
     program_name: "Master's Degree in Sociology Online", degree_level: "postgraduate",
@@ -133799,7 +133608,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:22:15.649Z", verification_source_url: "https://und.edu/programs/sociology-ma/index.html",
   },
-  {
+{
     university_name: "University of North Dakota",
     country: "USA", city: "Grand Forks, ND", qs_ranking: null,
     program_name: "Master's in Biomedical Sciences", degree_level: "postgraduate",
@@ -133813,7 +133622,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:13:46.821Z", verification_source_url: "https://und.edu/programs/biomedical-sciences-ms/index.html",
   },
-  {
+{
     university_name: "University of North Dakota",
     country: "USA", city: "Grand Forks, ND", qs_ranking: null,
     program_name: "Master's in Computer Science", degree_level: "postgraduate",
@@ -133827,7 +133636,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:13:22.053Z", verification_source_url: "https://und.edu/programs/computer-science-ms/index.html",
   },
-  {
+{
     university_name: "University of North Dakota",
     country: "USA", city: "Grand Forks, ND", qs_ranking: null,
     program_name: "Master's in Data Science", degree_level: "postgraduate",
@@ -133841,7 +133650,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:13:22.221Z", verification_source_url: "https://und.edu/programs/data-science-ms/index.html",
   },
-  {
+{
     university_name: "University of North Dakota",
     country: "USA", city: "Grand Forks, ND", qs_ranking: null,
     program_name: "Mechanical Engineering Master's", degree_level: "postgraduate",
@@ -133855,7 +133664,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:13:45.507Z", verification_source_url: "https://und.edu/programs/mechanical-engineering-ms-meng/index.html",
   },
-  {
+{
     university_name: "University of North Dakota",
     country: "USA", city: "Grand Forks, ND", qs_ranking: null,
     program_name: "Online Master's in Communication Master of Arts (M.A.)", degree_level: "postgraduate",
@@ -133869,7 +133678,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:23:01.061Z", verification_source_url: "https://und.edu/programs/communication-ma/index.html",
   },
-  {
+{
     university_name: "University of North Dakota",
     country: "USA", city: "Grand Forks, ND", qs_ranking: null,
     program_name: "Online MBA Master's in Business Administration", degree_level: "postgraduate",
@@ -133883,7 +133692,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:13:22.483Z", verification_source_url: "https://und.edu/programs/business-administration-mba/index.html",
   },
-  {
+{
     university_name: "University of North Dakota",
     country: "USA", city: "Grand Forks, ND", qs_ranking: null,
     program_name: "Visual Arts Master's", degree_level: "postgraduate",
@@ -133897,7 +133706,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:22:04.787Z", verification_source_url: "https://und.edu/programs/visual-arts-mfa/index.html",
   },
-  {
+{
     university_name: "University of North Texas",
     country: "USA", city: "Denton, TX", qs_ranking: 701,
     program_name: "Artificial Intelligence Master's", degree_level: "postgraduate",
@@ -133911,7 +133720,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:35:52.212Z", verification_source_url: "https://www.unt.edu/academics/programs/artificial-intelligence-masters.html",
   },
-  {
+{
     university_name: "University of North Texas",
     country: "USA", city: "Denton, TX", qs_ranking: 701,
     program_name: "Biology Master's", degree_level: "postgraduate",
@@ -133925,7 +133734,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:40:06.166Z", verification_source_url: "https://www.unt.edu/academics/programs/biology-masters.html",
   },
-  {
+{
     university_name: "University of North Texas",
     country: "USA", city: "Denton, TX", qs_ranking: 701,
     program_name: "Computer Science Master's", degree_level: "postgraduate",
@@ -133939,7 +133748,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:35:35.226Z", verification_source_url: "https://www.unt.edu/academics/programs/computer-science-masters.html",
   },
-  {
+{
     university_name: "University of North Texas",
     country: "USA", city: "Denton, TX", qs_ranking: 701,
     program_name: "Economics Master's", degree_level: "postgraduate",
@@ -133953,7 +133762,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:40:24.413Z", verification_source_url: "https://www.unt.edu/academics/programs/economics-masters.html",
   },
-  {
+{
     university_name: "University of North Texas",
     country: "USA", city: "Denton, TX", qs_ranking: 701,
     program_name: "Health Services Administration Master's", degree_level: "postgraduate",
@@ -133967,7 +133776,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:38:04.292Z", verification_source_url: "https://www.unt.edu/academics/programs/health-services-administration-masters.html",
   },
-  {
+{
     university_name: "University of North Texas",
     country: "USA", city: "Denton, TX", qs_ranking: 701,
     program_name: "Hospitality Management Master's", degree_level: "postgraduate",
@@ -133981,7 +133790,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:40:15.852Z", verification_source_url: "https://www.unt.edu/academics/programs/hospitality-management-masters.html",
   },
-  {
+{
     university_name: "University of North Texas",
     country: "USA", city: "Denton, TX", qs_ranking: 701,
     program_name: "Interdisciplinary Studies with a concentration in Humanities Master's", degree_level: "postgraduate",
@@ -133995,7 +133804,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:38:16.197Z", verification_source_url: "https://www.unt.edu/academics/programs/interdisciplinary-studies-with-a-concentration-in-humanities-masters.html",
   },
-  {
+{
     university_name: "University of North Texas",
     country: "USA", city: "Denton, TX", qs_ranking: 701,
     program_name: "Interior Design Master's", degree_level: "postgraduate",
@@ -134009,7 +133818,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:38:14.543Z", verification_source_url: "https://www.unt.edu/academics/programs/interior-design-masters.html",
   },
-  {
+{
     university_name: "University of North Texas",
     country: "USA", city: "Denton, TX", qs_ranking: 701,
     program_name: "M.B.A. in Management Consulting", degree_level: "postgraduate",
@@ -134023,7 +133832,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:35:53.194Z", verification_source_url: "https://www.unt.edu/academics/programs/management-masters.html",
   },
-  {
+{
     university_name: "University of North Texas",
     country: "USA", city: "Denton, TX", qs_ranking: 701,
     program_name: "MBA with Flexible Concentration", degree_level: "postgraduate",
@@ -134037,7 +133846,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:35:53.762Z", verification_source_url: "https://cob.unt.edu/masters/programs/mba-flex.html",
   },
-  {
+{
     university_name: "University of Oklahoma",
     country: "USA", city: "Norman, OK", qs_ranking: 651,
     program_name: "Data Science and Analytics Institute", degree_level: null,
@@ -134051,7 +133860,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:23:56.846Z", verification_source_url: "https://www.ou.edu/coe/dsai",
   },
-  {
+{
     university_name: "University of Oklahoma",
     country: "USA", city: "Norman, OK", qs_ranking: 651,
     program_name: "Doctor of Philosophy in Biomedical Engineering", degree_level: "postgraduate",
@@ -134065,7 +133874,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:24:11.201Z", verification_source_url: "https://www.ou.edu/coe/sbme/academics/graduate",
   },
-  {
+{
     university_name: "University of Oklahoma",
     country: "USA", city: "Norman, OK", qs_ranking: 651,
     program_name: "Finance Master in Science", degree_level: "postgraduate",
@@ -134079,7 +133888,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:24:34.070Z", verification_source_url: "https://www.ou.edu/price/graduate-degree-programs/finance-master-science",
   },
-  {
+{
     university_name: "University of Oklahoma",
     country: "USA", city: "Norman, OK", qs_ranking: 651,
     program_name: "Full-Time MBA", degree_level: "postgraduate",
@@ -134093,7 +133902,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:24:04.043Z", verification_source_url: "https://www.ou.edu/price/mba/full-time",
   },
-  {
+{
     university_name: "University of Oklahoma",
     country: "USA", city: "Norman, OK", qs_ranking: 651,
     program_name: "Graduate Degrees in Chemistry and Biochemistry", degree_level: "postgraduate",
@@ -134107,7 +133916,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:24:41.073Z", verification_source_url: "https://www.ou.edu/cas/chemistry/academics/graduate/degrees",
   },
-  {
+{
     university_name: "University of Oklahoma",
     country: "USA", city: "Norman, OK", qs_ranking: 651,
     program_name: "J.D. Program", degree_level: "postgraduate",
@@ -134121,7 +133930,7 @@ export const PROGRAMS = ([{
     apply_url: "https://law.ou.edu/jd",
     verified_at: "2026-05-14T12:24:22.319Z", verification_source_url: "https://law.ou.edu/jd",
   },
-  {
+{
     university_name: "University of Oklahoma",
     country: "USA", city: "Norman, OK", qs_ranking: 651,
     program_name: "Master of Human Relations", degree_level: "postgraduate",
@@ -134135,7 +133944,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:24:23.827Z", verification_source_url: "https://www.ou.edu/cas/humanrelations/academics/graduate/master-of-human-relations",
   },
-  {
+{
     university_name: "University of Oklahoma",
     country: "USA", city: "Norman, OK", qs_ranking: 651,
     program_name: "Master's of Science in Computer Science", degree_level: "postgraduate",
@@ -134149,7 +133958,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:23:46.671Z", verification_source_url: "https://www.ou.edu/coe/cs/academics/graduate",
   },
-  {
+{
     university_name: "University of Oklahoma",
     country: "USA", city: "Norman, OK", qs_ranking: 651,
     program_name: "Online Bachelor of Science in Nursing (RN to BSN)", degree_level: "undergraduate",
@@ -134163,7 +133972,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:24:51.260Z", verification_source_url: "https://online.ou.edu/program/bs-in-nursing/",
   },
-  {
+{
     university_name: "University of Oklahoma",
     country: "USA", city: "Norman, OK", qs_ranking: 651,
     program_name: "Online Master of Arts in Strategic Communication & Digital Strategy", degree_level: "postgraduate",
@@ -134177,7 +133986,7 @@ export const PROGRAMS = ([{
     apply_url: "https://gograd.ou.edu/apply/",
     verified_at: "2026-05-14T12:24:39.473Z", verification_source_url: "https://online.ou.edu/program/ma-in-strategic-communication-and-digital-strategy/",
   },
-  {
+{
     university_name: "University of Oklahoma",
     country: "USA", city: "Norman, OK", qs_ranking: 651,
     program_name: "Online Master of Public Health in Community and Population Health", degree_level: "postgraduate",
@@ -134191,7 +134000,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:24:20.129Z", verification_source_url: "https://online.ou.edu/programs/graduate/public-health/",
   },
-  {
+{
     university_name: "University of Oklahoma",
     country: "USA", city: "Norman, OK", qs_ranking: 651,
     program_name: "OU Online Master of Science in Sustainability: Energy and Materials Management", degree_level: "postgraduate",
@@ -134205,7 +134014,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:24:42.139Z", verification_source_url: "https://www.ou.edu/coe/scbme/academics/sustainability",
   },
-  {
+{
     university_name: "University of Oklahoma",
     country: "USA", city: "Norman, OK", qs_ranking: 651,
     program_name: "Undergraduate Architecture Programs", degree_level: "undergraduate",
@@ -134219,7 +134028,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:24:25.149Z", verification_source_url: "https://architecture.ou.edu/architecture-degree-requirements/",
   },
-  {
+{
     university_name: "University of San Francisco",
     country: "USA", city: "San Francisco, CA", qs_ranking: null,
     program_name: "Biotechnology, PSM", degree_level: "postgraduate",
@@ -134233,7 +134042,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:47:01.078Z", verification_source_url: "https://www.usfca.edu/arts-sciences/programs/graduate/biotechnology",
   },
-  {
+{
     university_name: "University of San Francisco",
     country: "USA", city: "San Francisco, CA", qs_ranking: null,
     program_name: "Communication Studies, BA", degree_level: "undergraduate",
@@ -134247,7 +134056,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:47:13.620Z", verification_source_url: "https://www.usfca.edu/arts-sciences/programs/undergraduate/communication-studies",
   },
-  {
+{
     university_name: "University of San Francisco",
     country: "USA", city: "San Francisco, CA", qs_ranking: null,
     program_name: "Computer Science, MS", degree_level: "postgraduate",
@@ -134261,7 +134070,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:46:52.986Z", verification_source_url: "https://www.usfca.edu/arts-sciences/programs/graduate/computer-science",
   },
-  {
+{
     university_name: "University of San Francisco",
     country: "USA", city: "San Francisco, CA", qs_ranking: null,
     program_name: "Data Science & Artificial Intelligence, MS", degree_level: "postgraduate",
@@ -134275,7 +134084,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:46:48.108Z", verification_source_url: "https://www.usfca.edu/arts-sciences/programs/graduate/data-science-artificial-intelligence",
   },
-  {
+{
     university_name: "University of San Francisco",
     country: "USA", city: "San Francisco, CA", qs_ranking: null,
     program_name: "Engineering, BS", degree_level: "undergraduate",
@@ -134289,7 +134098,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:46:54.230Z", verification_source_url: "https://www.usfca.edu/arts-sciences/programs/undergraduate/engineering",
   },
-  {
+{
     university_name: "University of San Francisco",
     country: "USA", city: "San Francisco, CA", qs_ranking: null,
     program_name: "Environmental Management, MS", degree_level: "postgraduate",
@@ -134303,7 +134112,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:47:23.715Z", verification_source_url: "https://www.usfca.edu/arts-sciences/programs/graduate/environmental-management",
   },
-  {
+{
     university_name: "University of San Francisco",
     country: "USA", city: "San Francisco, CA", qs_ranking: null,
     program_name: "Environmental Science, BS", degree_level: "undergraduate",
@@ -134317,7 +134126,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:47:28.662Z", verification_source_url: "https://www.usfca.edu/arts-sciences/programs/undergraduate/environmental-science",
   },
-  {
+{
     university_name: "University of San Francisco",
     country: "USA", city: "San Francisco, CA", qs_ranking: null,
     program_name: "Finance, BSBA", degree_level: "undergraduate",
@@ -134331,7 +134140,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:47:14.852Z", verification_source_url: "https://www.usfca.edu/management/programs/undergraduate/finance/program-overview",
   },
-  {
+{
     university_name: "University of San Francisco",
     country: "USA", city: "San Francisco, CA", qs_ranking: null,
     program_name: "Hospitality Management, BSBA", degree_level: "undergraduate",
@@ -134345,7 +134154,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:47:28.348Z", verification_source_url: "https://www.usfca.edu/management/programs/undergraduate/hospitality-management",
   },
-  {
+{
     university_name: "University of San Francisco",
     country: "USA", city: "San Francisco, CA", qs_ranking: null,
     program_name: "JD Program", degree_level: "postgraduate",
@@ -134359,7 +134168,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:47:15.702Z", verification_source_url: "https://www.usfca.edu/law/programs/jd",
   },
-  {
+{
     university_name: "University of San Francisco",
     country: "USA", city: "San Francisco, CA", qs_ranking: null,
     program_name: "Master in Management (MIM)", degree_level: "postgraduate",
@@ -134373,7 +134182,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:46:47.122Z", verification_source_url: "https://www.usfca.edu/management/programs/graduate/mim",
   },
-  {
+{
     university_name: "University of San Francisco",
     country: "USA", city: "San Francisco, CA", qs_ranking: null,
     program_name: "MBA Full-Time", degree_level: "postgraduate",
@@ -134387,7 +134196,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:47:02.029Z", verification_source_url: "https://www.usfca.edu/management/programs/graduate/mba/full-time",
   },
-  {
+{
     university_name: "University of San Francisco",
     country: "USA", city: "San Francisco, CA", qs_ranking: null,
     program_name: "Media Studies, BA", degree_level: "undergraduate",
@@ -134401,7 +134210,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:47:19.959Z", verification_source_url: "https://www.usfca.edu/arts-sciences/programs/undergraduate/media-studies",
   },
-  {
+{
     university_name: "University of San Francisco",
     country: "USA", city: "San Francisco, CA", qs_ranking: null,
     program_name: "Nursing, MSN", degree_level: "postgraduate",
@@ -134415,7 +134224,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:47:33.485Z", verification_source_url: "https://www.usfca.edu/nursing/programs/graduate/masters-nursing",
   },
-  {
+{
     university_name: "University of San Francisco",
     country: "USA", city: "San Francisco, CA", qs_ranking: null,
     program_name: "Public Health, MPH", degree_level: "postgraduate",
@@ -134429,7 +134238,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:47:07.150Z", verification_source_url: "https://www.usfca.edu/nursing/programs/graduate/public-health",
   },
-  {
+{
     university_name: "University of San Francisco",
     country: "USA", city: "San Francisco, CA", qs_ranking: null,
     program_name: "Writing, MFA", degree_level: "postgraduate",
@@ -134443,7 +134252,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:47:08.459Z", verification_source_url: "https://www.usfca.edu/arts-sciences/programs/graduate/writing-mfa",
   },
-  {
+{
     university_name: "University of Saskatchewan",
     country: "Canada", city: "Saskatoon, SK", qs_ranking: 387,
     program_name: "Studio Art", degree_level: "undergraduate",
@@ -134457,7 +134266,7 @@ export const PROGRAMS = ([{
     apply_url: "https://admissions.usask.ca/studio-art.php",
     verified_at: "2026-05-11T17:22:33.717Z", verification_source_url: "https://admissions.usask.ca/studio-art.php",
   },
-  {
+{
     university_name: "University of South Carolina",
     country: "USA", city: "Columbia, SC", qs_ranking: 501,
     program_name: "Artificial Intelligence Certificate", degree_level: "postgraduate",
@@ -134471,7 +134280,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:12:31.470Z", verification_source_url: "https://sc.edu/study/colleges_schools/engineering_and_computing/academics/graduate_programs/artificial_intelligence_certificate/",
   },
-  {
+{
     university_name: "University of South Carolina",
     country: "USA", city: "Columbia, SC", qs_ranking: 501,
     program_name: "Biomedical Sciences, M.S.", degree_level: "postgraduate",
@@ -134485,7 +134294,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:12:59.295Z", verification_source_url: "https://sc.edu/study/majors_and_degrees/biomedical-sciences-ms.php",
   },
-  {
+{
     university_name: "University of South Carolina",
     country: "USA", city: "Columbia, SC", qs_ranking: 501,
     program_name: "Computer Science, M.S.", degree_level: "postgraduate",
@@ -134499,7 +134308,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:12:35.537Z", verification_source_url: "https://sc.edu/study/majors_and_degrees/computer-science-ms.php",
   },
-  {
+{
     university_name: "University of South Carolina",
     country: "USA", city: "Columbia, SC", qs_ranking: 501,
     program_name: "Earth and Environment Resources Management", degree_level: "postgraduate",
@@ -134513,7 +134322,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:23:33.858Z", verification_source_url: "https://sc.edu/study/colleges_schools/artsandsciences/earth_ocean_and_environment/study/graduate/earth_environment_resource_management/",
   },
-  {
+{
     university_name: "University of South Carolina",
     country: "USA", city: "Columbia, SC", qs_ranking: 501,
     program_name: "Graduate Programs - School of Visual Art and Design", degree_level: "postgraduate",
@@ -134527,7 +134336,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:13:11.229Z", verification_source_url: "https://sc.edu/study/colleges_schools/artsandsciences/visual_art_and_design/study/graduate/index.php",
   },
-  {
+{
     university_name: "University of South Carolina",
     country: "USA", city: "Columbia, SC", qs_ranking: 501,
     program_name: "J.D. Program", degree_level: "postgraduate",
@@ -134541,7 +134350,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:13:06.719Z", verification_source_url: "https://sc.edu/study/colleges_schools/law/academics/degrees/jd_program/",
   },
-  {
+{
     university_name: "University of South Carolina",
     country: "USA", city: "Columbia, SC", qs_ranking: 501,
     program_name: "Master of Accountancy", degree_level: "postgraduate",
@@ -134555,7 +134364,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:12:40.560Z", verification_source_url: "https://sc.edu/study/colleges_schools/moore/study/masters_programs/",
   },
-  {
+{
     university_name: "University of South Carolina",
     country: "USA", city: "Columbia, SC", qs_ranking: 501,
     program_name: "Master of International Hospitality and Tourism Management", degree_level: "postgraduate",
@@ -134569,7 +134378,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:23:54.187Z", verification_source_url: "https://sc.edu/study/colleges_schools/hrsm/study/degreeprograms/intl_hospitality_management_mihtm/",
   },
-  {
+{
     university_name: "University of South Carolina",
     country: "USA", city: "Columbia, SC", qs_ranking: 501,
     program_name: "Master of Mass Communication", degree_level: "postgraduate",
@@ -134583,7 +134392,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:23:33.243Z", verification_source_url: "https://sc.edu/study/colleges_schools/cic/academic_programs/masters/journalism_and_mass_communication/master_of_mass_communication/index.php",
   },
-  {
+{
     university_name: "University of South Carolina",
     country: "USA", city: "Columbia, SC", qs_ranking: 501,
     program_name: "Master of Public Health", degree_level: "postgraduate",
@@ -134597,7 +134406,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:13:06.042Z", verification_source_url: "https://sc.edu/study/colleges_schools/public_health/study/graduate_degrees/mph.php",
   },
-  {
+{
     university_name: "University of South Carolina",
     country: "USA", city: "Columbia, SC", qs_ranking: 501,
     program_name: "Master of Science in Quantitative Economics", degree_level: "postgraduate",
@@ -134611,7 +134420,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:23:34.372Z", verification_source_url: "https://sc.edu/study/colleges_schools/moore/study/economics/degree_programs/master_of_arts_in_economics/",
   },
-  {
+{
     university_name: "University of South Carolina",
     country: "USA", city: "Columbia, SC", qs_ranking: 501,
     program_name: "Master's of Science in Nursing", degree_level: "postgraduate",
@@ -134625,7 +134434,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:23:48.274Z", verification_source_url: "https://sc.edu/study/colleges_schools/nursing/academic_programs/graduate_programs/masters_programs/",
   },
-  {
+{
     university_name: "University of South Carolina",
     country: "USA", city: "Columbia, SC", qs_ranking: 501,
     program_name: "Mechanical Engineering, M.S.", degree_level: "postgraduate",
@@ -134639,7 +134448,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:12:54.066Z", verification_source_url: "https://sc.edu/study/majors_and_degrees/mechanical-engineering-ms.php",
   },
-  {
+{
     university_name: "University of South Carolina",
     country: "USA", city: "Columbia, SC", qs_ranking: 501,
     program_name: "One-Year MBA", degree_level: "postgraduate",
@@ -134653,7 +134462,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:12:43.417Z", verification_source_url: "https://sc.edu/study/colleges_schools/moore/study/business_administration/fulltime_mba_programs/one_year_mba/index.php",
   },
-  {
+{
     university_name: "University of South Carolina",
     country: "USA", city: "Columbia, SC", qs_ranking: 501,
     program_name: "Sociology, B.A. / B.S.", degree_level: "undergraduate",
@@ -134667,7 +134476,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:13:23.150Z", verification_source_url: "https://sc.edu/study/majors_and_degrees/sociology.php",
   },
-  {
+{
     university_name: "University of South Dakota",
     country: "USA", city: "Vermillion, SD", qs_ranking: null,
     program_name: "Agribusiness Leadership", degree_level: "undergraduate",
@@ -134681,7 +134490,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:06:39.312Z", verification_source_url: "https://www.usd.edu/Academics/Undergraduate-Programs/Agribusiness-Leadership",
   },
-  {
+{
     university_name: "University of South Dakota",
     country: "USA", city: "Vermillion, SD", qs_ranking: null,
     program_name: "Art (MFA)", degree_level: "postgraduate",
@@ -134695,7 +134504,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:56:34.754Z", verification_source_url: "https://www.usd.edu/Academics/Graduate-Programs/Art",
   },
-  {
+{
     university_name: "University of South Dakota",
     country: "USA", city: "Vermillion, SD", qs_ranking: null,
     program_name: "Biology (M.S.)", degree_level: "postgraduate",
@@ -134709,7 +134518,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:06:59.567Z", verification_source_url: "https://www.usd.edu/Academics/Graduate-Programs/Biology",
   },
-  {
+{
     university_name: "University of South Dakota",
     country: "USA", city: "Vermillion, SD", qs_ranking: null,
     program_name: "Biomedical & Translational Sciences", degree_level: "postgraduate",
@@ -134723,7 +134532,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:48:07.019Z", verification_source_url: "https://www.usd.edu/Academics/Graduate-Programs/Biomedical-and-Translational-Sciences",
   },
-  {
+{
     university_name: "University of South Dakota",
     country: "USA", city: "Vermillion, SD", qs_ranking: null,
     program_name: "Business Administration (B.B.A)", degree_level: "undergraduate",
@@ -134737,7 +134546,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:56:13.298Z", verification_source_url: "https://www.usd.edu/Academics/Undergraduate-Programs/Business-Administration",
   },
-  {
+{
     university_name: "University of South Dakota",
     country: "USA", city: "Vermillion, SD", qs_ranking: null,
     program_name: "Communication (M.A.)", degree_level: "postgraduate",
@@ -134751,7 +134560,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.usd.edu/Academics/Graduate-Programs/Communication",
     verified_at: "2026-05-14T15:56:36.717Z", verification_source_url: "https://www.usd.edu/Academics/Graduate-Programs/Communication",
   },
-  {
+{
     university_name: "University of South Dakota",
     country: "USA", city: "Vermillion, SD", qs_ranking: null,
     program_name: "Computer Science (M.S.)", degree_level: "postgraduate",
@@ -134765,7 +134574,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:56:13.939Z", verification_source_url: "https://www.usd.edu/Academics/Graduate-Programs/Computer-Science",
   },
-  {
+{
     university_name: "University of South Dakota",
     country: "USA", city: "Vermillion, SD", qs_ranking: null,
     program_name: "Data Science & Engineering (Ph.D.)", degree_level: "postgraduate",
@@ -134779,7 +134588,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:56:13.570Z", verification_source_url: "https://www.usd.edu/Academics/Graduate-Programs/Data-Science-and-Engineering",
   },
-  {
+{
     university_name: "University of South Dakota",
     country: "USA", city: "Vermillion, SD", qs_ranking: null,
     program_name: "Finance (B.B.A)", degree_level: "undergraduate",
@@ -134793,7 +134602,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:56:38.753Z", verification_source_url: "https://www.usd.edu/Academics/Undergraduate-Programs/Finance",
   },
-  {
+{
     university_name: "University of South Dakota",
     country: "USA", city: "Vermillion, SD", qs_ranking: null,
     program_name: "Master of Public Health", degree_level: "postgraduate",
@@ -134807,7 +134616,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:48:34.869Z", verification_source_url: "https://www.usd.edu/Academics/Graduate-Programs/Public-Health",
   },
-  {
+{
     university_name: "University of South Dakota",
     country: "USA", city: "Vermillion, SD", qs_ranking: null,
     program_name: "Nursing: Nursing Informatics and e-Health Specialization (MSN)", degree_level: "postgraduate",
@@ -134821,7 +134630,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:07:00.107Z", verification_source_url: "https://www.usd.edu/Academics/Graduate-Programs/Nursing",
   },
-  {
+{
     university_name: "University of South Dakota",
     country: "USA", city: "Vermillion, SD", qs_ranking: null,
     program_name: "Sociology (B.A., B.S.)", degree_level: "undergraduate",
@@ -134835,7 +134644,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:56:35.892Z", verification_source_url: "https://www.usd.edu/Academics/Undergraduate-Programs/Sociology",
   },
-  {
+{
     university_name: "University of South Dakota",
     country: "USA", city: "Vermillion, SD", qs_ranking: null,
     program_name: "Sustainability (M.S.)", degree_level: "postgraduate",
@@ -134849,7 +134658,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:06:58.518Z", verification_source_url: "https://www.usd.edu/Academics/Graduate-Programs/Sustainability",
   },
-  {
+{
     university_name: "University of South Dakota",
     country: "USA", city: "Vermillion, SD", qs_ranking: null,
     program_name: "Tourism & Hospitality Certificate", degree_level: "undergraduate",
@@ -134863,7 +134672,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:06:59.934Z", verification_source_url: "https://www.usd.edu/Academics/Undergraduate-Programs/Tourism-and-Hospitality",
   },
-  {
+{
     university_name: "University of Stuttgart",
     country: "Germany", city: "Stuttgart", qs_ranking: 312,
     program_name: "Architecture and Urban Planning", degree_level: "undergraduate",
@@ -134877,7 +134686,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-07T17:49:00.432Z", verification_source_url: "https://www.uni-stuttgart.de/en/study/bachelor-programs/architecture-and-urban-planning-b.sc./",
   },
-  {
+{
     university_name: "University of Stuttgart",
     country: "Germany", city: "Stuttgart", qs_ranking: 312,
     program_name: "Artificial Intelligence and Data Science", degree_level: "undergraduate",
@@ -134891,7 +134700,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-10T04:10:32.514Z", verification_source_url: "https://www.uni-stuttgart.de/en/study/bachelor-programs/artificial-intelligence-and-data-science-b.sc./",
   },
-  {
+{
     university_name: "University of Stuttgart",
     country: "Germany", city: "Stuttgart", qs_ranking: 312,
     program_name: "Technical Biology", degree_level: "undergraduate",
@@ -134905,7 +134714,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-07T17:49:00.398Z", verification_source_url: "https://www.uni-stuttgart.de/en/study/bachelor-programs/technical-biology-b.sc./",
   },
-  {
+{
     university_name: "University of Sydney",
     country: "Australia", city: "Sydney", qs_ranking: 18,
     program_name: "Doctor of Medicine", degree_level: null,
@@ -134919,7 +134728,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-04-27T10:20:28.768Z", verification_source_url: "https://www.sydney.edu.au/courses/courses/pc/doctor-of-medicine.html",
   },
-  {
+{
     university_name: "University of Texas Rio Grande Valley",
     country: "USA", city: "Edinburg, TX", qs_ranking: null,
     program_name: "Bachelor of Science in Hospitality and Tourism Management", degree_level: "undergraduate",
@@ -134933,7 +134742,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:48:33.870Z", verification_source_url: "https://www.utrgv.edu/programs/bs-hospitality-tourism.htm",
   },
-  {
+{
     university_name: "University of Texas Rio Grande Valley",
     country: "USA", city: "Edinburg, TX", qs_ranking: null,
     program_name: "M.S. in Agricultural, Environmental and Sustainability Sciences (AESS)", degree_level: "postgraduate",
@@ -134947,7 +134756,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:48:26.528Z", verification_source_url: "https://www.utrgv.edu/agroecology/about/graduate-program/index.htm",
   },
-  {
+{
     university_name: "University of Texas Rio Grande Valley",
     country: "USA", city: "Edinburg, TX", qs_ranking: null,
     program_name: "Master of Arts in Communication", degree_level: "postgraduate",
@@ -134961,7 +134770,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:48:14.221Z", verification_source_url: "https://www.utrgv.edu/programs/ma-communication.htm",
   },
-  {
+{
     university_name: "University of Texas Rio Grande Valley",
     country: "USA", city: "Edinburg, TX", qs_ranking: null,
     program_name: "Master of Business Administration Online", degree_level: "postgraduate",
@@ -134975,7 +134784,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:47:55.183Z", verification_source_url: "https://www.utrgv.edu/accelerated/programs/master-of-business-administration/index.htm",
   },
-  {
+{
     university_name: "University of Texas Rio Grande Valley",
     country: "USA", city: "Edinburg, TX", qs_ranking: null,
     program_name: "Master of Fine Arts in Art", degree_level: "postgraduate",
@@ -134989,7 +134798,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:48:05.057Z", verification_source_url: "https://www.utrgv.edu/programs/mfa-art.htm",
   },
-  {
+{
     university_name: "University of Texas Rio Grande Valley",
     country: "USA", city: "Edinburg, TX", qs_ranking: null,
     program_name: "Master of Science in Agricultural, Environmental, and Sustainability Sciences", degree_level: "postgraduate",
@@ -135003,7 +134812,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:48:14.959Z", verification_source_url: "https://www.utrgv.edu/programs/ms-agricultural-environmental-sustainability-sciences.htm",
   },
-  {
+{
     university_name: "University of Texas Rio Grande Valley",
     country: "USA", city: "Edinburg, TX", qs_ranking: null,
     program_name: "Master of Science in Biology", degree_level: "postgraduate",
@@ -135017,7 +134826,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:48:22.185Z", verification_source_url: "https://www.utrgv.edu/programs/ms-biology.htm",
   },
-  {
+{
     university_name: "University of Texas Rio Grande Valley",
     country: "USA", city: "Edinburg, TX", qs_ranking: null,
     program_name: "Master of Science in Business Analytics and Artificial Intelligence", degree_level: "postgraduate",
@@ -135031,7 +134840,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.utrgv.edu/accelerated/programs/master-of-science-business-analytics/index.htm",
     verified_at: "2026-05-14T12:47:45.527Z", verification_source_url: "https://www.utrgv.edu/accelerated/programs/master-of-science-business-analytics/index.htm",
   },
-  {
+{
     university_name: "University of Texas Rio Grande Valley",
     country: "USA", city: "Edinburg, TX", qs_ranking: null,
     program_name: "Master of Science in Computer Science", degree_level: "postgraduate",
@@ -135045,7 +134854,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:40:26.401Z", verification_source_url: "https://www.utrgv.edu/programs/ms-computer-science.htm",
   },
-  {
+{
     university_name: "University of Texas Rio Grande Valley",
     country: "USA", city: "Edinburg, TX", qs_ranking: null,
     program_name: "Master of Science in Finance", degree_level: "postgraduate",
@@ -135059,7 +134868,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.utrgv.edu/accelerated/programs/master-of-science-in-finance/index.htm",
     verified_at: "2026-05-14T12:48:12.973Z", verification_source_url: "https://www.utrgv.edu/accelerated/programs/master-of-science-in-finance/index.htm",
   },
-  {
+{
     university_name: "University of Texas Rio Grande Valley",
     country: "USA", city: "Edinburg, TX", qs_ranking: null,
     program_name: "Master of Science in Health Science with a concentration in Healthcare Administration", degree_level: "postgraduate",
@@ -135073,7 +134882,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:47:59.373Z", verification_source_url: "https://www.utrgv.edu/hbs/graduate-programs/master-of-science-in-health-sciences-health-care-administration/index.htm",
   },
-  {
+{
     university_name: "University of Texas Rio Grande Valley",
     country: "USA", city: "Edinburg, TX", qs_ranking: null,
     program_name: "Master of Science in Nursing in Family Nurse Practitioner", degree_level: "postgraduate",
@@ -135087,7 +134896,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:48:22.932Z", verification_source_url: "https://www.utrgv.edu/programs/msn-family-nurse-practitioner.htm",
   },
-  {
+{
     university_name: "University of Toledo",
     country: "USA", city: "Toledo, OH", qs_ranking: 951,
     program_name: "Bioinformatics - Doctor of Philosophy (Ph.D.) or Master of Science in Biomedical Science (M.S.B.S.)", degree_level: "postgraduate",
@@ -135101,7 +134910,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T13:00:17.464Z", verification_source_url: "https://www.utoledo.edu/programs/grad/bioinformatics/",
   },
-  {
+{
     university_name: "University of Toledo",
     country: "USA", city: "Toledo, OH", qs_ranking: 951,
     program_name: "Biology - Cell and Molecular", degree_level: "postgraduate",
@@ -135115,7 +134924,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:57:06.651Z", verification_source_url: "https://www.utoledo.edu/programs/grad/cellular-and-molecular-biology/",
   },
-  {
+{
     university_name: "University of Toledo",
     country: "USA", city: "Toledo, OH", qs_ranking: 951,
     program_name: "Communication - Bachelor of Arts (B.A.)", degree_level: "undergraduate",
@@ -135129,7 +134938,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T13:03:20.777Z", verification_source_url: "https://www.utoledo.edu/programs/undergrad/communication/",
   },
-  {
+{
     university_name: "University of Toledo",
     country: "USA", city: "Toledo, OH", qs_ranking: 951,
     program_name: "Computer Science and Engineering", degree_level: "postgraduate",
@@ -135143,7 +134952,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:54:47.448Z", verification_source_url: "https://www.utoledo.edu/programs/grad/computer-science-engineering/",
   },
-  {
+{
     university_name: "University of Toledo",
     country: "USA", city: "Toledo, OH", qs_ranking: 951,
     program_name: "Data Science - Bachelor of Science (B.S.)", degree_level: "undergraduate",
@@ -135157,7 +134966,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:54:46.039Z", verification_source_url: "https://www.utoledo.edu/programs/undergrad/data-science/",
   },
-  {
+{
     university_name: "University of Toledo",
     country: "USA", city: "Toledo, OH", qs_ranking: 951,
     program_name: "Economics - Master of Arts (M.A.)", degree_level: "postgraduate",
@@ -135171,7 +134980,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T13:03:40.738Z", verification_source_url: "https://www.utoledo.edu/programs/grad/economics/",
   },
-  {
+{
     university_name: "University of Toledo",
     country: "USA", city: "Toledo, OH", qs_ranking: 951,
     program_name: "Environmental Sciences - Bachelor of Science (B.S.)", degree_level: "undergraduate",
@@ -135185,7 +134994,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T13:03:25.375Z", verification_source_url: "https://www.utoledo.edu/programs/undergrad/environmental-sciences/",
   },
-  {
+{
     university_name: "University of Toledo",
     country: "USA", city: "Toledo, OH", qs_ranking: 951,
     program_name: "Graduate-Entry - Master of Science in Nursing (M.S.N.)", degree_level: "postgraduate",
@@ -135199,7 +135008,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T13:00:41.852Z", verification_source_url: "https://www.utoledo.edu/programs/grad/nursing-graduate-entry/",
   },
-  {
+{
     university_name: "University of Toledo",
     country: "USA", city: "Toledo, OH", qs_ranking: 951,
     program_name: "Law - Juris Doctor (J.D.)", degree_level: "postgraduate",
@@ -135213,7 +135022,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:57:14.139Z", verification_source_url: "https://www.utoledo.edu/programs/grad/law/",
   },
-  {
+{
     university_name: "University of Toledo",
     country: "USA", city: "Toledo, OH", qs_ranking: 951,
     program_name: "Neff College of Business and Innovation Graduate Programs", degree_level: "postgraduate",
@@ -135227,7 +135036,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T13:00:39.730Z", verification_source_url: "https://www.utoledo.edu/business/graduate/",
   },
-  {
+{
     university_name: "University of Toledo",
     country: "USA", city: "Toledo, OH", qs_ranking: 951,
     program_name: "Public Health - Master of Public Health (M.P.H.)", degree_level: "postgraduate",
@@ -135241,7 +135050,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:57:06.578Z", verification_source_url: "https://www.utoledo.edu/programs/grad/public-health/",
   },
-  {
+{
     university_name: "University of Toledo",
     country: "USA", city: "Toledo, OH", qs_ranking: 951,
     program_name: "Studio Art - Bachelor of Fine Arts (B.F.A.)", degree_level: "undergraduate",
@@ -135255,7 +135064,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:57:13.432Z", verification_source_url: "https://www.utoledo.edu/programs/undergrad/studio-art/",
   },
-  {
+{
     university_name: "University of Tulsa",
     country: "USA", city: "Tulsa, OK", qs_ranking: null,
     program_name: "Biological Science Grad Programs", degree_level: "postgraduate",
@@ -135269,7 +135078,7 @@ export const PROGRAMS = ([{
     apply_url: "https://utulsa.edu/academics/health-natural-sciences/academics/departments/biological-science/bio-grad/",
     verified_at: "2026-05-14T15:26:40.026Z", verification_source_url: "https://utulsa.edu/academics/health-natural-sciences/academics/departments/biological-science/bio-grad/",
   },
-  {
+{
     university_name: "University of Tulsa",
     country: "USA", city: "Tulsa, OK", qs_ranking: null,
     program_name: "Community & Public Health", degree_level: "undergraduate",
@@ -135283,7 +135092,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:26:56.590Z", verification_source_url: "https://utulsa.edu/programs/community-health/",
   },
-  {
+{
     university_name: "University of Tulsa",
     country: "USA", city: "Tulsa, OK", qs_ranking: null,
     program_name: "Data Science, B.S.D.S.", degree_level: "undergraduate",
@@ -135297,7 +135106,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:26:33.646Z", verification_source_url: "https://utulsa.edu/programs/data-science/",
   },
-  {
+{
     university_name: "University of Tulsa",
     country: "USA", city: "Tulsa, OK", qs_ranking: null,
     program_name: "Department of Media & Communication", degree_level: null,
@@ -135311,7 +135120,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:27:18.552Z", verification_source_url: "https://utulsa.edu/academics/arts/academics/departments/media-studies/",
   },
-  {
+{
     university_name: "University of Tulsa",
     country: "USA", city: "Tulsa, OK", qs_ranking: null,
     program_name: "Environmental Policy", degree_level: "undergraduate",
@@ -135325,7 +135134,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:27:19.683Z", verification_source_url: "https://utulsa.edu/programs/environmental-policy/",
   },
-  {
+{
     university_name: "University of Tulsa",
     country: "USA", city: "Tulsa, OK", qs_ranking: null,
     program_name: "Graduate Business Programs", degree_level: "postgraduate",
@@ -135339,7 +135148,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:26:35.111Z", verification_source_url: "https://utulsa.edu/academics/business/academics/graduate-business-programs/",
   },
-  {
+{
     university_name: "University of Tulsa",
     country: "USA", city: "Tulsa, OK", qs_ranking: null,
     program_name: "Juris Doctor (JD)", degree_level: "postgraduate",
@@ -135353,7 +135162,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:26:54.201Z", verification_source_url: "https://law.utulsa.edu/degree-programs/juris-doctor-jd/",
   },
-  {
+{
     university_name: "University of Tulsa",
     country: "USA", city: "Tulsa, OK", qs_ranking: null,
     program_name: "Master of Business Administration in Finance", degree_level: "postgraduate",
@@ -135367,7 +135176,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:27:04.254Z", verification_source_url: "https://onlinedegrees.utulsa.edu/degrees/business/mba/finance/",
   },
-  {
+{
     university_name: "University of Tulsa",
     country: "USA", city: "Tulsa, OK", qs_ranking: null,
     program_name: "Mechanical Engineering Grad Programs", degree_level: "postgraduate",
@@ -135381,7 +135190,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:26:38.187Z", verification_source_url: "https://utulsa.edu/academics/engineering-computer-science/academics/departments/mechanical-engineering/mechanical-engineering-grad/",
   },
-  {
+{
     university_name: "University of Tulsa",
     country: "USA", city: "Tulsa, OK", qs_ranking: null,
     program_name: "Physics", degree_level: "undergraduate",
@@ -135395,7 +135204,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:27:23.628Z", verification_source_url: "https://utulsa.edu/programs/physics/",
   },
-  {
+{
     university_name: "University of Tulsa",
     country: "USA", city: "Tulsa, OK", qs_ranking: null,
     program_name: "School of Art, Design & Art History", degree_level: null,
@@ -135409,7 +135218,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:26:59.602Z", verification_source_url: "https://utulsa.edu/academics/arts/departments/art-design-history/",
   },
-  {
+{
     university_name: "University of Tulsa",
     country: "USA", city: "Tulsa, OK", qs_ranking: null,
     program_name: "School of Nursing", degree_level: null,
@@ -135423,7 +135232,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:27:23.094Z", verification_source_url: "https://utulsa.edu/academics/health-natural-sciences/academics/departments/nursing/",
   },
-  {
+{
     university_name: "University of Twente",
     country: "Netherlands", city: "Enschede", qs_ranking: 199,
     program_name: "Applied Physics", degree_level: "undergraduate",
@@ -135437,7 +135246,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-10T03:45:19.054Z", verification_source_url: "https://www.utwente.nl/en/education/bachelor/programmes/applied-physics/",
   },
-  {
+{
     university_name: "University of Twente",
     country: "Netherlands", city: "Enschede", qs_ranking: 199,
     program_name: "Mechanical Engineering", degree_level: "undergraduate",
@@ -135451,7 +135260,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-10T03:45:07.623Z", verification_source_url: "https://www.utwente.nl/en/education/bachelor/programmes/mechanical-engineering/",
   },
-  {
+{
     university_name: "University of Vermont",
     country: "USA", city: "Burlington, VT", qs_ranking: 801,
     program_name: "Animal Biosciences", degree_level: "postgraduate",
@@ -135465,7 +135274,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:39:57.686Z", verification_source_url: "https://www.uvm.edu/cals/asci/graduate-program",
   },
-  {
+{
     university_name: "University of Vermont",
     country: "USA", city: "Burlington, VT", qs_ranking: 801,
     program_name: "B.S. in Parks, Recreation, and Tourism", degree_level: "undergraduate",
@@ -135479,7 +135288,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:40:00.700Z", verification_source_url: "https://www.uvm.edu/rsenr/bs-parks-recreation-and-tourism",
   },
-  {
+{
     university_name: "University of Vermont",
     country: "USA", city: "Burlington, VT", qs_ranking: 801,
     program_name: "Bachelor of Science in Business Administration (B.S.Bus.Admin.)", degree_level: "undergraduate",
@@ -135493,7 +135302,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:39:15.891Z", verification_source_url: "https://www.uvm.edu/business/program/bachelor-science-business-administration-bsbusadmin",
   },
-  {
+{
     university_name: "University of Vermont",
     country: "USA", city: "Burlington, VT", qs_ranking: 801,
     program_name: "Complex Systems and Data Science M.S.", degree_level: "postgraduate",
@@ -135507,7 +135316,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:39:11.953Z", verification_source_url: "https://catalogue.uvm.edu/graduate/complexsystemsdatascience/complexsystemsdatasciencems/",
   },
-  {
+{
     university_name: "University of Vermont",
     country: "USA", city: "Burlington, VT", qs_ranking: 801,
     program_name: "M.S. in Computer Science", degree_level: "postgraduate",
@@ -135521,7 +135330,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:39:11.083Z", verification_source_url: "https://www.uvm.edu/cems/cs/program/ms-computer-science",
   },
-  {
+{
     university_name: "University of Vermont",
     country: "USA", city: "Burlington, VT", qs_ranking: 801,
     program_name: "M.S. in Electrical Engineering", degree_level: "postgraduate",
@@ -135535,7 +135344,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:39:21.350Z", verification_source_url: "https://www.uvm.edu/cems/ebe/program/ms-electrical-engineering",
   },
-  {
+{
     university_name: "University of Vermont",
     country: "USA", city: "Burlington, VT", qs_ranking: 801,
     program_name: "M.S. in Natural Resources", degree_level: "postgraduate",
@@ -135549,7 +135358,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:39:50.703Z", verification_source_url: "https://www.uvm.edu/rsenr/program/ms-natural-resources",
   },
-  {
+{
     university_name: "University of Vermont",
     country: "USA", city: "Burlington, VT", qs_ranking: 801,
     program_name: "Master of Professional Studies in Leadership for Sustainability", degree_level: "postgraduate",
@@ -135563,7 +135372,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:39:56.350Z", verification_source_url: "https://www.uvm.edu/rsenr/leadership-sustainability",
   },
-  {
+{
     university_name: "University of Vermont",
     country: "USA", city: "Burlington, VT", qs_ranking: 801,
     program_name: "Master of Public Health", degree_level: "postgraduate",
@@ -135577,7 +135386,7 @@ export const PROGRAMS = ([{
     apply_url: "https://sophas.liaisoncas.com/applicant-ux/#/login",
     verified_at: "2026-05-14T11:39:33.427Z", verification_source_url: "https://www.uvm.edu/larnermed/medicinepublichealth/program/public-health",
   },
-  {
+{
     university_name: "University of Vermont",
     country: "USA", city: "Burlington, VT", qs_ranking: 801,
     program_name: "Master of Science in Nursing", degree_level: "postgraduate",
@@ -135591,7 +135400,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:39:56.675Z", verification_source_url: "https://www.uvm.edu/cnhs/nursing/program/master-science-nursing",
   },
-  {
+{
     university_name: "University of Vermont",
     country: "USA", city: "Burlington, VT", qs_ranking: 801,
     program_name: "Master of Social Work (MSW)", degree_level: "postgraduate",
@@ -135605,7 +135414,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.uvm.edu/cess/socialwork/application-and-admissions-master-social-work-msw",
     verified_at: "2026-05-14T11:39:41.661Z", verification_source_url: "https://www.uvm.edu/cess/socialwork/application-and-admissions-master-social-work-msw",
   },
-  {
+{
     university_name: "University of Vermont",
     country: "USA", city: "Burlington, VT", qs_ranking: 801,
     program_name: "Microbiology and Molecular Genetics Master's Program", degree_level: "postgraduate",
@@ -135619,7 +135428,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:39:27.876Z", verification_source_url: "https://www.uvm.edu/larnermed/mmg/program/microbiology-and-molecular-genetics-masters-program",
   },
-  {
+{
     university_name: "University of Vermont",
     country: "USA", city: "Burlington, VT", qs_ranking: 801,
     program_name: "Program in Art and Art History", degree_level: "undergraduate",
@@ -135633,7 +135442,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:39:32.903Z", verification_source_url: "https://www.uvm.edu/cas/art",
   },
-  {
+{
     university_name: "University of Vermont",
     country: "USA", city: "Burlington, VT", qs_ranking: 801,
     program_name: "Public Communication", degree_level: "undergraduate",
@@ -135647,7 +135456,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T11:39:44.251Z", verification_source_url: "https://www.uvm.edu/cals/cdae/program/public-communication",
   },
-  {
+{
     university_name: "University of Vermont",
     country: "USA", city: "Burlington, VT", qs_ranking: 801,
     program_name: "Sustainable Innovation MBA", degree_level: "postgraduate",
@@ -135661,7 +135470,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.uvm.edu/business/simba_admission_process",
     verified_at: "2026-05-14T11:39:23.123Z", verification_source_url: "https://www.uvm.edu/business/simba_admission_process",
   },
-  {
+{
     university_name: "University of Victoria",
     country: "Canada", city: "Victoria, BC", qs_ranking: 359,
     program_name: "Environmental Studies", degree_level: "undergraduate",
@@ -135675,7 +135484,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-07T17:50:55.303Z", verification_source_url: "https://www.uvic.ca/undergraduate/programs/undergraduate-programs/pages/environmental-studies.php",
   },
-  {
+{
     university_name: "University of Wisconsin-Milwaukee",
     country: "USA", city: "Milwaukee, WI", qs_ranking: 951,
     program_name: "Architecture, MArch", degree_level: "postgraduate",
@@ -135689,7 +135498,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:35:16.721Z", verification_source_url: "https://uwm.edu/architecture/academics/architecture-march/",
   },
-  {
+{
     university_name: "University of Wisconsin-Milwaukee",
     country: "USA", city: "Milwaukee, WI", qs_ranking: 951,
     program_name: "Biological Sciences, MS", degree_level: "postgraduate",
@@ -135703,7 +135512,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:35:33.643Z", verification_source_url: "https://catalog.uwm.edu/letters-science/biological-sciences/biological-sciences-ms/",
   },
-  {
+{
     university_name: "University of Wisconsin-Milwaukee",
     country: "USA", city: "Milwaukee, WI", qs_ranking: 951,
     program_name: "Biomedical Sciences MS", degree_level: "postgraduate",
@@ -135717,7 +135526,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:30:55.022Z", verification_source_url: "https://uwm.edu/biomedical-sciences-healthcare-administration/academics/ms-biomedical-sciences/",
   },
-  {
+{
     university_name: "University of Wisconsin-Milwaukee",
     country: "USA", city: "Milwaukee, WI", qs_ranking: 951,
     program_name: "Business Administration, MBA", degree_level: "postgraduate",
@@ -135731,7 +135540,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:30:49.094Z", verification_source_url: "https://catalog.uwm.edu/business/business-administration-mba/",
   },
-  {
+{
     university_name: "University of Wisconsin-Milwaukee",
     country: "USA", city: "Milwaukee, WI", qs_ranking: 951,
     program_name: "Communication, MA", degree_level: "postgraduate",
@@ -135745,7 +135554,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:35:16.370Z", verification_source_url: "https://catalog.uwm.edu/letters-science/communication/communication-ma/",
   },
-  {
+{
     university_name: "University of Wisconsin-Milwaukee",
     country: "USA", city: "Milwaukee, WI", qs_ranking: 951,
     program_name: "Data Science and Applied Artificial Intelligence MS", degree_level: "postgraduate",
@@ -135759,7 +135568,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:30:36.647Z", verification_source_url: "https://uwm.edu/data-science/academics/data-science-ms/",
   },
-  {
+{
     university_name: "University of Wisconsin-Milwaukee",
     country: "USA", city: "Milwaukee, WI", qs_ranking: 951,
     program_name: "Economics, MA", degree_level: "postgraduate",
@@ -135773,7 +135582,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:40:24.674Z", verification_source_url: "https://catalog.uwm.edu/letters-science/economics/economics-ma/",
   },
-  {
+{
     university_name: "University of Wisconsin-Milwaukee",
     country: "USA", city: "Milwaukee, WI", qs_ranking: 951,
     program_name: "Engineering MS", degree_level: "postgraduate",
@@ -135787,7 +135596,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:30:54.158Z", verification_source_url: "https://uwm.edu/engineering/academics/engineering-masters/",
   },
-  {
+{
     university_name: "University of Wisconsin-Milwaukee",
     country: "USA", city: "Milwaukee, WI", qs_ranking: 951,
     program_name: "Nursing, MN", degree_level: "postgraduate",
@@ -135801,7 +135610,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:35:34.736Z", verification_source_url: "https://catalog.uwm.edu/health-professions-sciences/nursing/nursing-mn/",
   },
-  {
+{
     university_name: "University of Wisconsin-Milwaukee",
     country: "USA", city: "Milwaukee, WI", qs_ranking: 951,
     program_name: "Online MBA", degree_level: "postgraduate",
@@ -135815,7 +135624,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:30:56.529Z", verification_source_url: "https://uwm.edu/business/academic-programs/online-mba/",
   },
-  {
+{
     university_name: "University of Wisconsin-Milwaukee",
     country: "USA", city: "Milwaukee, WI", qs_ranking: 951,
     program_name: "Public Health, MPH: Community and Behavioral Health Promotion", degree_level: "postgraduate",
@@ -135829,7 +135638,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:30:57.194Z", verification_source_url: "https://catalog.uwm.edu/public-health/public-health-community-behavioral-promotion-mph/",
   },
-  {
+{
     university_name: "University of Wisconsin-Milwaukee",
     country: "USA", city: "Milwaukee, WI", qs_ranking: 951,
     program_name: "Public Health, MPH: Environmental Health Sciences", degree_level: "postgraduate",
@@ -135843,7 +135652,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:35:16.468Z", verification_source_url: "https://catalog.uwm.edu/public-health/public-health-environmental-sciences-mph/",
   },
-  {
+{
     university_name: "University of Wisconsin-Milwaukee",
     country: "USA", city: "Milwaukee, WI", qs_ranking: 951,
     program_name: "Sociology, MA", degree_level: "postgraduate",
@@ -135857,7 +135666,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:40:23.818Z", verification_source_url: "https://catalog.uwm.edu/letters-science/sociology/sociology-ma/",
   },
-  {
+{
     university_name: "Wayne State University",
     country: "USA", city: "Detroit, MI", qs_ranking: 706,
     program_name: "Bachelor's in management", degree_level: "undergraduate",
@@ -135871,7 +135680,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:27:17.062Z", verification_source_url: "https://ilitchbusiness.wayne.edu/management/bachelors",
   },
-  {
+{
     university_name: "Wayne State University",
     country: "USA", city: "Detroit, MI", qs_ranking: 706,
     program_name: "Graduate Programs in Art, Art History, and Design", degree_level: "postgraduate",
@@ -135885,7 +135694,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:27:30.362Z", verification_source_url: "https://cfpca.wayne.edu/art/programs/graduate",
   },
-  {
+{
     university_name: "Wayne State University",
     country: "USA", city: "Detroit, MI", qs_ranking: 706,
     program_name: "J.D.", degree_level: "postgraduate",
@@ -135899,7 +135708,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:27:34.030Z", verification_source_url: "https://law.wayne.edu/admissions/jd",
   },
-  {
+{
     university_name: "Wayne State University",
     country: "USA", city: "Detroit, MI", qs_ranking: 706,
     program_name: "Master of Arts in Communication", degree_level: "postgraduate",
@@ -135913,7 +135722,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:27:43.017Z", verification_source_url: "https://comm.wayne.edu/ma",
   },
-  {
+{
     university_name: "Wayne State University",
     country: "USA", city: "Detroit, MI", qs_ranking: 706,
     program_name: "Master of business administration (M.B.A.)", degree_level: "postgraduate",
@@ -135927,7 +135736,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:27:18.753Z", verification_source_url: "https://ilitchbusiness.wayne.edu/mba/masters",
   },
-  {
+{
     university_name: "Wayne State University",
     country: "USA", city: "Detroit, MI", qs_ranking: 706,
     program_name: "Master of Public Health Program", degree_level: "postgraduate",
@@ -135941,7 +135750,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:27:30.833Z", verification_source_url: "https://familymedicine.med.wayne.edu/mph",
   },
-  {
+{
     university_name: "Wayne State University",
     country: "USA", city: "Detroit, MI", qs_ranking: 706,
     program_name: "Master of Science in Artificial Intelligence", degree_level: "postgraduate",
@@ -135955,7 +135764,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:27:13.682Z", verification_source_url: "https://engineering.wayne.edu/master-artificial-intelligence",
   },
-  {
+{
     university_name: "Wayne State University",
     country: "USA", city: "Detroit, MI", qs_ranking: 706,
     program_name: "Master of Science in Computer Science", degree_level: "postgraduate",
@@ -135969,7 +135778,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:27:07.541Z", verification_source_url: "https://engineering.wayne.edu/computer-science/academics/master-computer-science",
   },
-  {
+{
     university_name: "Wayne State University",
     country: "USA", city: "Detroit, MI", qs_ranking: 706,
     program_name: "Master of Science in Environmental and Sustainability Engineering", degree_level: "postgraduate",
@@ -135983,7 +135792,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:27:52.868Z", verification_source_url: "https://engineering.wayne.edu/civil-environmental/academics/master-environmental-sustainability",
   },
-  {
+{
     university_name: "Wayne State University",
     country: "USA", city: "Detroit, MI", qs_ranking: 706,
     program_name: "Master of Science in Environmental Science", degree_level: "postgraduate",
@@ -135997,7 +135806,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:27:46.294Z", verification_source_url: "https://clas.wayne.edu/esg/grad/ms-envirosci",
   },
-  {
+{
     university_name: "Wayne State University",
     country: "USA", city: "Detroit, MI", qs_ranking: 706,
     program_name: "Master of Science in Finance (M.S.F.)", degree_level: "postgraduate",
@@ -136011,7 +135820,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:27:39.451Z", verification_source_url: "https://ilitchbusiness.wayne.edu/finance/masters",
   },
-  {
+{
     university_name: "Wayne State University",
     country: "USA", city: "Detroit, MI", qs_ranking: 706,
     program_name: "Master of Science in Mechanical Engineering", degree_level: "postgraduate",
@@ -136025,7 +135834,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:27:20.721Z", verification_source_url: "https://engineering.wayne.edu/mechanical/academics/ms",
   },
-  {
+{
     university_name: "Wayne State University",
     country: "USA", city: "Detroit, MI", qs_ranking: 706,
     program_name: "Master of Science in Molecular Biotechnology", degree_level: "postgraduate",
@@ -136039,7 +135848,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:27:18.636Z", verification_source_url: "https://clas.wayne.edu/biosci/grad/ms-biotech",
   },
-  {
+{
     university_name: "Wayne State University",
     country: "USA", city: "Detroit, MI", qs_ranking: 706,
     program_name: "Master of Science in Nursing (MSN)", degree_level: "postgraduate",
@@ -136053,7 +135862,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:27:45.653Z", verification_source_url: "https://nursing.wayne.edu/msn",
   },
-  {
+{
     university_name: "Wayne State University",
     country: "USA", city: "Detroit, MI", qs_ranking: 706,
     program_name: "Master of Social Work", degree_level: "postgraduate",
@@ -136067,7 +135876,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:27:33.532Z", verification_source_url: "https://socialwork.wayne.edu/msw",
   },
-  {
+{
     university_name: "West Virginia University",
     country: "USA", city: "Morgantown, WV", qs_ranking: 851,
     program_name: "Agriculture, Natural Resources and Design", degree_level: "postgraduate",
@@ -136081,7 +135890,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:06:59.395Z", verification_source_url: "https://graduateadmissions.wvu.edu/academics/graduate-programs/agriculture-natural-resources-design-m",
   },
-  {
+{
     university_name: "West Virginia University",
     country: "USA", city: "Morgantown, WV", qs_ranking: 851,
     program_name: "Art and Design, MFA", degree_level: "postgraduate",
@@ -136095,7 +135904,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:56:30.787Z", verification_source_url: "https://www.wvu.edu/academics/programs/art-and-design-mfa/",
   },
-  {
+{
     university_name: "West Virginia University",
     country: "USA", city: "Morgantown, WV", qs_ranking: 851,
     program_name: "Artificial Intelligence, M.S.", degree_level: "postgraduate",
@@ -136109,7 +135918,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:48:22.606Z", verification_source_url: "https://graduateadmissions.wvu.edu/academics/graduate-programs/artificial-intelligence-m",
   },
-  {
+{
     university_name: "West Virginia University",
     country: "USA", city: "Morgantown, WV", qs_ranking: 851,
     program_name: "Biomedical Engineering, M.S.Bm.E., Ph.D.", degree_level: "postgraduate",
@@ -136123,7 +135932,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:56:23.722Z", verification_source_url: "http://catalog.wvu.edu/graduate/collegeofengineeringandmineralresources/departmentofchemicalengineering/biomedical_engineering/",
   },
-  {
+{
     university_name: "West Virginia University",
     country: "USA", city: "Morgantown, WV", qs_ranking: 851,
     program_name: "Computer Science (M)", degree_level: "postgraduate",
@@ -136137,7 +135946,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:48:13.270Z", verification_source_url: "https://graduateadmissions.wvu.edu/academics/graduate-programs/computer-science-m",
   },
-  {
+{
     university_name: "West Virginia University",
     country: "USA", city: "Morgantown, WV", qs_ranking: 851,
     program_name: "Economics MS", degree_level: "postgraduate",
@@ -136151,7 +135960,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:56:49.825Z", verification_source_url: "https://business.wvu.edu/academics/economics-department/economics-ms",
   },
-  {
+{
     university_name: "West Virginia University",
     country: "USA", city: "Morgantown, WV", qs_ranking: 851,
     program_name: "Environmental, Soil and Water Sciences", degree_level: "postgraduate",
@@ -136165,7 +135974,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:06:39.097Z", verification_source_url: "https://graduateadmissions.wvu.edu/academics/graduate-programs/environmental-soil-and-water-sciences",
   },
-  {
+{
     university_name: "West Virginia University",
     country: "USA", city: "Morgantown, WV", qs_ranking: 851,
     program_name: "Hardy Family Hospitality and Tourism Management", degree_level: "undergraduate",
@@ -136179,7 +135988,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:07:02.220Z", verification_source_url: "https://business.wvu.edu/academics/general-business-2/hospitality-and-tourism-management",
   },
-  {
+{
     university_name: "West Virginia University",
     country: "USA", city: "Morgantown, WV", qs_ranking: 851,
     program_name: "Journalism, MSJ", degree_level: "postgraduate",
@@ -136193,7 +136002,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:56:48.798Z", verification_source_url: "https://www.wvu.edu/academics/programs/journalism-msj/",
   },
-  {
+{
     university_name: "West Virginia University",
     country: "USA", city: "Morgantown, WV", qs_ranking: 851,
     program_name: "Master of Business Administration", degree_level: "postgraduate",
@@ -136207,7 +136016,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:48:24.578Z", verification_source_url: "https://business.wvu.edu/academics/business-administration/business-administration-mba",
   },
-  {
+{
     university_name: "West Virginia University",
     country: "USA", city: "Morgantown, WV", qs_ranking: 851,
     program_name: "Master of Public Health", degree_level: "postgraduate",
@@ -136221,7 +136030,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:56:13.466Z", verification_source_url: "https://publichealth.wvu.edu/students/graduate-programs/master-of-public-health",
   },
-  {
+{
     university_name: "West Virginia University",
     country: "USA", city: "Morgantown, WV", qs_ranking: 851,
     program_name: "Mechanical Engineering, M.S.M.E., Ph.D.", degree_level: "postgraduate",
@@ -136235,7 +136044,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:06:38.735Z", verification_source_url: "http://catalog.wvu.edu/graduate/collegeofengineeringandmineralresources/departmentofmechanicalandaerospace/mechanical/",
   },
-  {
+{
     university_name: "West Virginia University",
     country: "USA", city: "Morgantown, WV", qs_ranking: 851,
     program_name: "PhD in Sociology", degree_level: "postgraduate",
@@ -136249,7 +136058,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T15:56:41.554Z", verification_source_url: "https://soca.wvu.edu/students/graduate-students",
   },
-  {
+{
     university_name: "Western Illinois University",
     country: "USA", city: "Macomb, IL", qs_ranking: null,
     program_name: "Agriculture Major (Bachelor of Science)", degree_level: "undergraduate",
@@ -136263,7 +136072,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.wiu.edu/apply",
     verified_at: "2026-05-14T16:27:47.813Z", verification_source_url: "https://www.wiu.edu/academics/majors/agriculture.php",
   },
-  {
+{
     university_name: "Western Illinois University",
     country: "USA", city: "Macomb, IL", qs_ranking: null,
     program_name: "Bachelor of Science - Biology", degree_level: "undergraduate",
@@ -136277,7 +136086,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:27:41.753Z", verification_source_url: "https://www.wiu.edu/cas/biological_sciences/undergraduate.php",
   },
-  {
+{
     university_name: "Western Illinois University",
     country: "USA", city: "Macomb, IL", qs_ranking: null,
     program_name: "BFA in Art - Graphic Design", degree_level: "undergraduate",
@@ -136291,7 +136100,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:27:23.419Z", verification_source_url: "https://www.wiu.edu/cofac/art/bfa_graphic_design.php",
   },
-  {
+{
     university_name: "Western Illinois University",
     country: "USA", city: "Macomb, IL", qs_ranking: null,
     program_name: "Master in Computer Science", degree_level: "postgraduate",
@@ -136305,7 +136114,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:22:57.598Z", verification_source_url: "https://www.wiu.edu/graduate_studies/programs_of_study/computersci_profile.php",
   },
-  {
+{
     university_name: "Western Illinois University",
     country: "USA", city: "Macomb, IL", qs_ranking: null,
     program_name: "Master of Arts in Communication", degree_level: "postgraduate",
@@ -136319,7 +136128,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:27:29.010Z", verification_source_url: "https://www.wiu.edu/graduate_studies/programs_of_study/comm_profile.php",
   },
-  {
+{
     university_name: "Western Illinois University",
     country: "USA", city: "Macomb, IL", qs_ranking: null,
     program_name: "Master of Business Administration (MBA)", degree_level: "postgraduate",
@@ -136333,7 +136142,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.wiu.edu/grad_studies/",
     verified_at: "2026-05-14T16:23:14.091Z", verification_source_url: "https://www.wiu.edu/cbt/mba/",
   },
-  {
+{
     university_name: "Western Illinois University",
     country: "USA", city: "Macomb, IL", qs_ranking: null,
     program_name: "Nursing Major (Bachelor of Science)", degree_level: "undergraduate",
@@ -136347,7 +136156,7 @@ export const PROGRAMS = ([{
     apply_url: "https://www.wiu.edu/academics/majors/nursing.php",
     verified_at: "2026-05-14T16:27:48.412Z", verification_source_url: "https://www.wiu.edu/academics/majors/nursing.php",
   },
-  {
+{
     university_name: "Western Illinois University",
     country: "USA", city: "Macomb, IL", qs_ranking: null,
     program_name: "Recreation, Park and Tourism Administration Graduate Program", degree_level: "postgraduate",
@@ -136361,7 +136170,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T16:27:50.131Z", verification_source_url: "https://www.wiu.edu/graduate_studies/programs_of_study/rpta_profile.php",
   },
-  {
+{
     university_name: "Wright State University",
     country: "USA", city: "Dayton, OH", qs_ranking: null,
     program_name: "Art", degree_level: "undergraduate",
@@ -136375,7 +136184,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:53:21.293Z", verification_source_url: "https://www.wright.edu/degrees-and-programs/profile/art",
   },
-  {
+{
     university_name: "Wright State University",
     country: "USA", city: "Dayton, OH", qs_ranking: null,
     program_name: "Bachelor of Arts in Communication Studies", degree_level: "undergraduate",
@@ -136389,7 +136198,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:53:27.792Z", verification_source_url: "https://liberal-arts.wright.edu/communication/bachelor-of-arts-in-communication-studies",
   },
-  {
+{
     university_name: "Wright State University",
     country: "USA", city: "Dayton, OH", qs_ranking: null,
     program_name: "Environmental Sciences Ph.D. Program", degree_level: "postgraduate",
@@ -136403,7 +136212,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:53:32.372Z", verification_source_url: "https://science-math.wright.edu/environmental-sciences-phd-program",
   },
-  {
+{
     university_name: "Wright State University",
     country: "USA", city: "Dayton, OH", qs_ranking: null,
     program_name: "Master of Business Administration", degree_level: "postgraduate",
@@ -136417,7 +136226,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:53:09.758Z", verification_source_url: "https://business.wright.edu/master-of-business-administration",
   },
-  {
+{
     university_name: "Wright State University",
     country: "USA", city: "Dayton, OH", qs_ranking: null,
     program_name: "Master of Humanities", degree_level: "postgraduate",
@@ -136431,7 +136240,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:53:24.692Z", verification_source_url: "https://liberal-arts.wright.edu/humanities-and-cultural-studies/master-of-humanities",
   },
-  {
+{
     university_name: "Wright State University",
     country: "USA", city: "Dayton, OH", qs_ranking: null,
     program_name: "Master of Public Health", degree_level: "postgraduate",
@@ -136445,7 +136254,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:53:15.720Z", verification_source_url: "https://medicine.wright.edu/population-and-public-health-sciences/master-of-public-health",
   },
-  {
+{
     university_name: "Wright State University",
     country: "USA", city: "Dayton, OH", qs_ranking: null,
     program_name: "Master of Science in Biological Sciences", degree_level: "postgraduate",
@@ -136459,7 +136268,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:53:37.935Z", verification_source_url: "https://science-math.wright.edu/biology/master-of-science-in-biological-sciences",
   },
-  {
+{
     university_name: "Wright State University",
     country: "USA", city: "Dayton, OH", qs_ranking: null,
     program_name: "Master of Science in Computer Science", degree_level: "postgraduate",
@@ -136473,7 +136282,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:52:47.362Z", verification_source_url: "https://engineering-computer-science.wright.edu/computer-science-and-engineering/master-of-science-in-computer-science",
   },
-  {
+{
     university_name: "Wright State University",
     country: "USA", city: "Dayton, OH", qs_ranking: null,
     program_name: "Master of Science in Data Science", degree_level: "postgraduate",
@@ -136487,7 +136296,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:52:56.099Z", verification_source_url: "https://engineering-computer-science.wright.edu/computer-science-and-engineering/master-of-science-in-data-science",
   },
-  {
+{
     university_name: "Wright State University",
     country: "USA", city: "Dayton, OH", qs_ranking: null,
     program_name: "Master of Science in Mechanical Engineering", degree_level: "postgraduate",
@@ -136501,7 +136310,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:53:07.235Z", verification_source_url: "https://engineering-computer-science.wright.edu/mechanical-and-materials-engineering/master-of-science-in-mechanical-engineering",
   },
-  {
+{
     university_name: "Wright State University",
     country: "USA", city: "Dayton, OH", qs_ranking: null,
     program_name: "Master of Science in Social and Applied Economics", degree_level: "postgraduate",
@@ -136515,7 +136324,7 @@ export const PROGRAMS = ([{
     apply_url: null,
     verified_at: "2026-05-14T12:53:24.898Z", verification_source_url: "https://business.wright.edu/finance-accountancy-management-information-systems-and-economics/master-of-science-in-social-and-applied-economics",
   },
-  {
+{
     university_name: "Wright State University",
     country: "USA", city: "Dayton, OH", qs_ranking: null,
     program_name: "Pre-licensure Bachelor of Science in Nursing", degree_level: "undergraduate",

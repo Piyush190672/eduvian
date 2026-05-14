@@ -535,41 +535,45 @@ export default function StepAcademic({ profile, onChange }: Props) {
               )}
             </div>
           )}
-
-          <div>
-            <Label>Research papers published?</Label>
-            <RadioGroup
-              options={[
-                { value: "false", label: "No" },
-                { value: "true", label: "Yes" },
-              ]}
-              value={
-                profile.research_papers !== undefined
-                  ? String(profile.research_papers)
-                  : undefined
-              }
-              onChange={(v) =>
-                onChange({ research_papers: v === "true" })
-              }
-            />
-            {profile.research_papers && (
-              <div className="mt-3">
-                <Label>Number of papers</Label>
-                <Input
-                  type="number"
-                  min={1}
-                  max={50}
-                  placeholder="1"
-                  value={profile.research_paper_count ?? ""}
-                  onChange={(e) =>
-                    onChange({ research_paper_count: parseInt(e.target.value) })
-                  }
-                />
-              </div>
-            )}
-          </div>
         </>
       )}
+
+      {/* Research papers — collected for BOTH UG and PG (14 May 2026).
+          UG applicants increasingly have undergraduate research experience
+          and the signal is now wired into WEIGHTS_UG with the same 5%
+          weight as PG. */}
+      <div>
+        <Label>Research papers published?</Label>
+        <RadioGroup
+          options={[
+            { value: "false", label: "No" },
+            { value: "true", label: "Yes" },
+          ]}
+          value={
+            profile.research_papers !== undefined
+              ? String(profile.research_papers)
+              : undefined
+          }
+          onChange={(v) =>
+            onChange({ research_papers: v === "true" })
+          }
+        />
+        {profile.research_papers && (
+          <div className="mt-3">
+            <Label>Number of papers</Label>
+            <Input
+              type="number"
+              min={1}
+              max={50}
+              placeholder="1"
+              value={profile.research_paper_count ?? ""}
+              onChange={(e) =>
+                onChange({ research_paper_count: parseInt(e.target.value) })
+              }
+            />
+          </div>
+        )}
+      </div>
     </div>
   );
 }
