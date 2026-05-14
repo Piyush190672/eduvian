@@ -2,13 +2,13 @@
  * Server-side beta gate.
  *
  * Caps:
- *   - 50 unique users per calendar month (UTC) — owner email excluded
+ *   - 100 unique users per calendar month (UTC) — owner email excluded
  *   - Per-user per-tool monthly caps (PER_USER_MONTHLY_CAPS)
  *   - Global monthly spend cap in cents (MAX_MONTHLY_SPEND_CENTS)
  *
  * Owner emails listed in BETA_OWNER_EMAILS (comma-separated) bypass everything.
  * If MONTHLY_UNIQUE_USER_CAP changes here, update the banner copy in
- * src/components/BetaBanner.tsx (currently inlines "50" for client-bundle
+ * src/components/BetaBanner.tsx (currently inlines "100" for client-bundle
  * minimality — both sources of truth should agree).
  */
 
@@ -26,7 +26,7 @@ export const PER_USER_MONTHLY_CAPS: Record<string, number> = {
   "check-match": 30,
 };
 
-export const MONTHLY_UNIQUE_USER_CAP = 50;
+export const MONTHLY_UNIQUE_USER_CAP = 100;
 
 /** Hard global ceiling on monthly Anthropic spend, in cents. Default $50. */
 export const MAX_MONTHLY_SPEND_CENTS = parseInt(
