@@ -4,7 +4,7 @@ This file is loaded automatically. The full project state, decisions, and ration
 
 ## What this is
 
-Next.js 14 (App Router) study-abroad platform deployed to Vercel at https://www.eduvianai.com. Postgres + RLS in Supabase Cloud (US, Pro plan). Anthropic Claude for AI features, Resend for transactional mail, Sentry for errors. 12 destination countries, **8,312 programs / 8,312 verified at the source (100.0%) / ~545 universities / ~70% with international tuition fee** as of 13 May 2026 (handoff #16 — UK QS≤500 Psychology PG sweep manually finished (+305 verified), realistic-admit top-100 fill committed (1,623 entries carry `realistic_min_*`), `/profile-evaluation/[token]` criteria always-expanded, `/results/[token]` hard-filter chip strip removed + disclaimer relocated below shortlist, disclaimer copy "AI-generated" → "AI-powered", new `research_paper` scoring signal at 5% PG weight (academic 40%→35%)), beta-gated to 100 unique users / month (excluding owner). Email OTP **and** password (scrypt) both gate register / login.
+Next.js 14 (App Router) study-abroad platform deployed to Vercel at https://www.eduvianai.com. Postgres + RLS in Supabase Cloud (US, Pro plan). Anthropic Claude for AI features, Resend for transactional mail, Sentry for errors. 12 destination countries, **9,298 programs / 9,298 verified at the source (100.0%) / ~636 universities / ~69% with international tuition fee** as of 14 May 2026 (handoff #17 — biggest single-session expansion: +1,291 programs at 91 new universities across 3 verify-batch rounds, universities sidecar populated (339 unis — 218 USA via College Scorecard, 121 UK via Claude+web_search), acceptance_rate now drives prestige bucketing in scoreAcademic, Cybersecurity + Data Science split out as own streams, "AI & Data Science" renamed to "Artificial Intelligence", GRE/GMAT subscores, PSW filter excludes PgCert/PgDip/sub-degree credentials, empty-tier explainer, QS tiebreaker on top-20, beta gate semantically rewritten ($20 cap + new-user-only counting + email-phone dedup), DOMMatrix polyfill for /api/extract-text, 110 historical duplicates / broken-name rows purged, merge.ts hardened with brace-parse 3-key dedup, 837 QS ranks backfilled, all 9,298 programs have living costs), beta-gated to 100 NEW unique users / month (returning users skip) under $20/mo Anthropic spend ceiling. Email OTP **and** password (scrypt) both gate register / login.
 
 ## Operating rules — non-negotiable, every session, no exceptions
 
@@ -159,69 +159,87 @@ Audit document: `~/Desktop/EduvianAI-Security-Architecture-Risk-Assessment.docx`
 
 The legal/security/pricing Word docs were generated with `docx`. Pricing Excel via `xlsx`. To regenerate legal: `node scripts/build-legal-docs.js`.
 
-## Open work for the next session (handoff #16, 13 May 2026 evening)
+## Open work for the next session (handoff #17, 14 May 2026 night)
 
-Pinned in priority order. Snapshot §36 has full handoff-#16 detail. **No background processes. Working tree clean.** All handoff-#15 wrap-ups landed (UK psych +305 verified, realistic-admit top-100 committed). Open-work #17 (threshold tuning) closed as **investigated, no tune required** — smoke test left in `scripts/smoke-threshold-cs-pg.ts` as a regression artifact.
+Pinned in priority order. Snapshot §37 has full handoff-#17 detail. **No background processes. Working tree clean.** Today's #17 session was the biggest single-day expansion: +1,291 programs / +91 unis / +339 sidecar rows / stream split / GRE-GMAT subscores / Stages 1+2+3+5 of universities sidecar plan / beta-gate semantic overhaul.
 
-**Tier-A — user-driven QA, no API spend (all carry-over from #15):**
+**Tier-A — user-driven QA, no API spend:**
 
-1. **End-to-end QA of the inline-password register flow** — register fresh email → enter OTP → set password on same screen → land on `/profile-evaluation/<token>` → click "Continue to matched programs" → land on `/results/<token>`. Also test the "Skip — I'll set one later" path.
-2. **Change-password QA** — homepage `Change password` button → modal → wrong current → 401 → toast. Correct current + new + confirm → 200 → "Password changed."
-3. **Mobile sanity sweep on real device** — real iOS Safari + Android Chrome. Particular attention to `/results/[token]` nav controls and the per-program action-button stack at < sm. (Also good moment to eyeball the now-relocated DecisionDisclaimer landing right above CheckMatchPanel and the always-expanded Profile criteria.)
-4. **Live mic test of USA + AU interview-prep flows** (carried over from handoff #13).
-5. **Confirm `security@eduvianai.com` mailbox** routing (carried over from handoff #14).
+1. **End-to-end QA of the inline-password register flow** (carry-over from #15)
+2. **Change-password modal QA** from homepage (carry-over)
+3. **Mobile sanity sweep on real device** (iOS Safari + Android Chrome) (carry-over)
+4. **Live mic test of USA + AU interview-prep flows** (carry-over from #13)
+5. **Confirm `security@eduvianai.com` mailbox** routing (carry-over from #14)
+6. **NEW — verify the PSW hard-filter fix** surfaces no PgCert/PgDip programs with PSW filter on
+7. **NEW — verify the empty-tier explainer** on `/results` for any user with 0 ambitious
+8. **NEW — verify GRE/GMAT subscores form** renders + composite auto-computes from V+Q (GRE) / direct entry (GMAT)
+9. **NEW — verify Cybersecurity + Data Science** appear in the dropdown + the alias-matcher returns dual-stream programs under both
 
-**Tier-B (API spend, await explicit go):**
+**Tier-B — API spend (await explicit go):**
 
-6. **USA fee uplift beyond 78%** — residential proxy ($50/mo subscription). Still skipped pending explicit authorisation.
+10. **USA fee uplift beyond 78%** — residential proxy ($50/mo). Still skipped.
+11. **NEW — Tuition estimate for 2,907 missing programs** via `estimate-fees.ts` (Sonnet + web_search). Scope-dependent: ~$290 for all, ~$100 USA-only, ~$20-30 for top-100 most-shortlisted.
+12. **NEW — Stage 4 of universities sidecar** for non-US/non-UK countries (Canada, Australia, Germany, France, Singapore, NZ, Ireland, UAE, Malaysia, Netherlands). ~$30-50 via Claude+web_search.
 
-**Tier-C (product surface):**
+**Tier-C — product surface:**
 
-7. **Button hierarchy reorder on ProgramCard** — promote "View ROI Analysis" to primary, demote Apply Now to terminal. Deferred from §35.15 polish batch; user said "ship 1-4 only" but acknowledged this is the biggest UX lever.
+13. **Button hierarchy reorder on ProgramCard** (carry-over) — View ROI primary.
+14. **NEW — Surface universities-sidecar data on UI**. ComparePanel only has Acceptance Rate row (Stage 5). ProgramCard could show TEF / NSS / Russell Group badges for UK and acceptance + median earnings for USA. Parent Decision tool could pull `median_earnings_6yr_usd` from sidecar instead of static ROI tables.
 
-**Tier-D — security & ops (carrying over):**
+**Tier-D — security & ops** (all carry-over):
 
-8. **M1 CSP** — drop `unsafe-inline` / `unsafe-eval`. 4-6 wk Next.js refactor.
-9. **M3 Zod input validation** — 0/28 routes; cross-cut.
-10. **M5 Secrets rotation policy doc** — 90-day cadence. Doc-only.
-11. **M7 + L3 legal-doc edits** — Privacy Policy §2.2 + §6. Touches `scripts/build-legal-docs.js`; don't push without attorney sign-off.
-12. **L5 verified_at HMAC signing** — schema + writer rework. Defer.
-13. **I3 Incident response plan** — required for ISO 27001 roadmap.
-14. **I2 + I4** — bug bounty / VRP + pen-testing schedule. Pre-launch.
+15. M1 CSP (4-6 wk Next.js refactor)
+16. M3 Zod input validation
+17. M5 secrets rotation policy doc
+18. M7 + L3 legal-doc edits (attorney-gated)
+19. L5 verified_at HMAC signing
+20. I3 incident response plan
+21. I2 + I4 bug bounty + pen-testing schedule
 
-**New-in-#16 (small, low-risk):**
+**Pipeline ops (new from #17):**
 
-15. **Optionally surface the new research_paper signal in the score breakdown UI** — value is in `score_breakdown.research_paper` but nothing displays it yet. `CheckMatchPanel` / `ComparePanel` could mention it for PG profiles. Defer until user asks.
-16. **Profile form integration for UG research_paper** if the user later decides UG students should also be scored on publications — requires adding the question to the UG branch, then bumping `WEIGHTS_UG.research_paper` from 0 to 0.05 and rebalancing.
-17. **Re-verify 7 broken-name program rows** in `src/data/programs.ts` whose `program_name` ends with a literal backslash (artefact of the verify-pipeline bug that caused the 96-row duplicate cleanup on 14 May). Cosmetic only — these programs already match correctly; just the display label is garbled. Affected rows:
-    - Martin Luther University Halle-Wittenberg · "Postgraduate Studies \\"
-    - Kiel University · "M.Sc. \\"
-    - University of Augsburg · "MBA \\"
-    - IMT Atlantique · "Master of Science in Engineering \\"
-    - University of Nantes · "Master CPM - Parcours \\"
-    - Sciences Po · "Bachelor of Arts and Sciences (BASC): \\" (env spec)
-    - Sciences Po · "Bachelor of Arts and Sciences (BASC) : \\" (AI spec)
-    Fix: for each row, fetch the `verification_source_url` and overwrite `program_name` only with whatever's currently on the live page. ~$0.50 in Opus 4.7 calls. User asked to schedule this on 14 May; `/schedule` couldn't reach claude.ai, so it's parked here.
+22. **NEW — Verify-batch watchdog timeout**. 3 verify-program workers hung 1-3h on slow uni pages today; parent verify-batch waited indefinitely. Add per-worker timeout (e.g. 5 min) and let `--skip-existing` re-runs cover anything that timed out.
+23. **NEW — `reclassify-cs-streams.py` after each `merge.ts` run** so new programs get classified into the four-way CS / AI / Data Science / Cybersecurity split. Or fold the classification into `verify-program.ts` extraction so it never drifts.
+24. **NEW — Vercel env checks**: confirm `MAX_MONTHLY_SPEND_CENTS` isn't hard-set to 5000 (overrides the new $20 default), and add user's test email to `BETA_OWNER_EMAILS` for total bypass.
 
-**Estimated remaining spend:** ~$0 unless Tier-B #6 (USA proxy) gets greenlit. Everything else is code or docs.
+**Carry-overs that just landed**:
+- Research paper signal in score breakdown UI — done in `9a555b12`.
+- UG research_paper integration — done in `9a555b12`.
+- 7 broken-name program rows re-verify — moot; rows deleted in `9a555b12`.
 
-## Scoring weights (locked as of handoff #16)
+**Estimated remaining spend:** ~$0 unless Tier-B #10/11/12 get greenlit. Stage 4 sidecar (~$30-50) and tuition estimate (~$20-290 by scope) are the only paid items pending.
 
-| Signal | PG | UG (normalised over 0.95) |
+## Universities sidecar (Stage 1+2+3+5 live as of #17)
+
+`src/data/universities.ts` carries 339 entries: 218 USA from US Dept of Ed College Scorecard (free public API), 121 UK from Claude API + web_search across HESA / OfS / Discover Uni / Complete University Guide. Schema in `src/lib/types.ts` `University` interface includes acceptance_rate, median_earnings_{6,10}yr_usd, school_type, setting, enrollment_undergrad / total, graduate_outcome_salary_usd / employment_pct, ukprn, student_staff_ratio, nss_satisfaction_pct, tef_rating, russell_group, completion_rate_pct.
+
+Stage 5 wired `acceptance_rate` into the prestige bucket helper at `src/lib/prestige.ts` — `scoreAcademic` + `scoreProgram` both consume it via `getPrestigeBucket(program)`. Falls back to QS rank where sidecar data is missing.
+
+ComparePanel renders an "Acceptance Rate" row using `lookupUniversity(p.university_name)?.acceptance_rate`. Other sidecar fields not yet surfaced on UI (item 14).
+
+`scripts/universities/`: fetch-scorecard-usa.ts, merge-scorecard-usa.ts, fetch-uk.ts, merge-uk.ts, usa-ipeds-overrides.json (47 IPEDS UnitID overrides for name-format mismatches), uk-russell-group.json (24-uni canonical list).
+
+## Scoring weights (locked as of handoff #17)
+
+| Signal | PG | UG |
 |---|---|---|
-| Academic         | 35% | 42.1% |
-| Budget           | 20% | 21.1% |
-| Std Test         | 10% | 10.5% |
-| English          |  5% |  5.3% |
-| Scholarship      |  5% |  5.3% |
-| Intake           |  5% |  5.3% |
-| Backlogs         |  5% |  5.3% |
-| Gap Year         |  5% |  5.3% |
-| Work Exp.        |  5% |  —    |
-| Research paper   |  5% |  —    |
+| Academic         | 35% | 35% |
+| Budget           | 20% | 20% |
+| Std Test         | 10% | 10% |
+| English          |  5% |  5% |
+| Scholarship      |  5% |  5% |
+| Intake           |  5% |  5% |
+| Backlogs         |  5% |  5% |
+| Gap Year         |  5% |  5% |
+| Work Exp.        |  5% |  —  |
+| Research paper   |  5% |  5% |
 | **Sum**          | 100% | 100% |
 
-Research paper is PG-only — UG profile form doesn't collect `research_papers` / `research_paper_count`, so the signal carries weight 0 in `WEIGHTS_UG`. Rubric: count 0 → 0, count 1 → 60, count 2 → 85, count ≥ 3 → 100.
+Research paper is collected from BOTH UG and PG profiles (split out of `{isGrad && (...)}` in StepAcademic on 14 May). UG weights are no longer normalised — raw sum is 1.0 with work_experience at 0. Rubric: count 0 → 0, count 1 → 60, count 2 → 85, count ≥ 3 → 100.
+
+**Prestige bucketing** — `getPrestigeBucket(program)` in `src/lib/prestige.ts`. Uses `acceptance_rate` from the universities sidecar where present, falls back to QS rank otherwise. Five aligned buckets (penalty / safeMin / reachMin). Bucket boundaries aligned across the two sources so a program's threshold doesn't jump when sidecar data lands — only the BASIS of the bucketing changes.
+
+**Top-20 sort**: primary `match_score` DESC, secondary `qs_ranking` ASC nulls last. When two programs share a score, the higher-prestige university surfaces first.
 
 `scripts/smoke-threshold-cs-pg.ts` is the canonical regression check — edit the profile in-place and re-run after any scoring or weight change to confirm tier distribution stays sane across QS buckets.
 

@@ -1,6 +1,6 @@
 # EduvianAI — Comprehensive State Snapshot for Session Handoff
 
-**Last updated:** 13 May 2026 evening (handoff #16 — 6 commits on top of handoff #15: UK psych deep sweep manual finish bundled with realistic-admit top-100 fill, smoke test for tier-threshold tuning, full-detail expansion on /profile-evaluation, hard-filter chip strip removed from /results with disclaimer relocated below shortlist, AI-powered copy fix, new research_paper scoring signal at 5% PG weight)
+**Last updated:** 14 May 2026 night (handoff #17 — 21 commits on top of handoff #16: DOMMatrix polyfill, beta cap raised 50→100 + $20 spend ceiling + new-user cap excludes returning users, empty-tier explainer on /results, 5-stage university-sidecar plan executed (Stages 1+2+3+5 done; 339 unis populated — 218 USA via Scorecard, 121 UK via Claude+web_search), acceptance_rate now drives prestige bucketing in scoreAcademic, 91 new universities added across 3 verify-batch rounds (+1,291 programs to 9,298 total), PSW filter excludes sub-degree credentials, Cybersecurity + Data Science split out as own streams, "AI & Data Science" renamed to "Artificial Intelligence", GRE/GMAT subscores in form, QS tiebreaker on top-20 sort, 96 historical duplicates removed + 14 broken-name rows purged, merge.ts hardened with brace-parse 3-key dedup, 837 QS ranks backfilled across 73 unis, all 9,298 programs have living costs)
 **Purpose:** Zero-loss handoff between Claude Code sessions. A new session reading this should be able to continue *every* in-flight workstream correctly, respect all user preferences, and avoid all known gotchas.
 
 > **No background processes running.** The chained 7-country prior-year-tuition sweep (wrapper PID 38419, see 7889f120) was user-stopped after 92 / 2,933 entries (~$3.70 of $118 budget). Re-runnable at any time — the script's "already-estimated rows are skipped" rule means a fresh spawn picks up exactly where it left off.
@@ -2987,3 +2987,209 @@ Realistic admit: 1,623 entries with realistic_min_*
 BPS-tagged:     50 true / 249 false on UK PG psych
 ```
 
+
+---
+
+## §37 Session log — 14 May 2026 (handoff #17 — universities sidecar landed · 1,291 new programs · 4 streams from 2 · UK Stage-3 · QS backfill · beta-gate semantic overhaul)
+
+**HEAD at session end:** `c5b3f040`. **21 commits on `main`** since `c9c590e4` (handoff #16 docs). Working tree clean, no background processes. The biggest single-session expansion of the DB on record: +1,291 verified programs, +91 universities, +339 sidecar rows.
+
+### 37.1 Tier-A wrap-ups + small fixes (early session)
+
+- **Beta cap raised 50 → 100/mo** (`a8edadae`). User-driven; was 50 from handoff #14's drop. Storage key on BetaBanner bumped (`..._50` → `..._100`) so users who dismissed the old copy see the new one.
+- **Beta-gate semantic overhaul** (`8f0a6009`):
+  - `MAX_MONTHLY_SPEND_CENTS` default 5000 → **2000 ($20 ceiling)**. Hard stop for everyone once spend hits the cap.
+  - Unique-user count moved from `tool_usage` (activity-based, would re-count returning users monthly) to `students` (registration-based). Users registered before the current month skip the cap entirely.
+  - Dedup on `(email, phone)` tuple, not email alone. Students table enforces email uniqueness so practical count same today, but tuple semantics match user's stated identity definition.
+  - Note: env var `MAX_MONTHLY_SPEND_CENTS` may be explicitly set on Vercel — if 5000, that wins over the new default. User to confirm.
+- **Sentry-reported DOMMatrix ReferenceError on /api/extract-text** (`0ac122fa`). PDF.js v5 references DOMMatrix/Path2D/ImageData at module-load time; Vercel Node 24 doesn't expose these as globals. Three no-op class shims polyfill at module top before any pdfjs import. `getTextContent()` (only API this route uses) never calls these classes; identifiers needed only at load time.
+- **submit-match per-user cap 5 → 30** (`6852cb18`). User reported "5/month quota" toast on form-submit. submit-match has `TOOL_COST_CENTS = 0` (no Anthropic call — pure JS matching), so artificially throttling the core flow at 5 was wrong.
+- **Empty-tier explainer on /results** (`45fc1fec`). When a Safe/Reach/Ambitious tier returns 0 programs, show a per-tier card with reason + 2-3 actionable suggestions. Pure client-side heuristic in `src/lib/empty-tier-reason.ts` — no API call. Honest fix to the diagnosed-but-not-broken behaviour from the 8bc4df57 user (academic hard floor removes all stretch programs).
+
+### 37.2 Universities sidecar plan — Stages 1, 2, 3, 5 executed
+
+User asked whether we'd tried US News for the missing data. Reframed as a 5-stage plan:
+
+| Stage | What | Status |
+|---|---|---|
+| 1 | Schema scaffold — `University` interface + sidecar table + lookup helpers | ✅ `d989d39b` |
+| 2 | College Scorecard backfill (134 USA → 218 after expansion) | ✅ `7c86c26c` + later run |
+| **3** | UK universities via Claude API + web_search | ✅ `c5b3f040` |
+| 4 | Non-US/non-UK universities | deferred |
+| **5** | Wire `acceptance_rate` into `scoreAcademic` + ComparePanel | ✅ `833436c0` |
+
+**Stage 1 (`d989d39b`)**: Added `University` interface to `src/lib/types.ts`. Created `src/data/universities.ts` (empty sidecar) + `src/data/universities-helpers.ts` (lookupUniversity, hasUniversityProfile, name normalisation).
+
+**Stage 2 (`7c86c26c` + later in session)**: `scripts/universities/fetch-scorecard-usa.ts` hits the US Dept of Education College Scorecard public API (api.data.gov, free). User got a personal API key (1000/hr) after the first probe showed DEMO_KEY rate-limited. Schema additions on 14 May: 9 new fields (`enrollment_total`, `graduate_outcome_salary_usd`, `graduate_outcome_employment_pct`, `ukprn`, `student_staff_ratio`, `nss_satisfaction_pct`, `tef_rating`, `russell_group`, `completion_rate_pct`). USA rows populate ~6 of these from Scorecard; UK-only fields stay null for USA.
+
+47 IPEDS overrides (`scripts/universities/usa-ipeds-overrides.json`) handle name-format mismatches that Scorecard's substring search would resolve wrongly: "UC Berkeley" → 110635, "University of Chicago" → 144050 (not "U Illinois Chicago"), Cal Poly Pomona → 110529 (not Cal Poly SLO), etc. Final: **218 USA universities, 218/218 hits, 0 misses**.
+
+**Stage 5 (`833436c0`)** — the value step. `src/lib/prestige.ts` is the new home for the prestige bucket math. `getPrestigeBucket(program)` returns `{prestigePenalty, safeMin, reachMin, source}` — uses real `acceptance_rate` from the sidecar where present, falls back to QS-bucket where not. Buckets aligned across the two sources so a program's threshold doesn't jump when sidecar data lands; only the BASIS changes. `scoreAcademic` + `scoreProgram` both call the helper. New ComparePanel row: "Acceptance Rate". Smoke test (PG/CS/fall, GPA 3.6, GRE 318) confirmed monotonic 95→68 top-20, mid-tier QS 51-100 now properly bumps Vanderbilt / Notre Dame / Duke / Yale into `ambitious` where QS-only over-graded them.
+
+**Stage 3 (`c5b3f040`)** — UK universities. Two attempts:
+
+First attempt failed: Claude returned only TEF and Russell Group, all other fields null, because `max_uses: 3` web searches wasn't enough to cover HESA + OfS + Discover Uni + university-stats pages. Killed early.
+
+Second attempt succeeded: `max_uses: 5` + explicit search-plan in the system prompt + prompt caching on the constant system message (~5x cost reduction on cache reads). **121 UK unis fetched, 0 misses, ~$35 spend.** Fields populated where data was on authoritative sources (HESA / Office for Students / Discover Uni / Complete University Guide / individual uni stats pages). Coverage varies: Aston University got full slate (UG/total/salary/TEF/NSS); some smaller unis got just TEF + RG.
+
+**Russell Group attribution**: `uk-russell-group.json` holds the 24-uni canonical list. Catalog name "UCL" didn't match the JSON's "University College London"; post-merge patch corrected via brace-parser walk. **25 Russell Group rows now** (24 canonical + 1 UCL alias).
+
+### 37.3 91-university 3-round expansion sweep
+
+User asked for popular USA universities not in DB. Three rounds:
+
+**Round 1 (34 unis)**: 10 East Coast popular (Syracuse, Binghamton, Fordham, GMU, JMU, Pratt, UVM, Bucknell, UMBC, UNH), 10 West Coast popular (UCSB, UCI, UCD, Cal Poly SLO, Santa Clara, USF, Chapman, Harvey Mudd, Pomona, BYU), 10 Southern (UGA, LSU, SMU, Baylor, U Louisville, U South Carolina, U Oklahoma, FAU, U Memphis, Georgia State), 4 London (University of Law, Regent's, BPP, Royal College of Art).
+
+**Round 2 (37 unis)**: 30 Indian-cohort heavy mid-tier (UIUC, MSU, Wayne State, SUNY Albany, UWMilwaukee, UNT, UTRGV, Texas State, Sam Houston, Lamar, UHCL, Wright State, Cleveland State, U Toledo, U Dayton, Kent State, U Bridgeport, U New Haven, NYIT, Saint Peter's, LIU, NIU, SIUE, Lawrence Tech, Cal Poly Pomona, CSU Sacramento, CSU East Bay, CSU Fresno, SFSU, Embry-Riddle) + 7 also-rans (USD, UND, Western Illinois, FL Poly, Lewis, TWU, NAU).
+
+**Round 3 (20 unis)**: high-international-cohort overlooked (DePaul, Loyola Chicago, Adelphi, Quinnipiac, U Hartford, U Detroit Mercy, U Tulsa, Bradley, FL Tech, Michigan Tech, U Nebraska-Lincoln, WV, UMass Lowell, UMass Boston, UNC Charlotte, Miami OH, U Akron, The New School, RISD, SCAD).
+
+Pipeline (per round): `websearch-seed-finder.ts` (Sonnet + web_search, 17 fields per uni) → seeds JSON → `verify-batch.ts` (Opus 4.7, concurrency 5, --skip-existing) → output JSON per seed → `merge.ts` (brace-parsed 3-key dedup, hardened earlier today).
+
+**Aggregate verification yields**:
+- R1: 410 / 41 rejected / 7 err   (89.5% pass on 458 seeds)
+- R2: 448 / 42 / 37  (85% pass on 527)
+- R3: 231 / 16 / 19  (87% pass on 266)
+- **Total ~1,089 verified rows across 1,251 seeds (~87% net pass)**.
+
+**Two stuck verify-program workers** had to be manually killed (3h+ hangs on UGA Biomanufacturing + U Bridgeport + FL Tech pages). Verify-batch lacks a per-worker timeout — flagged as item #26.
+
+**Mid-stream additions**:
+- `34b52237` is from handoff #15 era but landed today's session post-handoff: combined commit covering UK psych deep sweep manual finish + realistic-admit top-100 (separately covered in §36).
+- `4a532d87` r4 micro-sweep for Embry-Riddle + RISD that r2/r3 had lost.
+
+**Final programs.ts**: 9,298 verified programs (was 8,007 at session start, was 8,216 after handoff #15-#16 cleanup), 12 countries.
+
+### 37.4 Pipeline hardening + data cleanup
+
+User reported University of Houston's "MS Computer Science - AI Track" appearing twice with different scores. Investigation surfaced a much larger duplicate problem:
+
+**`b5973274`** — 9 duplicate groups, 96 rows removed via `scripts/verify/dedupe-programs.py`. Brace-counting parser (regex would miss ~256 entries because file mixes `},`, `},,` and `},,,` separators). Categories:
+- 1 Houston group (2 rows; casing artefact)
+- 7 "trailing-backslash" groups (16-17 rows each, IDENTICAL including verified_at — verifier inserted same row that many times across reruns)
+- 1 Tübingen group (2 rows)
+- 1 Houston "Master by Coursework"
+
+**`92901c85`** — pipeline-side fix in `merge.ts`. Brace-parsed entry walker replaces the regex (which missed ~134 entries with `degree_level: null` unquoted, or non-standard punctuation). Dedup key dropped from 4 → 3 to avoid false-positive re-inserts: tighter 4-key triggered 250 false-positive re-inserts on `field_of_study` drift ("Architecture" vs "Arts, Design & Architecture"), tighter 5-key triggered 367 false positives on specialization drift. 3-key (`uni + program_name + degree_level`) is the loosest fold that's still useful; trade-off documented (5 same-name-different-faculty cases get conflated, mostly field-tagging artefacts; Universiti Putra Malaysia's "Master by Coursework" is the one genuine loss). `dedupe-programs.py` is the safety net.
+
+**`9a555b12`** — 14 broken-name rows purged after today's expansion sweep created 7 fresh dupes of the original 7 broken-name rows (3-key dedup didn't catch — escape-char subtleties on the trailing backslash). `scripts/verify/remove-broken-names.py` (idempotent brace-parser).
+
+### 37.5 Stream split — Cybersecurity + Data Science
+
+User asked for these as separate dropdown options, with dual-stream programs (e.g. "MSc Artificial Intelligence and Data Science") visible under both streams.
+
+**`43c23cd4`**:
+- Added `"Cybersecurity"` and `"Data Science"` to `FIELDS_OF_STUDY` (now 21 streams).
+- Added `Program.field_aliases?: string[]` for cross-listing.
+- `scripts/verify/reclassify-cs-streams.py` (brace-parser) walked all programs in `Computer Science & IT` / `Artificial Intelligence & Data Science` and applied keyword-based reclassification:
+  - Cybersecurity keywords (cyber, information security, network security, etc.) → primary `Cybersecurity`, alias `Computer Science & IT` when name also mentions CS/IT.
+  - Data Science keywords (data science, analytics, big data, etc.) + AI keywords → primary AI, alias `Data Science`.
+  - Data only → primary `Data Science`, alias AI.
+  - AI only → stays AI.
+- Matcher in `scoring.ts` updated to match against `field_of_study OR any of field_aliases`.
+
+Net effect: 549 programs reclassified, 387 universities touched. **Computer Science & IT 710, AI 464, Data Science 331, Cybersecurity 138.** 417 programs carry non-empty `field_aliases` (cross-listed).
+
+**`53508581`** — followed up: user said "AI & Data Science" should just be "Artificial Intelligence" now that DS is its own stream. Renamed across src/lib/types.ts, src/lib/scoring.ts, src/data/programs.ts (465 rows), src/data/roi-data.ts, src/app/options/page.tsx, src/app/api/chat/route.ts, and the verify-pipeline prompts in scripts/verify/*.ts. Historical seed JSONs left alone (immutable inputs).
+
+### 37.6 GRE / GMAT section scores
+
+User asked for V/Q/AWA / V/Q/DI subscores per test instead of a single composite.
+
+**`94e4c758`**:
+- 4 new optional fields on StudentProfile: `std_test_pg_verbal`, `std_test_pg_quant`, `std_test_pg_awa` (GRE only), `std_test_pg_data_insights` (GMAT only).
+- `std_test_pg_score` (composite) kept as the canonical field — backwards compat, matcher unchanged.
+- StepTests.tsx GRE branch: 3 inputs (V/Q/AWA), composite auto-computed from V+Q.
+- StepTests.tsx GMAT branch: 4 inputs (Total/V/Q/DI), Total entered separately since GMAT Focus Edition (post-Nov 2023) doesn't compute Total as a sum.
+- Reset path clears all 5 fields when std_test_pg dropdown changes.
+
+### 37.7 PSW hard filter — sub-degree credentials
+
+User reported Edinburgh's "Counselling MCouns, PgCert, PgDip" surfacing with PSW filter on. PSW filter only checked country membership in PSW_COUNTRIES; didn't account for sub-degree credentials (PgCert / PgDip / Postgraduate Certificate / Diploma / Graduate Certificate / Diploma / Foundation Degree / FdSc / FdA / FdEng / HND / HNC) that are NOT post-study-work-eligible globally.
+
+**`0bea3b1a`**: Three-check hard filter — country in PSW_COUNTRIES + degree_level not in {"diploma","pg_diploma"} + program_name doesn't match `NON_PSW_DEGREE_PATTERN`. Blast radius: 95 programs excluded by name pattern + 23 by degree_level when PSW filter is on.
+
+### 37.8 Living-cost backfill + QS-rank backfill
+
+**`65ce371a`**: `backfill-living-cost-by-city.ts` (deterministic, city → cost lookup, no API) updated 1,357 rows. **0 null + 0 zero living costs across all 9,285 programs after run.**
+
+**`c5b3f040`** (QS portion): `scripts/verify/backfill-qs-rank.ts` (Sonnet + web_search) ran against 222 universities whose ALL programs had `qs_ranking: null`. **73 unis got a numeric rank, 149 confirmed genuinely unranked** (specialist art schools, Fachhochschule, Canadian colleges). `apply-qs-backfill.py` patched 837 programs in programs.ts (null → rank). Verified specifically: UMass Boston 1001 (the user-reported case), Howard 1001, UCL & LSE in their full-name variants ranked correctly.
+
+### 37.9 Other matcher tweaks
+
+- **`43c23cd4` (also)** — secondary sort by QS ascending (nulls last) within tier pools. Tiebreaker on `match_score` so when two programs land at the same score, the higher-prestige uni ranks first.
+
+### 37.10 Pinned open work for handoff #18
+
+**Tier-A — user-driven QA** (all carry over):
+1. End-to-end QA of inline-password register flow
+2. Change-password modal QA from homepage
+3. Mobile sanity sweep on real device
+4. Live mic test of USA + AU interview-prep flows
+5. Confirm `security@eduvianai.com` mailbox routing
+6. NEW — verify the PSW hard-filter fix surfaces no PgCert/PgDip programs with PSW filter on
+7. NEW — verify the empty-tier explainer on /results for any user with 0 ambitious
+8. NEW — verify GRE/GMAT subscores form renders + composite auto-computes
+9. NEW — verify Cybersecurity + Data Science appear in the dropdown + match correctly
+
+**Tier-B — API spend (await explicit go)**:
+10. **USA fee uplift** — residential proxy ($50/mo). Still skipped.
+11. NEW — **Tuition estimate for 2,907 missing programs** — `estimate-fees.ts` (Sonnet + web_search). ~$290 worst case for all; ~$100 for USA-only; ~$20-30 for top-100 most-shortlisted.
+12. NEW — **Stage 4 of universities sidecar** — non-US / non-UK (Canada, Australia, Germany, France, Singapore, NZ, Ireland, UAE, Malaysia, Netherlands). ~$30-50 via Claude+web_search.
+
+**Tier-C — product surface**:
+13. Button hierarchy reorder on ProgramCard (View ROI primary) — deferred from §35.15
+14. NEW — **Surface universities sidecar data on UI**: acceptance_rate / median_earnings / TEF / NSS / Russell Group / student_staff_ratio etc. ComparePanel only has Acceptance Rate so far (Stage 5). ProgramCard could surface more; Parent Decision tool could pull median_earnings_6yr_usd from sidecar instead of static ROI tables.
+
+**Tier-D — security & ops** (carrying over):
+15. M1 CSP (4-6 wk Next.js refactor)
+16. M3 Zod input validation
+17. M5 secrets rotation policy doc
+18. M7 + L3 legal-doc edits (attorney-gated)
+19. L5 verified_at HMAC signing
+20. I3 incident response plan
+21. I2 + I4 bug bounty + pen-testing schedule
+
+**Pipeline ops** (new from today):
+22. **Verify-batch watchdog timeout** — 3 verify-program workers hung 1-3h on slow uni pages (UGA Biomanufacturing, FL Tech, U Bridgeport). Add per-worker timeout (e.g. 5 min) so the parent doesn't wait indefinitely.
+23. NEW — re-classify CS-stream programs after future merges. Run `reclassify-cs-streams.py` after each `merge.ts` to keep new entries split correctly. Or update `verify-program.ts` extraction prompt to emit the new categories directly (and `field_aliases` for dual programs).
+24. NEW — verify-pipeline prompt update for Cybersecurity / Data Science streams (so future runs don't default everything back to AI&DS / CS&IT).
+25. NEW — Vercel env var checks: `MAX_MONTHLY_SPEND_CENTS` (confirm not hard-set to 5000) + add the user's test email to `BETA_OWNER_EMAILS` for total bypass.
+
+**Carry-over**:
+26. Re-verify 7 broken-name program rows — now MOOT, they were deleted in `9a555b12`. Skip.
+27. Surface research_paper signal in score breakdown UI — done in `9a555b12`.
+28. Profile form integration for UG research_paper — done in `9a555b12`.
+
+### 37.11 Estimated remaining API spend
+
+~$0 unless any Tier-B item gets greenlit. The Stage 4 sidecar sweep (~$30-50) and the tuition estimate (~$20-290 by scope) are the only paid items pending.
+
+### 37.12 Final state snapshot
+
+```
+HEAD:              c5b3f040
+Local main:        = origin/main
+Working tree:      clean
+Background:        none
+Programs:          9,298 / 9,298 verified (100%)
+Countries:         12
+Universities sidecar: 339 (218 USA + 121 UK)
+Russell Group:     25 (24 canonical + UCL alias)
+Field streams:     21 (added Cybersecurity + Data Science)
+Programs with QS:  7,799 (1,499 still null — mostly genuinely unranked)
+Programs with living cost: 9,298 (100%)
+Programs with tuition:     6,391 (2,907 still null — deferred)
+```
+
+### 37.13 Spend today
+
+| Job | Approx |
+|---|---|
+| USA verify-batch r1+r2+r3+r4 | $45-55 |
+| UK Stage 3 fetch (Opus 4.7 + web_search + cache) | $30-40 |
+| QS-rank backfill (Sonnet) | $8-12 |
+| Embry-Riddle + RISD micro-sweep | $2-3 |
+| **Total** | **~$85-110** |
+
+(Original estimate at session start was ~$70. Overshot ~50% — UK fetch was more expensive than the cached estimate suggested, and the QS backfill was an unscoped add-on.)
