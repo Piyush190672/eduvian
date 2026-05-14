@@ -30,6 +30,7 @@ import DecisionDisclaimer from "@/components/DecisionDisclaimer";
 import CheckMatchPanel from "@/components/results/CheckMatchPanel";
 import ChatWidget from "@/components/ChatWidget";
 import ComparePanel from "@/components/results/ComparePanel";
+import { explainEmptyTier } from "@/lib/empty-tier-reason";
 
 interface ResultData {
   submission: {
@@ -375,23 +376,44 @@ export default function ResultsPage() {
               </div>
 
               {programs.length === 0 ? (
-                // Compact no-results row — used to be a tall py-10 panel
-                // with an icon block, which on mobile pushed the next
-                // tier section well below the fold. (13 May 2026)
-                <div className="flex items-center justify-between gap-3 px-3 py-2.5 rounded-xl bg-gray-50 border border-dashed border-gray-200">
-                  <p className="text-xs text-gray-500 flex items-center gap-1.5">
-                    <Filter className="w-3.5 h-3.5 text-gray-300 flex-shrink-0" />
-                    No {tc.label.toLowerCase()} matches for the current filters.
-                  </p>
-                  {(filters.country !== "all" || filters.field !== "all") && (
-                    <button
-                      onClick={() => setFilters({ country: "all", field: "all", sort: filters.sort })}
-                      className="flex-shrink-0 text-xs text-indigo-500 hover:underline"
-                    >
-                      Clear filters
-                    </button>
-                  )}
-                </div>
+                // Compact "why is this empty" explainer — replaces the old
+                // one-liner "No matches for current filters" row so users
+                // understand WHY a tier returned 0 and what they can change
+                // (14 May 2026, after a real user landed 0 Ambitious due to
+                // strict academic floor).
+                (() => {
+                  const expl = explainEmptyTier(tc.tier, profile, allPrograms);
+                  return (
+                    <div className={`rounded-xl border border-dashed ${tc.border} ${tc.bg} px-4 py-3.5`}>
+                      <div className="flex items-start gap-2.5">
+                        <Filter className={`w-4 h-4 ${tc.text} flex-shrink-0 mt-0.5`} />
+                        <div className="flex-1 min-w-0">
+                          <p className={`text-sm font-semibold ${tc.text}`}>{expl.title}</p>
+                          <p className="text-xs text-gray-600 mt-1.5 leading-relaxed">{expl.body}</p>
+                          <div className="mt-2.5">
+                            <p className="text-[11px] font-semibold uppercase tracking-wider text-gray-500 mb-1.5">What could change this</p>
+                            <ul className="space-y-1">
+                              {expl.suggestions.map((s, i) => (
+                                <li key={i} className="text-xs text-gray-600 flex items-start gap-1.5">
+                                  <span className={`${tc.text} flex-shrink-0 mt-0.5`}>•</span>
+                                  <span className="leading-relaxed">{s}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                          {(filters.country !== "all" || filters.field !== "all") && (
+                            <button
+                              onClick={() => setFilters({ country: "all", field: "all", sort: filters.sort })}
+                              className="mt-2.5 text-xs text-indigo-500 hover:underline"
+                            >
+                              Clear page-level filters
+                            </button>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })()
               ) : (
                 <div className="space-y-4">
                   {programs.map((program, i) => (
