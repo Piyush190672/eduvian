@@ -613,8 +613,15 @@ export function recommendPrograms(profile: StudentProfile, programs: Program[]):
       if (!customQuery) return false;
       const haystack = `${p.field_of_study} ${p.program_name}`.toLowerCase();
       if (!haystack.includes(customQuery)) return false;
-    } else if (!allowedFields!.has(p.field_of_study)) {
-      return false;
+    } else {
+      // Match against the program's primary field OR any of its
+      // declared field_aliases. The aliases support dual-stream programs
+      // like "MSc AI and Data Science" which are listed under one
+      // primary field but surface under both when the user picks
+      // either stream. (14 May 2026.)
+      const primaryMatch = allowedFields!.has(p.field_of_study);
+      const aliasMatch = !!p.field_aliases?.some((a) => allowedFields!.has(a));
+      if (!primaryMatch && !aliasMatch) return false;
     }
 
     // BPS GBC filter — when the user is pursuing Psychology at the
@@ -664,11 +671,23 @@ export function recommendPrograms(profile: StudentProfile, programs: Program[]):
     return true;
   });
 
+  // Primary sort: match_score descending. Secondary sort: QS rank
+  // ascending (lower = better; nulls last). Tie-breaking on QS makes the
+  // matcher prefer the higher-prestige university when two programs land
+  // at the same match_score — user-facing impact is that on a given
+  // shortlist a 95-score MIT program now ranks above a 95-score
+  // less-known regional school, instead of the previous arbitrary order.
+  // (14 May 2026, user-requested.)
   const scored = filtered
     .filter((p) => !isHardDisqualified(profile, p))
     .map((p) => scoreProgram(profile, p))
     .filter((p) => p.match_score >= 10)
-    .sort((a, b) => b.match_score - a.match_score);
+    .sort((a, b) => {
+      if (b.match_score !== a.match_score) return b.match_score - a.match_score;
+      const aQs = a.qs_ranking ?? Number.POSITIVE_INFINITY;
+      const bQs = b.qs_ranking ?? Number.POSITIVE_INFINITY;
+      return aQs - bQs;
+    });
 
   const pools = {
     safe:      scored.filter((p) => p.tier === "safe"),

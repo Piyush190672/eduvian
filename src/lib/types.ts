@@ -116,6 +116,13 @@ export interface Program {
   degree_level: ProgramLevel;
   duration_months: number;
   field_of_study: string;
+  /** Cross-listed fields for programs that span multiple streams
+   *  (e.g. "MSc Artificial Intelligence and Data Science" lives under
+   *  `field_of_study: "Artificial Intelligence & Data Science"` AND
+   *  `field_aliases: ["Data Science"]` so a student picking either
+   *  stream finds it). Each entry must be one of FIELDS_OF_STUDY.
+   *  Added 14 May 2026 alongside the Cybersecurity / Data Science split. */
+  field_aliases?: string[] | null;
   specialization: string;
   annual_tuition_usd: number;
   /** Tuition as literally stated on the official program page, in the page's
@@ -305,6 +312,8 @@ export type CountryCode = (typeof TARGET_COUNTRIES)[number]["code"];
 export const FIELDS_OF_STUDY = [
   "Computer Science & IT",
   "Artificial Intelligence & Data Science",
+  "Data Science",
+  "Cybersecurity",
   "Business & Management",
   "MBA",
   "Engineering (Mechanical/Civil/Electrical)",
