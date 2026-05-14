@@ -47,6 +47,23 @@ const PSW_COUNTRIES = new Set([
   "UK", "Australia", "Canada", "USA", "Germany", "Ireland", "New Zealand",
 ]);
 
+/**
+ * Programs whose `program_name` mentions one of these sub-degree
+ * credentials are NOT eligible for post-study work visas in the major
+ * destination countries even when the country generally is — UK
+ * Graduate Route and Ireland 1G require an honors degree, Australia
+ * 485 requires a Bachelor/Master/PhD, US OPT requires Bachelor's or
+ * higher, NZ PSWV requires a level-7+ degree. Canadian PGWP is
+ * partially more permissive on diplomas (some 8+ month college
+ * programs qualify), but we apply the same strict filter — the user
+ * who ticked "PSW required" wants programs they're definitely eligible
+ * for, not ones where eligibility hinges on which exit-option they
+ * pick. (14 May 2026, after a user reported Edinburgh's "Counselling
+ * MCouns, PgCert, PgDip" surfacing with PSW filter on.)
+ */
+const NON_PSW_DEGREE_PATTERN =
+  /\b(?:Pg\s*Cert|Pg\s*Dip|PG\s*Cert(?:ificate)?|PG\s*Dip(?:loma)?|Postgraduate\s+(?:Cert(?:ificate)?|Dip(?:loma)?)|Graduate\s+(?:Cert(?:ificate)?|Dip(?:loma)?)|Foundation\s+(?:Degree|Year)|FdSc|FdA|FdEng|HND|HNC)\b/i;
+
 // ─── Related fields (expand pool for students) ────────────────────────────────
 const RELATED_FIELDS: Record<string, string[]> = {
   "Computer Science & IT":                   ["Artificial Intelligence & Data Science"],
@@ -618,8 +635,23 @@ export function recommendPrograms(profile: StudentProfile, programs: Program[]):
       if (p.qs_ranking === null || p.qs_ranking > qsMax) return false;
     }
 
-    // Hard filter: Post-study work visa
-    if (requirePSW && !PSW_COUNTRIES.has(p.country)) return false;
+    // Hard filter: Post-study work visa.
+    // Three checks when the user ticked "PSW required":
+    //   1. Country must offer PSW at all (UK / AU / CA / USA / DE / IE / NZ).
+    //   2. degree_level must be a full degree, not a diploma / pg_diploma —
+    //      both classes are sub-degree credentials with limited PSW
+    //      eligibility globally.
+    //   3. program_name must not advertise PgCert / PgDip / Postgraduate
+    //      Certificate / Postgraduate Diploma / Graduate Certificate /
+    //      Graduate Diploma / Foundation Degree / HND / HNC — even when
+    //      offered alongside a master variant in the same listing, the
+    //      sub-degree exit options aren't PSW-eligible. Excluding is more
+    //      honest than ranking the program under PSW.
+    if (requirePSW) {
+      if (!PSW_COUNTRIES.has(p.country)) return false;
+      if (p.degree_level === "diploma" || p.degree_level === "pg_diploma") return false;
+      if (NON_PSW_DEGREE_PATTERN.test(p.program_name)) return false;
+    }
 
     // Hard filter: region preference
     const countryCode = nameToCode[p.country];
