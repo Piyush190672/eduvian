@@ -5,6 +5,7 @@ import type {
   ProgramTier,
 } from "./types";
 import { BUDGET_VALUES, TARGET_COUNTRIES, COUNTRY_REGIONS, OTHER_FIELD_SENTINEL } from "./types";
+import { getPrestigeBucket } from "./prestige";
 
 // ─── Weight configuration ─────────────────────────────────────────────────────
 // PG: Academic 35%, Budget 20%, Std Test 10%, English/Scholarship/Intake/
@@ -126,9 +127,11 @@ function scoreAcademic(profile: StudentProfile, program: Program): number {
 
   // Prestige penalty: top-ranked universities have holistic admissions —
   // meeting minimum GPA does NOT guarantee admission. Apply an offset to
-  // reflect the reality that selection is highly competitive.
-  const qs = program.qs_ranking ?? 9999;
-  const prestigePenalty = qs <= 25 ? 20 : qs <= 50 ? 15 : qs <= 100 ? 10 : qs <= 200 ? 5 : 0;
+  // reflect the reality that selection is highly competitive. Uses real
+  // acceptance_rate from the universities sidecar where available
+  // (Stage 2 backfilled 134 USA unis from College Scorecard, 14 May
+  // 2026); falls back to QS-bucket where not.
+  const { prestigePenalty } = getPrestigeBucket(program);
 
   if (minPct === 0) return clamp(72 - prestigePenalty);
   if (studentPct < minPct - 12) return 0;
@@ -482,23 +485,13 @@ export function scoreProgram(profile: StudentProfile, program: Program): ScoredP
   );
 
   // ── Prestige-adjusted tier thresholds ──────────────────────────────────────
-  // Higher-ranked universities have lower admit rates and holistic admissions —
-  // a high match score does not mean "safe" at MIT or Oxford. Published minima
-  // at top-100 schools are typically lenient floors (e.g. "3.0 minimum, but
-  // typical admits are 3.9"), so paper-fit alone over-states realistic admit
-  // probability. The aggressive thresholds below patch the gap until the
-  // top-100 data sweep (13 May 2026, in progress) backfills realistic
-  // admission bars into min_gpa / min_percentage / min_gre directly.
-  const qs = program.qs_ranking ?? 9999;
-  let safeMin: number;
-  let reachMin: number;
-  if      (qs <=  25) { safeMin = 92; reachMin = 70; }
-  else if (qs <=  50) { safeMin = 89; reachMin = 66; }
-  else if (qs <= 100) { safeMin = 86; reachMin = 62; }
-  else if (qs <= 200) { safeMin = 82; reachMin = 57; }
-  else if (qs <= 400) { safeMin = 78; reachMin = 52; }
-  else if (qs <= 700) { safeMin = 74; reachMin = 47; }
-  else                { safeMin = 68; reachMin = 42; }
+  // Higher-selectivity universities have holistic admissions — a high match
+  // score does not mean "safe" at MIT or Oxford. The bucket below comes from
+  // real acceptance_rate where the universities sidecar has it (134 USA unis
+  // as of 14 May 2026), and falls back to QS rank where not. Aligned with
+  // the prestigePenalty subtracted in scoreAcademic so a program lands in
+  // the same selectivity band across both signals.
+  const { safeMin, reachMin } = getPrestigeBucket(program);
 
   let tier: ProgramTier;
   if (match_score >= safeMin)  tier = "safe";

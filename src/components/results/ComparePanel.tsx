@@ -21,6 +21,7 @@ import { formatCurrency, getCountryFlag, getTierColor, getTierLabel } from "@/li
 import { isFeeUnavailable, FEE_UNAVAILABLE_SHORT, getFeeStatus, FEE_STATUS_LABEL, FEE_STATUS_CLASS } from "@/lib/format-fee";
 import { PSW_RIGHTS, SAFETY_RATINGS, JOB_MARKET } from "@/data/parent-decision-data";
 import type { SalaryCountry, FieldOfStudy } from "@/data/roi-data";
+import { lookupUniversity } from "@/data/universities-helpers";
 
 // ── Country / field coercion (same pattern as InlineProgramROI) ────────────────
 
@@ -457,6 +458,20 @@ export default function ComparePanel({ programs, onClose, onRemove }: Props) {
                     : "—"}
                 </span>
               )))}
+
+              {/* Acceptance rate — from universities sidecar where the
+                  university has a row (Stage 2 populated 134 USA unis from
+                  College Scorecard; UK / RoW pending). "—" when no
+                  sidecar data so the row stays meaningful for the user
+                  rather than fabricating a fallback. */}
+              {textRow("Acceptance Rate", programs.map((p) => {
+                const accept = lookupUniversity(p.university_name)?.acceptance_rate;
+                return (
+                  <span key={p.id} className="text-sm text-gray-700">
+                    {accept != null ? `${accept}%` : "—"}
+                  </span>
+                );
+              }))}
 
               {/* Padding row */}
               <tr><td colSpan={n + 1} className="h-8" /></tr>
