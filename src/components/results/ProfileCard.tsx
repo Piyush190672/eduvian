@@ -155,29 +155,58 @@ export default function ProfileCard({ profile, token }: Props) {
       </div>
 
       {/* Rating scale ladder — five segments, user's category highlighted.
-          Shows the user where they sit in the spectrum without exposing
-          the underlying numeric score. */}
-      <div className="px-5 pb-4">
-        <div className="flex items-stretch gap-1 rounded-xl overflow-hidden border border-white/60 bg-white/50">
-          {CATEGORY_LADDER.map((cat) => {
-            const cs = getCategoryStyle(cat);
-            const active = cat === result.category;
-            return (
-              <div
-                key={cat}
-                className={`flex-1 flex flex-col items-center justify-center px-1.5 py-2 text-center transition-all ${
-                  active
-                    ? `${cs.bg} ${cs.border} border-y-2 border-x ${cs.text} font-extrabold scale-[1.02] shadow-sm`
-                    : "bg-white/60 text-gray-400 font-medium"
-                }`}
-              >
-                <span className="text-base leading-none">{active ? cs.emoji : "·"}</span>
-                <span className="text-[10px] sm:text-[11px] leading-tight mt-1 whitespace-nowrap">
-                  {cs.shortLabel}
-                </span>
-              </div>
-            );
-          })}
+          Wrapped in a raised "boundary wall" container with layered
+          shadows + inner highlight for a clear 3D pop. Applies ONLY to
+          the overall profile category — the per-parameter boxes below
+          use their own colour scheme and stay unframed. */}
+      <div className="px-5 pb-5">
+        <div
+          className="rounded-2xl p-3 bg-gradient-to-b from-white via-white to-slate-50 border-2 border-slate-200 ring-1 ring-black/[0.04]"
+          style={{
+            boxShadow:
+              "0 1px 0 rgba(255,255,255,0.9) inset, " +
+              "0 -2px 0 rgba(0,0,0,0.05) inset, " +
+              "0 1px 2px rgba(0,0,0,0.05), " +
+              "0 8px 24px -6px rgba(15,23,42,0.18), " +
+              "0 16px 40px -12px rgba(15,23,42,0.12)",
+          }}
+        >
+          <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-400 text-center mb-2">
+            Profile Rating Scale
+          </p>
+          <div className="flex items-stretch gap-1.5">
+            {CATEGORY_LADDER.map((cat) => {
+              const cs = getCategoryStyle(cat);
+              const active = cat === result.category;
+              return (
+                <div
+                  key={cat}
+                  className={`flex-1 flex flex-col items-center justify-center px-1.5 py-2.5 rounded-xl text-center transition-all ${
+                    active
+                      ? `${cs.bg} ${cs.text} font-extrabold border-2 ${cs.border} scale-[1.05] ring-2 ring-white/80`
+                      : "bg-white text-slate-400 font-medium border border-slate-100"
+                  }`}
+                  style={
+                    active
+                      ? {
+                          boxShadow:
+                            "0 4px 10px -2px rgba(0,0,0,0.15), " +
+                            "0 2px 4px rgba(0,0,0,0.08), " +
+                            "0 1px 0 rgba(255,255,255,0.8) inset",
+                        }
+                      : undefined
+                  }
+                >
+                  <span className={`leading-none ${active ? "text-lg" : "text-base"}`}>
+                    {active ? cs.emoji : "·"}
+                  </span>
+                  <span className="text-[10px] sm:text-[11px] leading-tight mt-1 whitespace-nowrap">
+                    {cs.shortLabel}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
 
