@@ -211,12 +211,20 @@ function scoreAcademic(profile: StudentProfile, program: Program): number {
 
   // Implicit minimum when the program publishes none — about 75 % of the
   // DB. Earlier the no-min branch returned a flat `72 - prestigePenalty`
-  // regardless of the student's actual score, which meant a 3.6 GPA
-  // applicant and a 2.5 GPA applicant got identical Academic signals at
-  // a prestige uni like Warwick. Switching to an implicit floor of 70 %
-  // and reusing the same surplus curve makes the student's own score
-  // drive the result. (15 May 2026, user-reported.)
-  const effectiveMin = minPct > 0 ? minPct : 70;
+  // regardless of the student's actual score; switched to an implicit
+  // floor + the surplus curve so the student's own score drives the
+  // result.
+  //
+  // Floor set at 60 (not 70) to match the real-world bar for UK 2:1 /
+  // 2:2 PG admissions and most US / EU MS programs — typically a 60-65 %
+  // honours degree. The prestige penalty still differentiates by uni
+  // selectivity, so a 60 % student isn't suddenly "Safe" at MIT — they
+  // get academic ~58 (baseline) − 20 (penalty) = 38 there. But at a
+  // mid-tier QS 200-500 uni (penalty 5) they get academic ~58 − 5 = 53,
+  // landing them in Reach instead of a near-zero Ambitious. (Originally
+  // 70 → user reported 0 Safe + 1 Reach for a 60.9 % UK Psych PG
+  // applicant on token d70bfaca, 15 May 2026.)
+  const effectiveMin = minPct > 0 ? minPct : 60;
 
   if (studentPct < effectiveMin - 12) return 0;
   if (studentPct < effectiveMin - 5)  return clamp(20 - prestigePenalty);
