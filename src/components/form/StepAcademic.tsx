@@ -167,7 +167,7 @@ export default function StepAcademic({ profile, onChange }: Props) {
           <option value={OTHER_FIELD_SENTINEL}>Others (specify below)</option>
         </Select>
         <p className="mt-1.5 text-xs text-gray-500 leading-relaxed">
-          You can pick up to <span className="font-semibold text-gray-700">3 fields</span> — we&apos;ll surface programs matching any of them.
+          You can pick up to <span className="font-semibold text-gray-700">3 fields</span> — we&apos;ll surface programs matching all of them.
         </p>
 
         {/* Up to TWO additional fields. The matcher unions them with the
