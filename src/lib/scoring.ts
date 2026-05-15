@@ -816,10 +816,32 @@ export function recommendPrograms(profile: StudentProfile, programs: Program[]):
       return b.match_score - a.match_score; // tiebreak (or full sort within unranked)
     });
 
+  // Within-tier per-university cap. Without this, a uni that publishes
+  // 8+ similar specialisations (Cambridge Psychology, MIT EECS, etc.)
+  // can take every slot in a tier — users wanted variety, not 8 near-
+  // identical rows from one school.
+  //
+  // Ambitious is tighter (cap = 1) because the tier only holds 4 slots
+  // total — letting two top-prestige unis monopolise it (Cambridge ×2 +
+  // UCL ×2) means the user never sees the 3rd / 4th best stretch
+  // option. Safe + Reach hold more slots and a cap = 2 keeps useful
+  // multi-specialisation pairs intact (e.g. Loughborough Business
+  // Psychology + Loughborough Work Psychology — both relevant matches
+  // worth showing). (15 May 2026, user-reported on token d70bfaca.)
+  function capByUni(list: ScoredProgram[], cap: number): ScoredProgram[] {
+    const counts = new Map<string, number>();
+    const out: ScoredProgram[] = [];
+    for (const p of list) {
+      const n = counts.get(p.university_name) ?? 0;
+      if (n < cap) { out.push(p); counts.set(p.university_name, n + 1); }
+    }
+    return out;
+  }
+
   const pools = {
-    safe:      scored.filter((p) => p.tier === "safe"),
-    reach:     scored.filter((p) => p.tier === "reach"),
-    ambitious: scored.filter((p) => p.tier === "ambitious"),
+    safe:      capByUni(scored.filter((p) => p.tier === "safe"),      2),
+    reach:     capByUni(scored.filter((p) => p.tier === "reach"),     2),
+    ambitious: capByUni(scored.filter((p) => p.tier === "ambitious"), 1),
   };
 
   const alloc = {
@@ -828,9 +850,14 @@ export function recommendPrograms(profile: StudentProfile, programs: Program[]):
     ambitious: Math.min(QUOTA.ambitious, pools.ambitious.length),
   };
 
+  // Surplus reallocation: when safe / reach pools are short, fill the
+  // remaining slots from the OTHER understaffed tier — never spill into
+  // ambitious. Ambitious is a hard cap. (15 May 2026, user-reported on
+  // token d70bfaca: ambitious bloated to 19 when safe + reach were
+  // short, breaking the quota contract.)
   let remaining = TOTAL - alloc.safe - alloc.reach - alloc.ambitious;
-  const surplus = (t: keyof typeof alloc) => pools[t].length - alloc[t];
-  for (const t of ["reach", "safe", "ambitious"] as const) {
+  const surplus = (t: "safe" | "reach") => pools[t].length - alloc[t];
+  for (const t of ["reach", "safe"] as const) {
     if (remaining <= 0) break;
     const extra = Math.min(remaining, surplus(t));
     if (extra > 0) { alloc[t] += extra; remaining -= extra; }
