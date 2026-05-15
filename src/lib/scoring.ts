@@ -671,22 +671,31 @@ export function recommendPrograms(profile: StudentProfile, programs: Program[]):
     return true;
   });
 
-  // Primary sort: match_score descending. Secondary sort: QS rank
-  // ascending (lower = better; nulls last). Tie-breaking on QS makes the
-  // matcher prefer the higher-prestige university when two programs land
-  // at the same match_score — user-facing impact is that on a given
-  // shortlist a 95-score MIT program now ranks above a 95-score
-  // less-known regional school, instead of the previous arbitrary order.
-  // (14 May 2026, user-requested.)
+  // Sort: ranked universities first (by QS rank ASC — lower = higher
+  // ranked), then unranked universities at the bottom (by match_score
+  // DESC as the only sensible tiebreak when no QS data exists).
+  //
+  // Earlier this was match_score-first / QS-second, but on the search-
+  // results page that surfaced unranked / regional universities ahead
+  // of higher-prestige programs whenever the unranked program happened
+  // to fit slightly better on cost / intake. Users found that
+  // counter-intuitive — a Harvard match should appear above an
+  // unranked university even if Harvard is a stretch on budget.
+  // Unranked programs are only included when there aren't enough
+  // ranked programs to fill the per-tier quota. (15 May 2026,
+  // user-requested.)
   const scored = filtered
     .filter((p) => !isHardDisqualified(profile, p))
     .map((p) => scoreProgram(profile, p))
     .filter((p) => p.match_score >= 10)
     .sort((a, b) => {
-      if (b.match_score !== a.match_score) return b.match_score - a.match_score;
-      const aQs = a.qs_ranking ?? Number.POSITIVE_INFINITY;
-      const bQs = b.qs_ranking ?? Number.POSITIVE_INFINITY;
-      return aQs - bQs;
+      const aHas = a.qs_ranking !== null && a.qs_ranking !== undefined;
+      const bHas = b.qs_ranking !== null && b.qs_ranking !== undefined;
+      if (aHas !== bHas) return aHas ? -1 : 1; // ranked first
+      if (aHas && bHas && a.qs_ranking !== b.qs_ranking) {
+        return (a.qs_ranking as number) - (b.qs_ranking as number);
+      }
+      return b.match_score - a.match_score; // tiebreak (or full sort within unranked)
     });
 
   const pools = {
