@@ -229,21 +229,24 @@ export function scoreStudentProfile(profile: StudentProfile): ProfileScoreResult
     score,
     total,
     percentage,
-    category: deriveCategory(score),
+    category: deriveCategory(score, total),
     criteria,
   };
 }
 
-/** Category buckets use the RAW score (not %) so they read intuitively
- *  against the 22-point PG / 20-point UG scales. Boundaries per user
- *  spec (15 May 2026):
- *    ≥ 20 → SUPER STRONG · 18–19 → VERY STRONG · 15–17 → STRONG
- *    10–14 → AVERAGE     ·  <10  → Weak                                 */
-function deriveCategory(score: number): ProfileCategory {
-  if (score >= 20) return "SUPER STRONG Profile";
-  if (score >= 18) return "VERY STRONG Profile";
-  if (score >= 15) return "STRONG Profile";
-  if (score >= 10) return "AVERAGE Profile";
+/** Category buckets use the RAW score (not %). PG anchor boundaries
+ *  per user spec (15 May 2026): ≥20 SUPER STRONG · 18–19 VERY STRONG ·
+ *  15–17 STRONG · 10–14 AVERAGE · <10 Weak (max=22).
+ *
+ *  UG (max=20) scales each boundary by `total / 22` and rounds. That
+ *  yields ≥18 SUPER STRONG · 16–17 VERY STRONG · 14–15 STRONG ·
+ *  9–13 AVERAGE · <9 Weak — proportional to the PG ladder. */
+function deriveCategory(score: number, total: number): ProfileCategory {
+  const f = total / 22;
+  if (score >= Math.round(20 * f)) return "SUPER STRONG Profile";
+  if (score >= Math.round(18 * f)) return "VERY STRONG Profile";
+  if (score >= Math.round(15 * f)) return "STRONG Profile";
+  if (score >= Math.round(10 * f)) return "AVERAGE Profile";
   return "Weak Profile";
 }
 
