@@ -321,17 +321,19 @@ export default function V2LandingPage() {
             visible, a viewport-anchored nav slides behind them.) */}
         <nav className="absolute top-0 inset-x-0 z-40">
           <div className="max-w-7xl mx-auto px-6 sm:px-10 h-16 flex items-center justify-between">
-            <Link href="/" className="flex items-center gap-2.5 text-white">
+            <Link href="/" className="flex items-center gap-2.5 text-white min-w-0">
               <img
                 src="/logo.svg"
                 alt=""
                 width={32}
                 height={32}
-                className="w-8 h-8 rounded-lg"
+                className="w-8 h-8 rounded-lg flex-shrink-0"
               />
-              <span className="flex flex-col leading-none">
+              <span className="flex flex-col leading-none min-w-0">
                 <span className="font-display text-lg font-bold tracking-tight">eduvianAI</span>
-                <span className="text-[9px] sm:text-[10px] font-medium text-white/55 tracking-tight mt-1">Independent study-abroad intelligence</span>
+                {/* Tagline reserved for sm+ — at 375px it overlaps the
+                    signed-in icons (Change-password / Logout). */}
+                <span className="hidden sm:inline text-[10px] font-medium text-white/55 tracking-tight mt-1">Independent study-abroad intelligence</span>
               </span>
             </Link>
             <div className="flex items-center gap-4 lg:gap-6">
@@ -350,12 +352,16 @@ export default function V2LandingPage() {
               {/* LogoutButton + ChangePasswordButton both self-hide when
                   no session is present, so they don't add UI for anon
                   visitors. Dark-hero styling overrides the components'
-                  default light-mode classes. */}
-              <ChangePasswordButton compact />
-              <LogoutButton
-                variant="compact"
-                className="flex items-center gap-1.5 px-3 py-2 rounded-full border border-white/20 text-white/80 text-sm font-medium hover:bg-white/10 hover:text-white hover:border-white/40 transition-colors"
-              />
+                  default light-mode classes. Hidden below sm so the
+                  mobile nav doesn't get overcrowded — signed-in users
+                  can change password / sign out from /profile. */}
+              <div className="hidden sm:flex items-center gap-4 lg:gap-6">
+                <ChangePasswordButton compact />
+                <LogoutButton
+                  variant="compact"
+                  className="flex items-center gap-1.5 px-3 py-2 rounded-full border border-white/20 text-white/80 text-sm font-medium hover:bg-white/10 hover:text-white hover:border-white/40 transition-colors"
+                />
+              </div>
               <Link
                 href="/get-started"
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-gray-900 text-sm font-semibold hover:bg-stone-100 transition-colors whitespace-nowrap"
