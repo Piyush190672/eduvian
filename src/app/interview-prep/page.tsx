@@ -43,6 +43,7 @@ import {
 import Link from "next/link";
 import AuthGate from "@/components/AuthGate";
 import { EduvianLogoMark } from "@/components/EduvianLogo";
+import FeedbackPrompt from "@/components/FeedbackPrompt";
 
 // ─── Types ─────────────────────────────────────────────────────────────────────
 
@@ -3175,6 +3176,7 @@ export default function InterviewPrepPage() {
       }>
         <InterviewPrepInner />
       </Suspense>
+      <FeedbackPrompt surface="interview-prep" />
     </AuthGate>
   );
 }

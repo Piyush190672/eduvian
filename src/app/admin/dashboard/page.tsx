@@ -110,21 +110,32 @@ const RATING_CONFIG: Record<string, { emoji: string; bg: string; text: string }>
 
 // ── Page ───────────────────────────────────────────────────────────────────
 
+interface FeedbackData {
+  total: number;
+  average: number;
+  distribution: number[];
+  bySurface: Array<{ surface: string; count: number; average: number; dist: number[] }>;
+  recent: Array<{ rating: number; surface: string; comment: string | null; created_at: string }>;
+}
+
 export default function DashboardPage() {
   const [submissions, setSubmissions]   = useState<StoredSubmission[]>([]);
   const [registrations, setRegistrations] = useState<Registration[]>([]);
   const [betaUsage, setBetaUsage]       = useState<BetaUsage | null>(null);
+  const [feedback, setFeedback]         = useState<FeedbackData | null>(null);
   const [loading, setLoading]           = useState(true);
 
   useEffect(() => {
     Promise.all([
       fetch("/api/admin/leads").then((r) => r.json()),
       fetch("/api/admin/beta-usage").then((r) => (r.ok ? r.json() : null)).catch(() => null),
+      fetch("/api/admin/feedback").then((r) => (r.ok ? r.json() : null)).catch(() => null),
     ])
-      .then(([data, usage]) => {
+      .then(([data, usage, fb]) => {
         setSubmissions(data.leads ?? []);
         setRegistrations(data.registrations ?? []);
         if (usage && typeof usage.uniqueUsers === "number") setBetaUsage(usage);
+        if (fb && typeof fb.total === "number") setFeedback(fb);
       })
       .catch(() => {})
       .finally(() => setLoading(false));
@@ -478,6 +489,104 @@ export default function DashboardPage() {
         <div className="bg-white rounded-2xl border border-gray-100 p-12 text-center">
           <BarChart3 className="w-12 h-12 text-gray-200 mx-auto mb-4" />
           <p className="text-gray-400">Charts will appear once students start submitting profiles.</p>
+        </div>
+      )}
+
+      {/* ── User feedback (1-5 star surveys) ──────────────────────────── */}
+      {feedback && feedback.total > 0 && (
+        <div className="mt-12">
+          <h2 className="text-lg font-bold text-gray-900 mb-4">User feedback</h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+            <div className="bg-white rounded-2xl border border-gray-100 p-5">
+              <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Total responses</p>
+              <p className="text-3xl font-extrabold text-gray-900">{feedback.total}</p>
+            </div>
+            <div className="bg-white rounded-2xl border border-gray-100 p-5">
+              <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Average rating</p>
+              <p className="text-3xl font-extrabold text-gray-900">
+                {feedback.average.toFixed(2)} <span className="text-base font-medium text-gray-400">/ 5</span>
+              </p>
+            </div>
+            <div className="bg-white rounded-2xl border border-gray-100 p-5">
+              <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Distribution</p>
+              <div className="flex items-end gap-1 h-12 mt-1">
+                {feedback.distribution.map((count, idx) => {
+                  const max = Math.max(...feedback.distribution, 1);
+                  const h = (count / max) * 100;
+                  const colors = ["bg-rose-400", "bg-orange-400", "bg-amber-400", "bg-lime-400", "bg-emerald-500"];
+                  return (
+                    <div key={idx} className="flex-1 flex flex-col items-center gap-1">
+                      <div className="w-full bg-gray-100 rounded relative flex items-end" style={{ height: "40px" }}>
+                        <div className={`w-full rounded ${colors[idx]}`} style={{ height: `${h}%` }} />
+                      </div>
+                      <span className="text-[10px] text-gray-400">{idx + 1}★</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
+          {/* Per-surface */}
+          <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden">
+            <table className="min-w-full text-sm">
+              <thead className="bg-gray-50">
+                <tr>
+                  <th className="text-left px-5 py-3 text-xs font-semibold uppercase tracking-wider text-gray-500">Surface</th>
+                  <th className="text-right px-5 py-3 text-xs font-semibold uppercase tracking-wider text-gray-500">Responses</th>
+                  <th className="text-right px-5 py-3 text-xs font-semibold uppercase tracking-wider text-gray-500">Avg rating</th>
+                  <th className="text-left px-5 py-3 text-xs font-semibold uppercase tracking-wider text-gray-500">Distribution</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-100">
+                {feedback.bySurface.map((s) => (
+                  <tr key={s.surface}>
+                    <td className="px-5 py-3 font-medium text-gray-800">{s.surface}</td>
+                    <td className="px-5 py-3 text-right text-gray-700">{s.count}</td>
+                    <td className="px-5 py-3 text-right text-gray-700">{s.average.toFixed(2)}</td>
+                    <td className="px-5 py-3">
+                      <div className="flex items-center gap-1">
+                        {s.dist.map((n, idx) => {
+                          const max = Math.max(...s.dist, 1);
+                          const w = (n / max) * 100;
+                          const colors = ["bg-rose-300", "bg-orange-300", "bg-amber-300", "bg-lime-400", "bg-emerald-500"];
+                          return (
+                            <div key={idx} className="flex flex-col items-center gap-0.5">
+                              <div className="w-6 h-3 bg-gray-100 rounded overflow-hidden">
+                                <div className={`h-full ${colors[idx]}`} style={{ width: `${w}%` }} />
+                              </div>
+                              <span className="text-[9px] text-gray-400">{idx + 1}★</span>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {/* Recent comments */}
+          {feedback.recent.some((r) => r.comment) && (
+            <div className="mt-6">
+              <h3 className="text-sm font-bold text-gray-800 mb-3">Recent comments</h3>
+              <div className="space-y-2">
+                {feedback.recent.filter((r) => r.comment).slice(0, 10).map((r, i) => (
+                  <div key={i} className="bg-white rounded-xl border border-gray-100 p-3.5">
+                    <div className="flex items-center gap-2 mb-1.5">
+                      <span className="text-xs font-bold text-amber-500">{"★".repeat(r.rating)}<span className="text-gray-200">{"★".repeat(5 - r.rating)}</span></span>
+                      <span className="text-[11px] text-gray-400">·</span>
+                      <span className="text-[11px] font-medium text-gray-500">{r.surface}</span>
+                      <span className="text-[11px] text-gray-400 ml-auto">{new Date(r.created_at).toLocaleString()}</span>
+                    </div>
+                    <p className="text-sm text-gray-700 leading-relaxed">{r.comment}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       )}
     </AdminShell>

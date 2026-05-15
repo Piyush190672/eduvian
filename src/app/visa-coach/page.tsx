@@ -6,6 +6,7 @@ import DecisionDisclaimer from "@/components/DecisionDisclaimer";
 import BrandNav from "@/components/BrandNav";
 import BrandHero, { accent } from "@/components/BrandHero";
 import { DB_STATS } from "@/data/db-stats";
+import FeedbackPrompt from "@/components/FeedbackPrompt";
 
 export default function VisaCoachPage() {
   return (
@@ -24,6 +25,7 @@ export default function VisaCoachPage() {
           </div>
           <VisaCoach />
         </main>
+        <FeedbackPrompt surface="visa-coach" />
       </div>
     </AuthGate>
   );

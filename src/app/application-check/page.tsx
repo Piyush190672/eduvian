@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import { EduvianLogoMark } from "@/components/EduvianLogo";
 import { LorBriefBuilder } from "@/components/LorBriefBuilder";
+import FeedbackPrompt from "@/components/FeedbackPrompt";
 
 // ══════════════════════════════════════════════════════════════════════════════
 // Types — Application Pack Check
@@ -1219,6 +1220,7 @@ export default function ApplicationCheckPage() {
           <LorBriefBuilder />
         </main>
       )}
+      <FeedbackPrompt surface="application-check" />
     </div>
     </AuthGate>
   );

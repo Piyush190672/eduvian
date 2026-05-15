@@ -31,6 +31,7 @@ import CheckMatchPanel from "@/components/results/CheckMatchPanel";
 import ChatWidget from "@/components/ChatWidget";
 import ComparePanel from "@/components/results/ComparePanel";
 import { explainEmptyTier } from "@/lib/empty-tier-reason";
+import FeedbackPrompt from "@/components/FeedbackPrompt";
 
 interface ResultData {
   submission: {
@@ -474,6 +475,10 @@ export default function ResultsPage() {
 
       {/* AISA chat — context-aware with matched programs */}
       <ChatWidget programs={allPrograms} studentName={studentName} />
+
+      {/* Post-experience feedback prompt (1-5 stars). Auto-dismisses
+          per device once submitted/skipped via localStorage. */}
+      <FeedbackPrompt surface="results" />
 
       {/* ── Compare sticky bar ──────────────────────────────────────────── */}
       {compareSet.size > 0 && (() => {
