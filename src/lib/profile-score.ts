@@ -321,40 +321,43 @@ export interface CriterionColor {
 }
 
 export function getCriterionColor(points: number, maxPoints: number): CriterionColor {
+  // Background-driven palette — the tile itself reads as the colour, with
+  // a darker matching border and dark legible text. Earlier the scale
+  // used very pale -50 shades that made the box look uncoloured.
   if (maxPoints >= 5) {
-    // Academic — 6 tiers.
+    // Academic — 6 tiers (0 light-red → 5 dark green).
     const scale: CriterionColor[] = [
-      { bg: "bg-rose-50",    border: "border-rose-200",    text: "text-rose-700",     iconColor: "text-rose-500"    }, // 0
-      { bg: "bg-orange-100", border: "border-orange-300",  text: "text-orange-800",   iconColor: "text-orange-600"  }, // 1
-      { bg: "bg-orange-50",  border: "border-orange-200",  text: "text-orange-700",   iconColor: "text-orange-500"  }, // 2
-      { bg: "bg-emerald-50", border: "border-emerald-200", text: "text-emerald-700",  iconColor: "text-emerald-500" }, // 3
-      { bg: "bg-emerald-100",border: "border-emerald-300", text: "text-emerald-800",  iconColor: "text-emerald-600" }, // 4
-      { bg: "bg-emerald-200",border: "border-emerald-400", text: "text-emerald-900",  iconColor: "text-emerald-700" }, // 5
+      { bg: "bg-rose-300",    border: "border-rose-500",    text: "text-rose-950",    iconColor: "text-rose-800"    }, // 0 light red
+      { bg: "bg-orange-400",  border: "border-orange-600",  text: "text-orange-950",  iconColor: "text-orange-900"  }, // 1 darker orange
+      { bg: "bg-orange-300",  border: "border-orange-500",  text: "text-orange-950",  iconColor: "text-orange-800"  }, // 2 light orange
+      { bg: "bg-emerald-200", border: "border-emerald-400", text: "text-emerald-950", iconColor: "text-emerald-800" }, // 3 even lighter green
+      { bg: "bg-emerald-300", border: "border-emerald-500", text: "text-emerald-950", iconColor: "text-emerald-800" }, // 4 shade lighter green
+      { bg: "bg-emerald-500", border: "border-emerald-700", text: "text-white",       iconColor: "text-emerald-50"  }, // 5 dark green
     ];
     return scale[Math.max(0, Math.min(5, points))];
   }
   if (maxPoints >= 3) {
-    // Family income, Backlogs — 4 tiers.
+    // Family income, Backlogs — 4 tiers (0 light-red → 3 dark green).
     const scale: CriterionColor[] = [
-      { bg: "bg-rose-50",     border: "border-rose-200",    text: "text-rose-700",    iconColor: "text-rose-500"    }, // 0
-      { bg: "bg-orange-50",   border: "border-orange-200",  text: "text-orange-700",  iconColor: "text-orange-500"  }, // 1
-      { bg: "bg-emerald-100", border: "border-emerald-300", text: "text-emerald-800", iconColor: "text-emerald-600" }, // 2
-      { bg: "bg-emerald-200", border: "border-emerald-400", text: "text-emerald-900", iconColor: "text-emerald-700" }, // 3
+      { bg: "bg-rose-300",    border: "border-rose-500",    text: "text-rose-950",    iconColor: "text-rose-800"    }, // 0 light red
+      { bg: "bg-orange-300",  border: "border-orange-500",  text: "text-orange-950",  iconColor: "text-orange-800"  }, // 1 light orange
+      { bg: "bg-emerald-300", border: "border-emerald-500", text: "text-emerald-950", iconColor: "text-emerald-800" }, // 2 light green
+      { bg: "bg-emerald-500", border: "border-emerald-700", text: "text-white",       iconColor: "text-emerald-50"  }, // 3 dark green
     ];
     return scale[Math.max(0, Math.min(3, points))];
   }
   if (maxPoints >= 2) {
     const scale: CriterionColor[] = [
-      { bg: "bg-rose-50",     border: "border-rose-200",    text: "text-rose-700",    iconColor: "text-rose-500"    }, // 0
-      { bg: "bg-orange-50",   border: "border-orange-200",  text: "text-orange-700",  iconColor: "text-orange-500"  }, // 1
-      { bg: "bg-emerald-100", border: "border-emerald-300", text: "text-emerald-800", iconColor: "text-emerald-600" }, // 2
+      { bg: "bg-rose-300",    border: "border-rose-500",    text: "text-rose-950",    iconColor: "text-rose-800"    }, // 0
+      { bg: "bg-orange-300",  border: "border-orange-500",  text: "text-orange-950",  iconColor: "text-orange-800"  }, // 1
+      { bg: "bg-emerald-400", border: "border-emerald-600", text: "text-emerald-950", iconColor: "text-emerald-800" }, // 2
     ];
     return scale[Math.max(0, Math.min(2, points))];
   }
   // 1-pt binary.
   return points >= 1
-    ? { bg: "bg-emerald-50", border: "border-emerald-200", text: "text-emerald-700", iconColor: "text-emerald-500" }
-    : { bg: "bg-rose-50",    border: "border-rose-200",    text: "text-rose-700",    iconColor: "text-rose-500"    };
+    ? { bg: "bg-emerald-300", border: "border-emerald-500", text: "text-emerald-950", iconColor: "text-emerald-800" }
+    : { bg: "bg-rose-300",    border: "border-rose-500",    text: "text-rose-950",    iconColor: "text-rose-800"    };
 }
 
 /** Inline HTML-safe category badge for emails / PDF. */
