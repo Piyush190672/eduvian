@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, Suspense } from "react";
+import { useState, useEffect, useRef, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import toast from "react-hot-toast";
@@ -178,44 +178,81 @@ function ProfilePageInner() {
     } catch { /* ignore */ }
   }, [editToken]);
 
-  // Returning-user prefill: fetch the most recent submission's decrypted
-  // profile from /api/profile-preload and merge into the form state, so
-  // a user revisiting /profile sees their previously-entered academic /
-  // test / preference data instead of empty fields. Runs once on mount.
-  // (15 May 2026, user-reported — mobile users especially didn't want
-  // to re-type everything.) Skipped while editing a specific submission
-  // by token, since that path already loads the right row.
+  // Returning-user prefill: load BOTH the latest submission (preload) and
+  // the in-progress draft (autosaved as the user types on any device) in
+  // parallel, then merge. Draft wins over preload because it's the most
+  // recent state; anything the user has already typed THIS session still
+  // wins over both. Runs once on mount. (15 May 2026, user-reported —
+  // cross-device sync.) Skipped while editing a specific submission by
+  // token, since that path already loads the right row.
+  //
+  // `loadedRef` tracks whether the initial hydration has finished so the
+  // autosave effect below doesn't push an empty form to the server before
+  // the user has had a chance to type.
+  const loadedRef = useRef(false);
   useEffect(() => {
-    if (editToken) return;
+    if (editToken) { loadedRef.current = true; return; }
     let cancelled = false;
     (async () => {
       try {
-        const res = await fetch("/api/profile-preload", { credentials: "include" });
-        if (!res.ok) return;
-        const json = await res.json();
-        const loaded = json?.profile as Partial<StudentProfile> | null;
-        if (!loaded || cancelled) return;
+        const [preloadRes, draftRes] = await Promise.all([
+          fetch("/api/profile-preload", { credentials: "include" }),
+          fetch("/api/profile-draft", { credentials: "include" }),
+        ]);
+        const preloadJson = preloadRes.ok ? await preloadRes.json() : null;
+        const draftJson   = draftRes.ok   ? await draftRes.json()   : null;
+        const preload: Partial<StudentProfile> | null = preloadJson?.profile ?? null;
+        const draft:   Partial<StudentProfile> | null = draftJson?.profile   ?? null;
+        if (cancelled) return;
+        if (!preload && !draft) return;
         setProfile((prev) => {
-          // Merge: keep anything the user has ALREADY typed this session
-          // (prev wins), fall back to the loaded profile otherwise.
-          const merged: StudentProfile = { ...loaded as StudentProfile, ...prev };
-          // Re-apply any null-y prev fields that the loaded profile can
-          // populate (so undefined / "" lets the saved value through).
-          for (const k of Object.keys(loaded) as (keyof StudentProfile)[]) {
-            const v = prev[k];
-            const isEmpty =
-              v === undefined ||
-              v === null ||
-              (typeof v === "string" && v.trim() === "") ||
-              (Array.isArray(v) && v.length === 0);
-            if (isEmpty) (merged as Record<keyof StudentProfile, unknown>)[k] = loaded[k];
+          // Priority (lowest → highest): preload → draft → prev (this
+          // session). Each step only fills empty slots in the running
+          // merge; non-empty wins keep their value.
+          const merged: StudentProfile = { ...(preload as StudentProfile) };
+          const isEmpty = (v: unknown) =>
+            v === undefined ||
+            v === null ||
+            (typeof v === "string" && v.trim() === "") ||
+            (Array.isArray(v) && v.length === 0);
+          if (draft) {
+            for (const k of Object.keys(draft) as (keyof StudentProfile)[]) {
+              if (!isEmpty(draft[k])) {
+                (merged as Record<keyof StudentProfile, unknown>)[k] = draft[k];
+              }
+            }
+          }
+          for (const k of Object.keys(prev) as (keyof StudentProfile)[]) {
+            if (!isEmpty(prev[k])) {
+              (merged as Record<keyof StudentProfile, unknown>)[k] = prev[k];
+            }
           }
           return merged;
         });
       } catch { /* ignore */ }
+      finally { loadedRef.current = true; }
     })();
     return () => { cancelled = true; };
   }, [editToken]);
+
+  // Autosave draft to the server, debounced. The user's in-progress form
+  // state syncs across devices that share the same eduvianai_user session.
+  // PUT /api/profile-draft is rate-limited (60 / 10 min / IP), so the
+  // 1500 ms debounce comfortably stays under that ceiling even with rapid
+  // typing.
+  useEffect(() => {
+    if (editToken) return;             // edit-by-token has its own path
+    if (!loadedRef.current) return;    // wait until initial hydration done
+    const handle = setTimeout(() => {
+      fetch("/api/profile-draft", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify({ profile }),
+      }).catch(() => { /* ignore — anon traffic gets 401, that's fine */ });
+    }, 1500);
+    return () => clearTimeout(handle);
+  }, [profile, editToken]);
 
   const updateProfile = (data: Partial<StudentProfile>) => {
     setProfile((prev) => ({ ...prev, ...data }));
@@ -282,6 +319,11 @@ function ProfilePageInner() {
           ...(profile.city        ? { city: profile.city }               : {}),
         }));
       } catch { /* ignore */ }
+
+      // Clear the autosaved draft — the freshly submitted profile is now
+      // the source of truth, so an old draft shouldn't shadow it on the
+      // next visit. Fire-and-forget; failure is non-fatal.
+      fetch("/api/profile-draft", { method: "DELETE", credentials: "include" }).catch(() => {});
 
       toast.success("Profile submitted! Generating your shortlist...");
       router.push(`/profile-evaluation/${token}`);
