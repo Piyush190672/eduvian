@@ -13,25 +13,26 @@ export interface ProfileCriterion {
   label: string;
   passed: boolean;    // points > 0
   partial: boolean;   // 0 < points < maxPoints
-  points: number;     // actual points awarded (0, 1, or 2)
-  maxPoints: number;  // max possible for this criterion (1 or 2)
+  points: number;     // actual points awarded
+  maxPoints: number;  // max possible for this criterion
+  /** Share of the final 0-100 score this criterion is worth when fully met. */
+  weight: number;
 }
 
 export interface ProfileScoreResult {
-  score: number;        // raw points earned
-  total: number;        // max possible points
-  percentage: number;   // 0–100
+  /** Weighted score, 0-100. */
+  score: number;
+  /** Always 100 — kept for back-compat callers. */
+  total: number;
+  /** Same as `score`, kept for back-compat. */
+  percentage: number;
   category: ProfileCategory;
   criteria: ProfileCriterion[];
 }
 
-// ─── Helpers ─────────────────────────────────────────────────────────────────
+// ─── Per-criterion point helpers ─────────────────────────────────────────────
 
-function criterion(label: string, points: number, maxPoints: number): ProfileCriterion {
-  return { label, points, maxPoints, passed: points > 0, partial: points > 0 && points < maxPoints };
-}
-
-/** Academic score — 4-tier graded scale (0–3 points).
+/** Academic score — 6-tier graded scale (0–5 points).
  *  Percentage / GPA / IGCSE (stored as % equivalent) use the same scale.
  *  IB uses its own 0–45 scale. */
 function academicPoints(profile: StudentProfile): number {
@@ -39,19 +40,25 @@ function academicPoints(profile: StudentProfile): number {
   switch (profile.academic_score_type) {
     case "percentage":
     case "igcse": // stored as percentage equiv: A*=95, A=85, B=75
-      if (s > 90) return 3;
-      if (s >= 85) return 2;
-      if (s >= 75) return 1;
+      if (s > 90)  return 5;
+      if (s >= 85) return 4;
+      if (s >= 75) return 3;
+      if (s >= 65) return 2;
+      if (s >= 60) return 1;
       return 0;
     case "gpa":
-      if (s > 3.75) return 3;
-      if (s >= 3.5) return 2;
-      if (s >= 3.2) return 1;
+      if (s > 3.75) return 5;
+      if (s >= 3.5) return 4;
+      if (s >= 3.3) return 3;
+      if (s >= 3.1) return 2;
+      if (s >= 3.0) return 1;
       return 0;
     case "ib":
-      if (s > 42) return 3;
-      if (s >= 40) return 2;
-      if (s >= 36) return 1;
+      if (s > 42)  return 5;
+      if (s >= 40) return 4;
+      if (s >= 37) return 3;
+      if (s >= 35) return 2;
+      if (s >= 32) return 1;
       return 0;
     default:
       return 0;
@@ -77,7 +84,7 @@ function backlogPoints(profile: StudentProfile): number {
   return 0;
 }
 
-/** English test — 1 pt if IELTS ≥ 7 / TOEFL ≥ 105 / PTE ≥ 60 */
+/** English test — 1 pt if IELTS ≥ 7 / TOEFL ≥ 105 / PTE ≥ 60. */
 function englishPoints(profile: StudentProfile): number {
   if (profile.english_test === "none" || !profile.english_score_overall) return 0;
   const s = profile.english_score_overall;
@@ -89,7 +96,24 @@ function englishPoints(profile: StudentProfile): number {
   }
 }
 
-/** Intake within 18 months — 1 pt if yes, 0 if further away */
+/** Standard test — 1 pt for a competitive score on the test the student
+ *  actually sat (SAT for UG, GRE / GMAT for PG). 0 if no test taken or
+ *  score is below the competitive threshold. */
+function stdTestPoints(profile: StudentProfile): number {
+  if (profile.degree_level === "undergraduate") {
+    if (profile.std_test_ug !== "sat") return 0;
+    return (profile.std_test_ug_score ?? 0) >= 1400 ? 1 : 0;
+  }
+  if (profile.std_test_pg === "gre") {
+    return (profile.std_test_pg_score ?? 0) >= 320 ? 1 : 0;
+  }
+  if (profile.std_test_pg === "gmat") {
+    return (profile.std_test_pg_score ?? 0) >= 680 ? 1 : 0;
+  }
+  return 0;
+}
+
+/** Intake within 18 months — 1 pt if yes, 0 if further away. */
 function intakeWithin18Months(profile: StudentProfile): number {
   const semesterMonth: Record<string, number> = {
     spring: 2, summer: 6, fall: 9, winter: 1,
@@ -101,134 +125,118 @@ function intakeWithin18Months(profile: StudentProfile): number {
   return intakeDate <= cutoff ? 1 : 0;
 }
 
-/** Annual budget — 2 pts if > $35K, 1 pt if $25K–$35K, 0 below $25K */
+/** Annual budget — 2 pts if > $35K, 1 pt if $25K–$35K, 0 below $25K. */
 function budgetPoints(profile: StudentProfile): number {
   switch (profile.budget_range) {
     case "above_70k":
     case "50k_70k":
-    case "35k_50k":  return 2; // all ≥ $35K
-    case "20k_35k":  return 1; // straddles $25K threshold
-    default:         return 0; // under_20k
+    case "35k_50k":  return 2;
+    case "20k_35k":  return 1;
+    default:         return 0;
   }
 }
 
+// ─── Weight allocation (15 May 2026 user spec) ────────────────────────────────
+//
+// Final score is a weighted 0-100 percentage. The first five criteria have
+// fixed weights; the remaining criteria share the "others_total" pool
+// proportional to their maxPoints.
+//
+//   Academic           40
+//   Family income      10
+//   Standard test      10
+//   Backlogs            5
+//   English test       10
+//   All others (sum)   25
+//   ─────────────────────
+//   TOTAL             100
+
+const WEIGHT = {
+  academic: 40,
+  family_income: 10,
+  std_test: 10,
+  backlogs: 5,
+  english: 10,
+  others_total: 25,
+} as const;
+
 // ─── Scorer ───────────────────────────────────────────────────────────────────
 
+function mk(label: string, points: number, maxPoints: number, weight: number): ProfileCriterion {
+  return {
+    label,
+    points,
+    maxPoints,
+    weight,
+    passed: points > 0,
+    partial: points > 0 && points < maxPoints,
+  };
+}
+
 export function scoreStudentProfile(profile: StudentProfile): ProfileScoreResult {
-  const isPostgrad = profile.degree_level === "postgraduate";
+  const isPG = profile.degree_level === "postgraduate";
+
+  // "Other" criteria — share the 25% pool proportional to maxPoints.
+  const others: Array<{ label: string; points: number; maxPoints: number }> = [
+    { label: "Passport available",                       points: profile.passport_available === "yes" ? 1 : 0,        maxPoints: 1 },
+    { label: "Visa approved previously",                 points: profile.visa_history === "approved_before" ? 1 : 0,  maxPoints: 1 },
+    { label: "Family / friends studying or living abroad", points: profile.family_abroad === true ? 1 : 0,            maxPoints: 1 },
+    { label: "No academic gap year",                     points: !profile.academic_gap ? 1 : 0,                       maxPoints: 1 },
+    { label: "Annual budget",                            points: budgetPoints(profile),                               maxPoints: 2 },
+    { label: "Target intake within next 18 months",      points: intakeWithin18Months(profile),                       maxPoints: 1 },
+    { label: "Already researched some universities",     points: profile.universities_researched === true ? 2 : 0,    maxPoints: 2 },
+    { label: "No scholarship required",                  points: profile.scholarship_seeking === false ? 1 : 0,       maxPoints: 1 },
+  ];
+  if (isPG) {
+    others.push({ label: "Research paper published", points: profile.research_papers === true ? 1 : 0,        maxPoints: 1 });
+    others.push({ label: "Work experience",          points: (profile.work_experience_years ?? 0) > 0 ? 1 : 0, maxPoints: 1 });
+  }
+  const othersMaxSum = others.reduce((s, o) => s + o.maxPoints, 0);
 
   const criteria: ProfileCriterion[] = [
-    // 1. Passport (max 1)
-    criterion(
-      "Passport available",
-      profile.passport_available === "yes" ? 1 : 0,
-      1,
-    ),
-
-    // 2. Visa history (max 1)
-    criterion(
-      "Visa approved previously",
-      profile.visa_history === "approved_before" ? 1 : 0,
-      1,
-    ),
-
-    // 3. Family abroad (max 1)
-    criterion(
-      "Family / friends studying or living abroad",
-      profile.family_abroad === true ? 1 : 0,
-      1,
-    ),
-
-    // 4. Family income (max 3)
-    criterion("Family income", incomePoints(profile), 3),
-
-    // 5. Academic score (max 3)
-    criterion("Academic score", academicPoints(profile), 3),
-
-    // 6. Backlogs (max 3)
-    criterion("Backlogs", backlogPoints(profile), 3),
-
-    // 7. No gap year (max 1)
-    criterion(
-      "No academic gap year",
-      !profile.academic_gap ? 1 : 0,
-      1,
-    ),
-
-    // 8. English test (max 1)
-    criterion("English test score", englishPoints(profile), 1),
-
-    // 9. Annual budget (max 2)
-    criterion("Annual budget", budgetPoints(profile), 2),
-
-    // 10. Intake within 18 months (max 1)
-    criterion(
-      "Target intake within next 18 months",
-      intakeWithin18Months(profile),
-      1,
-    ),
-
-    // 11. Universities already researched (max 2)
-    criterion(
-      "Already researched some universities",
-      profile.universities_researched === true ? 2 : 0,
-      2,
-    ),
-
-    // 12. Scholarship not required (max 1)
-    criterion(
-      "No scholarship required",
-      profile.scholarship_seeking === false ? 1 : 0,
-      1,
+    mk("Academic score",       academicPoints(profile),  5, WEIGHT.academic),
+    mk("Family income",        incomePoints(profile),    3, WEIGHT.family_income),
+    mk("Standard test score",  stdTestPoints(profile),   1, WEIGHT.std_test),
+    mk("Backlogs",             backlogPoints(profile),   3, WEIGHT.backlogs),
+    mk("English test score",   englishPoints(profile),   1, WEIGHT.english),
+    ...others.map((o) =>
+      mk(o.label, o.points, o.maxPoints, (o.maxPoints / othersMaxSum) * WEIGHT.others_total),
     ),
   ];
 
-  // 13. Research paper — postgrad only (max 1)
-  if (isPostgrad) {
-    criteria.push(criterion(
-      "Research paper published",
-      profile.research_papers === true ? 1 : 0,
-      1,
-    ));
-  }
-
-  // 14. Work experience — postgrad only (max 1)
-  if (isPostgrad) {
-    criteria.push(criterion(
-      "Work experience",
-      (profile.work_experience_years ?? 0) > 0 ? 1 : 0,
-      1,
-    ));
-  }
-
-  const score = criteria.reduce((sum, c) => sum + c.points, 0);
-  const total = criteria.reduce((sum, c) => sum + c.maxPoints, 0);
-  const percentage = Math.round((score / total) * 100);
+  // Weighted sum of (points / maxPoints) × weight → 0–100.
+  const weighted = criteria.reduce(
+    (s, c) => s + (c.maxPoints > 0 ? c.points / c.maxPoints : 0) * c.weight,
+    0,
+  );
+  const percentage = Math.round(weighted);
 
   return {
-    score,
-    total,
+    score: percentage,
+    total: 100,
     percentage,
-    category: deriveCategory(score, total),
+    category: deriveCategory(percentage),
     criteria,
   };
 }
 
-/** Category buckets use the RAW score (not %). PG anchor boundaries
- *  per user spec (15 May 2026): ≥20 SUPER STRONG · 18–19 VERY STRONG ·
- *  15–17 STRONG · 10–14 AVERAGE · <10 Weak (max=22).
- *
- *  UG (max=20) scales each boundary by `total / 22` and rounds. That
- *  yields ≥18 SUPER STRONG · 16–17 VERY STRONG · 14–15 STRONG ·
- *  9–13 AVERAGE · <9 Weak — proportional to the PG ladder. */
-function deriveCategory(score: number, total: number): ProfileCategory {
-  const f = total / 22;
-  if (score >= Math.round(20 * f)) return "SUPER STRONG Profile";
-  if (score >= Math.round(18 * f)) return "VERY STRONG Profile";
-  if (score >= Math.round(15 * f)) return "STRONG Profile";
-  if (score >= Math.round(10 * f)) return "AVERAGE Profile";
+/** Category buckets — anchored on weighted percentage (0-100). */
+function deriveCategory(percentage: number): ProfileCategory {
+  if (percentage >= 85) return "SUPER STRONG Profile";
+  if (percentage >= 70) return "VERY STRONG Profile";
+  if (percentage >= 55) return "STRONG Profile";
+  if (percentage >= 40) return "AVERAGE Profile";
   return "Weak Profile";
 }
+
+/** Ordered list (weakest → strongest) for rating-scale UI rendering. */
+export const CATEGORY_LADDER: ProfileCategory[] = [
+  "Weak Profile",
+  "AVERAGE Profile",
+  "STRONG Profile",
+  "VERY STRONG Profile",
+  "SUPER STRONG Profile",
+];
 
 // ─── UI helpers ───────────────────────────────────────────────────────────────
 
@@ -238,6 +246,8 @@ export interface CategoryStyle {
   border: string;
   emoji: string;
   description: string;
+  /** Short label used in the rating-scale ladder (1-2 words). */
+  shortLabel: string;
 }
 
 export function getCategoryStyle(category: ProfileCategory): CategoryStyle {
@@ -249,6 +259,7 @@ export function getCategoryStyle(category: ProfileCategory): CategoryStyle {
         border: "border-rose-300",
         emoji: "🔥",
         description: "Exceptionally strong profile — high visa and admission success likelihood",
+        shortLabel: "Super Strong",
       };
     case "VERY STRONG Profile":
       return {
@@ -257,6 +268,7 @@ export function getCategoryStyle(category: ProfileCategory): CategoryStyle {
         border: "border-orange-300",
         emoji: "⭐",
         description: "Very strong profile — excellent chances across top-tier programs",
+        shortLabel: "Very Strong",
       };
     case "STRONG Profile":
       return {
@@ -265,6 +277,7 @@ export function getCategoryStyle(category: ProfileCategory): CategoryStyle {
         border: "border-emerald-300",
         emoji: "💪",
         description: "Strong profile — solid prospects with the right program selection",
+        shortLabel: "Strong",
       };
     case "AVERAGE Profile":
       return {
@@ -273,6 +286,7 @@ export function getCategoryStyle(category: ProfileCategory): CategoryStyle {
         border: "border-amber-300",
         emoji: "📊",
         description: "Average profile — targeted preparation can significantly improve your outcomes",
+        shortLabel: "Average",
       };
     case "Weak Profile":
       return {
@@ -281,11 +295,69 @@ export function getCategoryStyle(category: ProfileCategory): CategoryStyle {
         border: "border-blue-300",
         emoji: "📈",
         description: "Weak profile — focused improvement on academics, tests, or budget alignment is needed to strengthen the application",
+        shortLabel: "Weak",
       };
   }
 }
 
-/** Inline HTML-safe category badge for emails / PDF */
+/** Per-criterion colour scale, driven by points relative to maxPoints.
+ *  Implements the user's spec (15 May 2026):
+ *    - 5-pt criteria (Academic):
+ *        5 dark green · 4 green · 3 light green · 2 light orange ·
+ *        1 darker orange · 0 light red
+ *    - 3-pt criteria (Family income, Backlogs):
+ *        3 dark green · 2 light green · 1 light orange · 0 light red
+ *    - 2-pt criteria (Budget, Universities researched):
+ *        2 green · 1 light orange · 0 light red
+ *    - 1-pt criteria (binary): present → green · absent → light red
+ *
+ *  Returns Tailwind class fragments for `bg` / `border` / `text` so the
+ *  card can compose them onto a tile. */
+export interface CriterionColor {
+  bg: string;
+  border: string;
+  text: string;
+  iconColor: string;
+}
+
+export function getCriterionColor(points: number, maxPoints: number): CriterionColor {
+  if (maxPoints >= 5) {
+    // Academic — 6 tiers.
+    const scale: CriterionColor[] = [
+      { bg: "bg-rose-50",    border: "border-rose-200",    text: "text-rose-700",     iconColor: "text-rose-500"    }, // 0
+      { bg: "bg-orange-100", border: "border-orange-300",  text: "text-orange-800",   iconColor: "text-orange-600"  }, // 1
+      { bg: "bg-orange-50",  border: "border-orange-200",  text: "text-orange-700",   iconColor: "text-orange-500"  }, // 2
+      { bg: "bg-emerald-50", border: "border-emerald-200", text: "text-emerald-700",  iconColor: "text-emerald-500" }, // 3
+      { bg: "bg-emerald-100",border: "border-emerald-300", text: "text-emerald-800",  iconColor: "text-emerald-600" }, // 4
+      { bg: "bg-emerald-200",border: "border-emerald-400", text: "text-emerald-900",  iconColor: "text-emerald-700" }, // 5
+    ];
+    return scale[Math.max(0, Math.min(5, points))];
+  }
+  if (maxPoints >= 3) {
+    // Family income, Backlogs — 4 tiers.
+    const scale: CriterionColor[] = [
+      { bg: "bg-rose-50",     border: "border-rose-200",    text: "text-rose-700",    iconColor: "text-rose-500"    }, // 0
+      { bg: "bg-orange-50",   border: "border-orange-200",  text: "text-orange-700",  iconColor: "text-orange-500"  }, // 1
+      { bg: "bg-emerald-100", border: "border-emerald-300", text: "text-emerald-800", iconColor: "text-emerald-600" }, // 2
+      { bg: "bg-emerald-200", border: "border-emerald-400", text: "text-emerald-900", iconColor: "text-emerald-700" }, // 3
+    ];
+    return scale[Math.max(0, Math.min(3, points))];
+  }
+  if (maxPoints >= 2) {
+    const scale: CriterionColor[] = [
+      { bg: "bg-rose-50",     border: "border-rose-200",    text: "text-rose-700",    iconColor: "text-rose-500"    }, // 0
+      { bg: "bg-orange-50",   border: "border-orange-200",  text: "text-orange-700",  iconColor: "text-orange-500"  }, // 1
+      { bg: "bg-emerald-100", border: "border-emerald-300", text: "text-emerald-800", iconColor: "text-emerald-600" }, // 2
+    ];
+    return scale[Math.max(0, Math.min(2, points))];
+  }
+  // 1-pt binary.
+  return points >= 1
+    ? { bg: "bg-emerald-50", border: "border-emerald-200", text: "text-emerald-700", iconColor: "text-emerald-500" }
+    : { bg: "bg-rose-50",    border: "border-rose-200",    text: "text-rose-700",    iconColor: "text-rose-500"    };
+}
+
+/** Inline HTML-safe category badge for emails / PDF. */
 export function categoryBadgeHtml(category: ProfileCategory): string {
   const colors: Record<ProfileCategory, { bg: string; color: string }> = {
     "SUPER STRONG Profile": { bg: "#fef2f2", color: "#dc2626" },

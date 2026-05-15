@@ -17,6 +17,8 @@ import { intendedFieldLabel } from "@/lib/types";
 import {
   scoreStudentProfile,
   getCategoryStyle,
+  getCriterionColor,
+  CATEGORY_LADDER,
   type ProfileCategory,
 } from "@/lib/profile-score";
 import toast from "react-hot-toast";
@@ -152,7 +154,36 @@ export default function ProfileCard({ profile, token }: Props) {
         </p>
       </div>
 
-      {/* Parameters considered — labels only, no scoring details */}
+      {/* Rating scale ladder — five segments, user's category highlighted.
+          Shows the user where they sit in the spectrum without exposing
+          the underlying numeric score. */}
+      <div className="px-5 pb-4">
+        <div className="flex items-stretch gap-1 rounded-xl overflow-hidden border border-white/60 bg-white/50">
+          {CATEGORY_LADDER.map((cat) => {
+            const cs = getCategoryStyle(cat);
+            const active = cat === result.category;
+            return (
+              <div
+                key={cat}
+                className={`flex-1 flex flex-col items-center justify-center px-1.5 py-2 text-center transition-all ${
+                  active
+                    ? `${cs.bg} ${cs.border} border-y-2 border-x ${cs.text} font-extrabold scale-[1.02] shadow-sm`
+                    : "bg-white/60 text-gray-400 font-medium"
+                }`}
+              >
+                <span className="text-base leading-none">{active ? cs.emoji : "·"}</span>
+                <span className="text-[10px] sm:text-[11px] leading-tight mt-1 whitespace-nowrap">
+                  {cs.shortLabel}
+                </span>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Parameters considered — colour-coded by strength on the
+          criterion's own scale (5-tier for Academic, 4-tier for Family
+          income / Backlogs, etc.) but with no numeric points shown. */}
       <div className="px-5 py-3 border-t border-white/50 text-sm">
         <span className="font-semibold text-gray-700">
           Parameters considered
@@ -160,15 +191,18 @@ export default function ProfileCard({ profile, token }: Props) {
       </div>
 
       <div className="px-5 pb-5 grid grid-cols-1 sm:grid-cols-2 gap-2 mt-1">
-        {result.criteria.map((c, i) => (
-          <div
-            key={i}
-            className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl border text-xs font-medium bg-white/70 border-gray-100 text-gray-700"
-          >
-            <CheckCircle2 className="w-4 h-4 text-indigo-400 flex-shrink-0" />
-            <span className="flex-1">{c.label}</span>
-          </div>
-        ))}
+        {result.criteria.map((c, i) => {
+          const cc = getCriterionColor(c.points, c.maxPoints);
+          return (
+            <div
+              key={i}
+              className={`flex items-center gap-2.5 px-3 py-2.5 rounded-xl border text-xs font-medium ${cc.bg} ${cc.border} ${cc.text}`}
+            >
+              <CheckCircle2 className={`w-4 h-4 flex-shrink-0 ${cc.iconColor}`} />
+              <span className="flex-1">{c.label}</span>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

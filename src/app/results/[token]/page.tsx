@@ -85,7 +85,13 @@ export default function ResultsPage() {
   const [shortlisted, setShortlisted] = useState<Set<string>>(new Set());
   const [compareSet, setCompareSet] = useState<Set<string>>(new Set());
   const [showCompare, setShowCompare] = useState(false);
-  const [filters, setFilters] = useState({ country: "all", field: "all", sort: "match_score" });
+  // Default sort: QS Ranking (ascending — higher-prestige first, unranked
+  // at the bottom). The matched programs are now rendered as a single
+  // flat list across tiers — the tier badge stays on each program card,
+  // so a user still sees Safe/Reach/Ambitious classification but the
+  // order is QS-driven across the whole shortlist. (15 May 2026,
+  // user-requested.)
+  const [filters, setFilters] = useState({ country: "all", field: "all", sort: "qs_ranking" });
   const [showFilters, setShowFilters] = useState(false);
   const [sendingEmail, setSendingEmail] = useState(false);
 
@@ -212,11 +218,23 @@ export default function ResultsPage() {
   const reachPrograms     = applyFilters(allPrograms.filter((p) => p.tier === "reach"));
   const ambitiousPrograms = applyFilters(allPrograms.filter((p) => p.tier === "ambitious"));
 
+  // Single flat list across all tiers, sorted by the active filter.
+  // Within each program the tier badge still shows Safe / Reach / Ambitious
+  // — the user just sees the highest-ranked programs first regardless of
+  // which tier they belong to.
+  const flatPrograms = applyFilters(allPrograms);
+
   const countries = [...new Set(allPrograms.map((p) => p.country))];
   const fields    = [...new Set(allPrograms.map((p) => p.field_of_study))];
   const shortlistedPrograms = allPrograms.filter((p) => shortlisted.has(p.id));
 
-  const tierPrograms = { safe: safePrograms, reach: reachPrograms, ambitious: ambitiousPrograms };
+  // Empty-tier explainers (kept for the case where a tier returns 0
+  // programs — surfaced as compact banners above the flat list).
+  const emptyTiers = TIER_CONFIG.filter((tc) => {
+    if (tc.tier === "safe")      return safePrograms.length === 0;
+    if (tc.tier === "reach")     return reachPrograms.length === 0;
+    return ambitiousPrograms.length === 0;
+  });
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50/30">
@@ -352,93 +370,86 @@ export default function ResultsPage() {
           </div>
         )}
 
-        {/* ── Tier-grouped program sections ─────────────────────────────────── */}
-        {TIER_CONFIG.map((tc, sectionIdx) => {
-          const programs = tierPrograms[tc.tier];
-          return (
-            <motion.section
-              key={tc.tier}
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: sectionIdx * 0.08 }}
-              className="mb-10"
-            >
-              {/* Section header */}
-              <div className={`flex items-center gap-3 px-4 py-3 rounded-2xl ${tc.bg} border ${tc.border} mb-4`}>
-                <span className="text-xl">{tc.emoji}</span>
-                <div className="flex-1">
-                  <span className={`font-extrabold text-base ${tc.text}`}>
-                    {tc.label}
-                    <span className="ml-2 font-normal text-sm opacity-70">({programs.length} programs)</span>
-                  </span>
-                  <p className="text-xs text-gray-500 mt-0.5">{tc.description}</p>
-                </div>
-              </div>
-
-              {programs.length === 0 ? (
-                // Compact "why is this empty" explainer — replaces the old
-                // one-liner "No matches for current filters" row so users
-                // understand WHY a tier returned 0 and what they can change
-                // (14 May 2026, after a real user landed 0 Ambitious due to
-                // strict academic floor).
-                (() => {
-                  const expl = explainEmptyTier(tc.tier, profile, allPrograms);
-                  return (
-                    <div className={`rounded-xl border border-dashed ${tc.border} ${tc.bg} px-4 py-3.5`}>
-                      <div className="flex items-start gap-2.5">
-                        <Filter className={`w-4 h-4 ${tc.text} flex-shrink-0 mt-0.5`} />
-                        <div className="flex-1 min-w-0">
-                          <p className={`text-sm font-semibold ${tc.text}`}>{expl.title}</p>
-                          <p className="text-xs text-gray-600 mt-1.5 leading-relaxed">{expl.body}</p>
-                          <div className="mt-2.5">
-                            <p className="text-[11px] font-semibold uppercase tracking-wider text-gray-500 mb-1.5">What could change this</p>
-                            <ul className="space-y-1">
-                              {expl.suggestions.map((s, i) => (
-                                <li key={i} className="text-xs text-gray-600 flex items-start gap-1.5">
-                                  <span className={`${tc.text} flex-shrink-0 mt-0.5`}>•</span>
-                                  <span className="leading-relaxed">{s}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                          {(filters.country !== "all" || filters.field !== "all") && (
-                            <button
-                              onClick={() => setFilters({ country: "all", field: "all", sort: filters.sort })}
-                              className="mt-2.5 text-xs text-indigo-500 hover:underline"
-                            >
-                              Clear page-level filters
-                            </button>
-                          )}
-                        </div>
-                      </div>
+        {/* ── Empty-tier explainer banners (compact) ────────────────────────
+            Surface a "why is X empty" card for any tier that returned 0
+            programs, so the user knows what to change. Stacked above the
+            flat program list. */}
+        {emptyTiers.length > 0 && (
+          <div className="mb-6 space-y-2">
+            {emptyTiers.map((tc) => {
+              const expl = explainEmptyTier(tc.tier, profile, allPrograms);
+              return (
+                <div key={tc.tier} className={`rounded-xl border border-dashed ${tc.border} ${tc.bg} px-4 py-3`}>
+                  <div className="flex items-start gap-2.5">
+                    <Filter className={`w-4 h-4 ${tc.text} flex-shrink-0 mt-0.5`} />
+                    <div className="flex-1 min-w-0">
+                      <p className={`text-sm font-semibold ${tc.text}`}>
+                        <span className="mr-1">{tc.emoji}</span>
+                        {expl.title}
+                      </p>
+                      <p className="text-xs text-gray-600 mt-1 leading-relaxed">{expl.body}</p>
+                      {expl.suggestions.length > 0 && (
+                        <ul className="mt-1.5 space-y-0.5">
+                          {expl.suggestions.map((s, i) => (
+                            <li key={i} className="text-xs text-gray-600 flex items-start gap-1.5">
+                              <span className={`${tc.text} flex-shrink-0 mt-0.5`}>•</span>
+                              <span className="leading-relaxed">{s}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
                     </div>
-                  );
-                })()
-              ) : (
-                <div className="space-y-4">
-                  {programs.map((program, i) => (
-                    <motion.div
-                      key={program.id}
-                      initial={{ opacity: 0, y: 12 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: sectionIdx * 0.06 + i * 0.03 }}
-                    >
-                      <ProgramCard
-                        program={program}
-                        isShortlisted={shortlisted.has(program.id)}
-                        onToggleShortlist={() => toggleShortlist(program.id)}
-                        isInCompare={compareSet.has(program.id)}
-                        onToggleCompare={() => toggleCompare(program.id)}
-                        compareDisabled={!compareSet.has(program.id) && compareSet.size >= 5}
-                        budgetPct={budgetPctFor(program)}
-                      />
-                    </motion.div>
-                  ))}
+                  </div>
                 </div>
-              )}
-            </motion.section>
-          );
-        })}
+              );
+            })}
+          </div>
+        )}
+
+        {/* ── Flat program list ──────────────────────────────────────────────
+            Single list across all tiers, ordered by the active sort (default
+            QS Ranking). Each card carries its own Safe / Reach / Ambitious
+            tier badge so the classification stays visible. */}
+        {flatPrograms.length > 0 ? (
+          <motion.section
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mb-10"
+          >
+            <div className="space-y-4">
+              {flatPrograms.map((program, i) => (
+                <motion.div
+                  key={program.id}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: Math.min(i, 12) * 0.03 }}
+                >
+                  <ProgramCard
+                    program={program}
+                    isShortlisted={shortlisted.has(program.id)}
+                    onToggleShortlist={() => toggleShortlist(program.id)}
+                    isInCompare={compareSet.has(program.id)}
+                    onToggleCompare={() => toggleCompare(program.id)}
+                    compareDisabled={!compareSet.has(program.id) && compareSet.size >= 5}
+                    budgetPct={budgetPctFor(program)}
+                  />
+                </motion.div>
+              ))}
+            </div>
+          </motion.section>
+        ) : (
+          <div className="mb-10 rounded-2xl border border-dashed border-gray-200 bg-gray-50 px-5 py-8 text-center">
+            <p className="text-sm font-semibold text-gray-700">No matches with current filters</p>
+            {(filters.country !== "all" || filters.field !== "all") && (
+              <button
+                onClick={() => setFilters({ country: "all", field: "all", sort: filters.sort })}
+                className="mt-2 text-xs text-indigo-500 hover:underline"
+              >
+                Clear filters
+              </button>
+            )}
+          </div>
+        )}
 
         {/* Clarification — moved here from the page header (13 May 2026) so
             users finish browsing the shortlist before encountering the
