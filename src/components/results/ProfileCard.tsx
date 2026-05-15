@@ -114,19 +114,10 @@ export default function ProfileCard({ profile, token }: Props) {
           </div>
         </div>
 
-        {/* Right: category badge + actions — full-width on mobile,
-            right-aligned column on sm+. */}
+        {/* Right: action buttons only — the category itself is shown
+            by the rating-scale ladder lower in the card, so the
+            separate badge strip is redundant. */}
         <div className="flex flex-col items-stretch sm:items-end gap-2 flex-shrink-0 w-full sm:w-auto sm:ml-4">
-          {/* Category badge */}
-          <div
-            className={`inline-flex items-center justify-center sm:justify-start gap-2 px-3 sm:px-4 py-2 rounded-xl border ${style.border} bg-white/60 w-full sm:w-auto`}
-          >
-            <span className="text-base sm:text-lg">{style.emoji}</span>
-            <span className={`font-extrabold text-xs sm:text-sm ${style.text} whitespace-nowrap`}>
-              {result.category}
-            </span>
-          </div>
-
           {/* Action buttons */}
           <div className="flex items-center gap-2 w-full sm:w-auto">
             <button

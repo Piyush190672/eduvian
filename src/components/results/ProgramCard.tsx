@@ -66,7 +66,18 @@ function getVerdict(signal: string, value: number, isPG: boolean, budgetPct?: nu
       // required for this admission, so label it as such (strong/green).
       // Scoring returns 100 in this case (13 May 2026).
       if (stdTestRequired === false) return "Not required";
-      if (value === 60 || value === 70) return "No test submitted";
+      // Value 30: required + user didn't take a test.
+      if (value === 30) return "Test required, none on file";
+      // Value 70: user has a test on file but the score didn't make it
+      // into the profile (NaN / 0). Treat as data gap, not as a
+      // missing test.
+      if (value === 70) return "Test score on file (not yet scored)";
+      // Values 55 / 60 / 90 / 100 / 20 come from the per-test branches.
+      // 90 / 55 are the cross-test conversion tiers (e.g. GRE → GMAT
+      // equivalent); 100 / 60 / 20 are the same-test tiers.
+      if (value === 90 || value === 55) {
+        return s === "strong" ? "Score qualifies (converted)" : "Close to requirement (converted)";
+      }
       return s === "strong" ? "Score qualifies" : s === "partial" ? "Close to requirement" : "Below requirement";
     case "english":
       // 5 = sentinel from scoring.ts meaning the user said english_test

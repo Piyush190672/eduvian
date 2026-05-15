@@ -209,12 +209,20 @@ function scoreAcademic(profile: StudentProfile, program: Program): number {
   // 2026); falls back to QS-bucket where not.
   const { prestigePenalty } = getPrestigeBucket(program);
 
-  if (minPct === 0) return clamp(72 - prestigePenalty);
-  if (studentPct < minPct - 12) return 0;
-  if (studentPct < minPct - 5)  return clamp(20 - prestigePenalty);
-  if (studentPct < minPct)      return clamp(40 - prestigePenalty);
+  // Implicit minimum when the program publishes none — about 75 % of the
+  // DB. Earlier the no-min branch returned a flat `72 - prestigePenalty`
+  // regardless of the student's actual score, which meant a 3.6 GPA
+  // applicant and a 2.5 GPA applicant got identical Academic signals at
+  // a prestige uni like Warwick. Switching to an implicit floor of 70 %
+  // and reusing the same surplus curve makes the student's own score
+  // drive the result. (15 May 2026, user-reported.)
+  const effectiveMin = minPct > 0 ? minPct : 70;
 
-  const surplus = studentPct - minPct;
+  if (studentPct < effectiveMin - 12) return 0;
+  if (studentPct < effectiveMin - 5)  return clamp(20 - prestigePenalty);
+  if (studentPct < effectiveMin)      return clamp(40 - prestigePenalty);
+
+  const surplus = studentPct - effectiveMin;
   return clamp(58 - prestigePenalty + surplus * 1.4);
 }
 
@@ -380,49 +388,81 @@ function scoreMbaLeadership(profile: StudentProfile, program: Program): number {
 }
 
 function scoreStdTest(profile: StudentProfile, program: Program): number {
-  // Score-on-file helper. Same NaN / 0 defence as scoreEnglish — if the
-  // user selected a test type but the numeric score didn't make it into
-  // the profile, don't render the signal as a red gap; return null and
-  // let the caller fall back to the neutral-partial branch.
+  // Score-on-file helper. If the user selected a test type but the numeric
+  // score didn't make it into the profile, don't render the signal as a
+  // red gap — return 70 so the caller falls back to the neutral-partial
+  // branch.
   const validScore = (raw: unknown): number | null => {
     const n = Number(raw);
     return Number.isFinite(n) && n > 0 ? n : null;
   };
 
+  // Cross-test conversions (rough, sourced from official concordance
+  // tables). Used when the user sat a test other than the one the
+  // program publishes a minimum for. Conversion is approximate, so a
+  // perfect-fit conversion is capped at 90 (not 100) to flag the
+  // approximation.
+  const satFromAct = (act: number) => (act - 1) * 40 + 400;             // ACT → SAT
+  const gmatFromGre = (gre: number) => (gre - 260) * 6.5 + 200;          // GRE → GMAT
+  const greFromGmat = (gmat: number) => (gmat - 200) / 6.5 + 260;        // GMAT → GRE
+
   if (profile.degree_level === "undergraduate") {
     const minSat = effectiveMin(program, "min_sat");
     if (!minSat) return 100;
     if (!profile.std_test_ug || profile.std_test_ug === "none") return 30;
+    const raw = validScore(profile.std_test_ug_score);
+    if (raw == null) return 70;
     if (profile.std_test_ug === "sat") {
-      const score = validScore(profile.std_test_ug_score);
-      if (score == null) return 70;
-      if (score >= minSat) return 100;
-      if (score >= minSat - 50) return 60;
+      if (raw >= minSat) return 100;
+      if (raw >= minSat - 50) return 60;
       return 20;
     }
-    return 70;
-  } else {
-    const minGre  = effectiveMin(program, "min_gre");
-    const minGmat = effectiveMin(program, "min_gmat");
-    const requiresGreOrGmat = (minGre ?? 0) > 0 || (minGmat ?? 0) > 0;
-    if (!requiresGreOrGmat) return 100;
-    if (!profile.std_test_pg || profile.std_test_pg === "none") return 30;
-    if (profile.std_test_pg === "gre" && minGre) {
-      const score = validScore(profile.std_test_pg_score);
-      if (score == null) return 70;
-      if (score >= minGre) return 100;
-      if (score >= minGre - 10) return 60;
-      return 20;
-    }
-    if (profile.std_test_pg === "gmat" && minGmat) {
-      const score = validScore(profile.std_test_pg_score);
-      if (score == null) return 70;
-      if (score >= minGmat) return 100;
-      if (score >= minGmat - 20) return 60;
+    if (profile.std_test_ug === "act") {
+      const satEquiv = satFromAct(raw);
+      if (satEquiv >= minSat) return 90;
+      if (satEquiv >= minSat - 50) return 55;
       return 20;
     }
     return 70;
   }
+
+  const minGre  = effectiveMin(program, "min_gre");
+  const minGmat = effectiveMin(program, "min_gmat");
+  const requiresGreOrGmat = (minGre ?? 0) > 0 || (minGmat ?? 0) > 0;
+  if (!requiresGreOrGmat) return 100;
+  if (!profile.std_test_pg || profile.std_test_pg === "none") return 30;
+  const raw = validScore(profile.std_test_pg_score);
+  if (raw == null) return 70;
+
+  if (profile.std_test_pg === "gre") {
+    if (minGre) {
+      if (raw >= minGre) return 100;
+      if (raw >= minGre - 10) return 60;
+      return 20;
+    }
+    // Program wants GMAT, user has GRE — convert.
+    if (minGmat) {
+      const gmatEquiv = gmatFromGre(raw);
+      if (gmatEquiv >= minGmat) return 90;
+      if (gmatEquiv >= minGmat - 20) return 55;
+      return 20;
+    }
+  }
+  if (profile.std_test_pg === "gmat") {
+    if (minGmat) {
+      if (raw >= minGmat) return 100;
+      if (raw >= minGmat - 20) return 60;
+      return 20;
+    }
+    // Program wants GRE, user has GMAT — convert.
+    if (minGre) {
+      const greEquiv = greFromGmat(raw);
+      if (greEquiv >= minGre) return 90;
+      if (greEquiv >= minGre - 10) return 55;
+      return 20;
+    }
+  }
+  return 70;
 }
 
 function scoreBacklogs(profile: StudentProfile): number {
