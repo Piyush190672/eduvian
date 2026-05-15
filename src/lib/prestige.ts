@@ -57,10 +57,10 @@ export interface PrestigeBucket {
 //                   formula. (15 May 2026, user-requested.)
 const BUCKETS = [
   { prestigePenalty: 20, safeMin: 92, reachMin: 70, implicitMin: 85 },
-  { prestigePenalty: 15, safeMin: 89, reachMin: 66, implicitMin: 80 },
-  { prestigePenalty: 10, safeMin: 86, reachMin: 62, implicitMin: 72 },
-  { prestigePenalty: 5,  safeMin: 82, reachMin: 57, implicitMin: 63 },
-  { prestigePenalty: 0,  safeMin: 75, reachMin: 50, implicitMin: 58 },
+  { prestigePenalty: 15, safeMin: 89, reachMin: 66, implicitMin: 78 },
+  { prestigePenalty: 10, safeMin: 86, reachMin: 62, implicitMin: 70 },
+  { prestigePenalty: 5,  safeMin: 82, reachMin: 57, implicitMin: 60 },
+  { prestigePenalty: 0,  safeMin: 75, reachMin: 50, implicitMin: 50 },
 ] as const;
 
 function bucketFromAcceptance(acceptPct: number): number {
