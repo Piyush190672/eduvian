@@ -346,7 +346,7 @@ export default function V2LandingPage() {
               <Link href="#outputs"      className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors">Outputs</Link>
               <Link href="#destinations" className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors">Destinations</Link>
               <Link href="#scholarships" className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors">Scholarships</Link>
-              <Link href="#principles"   className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors">Why choose us</Link>
+              <Link href="#principles"   className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors">Why eduvianAI</Link>
               {/* LogoutButton + ChangePasswordButton both self-hide when
                   no session is present, so they don't add UI for anon
                   visitors. Dark-hero styling overrides the components'
@@ -1343,7 +1343,7 @@ export default function V2LandingPage() {
             <Link href="#outputs"      className="hover:text-gray-900 transition-colors">Outputs</Link>
             <Link href="#destinations" className="hover:text-gray-900 transition-colors">Destinations</Link>
             <Link href="#scholarships" className="hover:text-gray-900 transition-colors">Scholarships</Link>
-            <Link href="#principles"   className="hover:text-gray-900 transition-colors">Why choose us</Link>
+            <Link href="#principles"   className="hover:text-gray-900 transition-colors">Why eduvianAI</Link>
             <Link href="/match"        className="hover:text-gray-900 transition-colors">Find my programs</Link>
             <span className="hidden sm:inline">·</span>
             <span className="text-gray-400 text-[11px]">Decision-support · not professional advice</span>
