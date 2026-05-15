@@ -17,9 +17,16 @@ import { getPrestigeBucket } from "./prestige";
 //     Work Exp redistributes to Research Paper, keeping the raw sum at
 //     exactly 1.0 so no normalisation is needed.
 
+// 15 May 2026: budget weight reduced 0.20 → 0.10, academic raised 0.35 →
+// 0.45. The hard filter excludes anything above 110 % of budget, so the
+// soft Budget signal effectively differentiates only three brackets
+// (≤ 0.70 → 100, ≤ 1.00 → 82, ≤ 1.10 → 58) — the heavier > 1.10 brackets
+// are never reached. 20 % was over-powered for a 3-tier signal; the
+// freed 10 pts move to Academic, which is the strongest real predictor
+// of admission outcomes.
 const WEIGHTS_PG = {
-  academic:        0.35,
-  budget:          0.20,
+  academic:        0.45,
+  budget:          0.10,
   std_test:        0.10,
   english:         0.05,
   scholarship:     0.05,
@@ -31,8 +38,8 @@ const WEIGHTS_PG = {
 };
 
 const WEIGHTS_UG = {
-  academic:        0.35,
-  budget:          0.20,
+  academic:        0.45,
+  budget:          0.10,
   std_test:        0.10,
   english:         0.05,
   scholarship:     0.05,
