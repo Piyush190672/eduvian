@@ -336,7 +336,7 @@ export const FIELDS_OF_STUDY = [
   "Biotechnology & Life Sciences",
   "Medicine & Public Health",
   "Law",
-  "Arts, Design & Architecture",
+  "Arts and Design",
   "Social Sciences & Humanities",
   "Psychology",
   "Economics & Finance",

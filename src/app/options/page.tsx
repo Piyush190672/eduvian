@@ -73,7 +73,7 @@ const FIELD_SELECTIVITY: Record<string, number> = {
   "Natural Sciences":                        1.10,
   "Social Sciences & Humanities":            1.15,
   "Architecture":                            1.10,
-  "Arts, Design & Architecture":             1.10,
+  "Arts and Design":                         1.10,
   "Media & Communications":                  1.15,
   "Environmental & Sustainability Studies":  1.15,
   "Nursing & Allied Health":                 1.20,

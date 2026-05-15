@@ -100,7 +100,7 @@ const FIELD_NAME_PATTERNS: Record<string, RegExp> = {
   "Law":                         /\b(law|legal|jurisprudence|llb|llm)\b/i,
   "Social Sciences & Humanities": /\b(social|humanities|history|philosophy|sociology|anthropology|politics)\b/i,
   "Media & Communications":      /\b(media|communications?|journalism|broadcast)\b/i,
-  "Arts, Design & Architecture": /\b(arts?|design|fine arts|illustration)\b/i,
+  "Arts and Design":             /\b(arts?|design|fine arts|illustration)\b/i,
   "Agriculture & Veterinary Sciences": /\b(agriculture|veterinary|animal science|forestry)\b/i,
   "Hospitality & Tourism":       /\b(hospitality|tourism|hotel|culinary)\b/i,
 };
@@ -125,14 +125,13 @@ const RELATED_FIELDS: Record<string, string[]> = {
   "Medicine & Public Health":                ["Nursing & Allied Health", "Biotechnology & Life Sciences"],
   "Nursing & Allied Health":                 ["Medicine & Public Health"],
   "Environmental & Sustainability Studies":  ["Natural Sciences"],
-  "Media & Communications":                  ["Arts, Design & Architecture", "Architecture", "Social Sciences & Humanities"],
-  "Arts, Design & Architecture":             ["Architecture", "Media & Communications"],
-  // Architecture was split out as its own stream after the legacy compound
-  // "Arts, Design & Architecture" tag had accumulated ~340 programs. The
-  // related-set pulls in both the legacy compound and Engineering so that
-  // students who pick the new "Architecture" stream still match against
-  // existing tagged programs until they're re-classified.
-  "Architecture":                            ["Arts, Design & Architecture", "Engineering (Mechanical/Civil/Electrical)"],
+  "Media & Communications":                  ["Arts and Design", "Architecture", "Social Sciences & Humanities"],
+  "Arts and Design":                         ["Architecture", "Media & Communications"],
+  // Architecture is its own first-class stream; the legacy compound
+  // "Arts, Design & Architecture" was renamed to "Arts and Design"
+  // after every architecture-named program was migrated out (15 May
+  // 2026).
+  "Architecture":                            ["Arts and Design", "Engineering (Mechanical/Civil/Electrical)"],
   "Social Sciences & Humanities":            ["Media & Communications"],
   "Agriculture & Veterinary Sciences":       ["Natural Sciences"],
   "Hospitality & Tourism":                   ["Business & Management"],
