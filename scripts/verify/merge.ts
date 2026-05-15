@@ -33,6 +33,7 @@
  */
 
 import { readFileSync, readdirSync, writeFileSync } from "node:fs";
+import { spawnSync } from "node:child_process";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -173,3 +174,18 @@ const after = programsTs.slice(closeIdx);
 const merged = before + "\n\n  // ─── Verified additions (auto-merged) ──────────────\n" + toInsert.join("") + after;
 writeFileSync(PROGRAMS_PATH, merged);
 console.log(`Inserted ${toInsert.length} verified programs. Skipped ${skipped} duplicates, ${outOfScope} out-of-scope countries.`);
+
+// Auto-run reclassify-cs-streams.py so newly merged rows get classified
+// into the 4-way CS / AI / Data Science / Cybersecurity split. Failure
+// is non-fatal — merge already succeeded; the user can re-run the
+// classifier manually if needed. (Handoff #17 item #22 closed 15 May 2026.)
+try {
+  const r = spawnSync("python3", [join(__dirname, "reclassify-cs-streams.py")], {
+    stdio: "inherit",
+  });
+  if (r.status !== 0) {
+    console.warn(`[merge] reclassify-cs-streams.py exited with code ${r.status} — re-run manually if needed.`);
+  }
+} catch (e) {
+  console.warn(`[merge] could not auto-run reclassify-cs-streams.py:`, e);
+}

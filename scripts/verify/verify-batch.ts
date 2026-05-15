@@ -70,6 +70,15 @@ console.log(`Concurrency: ${concurrency}`);
 const verifier = join(__dirname, "verify-program.ts");
 const stats = { ok: 0, rejected: 0, error: 0 };
 
+// Per-worker watchdog timeout. Three verify-program workers hung 1-3h on
+// slow uni pages in handoff #17 — the parent verify-batch waited
+// indefinitely, blocking the rest of the batch. We kill the child after
+// WORKER_TIMEOUT_MS and treat the result as a transient error (exit code
+// 124, same as GNU `timeout(1)`). A subsequent --skip-existing re-run
+// will retry only the rows that didn't land — same recovery path as
+// any other failure.
+const WORKER_TIMEOUT_MS = Number(process.env.VERIFY_WORKER_TIMEOUT_MS ?? 5 * 60 * 1000);
+
 function runOne(seed: SeedEntry): Promise<number> {
   return new Promise((resolve) => {
     const child = spawn(
@@ -85,8 +94,19 @@ function runOne(seed: SeedEntry): Promise<number> {
       ],
       { stdio: ["ignore", "ignore", "ignore"] }
     );
-    child.on("close", (code) => resolve(code ?? 1));
-    child.on("error", () => resolve(1));
+    let killed = false;
+    const watchdog = setTimeout(() => {
+      killed = true;
+      try { child.kill("SIGKILL"); } catch { /* already dead */ }
+    }, WORKER_TIMEOUT_MS);
+    child.on("close", (code) => {
+      clearTimeout(watchdog);
+      resolve(killed ? 124 : (code ?? 1));
+    });
+    child.on("error", () => {
+      clearTimeout(watchdog);
+      resolve(1);
+    });
   });
 }
 
@@ -99,6 +119,7 @@ async function worker() {
     const status = await runOne(seeds[i]);
     if (status === 0) stats.ok++;
     else if (status === 3 || status === 4) stats.rejected++;
+    else if (status === 124) { stats.error++; process.stdout.write(`  timed out after ${Math.round(WORKER_TIMEOUT_MS / 1000)}s: ${seeds[i].program_url}\n`); }
     else stats.error++;
     done++;
     if (done % 10 === 0 || done === seeds.length) {
