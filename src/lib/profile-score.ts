@@ -3,8 +3,8 @@ import type { StudentProfile } from "./types";
 // ─── Profile Category Types ───────────────────────────────────────────────────
 
 export type ProfileCategory =
-  | "SUPER HOT Profile"
-  | "HOT Profile"
+  | "SUPER STRONG Profile"
+  | "VERY STRONG Profile"
   | "STRONG Profile"
   | "Good Profile"
   | "AVERAGE Profile";
@@ -31,36 +31,50 @@ function criterion(label: string, points: number, maxPoints: number): ProfileCri
   return { label, points, maxPoints, passed: points > 0, partial: points > 0 && points < maxPoints };
 }
 
-/** Academic score — 2 pts top tier, 1 pt mid tier, 0 below */
+/** Academic score — 4-tier graded scale (0–3 points).
+ *  Percentage / GPA / IGCSE (stored as % equivalent) use the same scale.
+ *  IB uses its own 0–45 scale. */
 function academicPoints(profile: StudentProfile): number {
   const s = profile.academic_score;
   switch (profile.academic_score_type) {
     case "percentage":
     case "igcse": // stored as percentage equiv: A*=95, A=85, B=75
+      if (s > 90) return 3;
       if (s >= 85) return 2;
       if (s >= 75) return 1;
       return 0;
     case "gpa":
+      if (s > 3.75) return 3;
       if (s >= 3.5) return 2;
       if (s >= 3.2) return 1;
       return 0;
     case "ib":
-      if (s >= 35) return 2;
-      if (s >= 30) return 1;
+      if (s > 42) return 3;
+      if (s >= 40) return 2;
+      if (s >= 36) return 1;
       return 0;
     default:
       return 0;
   }
 }
 
-/** Family income — 2 pts if ≥ 30L, 1 pt if 15–30L, 0 below 15L */
+/** Family income — 4-tier graded scale (0–3 points). */
 function incomePoints(profile: StudentProfile): number {
   switch (profile.family_income_inr) {
-    case "above_40L": return 2;
-    case "20L_40L":   return 1; // 20–40L bracket; conservative = 1
-    case "10L_20L":   return 1; // 10–20L straddles 15L; give benefit of doubt
+    case "above_40L": return 3;
+    case "20L_40L":   return 2;
+    case "10L_20L":   return 1;
     default:          return 0; // under_5L, 5L_10L
   }
+}
+
+/** Backlogs — 4-tier graded scale (0–3 points). */
+function backlogPoints(profile: StudentProfile): number {
+  if (!profile.backlogs) return 3;
+  const count = profile.backlog_count ?? 1;
+  if (count < 2) return 2;
+  if (count <= 5) return 1;
+  return 0;
 }
 
 /** English test — 1 pt if IELTS ≥ 7 / TOEFL ≥ 105 / PTE ≥ 60 */
@@ -125,25 +139,25 @@ export function scoreStudentProfile(profile: StudentProfile): ProfileScoreResult
       1,
     ),
 
-    // 4. Family income (max 2)
+    // 4. Family income (max 3)
     criterion(
-      "Family income (30L+ = full, 15–30L = partial)",
+      "Family income (40L+ = 3, 20–40L = 2, 10–20L = 1)",
       incomePoints(profile),
-      2,
+      3,
     ),
 
-    // 5. Academic score (max 2)
+    // 5. Academic score (max 3)
     criterion(
-      "Academic score (85%+ / 3.5 GPA / 35 IB / A IGCSE = full)",
+      "Academic score (>90% / >3.75 GPA / >42 IB = 3 · 85–90 / 3.5–3.75 / 40–42 = 2 · 75–85 / 3.2–3.5 / 36–39 = 1)",
       academicPoints(profile),
-      2,
+      3,
     ),
 
-    // 6. No backlogs (max 1)
+    // 6. Backlogs (max 3)
     criterion(
-      "No academic backlogs",
-      !profile.backlogs ? 1 : 0,
-      1,
+      "Backlogs (none = 3 · 1 = 2 · 2–5 = 1 · >5 = 0)",
+      backlogPoints(profile),
+      3,
     ),
 
     // 7. No gap year (max 1)
@@ -173,9 +187,23 @@ export function scoreStudentProfile(profile: StudentProfile): ProfileScoreResult
       intakeWithin18Months(profile),
       1,
     ),
+
+    // 11. Universities already researched (max 2)
+    criterion(
+      "Already researched some universities",
+      profile.universities_researched === true ? 2 : 0,
+      2,
+    ),
+
+    // 12. Scholarship not required (max 1)
+    criterion(
+      "No scholarship required",
+      profile.scholarship_seeking === false ? 1 : 0,
+      1,
+    ),
   ];
 
-  // 11. Research paper — postgrad only (max 1)
+  // 13. Research paper — postgrad only (max 1)
   if (isPostgrad) {
     criteria.push(criterion(
       "Research paper published",
@@ -184,7 +212,7 @@ export function scoreStudentProfile(profile: StudentProfile): ProfileScoreResult
     ));
   }
 
-  // 12. Work experience — postgrad only (max 1)
+  // 14. Work experience — postgrad only (max 1)
   if (isPostgrad) {
     criteria.push(criterion(
       "Work experience",
@@ -207,8 +235,8 @@ export function scoreStudentProfile(profile: StudentProfile): ProfileScoreResult
 }
 
 function deriveCategory(pct: number): ProfileCategory {
-  if (pct >= 80) return "SUPER HOT Profile";
-  if (pct >= 65) return "HOT Profile";
+  if (pct >= 80) return "SUPER STRONG Profile";
+  if (pct >= 65) return "VERY STRONG Profile";
   if (pct >= 50) return "STRONG Profile";
   if (pct >= 35) return "Good Profile";
   return "AVERAGE Profile";
@@ -226,7 +254,7 @@ export interface CategoryStyle {
 
 export function getCategoryStyle(category: ProfileCategory): CategoryStyle {
   switch (category) {
-    case "SUPER HOT Profile":
+    case "SUPER STRONG Profile":
       return {
         bg: "bg-rose-50",
         text: "text-rose-600",
@@ -234,7 +262,7 @@ export function getCategoryStyle(category: ProfileCategory): CategoryStyle {
         emoji: "🔥",
         description: "Exceptionally strong profile — high visa and admission success likelihood",
       };
-    case "HOT Profile":
+    case "VERY STRONG Profile":
       return {
         bg: "bg-orange-50",
         text: "text-orange-600",
@@ -272,8 +300,8 @@ export function getCategoryStyle(category: ProfileCategory): CategoryStyle {
 /** Inline HTML-safe category badge for emails / PDF */
 export function categoryBadgeHtml(category: ProfileCategory): string {
   const colors: Record<ProfileCategory, { bg: string; color: string }> = {
-    "SUPER HOT Profile": { bg: "#fef2f2", color: "#dc2626" },
-    "HOT Profile":       { bg: "#fff7ed", color: "#ea580c" },
+    "SUPER STRONG Profile": { bg: "#fef2f2", color: "#dc2626" },
+    "VERY STRONG Profile":  { bg: "#fff7ed", color: "#ea580c" },
     "STRONG Profile":    { bg: "#f0fdf4", color: "#16a34a" },
     "Good Profile":      { bg: "#fffbeb", color: "#d97706" },
     "AVERAGE Profile":   { bg: "#eff6ff", color: "#2563eb" },

@@ -224,6 +224,32 @@ export default function StepAcademic({ profile, onChange }: Props) {
       </div>
 
       <div>
+        <Label>Have you already researched some universities?</Label>
+        <div className="flex gap-2">
+          {[
+            { v: true,  label: "Yes" },
+            { v: false, label: "No" },
+          ].map(({ v, label }) => {
+            const active = profile.universities_researched === v;
+            return (
+              <button
+                key={String(v)}
+                type="button"
+                onClick={() => onChange({ universities_researched: v })}
+                className={`flex-1 px-3 py-2 rounded-lg text-sm font-semibold transition-colors border ${
+                  active
+                    ? "bg-violet-600 text-white border-violet-600"
+                    : "bg-white text-gray-700 border-gray-200 hover:border-violet-300"
+                }`}
+              >
+                {label}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      <div>
         <Label>Current / Completed Degree *</Label>
         <Input
           placeholder={isGrad ? "B.Tech Computer Science" : "12th Grade / A-Levels"}

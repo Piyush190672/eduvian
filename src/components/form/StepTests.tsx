@@ -246,6 +246,22 @@ export default function StepTests({ profile, onChange }: Props) {
           />
           {profile.std_test_pg === "gre" && (
             <div className="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div className="sm:col-span-3">
+                <Label>Total GRE score (260–340)</Label>
+                <Input
+                  type="number"
+                  min={260}
+                  max={340}
+                  placeholder="320"
+                  value={profile.std_test_pg_score ?? ""}
+                  onChange={(e) =>
+                    onChange({ std_test_pg_score: parseInt(e.target.value) })
+                  }
+                />
+                <p className="mt-1 text-[11px] text-gray-500">
+                  Enter Total directly, or fill Verbal + Quant below and we&apos;ll compute it.
+                </p>
+              </div>
               <div>
                 <Label>Verbal (130–170)</Label>
                 <Input

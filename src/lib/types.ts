@@ -85,6 +85,10 @@ export interface StudentProfile {
   // "Others", and used by the matching algorithm as a substring filter against
   // p.field_of_study + p.program_name.
   intended_field_custom?: string;
+  // Whether the user has already done some self-research on universities for
+  // their intended field. Used only by the profile-rating signal (2 points
+  // when true) — does not affect program matching. Added 15 May 2026.
+  universities_researched?: boolean;
   // BPS GBC accreditation flag — set only when intended_field === "Psychology"
   // AND degree_level === "postgraduate". When false, the matcher filters out
   // programs whose Program.requires_bps_accreditation is true (mainly UK
