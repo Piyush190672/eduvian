@@ -26,6 +26,10 @@ export interface PrestigeBucket {
   safeMin: number;
   /** match_score threshold below which a program is "ambitious" instead of "reach". */
   reachMin: number;
+  /** Implicit academic minimum for this bucket — used by scoreAcademic
+   *  when the program publishes no min_gpa / min_percentage. Higher for
+   *  selective unis, lower for open. */
+  implicitMin: number;
   /** Which source drove the bucket — for explainability / debugging. */
   source: "acceptance_rate" | "qs_ranking" | "default";
 }
@@ -42,12 +46,21 @@ export interface PrestigeBucket {
  * vs acceptance rate so a program's threshold doesn't jump as Stage
  * 3/4 sweeps land more data — only the basis of the bucketing changes.
  */
+// Each bucket carries:
+//   - prestigePenalty : subtractive offset on the academic signal
+//   - safeMin / reachMin : tier thresholds on match_score
+//   - implicitMin : the "what a competitive applicant scores" % bar
+//                   used by scoreAcademic when the program publishes
+//                   no min. Lower-prestige unis have a lower bar —
+//                   that's what lets a 60 % student score as Safe at
+//                   QS > 500 and Ambitious at Cambridge from the same
+//                   formula. (15 May 2026, user-requested.)
 const BUCKETS = [
-  { prestigePenalty: 20, safeMin: 92, reachMin: 70 },
-  { prestigePenalty: 15, safeMin: 89, reachMin: 66 },
-  { prestigePenalty: 10, safeMin: 86, reachMin: 62 },
-  { prestigePenalty: 5,  safeMin: 82, reachMin: 57 },
-  { prestigePenalty: 0,  safeMin: 75, reachMin: 50 },
+  { prestigePenalty: 20, safeMin: 92, reachMin: 70, implicitMin: 82 },
+  { prestigePenalty: 15, safeMin: 89, reachMin: 66, implicitMin: 75 },
+  { prestigePenalty: 10, safeMin: 86, reachMin: 62, implicitMin: 68 },
+  { prestigePenalty: 5,  safeMin: 82, reachMin: 57, implicitMin: 60 },
+  { prestigePenalty: 0,  safeMin: 75, reachMin: 50, implicitMin: 52 },
 ] as const;
 
 function bucketFromAcceptance(acceptPct: number): number {

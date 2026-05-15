@@ -201,30 +201,20 @@ function scoreAcademic(profile: StudentProfile, program: Program): number {
   const studentPct = toPercentage(profile);
   const minPct = programMinToPercentage(program);
 
-  // Prestige penalty: top-ranked universities have holistic admissions —
-  // meeting minimum GPA does NOT guarantee admission. Apply an offset to
-  // reflect the reality that selection is highly competitive. Uses real
-  // acceptance_rate from the universities sidecar where available
-  // (Stage 2 backfilled 134 USA unis from College Scorecard, 14 May
-  // 2026); falls back to QS-bucket where not.
-  const { prestigePenalty } = getPrestigeBucket(program);
-
-  // Implicit minimum when the program publishes none — about 75 % of the
-  // DB. Earlier the no-min branch returned a flat `72 - prestigePenalty`
-  // regardless of the student's actual score; switched to an implicit
-  // floor + the surplus curve so the student's own score drives the
-  // result.
-  //
-  // Floor set at 60 (not 70) to match the real-world bar for UK 2:1 /
-  // 2:2 PG admissions and most US / EU MS programs — typically a 60-65 %
-  // honours degree. The prestige penalty still differentiates by uni
-  // selectivity, so a 60 % student isn't suddenly "Safe" at MIT — they
-  // get academic ~58 (baseline) − 20 (penalty) = 38 there. But at a
-  // mid-tier QS 200-500 uni (penalty 5) they get academic ~58 − 5 = 53,
-  // landing them in Reach instead of a near-zero Ambitious. (Originally
-  // 70 → user reported 0 Safe + 1 Reach for a 60.9 % UK Psych PG
-  // applicant on token d70bfaca, 15 May 2026.)
-  const effectiveMin = minPct > 0 ? minPct : 60;
+  // Prestige bucket drives both the penalty AND (for programs without
+  // a published min) the implicit academic floor. Selective unis effectively
+  // expect higher scores even when their pages don't publish a number;
+  // open unis admit students whose academics would be borderline at a
+  // top-50 uni. So a 60 % student gets:
+  //   - implicit min 82 at MIT/Oxford-tier → 22 pts below the bar → 0
+  //   - implicit min 60 at QS 200-500 unis → at the bar → 53 academic
+  //   - implicit min 52 at open / QS > 500 → 9 pts above bar → 67 academic
+  // That single design fits the real-world admission pattern (low-prestige
+  // unis take lower percentages, top unis don't) without inflating strong
+  // students or making weak students Safe everywhere. (15 May 2026,
+  // user-requested.)
+  const { prestigePenalty, implicitMin } = getPrestigeBucket(program);
+  const effectiveMin = minPct > 0 ? minPct : implicitMin;
 
   if (studentPct < effectiveMin - 12) return 0;
   if (studentPct < effectiveMin - 5)  return clamp(20 - prestigePenalty);
