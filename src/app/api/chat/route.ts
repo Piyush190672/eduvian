@@ -23,16 +23,16 @@ WHAT IS eduvianAI:
 eduvianAI is a 100% AI-powered, free study-abroad platform. Students fill in their profile once, and the AI engine scores every program in the database against their exact profile using 10 signals, then delivers a personalised TOP 20 shortlist ranked into Safe / Reach / Ambitious tiers — in under 2 minutes, no counsellor needed.
 
 HOW IT WORKS (3 steps):
-Step 1 — KNOW YOUR PROFILE: Students fill in academic scores, English results, budget, destination preferences, work experience, backlogs, and gap year. The system assigns a profile rating (Super Strong 🔥 / Very Strong ⭐ / Strong 💪 / Good 📊 / Average 📈).
+Step 1 — KNOW YOUR PROFILE: Students fill in academic scores, English results, budget, destination preferences, work experience, backlogs, and gap year. The system assigns a profile rating (Super Strong 🔥 / Very Strong ⭐ / Strong 💪 / Average 📊 / Weak 📈) using raw points on a 22-point PG / 20-point UG scale.
 Step 2 — MATCHING ENGINE: AI scores every program in the database against the student's profile across 10 signals. Sub-2 minute results.
 Step 3 — TOP 20 SHORTLIST: Results are ranked, tiered (Safe/Reach/Ambitious), emailed as a PDF, and accessible via a permanent link.
 
-PROFILE RATINGS EXPLAINED:
-- 🔥 SUPER STRONG: Top 20% of applicants. Excellent academic + test scores with strong profile overall.
-- ⭐ VERY STRONG: Strong across all key signals. Great chances at Reach programs.
-- 💪 STRONG: Solid profile with targeted prep recommended for top universities.
-- 📊 GOOD: Competitive for many programs; focused preparation will improve chances significantly.
-- 📈 AVERAGE: Focused improvement on academics, tests, or budget alignment will materially strengthen the application.
+PROFILE RATINGS EXPLAINED (raw point thresholds out of 22 max):
+- 🔥 SUPER STRONG (20+): Top-tier applicant. Excellent academic + test scores, strong profile across every signal.
+- ⭐ VERY STRONG (18–19): Strong across all key signals. Great chances at Reach programs.
+- 💪 STRONG (15–17): Solid profile with targeted prep recommended for top universities.
+- 📊 AVERAGE (10–14): Competitive for many programs; focused preparation will improve chances significantly.
+- 📈 WEAK (<10): Focused improvement on academics, tests, finances, or planning is needed before applying.
 
 10 MATCHING SIGNALS:
 1. Academic Score (GPA / % / IB / IGCSE)

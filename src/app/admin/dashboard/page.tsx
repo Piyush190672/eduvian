@@ -102,10 +102,10 @@ const COLORS = ["#6366f1", "#8b5cf6", "#ec4899", "#f59e0b", "#10b981", "#3b82f6"
 
 const RATING_CONFIG: Record<string, { emoji: string; bg: string; text: string }> = {
   "SUPER STRONG Profile": { emoji: "🔥", bg: "bg-rose-100",    text: "text-rose-700"    },
-  "VERY STRONG Profile":  { emoji: "⭐", bg: "bg-amber-100",   text: "text-amber-700"   },
-  "STRONG Profile":       { emoji: "💪", bg: "bg-indigo-100",  text: "text-indigo-700"  },
-  "Good Profile":         { emoji: "📊", bg: "bg-gray-100",    text: "text-gray-700"    },
-  "AVERAGE Profile":      { emoji: "📈", bg: "bg-blue-100",    text: "text-blue-700"    },
+  "VERY STRONG Profile":  { emoji: "⭐", bg: "bg-orange-100",  text: "text-orange-700"  },
+  "STRONG Profile":       { emoji: "💪", bg: "bg-emerald-100", text: "text-emerald-700" },
+  "AVERAGE Profile":      { emoji: "📊", bg: "bg-amber-100",   text: "text-amber-700"   },
+  "Weak Profile":         { emoji: "📈", bg: "bg-blue-100",    text: "text-blue-700"    },
 };
 
 // ── Page ───────────────────────────────────────────────────────────────────

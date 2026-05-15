@@ -6,8 +6,8 @@ export type ProfileCategory =
   | "SUPER STRONG Profile"
   | "VERY STRONG Profile"
   | "STRONG Profile"
-  | "Good Profile"
-  | "AVERAGE Profile";
+  | "AVERAGE Profile"
+  | "Weak Profile";
 
 export interface ProfileCriterion {
   label: string;
@@ -229,17 +229,22 @@ export function scoreStudentProfile(profile: StudentProfile): ProfileScoreResult
     score,
     total,
     percentage,
-    category: deriveCategory(percentage),
+    category: deriveCategory(score),
     criteria,
   };
 }
 
-function deriveCategory(pct: number): ProfileCategory {
-  if (pct >= 80) return "SUPER STRONG Profile";
-  if (pct >= 65) return "VERY STRONG Profile";
-  if (pct >= 50) return "STRONG Profile";
-  if (pct >= 35) return "Good Profile";
-  return "AVERAGE Profile";
+/** Category buckets use the RAW score (not %) so they read intuitively
+ *  against the 22-point PG / 20-point UG scales. Boundaries per user
+ *  spec (15 May 2026):
+ *    ≥ 20 → SUPER STRONG · 18–19 → VERY STRONG · 15–17 → STRONG
+ *    10–14 → AVERAGE     ·  <10  → Weak                                 */
+function deriveCategory(score: number): ProfileCategory {
+  if (score >= 20) return "SUPER STRONG Profile";
+  if (score >= 18) return "VERY STRONG Profile";
+  if (score >= 15) return "STRONG Profile";
+  if (score >= 10) return "AVERAGE Profile";
+  return "Weak Profile";
 }
 
 // ─── UI helpers ───────────────────────────────────────────────────────────────
@@ -278,21 +283,21 @@ export function getCategoryStyle(category: ProfileCategory): CategoryStyle {
         emoji: "💪",
         description: "Strong profile — solid prospects with the right program selection",
       };
-    case "Good Profile":
+    case "AVERAGE Profile":
       return {
         bg: "bg-amber-50",
         text: "text-amber-700",
         border: "border-amber-300",
         emoji: "📊",
-        description: "Good profile — targeted preparation can significantly improve your outcomes",
+        description: "Average profile — targeted preparation can significantly improve your outcomes",
       };
-    case "AVERAGE Profile":
+    case "Weak Profile":
       return {
         bg: "bg-blue-50",
         text: "text-blue-700",
         border: "border-blue-300",
         emoji: "📈",
-        description: "Average profile — focused improvement steps needed to strengthen your application",
+        description: "Weak profile — focused improvement on academics, tests, or budget alignment is needed to strengthen the application",
       };
   }
 }
@@ -302,9 +307,9 @@ export function categoryBadgeHtml(category: ProfileCategory): string {
   const colors: Record<ProfileCategory, { bg: string; color: string }> = {
     "SUPER STRONG Profile": { bg: "#fef2f2", color: "#dc2626" },
     "VERY STRONG Profile":  { bg: "#fff7ed", color: "#ea580c" },
-    "STRONG Profile":    { bg: "#f0fdf4", color: "#16a34a" },
-    "Good Profile":      { bg: "#fffbeb", color: "#d97706" },
-    "AVERAGE Profile":   { bg: "#eff6ff", color: "#2563eb" },
+    "STRONG Profile":       { bg: "#f0fdf4", color: "#16a34a" },
+    "AVERAGE Profile":      { bg: "#fffbeb", color: "#d97706" },
+    "Weak Profile":         { bg: "#eff6ff", color: "#2563eb" },
   };
   const styles = getCategoryStyle(category);
   const c = colors[category];
