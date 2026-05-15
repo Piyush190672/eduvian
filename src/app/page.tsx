@@ -334,19 +334,19 @@ export default function V2LandingPage() {
                 <span className="text-[9px] sm:text-[10px] font-medium text-white/55 tracking-tight mt-1">Independent study-abroad intelligence</span>
               </span>
             </Link>
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-4 lg:gap-6">
               <button
                 type="button"
                 onClick={() => setHowItWorksOpen(true)}
-                className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors"
+                className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors whitespace-nowrap"
               >
                 How it works
               </button>
-              <Link href="#journey"      className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors">Stages</Link>
-              <Link href="#outputs"      className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors">Outputs</Link>
-              <Link href="#destinations" className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors">Destinations</Link>
-              <Link href="#scholarships" className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors">Scholarships</Link>
-              <Link href="#principles"   className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors">Why eduvianAI</Link>
+              <Link href="#journey"      className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors whitespace-nowrap">Stages</Link>
+              <Link href="#outputs"      className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors whitespace-nowrap">Outputs</Link>
+              <Link href="#destinations" className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors whitespace-nowrap">Destinations</Link>
+              <Link href="#scholarships" className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors whitespace-nowrap">Scholarships</Link>
+              <Link href="#principles"   className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors whitespace-nowrap">Why eduvianAI</Link>
               {/* LogoutButton + ChangePasswordButton both self-hide when
                   no session is present, so they don't add UI for anon
                   visitors. Dark-hero styling overrides the components'
@@ -358,7 +358,7 @@ export default function V2LandingPage() {
               />
               <Link
                 href="/get-started"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-gray-900 text-sm font-semibold hover:bg-stone-100 transition-colors"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-gray-900 text-sm font-semibold hover:bg-stone-100 transition-colors whitespace-nowrap"
               >
                 Get started
               </Link>

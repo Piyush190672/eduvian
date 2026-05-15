@@ -78,7 +78,7 @@ export default function LogoutButton({
       }
     >
       {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <LogOut className="w-4 h-4" />}
-      <span className={compact ? "hidden sm:inline" : ""}>{loading ? "Signing out…" : "Log out"}</span>
+      <span className={compact ? "hidden lg:inline" : ""}>{loading ? "Signing out…" : "Log out"}</span>
     </button>
   );
 }

@@ -108,7 +108,7 @@ export default function ChangePasswordButton({ className, compact }: Props) {
         className={buttonClass}
       >
         <Lock className="w-4 h-4" />
-        <span className={compact ? "hidden sm:inline" : ""}>Change password</span>
+        <span className={compact ? "hidden lg:inline" : ""}>Change password</span>
       </button>
 
       {open && (
