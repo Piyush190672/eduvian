@@ -65,6 +65,54 @@ const PSW_COUNTRIES = new Set([
 const NON_PSW_DEGREE_PATTERN =
   /\b(?:Pg\s*Cert|Pg\s*Dip|PG\s*Cert(?:ificate)?|PG\s*Dip(?:loma)?|Postgraduate\s+(?:Cert(?:ificate)?|Dip(?:loma)?)|Graduate\s+(?:Cert(?:ificate)?|Dip(?:loma)?)|Foundation\s+(?:Degree|Year)|FdSc|FdA|FdEng|HND|HNC)\b/i;
 
+// ─── Field-alias name guards ──────────────────────────────────────────────────
+//
+// A program's `field_aliases` list is honoured by the matcher when the user
+// picks one of its alias streams, but the data has historically been over-
+// applied: many pure Data Science programs got an "Artificial Intelligence"
+// alias because their curriculum touches AI, even though the program name
+// has no AI in it. That surfaced "Bachelor of Science in Data Science" /
+// "Business Analytics BS" / "Data Science Minor" under an AI search, which
+// the user reasonably did not want.
+//
+// Fix: when ALIAS is what's making the program eligible (primary
+// field_of_study doesn't match), additionally require evidence in the
+// program_name itself that the alias stream is genuinely part of the
+// program. The primary-match path is unaffected — a program tagged
+// field_of_study = "Artificial Intelligence" is always honoured. (15 May
+// 2026, user-reported on dccef8c5-… results page.)
+const FIELD_NAME_PATTERNS: Record<string, RegExp> = {
+  "Artificial Intelligence":     /\b(artificial intelligence|ai|machine learning|deep learning)\b/i,
+  "Data Science":                /\b(data science|data analytics|data engineering|business analytics)\b/i,
+  "Cybersecurity":               /\b(cyber\s?security|information security|infosec)\b/i,
+  "Computer Science & IT":       /\bcomputer science\b|\bcomputing\b|\binformatics\b/i,
+  "Business & Management":       /\b(business|management|administration|mba)\b/i,
+  "MBA":                         /\bmba\b/i,
+  "Economics & Finance":         /\b(economics|finance|financial|accounting)\b/i,
+  "Engineering (Mechanical/Civil/Electrical)": /\bengineering\b/i,
+  "Architecture":                /\barchitecture\b/i,
+  "Medicine & Public Health":    /\b(medicine|medical|public health|epidemiology)\b/i,
+  "Nursing & Allied Health":     /\b(nursing|midwifery|physiotherapy|allied health)\b/i,
+  "Biotechnology & Life Sciences": /\b(biotech|biotechnology|life sciences|biology|biochem)\b/i,
+  "Natural Sciences":            /\b(physics|chemistry|natural sciences|geology|earth science)\b/i,
+  "Environmental & Sustainability Studies": /\b(environment|sustainability|ecology|climate)\b/i,
+  "Psychology":                  /\bpsycholog/i,
+  "Law":                         /\b(law|legal|jurisprudence|llb|llm)\b/i,
+  "Social Sciences & Humanities": /\b(social|humanities|history|philosophy|sociology|anthropology|politics)\b/i,
+  "Media & Communications":      /\b(media|communications?|journalism|broadcast)\b/i,
+  "Arts, Design & Architecture": /\b(arts?|design|fine arts|illustration)\b/i,
+  "Agriculture & Veterinary Sciences": /\b(agriculture|veterinary|animal science|forestry)\b/i,
+  "Hospitality & Tourism":       /\b(hospitality|tourism|hotel|culinary)\b/i,
+};
+
+function programNameMatchesField(programName: string, field: string): boolean {
+  const pattern = FIELD_NAME_PATTERNS[field];
+  if (pattern) return pattern.test(programName);
+  // Default: substring of the field's first significant word.
+  const head = field.toLowerCase().split(/[ &,()/]+/)[0];
+  return head.length > 2 && programName.toLowerCase().includes(head);
+}
+
 // ─── Related fields (expand pool for students) ────────────────────────────────
 const RELATED_FIELDS: Record<string, string[]> = {
   "Computer Science & IT":                   ["Artificial Intelligence"],
@@ -614,13 +662,23 @@ export function recommendPrograms(profile: StudentProfile, programs: Program[]):
       const haystack = `${p.field_of_study} ${p.program_name}`.toLowerCase();
       if (!haystack.includes(customQuery)) return false;
     } else {
-      // Match against the program's primary field OR any of its
-      // declared field_aliases. The aliases support dual-stream programs
-      // like "MSc AI and Data Science" which are listed under one
-      // primary field but surface under both when the user picks
-      // either stream. (14 May 2026.)
+      // Match against the program's primary field — or against an alias,
+      // BUT only when the program_name itself carries evidence of the
+      // alias stream. This prevents over-applied aliases (e.g. a pure
+      // "B.S. in Data Science" tagged with AI alias) from surfacing
+      // under an unrelated stream. Genuine dual-stream programs like
+      // "BSc (Hons) AI and Data Science" still pass because their name
+      // contains the keyword.
       const primaryMatch = allowedFields!.has(p.field_of_study);
-      const aliasMatch = !!p.field_aliases?.some((a) => allowedFields!.has(a));
+      let aliasMatch = false;
+      if (!primaryMatch && p.field_aliases?.length) {
+        for (const alias of p.field_aliases) {
+          if (allowedFields!.has(alias) && programNameMatchesField(p.program_name, alias)) {
+            aliasMatch = true;
+            break;
+          }
+        }
+      }
       if (!primaryMatch && !aliasMatch) return false;
     }
 
