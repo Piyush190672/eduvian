@@ -37,8 +37,12 @@ const WEIGHTS_PG = {
   research_paper:  0.05,
 };
 
+// UG: work_experience is irrelevant at the undergraduate level (no
+// student has multi-year work history before a bachelor's), so its 5 %
+// slot is dropped and rolled into Academic. UG now sums cleanly to 1.00
+// with Academic at 0.50.
 const WEIGHTS_UG = {
-  academic:        0.45,
+  academic:        0.50,
   budget:          0.10,
   std_test:        0.10,
   english:         0.05,
@@ -641,7 +645,17 @@ export function recommendPrograms(profile: StudentProfile, programs: Program[]):
   const customQuery   = isCustomField
     ? (profile.intended_field_custom ?? "").trim().toLowerCase()
     : "";
-  const allowedFields = isCustomField ? null : new Set([profile.intended_field]);
+  // Allow up to 2 extra streams in addition to the primary intended_field.
+  // The set drives the field hard-filter below — a program qualifies if its
+  // primary field_of_study (or a properly name-evidenced alias) is in this
+  // set. The primary intended_field keeps its special role for BPS / MBA
+  // branches; the extras only widen the candidate pool. (15 May 2026.)
+  const allowedFields = isCustomField
+    ? null
+    : new Set<string>([
+        profile.intended_field,
+        ...(profile.intended_field_extra ?? []),
+      ].filter((f): f is string => typeof f === "string" && f.length > 0));
 
   // Build reverse map: country name → country code
   const nameToCode = Object.fromEntries(TARGET_COUNTRIES.map((t) => [t.name, t.code]));

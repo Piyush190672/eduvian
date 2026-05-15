@@ -166,6 +166,65 @@ export default function StepAcademic({ profile, onChange }: Props) {
           ))}
           <option value={OTHER_FIELD_SENTINEL}>Others (specify below)</option>
         </Select>
+        <p className="mt-1.5 text-xs text-gray-500 leading-relaxed">
+          You can pick up to <span className="font-semibold text-gray-700">3 fields</span> — we&apos;ll surface programs matching any of them.
+        </p>
+
+        {/* Up to TWO additional fields. The matcher unions them with the
+            primary intended_field. Only shown when the primary isn't
+            "Others" (the custom-field branch already handles cross-field
+            search via substring matching). */}
+        {profile.intended_field && profile.intended_field !== OTHER_FIELD_SENTINEL && (
+          <div className="mt-2.5 space-y-2">
+            {(profile.intended_field_extra ?? []).map((extra, idx) => {
+              const picked = new Set<string>(
+                [
+                  profile.intended_field,
+                  ...(profile.intended_field_extra ?? []).filter((_, i) => i !== idx),
+                ].filter((f): f is string => typeof f === "string" && f.length > 0),
+              );
+              return (
+                <div key={idx} className="flex items-center gap-2">
+                  <Select
+                    value={extra}
+                    onChange={(e) => {
+                      const next = [...(profile.intended_field_extra ?? [])];
+                      next[idx] = e.target.value;
+                      onChange({ intended_field_extra: next });
+                    }}
+                  >
+                    <option value="">Select another field</option>
+                    {FIELDS_OF_STUDY.filter((f) => !picked.has(f) || f === extra).map((f) => (
+                      <option key={f} value={f}>{f}</option>
+                    ))}
+                  </Select>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const next = (profile.intended_field_extra ?? []).filter((_, i) => i !== idx);
+                      onChange({ intended_field_extra: next });
+                    }}
+                    aria-label="Remove this field"
+                    className="px-2 py-2 rounded-lg text-xs font-semibold text-gray-400 hover:text-rose-600 hover:bg-rose-50 transition-colors"
+                  >
+                    ✕
+                  </button>
+                </div>
+              );
+            })}
+            {(profile.intended_field_extra ?? []).length < 2 && (
+              <button
+                type="button"
+                onClick={() => onChange({
+                  intended_field_extra: [...(profile.intended_field_extra ?? []), ""],
+                })}
+                className="text-xs font-semibold text-violet-700 hover:text-violet-900 transition-colors"
+              >
+                + Add another field
+              </button>
+            )}
+          </div>
+        )}
 
         {profile.intended_field === OTHER_FIELD_SENTINEL && (
           <div className="mt-2.5">

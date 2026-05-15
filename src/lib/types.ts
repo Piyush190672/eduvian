@@ -80,6 +80,12 @@ export interface StudentProfile {
   target_intake_semester: "fall" | "spring" | "summer" | "winter";
   budget_range: BudgetRange;
   intended_field: string;
+  // Up to TWO additional streams the student is also open to. The matcher
+  // unions {intended_field, ...intended_field_extra} when deciding which
+  // programs to surface. BPS / MBA branches keep keying off the PRIMARY
+  // intended_field so their downstream questions stay coherent. Max length
+  // enforced in the form (3 total including the primary). Added 15 May 2026.
+  intended_field_extra?: string[];
   // Free-text intended field, set only when intended_field === OTHER_FIELD_SENTINEL
   // ("Others"). Captured from the form, surfaced in admin/emails/PDF in place of
   // "Others", and used by the matching algorithm as a substring filter against
