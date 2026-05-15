@@ -178,6 +178,45 @@ function ProfilePageInner() {
     } catch { /* ignore */ }
   }, [editToken]);
 
+  // Returning-user prefill: fetch the most recent submission's decrypted
+  // profile from /api/profile-preload and merge into the form state, so
+  // a user revisiting /profile sees their previously-entered academic /
+  // test / preference data instead of empty fields. Runs once on mount.
+  // (15 May 2026, user-reported — mobile users especially didn't want
+  // to re-type everything.) Skipped while editing a specific submission
+  // by token, since that path already loads the right row.
+  useEffect(() => {
+    if (editToken) return;
+    let cancelled = false;
+    (async () => {
+      try {
+        const res = await fetch("/api/profile-preload", { credentials: "include" });
+        if (!res.ok) return;
+        const json = await res.json();
+        const loaded = json?.profile as Partial<StudentProfile> | null;
+        if (!loaded || cancelled) return;
+        setProfile((prev) => {
+          // Merge: keep anything the user has ALREADY typed this session
+          // (prev wins), fall back to the loaded profile otherwise.
+          const merged: StudentProfile = { ...loaded as StudentProfile, ...prev };
+          // Re-apply any null-y prev fields that the loaded profile can
+          // populate (so undefined / "" lets the saved value through).
+          for (const k of Object.keys(loaded) as (keyof StudentProfile)[]) {
+            const v = prev[k];
+            const isEmpty =
+              v === undefined ||
+              v === null ||
+              (typeof v === "string" && v.trim() === "") ||
+              (Array.isArray(v) && v.length === 0);
+            if (isEmpty) (merged as Record<keyof StudentProfile, unknown>)[k] = loaded[k];
+          }
+          return merged;
+        });
+      } catch { /* ignore */ }
+    })();
+    return () => { cancelled = true; };
+  }, [editToken]);
+
   const updateProfile = (data: Partial<StudentProfile>) => {
     setProfile((prev) => ({ ...prev, ...data }));
     if (errors.length > 0) setErrors([]);
