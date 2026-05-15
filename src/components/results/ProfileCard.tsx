@@ -204,7 +204,7 @@ export default function ProfileCard({ profile, token }: Props) {
                       />
                     ))}
                   </div>
-                  <span className="text-[9px] sm:text-[11px] leading-tight mt-1 sm:mt-1.5 whitespace-nowrap">
+                  <span className="text-[9px] sm:text-[11px] leading-tight mt-1 sm:mt-1.5 sm:whitespace-nowrap break-words max-w-full">
                     {cs.shortLabel}
                   </span>
                 </div>
