@@ -107,16 +107,15 @@ function buildPDFHtml(profile: StudentProfile, programs: ScoredProgram[]): strin
   const profileScore = scoreStudentProfile(profile);
   const badgeHtml = categoryBadgeHtml(profileScore.category);
 
+  // Parameters considered — labels only, no scoring details surfaced to the
+  // user. Keeps the family/parent reader focused on which factors went into
+  // the assessment without exposing the underlying point allocation.
   const criteriaRows = profileScore.criteria
     .map((c) => {
-      const full = c.points === c.maxPoints;
-      const partial = c.partial;
-      const bg    = full ? "#f0fdf4" : partial ? "#fffbeb" : "#fef2f2";
-      const bdr   = full ? "#bbf7d0" : partial ? "#fde68a" : "#fecaca";
-      const color = full ? "#166534" : partial ? "#92400e" : "#991b1b";
-      const icon  = full ? "✓" : partial ? "~" : "✗";
-      const pts   = c.maxPoints > 1 ? ` (${c.points}/${c.maxPoints})` : "";
-      return `<span style="display:inline-flex;align-items:center;gap:6px;background:${bg};border:1px solid ${bdr};border-radius:8px;padding:5px 10px;font-size:11px;color:${color};">${icon} ${escHtml(c.label)}${escHtml(pts)}</span>`;
+      const bg    = "#f8fafc";
+      const bdr   = "#e2e8f0";
+      const color = "#334155";
+      return `<span style="display:inline-flex;align-items:center;gap:6px;background:${bg};border:1px solid ${bdr};border-radius:8px;padding:5px 10px;font-size:11px;color:${color};">• ${escHtml(c.label)}</span>`;
     })
     .join("");
 
@@ -218,7 +217,7 @@ function buildPDFHtml(profile: StudentProfile, programs: ScoredProgram[]): strin
     </div>
     <!-- Criteria checklist -->
     <div style="margin-top:16px;border-top:1px solid #e0e7ff;padding-top:14px;">
-      <div style="font-size:12px;font-weight:700;color:#6b7280;margin-bottom:10px;text-transform:uppercase;letter-spacing:0.4px;">Profile Criteria Assessment</div>
+      <div style="font-size:12px;font-weight:700;color:#6b7280;margin-bottom:10px;text-transform:uppercase;letter-spacing:0.4px;">Parameters Considered</div>
       <div class="criteria-wrap">${criteriaRows}</div>
     </div>
   </div>

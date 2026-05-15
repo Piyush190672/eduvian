@@ -90,16 +90,11 @@ export async function POST(req: NextRequest) {
       const ps = scoreStudentProfile(profile);
       const style = getCategoryStyle(ps.category);
       const badge = categoryBadgeHtml(ps.category);
-      const renderCriteria = (c: typeof ps.criteria[number]) => {
-        const full    = c.points === c.maxPoints;
-        const partial = c.partial;
-        const bg    = full ? "#f0fdf4" : partial ? "#fffbeb" : "#fef2f2";
-        const bdr   = full ? "#bbf7d0" : partial ? "#fde68a" : "#fecaca";
-        const color = full ? "#166534" : partial ? "#92400e" : "#991b1b";
-        const icon  = full ? "✓" : partial ? "~" : "✗";
-        const pts   = c.maxPoints > 1 ? ` (${c.points}/${c.maxPoints})` : "";
-        return `<span style="display:inline-block;background:${bg};border:1px solid ${bdr};border-radius:8px;padding:4px 10px;font-size:11px;color:${color};">${icon} ${escHtml(c.label)}${escHtml(pts)}</span>`;
-      };
+      // Show only the parameters that went into the assessment — no points,
+      // no per-criterion pass/fail signalling. Keeps the algorithm opaque
+      // while still giving the reader a complete view of what was looked at.
+      const renderCriteria = (c: typeof ps.criteria[number]) =>
+        `<span style="display:inline-block;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:4px 10px;font-size:11px;color:#334155;">• ${escHtml(c.label)}</span>`;
       return `
       <div style="background:#f8fafc;border:1.5px solid #e0e7ff;border-radius:14px;padding:20px 24px;margin-bottom:24px;">
         <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:12px;">
@@ -107,6 +102,7 @@ export async function POST(req: NextRequest) {
           ${badge}
         </div>
         <p style="color:#6b7280;font-size:13px;margin:0 0 14px;line-height:1.5;">${escHtml(style.description)}</p>
+        <div style="font-size:11px;font-weight:700;color:#6b7280;letter-spacing:0.4px;text-transform:uppercase;margin-bottom:8px;">Parameters considered</div>
         <div style="display:flex;flex-wrap:wrap;gap:6px;">
           ${ps.criteria.map(renderCriteria).join("")}
         </div>

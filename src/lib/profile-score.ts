@@ -140,25 +140,13 @@ export function scoreStudentProfile(profile: StudentProfile): ProfileScoreResult
     ),
 
     // 4. Family income (max 3)
-    criterion(
-      "Family income (40L+ = 3, 20–40L = 2, 10–20L = 1)",
-      incomePoints(profile),
-      3,
-    ),
+    criterion("Family income", incomePoints(profile), 3),
 
     // 5. Academic score (max 3)
-    criterion(
-      "Academic score (>90% / >3.75 GPA / >42 IB = 3 · 85–90 / 3.5–3.75 / 40–42 = 2 · 75–85 / 3.2–3.5 / 36–39 = 1)",
-      academicPoints(profile),
-      3,
-    ),
+    criterion("Academic score", academicPoints(profile), 3),
 
     // 6. Backlogs (max 3)
-    criterion(
-      "Backlogs (none = 3 · 1 = 2 · 2–5 = 1 · >5 = 0)",
-      backlogPoints(profile),
-      3,
-    ),
+    criterion("Backlogs", backlogPoints(profile), 3),
 
     // 7. No gap year (max 1)
     criterion(
@@ -168,18 +156,10 @@ export function scoreStudentProfile(profile: StudentProfile): ProfileScoreResult
     ),
 
     // 8. English test (max 1)
-    criterion(
-      "English score (IELTS ≥ 7 / TOEFL ≥ 105 / PTE ≥ 60)",
-      englishPoints(profile),
-      1,
-    ),
+    criterion("English test score", englishPoints(profile), 1),
 
     // 9. Annual budget (max 2)
-    criterion(
-      "Annual budget (>$35K = full, $25–35K = partial)",
-      budgetPoints(profile),
-      2,
-    ),
+    criterion("Annual budget", budgetPoints(profile), 2),
 
     // 10. Intake within 18 months (max 1)
     criterion(

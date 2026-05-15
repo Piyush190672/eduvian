@@ -226,52 +226,34 @@ export default function CheckMatchPanel({ token }: Props) {
                       </div>
                     </div>
 
-                    {/* Score signals */}
+                    {/* Parameters considered — labels only, no per-signal
+                        scoring outcome. Keeps the algorithm opaque while
+                        still giving the user a complete view of what went
+                        into the match. */}
                     {breakdown && (
                       <div>
                         <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">
-                          Match Signals
+                          Parameters Considered
                         </p>
                         <div className="grid grid-cols-2 gap-2">
                           {(
                             [
-                              // "Scholarships" row removed 12 May 2026 — we
-                              // don't carry per-program scholarship data, so
-                              // a Strong / Average / Weak signal here would
-                              // be misleading. Country-level scholarship
-                              // guidance lives at /scholarships and at
-                              // /options?lens=scholarship instead.
-                              ["Academic",          breakdown.academic       ],
-                              ["Budget",            breakdown.budget         ],
-                              ["Standard Test",     breakdown.std_test       ],
-                              ["English",           breakdown.english        ],
-                              ["Intake Match",      breakdown.intake         ],
-                              ["Backlogs",          breakdown.backlogs       ],
-                              ["Gap Year",          breakdown.gap_year       ],
-                              ...(breakdown.work_experience > 0
-                                ? [["Work Experience", breakdown.work_experience] as [string, number]]
-                                : []),
-                              ...(breakdown.research_paper > 0
-                                ? [["Research Papers", breakdown.research_paper] as [string, number]]
-                                : []),
-                            ] as [string, number][]
-                          ).map(([label, raw]) => {
-                            const isStrong  = raw >= 80;
-                            const isAverage = raw >= 60 && raw < 80;
-                            const dot   = isStrong ? "bg-emerald-500" : isAverage ? "bg-amber-400" : "bg-rose-400";
-                            const text  = isStrong ? "text-emerald-600" : isAverage ? "text-amber-600" : "text-rose-500";
-                            const badge = isStrong ? "bg-emerald-50 border-emerald-200" : isAverage ? "bg-amber-50 border-amber-200" : "bg-rose-50 border-rose-200";
-                            const matchLabel = isStrong ? "Strong" : isAverage ? "Average" : "Weak";
-                            return (
-                              <div key={label} className={`flex items-center justify-between px-3 py-2 rounded-xl border ${badge}`}>
-                                <span className="text-xs text-gray-600 font-medium truncate pr-1">{label}</span>
-                                <span className={`flex items-center gap-1.5 text-[11px] font-bold flex-shrink-0 ${text}`}>
-                                  <span className={`w-2 h-2 rounded-full ${dot}`} />
-                                  {matchLabel}
-                                </span>
-                              </div>
-                            );
-                          })}
+                              "Academic",
+                              "Budget",
+                              "Standard Test",
+                              "English",
+                              "Intake Match",
+                              "Backlogs",
+                              "Gap Year",
+                              ...(breakdown.work_experience > 0 ? ["Work Experience"] : []),
+                              ...(breakdown.research_paper > 0 ? ["Research Papers"] : []),
+                            ] as string[]
+                          ).map((label) => (
+                            <div key={label} className="flex items-center gap-2 px-3 py-2 rounded-xl border border-gray-100 bg-gray-50">
+                              <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 flex-shrink-0" />
+                              <span className="text-xs text-gray-700 font-medium truncate">{label}</span>
+                            </div>
+                          ))}
                         </div>
                       </div>
                     )}
