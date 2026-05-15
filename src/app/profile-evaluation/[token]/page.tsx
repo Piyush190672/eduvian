@@ -100,11 +100,13 @@ export default function ProfileEvaluationPage({ params }: { params: { token: str
         <ProfileCard profile={profile} token={token} />
       </main>
 
-      {/* Bottom-right floating CTA — primary next step. */}
-      <div className="fixed bottom-6 right-6 sm:right-10 z-40">
+      {/* Primary CTA — full-width sticky footer on mobile (so it
+          doesn't sit on top of the parameter tiles), pill-shaped
+          floating bottom-right on sm+. */}
+      <div className="fixed inset-x-4 bottom-4 sm:inset-x-auto sm:right-10 sm:bottom-6 z-40">
         <Link
           href={`/results/${token}`}
-          className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-violet-600 hover:bg-violet-700 text-white text-sm font-bold shadow-2xl shadow-violet-900/30 hover:shadow-xl hover:-translate-y-0.5 transition-all"
+          className="group flex sm:inline-flex items-center justify-center sm:justify-start gap-2 w-full sm:w-auto px-6 py-3.5 rounded-full bg-violet-600 hover:bg-violet-700 text-white text-sm font-bold shadow-2xl shadow-violet-900/30 hover:shadow-xl sm:hover:-translate-y-0.5 transition-all"
         >
           Continue to matched programs
           <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
