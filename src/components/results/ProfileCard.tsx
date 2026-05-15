@@ -11,6 +11,7 @@ import {
   Download,
   Send,
   Loader2,
+  Star,
 } from "lucide-react";
 import type { StudentProfile } from "@/lib/types";
 import { intendedFieldLabel } from "@/lib/types";
@@ -175,9 +176,12 @@ export default function ProfileCard({ profile, token }: Props) {
             Profile Rating Scale
           </p>
           <div className="flex items-stretch gap-1.5">
-            {CATEGORY_LADDER.map((cat) => {
+            {CATEGORY_LADDER.map((cat, idx) => {
               const cs = getCategoryStyle(cat);
               const active = cat === result.category;
+              // Star count tracks bucket strength: Weak = 1, Average = 2,
+              // Strong = 3, Very Strong = 4, Super Strong = 5.
+              const stars = idx + 1;
               return (
                 <div
                   key={cat}
@@ -197,10 +201,17 @@ export default function ProfileCard({ profile, token }: Props) {
                       : undefined
                   }
                 >
-                  <span className={`leading-none ${active ? "text-lg" : "text-base"}`}>
-                    {active ? cs.emoji : "·"}
-                  </span>
-                  <span className="text-[10px] sm:text-[11px] leading-tight mt-1 whitespace-nowrap">
+                  <div className="flex items-center justify-center gap-[1px] leading-none">
+                    {Array.from({ length: stars }).map((_, i) => (
+                      <Star
+                        key={i}
+                        className={`w-2.5 h-2.5 sm:w-3 sm:h-3 ${
+                          active ? `${cs.text} fill-current` : "text-amber-400 fill-amber-400"
+                        }`}
+                      />
+                    ))}
+                  </div>
+                  <span className="text-[10px] sm:text-[11px] leading-tight mt-1.5 whitespace-nowrap">
                     {cs.shortLabel}
                   </span>
                 </div>
