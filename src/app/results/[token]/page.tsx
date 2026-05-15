@@ -86,13 +86,12 @@ export default function ResultsPage() {
   const [shortlisted, setShortlisted] = useState<Set<string>>(new Set());
   const [compareSet, setCompareSet] = useState<Set<string>>(new Set());
   const [showCompare, setShowCompare] = useState(false);
-  // Default sort: QS Ranking (ascending — higher-prestige first, unranked
-  // at the bottom). The matched programs are now rendered as a single
-  // flat list across tiers — the tier badge stays on each program card,
-  // so a user still sees Safe/Reach/Ambitious classification but the
-  // order is QS-driven across the whole shortlist. (15 May 2026,
-  // user-requested.)
-  const [filters, setFilters] = useState({ country: "all", field: "all", sort: "qs_ranking" });
+  // Default sort: Best Match (match_score DESC). Within each tier
+  // section, programs are ordered by how well they fit the user's
+  // profile. The matcher upstream still sorts ranked-first / unranked-
+  // last when building the pool, but the user-facing default order is
+  // now match-quality. (15 May 2026, user-requested.)
+  const [filters, setFilters] = useState({ country: "all", field: "all", sort: "match_score" });
   const [showFilters, setShowFilters] = useState(false);
   const [sendingEmail, setSendingEmail] = useState(false);
 
