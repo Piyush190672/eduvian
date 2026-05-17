@@ -224,12 +224,21 @@ export default function StepPreferences({ profile, onChange }: Props) {
         </div>
       </div>
 
-      {/* Budget */}
+      {/* Budget — reinforced messaging (17 May 2026). Users were repeatedly
+          picking the lowest bracket because they read "budget" as tuition only.
+          The label, amber callout, per-row sub, and worked example below all
+          hammer the same point: this is TUITION + LIVING combined. */}
       <div>
-        <Label>Annual Budget (Tuition + Living) *</Label>
-        <p className="text-xs text-gray-400 mb-3">
-          Total annual cost including tuition fees and living expenses
-        </p>
+        <Label>Annual Budget — Tuition + Living Costs (combined) *</Label>
+        <div className="mb-3 rounded-xl bg-amber-50 border border-amber-200 px-3.5 py-2.5">
+          <p className="text-xs text-amber-800 leading-relaxed">
+            <span className="font-bold">⚠️ Important:</span> Pick what you can afford for the <span className="font-bold">TOTAL annual cost</span> — tuition fees <span className="font-bold">PLUS</span> rent, food, transport, and other living expenses.
+            <br />
+            <span className="text-amber-700">Example: $30k tuition + $15k living = pick the <span className="font-semibold">$35k – $50k</span> bracket.</span>
+            <br />
+            Picking a tuition-only number will hide programs you can actually afford and surface ones you can't.
+          </p>
+        </div>
         <div className="space-y-2">
           {BUDGET_OPTIONS.map((b) => (
             <button
@@ -245,6 +254,7 @@ export default function StepPreferences({ profile, onChange }: Props) {
               <div>
                 <span className="text-sm font-semibold">{b.label}</span>
                 <span className="text-xs text-gray-400 ml-2">{b.sub}</span>
+                <span className="block text-[11px] text-gray-400 mt-0.5">Total tuition + living per year</span>
               </div>
               {profile.budget_range === b.value && (
                 <span className="text-indigo-500 text-lg">✓</span>

@@ -1810,12 +1810,15 @@ function InterviewSession({
       // Only arm if we have at least a few words — prevents triggering on single words
       if (currentFinal.trim().split(/\s+/).length < 3) return;
       silenceTimer = setTimeout(() => {
-        // User has been silent for 3s after their last final result → auto-submit
+        // User has been silent for 8s after their last final result → auto-submit.
+        // Bumped from 3s (17 May 2026): 3s clipped users who paused mid-thought,
+        // generating feedback on incomplete answers. 8s gives interview-realistic
+        // think time without making the user wait if they're truly done.
         if (recogRef.current) {
           try { recogRef.current.stop(); } catch { /* ignore */ }
         }
         autoSubmitRef.current?.();
-      }, 3000);
+      }, 8000);
     };
 
     // Audible cue when SR is actually capturing audio. onaudiostart fires
