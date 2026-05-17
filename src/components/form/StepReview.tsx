@@ -108,7 +108,11 @@ export default function StepReview({ profile }: Props) {
     rating = null;
   }
   const style = rating ? getCategoryStyle(rating.category as ProfileCategory) : null;
+  // CATEGORY_LADDER is ordered worst→best (Weak=0 … SUPER STRONG=4),
+  // so star count = idx + 1. Weak=1★, AVERAGE=2★, STRONG=3★,
+  // VERY STRONG=4★, SUPER STRONG=5★.
   const ladderIdx = rating ? CATEGORY_LADDER.indexOf(rating.category as ProfileCategory) : -1;
+  const filledStars = ladderIdx >= 0 ? ladderIdx + 1 : 0;
 
   const personal: { label: string; value: string }[] = [
     { label: "Full Name", value: val(profile.full_name) },
@@ -196,7 +200,7 @@ export default function StepReview({ profile }: Props) {
               {Array.from({ length: 5 }, (_, i) => (
                 <Star
                   key={i}
-                  className={`w-5 h-5 ${i < (5 - ladderIdx) ? `${style.text} fill-current` : "text-gray-300"}`}
+                  className={`w-5 h-5 ${i < filledStars ? `${style.text} fill-current` : "text-gray-300"}`}
                 />
               ))}
             </div>
