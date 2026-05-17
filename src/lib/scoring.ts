@@ -639,9 +639,14 @@ function matchesRegion(programCity: string, countryCode: string, selectedRegionC
   return false;
 }
 
-export function recommendPrograms(profile: StudentProfile, programs: Program[]): ScoredProgram[] {
-  const TOTAL = 20;
-  const QUOTA = { safe: 6, reach: 10, ambitious: 4 };
+export function recommendPrograms(profile: StudentProfile, programs: Program[], pages = 1): ScoredProgram[] {
+  // `pages` scales the canonical 20-program response into multiples of
+  // the same per-tier ratio. pages=1 → 20 (6/10/4). pages=2 → 40 (12/20/8).
+  // The /results page calls with pages=2 so the client can render a
+  // "Next Best 20" button without re-running the matcher.
+  const safePages = Math.max(1, Math.min(pages, 4));
+  const TOTAL = 20 * safePages;
+  const QUOTA = { safe: 6 * safePages, reach: 10 * safePages, ambitious: 4 * safePages };
 
   // ── QS ranking preference threshold ──────────────────────────────────────
   const qsThresholdMap: Record<string, number> = {
@@ -836,10 +841,14 @@ export function recommendPrograms(profile: StudentProfile, programs: Program[]):
     return out;
   }
 
+  // Per-uni caps scale with `pages` so the "Next Best 20" page can fill
+  // even when one university dominates a tier. Page 1 still sees max 2
+  // per uni in safe/reach + 1 in ambitious; page 2 adds up to one more
+  // each.
   const pools = {
-    safe:      capByUni(scored.filter((p) => p.tier === "safe"),      2),
-    reach:     capByUni(scored.filter((p) => p.tier === "reach"),     2),
-    ambitious: capByUni(scored.filter((p) => p.tier === "ambitious"), 1),
+    safe:      capByUni(scored.filter((p) => p.tier === "safe"),      2 * safePages),
+    reach:     capByUni(scored.filter((p) => p.tier === "reach"),     2 * safePages),
+    ambitious: capByUni(scored.filter((p) => p.tier === "ambitious"), 1 * safePages),
   };
 
   const alloc = {

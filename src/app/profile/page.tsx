@@ -13,12 +13,15 @@ import {
   ChevronRight,
   Loader2,
   ShieldCheck,
+  Sparkles,
+  Pencil,
 } from "lucide-react";
 import type { StudentProfile } from "@/lib/types";
 import StepPersonal from "@/components/form/StepPersonal";
 import StepAcademic from "@/components/form/StepAcademic";
 import StepTests from "@/components/form/StepTests";
 import StepPreferences from "@/components/form/StepPreferences";
+import StepReview from "@/components/form/StepReview";
 import Link from "next/link";
 import NavButtons from "@/components/ui/NavButtons";
 import { EduvianLogoMark } from "@/components/EduvianLogo";
@@ -32,6 +35,7 @@ const STEPS = [
   { id: 2, label: "Academic", icon: BookOpen, desc: "Your education" },
   { id: 3, label: "Test Scores", icon: FileText, desc: "Proficiency & exams" },
   { id: 4, label: "Preferences", icon: Heart, desc: "Your dream plan" },
+  { id: 5, label: "Review", icon: Sparkles, desc: "Confirm before we match" },
 ];
 
 const defaultProfile: Partial<StudentProfile> = {
@@ -58,6 +62,61 @@ const defaultProfile: Partial<StudentProfile> = {
   canada_college_types: [],
   scholarship_seeking: false,
 };
+
+/**
+ * Profile completion = (filled required across all 4 steps) / (total
+ * required across all 4 steps). Mirrors validateStep's branches so the
+ * % matches what the user actually has to fill to submit. Renders in
+ * the stepper header as a small percentage so users see progress past
+ * the simple step counter (especially helpful when they hit a tier
+ * with extra branches — MBA, UG vs PG, English test).
+ */
+function computeProfileCompletion(profile: Partial<StudentProfile>): { pct: number; filled: number; total: number } {
+  let filled = 0;
+  let total = 0;
+  const req = (ok: boolean) => { total += 1; if (ok) filled += 1; };
+
+  // Step 1 — personal
+  req(!!profile.full_name?.trim());
+  req(!!profile.email?.trim());
+  req(!!profile.phone?.trim());
+  req(!!profile.nationality?.trim());
+  req(!!profile.city?.trim());
+
+  // Step 2 — academic
+  req(!!profile.intended_field);
+  if (profile.intended_field === "Others") {
+    req(!!profile.intended_field_custom?.trim());
+  }
+  req(!!profile.current_degree?.trim());
+  req(!!profile.institution_name?.trim());
+  req(!!profile.graduation_year != null && profile.graduation_year !== 0);
+  req(profile.academic_score !== undefined && !isNaN(profile.academic_score as number));
+  if (profile.degree_level === "undergraduate") {
+    const subjects = (profile.major_stream ?? "").split(",").map(s => s.trim()).filter(Boolean);
+    req(subjects.length > 0);
+  } else {
+    req(!!profile.major_stream);
+  }
+  if (profile.intended_field === "MBA") {
+    req(profile.mba_team_leading_experience !== undefined);
+    if (profile.mba_team_leading_experience === true) {
+      req(!!profile.mba_max_team_size && profile.mba_max_team_size > 0);
+    }
+  }
+
+  // Step 3 — tests
+  if (profile.english_test && profile.english_test !== "none") {
+    req(profile.english_score_overall !== undefined && profile.english_score_overall !== null);
+  }
+
+  // Step 4 — preferences
+  req(!!profile.country_preferences && profile.country_preferences.length > 0);
+  req(!!profile.budget_range);
+
+  const pct = total === 0 ? 0 : Math.round((filled / total) * 100);
+  return { pct, filled, total };
+}
 
 function validateStep(step: number, profile: Partial<StudentProfile>): string[] {
   const missing: string[] = [];
@@ -277,7 +336,7 @@ function ProfilePageInner() {
       return;
     }
     setErrors([]);
-    if (step < 4) setStep((s) => s + 1);
+    if (step < STEPS.length) setStep((s) => s + 1);
   };
 
   const back = () => {
@@ -336,6 +395,7 @@ function ProfilePageInner() {
   };
 
   const progressPct = ((step - 1) / (STEPS.length - 1)) * 100;
+  const completion = computeProfileCompletion(profile);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50/50">
@@ -396,6 +456,17 @@ function ProfilePageInner() {
 
         {/* Progress bar */}
         <div className="mb-8">
+          {/* Profile completion %, counted across all required fields in
+              every step (mirrors validateStep branches). Helps users see
+              how close they are to a complete profile beyond just the
+              4-step counter. */}
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-xs font-semibold uppercase tracking-wider text-gray-500">Profile completion</span>
+            <span className="text-xs font-bold text-indigo-600">
+              {completion.pct}%
+              <span className="ml-1 font-normal text-gray-400">({completion.filled}/{completion.total} fields)</span>
+            </span>
+          </div>
           <div className="relative h-1.5 bg-gray-100 rounded-full overflow-hidden">
             <motion.div
               className="absolute left-0 top-0 h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"
@@ -461,6 +532,9 @@ function ProfilePageInner() {
             {step === 4 && (
               <StepPreferences profile={profile} onChange={updateProfile} />
             )}
+            {step === 5 && (
+              <StepReview profile={profile} />
+            )}
           </motion.div>
         </AnimatePresence>
 
@@ -483,15 +557,28 @@ function ProfilePageInner() {
         )}
 
         {/* Navigation */}
-        <div className="flex justify-between items-center mt-6">
-          <button
-            onClick={back}
-            disabled={step === 1}
-            className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-gray-200 text-gray-600 text-sm font-medium hover:bg-gray-50 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
-          >
-            <ChevronLeft className="w-4 h-4" />
-            Back
-          </button>
+        <div className="flex justify-between items-center mt-6 gap-3">
+          {step === 5 ? (
+            // Review step: "Modify the information above" (jumps to
+            // step 1 so the user can walk through every field) + the
+            // final "Continue to generate shortlist" submit.
+            <button
+              onClick={() => setStep(1)}
+              className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-gray-200 text-gray-700 text-sm font-medium hover:bg-gray-50 transition-all"
+            >
+              <Pencil className="w-4 h-4" />
+              Modify the information above
+            </button>
+          ) : (
+            <button
+              onClick={back}
+              disabled={step === 1}
+              className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-gray-200 text-gray-600 text-sm font-medium hover:bg-gray-50 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+            >
+              <ChevronLeft className="w-4 h-4" />
+              Back
+            </button>
+          )}
 
           {step < 4 ? (
             <button
@@ -499,6 +586,14 @@ function ProfilePageInner() {
               className="flex items-center gap-2 px-7 py-2.5 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-semibold hover:shadow-lg hover:shadow-indigo-200 transition-all hover:-translate-y-0.5"
             >
               Continue
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          ) : step === 4 ? (
+            <button
+              onClick={next}
+              className="flex items-center gap-2 px-7 py-2.5 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-semibold hover:shadow-lg hover:shadow-indigo-200 transition-all hover:-translate-y-0.5"
+            >
+              Continue to Review
               <ChevronRight className="w-4 h-4" />
             </button>
           ) : (
@@ -514,7 +609,7 @@ function ProfilePageInner() {
                 </>
               ) : (
                 <>
-                  {isEditing ? "Update & Recalculate" : "Get my shortlist"}
+                  {isEditing ? "Update & Recalculate" : "Continue to generate shortlist"}
                   <ChevronRight className="w-4 h-4" />
                 </>
               )}

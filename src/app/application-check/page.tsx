@@ -385,6 +385,34 @@ export default function ApplicationCheckPage() {
   const [result, setResult] = useState<AnalysisResult | null>(null);
   const [error, setError] = useState<string | null>(null);
 
+  // ── Shortlist for university/course dropdowns ────────────────────────────
+  // GET /api/my-shortlist returns the signed-in user's latest submission's
+  // shortlisted programs. The two dropdowns in the App Check + CV Assess
+  // forms populate from this list so users don't re-type names they've
+  // already bookmarked. Falls back to manual entry when empty.
+  interface ShortlistEntry { id: string; university_name: string; program_name: string; country: string; degree_level: string; }
+  const [myShortlist, setMyShortlist] = useState<ShortlistEntry[]>([]);
+  const [manualEntry, setManualEntry] = useState(false);
+  const [cvManualEntry, setCvManualEntry] = useState(false);
+  useEffect(() => {
+    let alive = true;
+    fetch("/api/my-shortlist")
+      .then((r) => (r.ok ? r.json() : { items: [] }))
+      .then((j: { items?: ShortlistEntry[] }) => {
+        if (!alive) return;
+        const items = j.items ?? [];
+        setMyShortlist(items);
+        // If the user has no shortlist, default to manual entry so the
+        // form is usable on first render.
+        if (items.length === 0) {
+          setManualEntry(true);
+          setCvManualEntry(true);
+        }
+      })
+      .catch(() => { if (alive) { setManualEntry(true); setCvManualEntry(true); } });
+    return () => { alive = false; };
+  }, []);
+
   // ── CV Assessment state ───────────────────────────────────────────────────
   type CVStep = "form" | "loading_score" | "scored" | "builder_form" | "loading_build" | "built";
   const [cvStep, setCvStep] = useState<CVStep>("form");
@@ -652,15 +680,92 @@ export default function ApplicationCheckPage() {
 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 space-y-4">
-                    <h2 className="text-sm font-extrabold text-gray-700 uppercase tracking-wider">Target Application</h2>
-                    <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-1.5">University Name <span className="text-rose-500" aria-label="required">*</span></label>
-                      <input name="university" value={form.university} onChange={handleChange} required placeholder="e.g. University of Melbourne" className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition placeholder-gray-400" />
+                    <div className="flex items-center justify-between gap-3">
+                      <h2 className="text-sm font-extrabold text-gray-700 uppercase tracking-wider">Target Application</h2>
+                      {myShortlist.length > 0 && (
+                        <button
+                          type="button"
+                          onClick={() => setManualEntry((v) => !v)}
+                          className="text-xs font-semibold text-indigo-600 hover:text-indigo-800 hover:underline"
+                        >
+                          {manualEntry ? "Pick from my shortlist" : "Enter manually"}
+                        </button>
+                      )}
                     </div>
-                    <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-1.5">Course / Program <span className="text-rose-500" aria-label="required">*</span></label>
-                      <input name="course" value={form.course} onChange={handleChange} required placeholder="e.g. Master of Data Science" className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition placeholder-gray-400" />
-                    </div>
+                    {!manualEntry && myShortlist.length > 0 ? (
+                      <>
+                        <p className="text-xs text-gray-500 -mt-2">
+                          Showing programs you bookmarked on your results page. Selecting either field auto-fills the other.
+                        </p>
+                        <div>
+                          <label className="block text-sm font-semibold text-gray-700 mb-1.5">University Name <span className="text-rose-500" aria-label="required">*</span></label>
+                          <select
+                            name="university"
+                            value={form.university}
+                            onChange={(e) => {
+                              const uni = e.target.value;
+                              const matches = myShortlist.filter((s) => s.university_name === uni);
+                              setForm((p) => ({
+                                ...p,
+                                university: uni,
+                                // Auto-fill course if exactly one shortlisted program at this uni,
+                                // OR if the current course isn't valid for the new uni.
+                                course: matches.length === 1
+                                  ? matches[0].program_name
+                                  : matches.some((m) => m.program_name === p.course) ? p.course : "",
+                              }));
+                            }}
+                            required
+                            className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition bg-white"
+                          >
+                            <option value="">Select a university</option>
+                            {Array.from(new Set(myShortlist.map((s) => s.university_name))).sort().map((u) => (
+                              <option key={u} value={u}>{u}</option>
+                            ))}
+                          </select>
+                        </div>
+                        <div>
+                          <label className="block text-sm font-semibold text-gray-700 mb-1.5">Course / Program <span className="text-rose-500" aria-label="required">*</span></label>
+                          <select
+                            name="course"
+                            value={form.course}
+                            onChange={(e) => {
+                              const course = e.target.value;
+                              const matches = myShortlist.filter((s) => s.program_name === course);
+                              setForm((p) => ({
+                                ...p,
+                                course,
+                                // Auto-fill university if exactly one uni offers this course in the shortlist.
+                                university: matches.length === 1
+                                  ? matches[0].university_name
+                                  : matches.some((m) => m.university_name === p.university) ? p.university : "",
+                              }));
+                            }}
+                            required
+                            disabled={!form.university}
+                            className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition bg-white disabled:bg-gray-50 disabled:text-gray-400"
+                          >
+                            <option value="">{form.university ? "Select a course" : "Pick a university first"}</option>
+                            {myShortlist
+                              .filter((s) => !form.university || s.university_name === form.university)
+                              .map((s) => (
+                                <option key={s.id} value={s.program_name}>{s.program_name}</option>
+                              ))}
+                          </select>
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <div>
+                          <label className="block text-sm font-semibold text-gray-700 mb-1.5">University Name <span className="text-rose-500" aria-label="required">*</span></label>
+                          <input name="university" value={form.university} onChange={handleChange} required placeholder="e.g. University of Melbourne" className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition placeholder-gray-400" />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-semibold text-gray-700 mb-1.5">Course / Program <span className="text-rose-500" aria-label="required">*</span></label>
+                          <input name="course" value={form.course} onChange={handleChange} required placeholder="e.g. Master of Data Science" className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition placeholder-gray-400" />
+                        </div>
+                      </>
+                    )}
                   </div>
 
                   <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
@@ -849,26 +954,111 @@ export default function ApplicationCheckPage() {
 
                 <form onSubmit={handleCVScore} className="space-y-6">
                   <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 space-y-4">
-                    <h2 className="text-sm font-extrabold text-gray-700 uppercase tracking-wider">Target Program</h2>
-                    <div className="grid grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-1.5">University <span className="text-rose-500" aria-label="required">*</span></label>
-                        <input name="university" value={cvInputForm.university} onChange={handleCVInputChange} required placeholder="e.g. UCL" className="w-full px-3 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400 focus:border-transparent transition placeholder-gray-400" />
-                      </div>
-                      <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-1.5">Degree Level</label>
-                        <select name="degree_level" value={cvInputForm.degree_level} onChange={handleCVInputChange} className="w-full px-3 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400 focus:border-transparent transition bg-white">
-                          <option value="Masters">Masters</option>
-                          <option value="PhD">PhD</option>
-                          <option value="MBA">MBA</option>
-                          <option value="Undergraduate">Undergraduate</option>
-                        </select>
-                      </div>
+                    <div className="flex items-center justify-between gap-3">
+                      <h2 className="text-sm font-extrabold text-gray-700 uppercase tracking-wider">Target Program</h2>
+                      {myShortlist.length > 0 && (
+                        <button
+                          type="button"
+                          onClick={() => setCvManualEntry((v) => !v)}
+                          className="text-xs font-semibold text-violet-600 hover:text-violet-800 hover:underline"
+                        >
+                          {cvManualEntry ? "Pick from my shortlist" : "Enter manually"}
+                        </button>
+                      )}
                     </div>
-                    <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-1.5">Course / Program <span className="text-rose-500" aria-label="required">*</span></label>
-                      <input name="course" value={cvInputForm.course} onChange={handleCVInputChange} required placeholder="e.g. MSc Computer Science" className="w-full px-3 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400 focus:border-transparent transition placeholder-gray-400" />
-                    </div>
+                    {!cvManualEntry && myShortlist.length > 0 ? (
+                      <>
+                        <p className="text-xs text-gray-500 -mt-2">
+                          Showing programs you bookmarked on your results page.
+                        </p>
+                        <div className="grid grid-cols-2 gap-4">
+                          <div>
+                            <label className="block text-sm font-semibold text-gray-700 mb-1.5">University <span className="text-rose-500" aria-label="required">*</span></label>
+                            <select
+                              name="university"
+                              value={cvInputForm.university}
+                              onChange={(e) => {
+                                const uni = e.target.value;
+                                const matches = myShortlist.filter((s) => s.university_name === uni);
+                                setCvInputForm((p) => ({
+                                  ...p,
+                                  university: uni,
+                                  course: matches.length === 1
+                                    ? matches[0].program_name
+                                    : matches.some((m) => m.program_name === p.course) ? p.course : "",
+                                }));
+                              }}
+                              required
+                              className="w-full px-3 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400 focus:border-transparent transition bg-white"
+                            >
+                              <option value="">Select a university</option>
+                              {Array.from(new Set(myShortlist.map((s) => s.university_name))).sort().map((u) => (
+                                <option key={u} value={u}>{u}</option>
+                              ))}
+                            </select>
+                          </div>
+                          <div>
+                            <label className="block text-sm font-semibold text-gray-700 mb-1.5">Degree Level</label>
+                            <select name="degree_level" value={cvInputForm.degree_level} onChange={handleCVInputChange} className="w-full px-3 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400 focus:border-transparent transition bg-white">
+                              <option value="Masters">Masters</option>
+                              <option value="PhD">PhD</option>
+                              <option value="MBA">MBA</option>
+                              <option value="Undergraduate">Undergraduate</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div>
+                          <label className="block text-sm font-semibold text-gray-700 mb-1.5">Course / Program <span className="text-rose-500" aria-label="required">*</span></label>
+                          <select
+                            name="course"
+                            value={cvInputForm.course}
+                            onChange={(e) => {
+                              const course = e.target.value;
+                              const matches = myShortlist.filter((s) => s.program_name === course);
+                              setCvInputForm((p) => ({
+                                ...p,
+                                course,
+                                university: matches.length === 1
+                                  ? matches[0].university_name
+                                  : matches.some((m) => m.university_name === p.university) ? p.university : "",
+                              }));
+                            }}
+                            required
+                            disabled={!cvInputForm.university}
+                            className="w-full px-3 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400 focus:border-transparent transition bg-white disabled:bg-gray-50 disabled:text-gray-400"
+                          >
+                            <option value="">{cvInputForm.university ? "Select a course" : "Pick a university first"}</option>
+                            {myShortlist
+                              .filter((s) => !cvInputForm.university || s.university_name === cvInputForm.university)
+                              .map((s) => (
+                                <option key={s.id} value={s.program_name}>{s.program_name}</option>
+                              ))}
+                          </select>
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <div className="grid grid-cols-2 gap-4">
+                          <div>
+                            <label className="block text-sm font-semibold text-gray-700 mb-1.5">University <span className="text-rose-500" aria-label="required">*</span></label>
+                            <input name="university" value={cvInputForm.university} onChange={handleCVInputChange} required placeholder="e.g. UCL" className="w-full px-3 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400 focus:border-transparent transition placeholder-gray-400" />
+                          </div>
+                          <div>
+                            <label className="block text-sm font-semibold text-gray-700 mb-1.5">Degree Level</label>
+                            <select name="degree_level" value={cvInputForm.degree_level} onChange={handleCVInputChange} className="w-full px-3 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400 focus:border-transparent transition bg-white">
+                              <option value="Masters">Masters</option>
+                              <option value="PhD">PhD</option>
+                              <option value="MBA">MBA</option>
+                              <option value="Undergraduate">Undergraduate</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div>
+                          <label className="block text-sm font-semibold text-gray-700 mb-1.5">Course / Program <span className="text-rose-500" aria-label="required">*</span></label>
+                          <input name="course" value={cvInputForm.course} onChange={handleCVInputChange} required placeholder="e.g. MSc Computer Science" className="w-full px-3 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400 focus:border-transparent transition placeholder-gray-400" />
+                        </div>
+                      </>
+                    )}
                   </div>
 
                   <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">

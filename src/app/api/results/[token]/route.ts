@@ -80,7 +80,10 @@ export async function GET(
     // use static
   }
 
-  const scored = recommendPrograms(submission.profile, programs);
+  // pages=2 → up to 40 programs in the same per-tier ratio. The /results
+  // client renders the first 20 and reveals 21-40 via the "Next Best 20"
+  // button. No extra API round-trip needed.
+  const scored = recommendPrograms(submission.profile, programs, 2);
 
   return NextResponse.json({ submission, programs: scored });
 }

@@ -94,6 +94,11 @@ export default function ResultsPage() {
   const [filters, setFilters] = useState({ country: "all", field: "all", sort: "match_score" });
   const [showFilters, setShowFilters] = useState(false);
   const [sendingEmail, setSendingEmail] = useState(false);
+  // "Next Best 20" toggle — the matcher returns up to 40 programs
+  // (12 safe / 20 reach / 8 ambitious). The first 6/10/4 are the
+  // canonical Top 20; the rest are revealed on click for broader
+  // exploration. Same ratio in both pages.
+  const [showNext20, setShowNext20] = useState(false);
 
   const fetchResults = useCallback(async () => {
     try {
@@ -214,9 +219,27 @@ export default function ResultsPage() {
     return out;
   };
 
-  const safePrograms      = applyFilters(allPrograms.filter((p) => p.tier === "safe"));
-  const reachPrograms     = applyFilters(allPrograms.filter((p) => p.tier === "reach"));
-  const ambitiousPrograms = applyFilters(allPrograms.filter((p) => p.tier === "ambitious"));
+  // Top-20 ratio per tier; "Next Best 20" comes from ranks 21-40 with
+  // the same per-tier ratio. The matcher already returns up to 40 in
+  // ranked order — slice each tier in halves first, then apply the
+  // user's filters so the canonical Top-20 set stays stable as filters
+  // toggle.
+  const PAGE_QUOTA = { safe: 6, reach: 10, ambitious: 4 } as const;
+  const sliceTier = (tier: "safe" | "reach" | "ambitious") => {
+    const pool = allPrograms.filter((p) => p.tier === tier);
+    return {
+      top:  pool.slice(0, PAGE_QUOTA[tier]),
+      next: pool.slice(PAGE_QUOTA[tier]),
+    };
+  };
+  const safeSlice = sliceTier("safe");
+  const reachSlice = sliceTier("reach");
+  const ambitiousSlice = sliceTier("ambitious");
+
+  const safePrograms      = applyFilters(showNext20 ? [...safeSlice.top, ...safeSlice.next] : safeSlice.top);
+  const reachPrograms     = applyFilters(showNext20 ? [...reachSlice.top, ...reachSlice.next] : reachSlice.top);
+  const ambitiousPrograms = applyFilters(showNext20 ? [...ambitiousSlice.top, ...ambitiousSlice.next] : ambitiousSlice.top);
+  const nextPageCount     = safeSlice.next.length + reachSlice.next.length + ambitiousSlice.next.length;
 
   const countries = [...new Set(allPrograms.map((p) => p.country))];
   const fields    = [...new Set(allPrograms.map((p) => p.field_of_study))];
@@ -449,6 +472,23 @@ export default function ResultsPage() {
             </motion.section>
           );
         })}
+
+        {/* Next Best 20 — surfaced after Top 20 so users who want broader
+            exploration can expand without leaving the page. Same per-tier
+            ratio (6 safe / 10 reach / 4 ambitious). */}
+        {nextPageCount > 0 && (
+          <div className="mb-6 flex justify-center">
+            <button
+              type="button"
+              onClick={() => setShowNext20((v) => !v)}
+              className="flex items-center gap-2 px-6 py-3 rounded-2xl border border-indigo-200 bg-white text-indigo-700 text-sm font-semibold shadow-sm hover:bg-indigo-50 hover:border-indigo-300 transition-all"
+            >
+              {showNext20
+                ? `Hide Next ${nextPageCount} Matches`
+                : `Show Next Best ${nextPageCount} Matches`}
+            </button>
+          </div>
+        )}
 
         {/* Clarification — moved here from the page header (13 May 2026) so
             users finish browsing the shortlist before encountering the
