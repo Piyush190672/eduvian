@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import type { StudentProfile, DegreeLevel } from "@/lib/types";
 import { FIELDS_OF_STUDY, OTHER_FIELD_SENTINEL } from "@/lib/types";
 
@@ -60,6 +61,46 @@ const RadioGroup = ({
   </div>
 );
 
+// Current / Completed degree options, split by application level.
+// "Other (specify)" reveals a free-text input so any uncommon credential
+// (e.g. integrated dual degrees, foreign boards) is still captureable
+// and legacy free-text values from older drafts keep rendering.
+const DEGREE_OPTIONS_UG: string[] = [
+  "CBSE Class 12",
+  "ICSE / ISC Class 12",
+  "State Board Class 12",
+  "IB Diploma",
+  "IGCSE / A-Levels",
+  "American High School Diploma",
+  "GED",
+];
+
+const DEGREE_OPTIONS_PG: string[] = [
+  "B.Tech / B.E.",
+  "B.Sc",
+  "B.A.",
+  "B.Com",
+  "B.B.A.",
+  "B.C.A.",
+  "B.Arch",
+  "B.Des",
+  "B.Ed",
+  "MBBS",
+  "BDS",
+  "B.Pharm",
+  "LLB (3-year)",
+  "BA LLB (5-year Integrated)",
+  "Integrated M.Tech / M.Sc",
+  "M.Tech / M.E.",
+  "M.Sc",
+  "M.A.",
+  "M.Com",
+  "MBA",
+  "PhD",
+];
+
+const DEGREE_OTHER_SENTINEL = "__other__";
+
 // PG: degree streams
 const PG_STREAMS = [
   "Engineering (B.Tech/BE)", "Computer Science", "Business Administration (BBA)",
@@ -116,6 +157,11 @@ const HS_SUBJECTS: { category: string; subjects: string[] }[] = [
 
 export default function StepAcademic({ profile, onChange }: Props) {
   const isGrad = profile.degree_level === "postgraduate";
+
+  // Tracks "user intentionally picked Other" so the free-text input
+  // stays open after the select is set to the sentinel (the canonical
+  // current_degree value is empty at that point).
+  const [degreeOtherMode, setDegreeOtherMode] = useState(false);
 
   // For UG: subjects stored comma-separated in major_stream
   const selectedSubjects = !isGrad
@@ -310,11 +356,52 @@ export default function StepAcademic({ profile, onChange }: Props) {
 
       <div>
         <Label>Current / Completed Degree *</Label>
-        <Input
-          placeholder={isGrad ? "B.Tech Computer Science" : "12th Grade / A-Levels"}
-          value={profile.current_degree ?? ""}
-          onChange={(e) => onChange({ current_degree: e.target.value })}
-        />
+        {(() => {
+          const options = isGrad ? DEGREE_OPTIONS_PG : DEGREE_OPTIONS_UG;
+          const current = profile.current_degree ?? "";
+          // Match canonical option (case-insensitive) so legacy entries
+          // like "b.tech" still highlight the right pick; everything
+          // else routes through the "Other (specify)" branch.
+          const matched = options.find(
+            (o) => o.toLowerCase() === current.trim().toLowerCase(),
+          );
+          const isLegacyOther = current.length > 0 && !matched;
+          const showOther = degreeOtherMode || isLegacyOther;
+          const selectValue = matched ? matched : showOther ? DEGREE_OTHER_SENTINEL : "";
+          return (
+            <>
+              <Select
+                value={selectValue}
+                onChange={(e) => {
+                  const v = e.target.value;
+                  if (v === DEGREE_OTHER_SENTINEL) {
+                    setDegreeOtherMode(true);
+                    onChange({ current_degree: "" });
+                  } else {
+                    setDegreeOtherMode(false);
+                    onChange({ current_degree: v });
+                  }
+                }}
+              >
+                <option value="">Select degree</option>
+                {options.map((d) => (
+                  <option key={d} value={d}>{d}</option>
+                ))}
+                <option value={DEGREE_OTHER_SENTINEL}>Other (specify below)</option>
+              </Select>
+              {showOther && (
+                <div className="mt-2.5">
+                  <Input
+                    placeholder={isGrad ? "e.g. Integrated B.Tech-M.Tech Mechatronics" : "e.g. Cambridge Pre-U"}
+                    value={current}
+                    onChange={(e) => onChange({ current_degree: e.target.value })}
+                    maxLength={80}
+                  />
+                </div>
+              )}
+            </>
+          );
+        })()}
       </div>
 
       {isGrad ? (

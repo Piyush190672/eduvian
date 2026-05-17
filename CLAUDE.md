@@ -14,7 +14,7 @@ Next.js 14 (App Router) study-abroad platform deployed to Vercel at https://www.
 - Alias matching requires program_name keyword evidence + 407 bad aliases stripped + 284 primary fields reclassified.
 - "Arts, Design & Architecture" retired → "Arts and Design"; "Architecture" stays its own stream.
 - Multi-pick intended field of study (up to 3 streams) via `intended_field_extra?: string[]`.
-- Cross-device: GET `/api/profile-preload` (returning-user prefill from latest submission) + GET/PUT/DELETE `/api/profile-draft` (autosave every 1.5s, encrypted). **⚠️ `20260515-profile-drafts.sql` MIGRATION PENDING in Supabase Studio.**
+- Cross-device: GET `/api/profile-preload` (returning-user prefill from latest submission) + GET/PUT/DELETE `/api/profile-draft` (autosave every 1.5s, encrypted). ✅ `20260515-profile-drafts.sql` migration run in Supabase Studio (17 May 2026).
 - Feedback survey (1-5 stars) on `/results`, `/application-check`, `/interview-prep`, `/visa-coach`. Admin dashboard widget. ✅ feedback-surveys SQL run.
 - Stage 4 universities sidecar landed for Canada (70) + Singapore (10). Other 8 countries skipped per user.
 
@@ -177,7 +177,7 @@ Pinned in priority order. Snapshot §38 has full handoff-#18 detail. **No backgr
 
 **URGENT — operational:**
 
-1. **Run `src/lib/migrations/20260515-profile-drafts.sql` in Supabase Studio.** Until done, the cross-device draft autosave 500s in prod. Feedback-surveys migration already run (16 May).
+1. ~~Run `20260515-profile-drafts.sql` in Supabase Studio~~ — ✅ done 17 May 2026. Cross-device draft autosave now live in prod.
 
 **Tier-A — user-driven QA (no API spend):**
 

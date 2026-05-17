@@ -3302,7 +3302,7 @@ A 60% applicant is 25 pts below the bar at MIT (academic 0) but 10 pts above at 
 
 **Profile draft autosave** (684a89f1) — `GET/PUT/DELETE /api/profile-draft`. Whole profile blob encrypted with same H7 AES-256-GCM scheme as submissions; UNIQUE on `email_hash`. Form autosaves every 1.5s after a change (debounced); cleared on successful submit.
 
-  **⚠️ SQL MIGRATION PENDING**: `src/lib/migrations/20260515-profile-drafts.sql` must be applied in Supabase Studio. Until then, PUT calls 500 and the autosave silently fails (no user-visible impact, but cross-device sync doesn't work).
+  ✅ SQL migration `20260515-profile-drafts.sql` RUN by user in Supabase Studio (17 May 2026). Cross-device draft autosave now live in prod.
 
 **Feedback survey** (a3bee832) — new `feedback_surveys` table + `POST /api/feedback` + `<FeedbackPrompt surface="..." />` component dropped into 4 pages: `/results/[token]`, `/application-check`, `/interview-prep`, `/visa-coach`. Modal auto-pops 8s after page load; 5-star scale (Poor / Average / Good / Very Good / Excellent) with colour gradient + optional comment; one-shot per surface per device via localStorage. Admin dashboard widget shows total / average / distribution histogram / per-surface table / recent comments.
 
@@ -3370,7 +3370,7 @@ Catalog file `scripts/universities/stage4-catalog.json` still lists all 10; the 
 
 **URGENT — operational:**
 
-1. **Run `src/lib/migrations/20260515-profile-drafts.sql` in Supabase Studio.** Until done, draft autosave 500s in prod. Feedback-surveys SQL already run (done 16 May).
+1. ~~Run `src/lib/migrations/20260515-profile-drafts.sql` in Supabase Studio~~ — ✅ done 17 May 2026. Cross-device draft autosave now live in prod. (Feedback-surveys SQL run 16 May.)
 
 **Tier-A — user-driven QA (no API spend):**
 
