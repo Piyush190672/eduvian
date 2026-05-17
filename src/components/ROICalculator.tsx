@@ -32,6 +32,7 @@ interface ProgramEntry {
   duration_months: number;
   program_url?: string;
   tuition_fee_source?: "verified" | "estimated";
+  living_cost_source?: "city" | "country_avg";
   verified_at?: string;
 }
 
@@ -613,7 +614,9 @@ export default function ROICalculator() {
                       onChange={setLiving}
                       provenance={
                         programHasLiving
-                          ? "Country average — adjust to your city if you have a better estimate"
+                          ? (selectedProgram?.living_cost_source === "city"
+                              ? "City-level estimate from a published source · adjust if you know better"
+                              : "Country average — adjust to your city if you have a better estimate")
                           : "You entered this"
                       }
                       vacantPrompt="No verified average living cost for this city. Enter the annual living budget in USD (rent + food + transit)."

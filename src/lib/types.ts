@@ -174,6 +174,15 @@ export interface Program {
   avg_living_cost_usd: number;
   avg_living_cost_amount?: number | null;
   avg_living_cost_currency?: string | null;
+  /** Provenance of the living-cost figure (Wave B, 17 May 2026):
+   *  - undefined / "country_avg": country-mean default. Indicates this
+   *    is NOT city-specific (e.g., London and Sheffield would otherwise
+   *    share the same UK mean). UI shows "Country average — adjust to
+   *    your city" so the user knows they can override.
+   *  - "city": city-level estimate from src/data/city-living-costs.ts,
+   *    backed by a published gov / immigration / university source. UI
+   *    shows the source citation on hover. */
+  living_cost_source?: "country_avg" | "city";
   intake_semesters: string[]; // ["fall", "spring", etc.]
   application_deadline: string | null; // ISO date or "rolling"
   min_gpa: number | null;

@@ -357,12 +357,20 @@ export default function InlineProgramROI({ program }: Props) {
                   vacant={!livingAvailable}
                   provenance={
                     programHasLiving
-                      ? "Country average — adjust to your city if you have a better estimate"
+                      ? (program.living_cost_source === "city"
+                          ? "City-level estimate from a published source · adjust if you know better"
+                          : "Country average — adjust to your city if you have a better estimate")
                       : livingUserSupplied
                         ? "You entered this"
                         : "Not available for this city — please enter rent + food + transport"
                   }
-                  emphasis={livingUserSupplied ? "user" : programHasLiving ? "country-avg" : "vacant"}
+                  emphasis={
+                    livingUserSupplied
+                      ? "user"
+                      : programHasLiving
+                        ? (program.living_cost_source === "city" ? "verified" : "country-avg")
+                        : "vacant"
+                  }
                   step={500}
                   placeholder="e.g. 15000"
                 />

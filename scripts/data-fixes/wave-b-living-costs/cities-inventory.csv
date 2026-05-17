@@ -1,0 +1,421 @@
+country,city,program_count
+Australia,Sydney,130
+Australia,Melbourne,115
+Australia,Brisbane,74
+Australia,Perth,70
+Australia,Adelaide,45
+Australia,Canberra,27
+Australia,Wollongong,21
+Australia,Townsville,20
+Australia,Hobart,17
+Australia,Newcastle,16
+Australia,Gold Coast,16
+Australia,Bathurst,16
+Australia,Rockhampton,15
+Australia,Sippy Downs,15
+Australia,Lismore,13
+Australia,Darwin,11
+Australia,Ballarat,10
+Australia,Toowoomba,7
+Australia,Joondalup,6
+Australia,Armidale,4
+Australia,Ipswich,2
+Australia,Springfield,1
+Canada,"Toronto, ON",69
+Canada,"Montreal, QC",63
+Canada,"Ottawa, ON",40
+Canada,"Halifax, NS",38
+Canada,"Victoria, BC",29
+Canada,"Edmonton, AB",27
+Canada,"Calgary, AB",26
+Canada,"Quebec City, QC",25
+Canada,"Burnaby, BC",24
+Canada,"Kingston, ON",24
+Canada,"London, ON",23
+Canada,"Winnipeg, MB",22
+Canada,"Waterloo, ON",17
+Canada,"Vancouver, BC",17
+Canada,"Hamilton, ON",17
+Canada,"St. John's, NL",17
+Canada,"Saskatoon, SK",16
+Canada,Fredericton,16
+Canada,Sydney,15
+Canada,Thunder Bay,14
+Canada,Peterborough,14
+Canada,Antigonish,13
+Canada,Waterloo,13
+Canada,Edmonton,13
+Canada,Welland,13
+Canada,Nanaimo,13
+Canada,Victoria,12
+Canada,Calgary,12
+Canada,Prince George,11
+Canada,North Vancouver,11
+Canada,London,11
+Canada,Charlottetown,11
+Canada,Toronto,11
+Canada,Hamilton,11
+Canada,"Guelph, ON",10
+Canada,Sackville,10
+Canada,Castlegar,10
+Canada,Langley,10
+Canada,"Windsor, ON",9
+Canada,Wolfville,9
+Canada,Sherbrooke,9
+Canada,"Kamloops, BC",9
+Canada,"Lethbridge, AB",9
+Canada,"Athabasca, AB",8
+Canada,"Montréal, QC",8
+Canada,"Abbotsford, BC",7
+Canada,"St. Catharines, ON",6
+Canada,"Oshawa, ON",5
+Canada,"Sault Ste. Marie, ON",5
+Canada,"Barrie, ON",4
+Canada,"Surrey, BC",4
+Canada,"Regina, SK",4
+Canada,"Brampton, ON",3
+Canada,Montreal,2
+Canada,"Kitchener, ON",2
+Canada,"Sudbury, ON",1
+France,Paris,132
+France,Nantes,39
+France,Bordeaux,31
+France,Lille,29
+France,Toulouse,27
+France,Strasbourg,23
+France,Grenoble,23
+France,Lyon,20
+France,Palaiseau,19
+France,Marseille,13
+France,Montpellier,13
+France,Cergy,9
+France,Dijon,7
+France,Rennes,5
+France,Gif-sur-Yvette,4
+France,Fontainebleau,3
+Germany,Berlin,79
+Germany,Tübingen,66
+Germany,Munich,47
+Germany,Aachen,32
+Germany,Hamburg,32
+Germany,Erlangen,25
+Germany,Dresden,24
+Germany,Frankfurt,24
+Germany,Darmstadt,22
+Germany,Karlsruhe,21
+Germany,Bremen,21
+Germany,Stuttgart,20
+Germany,Bonn,20
+Germany,Hannover,20
+Germany,Düsseldorf,19
+Germany,Cologne,19
+Germany,Freiburg,18
+Germany,Münster,17
+Germany,Heidelberg,17
+Germany,Leipzig,16
+Germany,Kiel,16
+Germany,Würzburg,15
+Germany,Bayreuth,14
+Germany,Saarbrücken,14
+Germany,Halle,12
+Germany,Marburg,12
+Germany,Bochum,12
+Germany,Rostock,12
+Germany,Ulm,11
+Germany,Augsburg,11
+Germany,Potsdam,11
+Germany,Giessen,10
+Germany,Konstanz,10
+Germany,Jena,9
+Germany,Mannheim,8
+Germany,Greifswald,8
+Germany,Vallendar,4
+Germany,Mainz,3
+Germany,Frankfurt am Main,2
+Ireland,Galway,50
+Ireland,Dublin,47
+Ireland,Cork,28
+Ireland,Maynooth,16
+Malaysia,Kuala Lumpur,68
+Malaysia,Subang Jaya,20
+Malaysia,Penang,17
+Malaysia,Petaling Jaya,15
+Malaysia,Bangi,15
+Malaysia,Kampar,15
+Malaysia,Nilai,13
+Malaysia,Semenyih,12
+Malaysia,Kuching,11
+Malaysia,Serdang,11
+Malaysia,Miri,10
+Malaysia,Cyberjaya,9
+Malaysia,Johor Bahru,9
+Malaysia,Putrajaya,8
+Netherlands,Delft,43
+Netherlands,Amsterdam,30
+Netherlands,Leiden,25
+Netherlands,Groningen,22
+Netherlands,Enschede,16
+Netherlands,Rotterdam,15
+Netherlands,Wageningen,14
+Netherlands,Eindhoven,8
+Netherlands,Maastricht,8
+New Zealand,Auckland,44
+New Zealand,Christchurch,25
+New Zealand,Palmerston North,24
+New Zealand,Hamilton,24
+New Zealand,Wellington,23
+New Zealand,Dunedin,19
+Singapore,Singapore,92
+UAE,Dubai,101
+UAE,Abu Dhabi,35
+UAE,Sharjah,30
+UAE,Al Ain,17
+UK,London,440
+UK,Edinburgh,77
+UK,Birmingham,71
+UK,Manchester,66
+UK,Glasgow,62
+UK,Liverpool,57
+UK,Cambridge,52
+UK,Brighton,51
+UK,Canterbury,51
+UK,Aberdeen,46
+UK,Bristol,45
+UK,Leeds,45
+UK,Sheffield,43
+UK,Coventry,43
+UK,Cardiff,42
+UK,Leicester,42
+UK,Southampton,36
+UK,Exeter,36
+UK,York,36
+UK,Colchester,35
+UK,Bath,34
+UK,Dundee,33
+UK,Oxford,32
+UK,Guildford,32
+UK,Swansea,29
+UK,Nottingham,29
+UK,Belfast,27
+UK,Newcastle,26
+UK,Lancaster,25
+UK,Norwich,24
+UK,Stirling,24
+UK,Reading,23
+UK,Loughborough,21
+UK,Plymouth,20
+UK,Derby,20
+UK,Coleraine,20
+UK,Durham,20
+UK,Stoke-on-Trent,19
+UK,St Andrews,19
+UK,Egham,19
+UK,Hatfield,18
+UK,Bournemouth,17
+UK,Hull,17
+UK,Lincoln,17
+UK,Chester,17
+UK,Keele,16
+UK,Huddersfield,16
+UK,Wolverhampton,16
+UK,Cheltenham,16
+UK,Bradford,15
+UK,Aberystwyth,15
+UK,Bangor,15
+UK,Sunderland,15
+UK,Paisley,15
+UK,Northampton,15
+UK,Portsmouth,14
+UK,Middlesbrough,14
+UK,Inverness,14
+UK,Carlisle,12
+UK,Preston,10
+UK,Winchester,10
+UK,Ipswich,9
+UK,Buckingham,8
+UK,Falmouth,8
+UK,Newport,7
+UK,Cirencester,6
+UK,Worcester,6
+UK,Chelmsford,5
+UK,Pontypridd,4
+UK,Salford,3
+UK,Ormskirk,3
+USA,"New York, NY",94
+USA,"New Haven, CT",76
+USA,"Chicago, IL",67
+USA,"Boston, MA",65
+USA,"Washington, DC",61
+USA,"Los Angeles, CA",59
+USA,"Houston, TX",59
+USA,"La Jolla, CA",57
+USA,"Philadelphia, PA",50
+USA,"Cambridge, MA",47
+USA,"University Park, PA",39
+USA,"Raleigh, NC",36
+USA,"St. Louis, MO",35
+USA,"Pittsburgh, PA",34
+USA,"New Brunswick, NJ",34
+USA,"Ithaca, NY",33
+USA,"Atlanta, GA",32
+USA,"Ames, IA",32
+USA,"Baltimore, MD",32
+USA,"Buffalo, NY",31
+USA,"Storrs, CT",31
+USA,"San Diego, CA",31
+USA,"Tempe, AZ",30
+USA,"Cleveland, OH",30
+USA,"Amherst, MA",30
+USA,"Medford, MA",30
+USA,"San Francisco, CA",30
+USA,"Boulder, CO",28
+USA,"Bloomington, IN",28
+USA,"Columbia, MO",28
+USA,"Columbus, OH",27
+USA,"Austin, TX",26
+USA,"Blacksburg, VA",26
+USA,"Tallahassee, FL",26
+USA,"Lawrence, KS",26
+USA,"Gainesville, FL",26
+USA,"Detroit, MI",26
+USA,"West Lafayette, IN",25
+USA,"Providence, RI",25
+USA,"Milwaukee, WI",25
+USA,"Cincinnati, OH",25
+USA,"Minneapolis, MN",24
+USA,"Hanover, NH",23
+USA,"Knoxville, TN",23
+USA,"Tampa, FL",23
+USA,"Dayton, OH",23
+USA,"Evanston, IL",22
+USA,"Seattle, WA",22
+USA,"Denton, TX",22
+USA,"Berkeley, CA",21
+USA,"Ann Arbor, MI",21
+USA,"Nashville, TN",21
+USA,"Stanford, CA",20
+USA,"College Station, TX",20
+USA,"New Orleans, LA",20
+USA,"Orlando, FL",20
+USA,"Corvallis, OR",19
+USA,"Lexington, KY",19
+USA,"Clemson, SC",19
+USA,"Durham, NC",18
+USA,"Miami, FL",18
+USA,"Stillwater, OK",18
+USA,"Fayetteville, AR",18
+USA,"College Park, MD",18
+USA,"Notre Dame, IN",18
+USA,"Tucson, AZ",17
+USA,"Fort Collins, CO",17
+USA,"Iowa City, IA",17
+USA,"Chestnut Hill, MA",17
+USA,"Richardson, TX",17
+USA,"Madison, WI",17
+USA,"Bethlehem, PA",16
+USA,"Troy, NY",16
+USA,"Arlington, TX",16
+USA,"San Marcos, TX",16
+USA,"Urbana-Champaign, IL",16
+USA,"Durham, NH",16
+USA,"Eugene, OR",15
+USA,"Princeton, NJ",15
+USA,"Hoboken, NJ",15
+USA,"Manhattan, KS",15
+USA,"Las Cruces, NM",15
+USA,"Malibu, CA",15
+USA,"Oxford, MS",15
+USA,"Worcester, MA",15
+USA,"Fresno, CA",15
+USA,"Claremont, CA",15
+USA,"Baton Rouge, LA",15
+USA,"Davis, CA",15
+USA,"Grand Forks, ND",15
+USA,"Columbia, SC",15
+USA,"Burlington, VT",15
+USA,"Stony Brook, NY",14
+USA,"Auburn, AL",14
+USA,"Waltham, MA",14
+USA,"Starkville, MS",14
+USA,"Wichita, KS",14
+USA,"Hayward, CA",14
+USA,"Orange, CA",14
+USA,"Boca Raton, FL",14
+USA,"Fairfax, VA",14
+USA,"Beaumont, TX",14
+USA,"East Lansing, MI",14
+USA,"Huntsville, TX",14
+USA,"Santa Clara, CA",14
+USA,"Akron, OH",14
+USA,"Athens, GA",14
+USA,"Louisville, KY",14
+USA,"Memphis, TN",14
+USA,"Lincoln, NE",14
+USA,"Vermillion, SD",14
+USA,"Winston-Salem, NC",13
+USA,"Long Beach, CA",13
+USA,"San Jose, CA",13
+USA,"San Antonio, TX",13
+USA,"Waco, TX",13
+USA,"Vestal, NY",13
+USA,"Peoria, IL",13
+USA,"Sacramento, CA",13
+USA,"Harrisonburg, VA",13
+USA,"Romeoville, IL",13
+USA,"Houghton, MI",13
+USA,"Edwardsville, IL",13
+USA,"Norman, OK",13
+USA,"Morgantown, WV",13
+USA,"Pasadena, CA",12
+USA,"Coral Gables, FL",12
+USA,"Williamsburg, VA",12
+USA,"Northridge, CA",12
+USA,"Hempstead, NY",12
+USA,"Provo, UT",12
+USA,"San Luis Obispo, CA",12
+USA,"Flagstaff, AZ",12
+USA,"DeKalb, IL",12
+USA,"Hamden, CT",12
+USA,"Jersey City, NJ",12
+USA,"Syracuse, NY",12
+USA,"Irvine, CA",12
+USA,"West Hartford, CT",12
+USA,"Lowell, MA",12
+USA,"West Haven, CT",12
+USA,"Edinburg, TX",12
+USA,"Toledo, OH",12
+USA,"Tulsa, OK",12
+USA,"Rochester, NY",11
+USA,"Newark, NJ",11
+USA,"Pomona, CA",11
+USA,"Melbourne, FL",11
+USA,"Southfield, MI",11
+USA,"Oxford, OH",11
+USA,"Dallas, TX",11
+USA,"Albany, NY",11
+USA,"Charlotte, NC",11
+USA,"Albuquerque, NM",10
+USA,"Chapel Hill, NC",10
+USA,"Lewisburg, PA",10
+USA,"Pullman, WA",9
+USA,"Fullerton, CA",9
+USA,"Garden City, NY",9
+USA,"Santa Barbara, CA",9
+USA,"Tuscaloosa, AL",8
+USA,"Newark, DE",8
+USA,"Old Westbury, NY",8
+USA,"Savannah, GA",8
+USA,"Macomb, IL",8
+USA,"Riverside, CA",7
+USA,"Brookville, NY",7
+USA,"Brooklyn, NY",7
+USA,"Bridgeport, CT",7
+USA,"Lakeland, FL",6
+USA,"Kent, OH",6
+USA,"Charlottesville, VA",5
+USA,"Honolulu, HI",4
+USA,"Lubbock, TX",4
+USA,"Santa Cruz, CA",3
+USA,"Golden, CO",3
+USA,"Salt Lake City, UT",3
+USA,"Rolla, MO",3
