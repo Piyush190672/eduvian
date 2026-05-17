@@ -112,6 +112,79 @@ function Metric({
   );
 }
 
+// ── editable money row ────────────────────────────────────────────────────────
+// Always-editable input for tuition / living cost. Three emphasis modes:
+//   - "verified"    → value is from the program's official page (subtle
+//                     slate styling; user can still adjust)
+//   - "country-avg" → value is the country-mean living cost (slate styling +
+//                     "adjust to your city" hint so user knows it's not city-specific)
+//   - "user"        → user has typed a value different from data (slate styling
+//                     + "you entered" confirmation)
+//   - "vacant"      → value is 0; render with amber emphasis so the user
+//                     knows ROI is gated until they type a value
+
+function EditableMoneyRow({
+  label, value, onChange, vacant, provenance, emphasis, step, placeholder, programUrl,
+}: {
+  label: string;
+  value: number;
+  onChange: (v: number) => void;
+  vacant: boolean;
+  provenance: string;
+  emphasis: "verified" | "country-avg" | "user" | "vacant";
+  step: number;
+  placeholder: string;
+  programUrl?: string;
+}) {
+  const ringClass = vacant
+    ? "bg-amber-500/10 border-amber-500/40"
+    : emphasis === "user"
+      ? "bg-indigo-500/5 border-indigo-500/30"
+      : "bg-white/5 border-white/10";
+  const labelClass = vacant ? "text-amber-200" : "text-slate-300";
+  const dollarClass = vacant ? "text-amber-300" : "text-slate-400";
+  const subClass = vacant ? "text-amber-200/80" : "text-slate-500";
+
+  return (
+    <div className={`rounded-xl border p-3 ${ringClass}`}>
+      <div className="flex items-center justify-between gap-2 mb-1.5">
+        <p className={`text-[10px] font-bold uppercase tracking-wide leading-none ${labelClass}`}>
+          {label}
+        </p>
+        {vacant && (
+          <span className="text-[9px] font-bold uppercase tracking-wide text-amber-900 bg-amber-200/80 px-1.5 py-0.5 rounded-full">
+            Needs input
+          </span>
+        )}
+      </div>
+      <div className="flex items-center gap-2">
+        <span className={`font-bold text-sm ${dollarClass}`}>$</span>
+        <input
+          type="number"
+          min={0}
+          step={step}
+          placeholder={placeholder}
+          value={value || ""}
+          onChange={(e) => onChange(Math.max(0, parseInt(e.target.value, 10) || 0))}
+          className="flex-1 px-2.5 py-1.5 rounded-lg bg-white/10 border border-white/10
+            text-sm text-white font-mono focus:outline-none focus:ring-1 focus:ring-indigo-400"
+        />
+        <span className={`text-[10px] font-semibold uppercase tracking-wide ${dollarClass}`}>USD / yr</span>
+      </div>
+      <p className={`mt-1.5 text-[10px] leading-snug ${subClass}`}>{provenance}</p>
+      {programUrl && (
+        <a
+          href={programUrl}
+          target="_blank" rel="noopener noreferrer"
+          className="mt-1.5 inline-flex items-center gap-1 text-[10px] font-semibold text-amber-300 hover:text-amber-200"
+        >
+          Open the official program page <ExternalLink className="w-3 h-3" />
+        </a>
+      )}
+    </div>
+  );
+}
+
 // ── props ────────────────────────────────────────────────────────────────────
 
 interface Props {
@@ -231,22 +304,14 @@ export default function InlineProgramROI({ program }: Props) {
                 <AutoBadge />
               </div>
 
-              {/* Auto-filled context row */}
+              {/* Context row — country / field / duration. Tuition + living
+                  moved into their own editable rows below so the user can
+                  always override them (not just when missing). */}
               <div className="flex flex-wrap gap-2 text-[11px]">
                 {[
                   `${program.country}`,
                   `${program.field_of_study}`,
                   `${Math.round(program.duration_months / 12 * 10) / 10} yrs`,
-                  programHasFee
-                    ? `Tuition ${fmtK(program.annual_tuition_usd!)}/yr`
-                    : tuitionUserSupplied
-                      ? `Tuition ${fmtK(customTuition)}/yr (you entered)`
-                      : "Tuition — enter below",
-                  programHasLiving
-                    ? `Living ${fmtK(program.avg_living_cost_usd!)}/yr`
-                    : livingUserSupplied
-                      ? `Living ${fmtK(customLiving)}/yr (you entered)`
-                      : "Living — enter below",
                 ].map((tag) => (
                   <span
                     key={tag}
@@ -258,95 +323,50 @@ export default function InlineProgramROI({ program }: Props) {
                 ))}
               </div>
 
-              {/* Tuition-fee input — appears when the matched program's
-                  official page didn't expose a verifiable international
-                  fee. ROI math is gated until a positive value is entered. */}
-              {!programHasFee && (
-                <div className={`rounded-xl border p-3.5 ${
-                  tuitionUserSupplied
-                    ? "bg-amber-500/5 border-amber-500/30"
-                    : "bg-amber-500/10 border-amber-500/40"
-                }`}>
-                  <div className="flex items-start gap-2 mb-2">
-                    <Info className="w-4 h-4 text-amber-300 flex-shrink-0 mt-0.5" />
-                    <div className="flex-1">
-                      <p className="text-[12px] font-bold text-amber-200 mb-0.5">
-                        Annual tuition fee {tuitionUserSupplied ? "(you entered)" : "needed"}
-                      </p>
-                      <p className="text-[11px] text-amber-200/80 leading-snug">
-                        The official program page didn&apos;t publish an international tuition figure we can verify.
-                        {tuitionUserSupplied
-                          ? " ROI below uses the value you typed — re-confirm with the university before relying on these numbers."
-                          : " Enter the annual fee in USD to unlock the ROI metrics."}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-amber-300 font-bold text-sm">$</span>
-                    <input
-                      type="number"
-                      min={0}
-                      step={1000}
-                      placeholder="e.g. 45000"
-                      value={customTuition || ""}
-                      onChange={(e) => setCustomTuition(Math.max(0, parseInt(e.target.value, 10) || 0))}
-                      className="flex-1 px-2.5 py-1.5 rounded-lg bg-white/10 border border-amber-400/40
-                        text-sm text-white font-mono focus:outline-none focus:ring-1 focus:ring-amber-400"
-                    />
-                    <span className="text-[10px] text-amber-300/80 font-semibold uppercase tracking-wide">USD / yr</span>
-                  </div>
-                  {program.program_url && (
-                    <a
-                      href={program.program_url}
-                      target="_blank" rel="noopener noreferrer"
-                      className="mt-2 inline-flex items-center gap-1.5 text-[11px] font-semibold text-amber-300 hover:text-amber-200"
-                    >
-                      Open the official program page <ExternalLink className="w-3 h-3" />
-                    </a>
-                  )}
-                </div>
-              )}
-
-              {/* Living-cost input — appears when the program's avg_living_cost_usd
-                  is missing, zero, or implausibly low (<$3k/yr — extraction
-                  errors like UNSW $650). ROI math is gated until a positive
-                  value is entered. */}
-              {!programHasLiving && (
-                <div className={`rounded-xl border p-3.5 ${
-                  livingUserSupplied
-                    ? "bg-amber-500/5 border-amber-500/30"
-                    : "bg-amber-500/10 border-amber-500/40"
-                }`}>
-                  <div className="flex items-start gap-2 mb-2">
-                    <Info className="w-4 h-4 text-amber-300 flex-shrink-0 mt-0.5" />
-                    <div className="flex-1">
-                      <p className="text-[12px] font-bold text-amber-200 mb-0.5">
-                        Annual living cost {livingUserSupplied ? "(you entered)" : "needed"}
-                      </p>
-                      <p className="text-[11px] text-amber-200/80 leading-snug">
-                        We don&apos;t have a reliable living-cost figure for this program&apos;s city.
-                        {livingUserSupplied
-                          ? " ROI below uses the value you typed."
-                          : " Enter your expected annual rent + food + transport + other expenses in USD to unlock the ROI metrics."}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-amber-300 font-bold text-sm">$</span>
-                    <input
-                      type="number"
-                      min={0}
-                      step={500}
-                      placeholder="e.g. 15000"
-                      value={customLiving || ""}
-                      onChange={(e) => setCustomLiving(Math.max(0, parseInt(e.target.value, 10) || 0))}
-                      className="flex-1 px-2.5 py-1.5 rounded-lg bg-white/10 border border-amber-400/40
-                        text-sm text-white font-mono focus:outline-none focus:ring-1 focus:ring-amber-400"
-                    />
-                    <span className="text-[10px] text-amber-300/80 font-semibold uppercase tracking-wide">USD / yr</span>
-                  </div>
-                </div>
-              )}
+              {/* Always-editable tuition + living rows.
+                  - When the value is present, render with a subtle slate
+                    background and a provenance subtitle so the user knows
+                    where the number came from and can adjust it.
+                  - When the value is 0 (vacant), render with amber emphasis
+                    so the user knows they MUST type something to unlock
+                    ROI math. */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                <EditableMoneyRow
+                  label="Annual tuition (USD)"
+                  value={effectiveTuition}
+                  onChange={setCustomTuition}
+                  vacant={!tuitionAvailable}
+                  provenance={
+                    programHasFee
+                      ? (program.tuition_fee_source === "estimated"
+                          ? "Estimated from secondary source · adjust if you know better"
+                          : "From the official program page · adjust if you know better")
+                      : tuitionUserSupplied
+                        ? "You entered this — re-confirm with the university"
+                        : "Not published by this program — please enter the annual fee"
+                  }
+                  emphasis={tuitionUserSupplied ? "user" : programHasFee ? "verified" : "vacant"}
+                  step={1000}
+                  placeholder="e.g. 45000"
+                  programUrl={!programHasFee ? program.program_url : undefined}
+                />
+                <EditableMoneyRow
+                  label="Annual living cost (USD)"
+                  value={effectiveLiving}
+                  onChange={setCustomLiving}
+                  vacant={!livingAvailable}
+                  provenance={
+                    programHasLiving
+                      ? "Country average — adjust to your city if you have a better estimate"
+                      : livingUserSupplied
+                        ? "You entered this"
+                        : "Not available for this city — please enter rent + food + transport"
+                  }
+                  emphasis={livingUserSupplied ? "user" : programHasLiving ? "country-avg" : "vacant"}
+                  step={500}
+                  placeholder="e.g. 15000"
+                />
+              </div>
 
               {!roi || !pb ? (
                 // Metrics-gated state: program has no verified tuition and

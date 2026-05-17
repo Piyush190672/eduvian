@@ -105,34 +105,39 @@ function AutoFilledRow({
   );
 }
 
-// Fee row that auto-fills from DB when the program carries the figure and
-// switches to a highlighted editable input when the value is missing.
-// Replaces the read-only AutoFilledRow for tuition + living so vacant
-// fields prompt the user directly instead of silently passing 0 through
-// to the ROI math.
+// Always-editable money row for tuition + living. Replaces the read-only
+// AutoFilledRow so the user can override any value (not just vacant ones).
+// Renders amber emphasis when the value is 0 (gating ROI math), subtle
+// slate otherwise. Provenance subtitle explains where the number came
+// from ("From program page" / "Country average" / "You entered this").
 function EditableFeeRow({
-  icon: Icon, label, value, onChange, sub, prompt,
+  icon: Icon, label, value, onChange, provenance, vacantPrompt,
 }: {
   icon: React.ComponentType<{ className?: string }>;
   label: string;
   value: number;
   onChange: (v: number) => void;
-  sub?: string;
-  prompt: string;
+  provenance: string;
+  vacantPrompt: string;
 }) {
   const vacant = !value || value <= 0;
-  if (!vacant) {
-    return <AutoFilledRow icon={Icon} label={label} value={formatCurrency(value)} sub={sub} />;
-  }
+  const wrapClass = vacant
+    ? "bg-amber-50 border-2 border-amber-300"
+    : "bg-gray-50 border border-gray-200";
+  const labelClass = vacant ? "text-amber-900" : "text-gray-600";
+  const subClass = vacant ? "text-amber-800" : "text-gray-500";
+  const dollarClass = vacant ? "text-amber-900" : "text-gray-500";
   return (
-    <div className="flex flex-col gap-1.5 px-3.5 py-2.5 bg-amber-50 border-2 border-amber-300 rounded-xl">
+    <div className={`flex flex-col gap-1.5 px-3.5 py-2.5 rounded-xl ${wrapClass}`}>
       <div className="flex items-center gap-2">
-        <Icon className="w-4 h-4 text-amber-700 flex-shrink-0" />
-        <p className="text-[10px] font-bold text-amber-900 uppercase tracking-wide leading-none">{label}</p>
-        <span className="ml-auto text-[9px] font-bold uppercase tracking-wide text-amber-900 bg-amber-200/60 px-1.5 py-0.5 rounded-full">Needs input</span>
+        <Icon className={`w-4 h-4 flex-shrink-0 ${labelClass}`} />
+        <p className={`text-[10px] font-bold uppercase tracking-wide leading-none ${labelClass}`}>{label}</p>
+        {vacant && (
+          <span className="ml-auto text-[9px] font-bold uppercase tracking-wide text-amber-900 bg-amber-200/60 px-1.5 py-0.5 rounded-full">Needs input</span>
+        )}
       </div>
       <div className="flex items-center gap-2">
-        <span className="text-amber-900 font-bold text-sm">$</span>
+        <span className={`font-bold text-sm ${dollarClass}`}>$</span>
         <input
           type="number"
           min={0}
@@ -140,10 +145,10 @@ function EditableFeeRow({
           placeholder="e.g. 25000"
           value={value || ""}
           onChange={(e) => onChange(Math.max(0, parseInt(e.target.value, 10) || 0))}
-          className="flex-1 px-2.5 py-1.5 rounded-lg border border-amber-300 bg-white text-gray-900 font-mono text-sm focus:outline-none focus:ring-2 focus:ring-amber-400"
+          className={`flex-1 px-2.5 py-1.5 rounded-lg border bg-white text-gray-900 font-mono text-sm focus:outline-none focus:ring-2 ${vacant ? "border-amber-300 focus:ring-amber-400" : "border-gray-200 focus:ring-indigo-400"}`}
         />
       </div>
-      <p className="text-[10px] text-amber-800 leading-snug">{prompt}</p>
+      <p className={`text-[10px] leading-snug ${subClass}`}>{vacant ? vacantPrompt : provenance}</p>
     </div>
   );
 }
@@ -592,16 +597,26 @@ export default function ROICalculator() {
                       label="Tuition / yr"
                       value={tuition}
                       onChange={setTuition}
-                      sub="Annual fee"
-                      prompt="The official program page doesn't publish an international tuition figure we can verify. Enter the annual fee in USD."
+                      provenance={
+                        tuitionEstimated
+                          ? "Estimated from a secondary source · adjust if you know better"
+                          : programHasFee
+                            ? "From the official program page · adjust if you know better"
+                            : "You entered this — re-confirm with the university"
+                      }
+                      vacantPrompt="The official program page doesn't publish an international tuition figure we can verify. Enter the annual fee in USD."
                     />
                     <EditableFeeRow
                       icon={DollarSign}
                       label="Living / yr"
                       value={living}
                       onChange={setLiving}
-                      sub="Avg cost of living"
-                      prompt="No verified average living cost for this city. Enter the annual living budget in USD (rent + food + transit)."
+                      provenance={
+                        programHasLiving
+                          ? "Country average — adjust to your city if you have a better estimate"
+                          : "You entered this"
+                      }
+                      vacantPrompt="No verified average living cost for this city. Enter the annual living budget in USD (rent + food + transit)."
                     />
                   </div>
 
