@@ -20,8 +20,8 @@ const COUNTRY_LABELS: Record<string, string> = Object.fromEntries(
 
 const INCOME_LABELS: Record<string, string> = {
   // Current
-  under_12L: "Under ₹12 Lakh / year",
-  "12L_24L": "₹13 – 24 Lakh / year",
+  under_12L: "Less than ₹12 Lakh / year",
+  "12L_24L": "₹12 – 24 Lakh / year",
   "25L_49L": "₹25 – 49 Lakh / year",
   above_50L: "₹50 Lakh and above / year",
   // Legacy — kept so older submissions still render a readable label.
