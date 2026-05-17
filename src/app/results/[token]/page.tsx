@@ -162,6 +162,32 @@ export default function ResultsPage() {
     window.open(`/api/pdf/${token}?ids=${Array.from(shortlisted).join(",")}`, "_blank");
   };
 
+  // Per-university minimum qs_ranking lookup. Used to tag each card's QS
+  // pill as subject-specific (= the min for that uni — preferred) vs
+  // overall (= higher than min, so likely the QS World University Rank
+  // that leaked in during a verifier pass that didn't grab the subject
+  // rank). Programs at unis with a single rank value have no extra tag.
+  // Heuristic: the smaller a rank, the more likely it's subject-specific
+  // for selective unis (Cambridge AI = #2 subject vs #6 overall, etc.).
+  // True kind data will land when the verifier prompt update + a future
+  // re-extraction pass populate it explicitly.
+  //
+  // ⚠️ Must stay BEFORE the loading / error early-returns so React's hook
+  // call order is stable across renders (Rules of Hooks). data is read
+  // through optional chaining so the memo is safe to run while loading.
+  const minRankByUni = useMemo(() => {
+    const map = new Map<string, number>();
+    for (const p of (data?.programs ?? [])) {
+      if (typeof p.qs_ranking === "number" && p.qs_ranking > 0) {
+        const cur = map.get(p.university_name);
+        if (cur === undefined || p.qs_ranking < cur) {
+          map.set(p.university_name, p.qs_ranking);
+        }
+      }
+    }
+    return map;
+  }, [data?.programs]);
+
   if (loading) return (
     <div className="min-h-screen flex items-center justify-center">
       <div className="text-center">
@@ -183,28 +209,6 @@ export default function ResultsPage() {
   );
 
   const allPrograms = data.programs;
-
-  // Per-university minimum qs_ranking lookup. Used to tag each card's QS
-  // pill as subject-specific (= the min for that uni — preferred) vs
-  // overall (= higher than min, so likely the QS World University Rank
-  // that leaked in during a verifier pass that didn't grab the subject
-  // rank). Programs at unis with a single rank value have no extra tag.
-  // Heuristic: the smaller a rank, the more likely it's subject-specific
-  // for selective unis (Cambridge AI = #2 subject vs #6 overall, etc.).
-  // True kind data will land when the verifier prompt update + a future
-  // re-extraction pass populate it explicitly.
-  const minRankByUni = useMemo(() => {
-    const map = new Map<string, number>();
-    for (const p of allPrograms) {
-      if (typeof p.qs_ranking === "number" && p.qs_ranking > 0) {
-        const cur = map.get(p.university_name);
-        if (cur === undefined || p.qs_ranking < cur) {
-          map.set(p.university_name, p.qs_ranking);
-        }
-      }
-    }
-    return map;
-  }, [allPrograms]);
 
   const qsRankKindFor = (p: ScoredProgram): "subject" | "overall" | undefined => {
     if (!p.qs_ranking) return undefined;
