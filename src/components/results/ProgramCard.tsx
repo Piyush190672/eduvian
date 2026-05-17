@@ -30,6 +30,16 @@ interface Props {
    * to skip the badge.
    */
   budgetPct?: number | null;
+  /**
+   * Tag for the QS rank pill. "subject" = subject-specific QS rank
+   * (preferred; rendered with no extra label). "overall" = QS World
+   * University Rank (rendered with a small "· overall" suffix so the
+   * user knows it's not subject-specific). undefined = no opinion
+   * (legacy data — render bare "QS #N"). Derived upstream by comparing
+   * the program's rank against the minimum rank across all programs at
+   * the same university.
+   */
+  qsRankKind?: "subject" | "overall";
 }
 
 type SignalStatus = "strong" | "partial" | "gap";
@@ -194,7 +204,7 @@ function getDeadlineInfo(deadline: string | null | undefined): {
   };
 }
 
-export default function ProgramCard({ program, isShortlisted, onToggleShortlist, isInCompare, onToggleCompare, compareDisabled, budgetPct }: Props) {
+export default function ProgramCard({ program, isShortlisted, onToggleShortlist, isInCompare, onToggleCompare, compareDisabled, budgetPct, qsRankKind }: Props) {
   const tuitionUnavailable = isFeeUnavailable(program.annual_tuition_usd);
   const totalCost = tuitionUnavailable ? null : (program.annual_tuition_usd as number) + (program.avg_living_cost_usd ?? 0);
   const flag = getCountryFlag(program.country);
@@ -281,9 +291,21 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist,
               <p className="text-sm text-gray-500 mt-0.5">
                 {flag} {program.university_name}
                 {program.qs_ranking && (
-                  <span className="ml-2 inline-flex items-center gap-1 text-xs text-amber-600">
+                  <span
+                    className="ml-2 inline-flex items-center gap-1 text-xs text-amber-600"
+                    title={
+                      qsRankKind === "overall"
+                        ? "QS World University Rank (overall). Subject-specific rank not available for this program."
+                        : qsRankKind === "subject"
+                        ? "QS Subject Rank — the most relevant ranking for this program's field."
+                        : undefined
+                    }
+                  >
                     <Trophy className="w-3 h-3" />
                     QS #{program.qs_ranking}
+                    {qsRankKind === "overall" && (
+                      <span className="text-[10px] font-medium text-amber-500 ml-0.5">· overall</span>
+                    )}
                   </span>
                 )}
                 {program.verified_at ? (

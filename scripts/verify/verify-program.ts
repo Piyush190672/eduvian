@@ -13,7 +13,11 @@
  *     --university "University of Cambridge" \
  *     --country "UK" \
  *     --city "Cambridge" \
- *     --qs 5 \
+ *     --qs 5 \   # ⚠️ Prefer the QS SUBJECT RANK for this program's field
+                  # (e.g. QS Engineering / AI subject rank for an AI program).
+                  # Fall back to the QS World University Rank only if the
+                  # subject rank isn't published. The /results UI tags the
+                  # pill with "· overall" when the value is the world rank.
  *     --field "Artificial Intelligence" \
  *     --url "https://www.mlmi.eng.cam.ac.uk/"
  *

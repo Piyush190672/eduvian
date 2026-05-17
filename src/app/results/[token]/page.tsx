@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useMemo, useState, useCallback } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -183,6 +183,35 @@ export default function ResultsPage() {
   );
 
   const allPrograms = data.programs;
+
+  // Per-university minimum qs_ranking lookup. Used to tag each card's QS
+  // pill as subject-specific (= the min for that uni — preferred) vs
+  // overall (= higher than min, so likely the QS World University Rank
+  // that leaked in during a verifier pass that didn't grab the subject
+  // rank). Programs at unis with a single rank value have no extra tag.
+  // Heuristic: the smaller a rank, the more likely it's subject-specific
+  // for selective unis (Cambridge AI = #2 subject vs #6 overall, etc.).
+  // True kind data will land when the verifier prompt update + a future
+  // re-extraction pass populate it explicitly.
+  const minRankByUni = useMemo(() => {
+    const map = new Map<string, number>();
+    for (const p of allPrograms) {
+      if (typeof p.qs_ranking === "number" && p.qs_ranking > 0) {
+        const cur = map.get(p.university_name);
+        if (cur === undefined || p.qs_ranking < cur) {
+          map.set(p.university_name, p.qs_ranking);
+        }
+      }
+    }
+    return map;
+  }, [allPrograms]);
+
+  const qsRankKindFor = (p: ScoredProgram): "subject" | "overall" | undefined => {
+    if (!p.qs_ranking) return undefined;
+    const min = minRankByUni.get(p.university_name);
+    if (min === undefined) return undefined;
+    return p.qs_ranking > min ? "overall" : "subject";
+  };
   const profile = data.submission.profile as unknown as StudentProfile;
   const studentName = profile.full_name ?? "there";
 
@@ -473,6 +502,7 @@ export default function ResultsPage() {
                         onToggleCompare={() => toggleCompare(program.id)}
                         compareDisabled={!compareSet.has(program.id) && compareSet.size >= 5}
                         budgetPct={budgetPctFor(program)}
+                        qsRankKind={qsRankKindFor(program)}
                       />
                     </motion.div>
                   ))}
@@ -566,6 +596,7 @@ export default function ResultsPage() {
                           onToggleCompare={() => toggleCompare(program.id)}
                           compareDisabled={!compareSet.has(program.id) && compareSet.size >= 5}
                           budgetPct={budgetPctFor(program)}
+                          qsRankKind={qsRankKindFor(program)}
                         />
                       </motion.div>
                     ))}
