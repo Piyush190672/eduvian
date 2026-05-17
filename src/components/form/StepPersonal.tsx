@@ -220,11 +220,10 @@ export default function StepPersonal({ profile, onChange }: Props) {
           }
         >
           <option value="">Select range</option>
-          <option value="under_5L">Under ₹5 Lakh</option>
-          <option value="5L_10L">₹5 – 10 Lakh</option>
-          <option value="10L_20L">₹10 – 20 Lakh</option>
-          <option value="20L_40L">₹20 – 40 Lakh</option>
-          <option value="above_40L">Above ₹40 Lakh</option>
+          <option value="under_12L">Under ₹12 Lakh / year</option>
+          <option value="12L_24L">₹13 – 24 Lakh / year</option>
+          <option value="25L_49L">₹25 – 49 Lakh / year</option>
+          <option value="above_50L">₹50 Lakh and above / year</option>
         </Select>
       </div>
     </div>

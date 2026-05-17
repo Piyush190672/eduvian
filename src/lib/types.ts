@@ -11,6 +11,14 @@ export type BudgetRange =
   | "50k_70k"
   | "above_70k";
 export type FamilyIncomeINR =
+  // Current buckets (17 May 2026 — user-requested re-banding).
+  | "under_12L"
+  | "12L_24L"
+  | "25L_49L"
+  | "above_50L"
+  // Legacy buckets — kept in the union so old submissions still type-check
+  // and decrypt. The form no longer offers them; profile-score maps them
+  // to the same points as before so historical ratings stay stable.
   | "under_5L"
   | "5L_10L"
   | "10L_20L"

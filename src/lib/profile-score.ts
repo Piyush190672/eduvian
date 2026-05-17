@@ -65,13 +65,24 @@ function academicPoints(profile: StudentProfile): number {
   }
 }
 
-/** Family income — 4-tier graded scale (0–3 points). */
+/** Family income — 4-tier graded scale (0–3 points).
+ *  Current buckets (17 May 2026): under_12L=0, 12L_24L=1, 25L_49L=2, above_50L=3.
+ *  Legacy buckets kept here so old submissions keep their historical scores:
+ *    above_40L → 3, 20L_40L → 2, 10L_20L → 1, under_5L / 5L_10L → 0.
+ *  (10L_20L stays at 1pt under the new banding too — close enough to 12-24L
+ *  that re-mapping would shift active users' ratings; leaving as-is.) */
 function incomePoints(profile: StudentProfile): number {
   switch (profile.family_income_inr) {
+    // Current
+    case "above_50L": return 3;
+    case "25L_49L":   return 2;
+    case "12L_24L":   return 1;
+    case "under_12L": return 0;
+    // Legacy
     case "above_40L": return 3;
     case "20L_40L":   return 2;
     case "10L_20L":   return 1;
-    default:          return 0; // under_5L, 5L_10L
+    default:          return 0; // under_5L, 5L_10L, undefined
   }
 }
 

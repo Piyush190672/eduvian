@@ -19,11 +19,17 @@ const COUNTRY_LABELS: Record<string, string> = Object.fromEntries(
 );
 
 const INCOME_LABELS: Record<string, string> = {
-  under_5L: "Under ₹5 Lakh",
-  "5L_10L": "₹5 – 10 Lakh",
-  "10L_20L": "₹10 – 20 Lakh",
-  "20L_40L": "₹20 – 40 Lakh",
-  above_40L: "Above ₹40 Lakh",
+  // Current
+  under_12L: "Under ₹12 Lakh / year",
+  "12L_24L": "₹13 – 24 Lakh / year",
+  "25L_49L": "₹25 – 49 Lakh / year",
+  above_50L: "₹50 Lakh and above / year",
+  // Legacy — kept so older submissions still render a readable label.
+  under_5L: "Under ₹5 Lakh (legacy)",
+  "5L_10L": "₹5 – 10 Lakh (legacy)",
+  "10L_20L": "₹10 – 20 Lakh (legacy)",
+  "20L_40L": "₹20 – 40 Lakh (legacy)",
+  above_40L: "Above ₹40 Lakh (legacy)",
 };
 
 const BUDGET_LABELS: Record<string, string> = {

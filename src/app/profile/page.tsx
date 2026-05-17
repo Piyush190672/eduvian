@@ -42,7 +42,7 @@ const defaultProfile: Partial<StudentProfile> = {
   passport_available: "yes",
   visa_history: "never_applied",
   family_abroad: false,
-  family_income_inr: "10L_20L",
+  family_income_inr: "12L_24L",
   degree_level: "postgraduate",
   academic_score_type: "percentage",
   academic_score: 75,
