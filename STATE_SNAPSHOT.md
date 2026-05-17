@@ -1,9 +1,11 @@
 # EduvianAI — Comprehensive State Snapshot for Session Handoff
 
-**Last updated:** 14 May 2026 night (handoff #17 — 21 commits on top of handoff #16: DOMMatrix polyfill, beta cap raised 50→100 + $20 spend ceiling + new-user cap excludes returning users, empty-tier explainer on /results, 5-stage university-sidecar plan executed (Stages 1+2+3+5 done; 339 unis populated — 218 USA via Scorecard, 121 UK via Claude+web_search), acceptance_rate now drives prestige bucketing in scoreAcademic, 91 new universities added across 3 verify-batch rounds (+1,291 programs to 9,298 total), PSW filter excludes sub-degree credentials, Cybersecurity + Data Science split out as own streams, "AI & Data Science" renamed to "Artificial Intelligence", GRE/GMAT subscores in form, QS tiebreaker on top-20 sort, 96 historical duplicates removed + 14 broken-name rows purged, merge.ts hardened with brace-parse 3-key dedup, 837 QS ranks backfilled across 73 unis, all 9,298 programs have living costs)
+**Last updated:** 17 May 2026 (handoff #18 — 35 commits on top of handoff #17. Profile-rating fully rewritten with weighted % scoring + 5-bucket star scale + colour-coded params + 3D ladder UI. Match-score weights rebalanced (PG: Academic 0.45 / Budget 0.10 / others same). Bucket-specific implicit academic floor (b0=85, b1=78, b2=70, b3=60, b4=50) plus prestige penalty for proper weak-vs-strong differentiation. Matcher hard-caps ambitious tier + per-uni variety cap. Alias matching now requires program_name keyword evidence (407 bad aliases stripped, 284 primary fields reclassified). "Arts, Design & Architecture" retired → "Arts and Design". Multi-pick intended_field (up to 3 streams). Cross-device profile prefill + draft autosave (2 new endpoints + 1 SQL migration). Post-experience feedback survey (1-5 stars) on 4 surfaces + admin dashboard widget. Stage 4 universities sidecar landed for Canada (70) + Singapore (10) — other 8 countries deferred per user. Mobile UX fixes (rating ladder wraps, sticky CTA, single-line nav). Pipeline ops: per-worker watchdog timeout, auto-reclassify after merge.ts.)
 **Purpose:** Zero-loss handoff between Claude Code sessions. A new session reading this should be able to continue *every* in-flight workstream correctly, respect all user preferences, and avoid all known gotchas.
 
-> **No background processes running.** The chained 7-country prior-year-tuition sweep (wrapper PID 38419, see 7889f120) was user-stopped after 92 / 2,933 entries (~$3.70 of $118 budget). Re-runnable at any time — the script's "already-estimated rows are skipped" rule means a fresh spawn picks up exactly where it left off.
+> **No background processes running** as of handoff #18 (Canada Stage-4 fetch completed cleanly at PID 56199, 70/70 hits, $56.85).
+
+> **READ §38 (handoff #18) FIRST** for the most recent 35-commit session. Sections §3, §4, §16, §17 still describe the broad architecture correctly, but specific numbers (DB shape, weights, scoring formulas, open work) are superseded by §38. Pre-#17 session logs in §22-§37 are historical reference.
 
 > **Pinned next-session priority (handoff #14 → #15):** STATE_SNAPSHOT + CLAUDE.md refresh (this commit). Then user-driven QA: confirm the new password-login flow works end-to-end (set password from /account/security, log out, log in via Password toggle), eyeball the tightened matching results (academic + budget + field + intake hard filters may shrink some users' shortlists). API spend decisions: resume the 7-country tuition sweep (~$114 more for ~870 fills, or revise the QS-max boundary down to spend less). Tier-D leftovers from handoff #13: M1 CSP, M3 Zod, M5 secrets-rotation doc, M7/L3 legal-doc edits (don't push without attorney sign-off), L5 verified_at HMAC, I2/I3/I4 informational. Tier-B #9 (USA residential proxy) still skipped pending explicit user authorisation for paid subscription. See §34.
 
@@ -50,7 +52,8 @@ git status --short
 # 2. What's running in the background? (no tier chain currently expected)
 ps aux | grep -E "verify-program|verify-batch|websearch-seed|seed-crawler|re-verify" | grep -v grep
 
-# 3. Database scale check (expected: 7,987 programs, 7,924 verified, 12 countries)
+# 3. Database scale check (expected as of handoff #18:
+#    9,298 programs, 9,298 verified, 12 countries, 21 streams)
 python3 -c "
 import re
 from collections import Counter
@@ -58,7 +61,19 @@ with open('src/data/programs.ts') as f: t=f.read()
 n = len(re.findall(r'program_name:', t))
 v = len(re.findall(r'verified_at:', t))
 c = Counter(re.findall(r'country:\s*\"([^\"]+)\"', t))
-print(f'Programs: {n}, verified: {v}, countries: {len(c)}')
+streams = Counter(re.findall(r'field_of_study:\s*\"([^\"]+)\"', t))
+print(f'Programs: {n}, verified: {v}, countries: {len(c)}, streams: {len(streams)}')
+print('Per-country:', dict(c.most_common()))"
+
+# 3b. Universities sidecar check (expected: 419 entries —
+#     218 USA + 121 UK + 70 Canada + 10 Singapore)
+python3 -c "
+import re
+from collections import Counter
+with open('src/data/universities.ts') as f: t=f.read()
+n = len(re.findall(r'name:\s*\"', t))
+c = Counter(re.findall(r'country:\s*\"([^\"]+)\"', t))
+print(f'Universities: {n}')
 print('Per-country:', dict(c.most_common()))"
 
 # 4. Verify the live deploy matches the latest commit
@@ -3193,3 +3208,211 @@ Programs with tuition:     6,391 (2,907 still null — deferred)
 | **Total** | **~$85-110** |
 
 (Original estimate at session start was ~$70. Overshot ~50% — UK fetch was more expensive than the cached estimate suggested, and the QS backfill was an unscoped add-on.)
+
+---
+
+## §38 Session log — 15-17 May 2026 (handoff #18 — 35 commits)
+
+Biggest single-handoff scope since #17. Three main thrusts:
+1. **Profile-rating system fully rewritten** — weighted % scoring, 5-bucket star ladder, colour-coded params, 3D UI.
+2. **Match-score algorithm tuned end-to-end** — weight rebalance, bucket-specific implicit academic floor, hard ambitious cap, per-uni variety cap, alias-name guards.
+3. **Cross-device foundations** — profile prefill from latest submission + draft autosave (server-side, encrypted), feedback survey on 4 surfaces with admin widget.
+
+Also: Stage 4 universities sidecar (CA + SG only, $64.67), "Arts, Design & Architecture" retired, mobile UX fixes, pipeline ops hardening, 691 programs reclassified (407 bad aliases + 284 wrong primary fields).
+
+### 38.1 Profile-rating overhaul (7f3a6340 → c81286e6 → 11ddb6d9 → 7ae12025 → 2f745b52 → 0dfbfeae → 455cc3b3 → 2bedd60a)
+
+Profile-rating is now a **weighted percentage system** (0-100) with five categories. Algorithm in `src/lib/profile-score.ts`:
+
+| Criterion | Max pts | Weight |
+|---|---|---|
+| Academic score | 5 | 40% |
+| Family income | 3 | 10% |
+| Standard test | 1 | 10% |
+| Backlogs | 3 | 5% |
+| English test | 1 | 10% |
+| All others (8 UG / 10 PG) | varies | 25% (split by maxPoints share) |
+| **Sum** | — | **100%** |
+
+Categories (anchored on weighted percentage):
+
+| Category | Threshold | Stars |
+|---|---|---|
+| SUPER STRONG Profile | ≥ 85 | ★★★★★ |
+| VERY STRONG Profile | 70-84 | ★★★★ |
+| STRONG Profile | 55-69 | ★★★ |
+| AVERAGE Profile | 40-54 | ★★ |
+| Weak Profile | < 40 | ★ |
+
+UI (ProfileCard.tsx) renders a 5-segment rating ladder with the user's bucket highlighted, 3D boundary wall (layered box-shadows + ring + inset highlight), per-criterion colour-coded tiles (rose-300 → emerald-500 across 6 tiers for Academic, 4 tiers for Family Income / Backlogs, etc.). **Tailwind content glob extended to include `src/lib/**`** so colour classes generated in profile-score.ts get picked up (was a JIT miss).
+
+Top-strip category badge removed (rating ladder shows it). Mobile layout fixed: top strip stacks at sm-, badge + buttons go full-width, rating-ladder labels wrap to 2 lines.
+
+### 38.2 Match-score algorithm changes
+
+**Weights rebalanced** (cddd6b75, 9e008c0a):
+
+| Signal | PG | UG | Was |
+|---|---|---|---|
+| Academic | 0.45 | 0.50 | 0.35 |
+| Budget | 0.10 | 0.10 | 0.20 |
+| Std Test | 0.10 | 0.10 | 0.10 |
+| English | 0.05 | 0.05 | 0.05 |
+| Scholarship | 0.05 | 0.05 | 0.05 |
+| Intake | 0.05 | 0.05 | 0.05 |
+| Backlogs | 0.05 | 0.05 | 0.05 |
+| Gap year | 0.05 | 0.05 | 0.05 |
+| Work exp | 0.05 | 0 | 0.05 / 0 |
+| Research paper | 0.05 | 0.05 | 0.05 |
+| **Sum** | 1.00 | 1.00 | 1.00 / 0.95 |
+
+Rationale: Budget hard-filter already excludes anything > 110% of budget, so the soft Budget signal effectively differentiates only 3 brackets — a 0.20 weight was over-powered. Moved 10pts to Academic, which is the strongest real predictor.
+
+**Bucket-specific implicit academic floor** (cc635aca, bb1e6494, 5bcdea4b) — when a program publishes no `min_gpa` / `min_percentage` (75% of DB), `scoreAcademic` now uses an implicit floor from `src/lib/prestige.ts` per bucket:
+
+| Bucket | implicitMin (final values) |
+|---|---|
+| b0 ultra-selective | 85 |
+| b1 selective | 78 |
+| b2 moderate | 70 |
+| b3 accessible | 60 |
+| b4 open | 50 |
+
+A 60% applicant is 25 pts below the bar at MIT (academic 0) but 10 pts above at an open uni (academic ~70) — gives the right narrative without false positives at top unis.
+
+**Ambitious tier hard-capped** (56db9c00) — surplus reallocation no longer spills into ambitious. Was bloating to 19 when safe/reach pools couldn't fill the 20 quota. Now: ambitious stays at QUOTA.ambitious=4 regardless. Total returned may be < 20 if academically struggling profile + tight QS cap.
+
+**Per-uni cap inside tiers** (56db9c00) — ambitious=1/uni, safe/reach=2/uni. Prevents Cambridge's 8 Psychology MPhils from monopolising the Ambitious tier.
+
+**Alias matching requires name evidence** (1762073a, 0fc9318b) — `field_aliases` only counts when `program_name` contains a keyword for that stream (per-field regex map in scoring.ts `FIELD_NAME_PATTERNS`). Then a one-off DB pass stripped **407 over-applied aliases** — only 10 of 417 alias-tagged programs were genuine dual-stream.
+
+**Primary-field reclassification** (963ca64e) — high-confidence rule-based migration of 284 programs whose `field_of_study` was clearly wrong (e.g. "MBA" filed under Business, "MS in Nursing" under Data Science). Top moves: 128 Business→Data Science (Business Analytics), 36 Business→MBA, 27 Arts/Design→Architecture.
+
+**"Arts, Design & Architecture" retired** (71ced5d1) — renamed to "Arts and Design"; 3 architecture-named programs migrated to "Architecture" (its own stream since handoff #17), 327 to "Arts and Design".
+
+**Std-test cross-format scoring** (e23cefde) — ACT now has an SAT-equivalent branch (concordance: `(act-1)*40+400`), GRE↔GMAT cross-conversion when program publishes only the other (cap converted match at 90 to flag approximation). Verdict copy updated to distinguish "Test required, none on file" vs "Test score on file (not yet scored)" vs "Score qualifies (converted)".
+
+**Sort order** (dbfb50ec, cf900b48) — matcher sorts ranked-first → qs_ranking ASC → match_score DESC (unranked unis fall to tier tail). Results page restored to tier-grouped layout (Safe → Reach → Ambitious sections); default sort within each is now "Best Match" (match_score DESC) per user.
+
+**Multi-pick intended field** (9e008c0a, 46a3dd1c) — `intended_field_extra?: string[]` (up to 2 additional streams). Form has "+ Add another field" affordance + helper line "You can pick up to 3 fields". Matcher unions the picks in `allowedFields`. BPS / MBA / Others-sentinel branches keep keying off PRIMARY `intended_field` only.
+
+### 38.3 Cross-device foundations
+
+**Returning-user profile prefill** (730608f0) — new endpoint `GET /api/profile-preload`, auth-required (`getUserFromRequest`), returns the signed-in user's latest submission profile (decrypted via H7 reader). `/profile` page now loads it on mount and merges with `prev-wins` strategy.
+
+**Profile draft autosave** (684a89f1) — `GET/PUT/DELETE /api/profile-draft`. Whole profile blob encrypted with same H7 AES-256-GCM scheme as submissions; UNIQUE on `email_hash`. Form autosaves every 1.5s after a change (debounced); cleared on successful submit.
+
+  **⚠️ SQL MIGRATION PENDING**: `src/lib/migrations/20260515-profile-drafts.sql` must be applied in Supabase Studio. Until then, PUT calls 500 and the autosave silently fails (no user-visible impact, but cross-device sync doesn't work).
+
+**Feedback survey** (a3bee832) — new `feedback_surveys` table + `POST /api/feedback` + `<FeedbackPrompt surface="..." />` component dropped into 4 pages: `/results/[token]`, `/application-check`, `/interview-prep`, `/visa-coach`. Modal auto-pops 8s after page load; 5-star scale (Poor / Average / Good / Very Good / Excellent) with colour gradient + optional comment; one-shot per surface per device via localStorage. Admin dashboard widget shows total / average / distribution histogram / per-surface table / recent comments.
+
+  ✅ SQL migration `20260515-feedback-surveys.sql` RUN by user in Supabase Studio (16 May).
+
+### 38.4 Mobile UX fixes (9184a489, 7fd108f1, 0f306fdc, 746cf2de, 913ef3a5 / reverted in 7c5d5d30)
+
+- ProfileCard top strip stacks at sm- (badge + buttons go full-width)
+- Rating-ladder labels (Very Strong / Super Strong) wrap to 2 lines on mobile
+- "Continue to matched programs" CTA becomes sticky full-width footer on mobile (was overlapping parameter tiles)
+- Top nav single-line at md+ (`whitespace-nowrap` on every link, gap-4 at md, gap-6 at lg+)
+- "Why choose us" → "Why eduvianAI"
+- Logout / Change-password labels hidden until lg (icon-only on md)
+- Mobile-specific "hide tagline + collapse auth buttons" change was committed (913ef3a5) and immediately reverted (7c5d5d30) per user
+
+### 38.5 Stage 4 universities sidecar — CA + SG only
+
+`scripts/universities/fetch-stage4.ts` (Opus 4.7 + web_search). Per-country auth-source prompts. Smoke-tested Singapore (10 unis, $7.82) → surfaced an annual-vs-monthly salary bug (model returned monthly figures pre-fix). Fix shipped, **Canada run** completed cleanly: 70/70 hits, $56.85. Total Stage 4 spend: **$64.67**. Merged 80 rows into `src/data/universities.ts` (now **419 entries**: 218 USA + 121 UK + 70 CA + 10 SG).
+
+**User decision (17 May): skip the other 8 countries** (AU/DE/FR/IE/MY/NL/NZ/UAE, ~199 unis, ~$155). Most of those markets don't publish acceptance rates so the marginal lift over QS-rank fallback is small.
+
+Catalog file `scripts/universities/stage4-catalog.json` still lists all 10; the fetcher can be re-run per-country at any time. Singapore had 7 of 10 salaries nulled post-bug-fix (monthly figures); acceptance rate populated only for INSEAD. Canada had 31 of 70 with acceptance rate (Maclean's / CDS coverage).
+
+### 38.6 Pipeline ops (f962c093)
+
+- `scripts/verify/verify-batch.ts` — per-worker watchdog timeout (env `VERIFY_WORKER_TIMEOUT_MS`, default 5min). On timeout: SIGKILL the child, count as error with exit code 124. Subsequent `--skip-existing` re-runs retry only timed-out rows.
+- `scripts/verify/merge.ts` — auto-spawns `python3 reclassify-cs-streams.py` as final step. Failure non-fatal.
+
+### 38.7 New scripts in scripts/data/
+
+- `strip-bad-aliases.ts` — re-runnable after any merge that may introduce new alias rows
+- `reclassify-primary-field.ts` — re-runnable, high-confidence keyword-driven primary field corrections
+- `rename-arts-design-architecture.ts` — one-off (done)
+
+### 38.8 Other touches
+
+- AISA chat prompt: AVERAGE category added (was missing), bucket-specific star thresholds in copy
+- Admin RATING_CONFIG maps in `/admin/leads` and `/admin/dashboard` aligned to canonical category labels (were broken — keys like `"Super Hot"` never matched `"SUPER STRONG Profile"` that the scorer actually returns)
+- ProfileCard `Parameters considered` UI hides the underlying point counts (per user: show params only, not the algorithm)
+- Universities-researched + scholarship_seeking added as form fields + scoring criteria
+- GRE Total input added explicitly in StepTests (was V+Q auto-computed only)
+- Email + PDF action buttons get `flex-1` on mobile so they share width evenly
+
+### 38.9 Commits worth grepping
+
+| Range | Theme |
+|---|---|
+| 7f3a6340 → 7ae12025 | Profile-rating overhaul + weighted scoring |
+| c81286e6, 11ddb6d9 | Star thresholds + UG proportional buckets |
+| 2bedd60a, 2f745b52, 0dfbfeae, 455cc3b3 | Profile-rating UI polish (hide details, colour fix, stars, 3D wall) |
+| dbfb50ec, fd0de0fa, cf900b48 | Results-page sort order + tier-grouped restore + default "Best Match" |
+| 1762073a, 0fc9318b, 963ca64e, 71ced5d1 | Alias guards + 407 stripped + 284 reclassified + ADA rename |
+| 56db9c00 | Matcher hard cap + per-uni variety |
+| cddd6b75, 9e008c0a, 46a3dd1c | Weight rebalance + multi-pick + helper-line copy |
+| e23cefde | Academic implicit floor + std-test cross-format + verdict copy |
+| 730608f0, 684a89f1 | Cross-device prefill + draft autosave |
+| a3bee832 | Feedback survey end-to-end |
+| f962c093 | Pipeline timeout + auto-reclassify |
+| a1e5b0e1 | Stage 4 sidecar (CA + SG) |
+| cc635aca, bb1e6494, 5bcdea4b | Bucket-specific implicit floor tuning rounds |
+| 9184a489, 7fd108f1, 0f306fdc | Mobile UX |
+| 7c5d5d30 (revert) | Reverted mobile-nav tagline-hide per user |
+
+### 38.10 Open work for handoff #19
+
+**URGENT — operational:**
+
+1. **Run `src/lib/migrations/20260515-profile-drafts.sql` in Supabase Studio.** Until done, draft autosave 500s in prod. Feedback-surveys SQL already run (done 16 May).
+
+**Tier-A — user-driven QA (no API spend):**
+
+2. End-to-end QA of inline-password register flow (carry-over #15)
+3. Change-password modal QA (carry-over)
+4. Mobile sanity sweep on real iOS Safari + Android Chrome
+5. Live mic test USA + AU interview-prep flows (carry-over #13)
+6. Confirm `security@eduvianai.com` mailbox routing (carry-over #14)
+7. End-to-end QA of cross-device profile prefill (730608f0 + 684a89f1) — submit on desktop → sign in on mobile → verify fields auto-fill
+8. Verify feedback-survey modal pops on all 4 surfaces, submits succeed, admin dashboard populates
+
+**Tier-B — API spend (await explicit go):**
+
+9. USA fee uplift beyond 78% — residential proxy ($50/mo). Skipped.
+10. Tuition estimate for 2,907 missing programs via `estimate-fees.ts` (~$20-$290 depending on scope).
+11. Stage 4 sidecar for 8 remaining countries — **user said NO after CA+SG smoke**; rest would be ~$155, low value because no acceptance rates published in those markets.
+
+**Tier-D — security & ops (all carry-over):**
+
+12. M1 CSP, M3 Zod, M5 secrets rotation doc, M7+L3 legal-doc edits (attorney-gated), L5 verified_at HMAC, I3 IR plan, I2+I4 bug bounty + pen-testing.
+
+**Pipeline ops:**
+
+13. Vercel env checks — confirm `MAX_MONTHLY_SPEND_CENTS` isn't hard-set to 5000; add user's test email to `BETA_OWNER_EMAILS`.
+
+**Product surface (low priority):**
+
+14. Universities-sidecar UI surfacing — TEF / NSS / acceptance row on ProgramCard or Parent Decision tool (sidecar has 419 rows but only acceptance_rate is wired into scoring; UI doesn't show the rest)
+
+### 38.11 Spend tally for handoff #18
+
+| Job | Approx |
+|---|---|
+| Stage 4 Singapore smoke | $7.82 |
+| Stage 4 Canada | $56.85 |
+| **Total** | **~$65** |
+
+All other 33 commits in handoff #18 were $0 (code + UI + data-cleanup only).
+
+### 38.12 DB shape end-of-handoff-#18
+
+- Programs: **9,298 / 9,298 verified / 12 countries / 21 streams** (unchanged from #17 — no new programs added; reclassifications only)
+- Universities sidecar: **419** (218 USA + 121 UK + 70 CA + 10 SG)
+- `field_aliases` non-null: **10** (was 417 before strip; 407 cleared)
+- Stream distribution top 5: Computer Science & IT 711 / Economics & Finance 638 / Engineering 626 / Business & Management 622 / Natural Sciences 567
