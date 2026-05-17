@@ -236,10 +236,18 @@ export default function ResultsPage() {
   const reachSlice = sliceTier("reach");
   const ambitiousSlice = sliceTier("ambitious");
 
-  const safePrograms      = applyFilters(showNext20 ? [...safeSlice.top, ...safeSlice.next] : safeSlice.top);
-  const reachPrograms     = applyFilters(showNext20 ? [...reachSlice.top, ...reachSlice.next] : reachSlice.top);
-  const ambitiousPrograms = applyFilters(showNext20 ? [...ambitiousSlice.top, ...ambitiousSlice.next] : ambitiousSlice.top);
+  // Top-20 + Next-20 stay in separate blocks (rendered as two banner-led
+  // groups) so it's visually obvious there are two pages of matches and
+  // the user can shortlist from either without confusion. Filters apply
+  // independently to each half.
+  const safePrograms      = applyFilters(safeSlice.top);
+  const reachPrograms     = applyFilters(reachSlice.top);
+  const ambitiousPrograms = applyFilters(ambitiousSlice.top);
+  const safeProgramsNext      = applyFilters(safeSlice.next);
+  const reachProgramsNext     = applyFilters(reachSlice.next);
+  const ambitiousProgramsNext = applyFilters(ambitiousSlice.next);
   const nextPageCount     = safeSlice.next.length + reachSlice.next.length + ambitiousSlice.next.length;
+  const nextPageVisibleCount = safeProgramsNext.length + reachProgramsNext.length + ambitiousProgramsNext.length;
 
   const countries = [...new Set(allPrograms.map((p) => p.country))];
   const fields    = [...new Set(allPrograms.map((p) => p.field_of_study))];
@@ -250,6 +258,7 @@ export default function ResultsPage() {
   // active filter (default QS rank ASC, so the highest-prestige
   // university surfaces first inside its tier).
   const tierPrograms = { safe: safePrograms, reach: reachPrograms, ambitious: ambitiousPrograms };
+  const tierProgramsNext = { safe: safeProgramsNext, reach: reachProgramsNext, ambitious: ambitiousProgramsNext };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50/30">
@@ -473,20 +482,103 @@ export default function ResultsPage() {
           );
         })}
 
-        {/* Next Best 20 — surfaced after Top 20 so users who want broader
-            exploration can expand without leaving the page. Same per-tier
-            ratio (6 safe / 10 reach / 4 ambitious). */}
+        {/* Next Best 20 toggle — reveals a second banner-led block below.
+            Same per-tier ratio (6 safe / 10 reach / 4 ambitious). Smooth-
+            scrolls to the Next Best 20 banner on open so the user lands
+            at the top of the new programs (not at the bottom of the page
+            where the button itself lives). */}
         {nextPageCount > 0 && (
           <div className="mb-6 flex justify-center">
             <button
               type="button"
-              onClick={() => setShowNext20((v) => !v)}
+              onClick={() => {
+                const opening = !showNext20;
+                setShowNext20(opening);
+                if (opening) {
+                  // Wait for the new section to render, then scroll its
+                  // banner into view at the top of the viewport.
+                  requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                      const el = document.getElementById("next-best-20");
+                      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+                    });
+                  });
+                }
+              }}
               className="flex items-center gap-2 px-6 py-3 rounded-2xl border border-indigo-200 bg-white text-indigo-700 text-sm font-semibold shadow-sm hover:bg-indigo-50 hover:border-indigo-300 transition-all"
             >
               {showNext20
                 ? `Hide Next ${nextPageCount} Matches`
                 : `Show Next Best ${nextPageCount} Matches`}
             </button>
+          </div>
+        )}
+
+        {/* Next Best 20 block — visually distinct from the Top 20 above so
+            users can clearly tell the two pages apart and shortlist from
+            either. Same 3 tier sub-sections (Safe / Reach / Ambitious),
+            same ProgramCard wiring — so the shortlist, compare, and
+            apply actions all work identically here. */}
+        {showNext20 && nextPageCount > 0 && (
+          <div id="next-best-20" className="scroll-mt-24">
+            <div className="mb-5 rounded-2xl border-2 border-violet-200 bg-gradient-to-r from-violet-50 to-indigo-50 px-5 py-4">
+              <p className="text-xs font-bold uppercase tracking-wider text-violet-700 mb-1">Next Best {nextPageCount} Matches</p>
+              <p className="text-sm text-gray-700">
+                Ranks 21-{20 + nextPageCount} from the matcher — same scoring + per-tier ratio as the Top 20 above.
+                Shortlist any of these the same way; they&apos;ll save together.
+              </p>
+            </div>
+
+            {TIER_CONFIG.map((tc, sectionIdx) => {
+              const programs = tierProgramsNext[tc.tier];
+              if (programs.length === 0) return null;
+              return (
+                <motion.section
+                  key={`next-${tc.tier}`}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: sectionIdx * 0.05 }}
+                  className="mb-10"
+                >
+                  <div className={`flex items-center gap-3 px-4 py-3 rounded-2xl ${tc.bg} border ${tc.border} mb-4`}>
+                    <span className="text-xl">{tc.emoji}</span>
+                    <div className="flex-1">
+                      <span className={`font-extrabold text-base ${tc.text}`}>
+                        {tc.label}
+                        <span className="ml-2 font-normal text-sm opacity-70">({programs.length} more)</span>
+                      </span>
+                      <p className="text-xs text-gray-500 mt-0.5">{tc.description}</p>
+                    </div>
+                  </div>
+                  <div className="space-y-4">
+                    {programs.map((program, i) => (
+                      <motion.div
+                        key={program.id}
+                        initial={{ opacity: 0, y: 12 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: sectionIdx * 0.04 + Math.min(i, 8) * 0.03 }}
+                      >
+                        <ProgramCard
+                          program={program}
+                          isShortlisted={shortlisted.has(program.id)}
+                          onToggleShortlist={() => toggleShortlist(program.id)}
+                          isInCompare={compareSet.has(program.id)}
+                          onToggleCompare={() => toggleCompare(program.id)}
+                          compareDisabled={!compareSet.has(program.id) && compareSet.size >= 5}
+                          budgetPct={budgetPctFor(program)}
+                        />
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.section>
+              );
+            })}
+
+            {nextPageVisibleCount === 0 && (
+              <div className="mb-6 rounded-2xl border border-dashed border-gray-200 bg-gray-50 px-4 py-5 text-center text-sm text-gray-500">
+                Your active filters hid every program in the Next Best {nextPageCount} pool. Clear filters to see them.
+              </div>
+            )}
           </div>
         )}
 
