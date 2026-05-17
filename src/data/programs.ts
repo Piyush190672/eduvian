@@ -27,7 +27,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "Carnegie Mellon University",
-    country: "USA", city: "Pittsburgh, PA", qs_ranking: 52,
+    country: "USA", city: "Pittsburgh, PA", qs_ranking: 58,
     program_name: "MS in Machine Learning", degree_level: "postgraduate",
     duration_months: 16, field_of_study: "Artificial Intelligence", specialization: "ML",
     annual_tuition_usd: 52800, avg_living_cost_usd: 22000,
@@ -48,7 +48,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "University of California, Berkeley",
-    country: "USA", city: "Berkeley, CA", qs_ranking: 10,
+    country: "USA", city: "Berkeley, CA", qs_ranking: 12,
     program_name: "Master of Engineering (EECS)", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "EECS",
     annual_tuition_usd: 29000, avg_living_cost_usd: 28000,
@@ -69,7 +69,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "University of Texas at Austin",
-    country: "USA", city: "Austin, TX", qs_ranking: 71,
+    country: "USA", city: "Austin, TX", qs_ranking: 56,
     program_name: "Master's of Data Science", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Data Science", field_aliases: null, specialization: "Data Science",
     annual_tuition_usd: 22000, avg_living_cost_usd: 20000,
@@ -90,7 +90,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "Purdue University",
-    country: "USA", city: "West Lafayette, IN", qs_ranking: 109,
+    country: "USA", city: "West Lafayette, IN", qs_ranking: 89,
     program_name: "MS in Computer Science", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Computer Science & IT", specialization: "General CS",
     annual_tuition_usd: 29000, avg_living_cost_usd: 16000,
@@ -111,7 +111,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "Arizona State University",
-    country: "USA", city: "Tempe, AZ", qs_ranking: 216,
+    country: "USA", city: "Tempe, AZ", qs_ranking: 191,
     program_name: "Master of Science in software engineering", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Computer Science & IT", specialization: "Software Engineering",
     annual_tuition_usd: 35319, avg_living_cost_usd: 14000,
@@ -144,7 +144,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "Georgia Institute of Technology",
-    country: "USA", city: "Atlanta, GA", qs_ranking: 97,
+    country: "USA", city: "Atlanta, GA", qs_ranking: 80,
     program_name: "Bachelor of Science in Industrial Engineering", degree_level: "undergraduate",
     duration_months: 48, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "Industrial Engineering",
     annual_tuition_usd: 32396, avg_living_cost_usd: 17000,
@@ -186,7 +186,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "University of Southampton",
-    country: "UK", city: "Southampton", qs_ranking: 81,
+    country: "UK", city: "Southampton", qs_ranking: 80,
     program_name: "Cyber Security (MSc)", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Cybersecurity", field_aliases: null, specialization: "Cyber Security",
     annual_tuition_usd: 28800, avg_living_cost_usd: 17200,
@@ -208,7 +208,7 @@ export const PROGRAMS = ([{
 
 {
     university_name: "University of Melbourne",
-    country: "Australia", city: "Melbourne", qs_ranking: 13,
+    country: "Australia", city: "Melbourne", qs_ranking: 19,
     program_name: "Master of Data Science", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Data Science", field_aliases: null, specialization: "Data Science",
     annual_tuition_usd: 33600, avg_living_cost_usd: 18000,
@@ -250,7 +250,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "RMIT University",
-    country: "Australia", city: "Melbourne", qs_ranking: 188,
+    country: "Australia", city: "Melbourne", qs_ranking: 123,
     program_name: "Master of Information Technology", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Computer Science & IT", specialization: "IT Management",
     annual_tuition_usd: 24000, avg_living_cost_usd: 18000,
@@ -262,7 +262,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "Curtin University",
-    country: "Australia", city: "Perth", qs_ranking: 232,
+    country: "Australia", city: "Perth", qs_ranking: 174,
     program_name: "Bachelor of Computing", degree_level: "undergraduate",
     duration_months: 36, field_of_study: "Computer Science & IT", specialization: "General CS",
     annual_tuition_usd: 21600, avg_living_cost_usd: 15000,
@@ -274,7 +274,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "University of Queensland",
-    country: "Australia", city: "Brisbane", qs_ranking: 43,
+    country: "Australia", city: "Brisbane", qs_ranking: 40,
     program_name: "Bachelor of Business Management", degree_level: "undergraduate",
     duration_months: 36, field_of_study: "Business & Management", specialization: "Business",
     annual_tuition_usd: 26400, avg_living_cost_usd: 16000,
@@ -316,7 +316,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "McGill University",
-    country: "Canada", city: "Montreal, QC", qs_ranking: 31,
+    country: "Canada", city: "Montreal, QC", qs_ranking: 29,
     program_name: "Graduate Studies | Electrical and Computer Engineering", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "Electrical Engineering",
     annual_tuition_usd: 18000, avg_living_cost_usd: 16000,
@@ -337,7 +337,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "University of Waterloo",
-    country: "Canada", city: "Waterloo, ON", qs_ranking: 112,
+    country: "Canada", city: "Waterloo, ON", qs_ranking: 115,
     program_name: "Master's of Data Science and Artificial Intelligence (MDSAI)", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Artificial Intelligence", field_aliases: null, specialization: "Data Science & AI",
     annual_tuition_usd: 19200, avg_living_cost_usd: 15000,
@@ -349,7 +349,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "York University",
-    country: "Canada", city: "Toronto, ON", qs_ranking: 601,
+    country: "Canada", city: "Toronto, ON", qs_ranking: 363,
     program_name: "Bachelor of Business Administration", degree_level: "undergraduate",
     duration_months: 48, field_of_study: "Business & Management", specialization: "Business",
     annual_tuition_usd: 22000, avg_living_cost_usd: 18000,
@@ -361,7 +361,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "Dalhousie University",
-    country: "Canada", city: "Halifax, NS", qs_ranking: 486,
+    country: "Canada", city: "Halifax, NS", qs_ranking: 308,
     program_name: "Master of Applied Computer Science", degree_level: "postgraduate",
     duration_months: 16, field_of_study: "Computer Science & IT", specialization: "Applied CS",
     annual_tuition_usd: 14000, avg_living_cost_usd: 12000,
@@ -374,7 +374,7 @@ export const PROGRAMS = ([{
 
 {
     university_name: "University of Auckland",
-    country: "New Zealand", city: "Auckland", qs_ranking: 68,
+    country: "New Zealand", city: "Auckland", qs_ranking: 65,
     program_name: "Master of Information Technology", degree_level: "postgraduate",
     duration_months: 18, field_of_study: "Computer Science & IT", specialization: "IT",
     annual_tuition_usd: 22800, avg_living_cost_usd: 16000,
@@ -416,7 +416,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "Technical University of Munich",
-    country: "Germany", city: "Munich", qs_ranking: 37,
+    country: "Germany", city: "Munich", qs_ranking: 22,
     program_name: "Informatics - Master of Science (M.Sc.)", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Computer Science & IT", specialization: "Informatics",
     annual_tuition_usd: 10800, avg_living_cost_usd: 14000,
@@ -470,7 +470,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "Khalifa University",
-    country: "UAE", city: "Abu Dhabi", qs_ranking: 181,
+    country: "UAE", city: "Abu Dhabi", qs_ranking: 230,
     program_name: "MSc in Artificial Intelligence", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Artificial Intelligence", specialization: "AI",
     annual_tuition_usd: 20300, avg_living_cost_usd: 18000,
@@ -482,7 +482,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "Nanyang Technological University",
-    country: "Singapore", city: "Singapore", qs_ranking: 15,
+    country: "Singapore", city: "Singapore", qs_ranking: 12,
     program_name: "Master of Science in Artificial Intelligence (MSAI)", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Artificial Intelligence", specialization: "AI",
     annual_tuition_usd: 28800, avg_living_cost_usd: 15000,
@@ -526,7 +526,7 @@ export const PROGRAMS = ([{
 
 {
     university_name: "Universiti Malaya",
-    country: "Malaysia", city: "Kuala Lumpur", qs_ranking: 65,
+    country: "Malaysia", city: "Kuala Lumpur", qs_ranking: 60,
     program_name: "Master of Computer Science (Applied Computing) (Mixed Mode)", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Computer Science & IT", specialization: "General CS",
     annual_tuition_usd: 5000, avg_living_cost_usd: 6000,
@@ -568,7 +568,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "University of Glasgow",
-    country: "UK", city: "Glasgow", qs_ranking: 77,
+    country: "UK", city: "Glasgow", qs_ranking: 78,
     program_name: "Financial Technology MSc", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Economics & Finance", specialization: "FinTech",
     annual_tuition_usd: 25800, avg_living_cost_usd: 17200,
@@ -610,7 +610,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "Deakin University",
-    country: "Australia", city: "Melbourne", qs_ranking: 266,
+    country: "Australia", city: "Melbourne", qs_ranking: 197,
     program_name: "Master of Cyber Security", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Cybersecurity", field_aliases: null, specialization: "Cyber Security",
     annual_tuition_usd: 22800, avg_living_cost_usd: 18000,
@@ -622,7 +622,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "University of British Columbia",
-    country: "Canada", city: "Vancouver, BC", qs_ranking: 46,
+    country: "Canada", city: "Vancouver, BC", qs_ranking: 38,
     program_name: "Bachelor of Computer Science (Integrated Computer Science program)", degree_level: "undergraduate",
     duration_months: 48, field_of_study: "Computer Science & IT", specialization: "CS",
     annual_tuition_usd: 38400, avg_living_cost_usd: 20000,
@@ -643,7 +643,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "University of Auckland",
-    country: "New Zealand", city: "Auckland", qs_ranking: 68,
+    country: "New Zealand", city: "Auckland", qs_ranking: 65,
     program_name: "Bachelor of Engineering (Honours) in Software Engineering", degree_level: "undergraduate",
     duration_months: 48, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "Software Engineering",
     annual_tuition_usd: 28800, avg_living_cost_usd: 16000,
@@ -664,7 +664,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "University of Strathclyde",
-    country: "UK", city: "Glasgow", qs_ranking: 301,
+    country: "UK", city: "Glasgow", qs_ranking: 269,
     program_name: "MSc Advanced Computer Science", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Computer Science & IT", specialization: "Advanced CS",
     annual_tuition_usd: 23400, avg_living_cost_usd: 17200,
@@ -676,7 +676,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "University of Technology Sydney",
-    country: "Australia", city: "Sydney", qs_ranking: 148,
+    country: "Australia", city: "Sydney", qs_ranking: 88,
     program_name: "Master of Data Science and Innovation", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Data Science", field_aliases: null, specialization: "Data Science",
     annual_tuition_usd: 28800, avg_living_cost_usd: 22000,
@@ -697,7 +697,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "Harvard University",
-    country: "USA", city: "Cambridge, MA", qs_ranking: 4,
+    country: "USA", city: "Cambridge, MA", qs_ranking: 5,
     program_name: "MBA", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "MBA", specialization: "General Management",
     annual_tuition_usd: 76000, avg_living_cost_usd: 28000,
@@ -718,7 +718,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "California Institute of Technology",
-    country: "USA", city: "Pasadena, CA", qs_ranking: 6,
+    country: "USA", city: "Pasadena, CA", qs_ranking: 10,
     program_name: "MS in Aerospace Engineering", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "Aerospace",
     annual_tuition_usd: 61000, avg_living_cost_usd: 24000,
@@ -739,7 +739,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "Yale University",
-    country: "USA", city: "New Haven, CT", qs_ranking: 16,
+    country: "USA", city: "New Haven, CT", qs_ranking: 23,
     program_name: "The Juris Doctor Program", degree_level: "postgraduate",
     duration_months: 36, field_of_study: "Law", specialization: "Law",
     annual_tuition_usd: 49500, avg_living_cost_usd: 22000,
@@ -760,7 +760,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "Yale University",
-    country: "USA", city: "New Haven, CT", qs_ranking: 16,
+    country: "USA", city: "New Haven, CT", qs_ranking: 23,
     program_name: "BA in Economics", degree_level: "undergraduate",
     duration_months: 48, field_of_study: "Economics & Finance", specialization: "Economics",
     annual_tuition_usd: 62250, avg_living_cost_usd: 22000,
@@ -782,7 +782,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "Cornell University",
-    country: "USA", city: "Ithaca, NY", qs_ranking: 13,
+    country: "USA", city: "Ithaca, NY", qs_ranking: 16,
     program_name: "Master of Engineering in Computer Science", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Computer Science & IT", specialization: "General CS",
     annual_tuition_usd: 32100, avg_living_cost_usd: 14000,
@@ -803,7 +803,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "University of Pennsylvania",
-    country: "USA", city: "Philadelphia, PA", qs_ranking: 12,
+    country: "USA", city: "Philadelphia, PA", qs_ranking: 11,
     program_name: "Wharton MBA Program", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "MBA", specialization: "Finance & Strategy",
     annual_tuition_usd: 84874, avg_living_cost_usd: 24000,
@@ -824,7 +824,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "Northwestern University",
-    country: "USA", city: "Evanston, IL", qs_ranking: 33,
+    country: "USA", city: "Evanston, IL", qs_ranking: 50,
     program_name: "Full-Time MBA Program", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "MBA", specialization: "General Management",
     annual_tuition_usd: 82308, avg_living_cost_usd: 22000,
@@ -866,7 +866,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "Duke University",
-    country: "USA", city: "Durham, NC", qs_ranking: 51,
+    country: "USA", city: "Durham, NC", qs_ranking: 50,
     program_name: "Daytime MBA", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "MBA", specialization: "General Management",
     annual_tuition_usd: 74000, avg_living_cost_usd: 22000,
@@ -887,7 +887,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "University of Washington",
-    country: "USA", city: "Seattle, WA", qs_ranking: 61,
+    country: "USA", city: "Seattle, WA", qs_ranking: 76,
     program_name: "Master of Science in Information Management", degree_level: "postgraduate",
     duration_months: 21, field_of_study: "Computer Science & IT", specialization: "Information Management",
     annual_tuition_usd: 36000, avg_living_cost_usd: 24000,
@@ -908,7 +908,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "Boston University",
-    country: "USA", city: "Boston, MA", qs_ranking: 112,
+    country: "USA", city: "Boston, MA", qs_ranking: 109,
     program_name: "MS in Computer Science", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Computer Science & IT", specialization: "General CS",
     annual_tuition_usd: 57872, avg_living_cost_usd: 24000,
@@ -920,7 +920,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "University of Southern California",
-    country: "USA", city: "Los Angeles, CA", qs_ranking: 137,
+    country: "USA", city: "Los Angeles, CA", qs_ranking: 116,
     program_name: "Master of Science in Computer Science", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Computer Science & IT", specialization: "General CS",
     annual_tuition_usd: 63468, avg_living_cost_usd: 26000,
@@ -944,7 +944,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "Rice University",
-    country: "USA", city: "Houston, TX", qs_ranking: 164,
+    country: "USA", city: "Houston, TX", qs_ranking: 145,
     program_name: "Rice MBA", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "MBA", specialization: "General Management",
     annual_tuition_usd: 59000, avg_living_cost_usd: 20000,
@@ -956,7 +956,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "University of Exeter",
-    country: "UK", city: "Exeter", qs_ranking: 149,
+    country: "UK", city: "Exeter", qs_ranking: 169,
     program_name: "MSc Business Analytics", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Data Science", specialization: "Analytics",
     annual_tuition_usd: 24000, avg_living_cost_usd: 13000,
@@ -968,7 +968,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "University of Wollongong",
-    country: "Australia", city: "Wollongong", qs_ranking: 196,
+    country: "Australia", city: "Wollongong", qs_ranking: 167,
     program_name: "Master of Computer Science", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Computer Science & IT", specialization: "General CS",
     annual_tuition_usd: 27600, avg_living_cost_usd: 16000,
@@ -981,7 +981,7 @@ export const PROGRAMS = ([{
 
 {
     university_name: "University of Alberta",
-    country: "Canada", city: "Edmonton, AB", qs_ranking: 111,
+    country: "Canada", city: "Edmonton, AB", qs_ranking: 96,
     program_name: "Graduate Program - Department of Computing Science", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Computer Science & IT", specialization: "General CS",
     annual_tuition_usd: 14400, avg_living_cost_usd: 15000,
@@ -1002,7 +1002,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "McMaster University",
-    country: "Canada", city: "Hamilton, ON", qs_ranking: 189,
+    country: "Canada", city: "Hamilton, ON", qs_ranking: 176,
     program_name: "MEng in Engineering Design", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "Engineering Design",
     annual_tuition_usd: 16800, avg_living_cost_usd: 15000,
@@ -1014,7 +1014,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "Western University",
-    country: "Canada", city: "London, ON", qs_ranking: 246,
+    country: "Canada", city: "London, ON", qs_ranking: 109,
     program_name: "One-Year MBA Program", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "MBA", specialization: "General Management",
     annual_tuition_usd: 80000, avg_living_cost_usd: 15000,
@@ -1026,7 +1026,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "École Polytechnique",
-    country: "France", city: "Palaiseau", qs_ranking: 42,
+    country: "France", city: "Palaiseau", qs_ranking: 56,
     program_name: "Master of Science and Technology", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Natural Sciences", specialization: "Applied Mathematics",
     annual_tuition_usd: 15000, avg_living_cost_usd: 8000,
@@ -1060,7 +1060,7 @@ export const PROGRAMS = ([{
 
 {
     university_name: "University of Cambridge",
-    country: "UK", city: "Cambridge", qs_ranking: 2,
+    country: "UK", city: "Cambridge", qs_ranking: 6,
     program_name: "MB BChir (Medicine)", degree_level: "undergraduate",
     duration_months: 72, field_of_study: "Medicine & Public Health", specialization: "Medicine",
     annual_tuition_usd: 64000, avg_living_cost_usd: 18000,
@@ -1081,7 +1081,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "Imperial College London",
-    country: "UK", city: "London", qs_ranking: 6,
+    country: "UK", city: "London", qs_ranking: 2,
     program_name: "MBBS/BSc in Medicine (for undergraduates)", degree_level: "undergraduate",
     duration_months: 72, field_of_study: "Medicine & Public Health", specialization: "Medicine",
     annual_tuition_usd: 57000, avg_living_cost_usd: 22000,
@@ -1165,7 +1165,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "University of Bristol",
-    country: "UK", city: "Bristol", qs_ranking: 55,
+    country: "UK", city: "Bristol", qs_ranking: 54,
     program_name: "MBBS Medicine", degree_level: "undergraduate",
     duration_months: 60, field_of_study: "Medicine & Public Health", specialization: "Medicine",
     annual_tuition_usd: 44000, avg_living_cost_usd: 17200,
@@ -1186,7 +1186,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "University of Sheffield",
-    country: "UK", city: "Sheffield", qs_ranking: 105,
+    country: "UK", city: "Sheffield", qs_ranking: 110,
     program_name: "MBChB Medicine", degree_level: "undergraduate",
     duration_months: 60, field_of_study: "Medicine & Public Health", specialization: "Medicine",
     annual_tuition_usd: 40000, avg_living_cost_usd: 13000,
@@ -1198,7 +1198,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "Newcastle University",
-    country: "UK", city: "Newcastle", qs_ranking: 110,
+    country: "UK", city: "Newcastle", qs_ranking: 168,
     program_name: "Medicine and Surgery MB BS", degree_level: "undergraduate",
     duration_months: 60, field_of_study: "Medicine & Public Health", specialization: "Medicine",
     annual_tuition_usd: 40000, avg_living_cost_usd: 13000,
@@ -1231,7 +1231,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "McGill University",
-    country: "Canada", city: "Montreal", qs_ranking: 46,
+    country: "Canada", city: "Montreal", qs_ranking: 29,
     program_name: "MDCM (Doctor of Medicine & Master of Surgery)", degree_level: "postgraduate",
     duration_months: 48, field_of_study: "Medicine & Public Health", specialization: "Medicine",
     annual_tuition_usd: 24000, avg_living_cost_usd: 16000,
@@ -1254,7 +1254,7 @@ export const PROGRAMS = ([{
 
 {
     university_name: "University of Auckland",
-    country: "New Zealand", city: "Auckland", qs_ranking: 68,
+    country: "New Zealand", city: "Auckland", qs_ranking: 65,
     program_name: "Bachelor of Medicine and Bachelor of Surgery", degree_level: "undergraduate",
     duration_months: 72, field_of_study: "Medicine & Public Health", specialization: "Medicine",
     annual_tuition_usd: 50000, avg_living_cost_usd: 16000,
@@ -1275,7 +1275,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "University of Otago",
-    country: "New Zealand", city: "Dunedin", qs_ranking: 184,
+    country: "New Zealand", city: "Dunedin", qs_ranking: 197,
     program_name: "MBChB Medicine", degree_level: "undergraduate",
     duration_months: 72, field_of_study: "Medicine & Public Health", specialization: "Medicine",
     annual_tuition_usd: 49000, avg_living_cost_usd: 12400,
@@ -1288,7 +1288,7 @@ export const PROGRAMS = ([{
 
 {
     university_name: "Trinity College Dublin",
-    country: "Ireland", city: "Dublin", qs_ranking: 82,
+    country: "Ireland", city: "Dublin", qs_ranking: 81,
     program_name: "Medicine - M.B. (Bachelor in Medicine) / B.Ch. (Bachelor in Surgery) / B.A.O. (Bachelor in Obstetrics)", degree_level: "undergraduate",
     duration_months: 72, field_of_study: "Medicine & Public Health", specialization: "Medicine",
     annual_tuition_usd: 68000, avg_living_cost_usd: 14000,
@@ -1309,7 +1309,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "University College Dublin",
-    country: "Ireland", city: "Dublin", qs_ranking: 171,
+    country: "Ireland", city: "Dublin", qs_ranking: 124,
     program_name: "MB BCh BAO (Medicine)", degree_level: "undergraduate",
     duration_months: 72, field_of_study: "Medicine & Public Health", specialization: "Medicine",
     annual_tuition_usd: 60000, avg_living_cost_usd: 14000,
@@ -1359,7 +1359,7 @@ export const PROGRAMS = ([{
 
 {
     university_name: "University of Newcastle",
-    country: "Australia", city: "Newcastle", qs_ranking: 197,
+    country: "Australia", city: "Newcastle", qs_ranking: 179,
     program_name: "Bachelor of Computer Science", degree_level: "undergraduate",
     duration_months: 36, field_of_study: "Computer Science & IT", specialization: "General CS",
     annual_tuition_usd: 23000, avg_living_cost_usd: 15000,
@@ -1372,7 +1372,7 @@ export const PROGRAMS = ([{
 
 {
     university_name: "Bond University",
-    country: "Australia", city: "Gold Coast", qs_ranking: 601,
+    country: "Australia", city: "Gold Coast", qs_ranking: 487,
     program_name: "Master of Business Administration", degree_level: "postgraduate",
     duration_months: 16, field_of_study: "MBA", specialization: "General Management",
     annual_tuition_usd: 38000, avg_living_cost_usd: 18000,
@@ -1385,7 +1385,7 @@ export const PROGRAMS = ([{
 
 {
     university_name: "Lancaster University",
-    country: "UK", city: "Lancaster", qs_ranking: 140,
+    country: "UK", city: "Lancaster", qs_ranking: 169,
     program_name: "Data Science MSc", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Data Science", field_aliases: null, specialization: "Data Science",
     annual_tuition_usd: 28000, avg_living_cost_usd: 13000,
@@ -1397,7 +1397,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "Lancaster University",
-    country: "UK", city: "Lancaster", qs_ranking: 140,
+    country: "UK", city: "Lancaster", qs_ranking: 169,
     program_name: "The Lancaster MBA and Executive MBA", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "MBA", specialization: "General Management",
     annual_tuition_usd: 38000, avg_living_cost_usd: 13000,
@@ -1410,7 +1410,7 @@ export const PROGRAMS = ([{
 
 {
     university_name: "Coventry University",
-    country: "UK", city: "Coventry", qs_ranking: 601,
+    country: "UK", city: "Coventry", qs_ranking: 543,
     program_name: "Data Science and Computational Intelligence MSc", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Data Science", field_aliases: null, specialization: "Data Science",
     annual_tuition_usd: 20000, avg_living_cost_usd: 13000,
@@ -1422,7 +1422,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "Brunel University London",
-    country: "UK", city: "London", qs_ranking: 521,
+    country: "UK", city: "London", qs_ranking: 333,
     program_name: "Data Science and Analytics MSc", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Data Science", field_aliases: null, specialization: "Data Science",
     annual_tuition_usd: 24000, avg_living_cost_usd: 22000,
@@ -1434,7 +1434,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "City, University of London",
-    country: "UK", city: "London", qs_ranking: 601,
+    country: "UK", city: "London", qs_ranking: 348,
     program_name: "Data Science MSc", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Data Science", field_aliases: null, specialization: "Data Science",
     annual_tuition_usd: 25000, avg_living_cost_usd: 22000,
@@ -1446,7 +1446,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "University of Plymouth",
-    country: "UK", city: "Plymouth", qs_ranking: 601,
+    country: "UK", city: "Plymouth", qs_ranking: 581,
     program_name: "MSc Cyber Security", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Cybersecurity", field_aliases: null, specialization: "Cyber Security",
     annual_tuition_usd: 20000, avg_living_cost_usd: 17200,
@@ -1459,7 +1459,7 @@ export const PROGRAMS = ([{
 
 {
     university_name: "University of Salford",
-    country: "UK", city: "Salford", qs_ranking: 651,
+    country: "UK", city: "Salford", qs_ranking: 691,
     program_name: "MSc/PgDip Data Science", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Data Science", field_aliases: null, specialization: "Data Science",
     annual_tuition_usd: 18000, avg_living_cost_usd: 17200,
@@ -1548,7 +1548,7 @@ export const PROGRAMS = ([{
 
 {
     university_name: "Manchester Metropolitan University",
-    country: "UK", city: "Manchester", qs_ranking: 801,
+    country: "UK", city: "Manchester", qs_ranking: 661,
     program_name: "MSc Data Science", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Data Science", field_aliases: null, specialization: "Data Science",
     annual_tuition_usd: 19000, avg_living_cost_usd: 17200,
@@ -1561,7 +1561,7 @@ export const PROGRAMS = ([{
 
 {
     university_name: "Middlesex University",
-    country: "UK", city: "London", qs_ranking: 801,
+    country: "UK", city: "London", qs_ranking: 691,
     program_name: "MSc Cyber Security", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Cybersecurity", field_aliases: null, specialization: "Cyber Security",
     annual_tuition_usd: 18000, avg_living_cost_usd: 19000,
@@ -1574,7 +1574,7 @@ export const PROGRAMS = ([{
 
 {
     university_name: "Anglia Ruskin University",
-    country: "UK", city: "Chelmsford", qs_ranking: 601,
+    country: "UK", city: "Chelmsford", qs_ranking: 671,
     program_name: "Business Management BSc (Hons)", degree_level: "undergraduate",
     duration_months: 36, field_of_study: "Business & Management", specialization: "Business Management",
     annual_tuition_usd: 19000, avg_living_cost_usd: 17200,
@@ -1587,7 +1587,7 @@ export const PROGRAMS = ([{
 
 {
     university_name: "Bournemouth University",
-    country: "UK", city: "Bournemouth", qs_ranking: 601,
+    country: "UK", city: "Bournemouth", qs_ranking: 691,
     program_name: "MSc Data Science & Artificial Intelligence", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Artificial Intelligence", field_aliases: null, specialization: "Data Science",
     annual_tuition_usd: 18000, avg_living_cost_usd: 13000,
@@ -1612,7 +1612,7 @@ export const PROGRAMS = ([{
 
 {
     university_name: "Goldsmiths, University of London",
-    country: "UK", city: "London", qs_ranking: 651,
+    country: "UK", city: "London", qs_ranking: 524,
     program_name: "MSc Data Science", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Data Science", field_aliases: null, specialization: "Data Science",
     annual_tuition_usd: 20000, avg_living_cost_usd: 20000,
@@ -1624,7 +1624,7 @@ export const PROGRAMS = ([{
   },,
 {
     university_name: "Goldsmiths, University of London",
-    country: "UK", city: "London", qs_ranking: 651,
+    country: "UK", city: "London", qs_ranking: 524,
     program_name: "BA Media and Communications", degree_level: "undergraduate",
     duration_months: 36, field_of_study: "Media & Communications", specialization: "Media Studies",
     annual_tuition_usd: 19000, avg_living_cost_usd: 20000,
@@ -1783,22 +1783,22 @@ export const PROGRAMS = ([{
     verified_at: "2026-04-27T10:42:33.024Z", verification_source_url: "https://mph.sph.brown.edu/",
   },,
 
-{ university_name: "Washington University in St. Louis", country: "USA", city: "St. Louis, MO", qs_ranking: 176, program_name: "MS in Computer Science", degree_level: "postgraduate", duration_months: 24, field_of_study: "Computer Science & IT", specialization: "General CS", annual_tuition_usd: 65000, avg_living_cost_usd: 14000, intake_semesters: ["fall","spring"], application_deadline: "2026-01-15", min_gpa: 3.3, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null, min_gre: 315, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://cse.washu.edu/academics/graduate/MS-in-Computer-Science.html", apply_url: "https://gradadmit.wustl.edu/apply/",
+{ university_name: "Washington University in St. Louis", country: "USA", city: "St. Louis, MO", qs_ranking: 224, program_name: "MS in Computer Science", degree_level: "postgraduate", duration_months: 24, field_of_study: "Computer Science & IT", specialization: "General CS", annual_tuition_usd: 65000, avg_living_cost_usd: 14000, intake_semesters: ["fall","spring"], application_deadline: "2026-01-15", min_gpa: 3.3, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null, min_gre: 315, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://cse.washu.edu/academics/graduate/MS-in-Computer-Science.html", apply_url: "https://gradadmit.wustl.edu/apply/",
     verified_at: "2026-04-27T10:42:38.537Z", verification_source_url: "https://cse.washu.edu/academics/graduate/MS-in-Computer-Science.html",
   },,
-{ university_name: "Washington University in St. Louis", country: "USA", city: "St. Louis, MO", qs_ranking: 176, program_name: "Full-Time MBA", degree_level: "postgraduate", duration_months: 21, field_of_study: "MBA", specialization: "General Management", annual_tuition_usd: 68000, avg_living_cost_usd: 14000, intake_semesters: ["fall"], application_deadline: "2026-03-01", min_gpa: 3.3, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: 680, min_sat: null, work_exp_required_years: 3, program_url: "https://olin.wustl.edu/MBA", apply_url: "https://olin.wustl.edu/admissions",
+{ university_name: "Washington University in St. Louis", country: "USA", city: "St. Louis, MO", qs_ranking: 224, program_name: "Full-Time MBA", degree_level: "postgraduate", duration_months: 21, field_of_study: "MBA", specialization: "General Management", annual_tuition_usd: 68000, avg_living_cost_usd: 14000, intake_semesters: ["fall"], application_deadline: "2026-03-01", min_gpa: 3.3, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: 680, min_sat: null, work_exp_required_years: 3, program_url: "https://olin.wustl.edu/MBA", apply_url: "https://olin.wustl.edu/admissions",
     verified_at: "2026-04-27T10:42:46.263Z", verification_source_url: "https://olin.wustl.edu/MBA",
   },,
-{ university_name: "Washington University in St. Louis", country: "USA", city: "St. Louis, MO", qs_ranking: 176, program_name: "Master of Science in Biomedical Engineering", degree_level: "postgraduate", duration_months: 24, field_of_study: "Biotechnology & Life Sciences", specialization: "Biomedical Engineering", annual_tuition_usd: 65000, avg_living_cost_usd: 14000, intake_semesters: ["fall"], application_deadline: "2025-12-01", min_gpa: 3.3, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null, min_gre: 315, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://bme.washu.edu/academics/graduate-programs/master.html", apply_url: "https://gradadmit.wustl.edu/apply/",
+{ university_name: "Washington University in St. Louis", country: "USA", city: "St. Louis, MO", qs_ranking: 224, program_name: "Master of Science in Biomedical Engineering", degree_level: "postgraduate", duration_months: 24, field_of_study: "Biotechnology & Life Sciences", specialization: "Biomedical Engineering", annual_tuition_usd: 65000, avg_living_cost_usd: 14000, intake_semesters: ["fall"], application_deadline: "2025-12-01", min_gpa: 3.3, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null, min_gre: 315, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://bme.washu.edu/academics/graduate-programs/master.html", apply_url: "https://gradadmit.wustl.edu/apply/",
     verified_at: "2026-04-27T10:42:44.829Z", verification_source_url: "https://bme.washu.edu/academics/graduate-programs/master.html",
   },,
-{ university_name: "Washington University in St. Louis", country: "USA", city: "St. Louis, MO", qs_ranking: 176, program_name: "Graduate Admissions - McKelvey School of Engineering", degree_level: "postgraduate", duration_months: 12, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "Engineering Management", annual_tuition_usd: 65000, avg_living_cost_usd: 14000, intake_semesters: ["fall","spring"], application_deadline: "2026-03-01", min_gpa: 3.0, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null, min_gre: 310, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://engineering.washu.edu/academics/graduate-admissions/index.html", apply_url: "https://gradadmit.wustl.edu/apply/",
+{ university_name: "Washington University in St. Louis", country: "USA", city: "St. Louis, MO", qs_ranking: 224, program_name: "Graduate Admissions - McKelvey School of Engineering", degree_level: "postgraduate", duration_months: 12, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "Engineering Management", annual_tuition_usd: 65000, avg_living_cost_usd: 14000, intake_semesters: ["fall","spring"], application_deadline: "2026-03-01", min_gpa: 3.0, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null, min_gre: 310, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://engineering.washu.edu/academics/graduate-admissions/index.html", apply_url: "https://gradadmit.wustl.edu/apply/",
     verified_at: "2026-04-27T10:42:52.946Z", verification_source_url: "https://engineering.washu.edu/academics/graduate-admissions/index.html",
   },,
-{ university_name: "Washington University in St. Louis", country: "USA", city: "St. Louis, MO", qs_ranking: 176, program_name: "Master of Social Work", degree_level: "postgraduate", duration_months: 24, field_of_study: "Social Sciences & Humanities", specialization: "Social Work", annual_tuition_usd: 64000, avg_living_cost_usd: 14000, intake_semesters: ["fall"], application_deadline: "2026-02-01", min_gpa: 3.0, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null, min_gre: 305, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://brownschool.washu.edu/academics/master-of-social-work/", apply_url: "https://gradadmit.wustl.edu/apply/",
+{ university_name: "Washington University in St. Louis", country: "USA", city: "St. Louis, MO", qs_ranking: 224, program_name: "Master of Social Work", degree_level: "postgraduate", duration_months: 24, field_of_study: "Social Sciences & Humanities", specialization: "Social Work", annual_tuition_usd: 64000, avg_living_cost_usd: 14000, intake_semesters: ["fall"], application_deadline: "2026-02-01", min_gpa: 3.0, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null, min_gre: 305, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://brownschool.washu.edu/academics/master-of-social-work/", apply_url: "https://gradadmit.wustl.edu/apply/",
     verified_at: "2026-04-27T10:42:54.343Z", verification_source_url: "https://brownschool.washu.edu/academics/master-of-social-work/",
   },,
-{ university_name: "Washington University in St. Louis", country: "USA", city: "St. Louis, MO", qs_ranking: 176, program_name: "MFA in Visual Art", degree_level: "postgraduate", duration_months: 24, field_of_study: "Arts and Design", specialization: "Visual Art", annual_tuition_usd: 64000, avg_living_cost_usd: 14000, intake_semesters: ["fall"], application_deadline: "2026-01-10", min_gpa: 3.0, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://samfoxschool.washu.edu/academics/college-of-art/mfa-in-visual-art", apply_url: "https://gradadmit.wustl.edu/apply/",
+{ university_name: "Washington University in St. Louis", country: "USA", city: "St. Louis, MO", qs_ranking: 224, program_name: "MFA in Visual Art", degree_level: "postgraduate", duration_months: 24, field_of_study: "Arts and Design", specialization: "Visual Art", annual_tuition_usd: 64000, avg_living_cost_usd: 14000, intake_semesters: ["fall"], application_deadline: "2026-01-10", min_gpa: 3.0, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://samfoxschool.washu.edu/academics/college-of-art/mfa-in-visual-art", apply_url: "https://gradadmit.wustl.edu/apply/",
     verified_at: "2026-04-27T10:43:00.761Z", verification_source_url: "https://samfoxschool.washu.edu/academics/college-of-art/mfa-in-visual-art",
   },,
 { university_name: "University of Rochester", country: "USA", city: "Rochester, NY", qs_ranking: 236, program_name: "Graduate Programs - Department of Computer Science", degree_level: "postgraduate", duration_months: 24, field_of_study: "Computer Science & IT", specialization: "General CS", annual_tuition_usd: 42000, avg_living_cost_usd: 17000, intake_semesters: ["fall","spring"], application_deadline: "2026-02-01", min_gpa: 3.2, min_percentage: null, min_ielts: 6.5, min_toefl: 90, min_pte: null, min_duolingo: null, min_gre: 314, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.cs.rochester.edu/graduate/", apply_url: "https://apply.grad.rochester.edu/apply/",
@@ -1820,42 +1820,42 @@ export const PROGRAMS = ([{
     verified_at: "2026-04-27T10:43:27.389Z", verification_source_url: "https://www.bme.rochester.edu/graduate/",
   },,
 
-{ university_name: "Dartmouth College", country: "USA", city: "Hanover, NH", qs_ranking: 243, program_name: "MBA", degree_level: "postgraduate", duration_months: 24, field_of_study: "MBA", specialization: "General Management", annual_tuition_usd: 77520, avg_living_cost_usd: 20000, intake_semesters: ["fall"], application_deadline: "2026-01-06", min_gpa: 3.5, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: 720, min_sat: null, work_exp_required_years: 3, program_url: "https://www.tuck.dartmouth.edu/mba", apply_url: "https://www.tuck.dartmouth.edu/admissions",
+{ university_name: "Dartmouth College", country: "USA", city: "Hanover, NH", qs_ranking: 198, program_name: "MBA", degree_level: "postgraduate", duration_months: 24, field_of_study: "MBA", specialization: "General Management", annual_tuition_usd: 77520, avg_living_cost_usd: 20000, intake_semesters: ["fall"], application_deadline: "2026-01-06", min_gpa: 3.5, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: 720, min_sat: null, work_exp_required_years: 3, program_url: "https://www.tuck.dartmouth.edu/mba", apply_url: "https://www.tuck.dartmouth.edu/admissions",
     verified_at: "2026-04-27T10:43:32.547Z", verification_source_url: "https://www.tuck.dartmouth.edu/mba",
   },,
-{ university_name: "Dartmouth College", country: "USA", city: "Hanover, NH", qs_ranking: 243, program_name: "MS in Quantitative Biomedical Sciences", degree_level: "postgraduate", duration_months: 24, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "General Engineering", annual_tuition_usd: 63000, avg_living_cost_usd: 20000, intake_semesters: ["fall"], application_deadline: "2026-01-01", min_gpa: 3.5, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null, min_gre: 320, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://geiselmed.dartmouth.edu/qbs/qbs-master/", apply_url: "https://apply.gs.dartmouth.edu/portal/apply_guarini",
+{ university_name: "Dartmouth College", country: "USA", city: "Hanover, NH", qs_ranking: 198, program_name: "MS in Quantitative Biomedical Sciences", degree_level: "postgraduate", duration_months: 24, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "General Engineering", annual_tuition_usd: 63000, avg_living_cost_usd: 20000, intake_semesters: ["fall"], application_deadline: "2026-01-01", min_gpa: 3.5, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null, min_gre: 320, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://geiselmed.dartmouth.edu/qbs/qbs-master/", apply_url: "https://apply.gs.dartmouth.edu/portal/apply_guarini",
     verified_at: "2026-04-27T17:11:05.237Z", verification_source_url: "https://geiselmed.dartmouth.edu/qbs/qbs-master/",
   },,
-{ university_name: "Dartmouth College", country: "USA", city: "Hanover, NH", qs_ranking: 243, program_name: "Masters in Computer Science", degree_level: "postgraduate", duration_months: 24, field_of_study: "Computer Science & IT", specialization: "General CS", annual_tuition_usd: 63000, avg_living_cost_usd: 20000, intake_semesters: ["fall"], application_deadline: "2026-01-01", min_gpa: 3.5, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null, min_gre: 320, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://web.cs.dartmouth.edu/graduate/graduate-admissions/masters-computer-science", apply_url: "https://apply.gs.dartmouth.edu/portal/apply_guarini",
+{ university_name: "Dartmouth College", country: "USA", city: "Hanover, NH", qs_ranking: 198, program_name: "Masters in Computer Science", degree_level: "postgraduate", duration_months: 24, field_of_study: "Computer Science & IT", specialization: "General CS", annual_tuition_usd: 63000, avg_living_cost_usd: 20000, intake_semesters: ["fall"], application_deadline: "2026-01-01", min_gpa: 3.5, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null, min_gre: 320, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://web.cs.dartmouth.edu/graduate/graduate-admissions/masters-computer-science", apply_url: "https://apply.gs.dartmouth.edu/portal/apply_guarini",
     verified_at: "2026-04-27T10:43:40.208Z", verification_source_url: "https://web.cs.dartmouth.edu/graduate/graduate-admissions/masters-computer-science",
   },,
-{ university_name: "Dartmouth College", country: "USA", city: "Hanover, NH", qs_ranking: 243, program_name: "MA in Economics", degree_level: "postgraduate", duration_months: 12, field_of_study: "Economics & Finance", specialization: "Economics", annual_tuition_usd: 63000, avg_living_cost_usd: 20000, intake_semesters: ["fall"], application_deadline: "2026-01-15", min_gpa: 3.5, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null, min_gre: 320, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://economics.dartmouth.edu/", apply_url: "https://apply.gs.dartmouth.edu/portal/apply_guarini",
+{ university_name: "Dartmouth College", country: "USA", city: "Hanover, NH", qs_ranking: 198, program_name: "MA in Economics", degree_level: "postgraduate", duration_months: 12, field_of_study: "Economics & Finance", specialization: "Economics", annual_tuition_usd: 63000, avg_living_cost_usd: 20000, intake_semesters: ["fall"], application_deadline: "2026-01-15", min_gpa: 3.5, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null, min_gre: 320, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://economics.dartmouth.edu/", apply_url: "https://apply.gs.dartmouth.edu/portal/apply_guarini",
     verified_at: "2026-05-04T02:17:15.000Z",
     verification_source_url: "https://economics.dartmouth.edu/" },,
-{ university_name: "Dartmouth College", country: "USA", city: "Hanover, NH", qs_ranking: 243, program_name: "MS in Quantitative Biomedical Sciences", degree_level: "postgraduate", duration_months: 24, field_of_study: "Natural Sciences", specialization: "Biomedical Sciences", annual_tuition_usd: 63000, avg_living_cost_usd: 20000, intake_semesters: ["fall"], application_deadline: "2025-12-01", min_gpa: 3.5, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null, min_gre: 318, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://geiselmed.dartmouth.edu/qbs/", apply_url: "https://apply.gs.dartmouth.edu/portal/apply_guarini",
+{ university_name: "Dartmouth College", country: "USA", city: "Hanover, NH", qs_ranking: 198, program_name: "MS in Quantitative Biomedical Sciences", degree_level: "postgraduate", duration_months: 24, field_of_study: "Natural Sciences", specialization: "Biomedical Sciences", annual_tuition_usd: 63000, avg_living_cost_usd: 20000, intake_semesters: ["fall"], application_deadline: "2025-12-01", min_gpa: 3.5, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null, min_gre: 318, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://geiselmed.dartmouth.edu/qbs/", apply_url: "https://apply.gs.dartmouth.edu/portal/apply_guarini",
     verified_at: "2026-05-04T02:17:15.000Z",
     verification_source_url: "https://geiselmed.dartmouth.edu/qbs/" },,
 
-{ university_name: "Case Western Reserve University", country: "USA", city: "Cleveland, OH", qs_ranking: 259, program_name: "MBA", degree_level: "postgraduate", duration_months: 21, field_of_study: "MBA", specialization: "Management", annual_tuition_usd: 60000, avg_living_cost_usd: 16000, intake_semesters: ["fall"], application_deadline: "2026-03-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 90, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: 620, min_sat: null, work_exp_required_years: 2, program_url: "https://weatherhead.case.edu/degrees/masters/mba/", apply_url: "https://case.edu/weatherhead/academics/mba-programs/mba",
+{ university_name: "Case Western Reserve University", country: "USA", city: "Cleveland, OH", qs_ranking: 220, program_name: "MBA", degree_level: "postgraduate", duration_months: 21, field_of_study: "MBA", specialization: "Management", annual_tuition_usd: 60000, avg_living_cost_usd: 16000, intake_semesters: ["fall"], application_deadline: "2026-03-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 90, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: 620, min_sat: null, work_exp_required_years: 2, program_url: "https://weatherhead.case.edu/degrees/masters/mba/", apply_url: "https://case.edu/weatherhead/academics/mba-programs/mba",
     verified_at: "2026-04-27T10:43:56.901Z", verification_source_url: "https://weatherhead.case.edu/degrees/masters/mba/",
   },,
-{ university_name: "Case Western Reserve University", country: "USA", city: "Cleveland, OH", qs_ranking: 259, program_name: "Master's Programs in Biomedical Engineering", degree_level: "postgraduate", duration_months: 24, field_of_study: "Biotechnology & Life Sciences", specialization: "Biomedical Engineering", annual_tuition_usd: 52000, avg_living_cost_usd: 16000, intake_semesters: ["fall"], application_deadline: "2025-12-15", min_gpa: 3.3, min_percentage: null, min_ielts: 6.5, min_toefl: 90, min_pte: null, min_duolingo: null, min_gre: 315, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://case.edu/bme/academics/graduate/masters-programs", apply_url: "https://applygrad.case.edu/portal/applygrad",
+{ university_name: "Case Western Reserve University", country: "USA", city: "Cleveland, OH", qs_ranking: 220, program_name: "Master's Programs in Biomedical Engineering", degree_level: "postgraduate", duration_months: 24, field_of_study: "Biotechnology & Life Sciences", specialization: "Biomedical Engineering", annual_tuition_usd: 52000, avg_living_cost_usd: 16000, intake_semesters: ["fall"], application_deadline: "2025-12-15", min_gpa: 3.3, min_percentage: null, min_ielts: 6.5, min_toefl: 90, min_pte: null, min_duolingo: null, min_gre: 315, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://case.edu/bme/academics/graduate/masters-programs", apply_url: "https://applygrad.case.edu/portal/applygrad",
     verified_at: "2026-04-27T10:43:59.589Z", verification_source_url: "https://case.edu/bme/academics/graduate/masters-programs",
   },,
-{ university_name: "Case Western Reserve University", country: "USA", city: "Cleveland, OH", qs_ranking: 259, program_name: "MS in Mechanical Engineering", degree_level: "postgraduate", duration_months: 24, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "Mechanical Engineering", annual_tuition_usd: 52000, avg_living_cost_usd: 16000, intake_semesters: ["fall","spring"], application_deadline: "2026-02-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 90, min_pte: null, min_duolingo: null, min_gre: 310, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://engineering.case.edu/emae/graduate/", apply_url: "https://applygrad.case.edu/portal/applygrad",
+{ university_name: "Case Western Reserve University", country: "USA", city: "Cleveland, OH", qs_ranking: 220, program_name: "MS in Mechanical Engineering", degree_level: "postgraduate", duration_months: 24, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "Mechanical Engineering", annual_tuition_usd: 52000, avg_living_cost_usd: 16000, intake_semesters: ["fall","spring"], application_deadline: "2026-02-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 90, min_pte: null, min_duolingo: null, min_gre: 310, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://engineering.case.edu/emae/graduate/", apply_url: "https://applygrad.case.edu/portal/applygrad",
     verified_at: "2026-05-04T02:17:15.000Z",
     verification_source_url: "https://engineering.case.edu/emae/graduate/" },,
-{ university_name: "Case Western Reserve University", country: "USA", city: "Cleveland, OH", qs_ranking: 259, program_name: "Master of Science in Nursing", degree_level: "postgraduate", duration_months: 24, field_of_study: "Nursing & Allied Health", specialization: "Advanced Practice Nursing", annual_tuition_usd: 45000, avg_living_cost_usd: 16000, intake_semesters: ["fall"], application_deadline: "2026-02-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 79, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 1, program_url: "https://case.edu/nursing/programs/msn", apply_url: "https://applygrad.case.edu/portal/applygrad",
+{ university_name: "Case Western Reserve University", country: "USA", city: "Cleveland, OH", qs_ranking: 220, program_name: "Master of Science in Nursing", degree_level: "postgraduate", duration_months: 24, field_of_study: "Nursing & Allied Health", specialization: "Advanced Practice Nursing", annual_tuition_usd: 45000, avg_living_cost_usd: 16000, intake_semesters: ["fall"], application_deadline: "2026-02-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 79, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 1, program_url: "https://case.edu/nursing/programs/msn", apply_url: "https://applygrad.case.edu/portal/applygrad",
     verified_at: "2026-04-27T10:44:08.934Z", verification_source_url: "https://case.edu/nursing/programs/msn",
   },,
-{ university_name: "Case Western Reserve University", country: "USA", city: "Cleveland, OH", qs_ranking: 259, program_name: "Master of Public Health", degree_level: "postgraduate", duration_months: 24, field_of_study: "Medicine & Public Health", specialization: "Public Health", annual_tuition_usd: 48000, avg_living_cost_usd: 16000, intake_semesters: ["fall"], application_deadline: "2026-03-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 90, min_pte: null, min_duolingo: null, min_gre: 308, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://case.edu/medicine/pqhs/education/public-health/master-public-health", apply_url: "https://applygrad.case.edu/portal/applygrad",
+{ university_name: "Case Western Reserve University", country: "USA", city: "Cleveland, OH", qs_ranking: 220, program_name: "Master of Public Health", degree_level: "postgraduate", duration_months: 24, field_of_study: "Medicine & Public Health", specialization: "Public Health", annual_tuition_usd: 48000, avg_living_cost_usd: 16000, intake_semesters: ["fall"], application_deadline: "2026-03-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 90, min_pte: null, min_duolingo: null, min_gre: 308, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://case.edu/medicine/pqhs/education/public-health/master-public-health", apply_url: "https://applygrad.case.edu/portal/applygrad",
     verified_at: "2026-04-27T10:44:12.960Z", verification_source_url: "https://case.edu/medicine/pqhs/education/public-health/master-public-health",
   },,
 
-{ university_name: "University of Massachusetts Amherst", country: "USA", city: "Amherst, MA", qs_ranking: 275, program_name: "MS in Computer Science — On Campus", degree_level: "postgraduate", duration_months: 24, field_of_study: "Computer Science & IT", specialization: "General CS", annual_tuition_usd: 33000, avg_living_cost_usd: 16000, intake_semesters: ["fall","spring"], application_deadline: "2026-02-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 80, min_pte: null, min_duolingo: null, min_gre: 310, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.cics.umass.edu/academics/ms-computer-science-campus", apply_url: "https://www.umass.edu/gradschool/apply",
+{ university_name: "University of Massachusetts Amherst", country: "USA", city: "Amherst, MA", qs_ranking: 240, program_name: "MS in Computer Science — On Campus", degree_level: "postgraduate", duration_months: 24, field_of_study: "Computer Science & IT", specialization: "General CS", annual_tuition_usd: 33000, avg_living_cost_usd: 16000, intake_semesters: ["fall","spring"], application_deadline: "2026-02-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 80, min_pte: null, min_duolingo: null, min_gre: 310, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.cics.umass.edu/academics/ms-computer-science-campus", apply_url: "https://www.umass.edu/gradschool/apply",
     verified_at: "2026-04-27T10:44:18.239Z", verification_source_url: "https://www.cics.umass.edu/academics/ms-computer-science-campus",
   },,
-{ university_name: "University of Massachusetts Amherst", country: "USA", city: "Amherst, MA", qs_ranking: 275, program_name: "Master of Business Administration", degree_level: "postgraduate", duration_months: 24, field_of_study: "MBA", specialization: "Business Administration", annual_tuition_usd: 40000, avg_living_cost_usd: 16000, intake_semesters: ["fall"], application_deadline: "2026-03-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 80, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: 580, min_sat: null, work_exp_required_years: 2, program_url: "https://www.isenberg.umass.edu/programs/masters/mba", apply_url: "https://www.isenberg.umass.edu/programs/masters/mba/admissions",
+{ university_name: "University of Massachusetts Amherst", country: "USA", city: "Amherst, MA", qs_ranking: 240, program_name: "Master of Business Administration", degree_level: "postgraduate", duration_months: 24, field_of_study: "MBA", specialization: "Business Administration", annual_tuition_usd: 40000, avg_living_cost_usd: 16000, intake_semesters: ["fall"], application_deadline: "2026-03-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 80, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: 580, min_sat: null, work_exp_required_years: 2, program_url: "https://www.isenberg.umass.edu/programs/masters/mba", apply_url: "https://www.isenberg.umass.edu/programs/masters/mba/admissions",
     verified_at: "2026-05-02T10:09:10.272Z", verification_source_url: "https://www.isenberg.umass.edu/programs/masters/mba",
   },,
 { university_name: "University of Arizona", country: "USA", city: "Tucson, AZ", qs_ranking: 293, program_name: "MS in Computer Science", degree_level: "postgraduate", duration_months: 24, field_of_study: "Computer Science & IT", specialization: "General CS", annual_tuition_usd: 31000, avg_living_cost_usd: 15000, intake_semesters: ["fall","spring"], application_deadline: "2026-02-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 79, min_pte: null, min_duolingo: null, min_gre: 307, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://cs.arizona.edu/graduate/masters-program", apply_url: "https://grad.arizona.edu/admissions",
@@ -1896,16 +1896,16 @@ export const PROGRAMS = ([{
     verified_at: "2026-04-27T10:45:29.981Z", verification_source_url: "https://cals.ncsu.edu/students/academics/graduate-degree-programs/",
   },,
 
-{ university_name: "University of Colorado Boulder", country: "USA", city: "Boulder, CO", qs_ranking: 320, program_name: "Master of Science in Computer Science", degree_level: "postgraduate", duration_months: 24, field_of_study: "Computer Science & IT", specialization: "General CS", annual_tuition_usd: 30000, avg_living_cost_usd: 14000, intake_semesters: ["fall","spring"], application_deadline: "2026-02-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 83, min_pte: null, min_duolingo: null, min_gre: 308, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.colorado.edu/cs/academics/graduate-programs/master-science-computer-science", apply_url: "https://www.colorado.edu/graduateschool/admissions",
+{ university_name: "University of Colorado Boulder", country: "USA", city: "Boulder, CO", qs_ranking: 196, program_name: "Master of Science in Computer Science", degree_level: "postgraduate", duration_months: 24, field_of_study: "Computer Science & IT", specialization: "General CS", annual_tuition_usd: 30000, avg_living_cost_usd: 14000, intake_semesters: ["fall","spring"], application_deadline: "2026-02-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 83, min_pte: null, min_duolingo: null, min_gre: 308, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.colorado.edu/cs/academics/graduate-programs/master-science-computer-science", apply_url: "https://www.colorado.edu/graduateschool/admissions",
     verified_at: "2026-04-27T10:45:22.764Z", verification_source_url: "https://www.colorado.edu/cs/academics/graduate-programs/master-science-computer-science",
   },,
-{ university_name: "University of Colorado Boulder", country: "USA", city: "Boulder, CO", qs_ranking: 320, program_name: "Data Science Master's Program", degree_level: "postgraduate", duration_months: 24, field_of_study: "Data Science", field_aliases: null, specialization: "Data Science", annual_tuition_usd: 30000, avg_living_cost_usd: 14000, intake_semesters: ["fall"], application_deadline: "2026-02-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 83, min_pte: null, min_duolingo: null, min_gre: 308, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.colorado.edu/engineering/academics/graduate-programs/data-science-masters-program", apply_url: "https://www.colorado.edu/graduateschool/admissions",
+{ university_name: "University of Colorado Boulder", country: "USA", city: "Boulder, CO", qs_ranking: 196, program_name: "Data Science Master's Program", degree_level: "postgraduate", duration_months: 24, field_of_study: "Data Science", field_aliases: null, specialization: "Data Science", annual_tuition_usd: 30000, avg_living_cost_usd: 14000, intake_semesters: ["fall"], application_deadline: "2026-02-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 83, min_pte: null, min_duolingo: null, min_gre: 308, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.colorado.edu/engineering/academics/graduate-programs/data-science-masters-program", apply_url: "https://www.colorado.edu/graduateschool/admissions",
     verified_at: "2026-04-27T13:20:04.521Z", verification_source_url: "https://www.colorado.edu/engineering/academics/graduate-programs/data-science-masters-program",
   },,
-{ university_name: "University of Colorado Boulder", country: "USA", city: "Boulder, CO", qs_ranking: 320, program_name: "MBA Programs", degree_level: "postgraduate", duration_months: 21, field_of_study: "MBA", specialization: "Business Administration", annual_tuition_usd: 48000, avg_living_cost_usd: 14000, intake_semesters: ["fall"], application_deadline: "2026-04-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 83, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: 600, min_sat: null, work_exp_required_years: 2, program_url: "https://www.colorado.edu/business/mba", apply_url: "https://www.colorado.edu/business/admissions",
+{ university_name: "University of Colorado Boulder", country: "USA", city: "Boulder, CO", qs_ranking: 196, program_name: "MBA Programs", degree_level: "postgraduate", duration_months: 21, field_of_study: "MBA", specialization: "Business Administration", annual_tuition_usd: 48000, avg_living_cost_usd: 14000, intake_semesters: ["fall"], application_deadline: "2026-04-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 83, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: 600, min_sat: null, work_exp_required_years: 2, program_url: "https://www.colorado.edu/business/mba", apply_url: "https://www.colorado.edu/business/admissions",
     verified_at: "2026-04-27T10:45:30.814Z", verification_source_url: "https://www.colorado.edu/business/mba",
   },,
-{ university_name: "University of Colorado Boulder", country: "USA", city: "Boulder, CO", qs_ranking: 320, program_name: "Master of Science", degree_level: "postgraduate", duration_months: 24, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "Aerospace Engineering", annual_tuition_usd: 30000, avg_living_cost_usd: 14000, intake_semesters: ["fall","spring"], application_deadline: "2026-02-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 83, min_pte: null, min_duolingo: null, min_gre: 308, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.colorado.edu/aerospace/admissions/graduates/degree-programs/master-science", apply_url: "https://www.colorado.edu/graduateschool/admissions",
+{ university_name: "University of Colorado Boulder", country: "USA", city: "Boulder, CO", qs_ranking: 196, program_name: "Master of Science", degree_level: "postgraduate", duration_months: 24, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "Aerospace Engineering", annual_tuition_usd: 30000, avg_living_cost_usd: 14000, intake_semesters: ["fall","spring"], application_deadline: "2026-02-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 83, min_pte: null, min_duolingo: null, min_gre: 308, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.colorado.edu/aerospace/admissions/graduates/degree-programs/master-science", apply_url: "https://www.colorado.edu/graduateschool/admissions",
     verified_at: "2026-04-27T10:45:45.543Z", verification_source_url: "https://www.colorado.edu/aerospace/admissions/graduates/degree-programs/master-science",
   },,
 { university_name: "University of Miami", country: "USA", city: "Coral Gables, FL", qs_ranking: 324, program_name: "Miami MBA", degree_level: "postgraduate", duration_months: 21, field_of_study: "MBA", specialization: "International Business", annual_tuition_usd: 62000, avg_living_cost_usd: 30000, intake_semesters: ["fall"], application_deadline: "2026-04-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 80, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: 620, min_sat: null, work_exp_required_years: 2, program_url: "https://www.herbert.miami.edu/graduate/find-and-compare-programs/full-time-mba/index.html", apply_url: "https://www.herbert.miami.edu/graduate/index.html",
@@ -1936,26 +1936,26 @@ export const PROGRAMS = ([{
     verified_at: "2026-05-04T02:17:15.000Z",
     verification_source_url: "https://nursing.rutgers.edu/academics-admissions/graduate/masters/" },,
 
-{ university_name: "Tufts University", country: "USA", city: "Medford, MA", qs_ranking: 344, program_name: "Graduate Programs - Department of Computer Science", degree_level: "postgraduate", duration_months: 24, field_of_study: "Computer Science & IT", specialization: "General CS", annual_tuition_usd: 51000, avg_living_cost_usd: 22000, intake_semesters: ["fall","spring"], application_deadline: "2026-02-15", min_gpa: 3.2, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null, min_gre: 315, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://engineering.tufts.edu/cs/graduate/", apply_url: "https://gradase.admissions.tufts.edu/",
+{ university_name: "Tufts University", country: "USA", city: "Medford, MA", qs_ranking: 233, program_name: "Graduate Programs - Department of Computer Science", degree_level: "postgraduate", duration_months: 24, field_of_study: "Computer Science & IT", specialization: "General CS", annual_tuition_usd: 51000, avg_living_cost_usd: 22000, intake_semesters: ["fall","spring"], application_deadline: "2026-02-15", min_gpa: 3.2, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null, min_gre: 315, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://engineering.tufts.edu/cs/graduate/", apply_url: "https://gradase.admissions.tufts.edu/",
     verified_at: "2026-04-27T10:46:48.098Z", verification_source_url: "https://engineering.tufts.edu/cs/graduate/",
   },,
-{ university_name: "Tufts University", country: "USA", city: "Medford, MA", qs_ranking: 344, program_name: "Master's | Department of Biomedical Engineering", degree_level: "postgraduate", duration_months: 24, field_of_study: "Biotechnology & Life Sciences", specialization: "Biomedical Engineering", annual_tuition_usd: 51000, avg_living_cost_usd: 22000, intake_semesters: ["fall"], application_deadline: "2025-12-15", min_gpa: 3.3, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null, min_gre: 315, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://engineering.tufts.edu/bme/prospective-students/masters", apply_url: "https://gradase.admissions.tufts.edu/",
+{ university_name: "Tufts University", country: "USA", city: "Medford, MA", qs_ranking: 233, program_name: "Master's | Department of Biomedical Engineering", degree_level: "postgraduate", duration_months: 24, field_of_study: "Biotechnology & Life Sciences", specialization: "Biomedical Engineering", annual_tuition_usd: 51000, avg_living_cost_usd: 22000, intake_semesters: ["fall"], application_deadline: "2025-12-15", min_gpa: 3.3, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null, min_gre: 315, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://engineering.tufts.edu/bme/prospective-students/masters", apply_url: "https://gradase.admissions.tufts.edu/",
     verified_at: "2026-04-27T10:46:51.302Z", verification_source_url: "https://engineering.tufts.edu/bme/prospective-students/masters",
   },,
-{ university_name: "Tufts University", country: "USA", city: "Medford, MA", qs_ranking: 344, program_name: "MS in Veterinary Science", degree_level: "postgraduate", duration_months: 24, field_of_study: "Agriculture & Veterinary Sciences", specialization: "Veterinary Medicine", annual_tuition_usd: 52000, avg_living_cost_usd: 22000, intake_semesters: ["fall"], application_deadline: "2025-11-01", min_gpa: 3.3, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null, min_gre: 315, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://vet.tufts.edu/dvm-program-overview", apply_url: "https://vet.tufts.edu/admissions",
+{ university_name: "Tufts University", country: "USA", city: "Medford, MA", qs_ranking: 233, program_name: "MS in Veterinary Science", degree_level: "postgraduate", duration_months: 24, field_of_study: "Agriculture & Veterinary Sciences", specialization: "Veterinary Medicine", annual_tuition_usd: 52000, avg_living_cost_usd: 22000, intake_semesters: ["fall"], application_deadline: "2025-11-01", min_gpa: 3.3, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null, min_gre: 315, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://vet.tufts.edu/dvm-program-overview", apply_url: "https://vet.tufts.edu/admissions",
     verified_at: "2026-05-04T02:17:15.000Z",
     verification_source_url: "https://vet.tufts.edu/dvm-program-overview" },,
-{ university_name: "Tufts University", country: "USA", city: "Medford, MA", qs_ranking: 344, program_name: "MS in Economics", degree_level: "postgraduate", duration_months: 12, field_of_study: "Economics & Finance", specialization: "Economics", annual_tuition_usd: 50000, avg_living_cost_usd: 22000, intake_semesters: ["fall"], application_deadline: "2026-02-01", min_gpa: 3.3, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null, min_gre: 315, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://as.tufts.edu/economics/academics/graduate-programs", apply_url: "https://gradase.admissions.tufts.edu/",
+{ university_name: "Tufts University", country: "USA", city: "Medford, MA", qs_ranking: 233, program_name: "MS in Economics", degree_level: "postgraduate", duration_months: 12, field_of_study: "Economics & Finance", specialization: "Economics", annual_tuition_usd: 50000, avg_living_cost_usd: 22000, intake_semesters: ["fall"], application_deadline: "2026-02-01", min_gpa: 3.3, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null, min_gre: 315, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://as.tufts.edu/economics/academics/graduate-programs", apply_url: "https://gradase.admissions.tufts.edu/",
     verified_at: "2026-04-27T10:46:58.595Z", verification_source_url: "https://as.tufts.edu/economics/academics/graduate-programs",
   },,
 
-{ university_name: "Indiana University Bloomington", country: "USA", city: "Bloomington, IN", qs_ranking: 355, program_name: "Full-Time +Flex MBA", degree_level: "postgraduate", duration_months: 24, field_of_study: "MBA", specialization: "Finance & Marketing", annual_tuition_usd: 34000, avg_living_cost_usd: 15000, intake_semesters: ["fall"], application_deadline: "2026-04-01", min_gpa: 3.0, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: 640, min_sat: null, work_exp_required_years: 2, program_url: "https://kelley.iu.edu/mba/", apply_url: "https://kelley.iu.edu/mba/admissions",
+{ university_name: "Indiana University Bloomington", country: "USA", city: "Bloomington, IN", qs_ranking: 243, program_name: "Full-Time +Flex MBA", degree_level: "postgraduate", duration_months: 24, field_of_study: "MBA", specialization: "Finance & Marketing", annual_tuition_usd: 34000, avg_living_cost_usd: 15000, intake_semesters: ["fall"], application_deadline: "2026-04-01", min_gpa: 3.0, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: 640, min_sat: null, work_exp_required_years: 2, program_url: "https://kelley.iu.edu/mba/", apply_url: "https://kelley.iu.edu/mba/admissions",
     verified_at: "2026-04-27T10:47:17.508Z", verification_source_url: "https://kelley.iu.edu/mba/",
   },,
-{ university_name: "Indiana University Bloomington", country: "USA", city: "Bloomington, IN", qs_ranking: 355, program_name: "MS in Data Science", degree_level: "postgraduate", duration_months: 24, field_of_study: "Data Science", field_aliases: null, specialization: "Data Science", annual_tuition_usd: 32000, avg_living_cost_usd: 15000, intake_semesters: ["fall"], application_deadline: "2026-02-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 79, min_pte: null, min_duolingo: null, min_gre: 308, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://datascience.indiana.edu/", apply_url: "https://graduate.indiana.edu/apply/index.html",
+{ university_name: "Indiana University Bloomington", country: "USA", city: "Bloomington, IN", qs_ranking: 243, program_name: "MS in Data Science", degree_level: "postgraduate", duration_months: 24, field_of_study: "Data Science", field_aliases: null, specialization: "Data Science", annual_tuition_usd: 32000, avg_living_cost_usd: 15000, intake_semesters: ["fall"], application_deadline: "2026-02-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 79, min_pte: null, min_duolingo: null, min_gre: 308, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://datascience.indiana.edu/", apply_url: "https://graduate.indiana.edu/apply/index.html",
     verified_at: "2026-05-04T02:17:15.000Z",
     verification_source_url: "https://datascience.indiana.edu/" },,
-{ university_name: "Indiana University Bloomington", country: "USA", city: "Bloomington, IN", qs_ranking: 355, program_name: "Graduate Programs in Economics", degree_level: "postgraduate", duration_months: 12, field_of_study: "Economics & Finance", specialization: "Economics", annual_tuition_usd: 32000, avg_living_cost_usd: 15000, intake_semesters: ["fall"], application_deadline: "2026-01-15", min_gpa: 3.2, min_percentage: null, min_ielts: 6.5, min_toefl: 79, min_pte: null, min_duolingo: null, min_gre: 310, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://economics.indiana.edu/graduate/", apply_url: "https://graduate.indiana.edu/apply/index.html",
+{ university_name: "Indiana University Bloomington", country: "USA", city: "Bloomington, IN", qs_ranking: 243, program_name: "Graduate Programs in Economics", degree_level: "postgraduate", duration_months: 12, field_of_study: "Economics & Finance", specialization: "Economics", annual_tuition_usd: 32000, avg_living_cost_usd: 15000, intake_semesters: ["fall"], application_deadline: "2026-01-15", min_gpa: 3.2, min_percentage: null, min_ielts: 6.5, min_toefl: 79, min_pte: null, min_duolingo: null, min_gre: 310, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://economics.indiana.edu/graduate/", apply_url: "https://graduate.indiana.edu/apply/index.html",
     verified_at: "2026-04-27T10:47:28.006Z", verification_source_url: "https://economics.indiana.edu/graduate/",
   },,
 
@@ -1968,18 +1968,18 @@ export const PROGRAMS = ([{
 { university_name: "George Washington University", country: "USA", city: "Washington, DC", qs_ranking: 371, program_name: "MBA — School of Business", degree_level: "postgraduate", duration_months: 24, field_of_study: "MBA", specialization: "International Business", annual_tuition_usd: 62000, avg_living_cost_usd: 24000, intake_semesters: ["fall"], application_deadline: "2026-04-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 80, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: 600, min_sat: null, work_exp_required_years: 2, program_url: "https://business.gwu.edu/mba/", apply_url: "https://business.gwu.edu/admissions",
     verified_at: "2026-05-04T02:17:15.000Z",
     verification_source_url: "https://business.gwu.edu/mba/" },,
-{ university_name: "Virginia Tech", country: "USA", city: "Blacksburg, VA", qs_ranking: 389, program_name: "MS in Computer Science", degree_level: "postgraduate", duration_months: 24, field_of_study: "Computer Science & IT", specialization: "General CS", annual_tuition_usd: 35000, avg_living_cost_usd: 16000, intake_semesters: ["fall","spring"], application_deadline: "2026-01-15", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 80, min_pte: null, min_duolingo: null, min_gre: 308, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://students.cs.vt.edu/Graduate/Degrees/MSThesis.html", apply_url: "https://graduateschool.vt.edu/admissions.html", verified_at: "2026-04-27T17:47:08.307Z", verification_source_url: "https://students.cs.vt.edu/Graduate/Degrees/MSThesis.html" },,
+{ university_name: "Virginia Tech", country: "USA", city: "Blacksburg, VA", qs_ranking: 297, program_name: "MS in Computer Science", degree_level: "postgraduate", duration_months: 24, field_of_study: "Computer Science & IT", specialization: "General CS", annual_tuition_usd: 35000, avg_living_cost_usd: 16000, intake_semesters: ["fall","spring"], application_deadline: "2026-01-15", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 80, min_pte: null, min_duolingo: null, min_gre: 308, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://students.cs.vt.edu/Graduate/Degrees/MSThesis.html", apply_url: "https://graduateschool.vt.edu/admissions.html", verified_at: "2026-04-27T17:47:08.307Z", verification_source_url: "https://students.cs.vt.edu/Graduate/Degrees/MSThesis.html" },,
 { university_name: "UC Santa Cruz", country: "USA", city: "Santa Cruz, CA", qs_ranking: 393, program_name: "MFA in Digital Arts & New Media", degree_level: "postgraduate", duration_months: 24, field_of_study: "Arts and Design", specialization: "Digital Arts", annual_tuition_usd: 27000, avg_living_cost_usd: 22000, intake_semesters: ["fall"], application_deadline: "2026-01-15", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 80, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://danm.ucsc.edu/graduate/", apply_url: "https://graduate.ucsc.edu/admissions/",
     verified_at: "2026-04-27T10:48:50.265Z", verification_source_url: "https://danm.ucsc.edu/graduate/",
   },,
 
-{ university_name: "Colorado State University", country: "USA", city: "Fort Collins, CO", qs_ranking: 442, program_name: "Graduate Advising - Department of Mechanical Engineering", degree_level: "postgraduate", duration_months: 24, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "Mechanical Engineering", annual_tuition_usd: 32000, avg_living_cost_usd: 16000, intake_semesters: ["fall","spring"], application_deadline: "2026-03-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 71, min_pte: null, min_duolingo: null, min_gre: 303, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.engr.colostate.edu/me/graduate/", apply_url: "https://admissions.colostate.edu/graduate/",
+{ university_name: "Colorado State University", country: "USA", city: "Fort Collins, CO", qs_ranking: 671, program_name: "Graduate Advising - Department of Mechanical Engineering", degree_level: "postgraduate", duration_months: 24, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "Mechanical Engineering", annual_tuition_usd: 32000, avg_living_cost_usd: 16000, intake_semesters: ["fall","spring"], application_deadline: "2026-03-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 71, min_pte: null, min_duolingo: null, min_gre: 303, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.engr.colostate.edu/me/graduate/", apply_url: "https://admissions.colostate.edu/graduate/",
     verified_at: "2026-04-27T10:49:03.370Z", verification_source_url: "https://www.engr.colostate.edu/me/graduate/",
   },,
-{ university_name: "Colorado State University", country: "USA", city: "Fort Collins, CO", qs_ranking: 442, program_name: "Master of Business Administration", degree_level: "postgraduate", duration_months: 24, field_of_study: "MBA", specialization: "Business Administration", annual_tuition_usd: 34000, avg_living_cost_usd: 16000, intake_semesters: ["fall"], application_deadline: "2026-04-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 71, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: 550, min_sat: null, work_exp_required_years: 2, program_url: "https://biz.colostate.edu/mba/", apply_url: "https://biz.colostate.edu/mba/admissions",
+{ university_name: "Colorado State University", country: "USA", city: "Fort Collins, CO", qs_ranking: 671, program_name: "Master of Business Administration", degree_level: "postgraduate", duration_months: 24, field_of_study: "MBA", specialization: "Business Administration", annual_tuition_usd: 34000, avg_living_cost_usd: 16000, intake_semesters: ["fall"], application_deadline: "2026-04-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 71, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: 550, min_sat: null, work_exp_required_years: 2, program_url: "https://biz.colostate.edu/mba/", apply_url: "https://biz.colostate.edu/mba/admissions",
     verified_at: "2026-04-27T10:48:54.610Z", verification_source_url: "https://biz.colostate.edu/mba/",
   },,
-{ university_name: "Colorado State University", country: "USA", city: "Fort Collins, CO", qs_ranking: 442, program_name: "MS in Natural Resources", degree_level: "postgraduate", duration_months: 24, field_of_study: "Environmental & Sustainability Studies", specialization: "Natural Resources", annual_tuition_usd: 31000, avg_living_cost_usd: 16000, intake_semesters: ["fall"], application_deadline: "2026-02-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 71, min_pte: null, min_duolingo: null, min_gre: 303, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://warnercnr.colostate.edu/graduate/", apply_url: "https://admissions.colostate.edu/graduate/",
+{ university_name: "Colorado State University", country: "USA", city: "Fort Collins, CO", qs_ranking: 671, program_name: "MS in Natural Resources", degree_level: "postgraduate", duration_months: 24, field_of_study: "Environmental & Sustainability Studies", specialization: "Natural Resources", annual_tuition_usd: 31000, avg_living_cost_usd: 16000, intake_semesters: ["fall"], application_deadline: "2026-02-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 71, min_pte: null, min_duolingo: null, min_gre: 303, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://warnercnr.colostate.edu/graduate/", apply_url: "https://admissions.colostate.edu/graduate/",
     verified_at: "2026-05-04T02:17:15.000Z",
     verification_source_url: "https://warnercnr.colostate.edu/graduate/" },,
 { university_name: "University at Buffalo (SUNY)", country: "USA", city: "Buffalo, NY", qs_ranking: 466, program_name: "Computer Science and Engineering Graduate Program", degree_level: "postgraduate", duration_months: 24, field_of_study: "Computer Science & IT", specialization: "General CS", annual_tuition_usd: 22000, avg_living_cost_usd: 15000, intake_semesters: ["fall","spring"], application_deadline: "2026-03-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 79, min_pte: null, min_duolingo: null, min_gre: 305, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://engineering.buffalo.edu/computer-science-engineering/graduate.html", apply_url: "https://www.buffalo.edu/gradschool/admissions.html",
@@ -1991,16 +1991,16 @@ export const PROGRAMS = ([{
 { university_name: "University at Buffalo (SUNY)", country: "USA", city: "Buffalo, NY", qs_ranking: 466, program_name: "Computer Science and Engineering Graduate Program", degree_level: "postgraduate", duration_months: 24, field_of_study: "Artificial Intelligence", specialization: "Data Science", annual_tuition_usd: 22000, avg_living_cost_usd: 15000, intake_semesters: ["fall"], application_deadline: "2026-03-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 79, min_pte: null, min_duolingo: null, min_gre: 305, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://engineering.buffalo.edu/computer-science-engineering/graduate.html", apply_url: "https://www.buffalo.edu/gradschool/admissions.html",
     verified_at: "2026-04-27T10:49:31.739Z", verification_source_url: "https://engineering.buffalo.edu/computer-science-engineering/graduate.html",
   },,
-{ university_name: "Iowa State University", country: "USA", city: "Ames, IA", qs_ranking: 470, program_name: "MS in Mechanical Engineering", degree_level: "postgraduate", duration_months: 24, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "Mechanical Engineering", annual_tuition_usd: 30000, avg_living_cost_usd: 13000, intake_semesters: ["fall","spring"], application_deadline: "2026-02-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 79, min_pte: null, min_duolingo: null, min_gre: 303, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.me.iastate.edu/graduate-programs/", apply_url: "https://www.iastate.edu/graduate-admission",
+{ university_name: "Iowa State University", country: "USA", city: "Ames, IA", qs_ranking: 411, program_name: "MS in Mechanical Engineering", degree_level: "postgraduate", duration_months: 24, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "Mechanical Engineering", annual_tuition_usd: 30000, avg_living_cost_usd: 13000, intake_semesters: ["fall","spring"], application_deadline: "2026-02-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 79, min_pte: null, min_duolingo: null, min_gre: 303, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.me.iastate.edu/graduate-programs/", apply_url: "https://www.iastate.edu/graduate-admission",
     verified_at: "2026-04-27T17:13:20.955Z", verification_source_url: "https://www.me.iastate.edu/graduate-programs/",
   },,
-{ university_name: "Iowa State University", country: "USA", city: "Ames, IA", qs_ranking: 470, program_name: "MBA Ambassadors", degree_level: "postgraduate", duration_months: 24, field_of_study: "MBA", specialization: "Business Administration", annual_tuition_usd: 32000, avg_living_cost_usd: 13000, intake_semesters: ["fall"], application_deadline: "2026-04-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 79, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: 540, min_sat: null, work_exp_required_years: 2, program_url: "https://www.business.iastate.edu/mba/", apply_url: "https://www.business.iastate.edu/mba/admissions/",
+{ university_name: "Iowa State University", country: "USA", city: "Ames, IA", qs_ranking: 411, program_name: "MBA Ambassadors", degree_level: "postgraduate", duration_months: 24, field_of_study: "MBA", specialization: "Business Administration", annual_tuition_usd: 32000, avg_living_cost_usd: 13000, intake_semesters: ["fall"], application_deadline: "2026-04-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 79, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: 540, min_sat: null, work_exp_required_years: 2, program_url: "https://www.business.iastate.edu/mba/", apply_url: "https://www.business.iastate.edu/mba/admissions/",
     verified_at: "2026-04-27T10:49:49.731Z", verification_source_url: "https://www.business.iastate.edu/mba/",
   },,
-{ university_name: "Iowa State University", country: "USA", city: "Ames, IA", qs_ranking: 470, program_name: "Graduate Admission Requirements – Department of Agricultural and Biosystems Engineering", degree_level: "postgraduate", duration_months: 24, field_of_study: "Agriculture & Veterinary Sciences", specialization: "Agricultural Engineering", annual_tuition_usd: 29000, avg_living_cost_usd: 13000, intake_semesters: ["fall","spring"], application_deadline: "2026-02-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 79, min_pte: null, min_duolingo: null, min_gre: 300, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.abe.iastate.edu/graduate/", apply_url: "https://www.iastate.edu/graduate-admission",
+{ university_name: "Iowa State University", country: "USA", city: "Ames, IA", qs_ranking: 411, program_name: "Graduate Admission Requirements – Department of Agricultural and Biosystems Engineering", degree_level: "postgraduate", duration_months: 24, field_of_study: "Agriculture & Veterinary Sciences", specialization: "Agricultural Engineering", annual_tuition_usd: 29000, avg_living_cost_usd: 13000, intake_semesters: ["fall","spring"], application_deadline: "2026-02-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 79, min_pte: null, min_duolingo: null, min_gre: 300, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.abe.iastate.edu/graduate/", apply_url: "https://www.iastate.edu/graduate-admission",
     verified_at: "2026-04-27T10:49:59.870Z", verification_source_url: "https://www.abe.iastate.edu/graduate/",
   },,
-{ university_name: "Iowa State University", country: "USA", city: "Ames, IA", qs_ranking: 470, program_name: "Graduate Admission – College of Design", degree_level: "postgraduate", duration_months: 36, field_of_study: "Architecture", specialization: "Architecture", annual_tuition_usd: 30000, avg_living_cost_usd: 13000, intake_semesters: ["fall"], application_deadline: "2026-02-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 79, min_pte: null, min_duolingo: null, min_gre: 300, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.design.iastate.edu/architecture/graduate/", apply_url: "https://www.iastate.edu/graduate-admission",
+{ university_name: "Iowa State University", country: "USA", city: "Ames, IA", qs_ranking: 411, program_name: "Graduate Admission – College of Design", degree_level: "postgraduate", duration_months: 36, field_of_study: "Architecture", specialization: "Architecture", annual_tuition_usd: 30000, avg_living_cost_usd: 13000, intake_semesters: ["fall"], application_deadline: "2026-02-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 79, min_pte: null, min_duolingo: null, min_gre: 300, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.design.iastate.edu/architecture/graduate/", apply_url: "https://www.iastate.edu/graduate-admission",
     verified_at: "2026-04-27T10:50:00.851Z", verification_source_url: "https://www.design.iastate.edu/architecture/graduate/",
   },,
 { university_name: "University of Tennessee Knoxville", country: "USA", city: "Knoxville, TN", qs_ranking: 481, program_name: "MS in Computer Science", degree_level: "postgraduate", duration_months: 24, field_of_study: "Computer Science & IT", specialization: "General CS", annual_tuition_usd: 35000, avg_living_cost_usd: 14000, intake_semesters: ["fall","spring"], application_deadline: "2026-02-15", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 61, min_pte: null, min_duolingo: null, min_gre: 305, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.eecs.utk.edu/graduate/", apply_url: "https://gradschool.utk.edu/admissions/",
@@ -2046,22 +2046,22 @@ export const PROGRAMS = ([{
 { university_name: "University of Utah", country: "USA", city: "Salt Lake City, UT", qs_ranking: 531, program_name: "The JD Program at Utah Law", degree_level: "postgraduate", duration_months: 36, field_of_study: "Law", specialization: "General Law", annual_tuition_usd: 30000, avg_living_cost_usd: 16000, intake_semesters: ["fall"], application_deadline: "2026-03-15", min_gpa: 3.2, min_percentage: null, min_ielts: 7.0, min_toefl: 80, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://law.utah.edu/jd/", apply_url: "https://law.utah.edu/admissions/",
     verified_at: "2026-04-27T10:52:09.718Z", verification_source_url: "https://law.utah.edu/jd/",
   },,
-{ university_name: "University of Connecticut", country: "USA", city: "Storrs, CT", qs_ranking: 565, program_name: "Graduate Research Assistant with Dr. Khan", degree_level: "postgraduate", duration_months: 24, field_of_study: "Computer Science & IT", specialization: "General CS", annual_tuition_usd: 44000, avg_living_cost_usd: 14000, intake_semesters: ["fall","spring"], application_deadline: "2026-03-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 79, min_pte: null, min_duolingo: null, min_gre: 307, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://cse.uconn.edu/graduate/", apply_url: "https://grad.uconn.edu/admissions/apply/",
+{ university_name: "University of Connecticut", country: "USA", city: "Storrs, CT", qs_ranking: 256, program_name: "Graduate Research Assistant with Dr. Khan", degree_level: "postgraduate", duration_months: 24, field_of_study: "Computer Science & IT", specialization: "General CS", annual_tuition_usd: 44000, avg_living_cost_usd: 14000, intake_semesters: ["fall","spring"], application_deadline: "2026-03-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 79, min_pte: null, min_duolingo: null, min_gre: 307, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://cse.uconn.edu/graduate/", apply_url: "https://grad.uconn.edu/admissions/apply/",
     verified_at: "2026-04-27T10:52:13.889Z", verification_source_url: "https://cse.uconn.edu/graduate/",
   },,
-{ university_name: "University of Connecticut", country: "USA", city: "Storrs, CT", qs_ranking: 565, program_name: "JD Academic Regulations", degree_level: "postgraduate", duration_months: 36, field_of_study: "Law", specialization: "General Law", annual_tuition_usd: 45000, avg_living_cost_usd: 14000, intake_semesters: ["fall"], application_deadline: "2026-03-01", min_gpa: 3.2, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.law.uconn.edu/jd/", apply_url: "https://www.law.uconn.edu/admissions",
+{ university_name: "University of Connecticut", country: "USA", city: "Storrs, CT", qs_ranking: 256, program_name: "JD Academic Regulations", degree_level: "postgraduate", duration_months: 36, field_of_study: "Law", specialization: "General Law", annual_tuition_usd: 45000, avg_living_cost_usd: 14000, intake_semesters: ["fall"], application_deadline: "2026-03-01", min_gpa: 3.2, min_percentage: null, min_ielts: 7.0, min_toefl: 100, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.law.uconn.edu/jd/", apply_url: "https://www.law.uconn.edu/admissions",
     verified_at: "2026-04-27T10:52:18.602Z", verification_source_url: "https://www.law.uconn.edu/jd/",
   },,
-{ university_name: "University of Connecticut", country: "USA", city: "Storrs, CT", qs_ranking: 565, program_name: "Graduate Faculty Directory", degree_level: "postgraduate", duration_months: 24, field_of_study: "Nursing & Allied Health", specialization: "Advanced Practice Nursing", annual_tuition_usd: 42000, avg_living_cost_usd: 14000, intake_semesters: ["fall"], application_deadline: "2026-03-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 79, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 1, program_url: "https://nursing.uconn.edu/graduate/", apply_url: "https://grad.uconn.edu/admissions/apply/",
+{ university_name: "University of Connecticut", country: "USA", city: "Storrs, CT", qs_ranking: 256, program_name: "Graduate Faculty Directory", degree_level: "postgraduate", duration_months: 24, field_of_study: "Nursing & Allied Health", specialization: "Advanced Practice Nursing", annual_tuition_usd: 42000, avg_living_cost_usd: 14000, intake_semesters: ["fall"], application_deadline: "2026-03-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 79, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 1, program_url: "https://nursing.uconn.edu/graduate/", apply_url: "https://grad.uconn.edu/admissions/apply/",
     verified_at: "2026-04-27T10:52:31.727Z", verification_source_url: "https://nursing.uconn.edu/graduate/",
   },,
-{ university_name: "University of Connecticut", country: "USA", city: "Storrs, CT", qs_ranking: 565, program_name: "MS in Agricultural Sciences", degree_level: "postgraduate", duration_months: 24, field_of_study: "Agriculture & Veterinary Sciences", specialization: "Agricultural Sciences", annual_tuition_usd: 42000, avg_living_cost_usd: 14000, intake_semesters: ["fall","spring"], application_deadline: "2026-03-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 79, min_pte: null, min_duolingo: null, min_gre: 300, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://cahnr.uconn.edu/graduate/", apply_url: "https://grad.uconn.edu/admissions/apply/",
+{ university_name: "University of Connecticut", country: "USA", city: "Storrs, CT", qs_ranking: 256, program_name: "MS in Agricultural Sciences", degree_level: "postgraduate", duration_months: 24, field_of_study: "Agriculture & Veterinary Sciences", specialization: "Agricultural Sciences", annual_tuition_usd: 42000, avg_living_cost_usd: 14000, intake_semesters: ["fall","spring"], application_deadline: "2026-03-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 79, min_pte: null, min_duolingo: null, min_gre: 300, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://cahnr.uconn.edu/graduate/", apply_url: "https://grad.uconn.edu/admissions/apply/",
     verified_at: "2026-05-04T02:17:15.000Z",
     verification_source_url: "https://cahnr.uconn.edu/graduate/" },,
-{ university_name: "University of Sussex", country: "UK", city: "Brighton", qs_ranking: 246, program_name: "MBA — Business School", degree_level: "postgraduate", duration_months: 12, field_of_study: "MBA", specialization: "General Management", annual_tuition_usd: 32000, avg_living_cost_usd: 17200, intake_semesters: ["fall"], application_deadline: "2026-06-01", min_gpa: 3.0, min_percentage: 55, min_ielts: 6.5, min_toefl: 90, min_pte: 62, min_duolingo: null, min_gre: null, min_gmat: 550, min_sat: null, work_exp_required_years: 3, program_url: "https://www.sussex.ac.uk/business-school/postgraduate/", apply_url: "https://www.sussex.ac.uk/study/masters/apply",
+{ university_name: "University of Sussex", country: "UK", city: "Brighton", qs_ranking: 256, program_name: "MBA — Business School", degree_level: "postgraduate", duration_months: 12, field_of_study: "MBA", specialization: "General Management", annual_tuition_usd: 32000, avg_living_cost_usd: 17200, intake_semesters: ["fall"], application_deadline: "2026-06-01", min_gpa: 3.0, min_percentage: 55, min_ielts: 6.5, min_toefl: 90, min_pte: 62, min_duolingo: null, min_gre: null, min_gmat: 550, min_sat: null, work_exp_required_years: 3, program_url: "https://www.sussex.ac.uk/business-school/postgraduate/", apply_url: "https://www.sussex.ac.uk/study/masters/apply",
     verified_at: "2026-04-27T10:52:49.222Z", verification_source_url: "https://www.sussex.ac.uk/psychology/",
   },,
-{ university_name: "University of Sussex", country: "UK", city: "Brighton", qs_ranking: 246, program_name: "MSc Psychology", degree_level: "postgraduate", duration_months: 12, field_of_study: "Psychology", specialization: "Psychology", annual_tuition_usd: 24000, avg_living_cost_usd: 17200, intake_semesters: ["fall"], application_deadline: "2026-07-01", min_gpa: 3.0, min_percentage: 60, min_ielts: 6.5, min_toefl: 90, min_pte: 62, min_duolingo: null, min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.sussex.ac.uk/psychology/", apply_url: "https://www.sussex.ac.uk/study/masters/apply",
+{ university_name: "University of Sussex", country: "UK", city: "Brighton", qs_ranking: 256, program_name: "MSc Psychology", degree_level: "postgraduate", duration_months: 12, field_of_study: "Psychology", specialization: "Psychology", annual_tuition_usd: 24000, avg_living_cost_usd: 17200, intake_semesters: ["fall"], application_deadline: "2026-07-01", min_gpa: 3.0, min_percentage: 60, min_ielts: 6.5, min_toefl: 90, min_pte: 62, min_duolingo: null, min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.sussex.ac.uk/psychology/", apply_url: "https://www.sussex.ac.uk/study/masters/apply",
     verified_at: "2026-05-04T02:17:15.000Z",
     verification_source_url: "https://www.sussex.ac.uk/psychology/" },,
 { university_name: "Seneca Polytechnic", country: "Canada", city: "Toronto, ON", qs_ranking: null, program_name: "Diploma in Computer Programming & Analysis", degree_level: "diploma", duration_months: 24, field_of_study: "Computer Science & IT", specialization: "Programming & Analysis", annual_tuition_usd: 15000, avg_living_cost_usd: 16000, intake_semesters: ["fall","winter","spring"], application_deadline: "rolling", min_gpa: 2.0, min_percentage: 60, min_ielts: 6.0, min_toefl: 80, min_pte: 55, min_duolingo: null, min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.senecapolytechnic.ca/programs/fulltime/CPA.html", apply_url: "https://www.senecacollege.ca/admissions/apply.html",
@@ -2138,13 +2138,13 @@ export const PROGRAMS = ([{
 { university_name: "Southern Alberta Institute of Technology (SAIT)", country: "Canada", city: "Calgary, AB", qs_ranking: null, program_name: "Diploma in Environmental Technology", degree_level: "diploma", duration_months: 24, field_of_study: "Environmental & Sustainability Studies", specialization: "Environmental Technology", annual_tuition_usd: 12500, avg_living_cost_usd: 15000, intake_semesters: ["fall"], application_deadline: "rolling", min_gpa: 2.0, min_percentage: 60, min_ielts: 6.0, min_toefl: 80, min_pte: 55, min_duolingo: null, min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.sait.ca/programs-and-courses/diplomas/environmental-technology", apply_url: "https://www.sait.ca/admissions/how-to-apply",
     verified_at: "2026-05-04T02:17:15.000Z",
     verification_source_url: "https://www.sait.ca/programs-and-courses/diplomas/environmental-technology" },,
-{ university_name: "Florida State University", country: "USA", city: "Tallahassee, FL", qs_ranking: 651, program_name: "Master of Business Administration (MBA)", degree_level: "postgraduate", duration_months: 21, field_of_study: "MBA", specialization: "General Management", annual_tuition_usd: 26707, avg_living_cost_usd: 14000, intake_semesters: ["fall"], application_deadline: "2025-11-01", min_gpa: 3.0, min_percentage: null, min_ielts: 7.0, min_toefl: 90, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: 600, min_sat: null, work_exp_required_years: 2, program_url: "https://business.fsu.edu/mba", apply_url: "https://admissions.fsu.edu/apply/",
+{ university_name: "Florida State University", country: "USA", city: "Tallahassee, FL", qs_ranking: 308, program_name: "Master of Business Administration (MBA)", degree_level: "postgraduate", duration_months: 21, field_of_study: "MBA", specialization: "General Management", annual_tuition_usd: 26707, avg_living_cost_usd: 14000, intake_semesters: ["fall"], application_deadline: "2025-11-01", min_gpa: 3.0, min_percentage: null, min_ielts: 7.0, min_toefl: 90, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: 600, min_sat: null, work_exp_required_years: 2, program_url: "https://business.fsu.edu/mba", apply_url: "https://admissions.fsu.edu/apply/",
     verified_at: "2026-04-27T11:01:09.834Z", verification_source_url: "https://business.fsu.edu/mba",
   },,
-{ university_name: "Florida State University", country: "USA", city: "Tallahassee, FL", qs_ranking: 651, program_name: "MS in Environmental Science", degree_level: "postgraduate", duration_months: 24, field_of_study: "Environmental & Sustainability Studies", specialization: "Environmental Science", annual_tuition_usd: 26707, avg_living_cost_usd: 14000, intake_semesters: ["fall"], application_deadline: "2025-12-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 80, min_pte: null, min_duolingo: null, min_gre: 300, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.eoas.fsu.edu/graduate", apply_url: "https://admissions.fsu.edu/apply/",
+{ university_name: "Florida State University", country: "USA", city: "Tallahassee, FL", qs_ranking: 308, program_name: "MS in Environmental Science", degree_level: "postgraduate", duration_months: 24, field_of_study: "Environmental & Sustainability Studies", specialization: "Environmental Science", annual_tuition_usd: 26707, avg_living_cost_usd: 14000, intake_semesters: ["fall"], application_deadline: "2025-12-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 80, min_pte: null, min_duolingo: null, min_gre: 300, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.eoas.fsu.edu/graduate", apply_url: "https://admissions.fsu.edu/apply/",
     verified_at: "2026-05-04T02:17:15.000Z",
     verification_source_url: "https://www.eoas.fsu.edu/graduate" },,
-{ university_name: "Florida State University", country: "USA", city: "Tallahassee, FL", qs_ranking: 651, program_name: "Juris Doctor (JD)", degree_level: "postgraduate", duration_months: 36, field_of_study: "Law", specialization: "General Law", annual_tuition_usd: 26707, avg_living_cost_usd: 14000, intake_semesters: ["fall"], application_deadline: "2026-03-01", min_gpa: 3.3, min_percentage: null, min_ielts: 7.0, min_toefl: 90, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://law.fsu.edu/", apply_url: "https://admissions.fsu.edu/apply/",
+{ university_name: "Florida State University", country: "USA", city: "Tallahassee, FL", qs_ranking: 308, program_name: "Juris Doctor (JD)", degree_level: "postgraduate", duration_months: 36, field_of_study: "Law", specialization: "General Law", annual_tuition_usd: 26707, avg_living_cost_usd: 14000, intake_semesters: ["fall"], application_deadline: "2026-03-01", min_gpa: 3.3, min_percentage: null, min_ielts: 7.0, min_toefl: 90, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://law.fsu.edu/", apply_url: "https://admissions.fsu.edu/apply/",
     verified_at: "2026-05-04T02:17:15.000Z",
     verification_source_url: "https://law.fsu.edu/" },,
 { university_name: "University of Houston", country: "USA", city: "Houston, TX", qs_ranking: 521, program_name: "MS in Data Analytics", degree_level: "postgraduate", duration_months: 18, field_of_study: "Data Science", field_aliases: null, specialization: "Data Analytics", annual_tuition_usd: 18199, avg_living_cost_usd: 16000, intake_semesters: ["fall","spring"], application_deadline: "2025-12-01", min_gpa: 3.0, min_percentage: null, min_ielts: 6.5, min_toefl: 79, min_pte: null, min_duolingo: null, min_gre: null, min_gmat: null, min_sat: null, work_exp_required_years: 0, program_url: "https://www.uh.edu/nsm/computer-science/graduate/", apply_url: "https://www.uh.edu/admissions/",
@@ -2172,7 +2172,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Boston University",
-    country: "USA", city: "Boston, MA", qs_ranking: 112,
+    country: "USA", city: "Boston, MA", qs_ranking: 109,
     program_name: "Master's Academic Programs", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Computer Science & IT", specialization: "General",
     annual_tuition_usd: 67626, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 67626, avg_living_cost_usd: 26000,
@@ -2185,7 +2185,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Boston University",
-    country: "USA", city: "Boston, MA", qs_ranking: 112,
+    country: "USA", city: "Boston, MA", qs_ranking: 109,
     program_name: "Master's Programs", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Computer Science & IT", specialization: "General",
     annual_tuition_usd: 67626, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 67626, avg_living_cost_usd: 26000,
@@ -2290,7 +2290,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "California Institute of Technology",
-    country: "USA", city: "Pasadena, CA", qs_ranking: 6,
+    country: "USA", city: "Pasadena, CA", qs_ranking: 10,
     program_name: "Aerospace Engineering", degree_level: "undergraduate",
     duration_months: null, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "Aerospace Engineering",
     annual_tuition_usd: 68001, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 68001, avg_living_cost_usd: 14000,
@@ -2312,7 +2312,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "California Institute of Technology",
-    country: "USA", city: "Pasadena, CA", qs_ranking: 6,
+    country: "USA", city: "Pasadena, CA", qs_ranking: 10,
     program_name: "Graduate Degree in Aeronautics", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "Aeronautics and Space Engineering",
     annual_tuition_usd: 68001, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 68001, avg_living_cost_usd: 14000,
@@ -2334,7 +2334,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "California Institute of Technology",
-    country: "USA", city: "Pasadena, CA", qs_ranking: 6,
+    country: "USA", city: "Pasadena, CA", qs_ranking: 10,
     program_name: "Minor in Aerospace Engineering", degree_level: "undergraduate",
     duration_months: null, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "Aerospace Engineering",
     annual_tuition_usd: 65622, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 65622, avg_living_cost_usd: 14000,
@@ -2356,7 +2356,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Carnegie Mellon University",
-    country: "USA", city: "Pittsburgh, PA", qs_ranking: 52,
+    country: "USA", city: "Pittsburgh, PA", qs_ranking: 58,
     program_name: "Machine Learning Academics", degree_level: null,
     duration_months: null, field_of_study: "Artificial Intelligence", specialization: "Machine Learning",
     annual_tuition_usd: 62200, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 62200, avg_living_cost_usd: 14000,
@@ -2378,7 +2378,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Case Western Reserve University",
-    country: "USA", city: "Cleveland, OH", qs_ranking: 259,
+    country: "USA", city: "Cleveland, OH", qs_ranking: 220,
     program_name: "Mechanical & Aerospace Engineering", degree_level: null,
     duration_months: null, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "General",
     annual_tuition_usd: 53980, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 53980, avg_living_cost_usd: 14000,
@@ -2417,7 +2417,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Colorado State University",
-    country: "USA", city: "Fort Collins, CO", qs_ranking: 442,
+    country: "USA", city: "Fort Collins, CO", qs_ranking: 671,
     program_name: "Graduate Certificates", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Environmental & Sustainability Studies", specialization: "General",
     annual_tuition_usd: 33971, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 33971, avg_living_cost_usd: 14000,
@@ -2452,7 +2452,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Dalhousie University",
-    country: "Canada", city: "Halifax, NS", qs_ranking: 486,
+    country: "Canada", city: "Halifax, NS", qs_ranking: 308,
     program_name: "Applied Computer Science (MACSc)", degree_level: "postgraduate",
     duration_months: 16, field_of_study: "Computer Science & IT", specialization: "General",
     annual_tuition_usd: 22543, annual_tuition_currency: "CAD", tuition_fee_source: "estimated", tuition_estimate_note: "Tuition figure is estimated from sources with ~6% spread — please verify the current-year fee with the university before relying on it.", annual_tuition_amount: 30881, avg_living_cost_usd: 15000,
@@ -2465,7 +2465,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Dartmouth College",
-    country: "USA", city: "Hanover, NH", qs_ranking: 243,
+    country: "USA", city: "Hanover, NH", qs_ranking: 198,
     program_name: "Department of Economics", degree_level: null,
     duration_months: null, field_of_study: "Economics & Finance", specialization: "General",
     annual_tuition_usd: 69207, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 69207, avg_living_cost_usd: 14000,
@@ -2478,7 +2478,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Dartmouth College",
-    country: "USA", city: "Hanover, NH", qs_ranking: 243,
+    country: "USA", city: "Hanover, NH", qs_ranking: 198,
     program_name: "Graduate Program in Quantitative Biomedical Sciences", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Computer Science & IT", specialization: "Quantitative Biomedical Sciences",
     annual_tuition_usd: 66617, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 66617, avg_living_cost_usd: 14000,
@@ -2491,7 +2491,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Dartmouth College",
-    country: "USA", city: "Hanover, NH", qs_ranking: 243,
+    country: "USA", city: "Hanover, NH", qs_ranking: 198,
     program_name: "Internal Master's in Quantitative Biomedical Sciences", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Computer Science & IT", specialization: "Quantitative Biomedical Sciences",
     annual_tuition_usd: 0, avg_living_cost_usd: 14000,
@@ -2504,7 +2504,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Drexel University",
-    country: "USA", city: "Philadelphia, PA", qs_ranking: 651,
+    country: "USA", city: "Philadelphia, PA", qs_ranking: 591,
     program_name: "Graduate Programs", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "General",
     annual_tuition_usd: 39261, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 39261, avg_living_cost_usd: 19000,
@@ -2543,7 +2543,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Florida State University",
-    country: "USA", city: "Tallahassee, FL", qs_ranking: 651,
+    country: "USA", city: "Tallahassee, FL", qs_ranking: 308,
     program_name: "Admission Procedures and Standards", degree_level: "undergraduate",
     duration_months: null, field_of_study: "Computer Science & IT", specialization: "General",
     annual_tuition_usd: 21683, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 21683, avg_living_cost_usd: 14000,
@@ -2556,7 +2556,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Florida State University",
-    country: "USA", city: "Tallahassee, FL", qs_ranking: 651,
+    country: "USA", city: "Tallahassee, FL", qs_ranking: 308,
     program_name: "Florida State University College of Law", degree_level: null,
     duration_months: null, field_of_study: "Law", specialization: "General",
     annual_tuition_usd: 42657, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 42657, avg_living_cost_usd: 14000,
@@ -2569,7 +2569,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Florida State University",
-    country: "USA", city: "Tallahassee, FL", qs_ranking: 651,
+    country: "USA", city: "Tallahassee, FL", qs_ranking: 308,
     program_name: "Graduate Admission Requirements – Department of Computer Science", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Computer Science & IT", specialization: "General",
     annual_tuition_usd: 26707, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 26707, avg_living_cost_usd: 14000,
@@ -2582,7 +2582,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Florida State University",
-    country: "USA", city: "Tallahassee, FL", qs_ranking: 651,
+    country: "USA", city: "Tallahassee, FL", qs_ranking: 308,
     program_name: "Graduate Advising", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Environmental & Sustainability Studies", specialization: "Environmental Science",
     annual_tuition_usd: 26707, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 26707, avg_living_cost_usd: 14000,
@@ -2595,7 +2595,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Florida State University",
-    country: "USA", city: "Tallahassee, FL", qs_ranking: 651,
+    country: "USA", city: "Tallahassee, FL", qs_ranking: 308,
     program_name: "Interdisciplinary Data Science Master's Degree Program", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Data Science", field_aliases: null, specialization: "Data Science",
     annual_tuition_usd: 26707, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 26707, avg_living_cost_usd: 14000,
@@ -2608,7 +2608,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Florida State University",
-    country: "USA", city: "Tallahassee, FL", qs_ranking: 651,
+    country: "USA", city: "Tallahassee, FL", qs_ranking: 308,
     program_name: "Undergraduate BS in Computer Science Program", degree_level: "undergraduate",
     duration_months: 48, field_of_study: "Artificial Intelligence", specialization: "General",
     annual_tuition_usd: 21683, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 21683, avg_living_cost_usd: 14000,
@@ -2660,7 +2660,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Harvard University",
-    country: "USA", city: "Cambridge, MA", qs_ranking: 4,
+    country: "USA", city: "Cambridge, MA", qs_ranking: 5,
     program_name: "Master in Design Studies", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Arts and Design", specialization: "General",
     annual_tuition_usd: 64000, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 64000, avg_living_cost_usd: 26000,
@@ -2682,7 +2682,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Harvard University",
-    country: "USA", city: "Cambridge, MA", qs_ranking: 4,
+    country: "USA", city: "Cambridge, MA", qs_ranking: 5,
     program_name: "Master in Public Policy", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Social Sciences & Humanities", specialization: "General",
     annual_tuition_usd: 64340, avg_living_cost_usd: 26000,
@@ -2704,7 +2704,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Illinois Institute of Technology",
-    country: "USA", city: "Chicago, IL", qs_ranking: 601,
+    country: "USA", city: "Chicago, IL", qs_ranking: 562,
     program_name: "Artificial Intelligence (M.A.S.)", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Artificial Intelligence", specialization: "General",
     annual_tuition_usd: 33318, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 33318, avg_living_cost_usd: 19000,
@@ -2717,7 +2717,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Illinois Institute of Technology",
-    country: "USA", city: "Chicago, IL", qs_ranking: 601,
+    country: "USA", city: "Chicago, IL", qs_ranking: 562,
     program_name: "Computer Science", degree_level: null,
     duration_months: null, field_of_study: "Artificial Intelligence", specialization: "General",
     annual_tuition_usd: 33318, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 33318, avg_living_cost_usd: 19000,
@@ -2994,7 +2994,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Imperial College London",
-    country: "UK", city: "London", qs_ranking: 6,
+    country: "UK", city: "London", qs_ranking: 2,
     program_name: "Faculty of Medicine", degree_level: null,
     duration_months: null, field_of_study: "Medicine & Public Health", specialization: "General",
     annual_tuition_usd: 71609, annual_tuition_currency: "GBP", tuition_fee_source: "estimated", annual_tuition_amount: 56385, avg_living_cost_usd: 22500,
@@ -3104,7 +3104,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Indiana University Bloomington",
-    country: "USA", city: "Bloomington, IN", qs_ranking: 355,
+    country: "USA", city: "Bloomington, IN", qs_ranking: 243,
     program_name: "Data Science", degree_level: null,
     duration_months: null, field_of_study: "Data Science", field_aliases: null, specialization: "General",
     annual_tuition_usd: 33454, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 33454, avg_living_cost_usd: 14000,
@@ -3117,7 +3117,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Iowa State University",
-    country: "USA", city: "Ames, IA", qs_ranking: 470,
+    country: "USA", city: "Ames, IA", qs_ranking: 411,
     program_name: "Funding and Assistantships – Department of Mechanical Engineering", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "Mechanical Engineering",
     annual_tuition_usd: 31477, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 31477, avg_living_cost_usd: 14000,
@@ -3130,7 +3130,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Iowa State University",
-    country: "USA", city: "Ames, IA", qs_ranking: 470,
+    country: "USA", city: "Ames, IA", qs_ranking: 411,
     program_name: "Graduate Programs – Department of Mechanical Engineering", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "Mechanical Engineering",
     annual_tuition_usd: 30577, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 30577, avg_living_cost_usd: 14000,
@@ -3143,7 +3143,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Khalifa University",
-    country: "UAE", city: "Abu Dhabi", qs_ranking: 181,
+    country: "UAE", city: "Abu Dhabi", qs_ranking: 230,
     program_name: "MSc in Computer Science", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Artificial Intelligence", specialization: "Artificial Intelligence",
     annual_tuition_usd: 22326, annual_tuition_currency: "AED", tuition_fee_source: "estimated", annual_tuition_amount: 82688, avg_living_cost_usd: 18000,
@@ -3169,7 +3169,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Lehigh University",
-    country: "USA", city: "Bethlehem, PA", qs_ranking: 601,
+    country: "USA", city: "Bethlehem, PA", qs_ranking: 524,
     program_name: "FLEX MBA", degree_level: "postgraduate",
     duration_months: null, field_of_study: "MBA", specialization: "General",
     annual_tuition_usd: 51840, avg_living_cost_currency: "USD", avg_living_cost_amount: 19230, annual_tuition_currency: "USD", annual_tuition_amount: 51840, avg_living_cost_usd: 19230,
@@ -3182,7 +3182,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Lehigh University",
-    country: "USA", city: "Bethlehem, PA", qs_ranking: 601,
+    country: "USA", city: "Bethlehem, PA", qs_ranking: 524,
     program_name: "Graduate Studies in Chemical and Biomolecular Engineering", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "Chemical and Biomolecular Engineering",
     annual_tuition_usd: 29880, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 29880, avg_living_cost_usd: 14000,
@@ -3195,7 +3195,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Lehigh University",
-    country: "USA", city: "Bethlehem, PA", qs_ranking: 601,
+    country: "USA", city: "Bethlehem, PA", qs_ranking: 524,
     program_name: "MS in Applied Economics", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Economics & Finance", specialization: "Applied Economics",
     annual_tuition_usd: 42000, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 42000, avg_living_cost_usd: 14000,
@@ -3208,7 +3208,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Macquarie University",
-    country: "Australia", city: "Sydney", qs_ranking: 195,
+    country: "Australia", city: "Sydney", qs_ranking: 130,
     program_name: "Master of International Business", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Hospitality & Tourism", specialization: "General",
     annual_tuition_usd: 29484, annual_tuition_currency: "AUD", tuition_fee_source: "estimated", annual_tuition_amount: 45360, avg_living_cost_usd: 22000,
@@ -3309,7 +3309,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "McMaster University",
-    country: "Canada", city: "Hamilton, ON", qs_ranking: 189,
+    country: "Canada", city: "Hamilton, ON", qs_ranking: 176,
     program_name: "Faculty of Engineering Graduate Programs", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "General",
     annual_tuition_usd: 12480, annual_tuition_currency: "CAD", tuition_fee_source: "estimated", annual_tuition_amount: 17096, avg_living_cost_usd: 15000,
@@ -3322,7 +3322,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Memorial University of Newfoundland",
-    country: "Canada", city: "St. John's, NL", qs_ranking: 801,
+    country: "Canada", city: "St. John's, NL", qs_ranking: 651,
     program_name: "Faculty of Law Proposal", degree_level: null,
     duration_months: null, field_of_study: "Law", specialization: "General",
     annual_tuition_usd: null, avg_living_cost_usd: 15000,
@@ -3335,7 +3335,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Memorial University of Newfoundland",
-    country: "Canada", city: "St. John's, NL", qs_ranking: 801,
+    country: "Canada", city: "St. John's, NL", qs_ranking: 651,
     program_name: "Master of Applied Science (MASc)", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "General",
     annual_tuition_usd: 3528, annual_tuition_currency: "CAD", tuition_fee_source: "estimated", annual_tuition_amount: 4833, avg_living_cost_usd: 15000,
@@ -3348,7 +3348,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Memorial University of Newfoundland",
-    country: "Canada", city: "St. John's, NL", qs_ranking: 801,
+    country: "Canada", city: "St. John's, NL", qs_ranking: 651,
     program_name: "Master of business administration (MBA)", degree_level: "postgraduate",
     duration_months: null, field_of_study: "MBA", specialization: "General",
     annual_tuition_usd: 14161, annual_tuition_currency: "CAD", tuition_fee_source: "estimated", annual_tuition_amount: 19398, avg_living_cost_usd: 15000,
@@ -3361,7 +3361,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Middlesex University",
-    country: "UK", city: "London", qs_ranking: 801,
+    country: "UK", city: "London", qs_ranking: 691,
     program_name: "Cyber Security and Emerging Threats MSc", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Cybersecurity", field_aliases: null, specialization: "Cyber Security and Emerging Threats",
     annual_tuition_usd: 23622, avg_living_cost_currency: null, avg_living_cost_amount: null, annual_tuition_currency: "GBP", annual_tuition_amount: 18600, avg_living_cost_usd: 22500,
@@ -3387,7 +3387,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Ohio State University",
-    country: "USA", city: "Columbus, OH", qs_ranking: 148,
+    country: "USA", city: "Columbus, OH", qs_ranking: 92,
     program_name: "Graduate Programs in Agricultural, Environmental, and Development Economics", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Agriculture & Veterinary Sciences", specialization: "Agricultural, Environmental, and Development Economics",
     annual_tuition_usd: 42740, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 42740, avg_living_cost_usd: 14000,
@@ -3409,7 +3409,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Oregon State University",
-    country: "USA", city: "Corvallis, OR", qs_ranking: 511,
+    country: "USA", city: "Corvallis, OR", qs_ranking: 437,
     program_name: "Civil and Construction Engineering", degree_level: null,
     duration_months: null, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "General",
     annual_tuition_usd: 33351, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 33351, avg_living_cost_usd: 14000,
@@ -3422,7 +3422,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Oregon State University",
-    country: "USA", city: "Corvallis, OR", qs_ranking: 511,
+    country: "USA", city: "Corvallis, OR", qs_ranking: 437,
     program_name: "Electrical Engineering and Computer Science", degree_level: "undergraduate",
     duration_months: null, field_of_study: "Computer Science & IT", specialization: "General",
     annual_tuition_usd: 38190, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 38190, avg_living_cost_usd: 14000,
@@ -3435,7 +3435,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Oregon State University",
-    country: "USA", city: "Corvallis, OR", qs_ranking: 511,
+    country: "USA", city: "Corvallis, OR", qs_ranking: 437,
     program_name: "MS in Civil Engineering", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "General",
     annual_tuition_usd: 33351, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 33351, avg_living_cost_usd: 14000,
@@ -3448,7 +3448,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Penn State University",
-    country: "USA", city: "University Park, PA", qs_ranking: 123,
+    country: "USA", city: "University Park, PA", qs_ranking: 81,
     program_name: "Graduate Degree Programs", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Agriculture & Veterinary Sciences", specialization: "General",
     annual_tuition_usd: 50245, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 50245, avg_living_cost_usd: 14000,
@@ -3470,7 +3470,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Penn State University",
-    country: "USA", city: "University Park, PA", qs_ranking: 123,
+    country: "USA", city: "University Park, PA", qs_ranking: 81,
     program_name: "Graduate Programs in Hospitality Management", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Hospitality & Tourism", specialization: "accounting, finance, information technology, management, marketing, strategy, branding, service operations, and food service",
     annual_tuition_usd: 45574, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 45574, avg_living_cost_usd: 14000,
@@ -3492,7 +3492,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Penn State University",
-    country: "USA", city: "University Park, PA", qs_ranking: 123,
+    country: "USA", city: "University Park, PA", qs_ranking: 81,
     program_name: "Penn State Smeal One-Year MBA", degree_level: "postgraduate",
     duration_months: 9, field_of_study: "MBA", specialization: "General",
     annual_tuition_usd: 49612, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 49612, avg_living_cost_usd: 14000,
@@ -3514,7 +3514,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Purdue University",
-    country: "USA", city: "West Lafayette, IN", qs_ranking: 109,
+    country: "USA", city: "West Lafayette, IN", qs_ranking: 89,
     program_name: "Graduate Program - Department of Computer Science", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Computer Science & IT", specialization: "General",
     annual_tuition_usd: 31414, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 31414, avg_living_cost_usd: 14000,
@@ -3536,7 +3536,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Purdue University",
-    country: "USA", city: "West Lafayette, IN", qs_ranking: 109,
+    country: "USA", city: "West Lafayette, IN", qs_ranking: 89,
     program_name: "Graduate Program", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Computer Science & IT", specialization: "General",
     annual_tuition_usd: 31414, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 31414, avg_living_cost_usd: 14000,
@@ -3558,7 +3558,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Purdue University",
-    country: "USA", city: "West Lafayette, IN", qs_ranking: 109,
+    country: "USA", city: "West Lafayette, IN", qs_ranking: 89,
     program_name: "Master's Program", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Computer Science & IT", specialization: "Computer Science",
     annual_tuition_usd: 31414, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 31414, avg_living_cost_usd: 14000,
@@ -3580,7 +3580,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Rensselaer Polytechnic Institute",
-    country: "USA", city: "Troy, NY", qs_ranking: 491,
+    country: "USA", city: "Troy, NY", qs_ranking: 451,
     program_name: "Graduate Programs - Mechanical, Aerospace, and Nuclear Engineering", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "Mechanical Engineering, Aerospace Engineering, Nuclear Engineering",
     annual_tuition_usd: 66300, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 66300, avg_living_cost_usd: 14000,
@@ -3593,7 +3593,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Rensselaer Polytechnic Institute",
-    country: "USA", city: "Troy, NY", qs_ranking: 491,
+    country: "USA", city: "Troy, NY", qs_ranking: 451,
     program_name: "Master of Business Administration (MBA)", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "MBA", specialization: "General",
     annual_tuition_usd: 64054, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 64054, avg_living_cost_usd: 14000,
@@ -3710,7 +3710,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Stanford University",
-    country: "USA", city: "Stanford, CA", qs_ranking: 5,
+    country: "USA", city: "Stanford, CA", qs_ranking: 3,
     program_name: "Emmett Interdisciplinary Program in Environment and Resources", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Environmental & Sustainability Studies", specialization: "General",
     annual_tuition_usd: 56487, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 56487, avg_living_cost_usd: 26000,
@@ -3732,7 +3732,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Stanford University",
-    country: "USA", city: "Stanford, CA", qs_ranking: 5,
+    country: "USA", city: "Stanford, CA", qs_ranking: 3,
     program_name: "JD/MBA Club", degree_level: null,
     duration_months: null, field_of_study: "MBA", specialization: "General",
     annual_tuition_usd: 79779, avg_living_cost_currency: "USD", avg_living_cost_amount: 41322, annual_tuition_currency: "USD", annual_tuition_amount: 79779, avg_living_cost_usd: 41322,
@@ -3754,7 +3754,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Stanford University",
-    country: "USA", city: "Stanford, CA", qs_ranking: 5,
+    country: "USA", city: "Stanford, CA", qs_ranking: 3,
     program_name: "MS Environment and Resources (E-IPER)/MBA Joint Degree", degree_level: "postgraduate",
     duration_months: 30, field_of_study: "MBA", specialization: "Environment and Resources",
     annual_tuition_usd: 85755, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 85755, avg_living_cost_usd: 26000,
@@ -3776,7 +3776,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Stanford University",
-    country: "USA", city: "Stanford, CA", qs_ranking: 5,
+    country: "USA", city: "Stanford, CA", qs_ranking: 3,
     program_name: "Stanford MBA Program", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "MBA", specialization: "General",
     annual_tuition_usd: 85755, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 85755, avg_living_cost_usd: 26000,
@@ -3824,7 +3824,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Texas A&M University",
-    country: "USA", city: "College Station, TX", qs_ranking: 148,
+    country: "USA", city: "College Station, TX", qs_ranking: 152,
     program_name: "Full-Time MBA", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "MBA", specialization: "finance, supply chain, or marketing",
     annual_tuition_usd: 38749, avg_living_cost_usd: 14000,
@@ -3850,7 +3850,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Trinity College Dublin",
-    country: "Ireland", city: "Dublin", qs_ranking: 82,
+    country: "Ireland", city: "Dublin", qs_ranking: 81,
     program_name: "School of Medicine", degree_level: null,
     duration_months: null, field_of_study: "Medicine & Public Health", specialization: "General",
     annual_tuition_usd: null, avg_living_cost_usd: 14000,
@@ -3872,7 +3872,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Tulane University",
-    country: "USA", city: "New Orleans, LA", qs_ranking: 601,
+    country: "USA", city: "New Orleans, LA", qs_ranking: 351,
     program_name: "Celia Scott Weatherhead School of Public Health and Tropical Medicine", degree_level: null,
     duration_months: null, field_of_study: "Medicine & Public Health", specialization: "General",
     annual_tuition_usd: 82845, avg_living_cost_currency: null, avg_living_cost_amount: null, annual_tuition_currency: "USD", annual_tuition_amount: 82845, avg_living_cost_usd: 14000,
@@ -3885,7 +3885,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Tulane University",
-    country: "USA", city: "New Orleans, LA", qs_ranking: 601,
+    country: "USA", city: "New Orleans, LA", qs_ranking: 351,
     program_name: "Full-Time MBA", degree_level: "postgraduate",
     duration_months: 21, field_of_study: "MBA", specialization: "General",
     annual_tuition_usd: 65637, avg_living_cost_currency: "USD", avg_living_cost_amount: 19284, annual_tuition_currency: "USD", annual_tuition_amount: 65637, avg_living_cost_usd: 19284,
@@ -4116,7 +4116,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Auckland",
-    country: "New Zealand", city: "Auckland", qs_ranking: 68,
+    country: "New Zealand", city: "Auckland", qs_ranking: 65,
     program_name: "Medicine", degree_level: null,
     duration_months: null, field_of_study: "Medicine & Public Health", specialization: "General",
     annual_tuition_usd: null, avg_living_cost_usd: 16000,
@@ -4138,7 +4138,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Bristol",
-    country: "UK", city: "Bristol", qs_ranking: 55,
+    country: "UK", city: "Bristol", qs_ranking: 54,
     program_name: "MB ChB Medicine", degree_level: "undergraduate",
     duration_months: 60, field_of_study: "Medicine & Public Health", specialization: "General",
     annual_tuition_usd: 58166, avg_living_cost_currency: "GBP", avg_living_cost_amount: 12000, annual_tuition_currency: "GBP", annual_tuition_amount: 45800, avg_living_cost_usd: 15240,
@@ -4160,7 +4160,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of British Columbia",
-    country: "Canada", city: "Vancouver, BC", qs_ranking: 46,
+    country: "Canada", city: "Vancouver, BC", qs_ranking: 38,
     program_name: "Undergraduates", degree_level: "undergraduate",
     duration_months: null, field_of_study: "Computer Science & IT", specialization: "General",
     annual_tuition_usd: 34448, annual_tuition_currency: "CAD", tuition_fee_source: "estimated", annual_tuition_amount: 47189, avg_living_cost_usd: 18000,
@@ -4195,7 +4195,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of California, Berkeley",
-    country: "USA", city: "Berkeley, CA", qs_ranking: 10,
+    country: "USA", city: "Berkeley, CA", qs_ranking: 12,
     program_name: "Berkeley M.E.T. | Management, Entrepreneurship, & Technology", degree_level: "undergraduate",
     duration_months: null, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "Management, Entrepreneurship, & Technology (dual degree in Engineering and Business)",
     annual_tuition_usd: 58089, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 58089, avg_living_cost_usd: 26000,
@@ -4217,7 +4217,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of California, Berkeley",
-    country: "USA", city: "Berkeley, CA", qs_ranking: 10,
+    country: "USA", city: "Berkeley, CA", qs_ranking: 12,
     program_name: "Electrical Engineering & Computer Sciences (EECS) + Business", degree_level: "undergraduate",
     duration_months: null, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "Electrical Engineering & Computer Sciences",
     annual_tuition_usd: 58089, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 58089, avg_living_cost_usd: 26000,
@@ -4283,7 +4283,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Cambridge",
-    country: "UK", city: "Cambridge", qs_ranking: 2,
+    country: "UK", city: "Cambridge", qs_ranking: 6,
     program_name: "Medicine, MB and BChir", degree_level: "undergraduate",
     duration_months: 72, field_of_study: "Medicine & Public Health", specialization: "General",
     annual_tuition_usd: 85336, annual_tuition_currency: "GBP", tuition_fee_source: "estimated", annual_tuition_amount: 67194, avg_living_cost_usd: 17200,
@@ -4459,7 +4459,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Cambridge",
-    country: "UK", city: "Cambridge", qs_ranking: 2,
+    country: "UK", city: "Cambridge", qs_ranking: 6,
     program_name: "MPhil in Machine Learning and Machine Intelligence", degree_level: "postgraduate",
     duration_months: 11, field_of_study: "Artificial Intelligence", specialization: "Machine Learning and Machine Intelligence",
     annual_tuition_usd: null, avg_living_cost_usd: 17200,
@@ -4778,7 +4778,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Iowa",
-    country: "USA", city: "Iowa City, IA", qs_ranking: 511,
+    country: "USA", city: "Iowa City, IA", qs_ranking: 357,
     program_name: "Graduate Programs", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Computer Science & IT", specialization: "General",
     annual_tuition_usd: 32372, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 32372, avg_living_cost_usd: 14000,
@@ -4791,7 +4791,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Iowa",
-    country: "USA", city: "Iowa City, IA", qs_ranking: 511,
+    country: "USA", city: "Iowa City, IA", qs_ranking: 357,
     program_name: "Iowa MBA", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "MBA", specialization: "General",
     annual_tuition_usd: 16875, avg_living_cost_currency: null, avg_living_cost_amount: null, annual_tuition_currency: "USD", annual_tuition_amount: 16875, avg_living_cost_usd: 14000,
@@ -4804,7 +4804,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Kansas",
-    country: "USA", city: "Lawrence, KS", qs_ranking: 452,
+    country: "USA", city: "Lawrence, KS", qs_ranking: 462,
     program_name: "Graduate Program", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Natural Sciences", specialization: "Chemistry",
     annual_tuition_usd: 27146, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 27146, avg_living_cost_usd: 14000,
@@ -4817,7 +4817,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Kentucky",
-    country: "USA", city: "Lexington, KY", qs_ranking: 795,
+    country: "USA", city: "Lexington, KY", qs_ranking: 851,
     program_name: "Graduate Programs", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Medicine & Public Health", specialization: "General",
     annual_tuition_usd: 36238, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 36238, avg_living_cost_usd: 14000,
@@ -4830,7 +4830,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Kentucky",
-    country: "USA", city: "Lexington, KY", qs_ranking: 795,
+    country: "USA", city: "Lexington, KY", qs_ranking: 851,
     program_name: "Masters of Business Administration (MBA)", degree_level: "postgraduate",
     duration_months: null, field_of_study: "MBA", specialization: "General",
     annual_tuition_usd: 50218, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 50218, avg_living_cost_usd: 14000,
@@ -4878,7 +4878,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Newcastle",
-    country: "Australia", city: "Newcastle", qs_ranking: 197,
+    country: "Australia", city: "Newcastle", qs_ranking: 179,
     program_name: "Bachelor of Tourism, Hospitality and Events", degree_level: "undergraduate",
     duration_months: 36, field_of_study: "Hospitality & Tourism", specialization: "Tourism, Hospitality and Events",
     annual_tuition_usd: 26007, annual_tuition_currency: "AUD", tuition_fee_source: "estimated", annual_tuition_amount: 40010, avg_living_cost_usd: 19300,
@@ -4891,7 +4891,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Oregon",
-    country: "USA", city: "Eugene, OR", qs_ranking: 601,
+    country: "USA", city: "Eugene, OR", qs_ranking: 525,
     program_name: "Computer Science", degree_level: null,
     duration_months: null, field_of_study: "Computer Science & IT", specialization: "General",
     annual_tuition_usd: 33379, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 33379, avg_living_cost_usd: 14000,
@@ -4904,7 +4904,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Oregon",
-    country: "USA", city: "Eugene, OR", qs_ranking: 601,
+    country: "USA", city: "Eugene, OR", qs_ranking: 525,
     program_name: "Economics", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Economics & Finance", specialization: "General",
     annual_tuition_usd: 33379, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 33379, avg_living_cost_usd: 14000,
@@ -4917,7 +4917,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Oregon",
-    country: "USA", city: "Eugene, OR", qs_ranking: 601,
+    country: "USA", city: "Eugene, OR", qs_ranking: 525,
     program_name: "Juris Doctor", degree_level: "postgraduate",
     duration_months: 36, field_of_study: "Law", specialization: "General",
     annual_tuition_usd: 60867, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 60867, avg_living_cost_usd: 14000,
@@ -4930,7 +4930,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Otago",
-    country: "New Zealand", city: "Dunedin", qs_ranking: 184,
+    country: "New Zealand", city: "Dunedin", qs_ranking: 197,
     program_name: "MB ChB: The University of Otago Medical Degree", degree_level: null,
     duration_months: null, field_of_study: "Medicine & Public Health", specialization: "General",
     annual_tuition_usd: 24953, annual_tuition_currency: "NZD", tuition_fee_source: "estimated", annual_tuition_amount: 41589, avg_living_cost_usd: 12400,
@@ -4965,7 +4965,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Pennsylvania",
-    country: "USA", city: "Philadelphia, PA", qs_ranking: 12,
+    country: "USA", city: "Philadelphia, PA", qs_ranking: 11,
     program_name: "MBA Program", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "MBA", specialization: "General",
     annual_tuition_usd: 93008, avg_living_cost_currency: "USD", avg_living_cost_amount: 42433, annual_tuition_currency: "USD", annual_tuition_amount: 93008, avg_living_cost_usd: 42433,
@@ -5065,7 +5065,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Southern California",
-    country: "USA", city: "Los Angeles, CA", qs_ranking: 101,
+    country: "USA", city: "Los Angeles, CA", qs_ranking: 116,
     program_name: "Full-Time MBA (FTMBA)", degree_level: "postgraduate",
     duration_months: null, field_of_study: "MBA", specialization: "General",
     annual_tuition_usd: 79893, avg_living_cost_currency: null, avg_living_cost_amount: null, annual_tuition_currency: "USD", annual_tuition_amount: 79893, avg_living_cost_usd: 26000,
@@ -5078,7 +5078,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Surrey",
-    country: "UK", city: "Guildford", qs_ranking: 296,
+    country: "UK", city: "Guildford", qs_ranking: 251,
     program_name: "International Hotel Management MSc", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Hospitality & Tourism", specialization: "International Hotel Management",
     annual_tuition_usd: 26289, avg_living_cost_currency: null, avg_living_cost_amount: null, annual_tuition_currency: "GBP", annual_tuition_amount: 20700, avg_living_cost_usd: 17200,
@@ -5091,7 +5091,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Sussex",
-    country: "UK", city: "Brighton", qs_ranking: 246,
+    country: "UK", city: "Brighton", qs_ranking: 256,
     program_name: "School of Psychology", degree_level: null,
     duration_months: null, field_of_study: "Psychology", specialization: "General",
     annual_tuition_usd: 33429, annual_tuition_currency: "GBP", tuition_fee_source: "estimated", annual_tuition_amount: 26322, avg_living_cost_usd: 17200,
@@ -5178,7 +5178,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Virginia Tech",
-    country: "USA", city: "Blacksburg, VA", qs_ranking: 389,
+    country: "USA", city: "Blacksburg, VA", qs_ranking: 297,
     program_name: "Graduate", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Computer Science & IT", specialization: "General",
     annual_tuition_usd: 35092, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 35092, avg_living_cost_usd: 14000,
@@ -5191,7 +5191,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Virginia Tech",
-    country: "USA", city: "Blacksburg, VA", qs_ranking: 389,
+    country: "USA", city: "Blacksburg, VA", qs_ranking: 297,
     program_name: "Master of Science", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Computer Science & IT", specialization: "Computer Science",
     annual_tuition_usd: 36212, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 36212, avg_living_cost_usd: 14000,
@@ -5204,7 +5204,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Vrije Universiteit Amsterdam",
-    country: "Netherlands", city: "Amsterdam", qs_ranking: 219,
+    country: "Netherlands", city: "Amsterdam", qs_ranking: 176,
     program_name: "Master in Business Administration", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Business & Management", specialization: "General",
     annual_tuition_usd: null, avg_living_cost_usd: 18000,
@@ -5217,7 +5217,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Vrije Universiteit Amsterdam",
-    country: "Netherlands", city: "Amsterdam", qs_ranking: 219,
+    country: "Netherlands", city: "Amsterdam", qs_ranking: 176,
     program_name: "Master's Accounting and Control", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Business & Management", specialization: "Accounting and Control",
     annual_tuition_usd: 28158, annual_tuition_currency: "EUR", tuition_fee_source: "estimated", annual_tuition_amount: 26072, avg_living_cost_usd: 18000,
@@ -5230,7 +5230,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Vrije Universiteit Amsterdam",
-    country: "Netherlands", city: "Amsterdam", qs_ranking: 219,
+    country: "Netherlands", city: "Amsterdam", qs_ranking: 176,
     program_name: "Master's Environment and Resource Management", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Social Sciences & Humanities", specialization: "General",
     annual_tuition_usd: null, avg_living_cost_usd: 18000,
@@ -5243,7 +5243,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Vrije Universiteit Amsterdam",
-    country: "Netherlands", city: "Amsterdam", qs_ranking: 219,
+    country: "Netherlands", city: "Amsterdam", qs_ranking: 176,
     program_name: "Master's Political Science", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Social Sciences & Humanities", specialization: "Democracy, Power and Inequality; Global Environmental Politics; International Relations: Geopolitics and Global Political Economy; International Relations: Peace and Security",
     annual_tuition_usd: null, avg_living_cost_usd: 18000,
@@ -5256,7 +5256,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Vrije Universiteit Amsterdam",
-    country: "Netherlands", city: "Amsterdam", qs_ranking: 219,
+    country: "Netherlands", city: "Amsterdam", qs_ranking: 176,
     program_name: "Philosophy", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Medicine & Public Health", specialization: "Philosophy, Bioethics and Health",
     annual_tuition_usd: null, avg_living_cost_usd: 18000,
@@ -5269,7 +5269,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Wake Forest University",
-    country: "USA", city: "Winston-Salem, NC", qs_ranking: 651,
+    country: "USA", city: "Winston-Salem, NC", qs_ranking: 525,
     program_name: "Juris Doctor (JD)", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Law", specialization: "General",
     annual_tuition_usd: 57920, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 57920, avg_living_cost_usd: 14000,
@@ -5360,7 +5360,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Yale University",
-    country: "USA", city: "New Haven, CT", qs_ranking: 16,
+    country: "USA", city: "New Haven, CT", qs_ranking: 23,
     program_name: "Undergraduate Program", degree_level: "undergraduate",
     duration_months: null, field_of_study: "Economics & Finance", specialization: "General",
     annual_tuition_usd: 69900, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 69900, avg_living_cost_usd: 14000,
@@ -36310,7 +36310,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Tübingen",
-    country: "Germany", city: "Tübingen", qs_ranking: 213,
+    country: "Germany", city: "Tübingen", qs_ranking: 206,
     program_name: "Applied + Environmental Geoscience AEG - Master", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Environmental & Sustainability Studies", specialization: "Hydrogeology; Environmental Chemistry and Environmental Microbiology; Environmental Physics",
     annual_tuition_usd: 3402, annual_tuition_currency: "EUR", tuition_fee_source: "estimated", annual_tuition_amount: 3150, avg_living_cost_usd: 12100,
@@ -36323,7 +36323,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Tübingen",
-    country: "Germany", city: "Tübingen", qs_ranking: 213,
+    country: "Germany", city: "Tübingen", qs_ranking: 206,
     program_name: "Bioinformatics - Master", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Biotechnology & Life Sciences", specialization: "Bioinformatics",
     annual_tuition_usd: 3402, annual_tuition_currency: "EUR", tuition_fee_source: "estimated", annual_tuition_amount: 3150, avg_living_cost_usd: 12100,
@@ -36336,7 +36336,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Tübingen",
-    country: "Germany", city: "Tübingen", qs_ranking: 213,
+    country: "Germany", city: "Tübingen", qs_ranking: 206,
     program_name: "Economics and Finance - Master", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Economics & Finance", specialization: "Quantitative Monetary Economics and Finance; Econometrics, Statistics and Machine Learning; Empirical and Theoretical Finance",
     annual_tuition_usd: 3402, annual_tuition_currency: "EUR", tuition_fee_source: "estimated", annual_tuition_amount: 3150, avg_living_cost_usd: 12100,
@@ -36349,7 +36349,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Tübingen",
-    country: "Germany", city: "Tübingen", qs_ranking: 213,
+    country: "Germany", city: "Tübingen", qs_ranking: 206,
     program_name: "Ethnologie/Social and Cultural Anthropology - Master", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Social Sciences & Humanities", specialization: "Social and Cultural Anthropology",
     annual_tuition_usd: 3402, annual_tuition_currency: "EUR", tuition_fee_source: "estimated", annual_tuition_amount: 3150, avg_living_cost_usd: 12100,
@@ -36362,7 +36362,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Tübingen",
-    country: "Germany", city: "Tübingen", qs_ranking: 213,
+    country: "Germany", city: "Tübingen", qs_ranking: 206,
     program_name: "General Management - Master", degree_level: "postgraduate",
     duration_months: 18, field_of_study: "Business & Management", specialization: "General Management",
     annual_tuition_usd: 1620, avg_living_cost_currency: null, avg_living_cost_amount: null, annual_tuition_currency: "EUR", annual_tuition_amount: 1500, avg_living_cost_usd: 12100,
@@ -36375,7 +36375,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Tübingen",
-    country: "Germany", city: "Tübingen", qs_ranking: 213,
+    country: "Germany", city: "Tübingen", qs_ranking: 206,
     program_name: "Media Informatics - Master", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Media & Communications", specialization: "General",
     annual_tuition_usd: 3402, annual_tuition_currency: "EUR", tuition_fee_source: "estimated", annual_tuition_amount: 3150, avg_living_cost_usd: 12100,
@@ -36388,7 +36388,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Tübingen",
-    country: "Germany", city: "Tübingen", qs_ranking: 213,
+    country: "Germany", city: "Tübingen", qs_ranking: 206,
     program_name: "Molekulare Medizin - Master", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Nursing & Allied Health", specialization: "Molecular Medicine",
     annual_tuition_usd: 3402, annual_tuition_currency: "EUR", tuition_fee_source: "estimated", annual_tuition_amount: 3150, avg_living_cost_usd: 12100,
@@ -36401,7 +36401,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Tübingen",
-    country: "Germany", city: "Tübingen", qs_ranking: 213,
+    country: "Germany", city: "Tübingen", qs_ranking: 206,
     program_name: "Nano-Science - Master", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Natural Sciences", specialization: "Nano-Science",
     annual_tuition_usd: 3240, annual_tuition_currency: "EUR", tuition_fee_source: "estimated", annual_tuition_amount: 3000, avg_living_cost_usd: 12100,
@@ -36414,7 +36414,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Tübingen",
-    country: "Germany", city: "Tübingen", qs_ranking: 213,
+    country: "Germany", city: "Tübingen", qs_ranking: 206,
     program_name: "Population-Based Medicine - Master", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Medicine & Public Health", specialization: "Population-Based Medicine",
     annual_tuition_usd: 3240, annual_tuition_currency: "EUR", tuition_fee_source: "estimated", annual_tuition_amount: 3000, avg_living_cost_usd: 12100,
@@ -36427,7 +36427,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Tübingen",
-    country: "Germany", city: "Tübingen", qs_ranking: 213,
+    country: "Germany", city: "Tübingen", qs_ranking: 206,
     program_name: "Rechtswissenschaft / Jura - Legum Magister", degree_level: "postgraduate",
     duration_months: 10, field_of_study: "Law", specialization: "General",
     annual_tuition_usd: 3240, annual_tuition_currency: "EUR", tuition_fee_source: "estimated", annual_tuition_amount: 3000, avg_living_cost_usd: 12100,
@@ -60052,7 +60052,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Edith Cowan University",
-    country: "Australia", city: "Joondalup", qs_ranking: 459,
+    country: "Australia", city: "Joondalup", qs_ranking: 446,
     program_name: "Bachelor of Biomedical Science (Bioscience)", degree_level: "undergraduate",
     duration_months: 48, field_of_study: "Biotechnology & Life Sciences", specialization: "Bioscience",
     annual_tuition_usd: 27138, avg_living_cost_currency: null, avg_living_cost_amount: null, annual_tuition_currency: "AUD", annual_tuition_amount: 41750, avg_living_cost_usd: 16000,
@@ -60065,7 +60065,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Edith Cowan University",
-    country: "Australia", city: "Joondalup", qs_ranking: 459,
+    country: "Australia", city: "Joondalup", qs_ranking: 446,
     program_name: "Master of Advanced Nursing", degree_level: "postgraduate",
     duration_months: 18, field_of_study: "Nursing & Allied Health", specialization: "General",
     annual_tuition_usd: 28665, avg_living_cost_currency: null, avg_living_cost_amount: null, annual_tuition_currency: "AUD", annual_tuition_amount: 44100, avg_living_cost_usd: 16000,
@@ -60078,7 +60078,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Edith Cowan University",
-    country: "Australia", city: "Joondalup", qs_ranking: 459,
+    country: "Australia", city: "Joondalup", qs_ranking: 446,
     program_name: "Master of Communication", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Media & Communications", specialization: "General",
     annual_tuition_usd: 24505, avg_living_cost_currency: null, avg_living_cost_amount: null, annual_tuition_currency: "AUD", annual_tuition_amount: 37700, avg_living_cost_usd: 16000,
@@ -60091,7 +60091,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Edith Cowan University",
-    country: "Australia", city: "Joondalup", qs_ranking: 459,
+    country: "Australia", city: "Joondalup", qs_ranking: 446,
     program_name: "Master of Finance", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Economics & Finance", specialization: "Finance",
     annual_tuition_usd: 26033, avg_living_cost_currency: null, avg_living_cost_amount: null, annual_tuition_currency: "AUD", annual_tuition_amount: 40050, avg_living_cost_usd: 16000,
@@ -60104,7 +60104,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Edith Cowan University",
-    country: "Australia", city: "Joondalup", qs_ranking: 459,
+    country: "Australia", city: "Joondalup", qs_ranking: 446,
     program_name: "Master of Laws (Research)", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Law", specialization: "General",
     annual_tuition_usd: 30908, avg_living_cost_currency: null, avg_living_cost_amount: null, annual_tuition_currency: "AUD", annual_tuition_amount: 47550, avg_living_cost_usd: 16000,
@@ -60117,7 +60117,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Edith Cowan University",
-    country: "Australia", city: "Joondalup", qs_ranking: 459,
+    country: "Australia", city: "Joondalup", qs_ranking: 446,
     program_name: "Master of Public Health", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Medicine & Public Health", specialization: "General",
     annual_tuition_usd: 27105, avg_living_cost_currency: null, avg_living_cost_amount: null, annual_tuition_currency: "AUD", annual_tuition_amount: 41700, avg_living_cost_usd: 16000,
@@ -65084,7 +65084,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Florida State University",
-    country: "USA", city: "Tallahassee, FL", qs_ranking: 651,
+    country: "USA", city: "Tallahassee, FL", qs_ranking: 308,
     program_name: "FSU College of Law", degree_level: null,
     duration_months: null, field_of_study: "Law", specialization: "General",
     annual_tuition_usd: 42657, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 42657, avg_living_cost_usd: 14000,
@@ -65097,7 +65097,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Florida State University",
-    country: "USA", city: "Tallahassee, FL", qs_ranking: 651,
+    country: "USA", city: "Tallahassee, FL", qs_ranking: 308,
     program_name: "Graduate Studies", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Environmental & Sustainability Studies", specialization: "General",
     annual_tuition_usd: 26707, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 26707, avg_living_cost_usd: 14000,
@@ -65201,7 +65201,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Goldsmiths, University of London",
-    country: "UK", city: "London", qs_ranking: 651,
+    country: "UK", city: "London", qs_ranking: 524,
     program_name: "BA (Hons) Media & Communications", degree_level: "undergraduate",
     duration_months: 36, field_of_study: "Media & Communications", specialization: "General",
     annual_tuition_usd: 29210, avg_living_cost_currency: null, avg_living_cost_amount: null, annual_tuition_currency: "GBP", annual_tuition_amount: 23000, avg_living_cost_usd: 22500,
@@ -67251,7 +67251,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "McGill University",
-    country: "Canada", city: "Montreal", qs_ranking: 46,
+    country: "Canada", city: "Montreal", qs_ranking: 29,
     program_name: "Faculty of Medicine and Health Sciences", degree_level: null,
     duration_months: null, field_of_study: "Medicine & Public Health", specialization: "General",
     annual_tuition_usd: 46999, annual_tuition_currency: "CAD", tuition_fee_source: "estimated", annual_tuition_amount: 64382, avg_living_cost_usd: 11300,
@@ -68664,7 +68664,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University College Dublin",
-    country: "Ireland", city: "Dublin", qs_ranking: 171,
+    country: "Ireland", city: "Dublin", qs_ranking: 124,
     program_name: "UCD School of Medicine", degree_level: null,
     duration_months: null, field_of_study: "Medicine & Public Health", specialization: "General",
     annual_tuition_usd: null, avg_living_cost_usd: 14000,
@@ -69314,7 +69314,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Connecticut",
-    country: "USA", city: "Storrs, CT", qs_ranking: 565,
+    country: "USA", city: "Storrs, CT", qs_ranking: 256,
     program_name: "Graduate Programs - College of Agriculture, Health and Natural Resources", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Agriculture & Veterinary Sciences", specialization: "General",
     annual_tuition_usd: 44784, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 44784, avg_living_cost_usd: 14000,
@@ -82676,7 +82676,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Brown University",
-    country: "USA", city: "Providence, RI", qs_ranking: 73,
+    country: "USA", city: "Providence, RI", qs_ranking: 79,
     program_name: "Architecture", degree_level: "undergraduate",
     duration_months: null, field_of_study: "Architecture", specialization: "General",
     annual_tuition_usd: 71700, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 71700, avg_living_cost_usd: 14000,
@@ -82698,7 +82698,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Brown University",
-    country: "USA", city: "Providence, RI", qs_ranking: 73,
+    country: "USA", city: "Providence, RI", qs_ranking: 79,
     program_name: "Biology", degree_level: "undergraduate",
     duration_months: null, field_of_study: "Biotechnology & Life Sciences", specialization: "General",
     annual_tuition_usd: 71700, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 71700, avg_living_cost_usd: 14000,
@@ -82720,7 +82720,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Brown University",
-    country: "USA", city: "Providence, RI", qs_ranking: 73,
+    country: "USA", city: "Providence, RI", qs_ranking: 79,
     program_name: "Business Track (A.B.)", degree_level: "undergraduate",
     duration_months: null, field_of_study: "Business & Management", specialization: "Business Economics",
     annual_tuition_usd: 71700, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 71700, avg_living_cost_usd: 14000,
@@ -82742,7 +82742,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Brown University",
-    country: "USA", city: "Providence, RI", qs_ranking: 73,
+    country: "USA", city: "Providence, RI", qs_ranking: 79,
     program_name: "Computer Science", degree_level: "undergraduate",
     duration_months: null, field_of_study: "Computer Science & IT", specialization: "General",
     annual_tuition_usd: 74650, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 74650, avg_living_cost_usd: 14000,
@@ -82764,7 +82764,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Brown University",
-    country: "USA", city: "Providence, RI", qs_ranking: 73,
+    country: "USA", city: "Providence, RI", qs_ranking: 79,
     program_name: "Economics", degree_level: "undergraduate",
     duration_months: null, field_of_study: "Economics & Finance", specialization: "General",
     annual_tuition_usd: 71700, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 71700, avg_living_cost_usd: 14000,
@@ -82786,7 +82786,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Brown University",
-    country: "USA", city: "Providence, RI", qs_ranking: 73,
+    country: "USA", city: "Providence, RI", qs_ranking: 79,
     program_name: "Environmental Sciences and Studies", degree_level: "undergraduate",
     duration_months: null, field_of_study: "Environmental & Sustainability Studies", specialization: "General",
     annual_tuition_usd: 74650, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 74650, avg_living_cost_usd: 14000,
@@ -82808,7 +82808,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Brown University",
-    country: "USA", city: "Providence, RI", qs_ranking: 73,
+    country: "USA", city: "Providence, RI", qs_ranking: 79,
     program_name: "Mechanical Engineering", degree_level: "undergraduate",
     duration_months: null, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "Mechanical Engineering",
     annual_tuition_usd: 74650, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 74650, avg_living_cost_usd: 14000,
@@ -83532,7 +83532,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Free University of Berlin",
-    country: "Germany", city: "Berlin", qs_ranking: 96,
+    country: "Germany", city: "Berlin", qs_ranking: 97,
     program_name: "Bachelor of Science in Physics", degree_level: "undergraduate",
     duration_months: 36, field_of_study: "Natural Sciences", specialization: "General",
     annual_tuition_usd: null, avg_living_cost_usd: 12100,
@@ -83554,7 +83554,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Free University of Berlin",
-    country: "Germany", city: "Berlin", qs_ranking: 96,
+    country: "Germany", city: "Berlin", qs_ranking: 97,
     program_name: "Bachelor's Degree Program in Bioinformatics", degree_level: "undergraduate",
     duration_months: 36, field_of_study: "Biotechnology & Life Sciences", specialization: "Bioinformatics",
     annual_tuition_usd: null, avg_living_cost_usd: 12100,
@@ -83576,7 +83576,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Free University of Berlin",
-    country: "Germany", city: "Berlin", qs_ranking: 96,
+    country: "Germany", city: "Berlin", qs_ranking: 97,
     program_name: "Business Administration - Mono bachelor", degree_level: "undergraduate",
     duration_months: 36, field_of_study: "Business & Management", specialization: "Business Administration",
     annual_tuition_usd: null, avg_living_cost_usd: 12100,
@@ -83598,7 +83598,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Free University of Berlin",
-    country: "Germany", city: "Berlin", qs_ranking: 96,
+    country: "Germany", city: "Berlin", qs_ranking: 97,
     program_name: "Computer Science - Mono bachelor", degree_level: "undergraduate",
     duration_months: 36, field_of_study: "Computer Science & IT", specialization: "General",
     annual_tuition_usd: null, avg_living_cost_usd: 12100,
@@ -83620,7 +83620,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Free University of Berlin",
-    country: "Germany", city: "Berlin", qs_ranking: 96,
+    country: "Germany", city: "Berlin", qs_ranking: 97,
     program_name: "Economics - Mono bachelor", degree_level: "undergraduate",
     duration_months: 36, field_of_study: "Economics & Finance", specialization: "General",
     annual_tuition_usd: null, avg_living_cost_usd: 12100,
@@ -92426,7 +92426,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Tübingen",
-    country: "Germany", city: "Tübingen", qs_ranking: 213,
+    country: "Germany", city: "Tübingen", qs_ranking: 206,
     program_name: "B.Sc. International Business Administration", degree_level: "undergraduate",
     duration_months: 42, field_of_study: "Business & Management", specialization: "International Business Administration",
     annual_tuition_usd: 3240, annual_tuition_currency: "EUR", tuition_fee_source: "estimated", annual_tuition_amount: 3000, avg_living_cost_usd: 12100,
@@ -92439,7 +92439,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Tübingen",
-    country: "Germany", city: "Tübingen", qs_ranking: 213,
+    country: "Germany", city: "Tübingen", qs_ranking: 206,
     program_name: "Bachelor's Degree (B.Sc. Biology)", degree_level: "undergraduate",
     duration_months: null, field_of_study: "Biotechnology & Life Sciences", specialization: "Biology",
     annual_tuition_usd: 3240, annual_tuition_currency: "EUR", tuition_fee_source: "estimated", annual_tuition_amount: 3000, avg_living_cost_usd: 12100,
@@ -92452,7 +92452,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Tübingen",
-    country: "Germany", city: "Tübingen", qs_ranking: 213,
+    country: "Germany", city: "Tübingen", qs_ranking: 206,
     program_name: "Computer Science (Bachelor)", degree_level: "undergraduate",
     duration_months: null, field_of_study: "Computer Science & IT", specialization: "General",
     annual_tuition_usd: 3240, annual_tuition_currency: "EUR", tuition_fee_source: "estimated", annual_tuition_amount: 3000, avg_living_cost_usd: 12100,
@@ -92465,7 +92465,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Tübingen",
-    country: "Germany", city: "Tübingen", qs_ranking: 213,
+    country: "Germany", city: "Tübingen", qs_ranking: 206,
     program_name: "Economics and Business Administration - Bachelor (mono)", degree_level: "undergraduate",
     duration_months: 36, field_of_study: "Economics & Finance", specialization: "General",
     annual_tuition_usd: 3240, annual_tuition_currency: "EUR", tuition_fee_source: "estimated", annual_tuition_amount: 3000, avg_living_cost_usd: 12100,
@@ -92478,7 +92478,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Tübingen",
-    country: "Germany", city: "Tübingen", qs_ranking: 213,
+    country: "Germany", city: "Tübingen", qs_ranking: 206,
     program_name: "Nano-Science - Bachelor (mono)", degree_level: "undergraduate",
     duration_months: 36, field_of_study: "Natural Sciences", specialization: "Nano-Science",
     annual_tuition_usd: 3240, annual_tuition_currency: "EUR", tuition_fee_source: "estimated", annual_tuition_amount: 3000, avg_living_cost_usd: 12100,
@@ -92491,7 +92491,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Tübingen",
-    country: "Germany", city: "Tübingen", qs_ranking: 213,
+    country: "Germany", city: "Tübingen", qs_ranking: 206,
     program_name: "Umweltnaturwissenschaften - Bachelor (mono)", degree_level: "undergraduate",
     duration_months: 36, field_of_study: "Environmental & Sustainability Studies", specialization: "General",
     annual_tuition_usd: 3240, annual_tuition_currency: "EUR", tuition_fee_source: "estimated", annual_tuition_amount: 3000, avg_living_cost_usd: 12100,
@@ -94183,7 +94183,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Brown University",
-    country: "USA", city: "Providence, RI", qs_ranking: 73,
+    country: "USA", city: "Providence, RI", qs_ranking: 79,
     program_name: "Online Master's in Management", degree_level: "postgraduate",
     duration_months: 16, field_of_study: "Business & Management", specialization: "Management",
     annual_tuition_usd: 63000, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 63000, avg_living_cost_usd: 14000,
@@ -95232,7 +95232,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Murdoch University",
-    country: "Australia", city: "Perth", qs_ranking: 481,
+    country: "Australia", city: "Perth", qs_ranking: 487,
     program_name: "Master of Environmental Science", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Natural Sciences", specialization: "Environmental Science",
     annual_tuition_usd: null, avg_living_cost_usd: 19300,
@@ -95245,7 +95245,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Murdoch University",
-    country: "Australia", city: "Perth", qs_ranking: 481,
+    country: "Australia", city: "Perth", qs_ranking: 487,
     program_name: "Master of Health Care Management", degree_level: "postgraduate",
     duration_months: 18, field_of_study: "Nursing & Allied Health", specialization: "General",
     annual_tuition_usd: null, avg_living_cost_usd: 19300,
@@ -96613,7 +96613,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "United Arab Emirates University",
-    country: "UAE", city: "Al Ain", qs_ranking: 261,
+    country: "UAE", city: "Al Ain", qs_ranking: 290,
     program_name: "Master of Public Health", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Medicine & Public Health", specialization: "Public Health",
     annual_tuition_usd: null, avg_living_cost_usd: 12000,
@@ -98669,7 +98669,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Leeds",
-    country: "UK", city: "Leeds", qs_ranking: 89,
+    country: "UK", city: "Leeds", qs_ranking: 75,
     program_name: "Advanced Clinical Practice MSc", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Nursing & Allied Health", specialization: "Advanced Clinical Practice",
     annual_tuition_usd: null, avg_living_cost_usd: 17200,
@@ -98691,7 +98691,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Leeds",
-    country: "UK", city: "Leeds", qs_ranking: 89,
+    country: "UK", city: "Leeds", qs_ranking: 75,
     program_name: "Architecture MArch", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Architecture", specialization: "General",
     annual_tuition_usd: null, avg_living_cost_usd: 17200,
@@ -100877,7 +100877,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Yeshiva University",
-    country: "USA", city: "New York, NY", qs_ranking: 488,
+    country: "USA", city: "New York, NY", qs_ranking: 413,
     program_name: "M.A. in Physics", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Natural Sciences", specialization: "General",
     annual_tuition_usd: 28000, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 28000, avg_living_cost_usd: 26000,
@@ -100890,7 +100890,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Yeshiva University",
-    country: "USA", city: "New York, NY", qs_ranking: 488,
+    country: "USA", city: "New York, NY", qs_ranking: 413,
     program_name: "M.S. in Artificial Intelligence", degree_level: "postgraduate",
     duration_months: 21, field_of_study: "Artificial Intelligence", specialization: "General",
     annual_tuition_usd: 20000, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 20000, avg_living_cost_usd: 26000,
@@ -100903,7 +100903,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Yeshiva University",
-    country: "USA", city: "New York, NY", qs_ranking: 488,
+    country: "USA", city: "New York, NY", qs_ranking: 413,
     program_name: "M.S. in Computer Science", degree_level: "postgraduate",
     duration_months: 15, field_of_study: "Computer Science & IT", specialization: "General",
     annual_tuition_usd: 28000, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 28000, avg_living_cost_usd: 26000,
@@ -100916,7 +100916,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Yeshiva University",
-    country: "USA", city: "New York, NY", qs_ranking: 488,
+    country: "USA", city: "New York, NY", qs_ranking: 413,
     program_name: "M.S. in Physician Assistant Studies", degree_level: "postgraduate",
     duration_months: 28, field_of_study: "Medicine & Public Health", specialization: "Physician Assistant Studies",
     annual_tuition_usd: 52605, annual_tuition_currency: "USD", tuition_fee_source: "estimated", annual_tuition_amount: 52605, avg_living_cost_usd: 26000,
@@ -102404,7 +102404,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Warwick",
-    country: "UK", city: "Coventry", qs_ranking: 67,
+    country: "UK", city: "Coventry", qs_ranking: 69,
     program_name: "Business Analytics & Artificial Intelligence (MSc)", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Artificial Intelligence", specialization: "Business Analytics & Artificial Intelligence",
     annual_tuition_usd: null, avg_living_cost_usd: 17200,
@@ -102426,7 +102426,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Warwick",
-    country: "UK", city: "Coventry", qs_ranking: 67,
+    country: "UK", city: "Coventry", qs_ranking: 69,
     program_name: "Cyber Security Engineering (MSc)", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Cybersecurity", field_aliases: null, specialization: "Cyber Security Engineering",
     annual_tuition_usd: null, avg_living_cost_usd: 17200,
@@ -102655,7 +102655,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Anglia Ruskin University",
-    country: "UK", city: "Chelmsford", qs_ranking: 601,
+    country: "UK", city: "Chelmsford", qs_ranking: 671,
     program_name: "Applied Data Science (Conversion) MSc", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Data Science", field_aliases: null, specialization: "Applied Data Science",
     annual_tuition_usd: 24803, annual_tuition_amount: 19530, annual_tuition_currency: "GBP", tuition_fee_source: "estimated",
@@ -102669,7 +102669,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Anglia Ruskin University",
-    country: "UK", city: "Chelmsford", qs_ranking: 601,
+    country: "UK", city: "Chelmsford", qs_ranking: 671,
     program_name: "Embedded Computing and Machine Learning MSc", degree_level: "postgraduate",
     duration_months: 36, field_of_study: "Artificial Intelligence", specialization: "Embedded Computing and Machine Learning",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -102683,7 +102683,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Anglia Ruskin University",
-    country: "UK", city: "Chelmsford", qs_ranking: 601,
+    country: "UK", city: "Chelmsford", qs_ranking: 671,
     program_name: "International Business with Business Analytics", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Data Science", specialization: "Business Analytics",
     annual_tuition_usd: 24803, annual_tuition_amount: 19530, annual_tuition_currency: "GBP", tuition_fee_source: "estimated",
@@ -102697,7 +102697,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Anglia Ruskin University",
-    country: "UK", city: "Chelmsford", qs_ranking: 601,
+    country: "UK", city: "Chelmsford", qs_ranking: 671,
     program_name: "MSc Cyber Security", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Cybersecurity", field_aliases: null, specialization: "Cyber Security",
     annual_tuition_usd: 23603, annual_tuition_amount: 18585, annual_tuition_currency: "GBP", tuition_fee_source: "estimated", tuition_estimate_note: "Tuition figure is estimated from sources with ~5% spread — please verify the current-year fee with the university before relying on it.",
@@ -102711,7 +102711,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Arizona State University",
-    country: "USA", city: "Tempe, AZ", qs_ranking: 216,
+    country: "USA", city: "Tempe, AZ", qs_ranking: 191,
     program_name: "Art, MFA", degree_level: "postgraduate",
     duration_months: 36, field_of_study: "Arts and Design", specialization: "General",
     annual_tuition_usd: 30240, annual_tuition_amount: 30240, annual_tuition_currency: "USD", tuition_fee_source: "estimated",
@@ -102725,7 +102725,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Arizona State University",
-    country: "USA", city: "Tempe, AZ", qs_ranking: 216,
+    country: "USA", city: "Tempe, AZ", qs_ranking: 191,
     program_name: "Artificial Intelligence in Business, MS", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Artificial Intelligence", specialization: "Artificial Intelligence in Business",
     annual_tuition_usd: 65000, annual_tuition_amount: 65000, annual_tuition_currency: "USD", tuition_fee_source: "estimated",
@@ -102739,7 +102739,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Arizona State University",
-    country: "USA", city: "Tempe, AZ", qs_ranking: 216,
+    country: "USA", city: "Tempe, AZ", qs_ranking: 191,
     program_name: "Business Analytics, MS", degree_level: "postgraduate",
     duration_months: 16, field_of_study: "Data Science", specialization: "Business Analytics",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -102753,7 +102753,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Arizona State University",
-    country: "USA", city: "Tempe, AZ", qs_ranking: 216,
+    country: "USA", city: "Tempe, AZ", qs_ranking: 191,
     program_name: "Data Science, Analytics and Engineering (Bayesian Machine Learning), MS", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Artificial Intelligence", field_aliases: null, specialization: "Bayesian Machine Learning",
     annual_tuition_usd: 40452, annual_tuition_amount: 40452, annual_tuition_currency: "USD", tuition_fee_source: "estimated",
@@ -103033,7 +103033,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Bournemouth University",
-    country: "UK", city: "Bournemouth", qs_ranking: 601,
+    country: "UK", city: "Bournemouth", qs_ranking: 691,
     program_name: "MSc Cyber Security", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Cybersecurity", field_aliases: null, specialization: "Cyber Security",
     annual_tuition_usd: 24503, annual_tuition_amount: 19294, annual_tuition_currency: "GBP", tuition_fee_source: "estimated",
@@ -103145,7 +103145,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Case Western Reserve University",
-    country: "USA", city: "Cleveland, OH", qs_ranking: 259,
+    country: "USA", city: "Cleveland, OH", qs_ranking: 220,
     program_name: "Acting Master of Fine Arts", degree_level: "postgraduate",
     duration_months: 36, field_of_study: "Arts and Design", specialization: "Acting",
     annual_tuition_usd: 0, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -103159,7 +103159,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Case Western Reserve University",
-    country: "USA", city: "Cleveland, OH", qs_ranking: 259,
+    country: "USA", city: "Cleveland, OH", qs_ranking: 220,
     program_name: "Master of Business Analytics and Intelligence", degree_level: "postgraduate",
     duration_months: 16, field_of_study: "Data Science", specialization: "Business Analytics and Intelligence",
     annual_tuition_usd: 38813, annual_tuition_amount: 38813, annual_tuition_currency: "USD", tuition_fee_source: "estimated",
@@ -103229,7 +103229,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "City, University of London",
-    country: "UK", city: "London", qs_ranking: 601,
+    country: "UK", city: "London", qs_ranking: 348,
     program_name: "Artificial Intelligence MSc", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Artificial Intelligence", specialization: "Deep Learning",
     annual_tuition_usd: 32605, annual_tuition_amount: 25673, annual_tuition_currency: "GBP", tuition_fee_source: "estimated",
@@ -103243,7 +103243,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "City, University of London",
-    country: "UK", city: "London", qs_ranking: 601,
+    country: "UK", city: "London", qs_ranking: 348,
     program_name: "Business Analytics MSc", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Data Science", specialization: "Business Analytics",
     annual_tuition_usd: 44139, annual_tuition_amount: 34755, annual_tuition_currency: "GBP", tuition_fee_source: "estimated",
@@ -103257,7 +103257,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "City, University of London",
-    country: "UK", city: "London", qs_ranking: 601,
+    country: "UK", city: "London", qs_ranking: 348,
     program_name: "Creative Writing MFA", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Arts and Design", specialization: "Creative Writing",
     annual_tuition_usd: 27804, annual_tuition_amount: 21893, annual_tuition_currency: "GBP", tuition_fee_source: "estimated", tuition_estimate_note: "Tuition figure is estimated from sources with ~5% spread — please verify the current-year fee with the university before relying on it.",
@@ -103271,7 +103271,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "City, University of London",
-    country: "UK", city: "London", qs_ranking: 601,
+    country: "UK", city: "London", qs_ranking: 348,
     program_name: "Cyber Security MSc", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Cybersecurity", field_aliases: null, specialization: "Cyber Security",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -103285,7 +103285,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "City, University of London",
-    country: "UK", city: "London", qs_ranking: 601,
+    country: "UK", city: "London", qs_ranking: 348,
     program_name: "Management MSc", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Business & Management", specialization: "Management",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -103299,7 +103299,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Clemson University",
-    country: "USA", city: "Clemson, SC", qs_ranking: 601,
+    country: "USA", city: "Clemson, SC", qs_ranking: 525,
     program_name: "Management, MS", degree_level: "postgraduate",
     duration_months: 10, field_of_study: "Business & Management", specialization: "Supply Chain, Innovation, and Information Technology Management",
     annual_tuition_usd: 24798, annual_tuition_amount: 24798, annual_tuition_currency: "USD", tuition_fee_source: "estimated",
@@ -103313,7 +103313,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Clemson University",
-    country: "USA", city: "Clemson, SC", qs_ranking: 601,
+    country: "USA", city: "Clemson, SC", qs_ranking: 525,
     program_name: "Master of Fine Arts in Visual Arts", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Arts and Design", specialization: "drawing, painting, printmaking, ceramics, photography and sculpture",
     annual_tuition_usd: 24798, annual_tuition_amount: 24798, annual_tuition_currency: "USD", tuition_fee_source: "estimated",
@@ -103327,7 +103327,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Clemson University",
-    country: "USA", city: "Clemson, SC", qs_ranking: 601,
+    country: "USA", city: "Clemson, SC", qs_ranking: 525,
     program_name: "MBA in Business Analytics", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "MBA", specialization: "Business Analytics",
     annual_tuition_usd: 25470, annual_tuition_amount: 25470, annual_tuition_currency: "USD", tuition_fee_source: "estimated",
@@ -103341,7 +103341,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Colorado State University",
-    country: "USA", city: "Fort Collins, CO", qs_ranking: 442,
+    country: "USA", city: "Fort Collins, CO", qs_ranking: 671,
     program_name: "Master of Fine Arts - Art and Art History", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Arts and Design", specialization: "Visual Arts",
     annual_tuition_usd: 30479, annual_tuition_amount: 30479, annual_tuition_currency: "USD", tuition_fee_source: "estimated",
@@ -103512,7 +103512,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Coventry University",
-    country: "UK", city: "Coventry", qs_ranking: 601,
+    country: "UK", city: "Coventry", qs_ranking: 543,
     program_name: "Artificial Intelligence and Human Factors MSc", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Artificial Intelligence", specialization: "Artificial Intelligence and Human Factors",
     annual_tuition_usd: 24803, annual_tuition_amount: 19530, annual_tuition_currency: "GBP", tuition_fee_source: "estimated",
@@ -103526,7 +103526,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Coventry University",
-    country: "UK", city: "Coventry", qs_ranking: 601,
+    country: "UK", city: "Coventry", qs_ranking: 543,
     program_name: "Business Analytics MSc", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Data Science", specialization: "Business Analytics",
     annual_tuition_usd: 24803, annual_tuition_amount: 19530, annual_tuition_currency: "GBP", tuition_fee_source: "estimated", tuition_estimate_note: "Tuition figure is estimated from sources with ~5% spread — please verify the current-year fee with the university before relying on it.",
@@ -103540,7 +103540,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Coventry University",
-    country: "UK", city: "Coventry", qs_ranking: 601,
+    country: "UK", city: "Coventry", qs_ranking: 543,
     program_name: "Cyber Security MSc", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Cybersecurity", field_aliases: null, specialization: "General",
     annual_tuition_usd: 26737, annual_tuition_amount: 21053, annual_tuition_currency: "GBP", tuition_fee_source: "estimated",
@@ -103554,7 +103554,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Curtin University",
-    country: "Australia", city: "Perth", qs_ranking: 232,
+    country: "Australia", city: "Perth", qs_ranking: 174,
     program_name: "Artificial Intelligence and Business Analytics Major (MCom)", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Artificial Intelligence", specialization: "Artificial Intelligence and Business Analytics",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -103568,7 +103568,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Curtin University",
-    country: "Australia", city: "Perth", qs_ranking: 232,
+    country: "Australia", city: "Perth", qs_ranking: 174,
     program_name: "Data Science Major (M PredAnylt)", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Data Science", field_aliases: ["Artificial Intelligence"], specialization: "Data Science",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -103582,7 +103582,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Curtin University",
-    country: "Australia", city: "Perth", qs_ranking: 232,
+    country: "Australia", city: "Perth", qs_ranking: 174,
     program_name: "Master of Cyber Security", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Cybersecurity", field_aliases: null, specialization: "Cyber Security",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -103596,7 +103596,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Dalhousie University",
-    country: "Canada", city: "Halifax, NS", qs_ranking: 486,
+    country: "Canada", city: "Halifax, NS", qs_ranking: 308,
     program_name: "Fiction (MFA)", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Arts and Design", specialization: "Fiction",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -103610,7 +103610,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Dalhousie University",
-    country: "Canada", city: "Halifax, NS", qs_ranking: 486,
+    country: "Canada", city: "Halifax, NS", qs_ranking: 308,
     program_name: "Health Administration (MHA)", degree_level: "postgraduate",
     duration_months: 16, field_of_study: "Medicine & Public Health", specialization: "Health Administration",
     annual_tuition_usd: 25535, annual_tuition_amount: 34980, annual_tuition_currency: "CAD", tuition_fee_source: "estimated",
@@ -103624,7 +103624,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Dartmouth College",
-    country: "USA", city: "Hanover, NH", qs_ranking: 243,
+    country: "USA", city: "Hanover, NH", qs_ranking: 198,
     program_name: "Master of Fine Arts in Sonic Practice", degree_level: "postgraduate",
     duration_months: 36, field_of_study: "Arts and Design", specialization: "Sonic Practice",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -103638,7 +103638,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Dartmouth College",
-    country: "USA", city: "Hanover, NH", qs_ranking: 243,
+    country: "USA", city: "Hanover, NH", qs_ranking: 198,
     program_name: "Master of Science in Health Data Science", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Data Science", field_aliases: null, specialization: "Health Data Science",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -103652,7 +103652,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "De Montfort University",
-    country: "UK", city: "Leicester", qs_ranking: 801,
+    country: "UK", city: "Leicester", qs_ranking: 581,
     program_name: "Data Analytics MSc/PG Dip/PG Cert", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Data Science", specialization: "Data Analytics",
     annual_tuition_usd: 24643, annual_tuition_amount: 19404, annual_tuition_currency: "GBP", tuition_fee_source: "estimated",
@@ -103666,7 +103666,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Deakin University",
-    country: "Australia", city: "Melbourne", qs_ranking: 266,
+    country: "Australia", city: "Melbourne", qs_ranking: 197,
     program_name: "Master of Business Analytics", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Data Science", specialization: "Business Analytics",
     annual_tuition_usd: 29348, annual_tuition_amount: 45150, annual_tuition_currency: "AUD", tuition_fee_source: "estimated",
@@ -103680,7 +103680,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Deakin University",
-    country: "Australia", city: "Melbourne", qs_ranking: 266,
+    country: "Australia", city: "Melbourne", qs_ranking: 197,
     program_name: "Master of Data Science", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Data Science", field_aliases: null, specialization: "Data Science",
     annual_tuition_usd: 30167, annual_tuition_amount: 46410, annual_tuition_currency: "AUD", tuition_fee_source: "estimated",
@@ -103694,7 +103694,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Drexel University",
-    country: "USA", city: "Philadelphia, PA", qs_ranking: 651,
+    country: "USA", city: "Philadelphia, PA", qs_ranking: 591,
     program_name: "Low-Residency MFA in Creative Writing", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Arts and Design", specialization: "Creative Writing",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -103708,7 +103708,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Drexel University",
-    country: "USA", city: "Philadelphia, PA", qs_ranking: 651,
+    country: "USA", city: "Philadelphia, PA", qs_ranking: 591,
     program_name: "Master of Science in Business Analytics", degree_level: "postgraduate",
     duration_months: 18, field_of_study: "Data Science", specialization: "Business Analytics",
     annual_tuition_usd: 41794, annual_tuition_amount: 41794, annual_tuition_currency: "USD", tuition_fee_source: "estimated", tuition_estimate_note: "Tuition figure is estimated from sources with ~12% spread — please verify the current-year fee with the university before relying on it.",
@@ -103722,7 +103722,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Drexel University",
-    country: "USA", city: "Philadelphia, PA", qs_ranking: 651,
+    country: "USA", city: "Philadelphia, PA", qs_ranking: 591,
     program_name: "Master of Science in Cybersecurity", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Cybersecurity", field_aliases: null, specialization: "Cybersecurity",
     annual_tuition_usd: 38046, annual_tuition_amount: 38046, annual_tuition_currency: "USD", tuition_fee_source: "estimated",
@@ -103736,7 +103736,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Drexel University",
-    country: "USA", city: "Philadelphia, PA", qs_ranking: 651,
+    country: "USA", city: "Philadelphia, PA", qs_ranking: 591,
     program_name: "Master of Science in Data Science (MS DS)", degree_level: "postgraduate",
     duration_months: 18, field_of_study: "Data Science", field_aliases: null, specialization: "Data Science",
     annual_tuition_usd: 42690, annual_tuition_amount: 42690, annual_tuition_currency: "USD", tuition_fee_source: "estimated",
@@ -103922,7 +103922,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Emory University",
-    country: "USA", city: "Atlanta, GA", qs_ranking: 246,
+    country: "USA", city: "Atlanta, GA", qs_ranking: 159,
     program_name: "MS in Business Analytics", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Data Science", specialization: "Business Analytics",
     annual_tuition_usd: 73395, annual_tuition_amount: 73395, annual_tuition_currency: "USD", tuition_fee_source: "estimated",
@@ -104034,7 +104034,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Florida State University",
-    country: "USA", city: "Tallahassee, FL", qs_ranking: 651,
+    country: "USA", city: "Tallahassee, FL", qs_ranking: 308,
     program_name: "Cybersecurity Major in MS in Computer Science Program", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Cybersecurity", field_aliases: null, specialization: "Cybersecurity",
     annual_tuition_usd: 26707, annual_tuition_amount: 26707, annual_tuition_currency: "USD", tuition_fee_source: "estimated",
@@ -104048,7 +104048,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Florida State University",
-    country: "USA", city: "Tallahassee, FL", qs_ranking: 651,
+    country: "USA", city: "Tallahassee, FL", qs_ranking: 308,
     program_name: "Master of Science in Business Analytics (MS-BA)", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Data Science", specialization: "Business Analytics",
     annual_tuition_usd: 15817, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -104272,7 +104272,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Goldsmiths, University of London",
-    country: "UK", city: "London", qs_ranking: 651,
+    country: "UK", city: "London", qs_ranking: 524,
     program_name: "MFA Fine Art", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Arts and Design", specialization: "Fine Art",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -104286,7 +104286,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Goldsmiths, University of London",
-    country: "UK", city: "London", qs_ranking: 651,
+    country: "UK", city: "London", qs_ranking: 524,
     program_name: "MSc/PGDip/PGCert Artificial Intelligence and Machine Learning", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Artificial Intelligence", specialization: "Artificial Intelligence and Machine Learning",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -104398,7 +104398,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Heriot-Watt University",
-    country: "UK", city: "Edinburgh", qs_ranking: 451,
+    country: "UK", city: "Edinburgh", qs_ranking: 274,
     program_name: "MSc Applied Cyber Security", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Cybersecurity", field_aliases: null, specialization: "Applied Cyber Security",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -104412,7 +104412,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Heriot-Watt University",
-    country: "UK", city: "Edinburgh", qs_ranking: 451,
+    country: "UK", city: "Edinburgh", qs_ranking: 274,
     program_name: "MSc Business Analytics and Consultancy", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Data Science", specialization: "Business Analytics and Consultancy",
     annual_tuition_usd: 28260, annual_tuition_amount: 22252, annual_tuition_currency: "GBP", tuition_fee_source: "estimated",
@@ -104426,7 +104426,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Heriot-Watt University",
-    country: "UK", city: "Edinburgh", qs_ranking: 451,
+    country: "UK", city: "Edinburgh", qs_ranking: 274,
     program_name: "MSc Data Science", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Data Science", field_aliases: null, specialization: "Data Science",
     annual_tuition_usd: 33978, annual_tuition_amount: 26754, annual_tuition_currency: "GBP", tuition_fee_source: "estimated",
@@ -104440,7 +104440,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Illinois Institute of Technology",
-    country: "USA", city: "Chicago, IL", qs_ranking: 601,
+    country: "USA", city: "Chicago, IL", qs_ranking: 562,
     program_name: "Business Analytics (M.S.)", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Data Science", specialization: "Business Analytics",
     annual_tuition_usd: 33318, annual_tuition_amount: 33318, annual_tuition_currency: "USD", tuition_fee_source: "estimated",
@@ -104454,7 +104454,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Illinois Institute of Technology",
-    country: "USA", city: "Chicago, IL", qs_ranking: 601,
+    country: "USA", city: "Chicago, IL", qs_ranking: 562,
     program_name: "Cybersecurity (M.A.S.)", degree_level: "postgraduate",
     duration_months: 18, field_of_study: "Cybersecurity", field_aliases: null, specialization: "Cybersecurity",
     annual_tuition_usd: 33318, annual_tuition_amount: 33318, annual_tuition_currency: "USD", tuition_fee_source: "estimated",
@@ -104468,7 +104468,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Illinois Institute of Technology",
-    country: "USA", city: "Chicago, IL", qs_ranking: 601,
+    country: "USA", city: "Chicago, IL", qs_ranking: 562,
     program_name: "Data Science (M.A.S.)", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Data Science", field_aliases: null, specialization: "General",
     annual_tuition_usd: 33318, annual_tuition_amount: 33318, annual_tuition_currency: "USD", tuition_fee_source: "estimated",
@@ -104482,7 +104482,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Indiana University Bloomington",
-    country: "USA", city: "Bloomington, IN", qs_ranking: 355,
+    country: "USA", city: "Bloomington, IN", qs_ranking: 243,
     program_name: "Master of Science in Business Analytics", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Data Science", specialization: "Business Analytics",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -104496,7 +104496,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Indiana University Bloomington",
-    country: "USA", city: "Bloomington, IN", qs_ranking: 355,
+    country: "USA", city: "Bloomington, IN", qs_ranking: 243,
     program_name: "Master of Science in Cybersecurity Risk Management", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Cybersecurity", field_aliases: null, specialization: "Cybersecurity Risk Management",
     annual_tuition_usd: 27852, annual_tuition_amount: 27852, annual_tuition_currency: "USD", tuition_fee_source: "estimated",
@@ -104510,7 +104510,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Indiana University Bloomington",
-    country: "USA", city: "Bloomington, IN", qs_ranking: 355,
+    country: "USA", city: "Bloomington, IN", qs_ranking: 243,
     program_name: "Public Health Administration", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Medicine & Public Health", specialization: "Public Health Administration",
     annual_tuition_usd: 33454, annual_tuition_amount: 33454, annual_tuition_currency: "USD", tuition_fee_source: "estimated",
@@ -104616,7 +104616,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Iowa State University",
-    country: "USA", city: "Ames, IA", qs_ranking: 470,
+    country: "USA", city: "Ames, IA", qs_ranking: 411,
     program_name: "Cyber Security", degree_level: "postgraduate",
     duration_months: 23, field_of_study: "Cybersecurity", field_aliases: null, specialization: "General",
     annual_tuition_usd: 30676, annual_tuition_amount: 30676, annual_tuition_currency: "USD", tuition_fee_source: "estimated",
@@ -104630,7 +104630,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Iowa State University",
-    country: "USA", city: "Ames, IA", qs_ranking: 470,
+    country: "USA", city: "Ames, IA", qs_ranking: 411,
     program_name: "Healthcare Analytics and Operations", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Medicine & Public Health", specialization: "General",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -104644,7 +104644,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Iowa State University",
-    country: "USA", city: "Ames, IA", qs_ranking: 470,
+    country: "USA", city: "Ames, IA", qs_ranking: 411,
     program_name: "Master of Business Analytics", degree_level: "postgraduate",
     duration_months: 15, field_of_study: "Data Science", specialization: "Business Analytics",
     annual_tuition_usd: 47736, annual_tuition_amount: 47736, annual_tuition_currency: "USD", tuition_fee_source: "estimated",
@@ -105020,7 +105020,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Lehigh University",
-    country: "USA", city: "Bethlehem, PA", qs_ranking: 601,
+    country: "USA", city: "Bethlehem, PA", qs_ranking: 524,
     program_name: "MS in Business Analytics", degree_level: "postgraduate",
     duration_months: 18, field_of_study: "Data Science", specialization: "Business Analytics",
     annual_tuition_usd: 48480, annual_tuition_amount: 48480, annual_tuition_currency: "USD", tuition_fee_source: "estimated",
@@ -105132,7 +105132,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Manchester Metropolitan University",
-    country: "UK", city: "Manchester", qs_ranking: 801,
+    country: "UK", city: "Manchester", qs_ranking: 661,
     program_name: "MA Fine Art", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Arts and Design", specialization: "Fine Art",
     annual_tuition_usd: 29337, annual_tuition_amount: 23100, annual_tuition_currency: "GBP", tuition_fee_source: "estimated",
@@ -105146,7 +105146,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Manchester Metropolitan University",
-    country: "UK", city: "Manchester", qs_ranking: 801,
+    country: "UK", city: "Manchester", qs_ranking: 661,
     program_name: "MBA Master of Business Administration", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "MBA", specialization: "General",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -105160,7 +105160,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Manchester Metropolitan University",
-    country: "UK", city: "Manchester", qs_ranking: 801,
+    country: "UK", city: "Manchester", qs_ranking: 661,
     program_name: "MSc Business Analytics", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Data Science", specialization: "Business Analytics",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -105174,7 +105174,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Manchester Metropolitan University",
-    country: "UK", city: "Manchester", qs_ranking: 801,
+    country: "UK", city: "Manchester", qs_ranking: 661,
     program_name: "MSc Cyber Security", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Cybersecurity", field_aliases: null, specialization: "Cyber Security",
     annual_tuition_usd: 26670, annual_tuition_amount: 21000, annual_tuition_currency: "GBP", tuition_fee_source: "estimated",
@@ -105188,7 +105188,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Manchester Metropolitan University",
-    country: "UK", city: "Manchester", qs_ranking: 801,
+    country: "UK", city: "Manchester", qs_ranking: 661,
     program_name: "MSc Management", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Business & Management", specialization: "General",
     annual_tuition_usd: 27671, annual_tuition_amount: 21788, annual_tuition_currency: "GBP", tuition_fee_source: "estimated",
@@ -105267,7 +105267,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Memorial University of Newfoundland",
-    country: "Canada", city: "St. John's, NL", qs_ranking: 801,
+    country: "Canada", city: "St. John's, NL", qs_ranking: 651,
     program_name: "Master of Data Science", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Data Science", field_aliases: null, specialization: "General",
     annual_tuition_usd: 19663, annual_tuition_amount: 26936, annual_tuition_currency: "CAD", tuition_fee_source: "estimated",
@@ -105542,7 +105542,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Oregon State University",
-    country: "USA", city: "Corvallis, OR", qs_ranking: 511,
+    country: "USA", city: "Corvallis, OR", qs_ranking: 437,
     program_name: "Business Analytics", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Data Science", specialization: "Business Analytics",
     annual_tuition_usd: 33351, annual_tuition_amount: 33351, annual_tuition_currency: "USD", tuition_fee_source: "estimated",
@@ -105556,7 +105556,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Oregon State University",
-    country: "USA", city: "Corvallis, OR", qs_ranking: 511,
+    country: "USA", city: "Corvallis, OR", qs_ranking: 437,
     program_name: "Master of Fine Arts in Creative Writing", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Arts and Design", specialization: "Creative Writing",
     annual_tuition_usd: 33351, annual_tuition_amount: 33351, annual_tuition_currency: "USD", tuition_fee_source: "estimated",
@@ -105756,7 +105756,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Rensselaer Polytechnic Institute",
-    country: "USA", city: "Troy, NY", qs_ranking: 491,
+    country: "USA", city: "Troy, NY", qs_ranking: 451,
     program_name: "Electronic Arts M.F.A.", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Arts and Design", specialization: "Electronic Arts",
     annual_tuition_usd: 66300, annual_tuition_amount: 66300, annual_tuition_currency: "USD", tuition_fee_source: "estimated",
@@ -105770,7 +105770,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Rensselaer Polytechnic Institute",
-    country: "USA", city: "Troy, NY", qs_ranking: 491,
+    country: "USA", city: "Troy, NY", qs_ranking: 451,
     program_name: "Master of Science in Business Analytics", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Data Science", specialization: "Business Analytics",
     annual_tuition_usd: 66300, annual_tuition_amount: 66300, annual_tuition_currency: "USD", tuition_fee_source: "estimated",
@@ -106185,7 +106185,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Stony Brook University",
-    country: "USA", city: "Stony Brook, NY", qs_ranking: 460,
+    country: "USA", city: "Stony Brook, NY", qs_ranking: 379,
     program_name: "Engineering Artificial Intelligence - MS", degree_level: "postgraduate",
     duration_months: 18, field_of_study: "Artificial Intelligence", specialization: "Engineering Artificial Intelligence",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -106199,7 +106199,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Stony Brook University",
-    country: "USA", city: "Stony Brook, NY", qs_ranking: 460,
+    country: "USA", city: "Stony Brook, NY", qs_ranking: 379,
     program_name: "Master of Fine Arts in Studio Art", degree_level: "postgraduate",
     duration_months: 36, field_of_study: "Arts and Design", specialization: "Studio Art",
     annual_tuition_usd: 29242, annual_tuition_amount: 29242, annual_tuition_currency: "USD", tuition_fee_source: "estimated",
@@ -106591,7 +106591,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Tufts University",
-    country: "USA", city: "Medford, MA", qs_ranking: 344,
+    country: "USA", city: "Medford, MA", qs_ranking: 233,
     program_name: "Cybersecurity Master's", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Cybersecurity", field_aliases: null, specialization: "General",
     annual_tuition_usd: 53970, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -106605,7 +106605,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Tufts University",
-    country: "USA", city: "Medford, MA", qs_ranking: 344,
+    country: "USA", city: "Medford, MA", qs_ranking: 233,
     program_name: "Master of Fine Arts in Studio Art", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Arts and Design", specialization: "Studio Art",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -106619,7 +106619,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Tufts University",
-    country: "USA", city: "Medford, MA", qs_ranking: 344,
+    country: "USA", city: "Medford, MA", qs_ranking: 233,
     program_name: "MS in Data Analytics", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Data Science", specialization: "Data Analytics",
     annual_tuition_usd: 28849, annual_tuition_amount: 28849, annual_tuition_currency: "USD", tuition_fee_source: "estimated",
@@ -106633,7 +106633,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Tulane University",
-    country: "USA", city: "New Orleans, LA", qs_ranking: 601,
+    country: "USA", city: "New Orleans, LA", qs_ranking: 351,
     program_name: "Master of Business Analytics and AI", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Artificial Intelligence", specialization: "Accounting and Finance; Energy; Marketing",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -106647,7 +106647,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Tulane University",
-    country: "USA", city: "New Orleans, LA", qs_ranking: 601,
+    country: "USA", city: "New Orleans, LA", qs_ranking: 351,
     program_name: "Master of Science in Cybersecurity Management", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Cybersecurity", field_aliases: null, specialization: "Cybersecurity Management",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -106661,7 +106661,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Tulane University",
-    country: "USA", city: "New Orleans, LA", qs_ranking: 601,
+    country: "USA", city: "New Orleans, LA", qs_ranking: 351,
     program_name: "Studio Art Graduate Program", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Arts and Design", specialization: "Studio Art",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -108049,7 +108049,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Colorado Boulder",
-    country: "USA", city: "Boulder, CO", qs_ranking: 320,
+    country: "USA", city: "Boulder, CO", qs_ranking: 196,
     program_name: "Master's in Business Analytics", degree_level: "postgraduate",
     duration_months: 10, field_of_study: "Data Science", specialization: "General",
     annual_tuition_usd: 51859, annual_tuition_amount: 51859, annual_tuition_currency: "USD", tuition_fee_source: "estimated",
@@ -108063,7 +108063,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Colorado Boulder",
-    country: "USA", city: "Boulder, CO", qs_ranking: 320,
+    country: "USA", city: "Boulder, CO", qs_ranking: 196,
     program_name: "MFA in Art Practices", degree_level: "postgraduate",
     duration_months: 36, field_of_study: "Arts and Design", specialization: "General",
     annual_tuition_usd: 36324, annual_tuition_amount: 36324, annual_tuition_currency: "USD", tuition_fee_source: "estimated",
@@ -108217,7 +108217,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Dundee",
-    country: "UK", city: "Dundee", qs_ranking: 451,
+    country: "UK", city: "Dundee", qs_ranking: 412,
     program_name: "Business Analytics MSc", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Data Science", specialization: "Business Analytics",
     annual_tuition_usd: 29204, annual_tuition_amount: 22995, annual_tuition_currency: "GBP", tuition_fee_source: "estimated",
@@ -108231,7 +108231,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Dundee",
-    country: "UK", city: "Dundee", qs_ranking: 451,
+    country: "UK", city: "Dundee", qs_ranking: 412,
     program_name: "Data Science & Engineering MSc", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Data Science", field_aliases: null, specialization: "Data Science & Engineering",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -108245,7 +108245,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Dundee",
-    country: "UK", city: "Dundee", qs_ranking: 451,
+    country: "UK", city: "Dundee", qs_ranking: 412,
     program_name: "Fine Art MFA", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Arts and Design", specialization: "Fine Art",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -108875,7 +108875,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Iowa",
-    country: "USA", city: "Iowa City, IA", qs_ranking: 511,
+    country: "USA", city: "Iowa City, IA", qs_ranking: 357,
     program_name: "Master of Business Analytics Programs", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Data Science", specialization: "General",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -108889,7 +108889,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Kansas",
-    country: "USA", city: "Lawrence, KS", qs_ranking: 452,
+    country: "USA", city: "Lawrence, KS", qs_ranking: 462,
     program_name: "Master of Fine Arts in Visual Art", degree_level: "postgraduate",
     duration_months: 36, field_of_study: "Arts and Design", specialization: "General",
     annual_tuition_usd: 27146, annual_tuition_amount: 27146, annual_tuition_currency: "USD", tuition_fee_source: "estimated",
@@ -108959,7 +108959,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Kentucky",
-    country: "USA", city: "Lexington, KY", qs_ranking: 795,
+    country: "USA", city: "Lexington, KY", qs_ranking: 851,
     program_name: "Master of Science in Finance", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Economics & Finance", specialization: "Finance",
     annual_tuition_usd: 36238, annual_tuition_amount: 36238, annual_tuition_currency: "USD", tuition_fee_source: "estimated",
@@ -108973,7 +108973,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Kentucky",
-    country: "USA", city: "Lexington, KY", qs_ranking: 795,
+    country: "USA", city: "Lexington, KY", qs_ranking: 851,
     program_name: "Master's Degree (MFA) in Art Studio", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Arts and Design", specialization: "Art Studio",
     annual_tuition_usd: 36238, annual_tuition_amount: 36238, annual_tuition_currency: "USD", tuition_fee_source: "estimated",
@@ -109029,7 +109029,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Massachusetts Amherst",
-    country: "USA", city: "Amherst, MA", qs_ranking: 275,
+    country: "USA", city: "Amherst, MA", qs_ranking: 240,
     program_name: "M.S. Concentration in Artificial Intelligence and Machine Learning Systems", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Artificial Intelligence", specialization: "Artificial Intelligence and Machine Learning Systems",
     annual_tuition_usd: 35726, annual_tuition_amount: 35726, annual_tuition_currency: "USD", tuition_fee_source: "estimated",
@@ -109043,7 +109043,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Massachusetts Amherst",
-    country: "USA", city: "Amherst, MA", qs_ranking: 275,
+    country: "USA", city: "Amherst, MA", qs_ranking: 240,
     program_name: "Master of Fine Arts in Studio Art", degree_level: "postgraduate",
     duration_months: 36, field_of_study: "Arts and Design", specialization: "Studio Art",
     annual_tuition_usd: 35726, annual_tuition_amount: 35726, annual_tuition_currency: "USD", tuition_fee_source: "estimated",
@@ -109057,7 +109057,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Massachusetts Amherst",
-    country: "USA", city: "Amherst, MA", qs_ranking: 275,
+    country: "USA", city: "Amherst, MA", qs_ranking: 240,
     program_name: "MS in Business Analytics", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Data Science", specialization: "Business Analytics",
     annual_tuition_usd: 28675, annual_tuition_amount: 28675, annual_tuition_currency: "USD", tuition_fee_source: "estimated",
@@ -109243,7 +109243,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of North Carolina at Chapel Hill",
-    country: "USA", city: "Chapel Hill, NC", qs_ranking: 261,
+    country: "USA", city: "Chapel Hill, NC", qs_ranking: 95,
     program_name: "Full-Time MBA Program", degree_level: "postgraduate",
     duration_months: null, field_of_study: "MBA", specialization: "General",
     annual_tuition_usd: 77845, annual_tuition_amount: 77845, annual_tuition_currency: "USD", tuition_fee_source: "estimated",
@@ -109266,7 +109266,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of North Carolina at Chapel Hill",
-    country: "USA", city: "Chapel Hill, NC", qs_ranking: 261,
+    country: "USA", city: "Chapel Hill, NC", qs_ranking: 95,
     program_name: "Master of Public Health (MPH)", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Medicine & Public Health", specialization: "General",
     annual_tuition_usd: 34627, annual_tuition_amount: 34627, annual_tuition_currency: "USD", tuition_fee_source: "estimated",
@@ -109317,7 +109317,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Oregon",
-    country: "USA", city: "Eugene, OR", qs_ranking: 601,
+    country: "USA", city: "Eugene, OR", qs_ranking: 525,
     program_name: "Master's in Cybersecurity", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Cybersecurity", field_aliases: null, specialization: "Cybersecurity",
     annual_tuition_usd: 33379, annual_tuition_amount: 33379, annual_tuition_currency: "USD", tuition_fee_source: "estimated",
@@ -109400,7 +109400,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Pennsylvania",
-    country: "USA", city: "Philadelphia, PA", qs_ranking: 12,
+    country: "USA", city: "Philadelphia, PA", qs_ranking: 11,
     program_name: "Master of Fine Arts", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Arts and Design", specialization: "Fine Arts",
     annual_tuition_usd: 54964, annual_tuition_amount: 54964, annual_tuition_currency: "USD", tuition_fee_source: "estimated",
@@ -109423,7 +109423,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Pennsylvania",
-    country: "USA", city: "Philadelphia, PA", qs_ranking: 12,
+    country: "USA", city: "Philadelphia, PA", qs_ranking: 11,
     program_name: "Master of Science in Engineering in Software Systems and Cybersecurity", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Cybersecurity", field_aliases: null, specialization: "Software Systems and Cybersecurity",
     annual_tuition_usd: 52950, annual_tuition_amount: 52950, annual_tuition_currency: "USD", tuition_fee_source: "estimated",
@@ -109446,7 +109446,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Plymouth",
-    country: "UK", city: "Plymouth", qs_ranking: 601,
+    country: "UK", city: "Plymouth", qs_ranking: 581,
     program_name: "MSc Data Science and Business Analytics", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Data Science", specialization: "Data Science and Business Analytics",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -109460,7 +109460,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Plymouth",
-    country: "UK", city: "Plymouth", qs_ranking: 601,
+    country: "UK", city: "Plymouth", qs_ranking: 581,
     program_name: "MSc Data Science", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Data Science", field_aliases: null, specialization: "Data Science",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -109474,7 +109474,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Plymouth",
-    country: "UK", city: "Plymouth", qs_ranking: 601,
+    country: "UK", city: "Plymouth", qs_ranking: 581,
     program_name: "MSc Health Data Science and Statistics", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Data Science", specialization: "Health Data Science and Statistics",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -109642,7 +109642,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Salford",
-    country: "UK", city: "Salford", qs_ranking: 651,
+    country: "UK", city: "Salford", qs_ranking: 691,
     program_name: "MSc Operations Management and Business Analytics", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Data Science", specialization: "Operations Management and Business Analytics",
     annual_tuition_usd: 22083, annual_tuition_amount: 17388, annual_tuition_currency: "GBP", tuition_fee_source: "estimated",
@@ -109656,7 +109656,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Salford",
-    country: "UK", city: "Salford", qs_ranking: 651,
+    country: "UK", city: "Salford", qs_ranking: 691,
     program_name: "MSc/PgDip Cyber Security, Threat Intelligence and Forensics", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Cybersecurity", field_aliases: null, specialization: "Cyber Security, Threat Intelligence and Forensics",
     annual_tuition_usd: 26643, annual_tuition_amount: 20979, annual_tuition_currency: "GBP", tuition_fee_source: "estimated",
@@ -109880,7 +109880,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Strathclyde",
-    country: "UK", city: "Glasgow", qs_ranking: 301,
+    country: "UK", city: "Glasgow", qs_ranking: 269,
     program_name: "MFA Creative Writing", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Arts and Design", specialization: "Creative Writing",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -109894,7 +109894,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Strathclyde",
-    country: "UK", city: "Glasgow", qs_ranking: 301,
+    country: "UK", city: "Glasgow", qs_ranking: 269,
     program_name: "MSc Cyber Security", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Cybersecurity", field_aliases: null, specialization: "Cyber Security",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -109908,7 +109908,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Strathclyde",
-    country: "UK", city: "Glasgow", qs_ranking: 301,
+    country: "UK", city: "Glasgow", qs_ranking: 269,
     program_name: "MSc Machine Learning & Deep Learning", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Artificial Intelligence", specialization: "Machine Learning & Deep Learning",
     annual_tuition_usd: 41472, annual_tuition_amount: 32655, annual_tuition_currency: "GBP", tuition_fee_source: "estimated",
@@ -109922,7 +109922,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Strathclyde",
-    country: "UK", city: "Glasgow", qs_ranking: 301,
+    country: "UK", city: "Glasgow", qs_ranking: 269,
     program_name: "MSc Statistics & Data Science", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Data Science", field_aliases: null, specialization: "Statistics & Data Science",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -109964,7 +109964,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Surrey",
-    country: "UK", city: "Guildford", qs_ranking: 296,
+    country: "UK", city: "Guildford", qs_ranking: 251,
     program_name: "Business Analytics MSc", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Data Science", specialization: "Business Analytics",
     annual_tuition_usd: 33204, annual_tuition_amount: 26145, annual_tuition_currency: "GBP", tuition_fee_source: "estimated",
@@ -109978,7 +109978,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Surrey",
-    country: "UK", city: "Guildford", qs_ranking: 296,
+    country: "UK", city: "Guildford", qs_ranking: 251,
     program_name: "Computer Vision, Robotics and Machine Learning MSc", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Artificial Intelligence", specialization: "Computer Vision, Robotics and Machine Learning",
     annual_tuition_usd: 33204, annual_tuition_amount: 26145, annual_tuition_currency: "GBP", tuition_fee_source: "estimated", tuition_estimate_note: "Tuition figure is estimated from sources with ~6% spread — please verify the current-year fee with the university before relying on it.",
@@ -109992,7 +109992,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Surrey",
-    country: "UK", city: "Guildford", qs_ranking: 296,
+    country: "UK", city: "Guildford", qs_ranking: 251,
     program_name: "Cyber Security MSc", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Cybersecurity", field_aliases: null, specialization: "Cyber Security",
     annual_tuition_usd: 34271, annual_tuition_amount: 26985, annual_tuition_currency: "GBP", tuition_fee_source: "estimated", tuition_estimate_note: "Tuition figure is estimated from sources with ~6% spread — please verify the current-year fee with the university before relying on it.",
@@ -110006,7 +110006,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Surrey",
-    country: "UK", city: "Guildford", qs_ranking: 296,
+    country: "UK", city: "Guildford", qs_ranking: 251,
     program_name: "Professional Legal Practice (SQE Pathway) LLM", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Law", specialization: "Professional Legal Practice (SQE Pathway)",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -110020,7 +110020,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Surrey",
-    country: "UK", city: "Guildford", qs_ranking: 296,
+    country: "UK", city: "Guildford", qs_ranking: 251,
     program_name: "Theatre MFA", degree_level: "postgraduate",
     duration_months: 36, field_of_study: "Arts and Design", specialization: "Theatre",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -110034,7 +110034,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Sussex",
-    country: "UK", city: "Brighton", qs_ranking: 246,
+    country: "UK", city: "Brighton", qs_ranking: 256,
     program_name: "Business Analytics MSc", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Data Science", specialization: "Business Analytics",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -110608,7 +110608,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Virginia Tech",
-    country: "USA", city: "Blacksburg, VA", qs_ranking: 389,
+    country: "USA", city: "Blacksburg, VA", qs_ranking: 297,
     program_name: "Creative Writing (M.F.A.)", degree_level: "postgraduate",
     duration_months: 36, field_of_study: "Arts and Design", specialization: "Fiction or Poetry",
     annual_tuition_usd: 36212, annual_tuition_amount: 36212, annual_tuition_currency: "USD", tuition_fee_source: "estimated",
@@ -110622,7 +110622,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Wake Forest University",
-    country: "USA", city: "Winston-Salem, NC", qs_ranking: 651,
+    country: "USA", city: "Winston-Salem, NC", qs_ranking: 525,
     program_name: "Master of Science in Business Analytics", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Data Science", specialization: "Business Analytics",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -110790,7 +110790,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "York University",
-    country: "Canada", city: "Toronto, ON", qs_ranking: 601,
+    country: "Canada", city: "Toronto, ON", qs_ranking: 363,
     program_name: "Graduate Program in Visual Art", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Arts and Design", specialization: "Visual Art",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -110804,7 +110804,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "York University",
-    country: "Canada", city: "Toronto, ON", qs_ranking: 601,
+    country: "Canada", city: "Toronto, ON", qs_ranking: 363,
     program_name: "Master of Business Analytics (MBAN)", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Data Science", specialization: "Business Analytics",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -111083,7 +111083,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Humboldt University Berlin",
-    country: "Germany", city: "Berlin", qs_ranking: 120,
+    country: "Germany", city: "Berlin", qs_ranking: 130,
     program_name: "Business Administration (Bachelor of Science, B.Sc.)", degree_level: "undergraduate",
     duration_months: 36, field_of_study: "Business & Management", specialization: "General",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -111097,7 +111097,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Humboldt University Berlin",
-    country: "Germany", city: "Berlin", qs_ranking: 120,
+    country: "Germany", city: "Berlin", qs_ranking: 130,
     program_name: "Computer Science (Bachelor of Science, B.Sc.)", degree_level: "undergraduate",
     duration_months: 36, field_of_study: "Computer Science & IT", specialization: "General",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -111111,7 +111111,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Humboldt University Berlin",
-    country: "Germany", city: "Berlin", qs_ranking: 120,
+    country: "Germany", city: "Berlin", qs_ranking: 130,
     program_name: "Economics (Bachelor of Science, B.Sc.)", degree_level: "undergraduate",
     duration_months: 36, field_of_study: "Economics & Finance", specialization: "General",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -111760,7 +111760,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Sorbonne University",
-    country: "France", city: "Paris", qs_ranking: 59,
+    country: "France", city: "Paris", qs_ranking: 41,
     program_name: "Informatique, sciences des données et IA", degree_level: "undergraduate",
     duration_months: null, field_of_study: "Artificial Intelligence", specialization: "Sciences des données et intelligence artificielle",
     annual_tuition_usd: 3283, annual_tuition_amount: 3040, annual_tuition_currency: "EUR", tuition_fee_source: "estimated",
@@ -111783,7 +111783,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Sorbonne University",
-    country: "France", city: "Paris", qs_ranking: 59,
+    country: "France", city: "Paris", qs_ranking: 41,
     program_name: "Life Sciences", degree_level: null,
     duration_months: null, field_of_study: "Natural Sciences", specialization: "General",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -111932,7 +111932,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Technical University of Munich",
-    country: "Germany", city: "Munich", qs_ranking: 37,
+    country: "Germany", city: "Munich", qs_ranking: 22,
     program_name: "Environmental Engineering", degree_level: "undergraduate",
     duration_months: 36, field_of_study: "Environmental & Sustainability Studies", specialization: "General",
     annual_tuition_usd: 6480, annual_tuition_amount: 6000, annual_tuition_currency: "EUR",
@@ -111955,7 +111955,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Technical University of Munich",
-    country: "Germany", city: "Munich", qs_ranking: 37,
+    country: "Germany", city: "Munich", qs_ranking: 22,
     program_name: "Informatics - Bachelor of Science (B.Sc.)", degree_level: "undergraduate",
     duration_months: 36, field_of_study: "Computer Science & IT", specialization: "General",
     annual_tuition_usd: 6480, annual_tuition_amount: 6000, annual_tuition_currency: "EUR",
@@ -111978,7 +111978,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Technical University of Munich",
-    country: "Germany", city: "Munich", qs_ranking: 37,
+    country: "Germany", city: "Munich", qs_ranking: 22,
     program_name: "Management and Data Science", degree_level: "undergraduate",
     duration_months: 36, field_of_study: "Data Science", field_aliases: null, specialization: "General",
     annual_tuition_usd: 3402, annual_tuition_amount: 3150, annual_tuition_currency: "EUR", tuition_fee_source: "estimated",
@@ -112001,7 +112001,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Technical University of Munich",
-    country: "Germany", city: "Munich", qs_ranking: 37,
+    country: "Germany", city: "Munich", qs_ranking: 22,
     program_name: "Management and Technology (am Campus München)", degree_level: "undergraduate",
     duration_months: 36, field_of_study: "Business & Management", specialization: "General",
     annual_tuition_usd: 4320, annual_tuition_amount: 4000, annual_tuition_currency: "EUR",
@@ -112024,7 +112024,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Technical University of Munich",
-    country: "Germany", city: "Munich", qs_ranking: 37,
+    country: "Germany", city: "Munich", qs_ranking: 22,
     program_name: "Mechanical Engineering", degree_level: "undergraduate",
     duration_months: 36, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "General",
     annual_tuition_usd: 6480, annual_tuition_amount: 6000, annual_tuition_currency: "EUR",
@@ -112047,7 +112047,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Technical University of Munich",
-    country: "Germany", city: "Munich", qs_ranking: 37,
+    country: "Germany", city: "Munich", qs_ranking: 22,
     program_name: "Molecular Biotechnology", degree_level: "undergraduate",
     duration_months: 36, field_of_study: "Biotechnology & Life Sciences", specialization: "Molecular Biotechnology",
     annual_tuition_usd: 4320, annual_tuition_amount: 4000, annual_tuition_currency: "EUR",
@@ -112070,7 +112070,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Technical University of Munich",
-    country: "Germany", city: "Munich", qs_ranking: 37,
+    country: "Germany", city: "Munich", qs_ranking: 22,
     program_name: "Physics - Bachelor of Science (B.Sc.)", degree_level: "undergraduate",
     duration_months: 36, field_of_study: "Natural Sciences", specialization: "General",
     annual_tuition_usd: 6480, annual_tuition_amount: 6000, annual_tuition_currency: "EUR",
@@ -113161,7 +113161,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Vrije Universiteit Amsterdam",
-    country: "Netherlands", city: "Amsterdam", qs_ranking: 219,
+    country: "Netherlands", city: "Amsterdam", qs_ranking: 176,
     program_name: "Bachelor's Artificial Intelligence", degree_level: "undergraduate",
     duration_months: 36, field_of_study: "Artificial Intelligence", specialization: "General",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -113175,7 +113175,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Vrije Universiteit Amsterdam",
-    country: "Netherlands", city: "Amsterdam", qs_ranking: 219,
+    country: "Netherlands", city: "Amsterdam", qs_ranking: 176,
     program_name: "Bachelor's Computer Science", degree_level: "undergraduate",
     duration_months: 36, field_of_study: "Computer Science & IT", specialization: "General",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -113189,7 +113189,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Vrije Universiteit Amsterdam",
-    country: "Netherlands", city: "Amsterdam", qs_ranking: 219,
+    country: "Netherlands", city: "Amsterdam", qs_ranking: 176,
     program_name: "Economics and Business Economics", degree_level: "undergraduate",
     duration_months: null, field_of_study: "Economics & Finance", specialization: "General",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -113203,7 +113203,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Vrije Universiteit Amsterdam",
-    country: "Netherlands", city: "Amsterdam", qs_ranking: 219,
+    country: "Netherlands", city: "Amsterdam", qs_ranking: 176,
     program_name: "International Business Administration", degree_level: "undergraduate",
     duration_months: 36, field_of_study: "Business & Management", specialization: "General",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -113217,7 +113217,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Vrije Universiteit Amsterdam",
-    country: "Netherlands", city: "Amsterdam", qs_ranking: 219,
+    country: "Netherlands", city: "Amsterdam", qs_ranking: 176,
     program_name: "Mechanical Engineering", degree_level: "undergraduate",
     duration_months: 36, field_of_study: "Engineering (Mechanical/Civil/Electrical)", specialization: "General",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -115623,7 +115623,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Murdoch University",
-    country: "Australia", city: "Perth", qs_ranking: 481,
+    country: "Australia", city: "Perth", qs_ranking: 487,
     program_name: "Bachelor of Creative Media", degree_level: "undergraduate",
     duration_months: 36, field_of_study: "Arts and Design", specialization: "General",
     annual_tuition_usd: 23400, annual_tuition_amount: 36000, annual_tuition_currency: "AUD",
@@ -116549,7 +116549,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Warwick",
-    country: "UK", city: "Coventry", qs_ranking: 67,
+    country: "UK", city: "Coventry", qs_ranking: 69,
     program_name: "Design for Sustainable Innovation BASc", degree_level: "undergraduate",
     duration_months: 36, field_of_study: "Arts and Design", specialization: "Design for Sustainable Innovation",
     annual_tuition_usd: 35395, annual_tuition_amount: 27870, annual_tuition_currency: "GBP",
@@ -117481,7 +117481,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Lancaster University",
-    country: "UK", city: "Lancaster", qs_ranking: 140,
+    country: "UK", city: "Lancaster", qs_ranking: 169,
     program_name: "Behavioural Science Skills MSc", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Psychology", specialization: "Behavioural Science",
     annual_tuition_usd: 38100, annual_tuition_amount: 30000, annual_tuition_currency: "GBP",
@@ -117496,7 +117496,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Lancaster University",
-    country: "UK", city: "Lancaster", qs_ranking: 140,
+    country: "UK", city: "Lancaster", qs_ranking: 169,
     program_name: "Child Mental Health MSc", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Psychology", specialization: "Child Mental Health",
     annual_tuition_usd: 38100, annual_tuition_amount: 30000, annual_tuition_currency: "GBP",
@@ -117511,7 +117511,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Lancaster University",
-    country: "UK", city: "Lancaster", qs_ranking: 140,
+    country: "UK", city: "Lancaster", qs_ranking: 169,
     program_name: "Psychology and Behavioural Analytics MSc", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Psychology", specialization: "Behavioural Analytics",
     annual_tuition_usd: 38100, annual_tuition_amount: 30000, annual_tuition_currency: "GBP",
@@ -117526,7 +117526,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Lancaster University",
-    country: "UK", city: "Lancaster", qs_ranking: 140,
+    country: "UK", city: "Lancaster", qs_ranking: 169,
     program_name: "Psychology of Child Development and Education MSc", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Psychology", specialization: "Child Development and Education",
     annual_tuition_usd: 38100, annual_tuition_amount: 30000, annual_tuition_currency: "GBP",
@@ -117691,7 +117691,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Newcastle University",
-    country: "UK", city: "Newcastle", qs_ranking: 110,
+    country: "UK", city: "Newcastle", qs_ranking: 168,
     program_name: "Forensic Psychology MSc", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Psychology", specialization: "Forensic Psychology",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -117706,7 +117706,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Newcastle University",
-    country: "UK", city: "Newcastle", qs_ranking: 110,
+    country: "UK", city: "Newcastle", qs_ranking: 168,
     program_name: "Foundations in Clinical Psychology MSc", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Psychology", specialization: "Clinical Psychology",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -117721,7 +117721,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "Newcastle University",
-    country: "UK", city: "Newcastle", qs_ranking: 110,
+    country: "UK", city: "Newcastle", qs_ranking: 168,
     program_name: "Sport and Exercise Psychology MSc", degree_level: "postgraduate",
     duration_months: null, field_of_study: "Psychology", specialization: "Sport and Exercise Psychology",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -118621,7 +118621,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Cambridge",
-    country: "UK", city: "Cambridge", qs_ranking: 2,
+    country: "UK", city: "Cambridge", qs_ranking: 6,
     program_name: "MPhil in Basic and Translational Neuroscience", degree_level: "postgraduate",
     duration_months: 11, field_of_study: "Psychology", specialization: "Basic and Translational Neuroscience",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -118636,7 +118636,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Cambridge",
-    country: "UK", city: "Cambridge", qs_ranking: 2,
+    country: "UK", city: "Cambridge", qs_ranking: 6,
     program_name: "MPhil in Biological Science (Psychology) by thesis", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Psychology", specialization: "Psychology",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -118651,7 +118651,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Cambridge",
-    country: "UK", city: "Cambridge", qs_ranking: 2,
+    country: "UK", city: "Cambridge", qs_ranking: 6,
     program_name: "MPhil in Cognitive Neurosciences", degree_level: "postgraduate",
     duration_months: 10, field_of_study: "Psychology", specialization: "Cognitive Neurosciences",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -118666,7 +118666,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Cambridge",
-    country: "UK", city: "Cambridge", qs_ranking: 2,
+    country: "UK", city: "Cambridge", qs_ranking: 6,
     program_name: "MPhil in Education (Psychology and Education) full time", degree_level: "postgraduate",
     duration_months: 9, field_of_study: "Psychology", specialization: "Psychology and Education",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -118681,7 +118681,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Cambridge",
-    country: "UK", city: "Cambridge", qs_ranking: 2,
+    country: "UK", city: "Cambridge", qs_ranking: 6,
     program_name: "MPhil in Education (Psychology and Education) part time", degree_level: "postgraduate",
     duration_months: 23, field_of_study: "Psychology", specialization: "Psychology and Education",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -118696,7 +118696,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Cambridge",
-    country: "UK", city: "Cambridge", qs_ranking: 2,
+    country: "UK", city: "Cambridge", qs_ranking: 6,
     program_name: "MPhil in Foundations of Clinical Psychology", degree_level: "postgraduate",
     duration_months: 10, field_of_study: "Psychology", specialization: "Foundations of Clinical Psychology",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -118711,7 +118711,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Cambridge",
-    country: "UK", city: "Cambridge", qs_ranking: 2,
+    country: "UK", city: "Cambridge", qs_ranking: 6,
     program_name: "MPhil in Medical Science (Clinical Neurosciences)", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Psychology", specialization: "Clinical Neurosciences",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -118726,7 +118726,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Cambridge",
-    country: "UK", city: "Cambridge", qs_ranking: 2,
+    country: "UK", city: "Cambridge", qs_ranking: 6,
     program_name: "MPhil in Medical Science (Psychiatry)", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Psychology", specialization: "Psychiatry",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -119191,7 +119191,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Exeter",
-    country: "UK", city: "Exeter", qs_ranking: 149,
+    country: "UK", city: "Exeter", qs_ranking: 169,
     program_name: "MSc Clinical Psychology", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Psychology", specialization: "Clinical Psychology",
     annual_tuition_usd: 39624, annual_tuition_amount: 31200, annual_tuition_currency: "GBP",
@@ -119206,7 +119206,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Exeter",
-    country: "UK", city: "Exeter", qs_ranking: 149,
+    country: "UK", city: "Exeter", qs_ranking: 169,
     program_name: "MSc Psychedelics: Mind, Medicine, and Culture (Online)", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Psychology", specialization: "Psychedelics: Mind, Medicine, and Culture",
     annual_tuition_usd: 9525, annual_tuition_amount: 7500, annual_tuition_currency: "GBP",
@@ -119221,7 +119221,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Exeter",
-    country: "UK", city: "Exeter", qs_ranking: 149,
+    country: "UK", city: "Exeter", qs_ranking: 169,
     program_name: "MSc Psychedelics: Mind, Medicine, and Culture", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Psychology", specialization: "Psychedelics: Mind, Medicine, and Culture",
     annual_tuition_usd: 38100, annual_tuition_amount: 30000, annual_tuition_currency: "GBP",
@@ -119236,7 +119236,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Exeter",
-    country: "UK", city: "Exeter", qs_ranking: 149,
+    country: "UK", city: "Exeter", qs_ranking: 169,
     program_name: "MSc Psychological Research Methods (Data Science)", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Data Science", specialization: "Data Science",
     annual_tuition_usd: 36703, annual_tuition_amount: 28900, annual_tuition_currency: "GBP",
@@ -119251,7 +119251,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Exeter",
-    country: "UK", city: "Exeter", qs_ranking: 149,
+    country: "UK", city: "Exeter", qs_ranking: 169,
     program_name: "MSc Psychological Research Methods", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Psychology", specialization: "Cognitive, clinical, and clinical neuroscience research",
     annual_tuition_usd: 36703, annual_tuition_amount: 28900, annual_tuition_currency: "GBP",
@@ -119266,7 +119266,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Exeter",
-    country: "UK", city: "Exeter", qs_ranking: 149,
+    country: "UK", city: "Exeter", qs_ranking: 169,
     program_name: "MSc Psychological Therapies Practice and Research (Systemic Therapy)", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Psychology", specialization: "Systemic Therapy",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -119281,7 +119281,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Exeter",
-    country: "UK", city: "Exeter", qs_ranking: 149,
+    country: "UK", city: "Exeter", qs_ranking: 169,
     program_name: "MSc Psychology (Conversion) (Sport)", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Psychology", specialization: "Sport",
     annual_tuition_usd: 36703, annual_tuition_amount: 28900, annual_tuition_currency: "GBP",
@@ -119296,7 +119296,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Exeter",
-    country: "UK", city: "Exeter", qs_ranking: 149,
+    country: "UK", city: "Exeter", qs_ranking: 169,
     program_name: "MSc Psychology (Conversion)", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Psychology", specialization: "General",
     annual_tuition_usd: 36703, annual_tuition_amount: 28900, annual_tuition_currency: "GBP",
@@ -119311,7 +119311,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Exeter",
-    country: "UK", city: "Exeter", qs_ranking: 149,
+    country: "UK", city: "Exeter", qs_ranking: 169,
     program_name: "MSci Animal Behaviour", degree_level: "undergraduate",
     duration_months: 48, field_of_study: "Psychology", specialization: "Animal Behaviour",
     annual_tuition_usd: 39624, annual_tuition_amount: 31200, annual_tuition_currency: "GBP",
@@ -119325,7 +119325,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Glasgow",
-    country: "UK", city: "Glasgow", qs_ranking: 77,
+    country: "UK", city: "Glasgow", qs_ranking: 78,
     program_name: "Psychological Science, Research Methods of MSc", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Psychology", specialization: "Research Methods of Psychological Science",
     annual_tuition_usd: 39434, annual_tuition_amount: 31050, annual_tuition_currency: "GBP",
@@ -120330,7 +120330,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Sheffield",
-    country: "UK", city: "Sheffield", qs_ranking: 105,
+    country: "UK", city: "Sheffield", qs_ranking: 110,
     program_name: "Business and Organisational Psychology MSc", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Psychology", specialization: "Business and Organisational Psychology",
     annual_tuition_usd: 41789, annual_tuition_amount: 32905, annual_tuition_currency: "GBP",
@@ -120345,7 +120345,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Sheffield",
-    country: "UK", city: "Sheffield", qs_ranking: 105,
+    country: "UK", city: "Sheffield", qs_ranking: 110,
     program_name: "Cognitive and Computational Neuroscience MSc", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Psychology", specialization: "Cognitive and Computational Neuroscience",
     annual_tuition_usd: 45517, annual_tuition_amount: 35840, annual_tuition_currency: "GBP",
@@ -120360,7 +120360,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Sheffield",
-    country: "UK", city: "Sheffield", qs_ranking: 105,
+    country: "UK", city: "Sheffield", qs_ranking: 110,
     program_name: "Cognitive Neuroscience and Human Neuroimaging MSc", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Psychology", specialization: "Cognitive Neuroscience and Human Neuroimaging",
     annual_tuition_usd: 45517, annual_tuition_amount: 35840, annual_tuition_currency: "GBP",
@@ -120375,7 +120375,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Sheffield",
-    country: "UK", city: "Sheffield", qs_ranking: 105,
+    country: "UK", city: "Sheffield", qs_ranking: 110,
     program_name: "Psychological Research Methods MSc", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Psychology", specialization: "Psychological Research Methods",
     annual_tuition_usd: 41789, annual_tuition_amount: 32905, annual_tuition_currency: "GBP",
@@ -120390,7 +120390,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Sheffield",
-    country: "UK", city: "Sheffield", qs_ranking: 105,
+    country: "UK", city: "Sheffield", qs_ranking: 110,
     program_name: "Psychology and Education (Conversion) MSc", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Psychology", specialization: "Psychology and Education (Conversion)",
     annual_tuition_usd: 33426, annual_tuition_amount: 26320, annual_tuition_currency: "GBP",
@@ -120405,7 +120405,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Sheffield",
-    country: "UK", city: "Sheffield", qs_ranking: 105,
+    country: "UK", city: "Sheffield", qs_ranking: 110,
     program_name: "Psychology and Education MA", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Psychology", specialization: "Psychology and Education",
     annual_tuition_usd: 32518, annual_tuition_amount: 25605, annual_tuition_currency: "GBP",
@@ -120420,7 +120420,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Sheffield",
-    country: "UK", city: "Sheffield", qs_ranking: 105,
+    country: "UK", city: "Sheffield", qs_ranking: 110,
     program_name: "Psychology of Music MA", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Psychology", specialization: "Psychology of Music",
     annual_tuition_usd: 37071, annual_tuition_amount: 29190, annual_tuition_currency: "GBP",
@@ -120930,7 +120930,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Sussex",
-    country: "UK", city: "Brighton", qs_ranking: 246,
+    country: "UK", city: "Brighton", qs_ranking: 256,
     program_name: "Applied Child Psychology MSc", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Psychology", specialization: "Applied Child Psychology",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -120945,7 +120945,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Sussex",
-    country: "UK", city: "Brighton", qs_ranking: 246,
+    country: "UK", city: "Brighton", qs_ranking: 256,
     program_name: "Cognitive and Clinical Neuroscience MSc", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Psychology", specialization: "Cognitive and Clinical Neuroscience",
     annual_tuition_usd: 34671, annual_tuition_amount: 27300, annual_tuition_currency: "GBP",
@@ -120960,7 +120960,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Sussex",
-    country: "UK", city: "Brighton", qs_ranking: 246,
+    country: "UK", city: "Brighton", qs_ranking: 256,
     program_name: "Foundations of Clinical Psychology and Mental Health MSc", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Psychology", specialization: "Clinical Psychology and Mental Health",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -120975,7 +120975,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Sussex",
-    country: "UK", city: "Brighton", qs_ranking: 246,
+    country: "UK", city: "Brighton", qs_ranking: 256,
     program_name: "Marketing and Consumer Psychology MSc", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Psychology", specialization: "Marketing and Consumer Psychology",
     annual_tuition_usd: 31744, annual_tuition_amount: 24995, annual_tuition_currency: "GBP",
@@ -120990,7 +120990,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Sussex",
-    country: "UK", city: "Brighton", qs_ranking: 246,
+    country: "UK", city: "Brighton", qs_ranking: 256,
     program_name: "Occupational and Organizational Psychology MSc", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Psychology", specialization: "Occupational and Organizational Psychology",
     annual_tuition_usd: 34284, annual_tuition_amount: 26995, annual_tuition_currency: "GBP",
@@ -121005,7 +121005,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Sussex",
-    country: "UK", city: "Brighton", qs_ranking: 246,
+    country: "UK", city: "Brighton", qs_ranking: 256,
     program_name: "Psychological Methods MRes", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Psychology", specialization: "Psychological Methods",
     annual_tuition_usd: 34671, annual_tuition_amount: 27300, annual_tuition_currency: "GBP",
@@ -121020,7 +121020,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Sussex",
-    country: "UK", city: "Brighton", qs_ranking: 246,
+    country: "UK", city: "Brighton", qs_ranking: 256,
     program_name: "Psychology (Conversion) MSc", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Psychology", specialization: "Conversion",
     annual_tuition_usd: 31744, annual_tuition_amount: 24995, annual_tuition_currency: "GBP",
@@ -121035,7 +121035,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Warwick",
-    country: "UK", city: "Coventry", qs_ranking: 67,
+    country: "UK", city: "Coventry", qs_ranking: 69,
     program_name: "Behavioural and Data Science (MSc)", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Data Science", specialization: "Behavioural and Data Science",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -121050,7 +121050,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Warwick",
-    country: "UK", city: "Coventry", qs_ranking: 67,
+    country: "UK", city: "Coventry", qs_ranking: 69,
     program_name: "Behavioural and Economic Science (Science Track) (MSc)", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Psychology", specialization: "Behavioural and Economic Science (Science Track)",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -121065,7 +121065,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Warwick",
-    country: "UK", city: "Coventry", qs_ranking: 67,
+    country: "UK", city: "Coventry", qs_ranking: 69,
     program_name: "Clinical Applications of Psychology (MSc)", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Psychology", specialization: "Clinical Psychology",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -121080,7 +121080,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Warwick",
-    country: "UK", city: "Coventry", qs_ranking: 67,
+    country: "UK", city: "Coventry", qs_ranking: 69,
     program_name: "Mental Health and Wellbeing (MSc)", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Psychology", specialization: "Mental Health and Wellbeing",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -121095,7 +121095,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Warwick",
-    country: "UK", city: "Coventry", qs_ranking: 67,
+    country: "UK", city: "Coventry", qs_ranking: 69,
     program_name: "Neuroscience and Psychology of Mental Health - iheed (MSc)", degree_level: "postgraduate",
     duration_months: 24, field_of_study: "Psychology", specialization: "Neuroscience and Psychology of Mental Health",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -121110,7 +121110,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Warwick",
-    country: "UK", city: "Coventry", qs_ranking: 67,
+    country: "UK", city: "Coventry", qs_ranking: 69,
     program_name: "Psychological Research (MSc)", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Psychology", specialization: "Psychological Research",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -121125,7 +121125,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Warwick",
-    country: "UK", city: "Coventry", qs_ranking: 67,
+    country: "UK", city: "Coventry", qs_ranking: 69,
     program_name: "Psychology and Education (MA)", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Psychology", specialization: "Psychology and Education",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -121140,7 +121140,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Warwick",
-    country: "UK", city: "Coventry", qs_ranking: 67,
+    country: "UK", city: "Coventry", qs_ranking: 69,
     program_name: "Psychology (MSc by Research)", degree_level: "postgraduate",
     duration_months: 12, field_of_study: "Psychology", specialization: "General",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -130544,7 +130544,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Connecticut",
-    country: "USA", city: "Storrs, CT", qs_ranking: 565,
+    country: "USA", city: "Storrs, CT", qs_ranking: 256,
     program_name: "Graduate Faculty Directory", degree_level: null,
     duration_months: null, field_of_study: "Nursing & Allied Health", specialization: "General",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
@@ -130558,7 +130558,7 @@ export const PROGRAMS = ([{
   },
 {
     university_name: "University of Connecticut",
-    country: "USA", city: "Storrs, CT", qs_ranking: 565,
+    country: "USA", city: "Storrs, CT", qs_ranking: 256,
     program_name: "JD Academic Regulations", degree_level: null,
     duration_months: null, field_of_study: "Law", specialization: "General",
     annual_tuition_usd: null, annual_tuition_amount: null, annual_tuition_currency: null,
