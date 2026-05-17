@@ -133,11 +133,11 @@ export default function InlineProgramROI({ program }: Props) {
   const [editSalary,   setEditSalary]    = useState(false);
   const [salaryInput,  setSalaryInput]   = useState(String(defaultSalary));
 
-  // When the matched program has no verified tuition (annual_tuition_usd
-  // is null or 0), the prior version silently passed 0 to calculateROI,
-  // producing a meaningless "2.2 yrs payback / +2198% ROI" surface. The
-  // user-entered tuition below replaces that; metrics stay gated until
-  // a positive value is committed.
+  // Tuition gating: when the matched program has no verified tuition
+  // (annual_tuition_usd is null or 0), pass through a user-entered value
+  // instead of 0 (which would produce a meaningless "2.2 yrs payback /
+  // +2198% ROI" surface). Metrics stay gated until a positive value is
+  // committed.
   const programHasFee = typeof program.annual_tuition_usd === "number"
     && program.annual_tuition_usd > 0;
   const [customTuition, setCustomTuition] = useState(0);
@@ -145,22 +145,39 @@ export default function InlineProgramROI({ program }: Props) {
   const tuitionAvailable = effectiveTuition > 0;
   const tuitionUserSupplied = !programHasFee && tuitionAvailable;
 
-  const roi = calculateROI({
+  // Living-cost gating — same pattern (user-reported 17 May 2026).
+  // Treat anything below $3,000/yr as "missing data" (real annual
+  // living costs in the 12 destinations don't go below ~$4k even for
+  // Malaysia/UAE; values like $650 for UNSW are extraction errors).
+  // 107 programs in the DB currently carry implausibly-low values;
+  // those + any null/0 entries now prompt the user the same way
+  // missing tuition does.
+  const LIVING_MIN_PLAUSIBLE = 3000;
+  const programHasLiving = typeof program.avg_living_cost_usd === "number"
+    && program.avg_living_cost_usd >= LIVING_MIN_PLAUSIBLE;
+  const [customLiving, setCustomLiving] = useState(0);
+  const effectiveLiving = programHasLiving ? program.avg_living_cost_usd! : customLiving;
+  const livingAvailable = effectiveLiving > 0;
+  const livingUserSupplied = !programHasLiving && livingAvailable;
+
+  const canCalculate = tuitionAvailable && livingAvailable;
+
+  const roi = canCalculate ? calculateROI({
     university_name:    program.university_name,
     country,
     city:               program.city,
     field_of_study:     field,
     annual_tuition_usd: effectiveTuition,
-    avg_living_cost_usd: program.avg_living_cost_usd,
+    avg_living_cost_usd: effectiveLiving,
     duration_months:    program.duration_months,
     scholarship_usd:    scholarship,
     expected_salary_usd: salary,
     savings_rate_pct:   savingsRate,
-  });
+  }) : null;
 
-  const pb      = paybackScheme(roi.payback_years);
-  const roiSign = roi.ten_year_roi_pct >= 0 ? "+" : "";
-  const roiColor = roi.ten_year_roi_pct >= 0 ? "text-emerald-400" : "text-rose-400";
+  const pb      = roi ? paybackScheme(roi.payback_years) : null;
+  const roiSign = roi && roi.ten_year_roi_pct >= 0 ? "+" : "";
+  const roiColor = roi && roi.ten_year_roi_pct >= 0 ? "text-emerald-400" : "text-rose-400";
 
   const SCHOLARSHIP_OPTIONS = [0, 5000, 10000, 20000, 30000, 50000];
   const RATE_OPTIONS        = [5, 10, 15, 20, 30, 40];
@@ -225,7 +242,11 @@ export default function InlineProgramROI({ program }: Props) {
                     : tuitionUserSupplied
                       ? `Tuition ${fmtK(customTuition)}/yr (you entered)`
                       : "Tuition — enter below",
-                  program.avg_living_cost_usd ? `Living ${fmtK(program.avg_living_cost_usd)}/yr` : "Living: see website",
+                  programHasLiving
+                    ? `Living ${fmtK(program.avg_living_cost_usd!)}/yr`
+                    : livingUserSupplied
+                      ? `Living ${fmtK(customLiving)}/yr (you entered)`
+                      : "Living — enter below",
                 ].map((tag) => (
                   <span
                     key={tag}
@@ -286,7 +307,48 @@ export default function InlineProgramROI({ program }: Props) {
                 </div>
               )}
 
-              {!tuitionAvailable ? (
+              {/* Living-cost input — appears when the program's avg_living_cost_usd
+                  is missing, zero, or implausibly low (<$3k/yr — extraction
+                  errors like UNSW $650). ROI math is gated until a positive
+                  value is entered. */}
+              {!programHasLiving && (
+                <div className={`rounded-xl border p-3.5 ${
+                  livingUserSupplied
+                    ? "bg-amber-500/5 border-amber-500/30"
+                    : "bg-amber-500/10 border-amber-500/40"
+                }`}>
+                  <div className="flex items-start gap-2 mb-2">
+                    <Info className="w-4 h-4 text-amber-300 flex-shrink-0 mt-0.5" />
+                    <div className="flex-1">
+                      <p className="text-[12px] font-bold text-amber-200 mb-0.5">
+                        Annual living cost {livingUserSupplied ? "(you entered)" : "needed"}
+                      </p>
+                      <p className="text-[11px] text-amber-200/80 leading-snug">
+                        We don&apos;t have a reliable living-cost figure for this program&apos;s city.
+                        {livingUserSupplied
+                          ? " ROI below uses the value you typed."
+                          : " Enter your expected annual rent + food + transport + other expenses in USD to unlock the ROI metrics."}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-amber-300 font-bold text-sm">$</span>
+                    <input
+                      type="number"
+                      min={0}
+                      step={500}
+                      placeholder="e.g. 15000"
+                      value={customLiving || ""}
+                      onChange={(e) => setCustomLiving(Math.max(0, parseInt(e.target.value, 10) || 0))}
+                      className="flex-1 px-2.5 py-1.5 rounded-lg bg-white/10 border border-amber-400/40
+                        text-sm text-white font-mono focus:outline-none focus:ring-1 focus:ring-amber-400"
+                    />
+                    <span className="text-[10px] text-amber-300/80 font-semibold uppercase tracking-wide">USD / yr</span>
+                  </div>
+                </div>
+              )}
+
+              {!roi || !pb ? (
                 // Metrics-gated state: program has no verified tuition and
                 // the user hasn't entered one yet. Render a placeholder
                 // instead of misleading numbers ($0 tuition → fake "2.2 yrs
@@ -294,7 +356,11 @@ export default function InlineProgramROI({ program }: Props) {
                 <div className="rounded-xl bg-slate-900/40 border border-slate-700/50 px-4 py-6 text-center">
                   <BarChart3 className="w-5 h-5 text-slate-500 mx-auto mb-2" />
                   <p className="text-[12px] font-semibold text-slate-400">
-                    Enter the annual tuition above to see payback period, 10-yr ROI, and break-even salary.
+                    {!tuitionAvailable && !livingAvailable
+                      ? "Enter the annual tuition AND living cost above to see payback period, 10-yr ROI, and break-even salary."
+                      : !tuitionAvailable
+                        ? "Enter the annual tuition above to see payback period, 10-yr ROI, and break-even salary."
+                        : "Enter the annual living cost above to see payback period, 10-yr ROI, and break-even salary."}
                   </p>
                 </div>
               ) : (
