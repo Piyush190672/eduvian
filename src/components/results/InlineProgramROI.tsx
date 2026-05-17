@@ -233,14 +233,23 @@ export default function InlineProgramROI({ program }: Props) {
   const livingAvailable = effectiveLiving > 0;
   const livingUserSupplied = !programHasLiving && livingAvailable;
 
-  // Duration — 3,016 programs in the DB carry null duration_months
-  // (32%). Without this gate, null/12 = 0 in JS and ROI math returned
-  // garbage (Total Investment: 0, Payback: 0 mo, ROI: 0%, Net 10-yr:
-  // salary×10). User-reported with screenshot 17 May 2026.
-  // Default to a degree-level-appropriate fallback so the user isn't
-  // dead-ended; they can override the input.
-  const programHasDuration = typeof program.duration_months === "number"
-    && program.duration_months > 0;
+  // Duration — three provenance buckets:
+  //   1. extracted from program page (duration_source undefined) — most trusted
+  //   2. heuristic backfill (duration_source === "heuristic") — pattern-based
+  //      estimate from (country, degree_level) + program-name rules
+  //   3. null (extractor + heuristic both failed) — fall back to in-component
+  //      degree-level default, surface "Estimated default" pill
+  // User-reported screenshot 17 May 2026 traced to bucket 3 silently
+  // passing null/12 = 0 into calculateROI. All three buckets now
+  // produce a valid effectiveDuration; bucket 2 + 3 visibly distinguish
+  // themselves from bucket 1 so the user knows when to override.
+  const programHasExtractedDuration = typeof program.duration_months === "number"
+    && program.duration_months > 0
+    && program.duration_source !== "heuristic";
+  const programHasHeuristicDuration = typeof program.duration_months === "number"
+    && program.duration_months > 0
+    && program.duration_source === "heuristic";
+  const programHasDuration = programHasExtractedDuration || programHasHeuristicDuration;
   const fallbackDuration = defaultDurationMonths(program.degree_level);
   const [customDuration, setCustomDuration] = useState(
     programHasDuration ? program.duration_months! : fallbackDuration,
@@ -250,6 +259,7 @@ export default function InlineProgramROI({ program }: Props) {
     : (programHasDuration ? program.duration_months! : fallbackDuration);
   const durationUserOverride = programHasDuration && customDuration !== program.duration_months;
   const durationFromDefault = !programHasDuration;
+  const durationIsHeuristic = programHasHeuristicDuration && !durationUserOverride;
 
   const canCalculate = tuitionAvailable && livingAvailable && effectiveDuration > 0;
 
@@ -329,7 +339,7 @@ export default function InlineProgramROI({ program }: Props) {
                 {[
                   `${program.country}`,
                   `${program.field_of_study}`,
-                  `${Math.round(effectiveDuration / 12 * 10) / 10} yrs${durationFromDefault ? " (estimated)" : ""}`,
+                  `${Math.round(effectiveDuration / 12 * 10) / 10} yrs${durationFromDefault ? " (estimated)" : durationIsHeuristic ? " (est.)" : ""}`,
                 ].map((tag) => (
                   <span
                     key={tag}
@@ -356,6 +366,11 @@ export default function InlineProgramROI({ program }: Props) {
                       Estimated default
                     </span>
                   )}
+                  {durationIsHeuristic && (
+                    <span className="text-[9px] font-bold uppercase tracking-wide text-amber-300 bg-amber-500/15 border border-amber-500/30 px-1.5 py-0.5 rounded-full" title="Estimated from program type — verifier didn't capture the official figure">
+                      Heuristic est.
+                    </span>
+                  )}
                 </div>
                 <div className="flex items-center gap-2">
                   <input
@@ -377,7 +392,9 @@ export default function InlineProgramROI({ program }: Props) {
                     ? `Not published — using ${fallbackDuration} mo default for ${program.degree_level}. Adjust if you know the real duration.`
                     : durationUserOverride
                       ? `You changed this from ${program.duration_months} mo · adjust if needed`
-                      : `From the official program page · adjust if you know better`}
+                      : durationIsHeuristic
+                        ? `Heuristic estimate from program type · verify with the university and adjust if needed`
+                        : `From the official program page · adjust if you know better`}
                 </p>
               </div>
 

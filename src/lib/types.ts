@@ -143,11 +143,21 @@ export interface Program {
   qs_ranking: number | null;
   program_name: string;
   degree_level: ProgramLevel;
-  /** Months from program start to completion. Null when the source page
-   *  didn't publish a duration (3,016 programs in the DB carry null);
-   *  UI surfaces fall back to a degree-level default with an editable
-   *  input so the user can correct it. */
+  /** Months from program start to completion. Null when neither the
+   *  verifier nor the heuristic backfill could produce a value (rare
+   *  post-Wave-B-duration backfill, 17 May 2026). */
   duration_months: number | null;
+  /** Provenance of the duration figure:
+   *  - undefined: extracted from the official program page by the
+   *    verifier (default — most reliable).
+   *  - "heuristic": filled by scripts/data-fixes/backfill-durations.py
+   *    using a (country, degree_level) base default + program-name
+   *    pattern rules (Master/Bachelor/MPhil/PhD/MBA/Diploma etc.).
+   *    UI surfaces this so the user knows the figure is an educated
+   *    estimate rather than extracted truth.
+   *
+   *  See backfill-durations.py for the rule table. */
+  duration_source?: "heuristic";
   field_of_study: string;
   /** Cross-listed fields for programs that span multiple streams
    *  (e.g. "MSc Artificial Intelligence and Data Science" lives under

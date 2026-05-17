@@ -337,10 +337,19 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist,
               <span className="text-xs px-2.5 py-1 rounded-full bg-purple-50 text-purple-600 border border-purple-100">
                 {program.field_of_study}
               </span>
-              <span className="text-xs px-2.5 py-1 rounded-full bg-gray-50 text-gray-500 border border-gray-100 flex items-center gap-1">
+              <span
+                className="text-xs px-2.5 py-1 rounded-full bg-gray-50 text-gray-500 border border-gray-100 flex items-center gap-1"
+                title={
+                  program.duration_source === "heuristic"
+                    ? "Estimated from program type (extractor didn't capture the official figure). Adjust in the ROI Analysis if you know better."
+                    : program.duration_months == null
+                      ? "Duration not published by the program — see university website."
+                      : undefined
+                }
+              >
                 <Clock className="w-3 h-3" />
                 {program.duration_months != null
-                  ? `${Math.round(program.duration_months / 12 * 10) / 10} yrs`
+                  ? `${Math.round(program.duration_months / 12 * 10) / 10} yrs${program.duration_source === "heuristic" ? " (est.)" : ""}`
                   : "Duration: see website"}
               </span>
             </div>
