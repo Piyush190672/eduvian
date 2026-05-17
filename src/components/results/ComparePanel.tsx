@@ -16,7 +16,7 @@ import {
   BarChart2,
 } from "lucide-react";
 import type { ScoredProgram } from "@/lib/types";
-import { calculateROI, lookupSalary } from "@/lib/roi-calculator";
+import { calculateROI, lookupSalary, defaultDurationMonths } from "@/lib/roi-calculator";
 import { formatCurrency, getCountryFlag, getTierColor, getTierLabel } from "@/lib/utils";
 import { isFeeUnavailable, FEE_UNAVAILABLE_SHORT, getFeeStatus, FEE_STATUS_LABEL, FEE_STATUS_CLASS } from "@/lib/format-fee";
 import { PSW_RIGHTS, SAFETY_RATINGS, JOB_MARKET } from "@/data/parent-decision-data";
@@ -147,7 +147,7 @@ export default function ComparePanel({ programs, onClose, onRemove }: Props) {
       field_of_study: field,
       annual_tuition_usd: p.annual_tuition_usd,
       avg_living_cost_usd: p.avg_living_cost_usd,
-      duration_months: p.duration_months,
+      duration_months: p.duration_months ?? defaultDurationMonths(p.degree_level),
       scholarship_usd: 0,
       expected_salary_usd: salary,
       savings_rate_pct: 20,
@@ -331,7 +331,9 @@ export default function ComparePanel({ programs, onClose, onRemove }: Props) {
               {/* Duration */}
               {textRow("Duration", programs.map((p) => (
                 <span key={p.id} className="text-sm font-semibold text-gray-700">
-                  {(p.duration_months / 12).toFixed(1)} yrs
+                  {p.duration_months != null
+                    ? `${(p.duration_months / 12).toFixed(1)} yrs`
+                    : "—"}
                 </span>
               )))}
 

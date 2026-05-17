@@ -339,7 +339,9 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist,
               </span>
               <span className="text-xs px-2.5 py-1 rounded-full bg-gray-50 text-gray-500 border border-gray-100 flex items-center gap-1">
                 <Clock className="w-3 h-3" />
-                {Math.round(program.duration_months / 12 * 10) / 10} yrs
+                {program.duration_months != null
+                  ? `${Math.round(program.duration_months / 12 * 10) / 10} yrs`
+                  : "Duration: see website"}
               </span>
             </div>
 

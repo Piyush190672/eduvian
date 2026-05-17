@@ -8,7 +8,7 @@ import {
   Info, ExternalLink,
 } from "lucide-react";
 import type { ScoredProgram } from "@/lib/types";
-import { calculateROI, lookupSalary } from "@/lib/roi-calculator";
+import { calculateROI, lookupSalary, defaultDurationMonths } from "@/lib/roi-calculator";
 import type { SalaryCountry, FieldOfStudy } from "@/data/roi-data";
 import { formatCurrency } from "@/lib/utils";
 
@@ -233,7 +233,25 @@ export default function InlineProgramROI({ program }: Props) {
   const livingAvailable = effectiveLiving > 0;
   const livingUserSupplied = !programHasLiving && livingAvailable;
 
-  const canCalculate = tuitionAvailable && livingAvailable;
+  // Duration — 3,016 programs in the DB carry null duration_months
+  // (32%). Without this gate, null/12 = 0 in JS and ROI math returned
+  // garbage (Total Investment: 0, Payback: 0 mo, ROI: 0%, Net 10-yr:
+  // salary×10). User-reported with screenshot 17 May 2026.
+  // Default to a degree-level-appropriate fallback so the user isn't
+  // dead-ended; they can override the input.
+  const programHasDuration = typeof program.duration_months === "number"
+    && program.duration_months > 0;
+  const fallbackDuration = defaultDurationMonths(program.degree_level);
+  const [customDuration, setCustomDuration] = useState(
+    programHasDuration ? program.duration_months! : fallbackDuration,
+  );
+  const effectiveDuration = customDuration > 0
+    ? customDuration
+    : (programHasDuration ? program.duration_months! : fallbackDuration);
+  const durationUserOverride = programHasDuration && customDuration !== program.duration_months;
+  const durationFromDefault = !programHasDuration;
+
+  const canCalculate = tuitionAvailable && livingAvailable && effectiveDuration > 0;
 
   const roi = canCalculate ? calculateROI({
     university_name:    program.university_name,
@@ -242,7 +260,7 @@ export default function InlineProgramROI({ program }: Props) {
     field_of_study:     field,
     annual_tuition_usd: effectiveTuition,
     avg_living_cost_usd: effectiveLiving,
-    duration_months:    program.duration_months,
+    duration_months:    effectiveDuration,
     scholarship_usd:    scholarship,
     expected_salary_usd: salary,
     savings_rate_pct:   savingsRate,
@@ -311,7 +329,7 @@ export default function InlineProgramROI({ program }: Props) {
                 {[
                   `${program.country}`,
                   `${program.field_of_study}`,
-                  `${Math.round(program.duration_months / 12 * 10) / 10} yrs`,
+                  `${Math.round(effectiveDuration / 12 * 10) / 10} yrs${durationFromDefault ? " (estimated)" : ""}`,
                 ].map((tag) => (
                   <span
                     key={tag}
@@ -321,6 +339,46 @@ export default function InlineProgramROI({ program }: Props) {
                     {tag}
                   </span>
                 ))}
+              </div>
+
+              {/* Duration editor (full-width row above the money inputs).
+                  When the program data is missing duration, we fall back
+                  to a degree-level default (Bachelor 36mo / Master 18mo /
+                  PhD 48mo) so the user isn't dead-ended; the "(estimated)"
+                  hint in the chip row above flags it as a default. */}
+              <div className={`rounded-xl border p-3 ${durationFromDefault ? "bg-amber-500/10 border-amber-500/40" : "bg-white/5 border-white/10"}`}>
+                <div className="flex items-center justify-between gap-2 mb-1.5">
+                  <p className={`text-[10px] font-bold uppercase tracking-wide leading-none ${durationFromDefault ? "text-amber-200" : "text-slate-300"}`}>
+                    Duration (months)
+                  </p>
+                  {durationFromDefault && (
+                    <span className="text-[9px] font-bold uppercase tracking-wide text-amber-900 bg-amber-200/80 px-1.5 py-0.5 rounded-full">
+                      Estimated default
+                    </span>
+                  )}
+                </div>
+                <div className="flex items-center gap-2">
+                  <input
+                    type="number"
+                    min={1}
+                    step={1}
+                    placeholder="e.g. 18"
+                    value={customDuration || ""}
+                    onChange={(e) => setCustomDuration(Math.max(0, parseInt(e.target.value, 10) || 0))}
+                    className="flex-1 px-2.5 py-1.5 rounded-lg bg-white/10 border border-white/10
+                      text-sm text-white font-mono focus:outline-none focus:ring-1 focus:ring-indigo-400"
+                  />
+                  <span className={`text-[10px] font-semibold uppercase tracking-wide ${durationFromDefault ? "text-amber-300/80" : "text-slate-400"}`}>
+                    months
+                  </span>
+                </div>
+                <p className={`mt-1.5 text-[10px] leading-snug ${durationFromDefault ? "text-amber-200/80" : "text-slate-500"}`}>
+                  {durationFromDefault
+                    ? `Not published — using ${fallbackDuration} mo default for ${program.degree_level}. Adjust if you know the real duration.`
+                    : durationUserOverride
+                      ? `You changed this from ${program.duration_months} mo · adjust if needed`
+                      : `From the official program page · adjust if you know better`}
+                </p>
               </div>
 
               {/* Always-editable tuition + living rows.
@@ -502,9 +560,9 @@ export default function InlineProgramROI({ program }: Props) {
                 />
                 <Metric
                   icon={DollarSign}
-                  label="Monthly Budget"
+                  label="Monthly Living Cost"
                   value={fmtK(roi.monthly_budget_usd)}
-                  sub="while studying"
+                  sub="rent + food + transport"
                   accent="text-slate-300"
                 />
                 <Metric

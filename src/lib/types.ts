@@ -143,7 +143,11 @@ export interface Program {
   qs_ranking: number | null;
   program_name: string;
   degree_level: ProgramLevel;
-  duration_months: number;
+  /** Months from program start to completion. Null when the source page
+   *  didn't publish a duration (3,016 programs in the DB carry null);
+   *  UI surfaces fall back to a degree-level default with an editable
+   *  input so the user can correct it. */
+  duration_months: number | null;
   field_of_study: string;
   /** Cross-listed fields for programs that span multiple streams
    *  (e.g. "MSc Artificial Intelligence and Data Science" lives under

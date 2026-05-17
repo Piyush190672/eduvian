@@ -269,7 +269,7 @@ function buildROIBody(d: ROIData): string {
               <tr><td class="label">Expected Salary / yr</td><td class="value blue">${fmtUSD(d.expected_salary_usd)}</td></tr>
               <tr><td class="label">Savings Rate</td><td class="value">${d.savings_rate_pct}%</td></tr>
               <tr><td class="label">Monthly Savings</td><td class="value green">${fmtK(d.monthly_savings_usd)}</td></tr>
-              <tr><td class="label">Monthly Budget (study)</td><td class="value">${fmtK(d.monthly_budget_usd)}</td></tr>
+              <tr><td class="label">Monthly Living Cost</td><td class="value">${fmtK(d.monthly_budget_usd)}</td></tr>
               <tr><td class="label">Payback Period</td><td class="value ${paybackClass}">${fmtYrs(d.payback_years)}</td></tr>
               <tr><td class="label">10-Year ROI</td><td class="value ${roiClass}">${d.ten_year_roi_pct > 0 ? "+" : ""}${Math.round(d.ten_year_roi_pct)}%</td></tr>
               <tr><td class="label">10-yr Net Earnings</td><td class="value ${gainClass}">${fmtK(d.net_earnings_10yr_usd)}</td></tr>

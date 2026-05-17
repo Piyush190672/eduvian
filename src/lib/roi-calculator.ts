@@ -1,6 +1,26 @@
 import type { SalaryCountry, FieldOfStudy } from "@/data/roi-data";
 import { SALARY_LOOKUP, UNIVERSITY_SALARY_OVERRIDES } from "@/data/roi-data";
 
+/**
+ * Sensible duration fallback when a program's duration_months is null.
+ * 3,016 programs (32% of the DB) carry null durations — the source page
+ * didn't publish one. UI surfaces use this default and let the user
+ * override via an editable input.
+ *
+ * Defaults: Bachelor 36 mo (3 yrs), Master 18 mo (UK / 1-yr norm; US 2-yr
+ * Masters override via the input), PhD 48 mo (4 yrs), Diploma 12 mo.
+ */
+export function defaultDurationMonths(degree_level: string): number {
+  switch (degree_level) {
+    case "undergraduate": return 36;
+    case "postgraduate":  return 18;
+    case "diploma":       return 12;
+    case "pg_diploma":    return 12;
+    case "both":          return 24; // mid-point fallback
+    default:              return 18;
+  }
+}
+
 export interface ROIInputs {
   university_name: string;
   country: SalaryCountry;
@@ -97,7 +117,12 @@ export function calculateROI(inputs: ROIInputs): ROIOutputs {
   const gross_cost         = total_tuition_usd + total_living_usd;
   const total_investment_usd = Math.max(0, gross_cost - inputs.scholarship_usd);
 
-  const monthly_budget_usd  = (inputs.annual_tuition_usd + inputs.avg_living_cost_usd) / 12;
+  // Monthly LIVING cost — rent + food + transport + utilities. Excludes
+  // tuition because tuition is paid annually / per-term, not monthly, so
+  // including it in a "monthly budget" was misleading users. Field name
+  // kept for backward compat (PDF + email exports) but the figure now
+  // represents real monthly out-of-pocket for daily life.
+  const monthly_budget_usd  = inputs.avg_living_cost_usd / 12;
   const annual_savings_usd  = inputs.expected_salary_usd * (inputs.savings_rate_pct / 100);
   const monthly_savings_usd = annual_savings_usd / 12;
 

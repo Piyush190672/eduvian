@@ -831,7 +831,7 @@ export default function ROICalculator() {
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                     {[
                       { label: "10-Year ROI", value: `${results.ten_year_roi_pct > 0 ? "+" : ""}${Math.round(results.ten_year_roi_pct)}%`, color: results.ten_year_roi_pct >= 0 ? "text-emerald-600" : "text-rose-600" },
-                      { label: "Monthly Budget", value: fmtK(results.monthly_budget_usd), sub: "during study", color: "text-gray-900" },
+                      { label: "Monthly Living Cost", value: fmtK(results.monthly_budget_usd), sub: "rent + food + transport", color: "text-gray-900" },
                       { label: "Monthly Savings", value: fmtK(results.monthly_savings_usd), sub: "post-grad", color: "text-violet-700" },
                       { label: "10-yr Net Gain", value: `${results.net_earnings_10yr_usd >= 0 ? "+" : ""}${fmtK(results.net_earnings_10yr_usd)}`, color: results.net_earnings_10yr_usd >= 0 ? "text-emerald-600" : "text-rose-600" },
                     ].map((m) => (
