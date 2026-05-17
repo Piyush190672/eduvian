@@ -46,7 +46,7 @@ export interface ROIOutputs {
  *
  * Sources: HESA LEO provider-level data 2022/23; Russell Group Graduate
  * Outcomes 2024; Glassdoor employer-school survey; NACE 2024 school tier
- * analysis; LinkedIn Salary Insights 2024.
+ * analysis; aggregated public-sector labour statistics.
  */
 export function getRankingPremium(qs_ranking: number | null | undefined): number {
   if (!qs_ranking) return 1.00;

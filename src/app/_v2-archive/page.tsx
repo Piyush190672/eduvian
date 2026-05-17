@@ -79,7 +79,7 @@ const STAGES: Stage[] = [
     benefit: "ROI Calculator + Parent Decision Tool. Real numbers before you commit.",
     sample: { kind: "stat", v: "4.8 yrs", l: "Median payback period" },
     cta: "Run the Numbers",
-    trust: "Salary benchmarks drawn from HESA LEO, Russell Group Graduate Outcomes, QS Top Universities Salary Reports, OECD and LinkedIn Salary Insights.",
+    trust: "Salary benchmarks drawn from HESA LEO, Russell Group Graduate Outcomes, QS Top Universities Salary Reports, OECD Education at a Glance, and aggregated public-sector labour statistics.",
     href: "/roi-calculator",
     secondary: { cta: "Parent Decision Report", href: "/parent-decision" },
   },

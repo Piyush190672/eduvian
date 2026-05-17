@@ -304,7 +304,7 @@ export const SALARY_LOOKUP: Record<SalaryCountry, Record<FieldOfStudy, number>> 
 // Sources:
 //  MBA schools   — school-published Employment Reports 2024 (median base)
 //  Law schools   — NALP school-level data 2023; BigLaw market rate $225K/year
-//  CS/Eng/AI     — Levels.fyi, LinkedIn Salary Insights, school career reports
+//  CS/Eng/AI     — Levels.fyi, school career reports, public salary surveys
 //  Australia     — MGSM, AGSM, UMelb published employment outcomes 2024
 //  Canada        — Rotman, Ivey, Schulich graduate employment reports 2024
 //  Europe        — FT MBA Rankings & school salary disclosures 2024

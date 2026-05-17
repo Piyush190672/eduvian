@@ -138,7 +138,7 @@ const STAGES: Stage[] = [
     benefit: "Compare offers on payback, 10-year ROI and total cost.",
     sample: { kind: "stat", v: "4.8 yrs", l: "Median payback period" },
     cta: "Run the numbers",
-    trust: "Salary benchmarks drawn from HESA LEO, Russell Group Graduate Outcomes, QS Top Universities Salary Reports, OECD and LinkedIn Salary Insights.",
+    trust: "Salary benchmarks drawn from HESA LEO, Russell Group Graduate Outcomes, QS Top Universities Salary Reports, OECD Education at a Glance, and aggregated public-sector labour statistics.",
     href: "/roi-calculator",
   },
   {
