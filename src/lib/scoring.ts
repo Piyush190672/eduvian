@@ -731,6 +731,7 @@ export function recommendPrograms(profile: StudentProfile, programs: Program[], 
   const dedupSeen = new Set<string>();
   const dedupedPrograms: Program[] = [];
   for (const p of programs) {
+    if (!p) continue; // defensive: sparse static PROGRAMS / null Supabase row
     if (!p.program_url) { dedupedPrograms.push(p); continue; }
     const key = `${p.country}${p.program_url}${p.program_name}`;
     if (dedupSeen.has(key)) continue;
