@@ -715,8 +715,31 @@ export function recommendPrograms(profile: StudentProfile, programs: Program[], 
   // Build reverse map: country name → country code
   const nameToCode = Object.fromEntries(TARGET_COUNTRIES.map((t) => [t.name, t.code]));
 
+  // ── Ingestion-twin dedup (18 May 2026, user-reported on token
+  //    84926286-2bf0-41c3-87e9-2444b92d4c77) ─────────────────────────────────
+  // The DB carries 165 cases where the same physical program was
+  // ingested twice under two different university_name spellings
+  // (e.g. "UNSW Sydney" vs "University of New South Wales" both
+  // pointing to the same program_url). The per-uni cap groups by
+  // exact uni-name string so it doesn't catch this — the user
+  // sees "the same program shown twice in Ambitious". Collapse by
+  // (country, program_url, program_name) before scoring; same URL +
+  // same program name + same country = same program no matter what
+  // uni-name spelling each row carries. Doesn't false-positive
+  // collapse legitimately-different programs that share a department
+  // landing page (e.g. Khalifa "MSc AI" + "MSc CS" — different names).
+  const dedupSeen = new Set<string>();
+  const dedupedPrograms: Program[] = [];
+  for (const p of programs) {
+    if (!p.program_url) { dedupedPrograms.push(p); continue; }
+    const key = `${p.country}${p.program_url}${p.program_name}`;
+    if (dedupSeen.has(key)) continue;
+    dedupSeen.add(key);
+    dedupedPrograms.push(p);
+  }
+
   // ── Hard filters ──────────────────────────────────────────────────────────
-  const filtered = programs.filter((p) => {
+  const filtered = dedupedPrograms.filter((p) => {
     if (!p.is_active) return false;
 
     // Degree level filter
