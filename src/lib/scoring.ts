@@ -6,6 +6,7 @@ import type {
 } from "./types";
 import { BUDGET_VALUES, TARGET_COUNTRIES, COUNTRY_REGIONS, OTHER_FIELD_SENTINEL } from "./types";
 import { getPrestigeBucket } from "./prestige";
+import { isAcademicallyEligibleForField } from "./field-prereq";
 
 // ─── Weight configuration ─────────────────────────────────────────────────────
 // PG: Academic 35%, Budget 20%, Std Test 10%, English/Scholarship/Intake/
@@ -767,6 +768,18 @@ export function recommendPrograms(profile: StudentProfile, programs: Program[], 
         }
       }
       if (!primaryMatch && !aliasMatch) return false;
+    }
+
+    // Field-prerequisite gate (18 May 2026) — for PG applicants on
+    // STEM / professional fields, drop programs whose intended field
+    // requires an undergrad background the user doesn't carry. Commerce
+    // → AI / CS / Data Science / Medicine etc. all fail here. See
+    // src/lib/field-prereq.ts for the gated field list + regex set.
+    // Custom-field path (isCustomField) skips this gate because the
+    // user-typed free-text intent is matched as a substring against the
+    // program — applying the strict prereq map to it would over-block.
+    if (!isCustomField && !isAcademicallyEligibleForField(profile, p.field_of_study)) {
+      return false;
     }
 
     // BPS GBC filter — when the user is pursuing Psychology at the
