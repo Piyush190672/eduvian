@@ -2,13 +2,6 @@
 
 import type { StudentProfile } from "@/lib/types";
 import { intendedFieldLabel, TARGET_COUNTRIES } from "@/lib/types";
-import {
-  scoreStudentProfile,
-  getCategoryStyle,
-  CATEGORY_LADDER,
-  type ProfileCategory,
-} from "@/lib/profile-score";
-import { Star } from "lucide-react";
 
 interface Props {
   profile: Partial<StudentProfile>;
@@ -101,22 +94,6 @@ function Section({ title, items }: { title: string; items: { label: string; valu
 }
 
 export default function StepReview({ profile }: Props) {
-  // Profile-rating preview — same scoring function the results page uses
-  // so what the user sees here matches what they'll see post-shortlist.
-  // Falls back gracefully if required fields are missing.
-  let rating: ReturnType<typeof scoreStudentProfile> | null = null;
-  try {
-    rating = scoreStudentProfile(profile as StudentProfile);
-  } catch {
-    rating = null;
-  }
-  const style = rating ? getCategoryStyle(rating.category as ProfileCategory) : null;
-  // CATEGORY_LADDER is ordered worst→best (Weak=0 … SUPER STRONG=4),
-  // so star count = idx + 1. Weak=1★, AVERAGE=2★, STRONG=3★,
-  // VERY STRONG=4★, SUPER STRONG=5★.
-  const ladderIdx = rating ? CATEGORY_LADDER.indexOf(rating.category as ProfileCategory) : -1;
-  const filledStars = ladderIdx >= 0 ? ladderIdx + 1 : 0;
-
   const personal: { label: string; value: string }[] = [
     { label: "Full Name", value: val(profile.full_name) },
     { label: "Email", value: val(profile.email) },
@@ -188,29 +165,6 @@ export default function StepReview({ profile }: Props) {
 
   return (
     <div className="space-y-5">
-      {/* Profile-rating preview — mirrors the rating shown on the
-          /results page. Lets the user see where their profile stands
-          before generating the shortlist. */}
-      {rating && style && (
-        <div className={`rounded-2xl border-2 ${style.border} ${style.bg} px-5 py-4`}>
-          <div className="flex items-center justify-between gap-4">
-            <div className="min-w-0">
-              <p className="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-1">Your Profile Rating</p>
-              <p className={`text-lg font-extrabold ${style.text}`}>{rating.category}</p>
-              <p className="text-xs text-gray-500 mt-0.5">Score {rating.score}/100</p>
-            </div>
-            <div className="flex items-center gap-0.5 flex-shrink-0">
-              {Array.from({ length: 5 }, (_, i) => (
-                <Star
-                  key={i}
-                  className={`w-5 h-5 ${i < filledStars ? `${style.text} fill-current` : "text-gray-300"}`}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
-
       <p className="text-sm text-gray-600 leading-relaxed">
         Review every detail below. If anything looks wrong, click <span className="font-semibold text-gray-900">Modify the information above</span> to go back and edit. Otherwise click <span className="font-semibold text-gray-900">Continue to generate shortlist</span>.
       </p>
