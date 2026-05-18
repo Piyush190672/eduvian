@@ -165,7 +165,7 @@ const DEMOS: Array<{
   provenance: DataProvenance[];
   showLastVerified: boolean;
 }> = [
-  { i: 0, label: "University Match",     sub: "Your personalised Top 20 shortlist",  accent: "border-violet-500",  provenance: ["official", "ai_estimate"],            showLastVerified: true  },
+  { i: 0, label: "University Match",     sub: "Up to 40 top matches customised to your profile",  accent: "border-violet-500",  provenance: ["official", "ai_estimate"],            showLastVerified: true  },
   { i: 1, label: "SOP Check",            sub: "AI feedback across 7 dimensions",     accent: "border-violet-400",  provenance: ["user_provided", "ai_estimate"],       showLastVerified: false },
   { i: 2, label: "Interview Coach",      sub: "Voice + text mock with AI scoring",   accent: "border-emerald-500", provenance: ["user_provided", "ai_estimate"],       showLastVerified: false },
   { i: 3, label: "ROI Analysis",         sub: "Payback period and 10-year ROI",      accent: "border-amber-500",   provenance: ["official", "ai_estimate"],            showLastVerified: true  },
@@ -443,7 +443,7 @@ export default function V2LandingPage() {
                 <div key="card-shortlist" className="bg-white rounded-2xl p-5 shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
                   <div className="flex items-center justify-between mb-3">
                     <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">AI Shortlist · 90s</p>
-                    <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-violet-50 text-violet-700 border border-violet-100">20 matches</span>
+                    <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-violet-50 text-violet-700 border border-violet-100">up to 40</span>
                   </div>
                   <div className="space-y-2">
                     {[

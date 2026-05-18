@@ -102,7 +102,7 @@ function EvidencePanel({ num, active }: { num: number; active: boolean }) {
     return (
       <div className="bg-white/5 border border-white/10 rounded-2xl p-3.5">
         <div className="flex items-center justify-between mb-2.5">
-          <p className="text-[9px] font-black text-white/70 uppercase tracking-widest">Priya&apos;s Top 20 Shortlist</p>
+          <p className="text-[9px] font-black text-white/70 uppercase tracking-widest">Priya&apos;s Shortlist</p>
           <span className="text-[8px] font-bold px-2 py-0.5 rounded-full bg-indigo-500/30 text-indigo-300 border border-indigo-500/30">AI Match · 90s</span>
         </div>
         <div className="space-y-1.5">
@@ -128,7 +128,7 @@ function EvidencePanel({ num, active }: { num: number; active: boolean }) {
         <motion.div initial={{ opacity: 0 }} animate={active ? { opacity: 1 } : { opacity: 0 }}
           transition={{ delay: 1.6 }}
           className="mt-2.5 pt-2 border-t border-white/5 flex items-center justify-between">
-          <span className="text-[8px] text-white/25">Showing 5 of 20 matches</span>
+          <span className="text-[8px] text-white/25">Showing 5 — up to 40 in full list</span>
           <span className="text-[8px] font-bold text-indigo-400">View all →</span>
         </motion.div>
       </div>

@@ -320,13 +320,24 @@ export default function ResultsPage() {
         {/* Header */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-6">
           <p className="text-gray-400 text-sm font-medium mb-1">Hey {studentName} 👋</p>
-          <h1 className="text-3xl font-extrabold text-gray-900">Your top 40 matches as per your profile</h1>
-          <p className="text-gray-500 mt-1">
-            <span className="text-emerald-600 font-semibold">{safePrograms.length} Safe</span>{" · "}
-            <span className="text-amber-600 font-semibold">{reachPrograms.length} Reach</span>{" · "}
-            <span className="text-rose-600 font-semibold">{ambitiousPrograms.length} Ambitious</span>
-            {" — shortlist the ones you like, then email or download as PDF."}
-          </p>
+          {(() => {
+            const shown = safePrograms.length + reachPrograms.length + ambitiousPrograms.length;
+            return (
+              <>
+                <h1 className="text-3xl font-extrabold text-gray-900">
+                  {shown === 1
+                    ? "1 match customised to your profile"
+                    : `${shown} matches customised to your profile`}
+                </h1>
+                <p className="text-gray-500 mt-1">
+                  <span className="text-emerald-600 font-semibold">{safePrograms.length} Safe</span>{" · "}
+                  <span className="text-amber-600 font-semibold">{reachPrograms.length} Reach</span>{" · "}
+                  <span className="text-rose-600 font-semibold">{ambitiousPrograms.length} Ambitious</span>
+                  {" — up to 40 top matches surfaced from across the database. Shortlist the ones you like, then email or download as PDF."}
+                </p>
+              </>
+            );
+          })()}
         </motion.div>
 
         {/* Profile summary now lives at /profile-evaluation/[token] —
