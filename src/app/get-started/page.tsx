@@ -103,6 +103,7 @@ export default function GetStartedPage() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [marketingOptIn, setMarketingOptIn] = useState(false);
+  const [termsAccepted, setTermsAccepted] = useState(false);
   const [otp, setOtp] = useState("");
   const [password, setPassword] = useState("");
   const [resendIn, setResendIn] = useState(0);
@@ -149,6 +150,10 @@ export default function GetStartedPage() {
       setError("Please enter a valid email address.");
       return;
     }
+    if (purpose === "register" && !termsAccepted) {
+      setError("Please accept the Terms of Service and Privacy Policy to continue.");
+      return;
+    }
     setError("");
     setLoading(true);
     try {
@@ -193,7 +198,7 @@ export default function GetStartedPage() {
         const res = await fetch("/api/auth", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ action: "register", name, email, phone, otp_code: otp, marketing_opt_in: marketingOptIn }),
+          body: JSON.stringify({ action: "register", name, email, phone, otp_code: otp, marketing_opt_in: marketingOptIn, terms_accepted: termsAccepted }),
         });
         const data = await res.json();
         if (data.ok) {
@@ -642,6 +647,22 @@ export default function GetStartedPage() {
                     <p className="text-xs text-amber-300 bg-amber-500/10 border border-amber-500/30 rounded-xl px-4 py-2.5 leading-relaxed">
                       📬 We&apos;ll email you a 6-digit code. <span className="font-semibold text-amber-200">Check your Junk / Spam folder</span> if you don&apos;t see it within a minute.
                     </p>
+                    {/* Terms + Privacy explicit acceptance (legal P0 #5). Required for register. */}
+                    <label className="flex items-start gap-3 text-xs text-slate-300 cursor-pointer select-none px-1 pt-1">
+                      <input
+                        type="checkbox"
+                        checked={termsAccepted}
+                        onChange={(e) => setTermsAccepted(e.target.checked)}
+                        className="mt-0.5 w-4 h-4 rounded border-white/20 bg-white/10 accent-indigo-500 cursor-pointer flex-shrink-0"
+                        required
+                      />
+                      <span className="leading-relaxed">
+                        I agree to the{" "}
+                        <Link href="/terms" target="_blank" rel="noopener noreferrer" className="font-semibold text-indigo-300 hover:text-indigo-200 underline-offset-2 hover:underline">Terms of Service</Link>
+                        {" "}and{" "}
+                        <Link href="/privacy" target="_blank" rel="noopener noreferrer" className="font-semibold text-indigo-300 hover:text-indigo-200 underline-offset-2 hover:underline">Privacy Policy</Link>.
+                      </span>
+                    </label>
                     {/* Marketing opt-in — Privacy Policy §11. Default OFF; transactional sends ignore this flag. */}
                     <label className="flex items-start gap-3 text-xs text-slate-300 cursor-pointer select-none px-1 pt-1">
                       <input

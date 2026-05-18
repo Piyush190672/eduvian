@@ -65,6 +65,7 @@ export default function AuthGate({ stage, toolName, source, children }: AuthGate
   const [email, setEmail]         = useState("");
   const [phone, setPhone]         = useState("");
   const [otp, setOtp]             = useState("");
+  const [termsAccepted, setTermsAccepted] = useState(false);
   const [resendIn, setResendIn]   = useState(0);
   const [loading, setLoading]     = useState(false);
   const [error, setError]         = useState("");
@@ -109,6 +110,10 @@ export default function AuthGate({ stage, toolName, source, children }: AuthGate
     e.preventDefault();
     if (!email.trim()) { setError("Email is required."); return; }
     if (mode === "register" && !name.trim()) { setError("Your name is required."); return; }
+    if (mode === "register" && !termsAccepted) {
+      setError("Please accept the Terms of Service and Privacy Policy to continue.");
+      return;
+    }
     setLoading(true);
     setError("");
     try {
@@ -143,7 +148,7 @@ export default function AuthGate({ stage, toolName, source, children }: AuthGate
     setError("");
     try {
       const body = mode === "register"
-        ? { action: "register", name: name.trim(), email: email.trim(), phone: phone.trim(), source, source_stage: stage, otp_code: otp }
+        ? { action: "register", name: name.trim(), email: email.trim(), phone: phone.trim(), source, source_stage: stage, otp_code: otp, terms_accepted: termsAccepted }
         : { action: "login",    email: email.trim(), source, source_stage: stage, otp_code: otp };
       const res  = await fetch("/api/auth", {
         method: "POST",
@@ -334,6 +339,24 @@ export default function AuthGate({ stage, toolName, source, children }: AuthGate
                     📬 We&apos;ll email you a 6-digit code. <span className="font-semibold">Check your Junk / Spam folder</span> if you don&apos;t see it within a minute.
                   </p>
 
+                  {mode === "register" && (
+                    <label className="flex items-start gap-2.5 text-xs text-gray-600 cursor-pointer select-none px-1 pt-1">
+                      <input
+                        type="checkbox"
+                        checked={termsAccepted}
+                        onChange={(e) => setTermsAccepted(e.target.checked)}
+                        className="mt-0.5 w-4 h-4 rounded border-gray-300 accent-violet-600 cursor-pointer flex-shrink-0"
+                        required
+                      />
+                      <span className="leading-relaxed">
+                        I agree to the{" "}
+                        <Link href="/terms" target="_blank" rel="noopener noreferrer" className="font-semibold text-violet-700 hover:text-violet-900 underline-offset-2 hover:underline">Terms of Service</Link>
+                        {" "}and{" "}
+                        <Link href="/privacy" target="_blank" rel="noopener noreferrer" className="font-semibold text-violet-700 hover:text-violet-900 underline-offset-2 hover:underline">Privacy Policy</Link>.
+                      </span>
+                    </label>
+                  )}
+
                   <button
                     type="submit"
                     disabled={loading}
@@ -357,7 +380,7 @@ export default function AuthGate({ stage, toolName, source, children }: AuthGate
                 </form>
 
                 <p className="text-xs text-center text-gray-400 mt-6">
-                  By continuing, you agree to our terms. Your data is never sold or shared.
+                  Your data is never sold or shared.
                 </p>
               </>
             ) : (

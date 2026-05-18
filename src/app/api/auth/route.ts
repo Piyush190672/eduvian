@@ -5,6 +5,7 @@ import { apiErrorResponse } from "@/lib/api-error";
 import { verifyOtpCode, OTP_CONFIG } from "@/lib/otp";
 import { emailHash } from "@/lib/pii-crypto";
 import { decryptProfile, SUBMISSION_PROFILE_COLUMNS } from "@/lib/submissions-decrypt";
+import { TERMS_VERSION } from "@/lib/legal-version";
 
 /** Build a JSON response with the opaque session cookie attached. */
 async function jsonWithUserCookie(
@@ -50,7 +51,7 @@ export async function POST(req: NextRequest) {
 
   try {
     const body = await req.json();
-    const { action, name, email, phone, source, source_stage, otp_code, marketing_opt_in, password } = body as {
+    const { action, name, email, phone, source, source_stage, otp_code, marketing_opt_in, terms_accepted, password } = body as {
       action: "register" | "login" | "login_password";
       name?: string;
       email: string;
@@ -59,6 +60,7 @@ export async function POST(req: NextRequest) {
       source_stage?: number;
       otp_code?: string;
       marketing_opt_in?: boolean;
+      terms_accepted?: boolean;
       password?: string;
     };
 
@@ -289,8 +291,19 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Name is required" }, { status: 400 });
     }
 
+    // Terms + Privacy explicit acceptance gate (legal P0 #5). The client must
+    // surface a checkbox the user actively ticks; we record what version they
+    // agreed to so we can prove consent later and re-prompt when the docs change.
+    if (terms_accepted !== true) {
+      return NextResponse.json(
+        { error: "Please accept the Terms of Service and Privacy Policy to continue." },
+        { status: 400 },
+      );
+    }
+
     // Privacy Policy §11: marketing/promotional sends only if explicitly opted in.
     // Default false. Welcome / transactional sends ignore this flag.
+    const nowIso = new Date().toISOString();
     const student = {
       name:               sanitize(name.trim(), 100),
       email:              normalizedEmail,
@@ -298,8 +311,10 @@ export async function POST(req: NextRequest) {
       source:             source ?? null,
       source_stage:       source_stage ?? null,
       marketing_opt_in:   marketing_opt_in === true,
-      marketing_opt_in_at: marketing_opt_in === true ? new Date().toISOString() : null,
-      created_at:         new Date().toISOString(),
+      marketing_opt_in_at: marketing_opt_in === true ? nowIso : null,
+      terms_accepted_at:  nowIso,
+      terms_version:      TERMS_VERSION,
+      created_at:         nowIso,
     };
 
     /** Fire welcome email asynchronously — never blocks the registration response */
@@ -316,7 +331,8 @@ export async function POST(req: NextRequest) {
       let upsertResult = await supabase.from("students").upsert({ ...student }, { onConflict: "email" }).select().single();
       if (upsertResult.error) {
         // Retry without optional columns (in case schema hasn't been migrated yet)
-        const { source: _s, source_stage: _ss, marketing_opt_in: _mo, marketing_opt_in_at: _moa, ...coreStudent } = student;
+        const { source: _s, source_stage: _ss, marketing_opt_in: _mo, marketing_opt_in_at: _moa, terms_accepted_at: _ta, terms_version: _tv, ...coreStudent } = student;
+        void _ta; void _tv;
         upsertResult = await supabase.from("students").upsert(coreStudent, { onConflict: "email" }).select().single();
       }
 
