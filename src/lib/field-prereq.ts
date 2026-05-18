@@ -43,26 +43,32 @@ import type { StudentProfile } from "./types";
  */
 const FIELD_PREREQUISITES: Record<string, RegExp> = {
   // ── Tech / Quant ─────────────────────────────────────────────────────────
+  // Keywords are tuned to ALSO match the canonical FIELDS_OF_STUDY
+  // values now used in the PG Major/Stream dropdown (18 May 2026):
+  // "Computer Science & IT", "Artificial Intelligence", "Data Science",
+  // "Cybersecurity", "Engineering (Mechanical/Civil/Electrical)",
+  // "Architecture", "Renewable Energy", "Biotechnology & Life Sciences",
+  // "Natural Sciences", etc.
   "Computer Science & IT":
-    /\b(comput|cs\b|software|info(?:rmation)?\s*tech|\bit\b|infotech|electron|electric|telecom|robotic|mechatron|engineer|math|statistic|physic)/i,
+    /\b(comput|cs\b|software|info(?:rmation)?\s*tech|\bit\b|infotech|intellig|\bai\b|cyber|securit|\bdata\b|electron|electric|telecom|robotic|mechatron|engineer|math|statistic|physic|natural\s*scien)/i,
   "Artificial Intelligence":
-    /\b(comput|cs\b|software|info(?:rmation)?\s*tech|\bit\b|engineer|math|statistic|physic|data|machine\s*learn|\bai\b|electron|electric|cognit)/i,
+    /\b(comput|cs\b|software|info(?:rmation)?\s*tech|\bit\b|infotech|intellig|\bai\b|cyber|securit|\bdata\b|engineer|math|statistic|physic|machine\s*learn|electron|electric|cognit|natural\s*scien)/i,
   "Data Science":
-    /\b(comput|cs\b|software|info(?:rmation)?\s*tech|\bit\b|engineer|math|statistic|physic|data|econom|actuar|analytic|operations\s*research|business\s*analytic)/i,
+    /\b(comput|cs\b|software|info(?:rmation)?\s*tech|\bit\b|infotech|intellig|\bai\b|cyber|securit|\bdata\b|engineer|math|statistic|physic|econom|actuar|analytic|operations\s*research|business\s*analytic|natural\s*scien)/i,
   "Cybersecurity":
-    /\b(comput|cs\b|software|info(?:rmation)?\s*tech|\bit\b|engineer|network|electron|electric|cyber|securit)/i,
+    /\b(comput|cs\b|software|info(?:rmation)?\s*tech|\bit\b|infotech|intellig|\bai\b|cyber|securit|engineer|network|electron|electric)/i,
 
   // ── Engineering ──────────────────────────────────────────────────────────
   "Engineering (Mechanical/Civil/Electrical)":
-    /\b(engineer|mechan|civil|electric|electron|chemical|aerospace|aeronaut|industrial|material|metallurg|petroleum|mining|telecom|robotic|mechatron|physic|math)/i,
+    /\b(engineer|mechan|civil|electric|electron|chemical|aerospace|aeronaut|industrial|material|metallurg|petroleum|mining|telecom|robotic|mechatron|physic|math|renewable\s*energy|natural\s*scien)/i,
   "Architecture":
     /\b(architect|civil|urban\s*plan|built\s*environ|interior\s*design|design)/i,
   "Renewable Energy":
-    /\b(engineer|mechan|electric|electron|chemical|environment|sustainab|energy|physic|natural\s*scien|earth\s*scien)/i,
+    /\b(engineer|mechan|electric|electron|chemical|environment|sustainab|energy|physic|natural\s*scien|earth\s*scien|renewable)/i,
 
   // ── Life sciences / health ──────────────────────────────────────────────
   "Biotechnology & Life Sciences":
-    /\b(biotech|bio(?:logy|chem|tech|medic|inform|engineer)?|chem|life\s*scien|microbiolog|genet|pharma|botany|zoolog|medic|health)/i,
+    /\b(biotech|bio(?:logy|chem|tech|medic|inform|engineer)?|chem|life\s*scien|microbiolog|genet|pharma|botany|zoolog|medic|health|agricultur|veterinar|animal\s*scien)/i,
   "Medicine & Public Health":
     /\b(medic|mbbs|bds|dental|pharma|nurs|health|public\s*health|epidem|biostat|allied\s*health|physiother|biotech|bio)/i,
   "Nursing & Allied Health":

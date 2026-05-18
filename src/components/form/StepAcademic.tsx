@@ -428,9 +428,13 @@ export default function StepAcademic({ profile, onChange }: Props) {
             onChange={(e) => onChange({ major_stream: e.target.value })}
           >
             <option value="">Select stream</option>
-            {PG_STREAMS.map((s) => (
+            {/* Aligned with the Intended Field of Study dropdown above —
+                same taxonomy lets the prereq gate compare like-for-like
+                (e.g. CS & IT undergrad → AI PG passes cleanly). */}
+            {FIELDS_OF_STUDY.map((s) => (
               <option key={s} value={s}>{s}</option>
             ))}
+            <option value="Other">Other</option>
           </Select>
         </div>
       ) : (
