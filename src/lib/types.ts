@@ -5,11 +5,17 @@ export type EnglishTest = "ielts" | "toefl" | "pte" | "duolingo" | "none";
 export type StdTestUG = "sat" | "act" | "none";
 export type StdTestPG = "gre" | "gmat" | "none";
 export type BudgetRange =
-  | "under_20k"
-  | "20k_35k"
+  // Current buckets (18 May 2026 — user-requested re-banding to $25K low cap).
+  | "under_25k"
+  | "25k_35k"
   | "35k_50k"
   | "50k_70k"
-  | "above_70k";
+  | "above_70k"
+  // Legacy buckets — kept in the union so old submissions still type-check
+  // and decrypt. The form no longer offers them; scoring + profile-score
+  // map them to equivalent buckets so historical ratings stay stable.
+  | "under_20k"
+  | "20k_35k";
 export type FamilyIncomeINR =
   // Current buckets (17 May 2026 — user-requested re-banding).
   | "under_12L"
@@ -508,17 +514,23 @@ export const COUNTRY_REGIONS: Record<string, CountryRegion[]> = {
 };
 
 export const BUDGET_LABELS: Record<BudgetRange, string> = {
-  under_20k: "Under $20,000/yr",
-  "20k_35k": "$20,000 – $35,000/yr",
-  "35k_50k": "$35,000 – $50,000/yr",
-  "50k_70k": "$50,000 – $70,000/yr",
-  above_70k: "$70,000+/yr",
+  under_25k: "Under $25,000/yr",
+  "25k_35k": "$26,000 – $35,000/yr",
+  "35k_50k": "$36,000 – $50,000/yr",
+  "50k_70k": "$51,000 – $70,000/yr",
+  above_70k: "Above $70,000/yr",
+  // Legacy
+  under_20k: "Under $20,000/yr (legacy)",
+  "20k_35k": "$20,000 – $35,000/yr (legacy)",
 };
 
 export const BUDGET_VALUES: Record<BudgetRange, number> = {
-  under_20k: 20000,
-  "20k_35k": 35000,
+  under_25k: 25000,
+  "25k_35k": 35000,
   "35k_50k": 50000,
   "50k_70k": 70000,
   above_70k: 100000,
+  // Legacy
+  under_20k: 20000,
+  "20k_35k": 35000,
 };

@@ -28,11 +28,11 @@ const Select = ({
 );
 
 const BUDGET_OPTIONS: { value: BudgetRange; label: string; sub: string }[] = [
-  { value: "under_20k", label: "Under $20,000/yr", sub: "Budget-friendly options" },
-  { value: "20k_35k", label: "$20,000 – $35,000/yr", sub: "Mid-range programs" },
-  { value: "35k_50k", label: "$35,000 – $50,000/yr", sub: "Popular range" },
-  { value: "50k_70k", label: "$50,000 – $70,000/yr", sub: "Premium programs" },
-  { value: "above_70k", label: "$70,000+/yr", sub: "Top-tier universities" },
+  { value: "under_25k", label: "Under $25,000/yr", sub: "Budget-friendly options" },
+  { value: "25k_35k", label: "$26,000 – $35,000/yr", sub: "Mid-range programs" },
+  { value: "35k_50k", label: "$36,000 – $50,000/yr", sub: "Popular range" },
+  { value: "50k_70k", label: "$51,000 – $70,000/yr", sub: "Premium programs" },
+  { value: "above_70k", label: "Above $70,000/yr", sub: "Top-tier universities" },
 ];
 
 export default function StepPreferences({ profile, onChange }: Props) {

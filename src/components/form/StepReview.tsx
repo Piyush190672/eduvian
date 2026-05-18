@@ -33,11 +33,14 @@ const INCOME_LABELS: Record<string, string> = {
 };
 
 const BUDGET_LABELS: Record<string, string> = {
-  under_20k: "Under $20k/yr",
-  "20k_35k": "$20k – $35k/yr",
-  "35k_50k": "$35k – $50k/yr",
-  "50k_70k": "$50k – $70k/yr",
+  under_25k: "Under $25k/yr",
+  "25k_35k": "$26k – $35k/yr",
+  "35k_50k": "$36k – $50k/yr",
+  "50k_70k": "$51k – $70k/yr",
   above_70k: "Above $70k/yr",
+  // Legacy
+  under_20k: "Under $20k/yr (legacy)",
+  "20k_35k": "$20k – $35k/yr (legacy)",
 };
 
 const QS_LABELS: Record<string, string> = {

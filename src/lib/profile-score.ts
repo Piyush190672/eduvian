@@ -142,8 +142,9 @@ function budgetPoints(profile: StudentProfile): number {
     case "above_70k":
     case "50k_70k":
     case "35k_50k":  return 2;
-    case "20k_35k":  return 1;
-    default:         return 0;
+    case "25k_35k":
+    case "20k_35k":  return 1; // legacy 20k_35k mapped to same band
+    default:         return 0; // under_25k + legacy under_20k
   }
 }
 
