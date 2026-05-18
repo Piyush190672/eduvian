@@ -149,15 +149,15 @@ export interface Program {
   duration_months: number | null;
   /** Provenance of the duration figure:
    *  - undefined: extracted from the official program page by the
-   *    verifier (default — most reliable).
+   *    verifier at initial-import time (default — most reliable).
    *  - "heuristic": filled by scripts/data-fixes/backfill-durations.py
    *    using a (country, degree_level) base default + program-name
    *    pattern rules (Master/Bachelor/MPhil/PhD/MBA/Diploma etc.).
-   *    UI surfaces this so the user knows the figure is an educated
-   *    estimate rather than extracted truth.
-   *
-   *  See backfill-durations.py for the rule table. */
-  duration_source?: "heuristic";
+   *  - "extracted": filled retroactively by scripts/verify/estimate-
+   *    durations.ts (Sonnet + web_search) for entries the heuristic
+   *    couldn't resolve. Treated as high-trust like the verifier
+   *    default. */
+  duration_source?: "heuristic" | "extracted";
   field_of_study: string;
   /** Cross-listed fields for programs that span multiple streams
    *  (e.g. "MSc Artificial Intelligence and Data Science" lives under
