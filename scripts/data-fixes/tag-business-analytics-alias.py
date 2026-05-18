@@ -27,11 +27,12 @@ from pathlib import Path
 from typing import Optional
 
 PROGRAMS = Path(__file__).resolve().parents[2] / "src/data/programs.ts"
-# Multi-alias backfill: add BOTH "Business Analytics" (the new
-# first-class field) AND "Business & Management" (the existing field
-# users intuitively associate with BA). After both, a user picking
-# either field sees all 155 BA programs.
-ALIASES_TO_ADD = ["Business Analytics", "Business & Management"]
+# Only add the dedicated "Business Analytics" alias. Earlier iteration
+# (99911d50) also cross-listed BA programs under "Business & Management"
+# but the user pushed back: if BA is its own dropdown option, then a
+# user picking B&M wants B&M programs, not BA programs. Reverted in
+# the next commit; this script reflects the corrected scope.
+ALIASES_TO_ADD = ["Business Analytics"]
 NAME_PATTERN = re.compile(r"\bbusiness analytics\b", re.I)
 
 text = PROGRAMS.read_text()
