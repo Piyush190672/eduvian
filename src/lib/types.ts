@@ -365,6 +365,7 @@ export const FIELDS_OF_STUDY = [
   "Computer Science & IT",
   "Artificial Intelligence",
   "Data Science",
+  "Business Analytics",
   "Cybersecurity",
   "Business & Management",
   "MBA",

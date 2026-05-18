@@ -95,6 +95,7 @@ const NON_PSW_DEGREE_PATTERN =
 const FIELD_NAME_PATTERNS: Record<string, RegExp> = {
   "Artificial Intelligence":     /\b(artificial intelligence|ai|machine learning|deep learning)\b/i,
   "Data Science":                /\b(data science|data analytics|data engineering|business analytics)\b/i,
+  "Business Analytics":          /\b(business analytics|business intelligence|analytics and (?:management|business)|managerial analytics)\b/i,
   "Cybersecurity":               /\b(cyber\s?security|information security|infosec)\b/i,
   "Computer Science & IT":       /\bcomputer science\b|\bcomputing\b|\binformatics\b/i,
   "Business & Management":       /\b(business|management|administration|mba)\b/i,
