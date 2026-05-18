@@ -57,7 +57,8 @@ ps aux | grep -E "verify-program|verify-batch|websearch-seed|seed-crawler|re-ver
 #    9,298 programs / 9,298 verified / 12 countries / 21 streams.
 #    Tuition coverage: 3,245 verified + 3,903 estimated = 76.9% of 9,298.
 #    Duration coverage: 99.3% (66 nulls left).
-#    Living-cost coverage: 64% city-level via src/data/city-living-costs.ts.)
+#    Living-cost coverage: 64% city-level via src/data/city-living-costs.ts.
+#    FIELDS_OF_STUDY: 29 entries (was 21 pre-#19 taxonomy expansion).)
 python3 -c "
 import re
 from collections import Counter
@@ -3671,3 +3672,90 @@ Verifiable at [console.anthropic.com/settings/usage](https://console.anthropic.c
 
 All other 9 commits this session were $0 (UI fixes + data curation + heuristic backfills + script work).
 
+
+### 39.17 Taxonomy expansion (late #19, 18 May 2026)
+
+Triggered by user-reported thin shortlist on token a623419b (1-program result). Investigation via [scripts/debug/diagnose-shortlist.ts](../scripts/debug/diagnose-shortlist.ts) revealed the profile had compound narrow filters; the field-of-study layer wasn't the bottleneck but the experience surfaced two real issues:
+
+1. **"Business Analytics" wasn't a first-class field option** — user had to pick "Others" + type free-text, which routes through a substring-search path that's narrower than the primary+alias matcher.
+2. **8 popular sub-fields were buried under broader parents** — programs explicitly named for these fields were classified under Data Science / Business & Management / Social Sciences & Humanities / Arts and Design / Engineering / Environmental & Sustainability, so users couldn't find them via specific stream pick.
+
+Three-commit fix:
+
+**A. Custom-field matcher hardening** ([`8cfc46e3`](../src/lib/scoring.ts)):
+- The `OTHER_FIELD_SENTINEL` substring path now searches `field_of_study + program_name + specialization + field_aliases` (was just first two). Also normalizes internal whitespace + trims. +11 programs globally matched for "business analytics" custom query.
+- Diagnostic script [scripts/debug/diagnose-shortlist.ts](../scripts/debug/diagnose-shortlist.ts) mirrors the new haystack so future funnel traces are accurate.
+
+**B. Business Analytics promoted to primary field** ([`430fa846`](../src/lib/types.ts)):
+- Added "Business Analytics" as 22nd entry in `FIELDS_OF_STUDY`, positioned after "Data Science".
+- Added FIELD_NAME_PATTERNS["Business Analytics"] regex (covers `business analytics | business intelligence | analytics and (management|business) | managerial analytics`).
+- 155 programs aliased via [scripts/data-fixes/tag-business-analytics-alias.py](../scripts/data-fixes/tag-business-analytics-alias.py).
+- Initial implementation also cross-listed under "Business & Management" — reverted ([`9b413c94`](../src/data/programs.ts)) after user pushback: "if business analytics is a separate field in the dropdown I would not expect any user looking for this program to expect it under business management." Established the **no-cross-listing policy** — each program lives under its single most-specific primary.
+
+**C. 7 more fields promoted, 296 programs reclassified** ([`6f67fb56`](../src/lib/types.ts) + [`883e0b0b`](../scripts/data-fixes/reclassify-new-fields-as-primary.py)):
+
+After auditing the DB for ≥10-program named-clusters not currently in FIELDS_OF_STUDY, user approved adding 7 more first-class fields. Each got its own FIELD_NAME_PATTERN + alias backfill + primary reclassification:
+
+| New field                       | Position                  | Primary count after reclassification | Was primarily |
+|---------------------------------|---------------------------|--------------------------------------|---------------|
+| Marketing                       | after MBA                 | 28                                   | Business & Management |
+| Film & Animation                | after Arts and Design     | 14                                   | Arts and Design |
+| International Relations         | after Social Sci & Hum    | 18                                   | Social Sciences & Humanities |
+| Public Policy & Administration  | after Int'l Relations     | 15                                   | Social Sciences & Humanities |
+| Education                       | after Public Policy       | 44                                   | Others / Social Sciences |
+| FinTech                         | after Economics & Finance | 10                                   | Economics & Finance / CS |
+| Renewable Energy                | after Env & Sustainability| 13                                   | Engineering / Environmental |
+
+Plus the earlier Business Analytics: 154 programs primary-classified (was 155 aliased; 1 was misnamed and got priority-bumped elsewhere).
+
+**Total: FIELDS_OF_STUDY grew 21 → 29. 296 programs reclassified.** Per-program tie-break for names containing multiple new-field keywords uses this priority order (most-specific first): FinTech > Business Analytics > Marketing > International Relations > Public Policy & Administration > Education > Film & Animation > Renewable Energy.
+
+**Matcher impact:**
+- Picking any of the 8 new fields now surfaces programs via primary match (no alias keyword check needed).
+- Picking the broader parent (e.g. "Data Science", "Business & Management", "Arts and Design", "Social Sciences & Humanities", "Engineering", "Environmental & Sustainability") no longer surfaces the reclassified specific programs — those moved out.
+- All 294 reclassified programs had their now-redundant alias array drop to empty; the field is removed entirely from those rows for cleaner data.
+
+**FIELDS_OF_STUDY final list (29 entries, in dropdown order):**
+1. Computer Science & IT
+2. Artificial Intelligence
+3. Data Science
+4. Business Analytics ⭐ NEW
+5. Cybersecurity
+6. Business & Management
+7. MBA
+8. Marketing ⭐ NEW
+9. Engineering (Mechanical/Civil/Electrical)
+10. Architecture
+11. Biotechnology & Life Sciences
+12. Medicine & Public Health
+13. Law
+14. Arts and Design
+15. Film & Animation ⭐ NEW
+16. Social Sciences & Humanities
+17. International Relations ⭐ NEW
+18. Public Policy & Administration ⭐ NEW
+19. Education ⭐ NEW
+20. Psychology
+21. Economics & Finance
+22. FinTech ⭐ NEW
+23. Media & Communications
+24. Environmental & Sustainability Studies
+25. Renewable Energy ⭐ NEW
+26. Natural Sciences
+27. Nursing & Allied Health
+28. Agriculture & Veterinary Sciences
+29. Hospitality & Tourism
+
+### 39.18 Debug pipeline addition
+
+[scripts/debug/diagnose-shortlist.ts](../scripts/debug/diagnose-shortlist.ts) is a new operational tool. Given a submission token, decrypts the profile via H7 keys and runs the matcher's hard-filter chain step-by-step, printing per-step survivor counts and final tier breakdown. Use when a user reports an unexpectedly small shortlist.
+
+Required env (same names as the prod app):
+- NEXT_PUBLIC_SUPABASE_URL
+- SUPABASE_SECRET_KEY (the 'secret_*' service-role key, post-2024 naming)
+- PII_ENCRYPTION_KEY
+- PII_HASH_SECRET
+
+Usage: `npx tsx scripts/debug/diagnose-shortlist.ts <token>`
+
+Investigation history this session: token a623419b → 1-program funnel diagnosed (UK + Business Analytics + QS top_200 + 4-of-7 regions + Fall intake + $50k budget + 71% academic compound to 1 final program). Recommendations to user: widen QS / clear region / switch from "Others/BA" to the new "Business Analytics" first-class field once deployed.
