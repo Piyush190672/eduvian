@@ -8,9 +8,9 @@
  * Use when a user reports an unexpectedly small shortlist. The output
  * pinpoints which filter collapsed the pool.
  *
- * Required env (in .env.local):
- *   SUPABASE_URL
- *   SUPABASE_SERVICE_ROLE_KEY
+ * Required env (in .env.local — same names the prod app uses):
+ *   NEXT_PUBLIC_SUPABASE_URL
+ *   SUPABASE_SECRET_KEY  (the service-role key; "secret_*" prefix in 2024+)
  *   PII_ENCRYPTION_KEY
  *   PII_HASH_SECRET
  *
@@ -30,9 +30,14 @@ config({ path: ".env.local" });
 const token = process.argv[2];
 if (!token) { console.error("Usage: tsx scripts/debug/diagnose-shortlist.ts <token>"); process.exit(1); }
 
-const SUPABASE_URL = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
-const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
-if (!SUPABASE_URL || !SUPABASE_KEY) { console.error("Missing SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY in .env.local"); process.exit(1); }
+const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL;
+const SUPABASE_KEY = process.env.SUPABASE_SECRET_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY;
+if (!SUPABASE_URL || !SUPABASE_KEY) {
+  console.error("Missing Supabase env vars in .env.local. Expected:");
+  console.error("  NEXT_PUBLIC_SUPABASE_URL = <project URL>");
+  console.error("  SUPABASE_SECRET_KEY      = <service-role key, the 'secret_*' one>");
+  process.exit(1);
+}
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
@@ -95,9 +100,12 @@ async function main() {
   });
   log(`degree_level=${profile.degree_level}`);
 
-  // Field of study
+  // Field of study — mirror scoring.ts logic (custom-field path uses
+  // haystack across field + name + specialization + aliases).
   const isCustomField = profile.intended_field === OTHER_FIELD_SENTINEL;
-  const customQuery = isCustomField ? (profile.intended_field_custom ?? "").trim().toLowerCase() : "";
+  const customQuery = isCustomField
+    ? (profile.intended_field_custom ?? "").trim().replace(/\s+/g, " ").toLowerCase()
+    : "";
   const allowedFields = isCustomField ? null : new Set<string>([
     profile.intended_field,
     ...(profile.intended_field_extra ?? []),
@@ -105,10 +113,12 @@ async function main() {
   pool = pool.filter((p) => {
     if (isCustomField) {
       if (!customQuery) return false;
-      return `${p.field_of_study} ${p.program_name}`.toLowerCase().includes(customQuery);
+      const haystack = [
+        p.field_of_study, p.program_name, p.specialization ?? "", ...(p.field_aliases ?? []),
+      ].join(" ").toLowerCase();
+      return haystack.includes(customQuery);
     }
     if (allowedFields!.has(p.field_of_study)) return true;
-    // alias check (loose — diagnostic only)
     if (p.field_aliases?.length) {
       for (const a of p.field_aliases) if (allowedFields!.has(a)) return true;
     }

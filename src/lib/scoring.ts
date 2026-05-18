@@ -685,8 +685,11 @@ export function recommendPrograms(profile: StudentProfile, programs: Program[], 
   // text excludes everything (the form should already block submit, but
   // be defensive).
   const isCustomField = profile.intended_field === OTHER_FIELD_SENTINEL;
+  // Normalize: trim, lowercase, collapse internal whitespace so the
+  // user's "BUSINESS ANALYTICS " (trailing space, ALL CAPS) and
+  // "business  analytics" (double space) both match cleanly.
   const customQuery   = isCustomField
-    ? (profile.intended_field_custom ?? "").trim().toLowerCase()
+    ? (profile.intended_field_custom ?? "").trim().replace(/\s+/g, " ").toLowerCase()
     : "";
   // Allow up to 2 extra streams in addition to the primary intended_field.
   // The set drives the field hard-filter below — a program qualifies if its
@@ -722,7 +725,20 @@ export function recommendPrograms(profile: StudentProfile, programs: Program[], 
 
     if (isCustomField) {
       if (!customQuery) return false;
-      const haystack = `${p.field_of_study} ${p.program_name}`.toLowerCase();
+      // Haystack now includes field_aliases + specialization too —
+      // a program tagged with primary field "Data Science" plus alias
+      // "Business Analytics" should match a user's custom "business
+      // analytics" search even when "business analytics" isn't in the
+      // program name. Real-world example: many MSc Business Analytics
+      // programs carry primary field "Data Science" + alias "Business
+      // Analytics", so the prior haystack (name + primary only) missed
+      // them. (18 May 2026, user-reported thin shortlist token.)
+      const haystack = [
+        p.field_of_study,
+        p.program_name,
+        p.specialization ?? "",
+        ...(p.field_aliases ?? []),
+      ].join(" ").toLowerCase();
       if (!haystack.includes(customQuery)) return false;
     } else {
       // Match against the program's primary field — or against an alias,
