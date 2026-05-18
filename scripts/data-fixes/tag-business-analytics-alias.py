@@ -27,7 +27,11 @@ from pathlib import Path
 from typing import Optional
 
 PROGRAMS = Path(__file__).resolve().parents[2] / "src/data/programs.ts"
-NEW_ALIAS = "Business Analytics"
+# Multi-alias backfill: add BOTH "Business Analytics" (the new
+# first-class field) AND "Business & Management" (the existing field
+# users intuitively associate with BA). After both, a user picking
+# either field sees all 155 BA programs.
+ALIASES_TO_ADD = ["Business Analytics", "Business & Management"]
 NAME_PATTERN = re.compile(r"\bbusiness analytics\b", re.I)
 
 text = PROGRAMS.read_text()
@@ -74,10 +78,11 @@ for s, e in entries:
     m_aliases = re.search(r'field_aliases:\s*\[([^\]]*)\]', block)
     if m_aliases:
         existing = re.findall(r'"([^"]+)"', m_aliases.group(1))
-        if NEW_ALIAS in existing:
+        missing = [a for a in ALIASES_TO_ADD if a not in existing]
+        if not missing:
             already += 1
             continue
-        new_arr = "[" + ", ".join(f'"{a}"' for a in [*existing, NEW_ALIAS]) + "]"
+        new_arr = "[" + ", ".join(f'"{a}"' for a in [*existing, *missing]) + "]"
         new_block = block[: m_aliases.start()] + f"field_aliases: {new_arr}" + block[m_aliases.end():]
     else:
         # No field_aliases field — insert after field_of_study.
@@ -85,7 +90,8 @@ for s, e in entries:
         if not m_fs:
             skipped_no_name += 1
             continue
-        new_block = block[: m_fs.end()] + f' field_aliases: ["{NEW_ALIAS}"],' + block[m_fs.end():]
+        aliases_lit = ", ".join(f'"{a}"' for a in ALIASES_TO_ADD)
+        new_block = block[: m_fs.end()] + f' field_aliases: [{aliases_lit}],' + block[m_fs.end():]
 
     out.append(text[last_end:s])
     out.append(new_block)
@@ -96,7 +102,7 @@ out.append(text[last_end:])
 new_text = "".join(out)
 
 PROGRAMS.write_text(new_text)
-print(f"Added Business Analytics alias to:     {added}")
-print(f"Already had it:                         {already}")
+print(f"Added/extended aliases on:              {added}")
+print(f"Already had all required aliases:       {already}")
 print(f"Skipped (couldn't anchor insertion):    {skipped_no_name}")
 print(f"Wrote {PROGRAMS}")
