@@ -226,6 +226,21 @@ export default function CheckMatchPanel({ token }: Props) {
                       </div>
                     </div>
 
+                    {/* Field-prerequisite warning — when the user looks up
+                        a program whose intended field requires an undergrad
+                        background they don't carry (e.g. commerce undergrad
+                        checking an AI MSc). Same gate the matcher applies. */}
+                    {selected.prereq_ineligible && (
+                      <div className="mb-4 rounded-2xl border-2 border-rose-200 bg-rose-50 px-4 py-3.5">
+                        <p className="text-sm font-bold text-rose-700 leading-snug">
+                          ⚠ Your current qualification is not eligible for the selected program.
+                        </p>
+                        <p className="text-xs text-rose-700/80 mt-1 leading-relaxed">
+                          Choose a suitable program.
+                        </p>
+                      </div>
+                    )}
+
                     {/* Parameters considered — labels only, no per-signal
                         scoring outcome. Keeps the algorithm opaque while
                         still giving the user a complete view of what went
@@ -294,6 +309,11 @@ export default function CheckMatchPanel({ token }: Props) {
                                 {p.university_name} · {p.city}, {p.country}
                               </p>
                               <p className="text-xs text-gray-400 mt-0.5">{p.field_of_study}</p>
+                              {p.prereq_ineligible && (
+                                <p className="mt-1.5 inline-flex items-center gap-1 text-[10px] font-semibold uppercase tracking-wider text-rose-700 bg-rose-50 border border-rose-200 rounded-full px-2 py-0.5">
+                                  ⚠ Not eligible
+                                </p>
+                              )}
                             </div>
                             <div className="flex flex-col items-end gap-1.5 flex-shrink-0">
                               <span className={`font-black text-lg ${SCORE_COLOR(p.match_score)}`}>

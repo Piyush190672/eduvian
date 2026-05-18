@@ -323,6 +323,13 @@ export type ProgramTier = "safe" | "reach" | "ambitious";
 export interface ScoredProgram extends Program {
   match_score: number;
   tier: ProgramTier;
+  // True when the user's undergrad background fails the program's
+  // field-of-study prerequisite (see src/lib/field-prereq.ts). The
+  // recommender drops these at the hard-filter stage, so this flag
+  // is only ever set by check-match (free-text lookup) where the
+  // user explicitly asks about an arbitrary program — including ones
+  // they're not eligible for. The UI surfaces a warning when true.
+  prereq_ineligible?: boolean;
   score_breakdown: {
     academic: number;
     english: number;

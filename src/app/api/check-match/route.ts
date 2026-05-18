@@ -72,6 +72,7 @@ export async function GET(req: NextRequest) {
   // Load all programs
   const { PROGRAMS } = await import("@/data/programs");
   const { scoreProgram } = await import("@/lib/scoring");
+  const { isAcademicallyEligibleForField } = await import("@/lib/field-prereq");
 
   const allPrograms: Program[] = (PROGRAMS as unknown[]).map((p, i) => ({
     ...(p as object),
@@ -103,9 +104,16 @@ export async function GET(req: NextRequest) {
     );
   }
 
-  // Score filtered programs
+  // Score filtered programs. Stamp `prereq_ineligible` on every result
+  // so the UI can warn the user when they ask about a program their
+  // undergrad background doesn't satisfy (e.g. commerce undergrad
+  // checking an AI MSc).
   const scored: ScoredProgram[] = filtered
-    .map((p) => scoreProgram(profile!, p))
+    .map((p) => {
+      const result = scoreProgram(profile!, p);
+      result.prereq_ineligible = !isAcademicallyEligibleForField(profile!, p.field_of_study);
+      return result;
+    })
     .sort((a, b) => b.match_score - a.match_score)
     .slice(0, 15);
 
