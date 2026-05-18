@@ -104,3 +104,116 @@ export function isAcademicallyEligibleForField(
 
 /** Internal export for tests / diagnostics. */
 export const __FIELD_PREREQUISITES = FIELD_PREREQUISITES;
+
+// ─── STEM gating (18 May 2026, user spec) ─────────────────────────────────────
+//
+// User-stated rule: a STEM PG program requires a STEM undergraduate. A STEM
+// UG program requires Class XII Mathematics + Physics + Chemistry (PCM).
+// These are blocking validation rules in the profile form — Continue is
+// disabled when the picked intended_field violates them.
+
+/**
+ * Intended PG fields that are considered STEM for the purposes of the
+ * "STEM PG must have STEM UG" gate. Each must also have a regex in
+ * FIELD_PREREQUISITES above — the matcher uses the regex map, this set
+ * is only for surfacing the user-facing blocking copy.
+ */
+export const STEM_PG_FIELDS: ReadonlySet<string> = new Set([
+  "Computer Science & IT",
+  "Artificial Intelligence",
+  "Data Science",
+  "Cybersecurity",
+  "Engineering (Mechanical/Civil/Electrical)",
+  "Architecture",
+  "Renewable Energy",
+  "Biotechnology & Life Sciences",
+  "Medicine & Public Health",
+  "Nursing & Allied Health",
+  "Natural Sciences",
+  "Agriculture & Veterinary Sciences",
+]);
+
+/**
+ * Intended UG fields that are considered STEM and require Class XII
+ * Mathematics + Physics + Chemistry (PCM). Architecture is included
+ * even though it isn't always pure-STEM — UG Architecture admissions
+ * in the 12 destination countries we serve do expect Math + Physics
+ * in nearly all cases.
+ */
+export const STEM_UG_FIELDS: ReadonlySet<string> = new Set([
+  "Computer Science & IT",
+  "Artificial Intelligence",
+  "Data Science",
+  "Cybersecurity",
+  "Engineering (Mechanical/Civil/Electrical)",
+  "Architecture",
+  "Renewable Energy",
+  "Biotechnology & Life Sciences",
+  "Natural Sciences",
+  "Agriculture & Veterinary Sciences",
+]);
+
+/**
+ * Required Class XII subjects for STEM UG admission — PCM.
+ */
+export const STEM_UG_REQUIRED_SUBJECTS: ReadonlyArray<string> = [
+  "Mathematics",
+  "Physics",
+  "Chemistry",
+];
+
+/**
+ * Centralised alignment check used by both the form (blocking Continue)
+ * and the matcher (hard filter). Returns null when the picked field
+ * aligns with the profile's qualifications, or a user-facing reason
+ * string explaining the gap.
+ *
+ * Skipped — returns null — for the OTHER_FIELD_SENTINEL (custom typed
+ * field) and when degree_level isn't yet set.
+ */
+import type { StudentProfile as _SP } from "./types";
+export function getFieldAlignmentError(
+  profile: Partial<_SP>,
+  field: string | undefined,
+): string | null {
+  if (!field) return null;
+  if (field === "Others") return null;
+  if (!profile.degree_level) return null;
+
+  if (profile.degree_level === "postgraduate") {
+    if (!STEM_PG_FIELDS.has(field)) {
+      // Non-STEM PG fields don't use this strict gate. The matcher's
+      // FIELD_PREREQUISITES may still cover Law / Psychology as a soft
+      // hard-filter but we don't surface them as form-blocking errors.
+      return null;
+    }
+    const hasBackground = (profile.major_stream ?? "").trim().length > 0
+      || (profile.current_degree ?? "").trim().length > 0;
+    if (!hasBackground) return null; // don't pre-scold
+
+    if (isAcademicallyEligibleForField(profile as _SP, field)) return null;
+    return "Your current qualification is not eligible for the selected program. Choose a suitable program.";
+  }
+
+  // Undergraduate path: STEM UG requires Class XII PCM.
+  if (profile.degree_level === "undergraduate") {
+    if (!STEM_UG_FIELDS.has(field)) return null;
+
+    // major_stream is a comma-separated list of HS subjects in the UG
+    // branch (StepAcademic.toggleSubject writes it that way). If empty,
+    // don't pre-scold — they haven't reached that question yet.
+    const subjects = (profile.major_stream ?? "")
+      .split(",")
+      .map((s) => s.trim().toLowerCase())
+      .filter(Boolean);
+    if (subjects.length === 0) return null;
+
+    const missing = STEM_UG_REQUIRED_SUBJECTS.filter(
+      (req) => !subjects.includes(req.toLowerCase()),
+    );
+    if (missing.length === 0) return null;
+    return `STEM undergraduate programs require Class XII ${STEM_UG_REQUIRED_SUBJECTS.join(", ")}. Your subjects are missing: ${missing.join(", ")}. Choose a suitable program or update your subjects.`;
+  }
+
+  return null;
+}

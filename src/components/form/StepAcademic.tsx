@@ -3,6 +3,7 @@
 import { useState } from "react";
 import type { StudentProfile, DegreeLevel } from "@/lib/types";
 import { FIELDS_OF_STUDY, OTHER_FIELD_SENTINEL } from "@/lib/types";
+import { getFieldAlignmentError } from "@/lib/field-prereq";
 
 interface Props {
   profile: Partial<StudentProfile>;
@@ -178,6 +179,16 @@ export default function StepAcademic({ profile, onChange }: Props) {
     onChange({ major_stream: updated.join(", ") });
   };
 
+  // Field-of-study × current-qualification alignment warning. Same
+  // helper feeds validateStep so the user can't click Continue while
+  // the warning is visible. Empty string → no warning rendered.
+  const alignmentError = (field: string | undefined) => getFieldAlignmentError(profile, field);
+  const Warning = ({ message }: { message: string }) => (
+    <div className="mt-2 rounded-xl border border-rose-200 bg-rose-50 px-3.5 py-2.5 text-xs leading-relaxed text-rose-700">
+      <span className="font-semibold">⚠ {message}</span>
+    </div>
+  );
+
   return (
     <div className="space-y-5">
       <div>
@@ -212,6 +223,7 @@ export default function StepAcademic({ profile, onChange }: Props) {
           ))}
           <option value={OTHER_FIELD_SENTINEL}>Others (specify below)</option>
         </Select>
+        {(() => { const m = alignmentError(profile.intended_field); return m ? <Warning message={m} /> : null; })()}
         <p className="mt-1.5 text-xs text-gray-500 leading-relaxed">
           You can pick up to <span className="font-semibold text-gray-700">3 fields</span> — we&apos;ll surface programs matching all of them.
         </p>
@@ -229,32 +241,36 @@ export default function StepAcademic({ profile, onChange }: Props) {
                   ...(profile.intended_field_extra ?? []).filter((_, i) => i !== idx),
                 ].filter((f): f is string => typeof f === "string" && f.length > 0),
               );
+              const extraErr = alignmentError(extra);
               return (
-                <div key={idx} className="flex items-center gap-2">
-                  <Select
-                    value={extra}
-                    onChange={(e) => {
-                      const next = [...(profile.intended_field_extra ?? [])];
-                      next[idx] = e.target.value;
-                      onChange({ intended_field_extra: next });
-                    }}
-                  >
-                    <option value="">Select another field</option>
-                    {FIELDS_OF_STUDY.filter((f) => !picked.has(f) || f === extra).map((f) => (
-                      <option key={f} value={f}>{f}</option>
-                    ))}
-                  </Select>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      const next = (profile.intended_field_extra ?? []).filter((_, i) => i !== idx);
-                      onChange({ intended_field_extra: next });
-                    }}
-                    aria-label="Remove this field"
-                    className="px-2 py-2 rounded-lg text-xs font-semibold text-gray-400 hover:text-rose-600 hover:bg-rose-50 transition-colors"
-                  >
-                    ✕
-                  </button>
+                <div key={idx}>
+                  <div className="flex items-center gap-2">
+                    <Select
+                      value={extra}
+                      onChange={(e) => {
+                        const next = [...(profile.intended_field_extra ?? [])];
+                        next[idx] = e.target.value;
+                        onChange({ intended_field_extra: next });
+                      }}
+                    >
+                      <option value="">Select another field</option>
+                      {FIELDS_OF_STUDY.filter((f) => !picked.has(f) || f === extra).map((f) => (
+                        <option key={f} value={f}>{f}</option>
+                      ))}
+                    </Select>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const next = (profile.intended_field_extra ?? []).filter((_, i) => i !== idx);
+                        onChange({ intended_field_extra: next });
+                      }}
+                      aria-label="Remove this field"
+                      className="px-2 py-2 rounded-lg text-xs font-semibold text-gray-400 hover:text-rose-600 hover:bg-rose-50 transition-colors"
+                    >
+                      ✕
+                    </button>
+                  </div>
+                  {extraErr && <Warning message={extraErr} />}
                 </div>
               );
             })}

@@ -17,6 +17,7 @@ import {
   Pencil,
 } from "lucide-react";
 import type { StudentProfile } from "@/lib/types";
+import { getFieldAlignmentError } from "@/lib/field-prereq";
 import StepPersonal from "@/components/form/StepPersonal";
 import StepAcademic from "@/components/form/StepAcademic";
 import StepTests from "@/components/form/StepTests";
@@ -147,6 +148,23 @@ function validateStep(step: number, profile: Partial<StudentProfile>): string[] 
     } else {
       if (!profile.major_stream) missing.push("Major / Stream");
     }
+    // Field-of-study × current-qualification alignment (18 May 2026).
+    // STEM PG → must have STEM UG (see field-prereq.ts).
+    // STEM UG → must have Class XII Math + Physics + Chemistry.
+    // Checked across the primary intended_field + each extra; first
+    // failure surfaces. Continue is blocked until it's resolved.
+    const fieldsToCheck = [
+      profile.intended_field,
+      ...((profile.intended_field_extra ?? []) as (string | undefined)[]),
+    ].filter((f): f is string => typeof f === "string" && f.length > 0);
+    for (const f of fieldsToCheck) {
+      const err = getFieldAlignmentError(profile, f);
+      if (err) {
+        missing.push(err);
+        break;
+      }
+    }
+
     // MBA-specific: leadership question is required, and if answered yes,
     // the team-size follow-up is required too. Only enforced when the user
     // picks MBA — non-MBA students don't see these fields.
