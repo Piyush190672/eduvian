@@ -4,9 +4,26 @@ This file is loaded automatically. The full project state, decisions, and ration
 
 ## What this is
 
-Next.js 14 (App Router) study-abroad platform deployed to Vercel at https://www.eduvianai.com. Postgres + RLS in Supabase Cloud (US, Pro plan). Anthropic Claude for AI features, Resend for transactional mail, Sentry for errors. 12 destination countries, **9,298 programs / 9,298 verified at the source (100.0%) / 21 streams / ~636 universities (419 in universities sidecar — 218 USA + 121 UK + 70 Canada + 10 Singapore) / ~69% with international tuition fee** as of 17 May 2026 (handoff #18). Beta-gated to 100 NEW unique users / month (returning users skip) under $20/mo Anthropic spend ceiling. Email OTP **and** password (scrypt) both gate register / login.
+Next.js 14 (App Router) study-abroad platform deployed to Vercel at https://www.eduvianai.com. Postgres + RLS in Supabase Cloud (US, Pro plan). Anthropic Claude for AI features, Resend for transactional mail, Sentry for errors. 12 destination countries, **9,298 programs / 9,298 verified at the source (100.0%) / 21 streams / ~636 universities (419 in universities sidecar — 218 USA + 121 UK + 70 Canada + 10 Singapore) / 77% with international tuition fee (verified + estimated; up from 69% post handoff #19 Wave A) / 99.3% with duration / 64% with city-level living cost** as of 18 May 2026 (handoff #19). Beta-gated to 100 NEW unique users / month (returning users skip) under $20/mo Anthropic spend ceiling. Email OTP **and** password (scrypt) both gate register / login.
 
-**Handoff #18 (15-17 May, 35 commits) — high-impact deltas the agent must know:**
+**Handoff #19 (17-18 May, 20 commits + ~$110 API spend) — high-impact deltas the agent must know:**
+- **ROI calculator rewritten end-to-end.** "Monthly Budget" → **Monthly Living Cost** (formula now `avg_living_cost_usd / 12` — no longer amortizes tuition). Tuition + living always-editable on both [InlineProgramROI](src/components/results/InlineProgramROI.tsx) (program-card ROI panel) and standalone [/roi-calculator](src/components/ROICalculator.tsx). Provenance label on every field ("From program page", "Country average — adjust to your city", "Estimated from secondary source", "You entered this", "Heuristic est."). ROI math gates on tuition + living + duration all > 0.
+- **Duration null gate.** Program type now `duration_months: number | null`. 3,016 nulls (32%) caused silent ROI poisoning (null/12 = 0 in JS → "Total Investment —, Payback 0 mo, Net 10-yr +$1.1M"). Two-stage backfill closed the gap:
+  - **B-stage heuristic** ([scripts/data-fixes/backfill-durations.py](scripts/data-fixes/backfill-durations.py)): 2,868 nulls resolved via (country × degree_level) base defaults + name-pattern rules (MPhil 12mo / Cambridge MPhil 11mo / Oxford MPhil 21mo / US Master 24mo / UK Master 12mo / PhD 48-60mo / Foundation 12mo / PG Diploma 9mo / etc.). Tagged `duration_source: "heuristic"`.
+  - **A1-stage LLM** ([scripts/verify/estimate-durations.ts](scripts/verify/estimate-durations.ts)): 82 of 148 residual entries (the ones missing `degree_level` so the rule table couldn't fire) extracted via Sonnet + web_search. Tagged `duration_source: "extracted"`. ~$10 spend.
+  - Final: 66 nulls (0.7%) remain — all are landing/department pages, not real programs.
+- **City-level living costs.** New [src/data/city-living-costs.ts](src/data/city-living-costs.ts) — 165 curated cities sourced from public gov / immigration / university Cost-of-Attendance pages (US BEA RPP, UK ONS + uni pages, DAAD, Campus France, IRCC, AU DOHA, Nuffic, INIS, Immigration NZ, ICA Singapore, EMGS Malaysia). Each entry cites its source. **Commercial-safe** (no Numbeo/ExpatIstan dependency — those forbid commercial derivative use). 5,947 of 9,298 programs (64%) now carry city-level data; 3,351 (36%) tagged `living_cost_source: "country_avg"` for fallback. Applied via [apply-city-costs.py](scripts/data-fixes/wave-b-living-costs/apply-city-costs.py).
+- **Wave A tuition backfill (~$100 Anthropic spend).** estimate-fees.ts campaign scoped to US/UK/CA/AU/DE per user. ~735 new estimates written across 5 countries. Final tuition coverage: USA 89.0% / UK 84.4% / AU 71.1% / CA 66.2% / DE 38.9% (low by design — German public unis charge no tuition for international students; script bails on low confidence). DB-wide 76.9% coverage (up from ~67%).
+- **Implausibly-low living-cost normalization.** [normalize-living-costs.py](scripts/data-fixes/normalize-living-costs.py) caught + fixed extraction errors below $3k/yr or <25% of country median. Cleaned UNSW $650 (was wrong — Sydney median $19,300). 2 entries normalized. Other 105 sub-$5k values (Curtin Malaysia $4,200 etc.) left alone — legitimately low.
+- **QS rank UX upgraded.** Subject-rank-first per user direction. Per-uni `minRankByUni` lookup on /results; pill renders `QS #N` when this program carries the per-uni minimum (likely subject rank), `QS #N · overall` suffix when the rank is higher than the uni's min (likely the world rank that leaked in). Verifier prompt at [verify-program.ts](scripts/verify/verify-program.ts) updated to require subject-rank-first extraction in future passes.
+- **LinkedIn source claim removed.** All 4 occurrences of "LinkedIn Salary Insights" as a data source replaced with "aggregated public-sector labour statistics" — defensive against LinkedIn legal C&D since we have no partnership. Other LinkedIn references (Ireland country page naming LinkedIn Dublin as an employer, CV-builder URL field) are nominative fair use and untouched.
+- **Marketing intelligence proposal paused** — user mulling P0+P1+P2 plan to integrate BLS + Adzuna + UK Discover Uni + AU QILT + CA Job Bank + DAAD for per-(field × country) live job count + median salary + 10-yr growth + top employers. Zero spend (free API tier + gov data). 105 hrs effort, not yet greenlit.
+- **Legal docs reviewed (Privacy, Terms, Disclaimer).** User attached attorney-vetted versions. Audit identified 18 functional gaps across P0 (age gate, DSAR endpoints, retention job, entity branding, named GO, active mailboxes), P1 (nomination, policy-update banner, save User Content, tool-disclaimer audit, cookie notice, marketing opt-in), and P2 (breach runbook, sub-processor list, etc.). Awaiting user prioritisation; **none implemented yet**.
+- **ROI bug fixes:** Rules-of-Hooks violation in /results page that crashed with "Application error: a client-side exception" — useMemo for minRankByUni was below early returns, hoisted to top. Star ladder on StepReview was inverted (`5 - ladderIdx` → `ladderIdx + 1`); VERY STRONG now correctly shows 4 stars not 2.
+- **Profile-form upgrades:** Citizenship dropdown (India first, rest alphabetical), auto-aligned phone dial code, degree dropdown, Annual Family Income re-banded to 4 ranges (<12 / 12-24 / 25-49 / 50+ Lakh) with corresponding profile-rating points (0/1/2/3), Step 5 Review page with all-field recap + "Modify the information above" CTA, profile-completion % tracker, multi-field intended-field-of-study (up to 3 streams).
+- **Results page features (this campaign):** Next Best 20 banner-led block (ranks 21-40, same ratio), Application-Strength dropdowns now sourced from user's saved shortlist via new `GET /api/my-shortlist`. Interview-prep silence threshold 3s → 8s. Budget label reinforced as "Tuition + Living combined" with ⚠️ amber callout + worked example.
+
+**Handoff #18 (15-17 May, 35 commits) — kept for context, partially superseded by §39:**
 - Profile-rating fully rewritten — weighted % scoring, 5-bucket star ladder (Weak / Average / Strong / Very Strong / Super Strong), colour-coded params, 3D wall UI. See [src/lib/profile-score.ts](src/lib/profile-score.ts) + `<ProfileCard>`.
 - Match-score weights rebalanced: PG `Academic 0.45 / Budget 0.10` (was 0.35 / 0.20); UG Academic 0.50 (work_exp slot folded in).
 - Bucket-specific implicit academic floor in [src/lib/prestige.ts](src/lib/prestige.ts) `implicitMin`: b0=85, b1=78, b2=70, b3=60, b4=50. Drives `scoreAcademic` when program publishes no min.
@@ -171,55 +188,62 @@ Audit document: `~/Desktop/EduvianAI-Security-Architecture-Risk-Assessment.docx`
 
 The legal/security/pricing Word docs were generated with `docx`. Pricing Excel via `xlsx`. To regenerate legal: `node scripts/build-legal-docs.js`.
 
-## Open work for the next session (handoff #18, 17 May 2026)
+## Open work for the next session (handoff #19, 18 May 2026)
 
-Pinned in priority order. Snapshot §38 has full handoff-#18 detail. **No background processes. Working tree clean.** Last commit: `5bcdea4b` (tune: implicit floors — relax b1..b4, keep b0).
+Pinned in priority order. Snapshot §39 has full handoff-#19 detail. **No background processes. Working tree clean.** Last commit: `670b268e` (data: Wave A scoped tuition backfill complete).
 
-**URGENT — operational:**
+**URGENT — legal-docs functional gaps (P0, blocking publication of attorney-vetted docs):**
 
-1. ~~Run `20260515-profile-drafts.sql` in Supabase Studio~~ — ✅ done 17 May 2026. Cross-device draft autosave now live in prod.
+1. **Age gate + verifiable parental consent** for under-18 users (Privacy §2.4 + Terms §2/§4). DOB on signup → if <18, parent email + verification + Terms acceptance before processing.
+2. **Right to access (data export)** — new `/account/data` + `GET /api/account/export` JSON-dump endpoint.
+3. **Right to erasure** — delete-my-account button + 30-day grace + hard delete.
+4. **Automated 24-month retention job** — Vercel cron / external scheduler. Anonymise stale submissions; 12-month rolling delete for rate-limit + audit logs.
+5. **Terms + Privacy acceptance checkbox + timestamped log** on register.
+6. **Named Grievance Officer + entity branding** (footer + /privacy + /terms). Needs lawyer to provide entity name / CIN / address / GO individual details.
+7. **Active mailbox routing**: `grievance@`, `privacy@`, `legal@`, `support@`, `security@` (last is carry-over).
 
-**Tier-A — user-driven QA (no API spend):**
+**Tier-A — user-driven QA (no API spend, mostly carry-over from #18):**
 
-2. End-to-end QA of inline-password register flow (carry-over from #15)
-3. Change-password modal QA from homepage (carry-over)
-4. Mobile sanity sweep on real iOS Safari + Android Chrome
-5. Live mic test USA + AU interview-prep flows (carry-over from #13)
-6. Confirm `security@eduvianai.com` mailbox routing (carry-over from #14)
-7. **NEW — End-to-end QA of cross-device profile prefill** (730608f0 + 684a89f1): submit on desktop → sign in on mobile → verify fields auto-fill. Once migration #1 lands, also verify draft autosave syncs mid-form.
-8. **NEW — Verify feedback-survey modal** pops on all 4 surfaces, submits succeed, admin dashboard populates.
+8. End-to-end QA of inline-password register flow
+9. Change-password modal QA from homepage
+10. Mobile sanity sweep on real iOS Safari + Android Chrome
+11. Live mic test USA + AU interview-prep flows
+12. Cross-device profile prefill — submit on desktop, sign in mobile, verify autofill + draft autosave
+13. Verify feedback-survey modal on all 4 surfaces
+14. **NEW** — verify the rewritten ROI panel renders correctly on /results: city-level living costs labelled, duration heuristic-estimate pill shows on the ~2,868 affected programs, tuition-source provenance correct
+15. **NEW** — verify Monthly Living Cost figure aligns with annual_living/12 (was previously (tuition + living)/12 = misleading)
 
 **Tier-B — API spend (await explicit go):**
 
-9. USA fee uplift beyond 78% — residential proxy ($50/mo). Skipped.
-10. Tuition estimate for 2,907 missing programs via `estimate-fees.ts` (Sonnet + web_search). ~$20-$290 by scope.
-11. ~~Stage 4 sidecar for 8 remaining countries~~ — **USER SAID NO** after CA+SG smoke (17 May). Rest would be ~$155 for ~199 unis, low value because acceptance rates aren't published in those markets.
+16. USA tuition coverage final push beyond 89% — would need either (a) residential proxy ($50/mo for blocked uni pages) or (b) another ~$30 of estimate-fees.ts cycles for the remaining 374 nulls. Marginal value low.
+17. Remaining 7 countries' tuition (FR/NL/IE/MY/NZ/SG/UAE: 489 nulls) via estimate-fees.ts. ~$30-50 spend total.
+18. ~~Stage 4 sidecar for 8 remaining countries~~ — USER SAID NO from handoff #18, still skipped.
 
-**Tier-C — product surface (low priority):**
+**Tier-C — Market Intelligence integration (planning approved P0+P1+P2, ~$0 spend):**
 
-12. **Universities-sidecar UI surfacing** — sidecar now has 419 rows (acceptance + earnings + outcomes etc) but only `acceptance_rate` is wired into scoring. ComparePanel shows Acceptance Rate row; ProgramCard could surface TEF / NSS / Russell Group for UK + Maclean's tier / median earnings for CA + median_earnings_6yr_usd for USA. Parent Decision tool could pull live earnings data instead of static ROI tables.
+19. Build cross-walk: 21 streams × 12 countries → SOC/SOC2020/ANZSCO/NOC codes + Adzuna query terms (~3 hrs).
+20. BLS (US) + UK Discover Uni + WEF report ingestion for field-level demand data (~7 hrs).
+21. Adzuna integration (free tier; 9 of 12 countries covered: US/UK/AU/CA/DE/FR/NL/SG/NZ — IE/UAE/MY get gov-data only) (~6 hrs).
+22. Per-program career-outcomes row in ProgramCard + Market Intelligence card on /results (~8 hrs).
+23. Honest label everywhere: "Aggregated job-market data — never claim LinkedIn as source unless we have partnership". Updated weekly via cron.
 
-**Tier-D — security & ops (all carry-over):**
+**Tier-D — security & ops (carry-over from #18):**
 
-13. M1 CSP (4-6 wk Next.js refactor)
-14. M3 Zod input validation
-15. M5 secrets rotation policy doc
-16. M7 + L3 legal-doc edits (attorney-gated)
-17. L5 verified_at HMAC signing
-18. I3 incident response plan
-19. I2 + I4 bug bounty + pen-testing schedule
+24. M1 CSP (4-6 wk Next.js refactor)
+25. M3 Zod input validation
+26. M5 secrets rotation policy doc
+27. L5 verified_at HMAC signing
+28. I3 incident response plan
+29. I2 + I4 bug bounty + pen-testing schedule
 
 **Pipeline ops:**
 
-20. Vercel env checks — confirm `MAX_MONTHLY_SPEND_CENTS` isn't hard-set to 5000 (overrides the $20 default); add user's test email to `BETA_OWNER_EMAILS`.
+30. Re-extract degree_level for the 148 entries that lack it (currently leaving duration_months null for 66 of them after A1 stage).
+31. Universities-sidecar UI surfacing — sidecar has 419 rows but only `acceptance_rate` is wired. ProgramCard could surface TEF / NSS / Russell Group / median earnings.
 
-**Carry-overs from #17 that landed in #18**:
-- Verify-batch watchdog timeout — done (f962c093)
-- Auto-run reclassify-cs-streams.py after merge.ts — done (f962c093)
+**Estimated remaining spend:** ~$0 unless Tier-B #16/#17 get greenlit, or Market Intelligence Adzuna paid tier (~$99/mo) is chosen over the free tier.
 
-**Estimated remaining spend:** ~$0 unless Tier-B #9/#10 get greenlit. Stage 4 sidecar deferred indefinitely per user decision.
-
-**Handoff #18 spend tally:** $64.67 ($7.82 Singapore smoke + $56.85 Canada full run). All other 33 commits were $0 (code + UI + data-cleanup only).
+**Handoff #19 spend tally:** ~$110 (~$10 duration extraction A1 + ~$100 Wave A tuition US/UK/CA/AU/DE). All other ~9 commits were $0 (code + UI + data-curation only).
 
 ## Universities sidecar (Stage 1+2+3+5 live as of #17)
 

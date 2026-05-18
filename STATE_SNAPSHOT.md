@@ -1,11 +1,11 @@
 # EduvianAI — Comprehensive State Snapshot for Session Handoff
 
-**Last updated:** 17 May 2026 (handoff #18 — 35 commits on top of handoff #17. Profile-rating fully rewritten with weighted % scoring + 5-bucket star scale + colour-coded params + 3D ladder UI. Match-score weights rebalanced (PG: Academic 0.45 / Budget 0.10 / others same). Bucket-specific implicit academic floor (b0=85, b1=78, b2=70, b3=60, b4=50) plus prestige penalty for proper weak-vs-strong differentiation. Matcher hard-caps ambitious tier + per-uni variety cap. Alias matching now requires program_name keyword evidence (407 bad aliases stripped, 284 primary fields reclassified). "Arts, Design & Architecture" retired → "Arts and Design". Multi-pick intended_field (up to 3 streams). Cross-device profile prefill + draft autosave (2 new endpoints + 1 SQL migration). Post-experience feedback survey (1-5 stars) on 4 surfaces + admin dashboard widget. Stage 4 universities sidecar landed for Canada (70) + Singapore (10) — other 8 countries deferred per user. Mobile UX fixes (rating ladder wraps, sticky CTA, single-line nav). Pipeline ops: per-worker watchdog timeout, auto-reclassify after merge.ts.)
+**Last updated:** 18 May 2026 (handoff #19 — 20 commits + ~$110 API spend on top of handoff #18. Massive ROI calculator rewrite: always-editable tuition + living + duration, provenance labels on every field, "Monthly Budget" renamed + reformulated to **Monthly Living Cost** = `annual_living / 12` (no longer amortizes tuition). Duration null gate — 3,016 null durations (32%) silently poisoned ROI math (null/12=0 → fake metrics); resolved via two-stage backfill: heuristic (2,868 of 3,016 from country × degree_level + name patterns) + LLM extraction (82 of 148 residual via Sonnet + web_search, $10). New city-level living-cost dataset (165 curated cities, all public-source-cited, commercial-safe — explicitly NOT Numbeo/ExpatIstan) drove 64% city coverage vs prior 100% country-mean. Wave A tuition backfill (~$100) ran scoped to US/UK/CA/AU/DE — final tuition coverage: USA 89.0% / UK 84.4% / AU 71.1% / CA 66.2% / DE 38.9% (intentionally low — German public unis free). DB-wide 77% (was 67%). LinkedIn source claim removed from 4 files (no partnership → C&D risk). QS rank UX: subject-rank-first preferred, "QS #N · overall" suffix when per-uni minimum differs. Rules-of-Hooks bug crashed /results — hot-fixed by hoisting useMemo above early returns. Star ladder on Step-5 Review fixed (`5 - idx` → `idx + 1`). Profile-form upgrades (citizenship dropdown + dial code, degree dropdown, family income re-banded 0/1/2/3 points). New Step 5 Review with all-field recap. Next Best 20 banner-led block on /results. Application-Strength dropdowns now from user's saved shortlist. Interview-prep silence 3s → 8s. Budget label hammered. Legal-docs review identified 18 functional gaps across P0-P2 (none implemented; awaiting user prioritisation). Marketing Intelligence proposal P0+P1+P2 approved in principle, code work not started.)
 **Purpose:** Zero-loss handoff between Claude Code sessions. A new session reading this should be able to continue *every* in-flight workstream correctly, respect all user preferences, and avoid all known gotchas.
 
-> **No background processes running** as of handoff #18 (Canada Stage-4 fetch completed cleanly at PID 56199, 70/70 hits, $56.85).
+> **No background processes running** as of handoff #19. All estimate-fees and estimate-durations jobs from this session completed or were cleanly SIGTERM'd with flush.
 
-> **READ §38 (handoff #18) FIRST** for the most recent 35-commit session. Sections §3, §4, §16, §17 still describe the broad architecture correctly, but specific numbers (DB shape, weights, scoring formulas, open work) are superseded by §38. Pre-#17 session logs in §22-§37 are historical reference.
+> **READ §39 (handoff #19) FIRST** for the most recent 20-commit session. Section §38 (handoff #18) is the prior session's record — partly superseded by §39 specifically on ROI calculator math, duration data, living-cost data, and tuition coverage. Sections §3, §4, §16, §17 still describe the broad architecture correctly. Pre-#17 session logs in §22-§37 are historical reference.
 
 > **Pinned next-session priority (handoff #14 → #15):** STATE_SNAPSHOT + CLAUDE.md refresh (this commit). Then user-driven QA: confirm the new password-login flow works end-to-end (set password from /account/security, log out, log in via Password toggle), eyeball the tightened matching results (academic + budget + field + intake hard filters may shrink some users' shortlists). API spend decisions: resume the 7-country tuition sweep (~$114 more for ~870 fills, or revise the QS-max boundary down to spend less). Tier-D leftovers from handoff #13: M1 CSP, M3 Zod, M5 secrets-rotation doc, M7/L3 legal-doc edits (don't push without attorney sign-off), L5 verified_at HMAC, I2/I3/I4 informational. Tier-B #9 (USA residential proxy) still skipped pending explicit user authorisation for paid subscription. See §34.
 
@@ -49,11 +49,15 @@ cd /Users/piyushkumar/Playground/eduvian
 git log --oneline -10
 git status --short
 
-# 2. What's running in the background? (no tier chain currently expected)
-ps aux | grep -E "verify-program|verify-batch|websearch-seed|seed-crawler|re-verify" | grep -v grep
+# 2. What's running in the background? (no tier chain currently expected;
+#    also check estimate-fees / estimate-durations which #19 used heavily)
+ps aux | grep -E "verify-program|verify-batch|websearch-seed|seed-crawler|re-verify|estimate-fees|estimate-durations" | grep -v grep
 
-# 3. Database scale check (expected as of handoff #18:
-#    9,298 programs, 9,298 verified, 12 countries, 21 streams)
+# 3. Database scale check (expected as of handoff #19:
+#    9,298 programs / 9,298 verified / 12 countries / 21 streams.
+#    Tuition coverage: 3,245 verified + 3,903 estimated = 76.9% of 9,298.
+#    Duration coverage: 99.3% (66 nulls left).
+#    Living-cost coverage: 64% city-level via src/data/city-living-costs.ts.)
 python3 -c "
 import re
 from collections import Counter
@@ -62,7 +66,16 @@ n = len(re.findall(r'program_name:', t))
 v = len(re.findall(r'verified_at:', t))
 c = Counter(re.findall(r'country:\s*\"([^\"]+)\"', t))
 streams = Counter(re.findall(r'field_of_study:\s*\"([^\"]+)\"', t))
+est = len(re.findall(r'tuition_fee_source:\s*\"estimated\"', t))
+null_tu = len(re.findall(r'annual_tuition_usd:\s*null', t))
+null_dur = len(re.findall(r'duration_months:\s*null', t))
+heur_dur = len(re.findall(r'duration_source:\s*\"heuristic\"', t))
+extr_dur = len(re.findall(r'duration_source:\s*\"extracted\"', t))
+city_liv = len(re.findall(r'living_cost_source:\s*\"city\"', t))
 print(f'Programs: {n}, verified: {v}, countries: {len(c)}, streams: {len(streams)}')
+print(f'Tuition: estimated={est}, still-null={null_tu}, coverage={100*(n-null_tu)/n:.1f}%')
+print(f'Duration: null={null_dur}, heuristic={heur_dur}, extracted={extr_dur}, coverage={100*(n-null_dur)/n:.1f}%')
+print(f'Living: city={city_liv} ({100*city_liv/n:.1f}%), country_avg={n-city_liv}')
 print('Per-country:', dict(c.most_common()))"
 
 # 3b. Universities sidecar check (expected: 419 entries —
@@ -75,6 +88,10 @@ n = len(re.findall(r'name:\s*\"', t))
 c = Counter(re.findall(r'country:\s*\"([^\"]+)\"', t))
 print(f'Universities: {n}')
 print('Per-country:', dict(c.most_common()))"
+
+# 3c. City-living-costs dataset (expected: 165 cities across 12 countries
+#     covering ~64% of programs — public-source-cited, commercial-safe)
+grep -c 'annual_usd:' src/data/city-living-costs.ts
 
 # 4. Verify the live deploy matches the latest commit
 git log --oneline -1
@@ -3416,3 +3433,241 @@ All other 33 commits in handoff #18 were $0 (code + UI + data-cleanup only).
 - Universities sidecar: **419** (218 USA + 121 UK + 70 CA + 10 SG)
 - `field_aliases` non-null: **10** (was 417 before strip; 407 cleared)
 - Stream distribution top 5: Computer Science & IT 711 / Economics & Finance 638 / Engineering 626 / Business & Management 622 / Natural Sciences 567
+
+---
+
+## §39 Handoff #19 session log (17-18 May 2026, 20 commits, ~$110 API spend)
+
+Subsections track the major workstreams chronologically. This entire section supersedes §38 specifically on ROI calculator math, duration data, living-cost data, tuition coverage, and the QS rank UX. Other parts of §38 remain accurate.
+
+### 39.1 Legal-docs review (input only — no code)
+
+User attached three attorney-vetted Word documents (`~/Desktop/eduvian-legal-docs/Final_*.docx`) — Terms of Use, Privacy Policy, Disclaimer. Reviewed in full and identified **18 functional gaps** to make the platform comply with what the docs commit us to. None implemented this session — awaiting user prioritisation.
+
+P0 (blocking publication):
+1. Age gate + verifiable parental consent for under-18 users (Privacy §2.4 + Terms §2/§4)
+2. Right-to-access endpoint — `/account/data` page + `GET /api/account/export` JSON dump
+3. Right-to-erasure — delete-my-account flow + 30-day grace + hard delete
+4. Automated 24-month retention job (Vercel cron / external scheduler)
+5. Terms + Privacy acceptance checkbox + timestamped log on register
+6. Named Grievance Officer + entity branding (footer + /privacy + /terms) — needs lawyer for entity name / CIN / address / GO individual
+7. Active mailbox routing: `grievance@`, `privacy@`, `legal@`, `support@`, `security@`
+
+P1 (within 2-4 wks): nomination right, policy-update banner, save User Content drafts, per-tool disclaimer wording audit, cookie notice, marketing opt-in.
+
+P2 (operational hygiene): breach runbook, sub-processor list page, DSAR SLA tracking, consent-withdrawal audit log.
+
+Issues IN THE DOCUMENTS themselves (raised with user for lawyer review):
+- No legal entity named (just "EduvianAI" throughout)
+- No registered postal address
+- Grievance Officer is "we have appointed" boilerplate, not a named individual (DPDPA §8(9) requires a named GO)
+- Vague verifiable-parental-consent mechanism
+- ₹5,000 liability cap may be unenforceable for free-tier users
+- Doc commits to "✓ Verified" / "⚠ Listing only" badges but our DB is 100% verified (Listing-only category doesn't exist in UI)
+- Disclaimer line in Privacy §10 "no third-party advertising cookies" needs verification we don't ship any
+- Typo in Terms §25 `EduvianAIEmail:`
+
+### 39.2 ROI calculator — full rewrite (high-impact UX + bug fixes)
+
+User-reported `Monthly Budget $3K` figure was confusing — what does it mean and how does it relate to yearly living cost? Investigation revealed two layered bugs.
+
+**Bug 1: `duration_months: null` poisoning ROI math.** 3,016 of 9,298 programs (32%) had `duration_months: null`. Program type declared it `number` (non-nullable) so TypeScript didn't catch the null. At runtime JS coerces `null / 12 = 0`, which cascades:
+- `total_tuition = $19,799 × 0 = 0`
+- `total_living = $14,000 × 0 = 0`
+- `total_investment = 0` → renders as "—"
+- `payback_years = 0 / $21,560 = 0` → "0 mo"
+- `net_10yr = salary × 10 − 0 = $1.078M` → "$1.1M" (looked like math worked)
+- `break-even = 0 / 0.2 × 5 = 0` → "—/yr · Infinity above break-even"
+
+Fix:
+- Program.duration_months: number → number | null (TS now enforces null checks)
+- New `defaultDurationMonths(degree_level)` helper in roi-calculator.ts (Bachelor 36mo, Master 18mo, Diploma 12mo, PhD 48mo)
+- New editable duration row in InlineProgramROI — when program data is null, pre-fills with degree-level default + amber "Estimated default" pill; user can override
+- canCalculate gate in InlineProgramROI now requires effectiveDuration > 0
+
+**Bug 2: `monthly_budget_usd` formula misleading.** Was `(annual_tuition + annual_living) / 12`. With $19,799 tuition + $14,000 living = $33,799/yr → $2,817/mo. Labelled "Monthly Budget while studying" — implies real monthly cash for daily life, but the math amortizes tuition (which is paid annually / per-term, not monthly).
+
+Fix:
+- Formula changed: `monthly_budget_usd = avg_living_cost_usd / 12`
+- Label renamed: "Monthly Budget" → "Monthly Living Cost", sub "rent + food + transport"
+- Updated everywhere: InlineProgramROI metric, standalone ROICalculator metric, PDF export label
+- Field name `monthly_budget_usd` preserved for back-compat with PDF + email types
+
+Plus broader UX rewrite of the ROI surface:
+- **Always-editable tuition + living + duration rows** on both InlineProgramROI and standalone /roi-calculator (was: read-only when populated, editable only when missing). Users can now override any populated value.
+- **Provenance subtitle on every row**: "From the official program page · adjust if you know better" / "Estimated from a secondary source" / "City-level estimate from a published source" / "Country average — adjust to your city if you have a better estimate" / "Heuristic estimate from program type" / "You entered this".
+- **EditableMoneyRow component** in InlineProgramROI (dark theme; supports verified / country-avg / user / vacant emphasis modes).
+
+### 39.3 Heuristic duration backfill — zero spend, 95% coverage
+
+New script: [scripts/data-fixes/backfill-durations.py](../scripts/data-fixes/backfill-durations.py).
+
+Strategy:
+1. Base default per (country, degree_level): US Master 24mo, UK Master 12mo, Bachelor 36mo (UK/AU) or 48mo (US/CA), Diploma 12mo, PG Diploma 9mo, etc.
+2. Name-based overrides applied on top: PhD → 48mo (60mo USA), MPhil → 12mo (11mo Cambridge, 21mo Oxford), MBA → 24mo (USA) / 18mo (rest), Foundation → 12mo, Master of Architecture (USA) → 30mo, Dutch Research Master → 24mo, Singapore BEng → 48mo.
+3. Heuristic-filled entries tagged `duration_source: "heuristic"`.
+
+Result: **2,868 of 3,016 nulls resolved** (95%). The 148 residual were all entries missing `degree_level` entirely so the rule table couldn't fire.
+
+### 39.4 LLM duration extraction (A1 stage) — $10 spend
+
+New script: [scripts/verify/estimate-durations.ts](../scripts/verify/estimate-durations.ts). Sonnet + web_search, focused prompt to extract `duration_months` from the program_url directly.
+
+Result on the 148 residual: 82 written (55%) — 58 high-confidence + 24 medium. 26 low/skip + 40 errors = 66 unresolved. The 66 residual were overwhelmingly landing / department pages ("Graduate Resources", "Department of Economics", "School of Nursing") rather than specific programs.
+
+**Final duration coverage: 9,232 of 9,298 (99.3%).** Up from 67.6% pre-session.
+
+Type extension: `duration_source?: "heuristic" | "extracted"`. UI on InlineProgramROI distinguishes three buckets (extracted from program page = subtle slate, heuristic = amber "Heuristic est." pill, vacant = degree-level fallback + amber "Estimated default" pill).
+
+### 39.5 City-level living costs (Wave B) — zero spend, 64% coverage
+
+User-flagged that the country-mean living-cost values made ROI for London ≡ Sheffield ≡ Cambridge (all $17,200 = UK mean). Wave B fixed this with a curated city-level dataset.
+
+**Numbeo NOT used** — its non-commercial-only license forbids commercial derivative use, and EduvianAI may go commercial soon. User flagged this concern. Pivoted to a **mosaic of public gov / immigration / university sources**:
+- US BEA Regional Price Parities × $14k baseline (national mean)
+- UK universities' published "Cost of Living" pages, cross-checked vs UKVI Tier 4 minimum (£1,334/mo London, £1,023/mo outside)
+- DAAD per-city CoL for Germany
+- Campus France regional CoL for France
+- Canadian IRCC + UofT / UBC / McGill / etc. student budgets
+- AU DOHA Genuine Temporary Entrant requirement + Go8 published figures
+- Nuffic for Netherlands, Irish INIS + UCD for Ireland, Immigration NZ + uni figures for NZ
+- ICA / MOE for Singapore, UAE uni-published figures, EMGS for Malaysia
+
+New dataset: [src/data/city-living-costs.ts](../src/data/city-living-costs.ts) — **165 curated cities** with `{ annual_usd, source }`. Each entry cites its specific public source for audit defensibility.
+
+Merge pipeline: [scripts/data-fixes/wave-b-living-costs/apply-city-costs.py](../scripts/data-fixes/wave-b-living-costs/apply-city-costs.py). Walks programs.ts via brace-depth, looks up (country, city) in the dataset, rewrites `avg_living_cost_usd` and tags `living_cost_source: "city"` where matched; tags `"country_avg"` where no city match.
+
+Result: **5,947 of 9,298 (64.0%) carry city-level data; 3,351 (36.0%) tagged country_avg fallback.** UI distinguishes these via provenance label.
+
+Concrete examples:
+- London: $17,200 (UK mean) → **$28,000**
+- NYC: $14,000 (US mean) → **$32,000**
+- Cambridge MA (Harvard): $14,000 → **$26,000**
+- Sheffield: stays $13,500 (genuine UK figure)
+- Berlin: $12,100 → **$13,500**; Munich: $12,100 → **$17,000**
+- Singapore: $15,000 → **$18,000**; Dubai: $18,000 → **$22,000**
+
+### 39.6 Implausibly-low living-cost cleanup
+
+[scripts/data-fixes/normalize-living-costs.py](../scripts/data-fixes/normalize-living-costs.py). Detection rule: value is an extraction error if it's below $3,000/yr absolute OR below 25% of the country median. Catches obvious outliers (UNSW $650 = 3% of Australia's $19,300 median) without false-flagging legitimately-low cities (Curtin Malaysia $4,200 = 84% of Malaysia's $5,000 median).
+
+Result: 2 entries fixed (UNSW Sydney $650 → $19,300). Other 105 sub-$5k values left alone — all in Malaysia / China / India contexts where they're genuinely correct.
+
+### 39.7 Wave A — tuition backfill scoped to US/UK/CA/AU/DE (~$100 spend)
+
+User-authorized estimate-fees.ts run. Multi-session campaign with credit-balance interruptions; final state:
+
+| Country | Verified | New Estimated (this campaign) | Total Estimated | Null | Coverage |
+|---|---|---|---|---|---|
+| 🇺🇸 USA | 642 | ~895 | 2,395 | 374 | 89.0% |
+| 🇬🇧 UK | 1,391 | ~165 | 503 | 351 | 84.4% |
+| 🇦🇺 AU | 267 | 67 | 196 | 188 | 71.1% |
+| 🇨🇦 CA | 243 | 67 | 321 | 288 | 66.2% |
+| 🇩🇪 DE | 150 | ~30 | 143 | 460 | 38.9% (low by design — DE public unis free) |
+
+**Process notes:**
+- Race condition discovered: estimate-fees.ts whole-file writes overwrote parallel runs. Two parallel jobs writing to programs.ts → newer flushes clobber older. Solved by running serially (USA → UK → Germany → USA-rerun via wait-wrapper) after initial parallel run lost some data.
+- Credit balance hit zero mid-run twice. Anthropic uses prepaid credits, not invoicing. User added credits + later enabled auto-reload.
+- USA rerun (`--limit 300`) on the script's low-confidence skips + credit-zero error entries: 202 written (67% success). Tighter scope than the full ~760 candidate set → ~$15 spend instead of ~$40.
+- Germany stopped at 91% (420/463) per user request — diminishing returns; high low-confidence skip rate because most German programs charge no tuition.
+
+DB-wide tuition coverage: **3,245 verified + 3,903 estimated = 7,148 of 9,298 (76.9%)**. Up from ~67% pre-session.
+
+### 39.8 QS rank — subject-rank-first UX
+
+User direction: subject-specific QS rank is more relevant per program; overall QS World University Rank should be shown with a label when it's the fallback.
+
+Implementation:
+- Reverted [`071e6da8`](https://github.com/Piyush190672/eduvian/commit/071e6da8) (the prior "normalize to majority" fix that had unified Cambridge to QS #6).
+- New per-uni `minRankByUni` lookup on /results page (useMemo over allPrograms).
+- ProgramCard receives `qsRankKind: "subject" | "overall" | undefined` prop:
+  - `kind="subject"` (program's rank == per-uni min): pill renders bare `QS #N`
+  - `kind="overall"` (rank > per-uni min): pill renders `QS #N · overall` with tooltip explaining
+  - `kind=undefined` (single rank, can't tell): bare `QS #N`
+- Verifier prompt at [verify-program.ts](../scripts/verify/verify-program.ts) tightened to require subject-rank-first extraction in future passes.
+
+Heuristic caveat: the "(overall)" tag is derived from per-uni rank distribution, not from a stored kind field. Works for the 113 unis with rank inconsistency in DB; the ~520 single-rank unis carry no tag.
+
+### 39.9 LinkedIn source claim removal
+
+User audit found `"LinkedIn Salary Insights"` cited as a data source in 4 places: live homepage Stage-4 ROI card "trust" line, archived v2 page, roi-calculator.ts docstring, roi-data.ts UNIVERSITY_SALARY_OVERRIDES source comment.
+
+Risk: no LinkedIn partnership → potential C&D under LinkedIn UA §8.2 + ASCI deceptive-advertising + Lanham Act false-endorsement.
+
+Replaced with: `"aggregated public-sector labour statistics"` + retained the legit sources (HESA LEO, Russell Group Graduate Outcomes, OECD Education at a Glance, QS Top Universities Salary Reports).
+
+Other LinkedIn references audited + permissible (CV-builder URL field, Ireland CountryModal naming LinkedIn as a Dublin-based employer).
+
+### 39.10 /results Rules-of-Hooks crash + hot-fix
+
+Yesterday's [`9c9ec55d`](https://github.com/Piyush190672/eduvian/commit/9c9ec55d) (subject-rank UI) added a `useMemo` for `minRankByUni` AFTER the loading/error early-returns in `/app/results/[token]/page.tsx`. React tracks hook call order: on first render (loading=true), the component returned early before the useMemo; on next render (data loaded), the useMemo appeared mid-tree → React throws "Rendered more hooks than during the previous render" → Next.js surfaces "Application error: a client-side exception".
+
+Hot-fix [`b1862b57`](https://github.com/Piyush190672/eduvian/commit/b1862b57): hoisted the useMemo above both early returns; reads `data?.programs ?? []` safely.
+
+### 39.11 Profile-form upgrades (this campaign)
+
+- **Citizenship dropdown + auto-aligned phone dial code** ([src/lib/countries.ts](../src/lib/countries.ts) new — full ISO country list with India first, rest alphabetical, helpers `splitPhone` / `joinPhone`). Citizenship change auto-realigns the dial code; user can override.
+- **Degree dropdown** in StepAcademic — UG: 7 boards (CBSE/ICSE/State Board/IB/IGCSE A-Level/American HS/GED). PG: 21 Indian bachelor's + master's. "Other (specify)" reveals free-text input.
+- **Annual Family Income re-banded** to 4 ranges (<12 / 12-24 / 25-49 / 50+ Lakh) with profile-rating points 0/1/2/3. Legacy 5L/10L/20L/40L keys kept in the union so old encrypted submissions decrypt.
+- **Step 5 Review** (new): [StepReview.tsx](../src/components/form/StepReview.tsx) shows profile rating preview + sectioned recap of all submitted fields. Step-4 CTA "Get my shortlist" → "Continue to Review". Step-5 nav row: `[← Modify the information above] [Continue to generate shortlist →]`. Modify jumps to step 1.
+- **Profile completion %** ("PROFILE COMPLETION  N% (F/T fields)") in the stepper header. Mirrors validateStep branches across UG/PG/MBA/English-test.
+- **Multi-pick intended field of study** — `intended_field_extra?: string[]` (up to 2 extras) on StudentProfile, unioned with primary in `allowedFields` during matching.
+
+### 39.12 Results page features (this campaign)
+
+- **Next Best 20** ([page.tsx](../src/app/results/[token]/page.tsx)) — matcher gains optional `pages=2` param, returns up to 40 in same per-tier ratio. /results renders Top 20 as one block, "Show Next Best N Matches" button reveals a banner-led Next 20 block below with its own 3 tier sub-sections. Smooth-scrolls to banner on open.
+- **Application-Strength dropdowns from shortlist** — new `GET /api/my-shortlist` returns user's most-recent submission's bookmarked programs. Both App Check and CV Assess forms now offer "Pick from my shortlist" mode (coupled university + course selects with auto-fill).
+- **Interview-prep silence threshold 3s → 8s** ([interview-prep/page.tsx:1818](../src/app/interview-prep/page.tsx)) — 3s clipped users mid-thought.
+- **Budget label reinforcement** — "Annual Budget — Tuition + Living Costs (combined)" + amber ⚠️ callout with worked example ($30k tuition + $15k living → pick $35k-$50k bracket).
+
+### 39.13 Star ladder bug fix on Step-5 Review
+
+User-reported: "VERY STRONG Profile" showed only 2 stars instead of 4. Bug was inverted formula `5 - ladderIdx` (where CATEGORY_LADDER is ordered worst→best). Fixed to `ladderIdx + 1` — aligns with the working ProfileCard pattern at [ProfileCard.tsx:177](../src/components/results/ProfileCard.tsx).
+
+| Category | Stars |
+|---|---|
+| Weak Profile | 1 ★ |
+| AVERAGE Profile | 2 ★ |
+| STRONG Profile | 3 ★ |
+| VERY STRONG Profile | 4 ★ |
+| SUPER STRONG Profile | 5 ★ |
+
+### 39.14 Market Intelligence proposal (planning only — no code)
+
+User asked about integrating real-time market demand signals (LTI / job market / employer / career outlook) into per-program views. Evaluated and proposed P0+P1+P2:
+
+**P0** (~25 hrs, $0): BLS (US) + UK Discover Uni + WEF report parser → field-level Market Intelligence card on /results for USA + UK.
+
+**P1** (~20 hrs, $0 if quarterly refresh; $99/mo if weekly): Adzuna integration (free tier 5K req/month) for live job counts + top employers + trending titles. Covers 9 of 12 destination countries (US/UK/AU/CA/DE/FR/NL/SG/NZ); IE/UAE/MY get gov-data-only.
+
+**P2** (~35 hrs, $0): AU QILT + CA Job Bank + DE Bundesagentur → enrich to parity. Per-program career-outcomes row in ProgramCard.
+
+**Approved in principle but NOT started.** Two hard rules user agreed to:
+1. NEVER claim "LinkedIn" as source (no partnership). Label as "Aggregated job-market data" sourced from "Adzuna + BLS + ONS + DAAD + ..." with each shown figure carrying its source caption.
+2. Numbeo is NOT used (non-commercial license). All market-intelligence data must come from open gov / public sources with attribution clear.
+
+### 39.15 DB shape end-of-handoff-#19
+
+- Programs: **9,298 / 9,298 verified / 12 countries / 21 streams** (unchanged from #18)
+- Universities sidecar: **419** (unchanged from #18)
+- **Tuition coverage: 76.9% (3,245 verified + 3,903 estimated; 2,150 null)** — up from ~67%
+- **Duration coverage: 99.3% (66 nulls)** — up from 67.6%
+- **Living-cost source: 64% city-level (5,947 programs across 165 cities) + 36% country-mean (3,351)** — was 0% city-level
+- **Implausibly-low cleanup**: 2 entries fixed (UNSW $650 → $19,300)
+- New scripts: `backfill-durations.py`, `normalize-living-costs.py`, `wave-b-living-costs/apply-city-costs.py`, `wave-b-living-costs/cities-inventory.csv`, `verify/estimate-durations.ts`
+- New data: `src/data/city-living-costs.ts` (165 curated cities, public-source-cited)
+- New types: `Program.living_cost_source`, `Program.duration_source`, `Program.duration_months: number | null` (nullable now)
+- Removed: all 4 "LinkedIn Salary Insights" source-attribution claims
+
+### 39.16 Handoff #19 spend tally
+
+| Phase | Spend |
+|---|---|
+| Duration A1 LLM extraction (82 of 148 residual) | ~$10 |
+| Wave A scoped tuition backfill (US/UK/CA/AU/DE) | ~$100 |
+| **Total** | **~$110** |
+
+Verifiable at [console.anthropic.com/settings/usage](https://console.anthropic.com/settings/usage) for the last 24-48h.
+
+All other 9 commits this session were $0 (UI fixes + data curation + heuristic backfills + script work).
+
