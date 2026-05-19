@@ -6,6 +6,34 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, Send, Loader2, CheckCircle2 } from "lucide-react";
 import type { ScoredProgram } from "@/lib/types";
 
+/**
+ * Minimal inline rich-text renderer for AISA replies. The chat bubble
+ * has no full markdown parser — we only recognise two emphasis tokens:
+ *   __underline__  → <u>...</u>     (preferred — key term highlight)
+ *   **bold**       → <strong>...</strong>  (fallback if the model insists)
+ * Everything else (newlines, em-dash bullets, numbered lists) is plain
+ * text inside whitespace-pre-wrap. Splitting is done in a single pass
+ * across the two patterns so we don't double-wrap.
+ */
+function renderRich(text: string): React.ReactNode[] {
+  const out: React.ReactNode[] = [];
+  const re = /__([^_\n]+?)__|\*\*([^*\n]+?)\*\*/g;
+  let last = 0;
+  let m: RegExpExecArray | null;
+  let i = 0;
+  while ((m = re.exec(text)) !== null) {
+    if (m.index > last) out.push(text.slice(last, m.index));
+    if (m[1] !== undefined) {
+      out.push(<u key={`u${i++}`} className="underline decoration-2 underline-offset-2 decoration-indigo-400">{m[1]}</u>);
+    } else if (m[2] !== undefined) {
+      out.push(<strong key={`b${i++}`}>{m[2]}</strong>);
+    }
+    last = m.index + m[0].length;
+  }
+  if (last < text.length) out.push(text.slice(last));
+  return out;
+}
+
 // Routes where the verbose "Stuck? Ask AISA" pill competes with action
 // bars (compare strip, ROI panel, etc.). On these routes we collapse the
 // trigger to an icon-only 48px circle, with an idle-pulse animation
@@ -386,7 +414,7 @@ export default function ChatWidget({ programs, studentName = "there" }: ChatWidg
                         ? "bg-indigo-500 text-white rounded-tr-sm"
                         : "bg-white text-gray-800 rounded-tl-sm shadow-sm border border-gray-100"
                     }`}>
-                      {m.content}
+                      {m.role === "assistant" ? renderRich(m.content) : m.content}
                     </div>
                     {/* Inline contact form — shown when AISA can't answer */}
                     {m.needsContact && (
