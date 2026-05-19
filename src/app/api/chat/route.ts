@@ -388,17 +388,23 @@ YOUR PERSONALITY & TONE RULES:
 4. Match the energy of the question — if they're asking something quick, answer quickly. If they need detail, give it.
 5. Use the student's first name if you know it from the conversation.
 6. NEVER start your response with "I", "Sure", "Of course", "Great", "Certainly", "Absolutely" or similar filler openers. Get straight to the point.
-7. NEVER use markdown asterisks. The chat UI renders messages as plain text, so **asterisks** show up as literal junk characters — never type **, *, _ or any other markdown emphasis. For structure, use one of these instead:
-   - Numbered lists when steps or ranked items are involved:
+7. The chat UI renders REPLIES AS PLAIN TEXT. There is no markdown parser. Any markdown character you emit ships to the user as a literal junk character and ruins the premium feel of the product. Hard bans:
+   - DO NOT use the asterisk character * for ANY reason. Not for bold (**foo**), not for italics (*foo*), not for bullets (* foo), not for emphasis, not for footnotes. Zero asterisks per reply.
+   - DO NOT use underscores _ for emphasis.
+   - DO NOT use backticks (the grave accent character) for code or quotation.
+   - DO NOT use markdown headings (# ## ###).
+   For structure, choose the lightest option that fits:
+   - One short paragraph when one is enough.
+   - Two or three short paragraphs separated by a blank line for multi-point replies.
+   - Numbered lists for ranked or stepped items:
        1. First point.
        2. Second point.
        3. Third point.
-   - Dashes for unordered groupings of 3+ items:
+   - Em-dash bullets for unordered groupings of 3 or more peer items:
        — Option A
        — Option B
        — Option C
-   - Plain prose for everything else. Short paragraphs separated by a blank line are perfectly fine.
-   Headers, key terms, names, and numbers all go in plain text. Emphasis is conveyed by sentence construction and word order, not by symbols. If you catch yourself wanting to bold something, ask whether that idea deserves its own short sentence instead.
+   Headers, key terms, names, and numbers all go in plain prose. Emphasis is conveyed by sentence construction and word order, never by symbols. Self-check before sending: count the * characters in your draft. If the count is greater than zero, rewrite the reply.
 
 KNOWLEDGE RULES:
 1. Only answer using the platform data above. Do not invent statistics, acceptance rates, rankings, or program details not in the data.
@@ -539,13 +545,17 @@ export async function POST(req: NextRequest) {
 
     const rawText = response.content[0].type === "text" ? response.content[0].text : "";
     // Safety net: ChatWidget renders plain text (no markdown parser), so any
-    // stray emphasis markers the model still emits show up as literal **junk**
-    // to the user. Strip bold pairs (**x** → x) and lone leading/trailing
-    // single asterisks (*x*, *x, x*) without touching valid math / glob
-    // characters mid-word.
+    // markdown the model emits is literal junk to the user — including
+    // emphasis pairs (**bold**, *italic*) AND bullet markers (* item).
+    // Three-step strip:
+    //   1. Drop **bold** pairs across lines.
+    //   2. Convert line-leading bullet markers (* / - / +) to em-dash bullets.
+    //   3. Remove every remaining stray * — the study-abroad chat domain has
+    //      no legitimate use for an asterisk character.
     const text = rawText
-      .replace(/\*\*(.+?)\*\*/g, "$1")
-      .replace(/(^|[\s(])\*(?!\s)([^*\n]+?)\*(?=[\s.,;:!?)]|$)/g, "$1$2");
+      .replace(/\*\*([\s\S]+?)\*\*/g, "$1")
+      .replace(/^[ \t]*[*+\-][ \t]+/gm, "— ")
+      .replace(/\*/g, "");
     if (user) await logToolUsage(user.email, "chat", getClientIp(req.headers));
     return NextResponse.json({ message: text });
   } catch (err: unknown) {
