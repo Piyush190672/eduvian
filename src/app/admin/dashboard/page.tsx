@@ -100,12 +100,12 @@ function AdminShell({ children }: { children: React.ReactNode }) {
 
 const COLORS = ["#6366f1", "#8b5cf6", "#ec4899", "#f59e0b", "#10b981", "#3b82f6", "#ef4444"];
 
-const RATING_CONFIG: Record<string, { emoji: string; bg: string; text: string }> = {
-  "SUPER STRONG Profile": { emoji: "🔥", bg: "bg-rose-100",    text: "text-rose-700"    },
-  "VERY STRONG Profile":  { emoji: "⭐", bg: "bg-orange-100",  text: "text-orange-700"  },
-  "STRONG Profile":       { emoji: "💪", bg: "bg-emerald-100", text: "text-emerald-700" },
-  "AVERAGE Profile":      { emoji: "📊", bg: "bg-amber-100",   text: "text-amber-700"   },
-  "Weak Profile":         { emoji: "📈", bg: "bg-blue-100",    text: "text-blue-700"    },
+const RATING_CONFIG: Record<string, { emoji: string; bg: string; text: string; label: string }> = {
+  "SUPER STRONG Profile": { emoji: "🔥", bg: "bg-rose-100",    text: "text-rose-700",    label: "SUPER STRONG"     },
+  "VERY STRONG Profile":  { emoji: "⭐", bg: "bg-orange-100",  text: "text-orange-700",  label: "VERY STRONG"      },
+  "STRONG Profile":       { emoji: "💪", bg: "bg-emerald-100", text: "text-emerald-700", label: "STRONG"           },
+  "AVERAGE Profile":      { emoji: "📊", bg: "bg-amber-100",   text: "text-amber-700",   label: "Some way to go"   },
+  "Weak Profile":         { emoji: "📈", bg: "bg-blue-100",    text: "text-blue-700",    label: "Needs Improvement" },
 };
 
 // ── Page ───────────────────────────────────────────────────────────────────
@@ -406,7 +406,7 @@ export default function DashboardPage() {
                         <div className="font-semibold text-gray-900 truncate max-w-[140px]">{lead.name}</div>
                         {rating && (
                           <span className={`inline-flex items-center gap-1 text-[10px] px-1.5 py-0.5 rounded-full font-semibold mt-0.5 ${rating.bg} ${rating.text}`}>
-                            {rating.emoji} {lead.profile_category}
+                            {rating.emoji} {rating.label}
                           </span>
                         )}
                       </td>

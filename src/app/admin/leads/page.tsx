@@ -69,8 +69,8 @@ const RATING_CONFIG: Record<string, { emoji: string; label: string; bg: string; 
   "SUPER STRONG Profile": { emoji: "🔥", label: "SUPER STRONG", bg: "bg-rose-100",    text: "text-rose-700"    },
   "VERY STRONG Profile":  { emoji: "⭐", label: "VERY STRONG",  bg: "bg-orange-100",  text: "text-orange-700"  },
   "STRONG Profile":       { emoji: "💪", label: "STRONG",       bg: "bg-emerald-100", text: "text-emerald-700" },
-  "AVERAGE Profile":      { emoji: "📊", label: "AVERAGE",      bg: "bg-amber-100",   text: "text-amber-700"   },
-  "Weak Profile":         { emoji: "📈", label: "WEAK",         bg: "bg-blue-100",    text: "text-blue-700"    },
+  "AVERAGE Profile":      { emoji: "📊", label: "Some way to go",   bg: "bg-amber-100",   text: "text-amber-700"   },
+  "Weak Profile":         { emoji: "📈", label: "Needs Improvement", bg: "bg-blue-100",    text: "text-blue-700"    },
 };
 
 function ratingBadge(category: string | undefined) {

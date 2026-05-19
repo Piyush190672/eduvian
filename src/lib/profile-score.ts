@@ -297,8 +297,8 @@ export function getCategoryStyle(category: ProfileCategory): CategoryStyle {
         text: "text-amber-700",
         border: "border-amber-300",
         emoji: "📊",
-        description: "Average profile — targeted preparation can significantly improve your outcomes",
-        shortLabel: "Average",
+        description: "Some way to go — targeted preparation can significantly improve your outcomes",
+        shortLabel: "Some way to go",
       };
     case "Weak Profile":
       return {
@@ -306,8 +306,8 @@ export function getCategoryStyle(category: ProfileCategory): CategoryStyle {
         text: "text-blue-700",
         border: "border-blue-300",
         emoji: "📈",
-        description: "Weak profile — focused improvement on academics, tests, or budget alignment is needed to strengthen the application",
-        shortLabel: "Weak",
+        description: "Needs improvement — focused work on academics, tests, or budget alignment is needed to strengthen the application",
+        shortLabel: "Needs Improvement",
       };
   }
 }
@@ -388,5 +388,5 @@ export function categoryBadgeHtml(category: ProfileCategory): string {
   };
   const styles = getCategoryStyle(category);
   const c = colors[category];
-  return `<span style="display:inline-block;background:${c.bg};color:${c.color};padding:4px 14px;border-radius:20px;font-size:13px;font-weight:700;">${styles.emoji} ${category}</span>`;
+  return `<span style="display:inline-block;background:${c.bg};color:${c.color};padding:4px 14px;border-radius:20px;font-size:13px;font-weight:700;">${styles.emoji} ${styles.shortLabel}</span>`;
 }
