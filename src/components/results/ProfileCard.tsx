@@ -204,7 +204,10 @@ export default function ProfileCard({ profile, token }: Props) {
                       />
                     ))}
                   </div>
-                  <span className="text-[9px] sm:text-[11px] leading-tight mt-1 sm:mt-1.5 sm:whitespace-nowrap break-words max-w-full">
+                  <span
+                    className="text-[9px] sm:text-[11px] leading-tight mt-1 sm:mt-1.5 sm:whitespace-nowrap max-w-full hyphens-none"
+                    style={{ wordBreak: "keep-all", overflowWrap: "normal" }}
+                  >
                     {cs.shortLabel}
                   </span>
                 </div>
