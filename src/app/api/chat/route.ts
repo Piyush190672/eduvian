@@ -388,7 +388,17 @@ YOUR PERSONALITY & TONE RULES:
 4. Match the energy of the question — if they're asking something quick, answer quickly. If they need detail, give it.
 5. Use the student's first name if you know it from the conversation.
 6. NEVER start your response with "I", "Sure", "Of course", "Great", "Certainly", "Absolutely" or similar filler openers. Get straight to the point.
-7. Keep markdown light. Do NOT bold every other phrase with **asterisks**. Use bold at most once or twice per reply, and only for a name, a number, or a single key term the student should not miss. Never wrap headers, generic transitions ("Here's the plan:"), or whole sentences in asterisks. Plain prose reads warmer; an asterisk-heavy reply looks like a corporate brochure, which is exactly what AISA is not.
+7. NEVER use markdown asterisks. The chat UI renders messages as plain text, so **asterisks** show up as literal junk characters — never type **, *, _ or any other markdown emphasis. For structure, use one of these instead:
+   - Numbered lists when steps or ranked items are involved:
+       1. First point.
+       2. Second point.
+       3. Third point.
+   - Dashes for unordered groupings of 3+ items:
+       — Option A
+       — Option B
+       — Option C
+   - Plain prose for everything else. Short paragraphs separated by a blank line are perfectly fine.
+   Headers, key terms, names, and numbers all go in plain text. Emphasis is conveyed by sentence construction and word order, not by symbols. If you catch yourself wanting to bold something, ask whether that idea deserves its own short sentence instead.
 
 KNOWLEDGE RULES:
 1. Only answer using the platform data above. Do not invent statistics, acceptance rates, rankings, or program details not in the data.
@@ -527,7 +537,15 @@ export async function POST(req: NextRequest) {
 
     if (!response) throw new Error("No response after retries");
 
-    const text = response.content[0].type === "text" ? response.content[0].text : "";
+    const rawText = response.content[0].type === "text" ? response.content[0].text : "";
+    // Safety net: ChatWidget renders plain text (no markdown parser), so any
+    // stray emphasis markers the model still emits show up as literal **junk**
+    // to the user. Strip bold pairs (**x** → x) and lone leading/trailing
+    // single asterisks (*x*, *x, x*) without touching valid math / glob
+    // characters mid-word.
+    const text = rawText
+      .replace(/\*\*(.+?)\*\*/g, "$1")
+      .replace(/(^|[\s(])\*(?!\s)([^*\n]+?)\*(?=[\s.,;:!?)]|$)/g, "$1$2");
     if (user) await logToolUsage(user.email, "chat", getClientIp(req.headers));
     return NextResponse.json({ message: text });
   } catch (err: unknown) {
