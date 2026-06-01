@@ -255,7 +255,7 @@ export default function ChatWidget({ programs, studentName = "there" }: ChatWidg
       for (const e of events) document.removeEventListener(e, reset);
     };
   }, [open]);
-  const inputRef   = useRef<HTMLInputElement>(null);
+  const inputRef   = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
     if (open) setTimeout(() => inputRef.current?.focus(), 300);
@@ -275,6 +275,8 @@ export default function ChatWidget({ programs, studentName = "there" }: ChatWidg
     const nextMessages = [...messages, userMsg];
     setMessages(nextMessages);
     setInput("");
+    // Reset the auto-resized textarea to a single line on send.
+    if (inputRef.current) inputRef.current.style.height = "auto";
     setLoading(true);
 
     try {
@@ -402,7 +404,7 @@ export default function ChatWidget({ programs, studentName = "there" }: ChatWidg
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3 bg-gray-50/50">
+            <div className="flex-1 overflow-y-auto overscroll-contain px-4 py-4 space-y-3 bg-gray-50/50">
               {messages.map((m, i) => (
                 <div key={i} className={`flex gap-2 ${m.role === "user" ? "justify-end" : "justify-start"}`}>
                   {m.role === "assistant" && (
@@ -457,16 +459,31 @@ export default function ChatWidget({ programs, studentName = "there" }: ChatWidg
 
             {/* Input */}
             <div className="flex-shrink-0 px-4 py-3 bg-white border-t border-gray-100">
-              <div className="flex items-center gap-2 bg-gray-50 rounded-2xl border border-gray-200 px-4 py-2.5 focus-within:border-indigo-300 focus-within:ring-2 focus-within:ring-indigo-100 transition-all">
-                <input ref={inputRef} value={input}
-                  onChange={(e) => setInput(e.target.value)}
+              <div className="flex items-end gap-2 bg-gray-50 rounded-2xl border border-gray-200 px-4 py-2 focus-within:border-indigo-300 focus-within:ring-2 focus-within:ring-indigo-100 transition-all">
+                <textarea
+                  ref={inputRef}
+                  value={input}
+                  onChange={(e) => {
+                    setInput(e.target.value);
+                    // Auto-resize up to 5 lines (~120px). Beyond that, scroll
+                    // inside the textarea — keeps the chat input compact.
+                    const el = e.target;
+                    el.style.height = "auto";
+                    el.style.height = Math.min(el.scrollHeight, 120) + "px";
+                  }}
                   onKeyDown={handleKey}
-                  placeholder="Ask AISA anything about studying abroad…"
-                  className="flex-1 bg-transparent text-sm text-gray-800 placeholder:text-gray-400 outline-none"
+                  placeholder="Ask AISA anything about studying abroad…  (Shift+Enter for newline)"
+                  rows={1}
+                  className="flex-1 bg-transparent text-sm text-gray-800 placeholder:text-gray-400 outline-none resize-none overflow-y-auto leading-snug py-1.5"
+                  style={{ maxHeight: 120 }}
                   disabled={loading}
                 />
-                <button onClick={() => send()} disabled={!input.trim() || loading}
-                  className="flex-shrink-0 w-8 h-8 rounded-xl bg-indigo-500 disabled:bg-gray-200 flex items-center justify-center transition-colors hover:bg-indigo-600">
+                <button
+                  onClick={() => send()}
+                  disabled={!input.trim() || loading}
+                  className="flex-shrink-0 w-8 h-8 rounded-xl bg-indigo-500 disabled:bg-gray-200 flex items-center justify-center transition-colors hover:bg-indigo-600 mb-1"
+                  aria-label="Send"
+                >
                   {loading
                     ? <Loader2 className="w-4 h-4 text-white animate-spin" />
                     : <Send className="w-3.5 h-3.5 text-white" />}
