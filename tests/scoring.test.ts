@@ -158,6 +158,51 @@ describe("dedup + quotas", () => {
   });
 });
 
+describe("within-tier ordering (locked 10 July 2026)", () => {
+  it("each tier's quota goes to the highest match scores, displayed in descending order", () => {
+    // 10 unranked bucket-4 programs at distinct universities with rising
+    // published minimums → falling academic surplus → falling match
+    // scores. Safe quota is 6: the six lowest-minimum (highest-scoring)
+    // programs must win the slots, in descending score order.
+    const programs = Array.from({ length: 10 }, (_, i) =>
+      mkProgram({ min_percentage: 50 + i * 2, university_name: `Distinct Uni ${i}` }),
+    );
+    const profile = mkProfile({ academic_score: 90 });
+    const results = recommendPrograms(profile, programs, 1);
+    const safe = results.filter((r) => r.tier === "safe");
+    expect(safe.length).toBeGreaterThan(0);
+    for (let i = 1; i < safe.length; i++) {
+      expect(safe[i - 1].match_score).toBeGreaterThanOrEqual(safe[i].match_score);
+    }
+    // Selection, not just ordering: every returned Safe program outscores
+    // every excluded Safe-tier candidate.
+    const allSafe = programs.map((p) => scoreProgram(profile, p)).filter((p) => p.tier === "safe");
+    const returnedIds = new Set(safe.map((p) => p.id));
+    const excluded = allSafe.filter((p) => !returnedIds.has(p.id));
+    if (excluded.length > 0) {
+      const returnedMin = Math.min(...safe.map((p) => p.match_score));
+      const excludedMax = Math.max(...excluded.map((p) => p.match_score));
+      expect(returnedMin).toBeGreaterThanOrEqual(excludedMax);
+    }
+  });
+
+  it("a QS-ranked program no longer takes a tier slot from higher-scoring unranked ones", () => {
+    // Pre-lock, the ranked-first sort put the QS-600 program at the head
+    // of the pool, so it claimed a Safe slot (and top display position)
+    // over six higher-scoring unranked programs. Now the lowest scorer
+    // is the one squeezed out of the 6-slot quota.
+    const unranked = Array.from({ length: 6 }, (_, i) =>
+      mkProgram({ min_percentage: 50, university_name: `Open Uni ${i}` }),
+    );
+    const ranked = mkProgram({ qs_ranking: 600, min_percentage: 62, university_name: "Ranked Uni" });
+    const profile = mkProfile({ academic_score: 90 });
+    const results = recommendPrograms(profile, [...unranked, ranked], 1);
+    const safe = results.filter((r) => r.tier === "safe");
+    expect(safe.length).toBe(6);
+    expect(safe.some((p) => p.university_name === "Ranked Uni")).toBe(false);
+  });
+});
+
 describe("field-prerequisite gate", () => {
   it("a commerce undergrad is not matched to STEM PG programs", () => {
     const profile = mkProfile({

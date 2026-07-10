@@ -863,31 +863,22 @@ export function recommendPrograms(profile: StudentProfile, programs: Program[], 
     return true;
   });
 
-  // Sort: ranked universities first (by QS rank ASC — lower = higher
-  // ranked), then unranked universities at the bottom (by match_score
-  // DESC as the only sensible tiebreak when no QS data exists).
-  //
-  // Earlier this was match_score-first / QS-second, but on the search-
-  // results page that surfaced unranked / regional universities ahead
-  // of higher-prestige programs whenever the unranked program happened
-  // to fit slightly better on cost / intake. Users found that
-  // counter-intuitive — a Harvard match should appear above an
-  // unranked university even if Harvard is a stretch on budget.
-  // Unranked programs are only included when there aren't enough
-  // ranked programs to fill the per-tier quota. (15 May 2026,
-  // user-requested.)
+  // Sort: match_score DESC, QS rank ASC as tiebreak (ranked beats
+  // unranked on equal scores). LOCKED user rule (10 July 2026): within
+  // each tier, the quota slots must go to the HIGHEST match scores and
+  // display in that order — if Safe shows 12 results, they are the 12
+  // highest-scoring Safe matches. This supersedes the 15 May 2026
+  // ranked-first sort (QS rank ahead of match score), which could give
+  // a tier slot to a lower-scoring program just because it carried a
+  // QS rank. The downstream per-uni / null-fee caps keep list order,
+  // so they keep the highest-scoring program per university.
   const scored = filtered
     .filter((p) => !isHardDisqualified(profile, p))
     .map((p) => scoreProgram(profile, p))
     .filter((p) => p.match_score >= 10)
     .sort((a, b) => {
-      const aHas = a.qs_ranking !== null && a.qs_ranking !== undefined;
-      const bHas = b.qs_ranking !== null && b.qs_ranking !== undefined;
-      if (aHas !== bHas) return aHas ? -1 : 1; // ranked first
-      if (aHas && bHas && a.qs_ranking !== b.qs_ranking) {
-        return (a.qs_ranking as number) - (b.qs_ranking as number);
-      }
-      return b.match_score - a.match_score; // tiebreak (or full sort within unranked)
+      if (a.match_score !== b.match_score) return b.match_score - a.match_score;
+      return (a.qs_ranking ?? Infinity) - (b.qs_ranking ?? Infinity);
     });
 
   // Within-tier per-university cap. Without this, a uni that publishes

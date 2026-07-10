@@ -311,7 +311,7 @@ Below-min guards: `< min-12 → 0`, `< min-5 → 20 - penalty`, `< min → 40 - 
 
 **Quota + variety**: shortlist split 30% safe / 50% reach / 20% ambitious (6/10/4 per 20-slot page; 12/20/8 across 40). **LOCKED user rule (10 July 2026): this proportion CANNOT be breached — every tier quota is a hard ceiling and NO tier absorbs another tier's unfilled slots** (the earlier safe/reach surplus-reallocation was removed). Per-uni caps inside tiers: ambitious=1, safe/reach=2 (prevents Cambridge's 8 MPhils from monopolising a tier). When a pool can't fill its quota, the response simply returns fewer programs — strict but honest; the UI reports exact counts.
 
-**Top-20 sort**: ranked-first (`qs_ranking != null`) → `qs_ranking` ASC → `match_score` DESC. Unranked programs only included when ranked ones can't fill the per-tier quota.
+**Within-tier selection + sort (LOCKED by user, 10 July 2026)**: `match_score` DESC, `qs_ranking` ASC as tiebreak. Each tier's quota slots go to the HIGHEST-scoring matches in that tier, displayed in descending score order. This superseded the 15 May ranked-first sort (QS rank ahead of match score) — a QS-ranked program no longer takes a tier slot from a higher-scoring unranked one. Guarded by vitest regression tests.
 
 **Field-of-study matching**: Primary `field_of_study` always honoured. `field_aliases` only counts when `program_name` matches the alias's keyword regex (per-field map `FIELD_NAME_PATTERNS` in scoring.ts) — prevents over-applied aliases from leaking unrelated programs. 407 bad aliases were stripped + 284 primary fields reclassified in the 15 May data pass.
 
