@@ -3759,3 +3759,64 @@ Required env (same names as the prod app):
 Usage: `npx tsx scripts/debug/diagnose-shortlist.ts <token>`
 
 Investigation history this session: token a623419b → 1-program funnel diagnosed (UK + Business Analytics + QS top_200 + 4-of-7 regions + Fall intake + $50k budget + 71% academic compound to 1 final program). Recommendations to user: widen QS / clear region / switch from "Others/BA" to the new "Business Analytics" first-class field once deployed.
+
+---
+
+## §40 Session log — 10 July 2026 (handoff #20 — Phase 1 + Phase 2 of the world-class-portal plan, ~34 commits, $0 API spend)
+
+Everything in this section is LIVE in production (last deploy `a5ae47e7`). Follows the comprehensive multi-agent site audit (build/architecture/design/features/security/algorithms vs Leap/IDP/Crimson/Athena/Coursera) run earlier the same day.
+
+### 40.1 Phase 1 — foundations (6 items)
+
+| Commit | What |
+|---|---|
+| `b0ad3db1` | **255 sparse holes in programs.ts repaired** (`},,` artifacts; root cause of prod 500 Sentry "reading program_url"). Data-invariant test now guards length exactly 9,298. **Stable content-hash program ids** — dual-seed FNV-1a `p_<16hex>` over country\|university\|program\|level\|url via [src/data/programs-indexed.ts](../src/data/programs-indexed.ts); legacy `prog_N` positional ids resolve through `resolveProgramId`. Ended shortlist corruption on data edits. |
+| `6e476011` | **Matcher rework**: explicit `tierCeiling` per prestige bucket replaces the arithmetic prestige penalty (elite-never-Safe is now a RULE, not an accident); penalty-free `scoreAcademic = clamp(58 + surplus×1.4)`; budget = hard filter only (weight 0, informational sub-score); scholarship removed from scoring (badge-only); weights PG academic .55 / std .10 / english .08 / backlogs .07 / intake·gap·work·research .05; UG academic .60, no work-exp. |
+| `5dd69fca` | **Vitest + GitHub Actions CI** (tsc, vitest, build). Data-invariant suite caught **Netherlands missing from TARGET_COUNTRIES** — 181 NL programs were unreachable by any user; fixed. |
+| `793fe687` | **10MB DB de-shipped from browsers**: generated stats literal (prebuild script → src/data/db-stats-generated.ts), slim `/api/programs` search endpoint, client hooks, server-side options lenses. Homepage first-load 923kB → 245kB (→196kB post-rebuild); all routes <300kB. Hidden import chain was roi-data.ts CURATED_UNIVERSITIES. |
+| `6bb2fe45` | **Security M3 + token hardening**: Zod at 4 API boundaries; `isSubmissionOwner` (session email_hash vs submission) — shared results links keep working but contact PII is masked for non-owners (k•••@yahoo.com); PATCH shortlist is owner-only; `/api/version` trimmed; `wrapUserInput` around programsContext in the chat prompt. |
+| `3cffb122` | **Trust-integrity sweep**: live last-verified label from data, homepage tier sample uses real 12/20/8 ratio, honest break-even ROI sample. |
+
+### 40.2 Phase 2 — conversion + reach (8 items)
+
+| Commit | What |
+|---|---|
+| `fdcd8549` | v2 reskin of /get-started, ProgramCard, AuthGate — navy #0E1119 + flat violet-600, gradient rainbows removed per locked brand rules. |
+| `287591e9` | A11y: prefers-reduced-motion + pause-on-hover/focus rotators, first-ever :focus-visible ring, 24px dot targets, ≥11px trust microcopy. |
+| `eb3208ff` | SEO plumbing: first sitemap.xml + robots.txt (token pages excluded), metadataBase + unique metadata on 16 public pages (was 2). |
+| `8ef2876e` | **Profile rating rework + improvement simulator**: three labelled pillars (Admissibility 70 / Financial 18 / Visa 12) with 0-100 sub-score bars; graded English (0-4) + std-test (0-3) bands; fixed Duolingo & ACT scoring 0; new `cgpa_10` score type wired through form/matcher/review/admin/PDF; income 10→5, backlogs 5→8, UG/PG weight parity; dropped `universities_researched` + `family_abroad` from the score; top-3 actionable levers with exact deltas ("Retake IELTS → +4 pts") + /english-test-lab deep link; emerald-forward ladder; honest readiness framing everywhere. |
+| `d6210c36` + `6acb54a8` | **Homepage rebuild**: 8 sections/1,417 lines → 6 sections/~530 lines, pure server component (client islands: ChatWidget, LogoutButton). Hero + proof strip + 3-step how-it-works + **journey-tools USP section** ("A shortlist is where the hard part begins" — Application Check, Interview Prep, English Test Lab, Visa Coach as pain-point cards; user flagged their omission as a me-too regression) + parents + closing CTA. Old page archived at _archive/page-pre-phase2-rebuild.tsx.bak. Old hero sample violated elite-never-Safe (Toronto QS 21 as "Safe") — rebuilt sample obeys tier ceilings. |
+| `f589633d` | **9,933 programmatic SEO pages**: /programs (+12 country hubs, statically generated) + 622 university hubs + 9,298 program pages (force-static on demand — deploy time stays flat), driven by [src/lib/program-slugs.ts](../src/lib/program-slugs.ts) (server-only, deterministic slugs, -2/-3 collision suffixes). Program pages: fact grid, fee + provenance pill, English cutoffs, deadline, official-page link, per-program last-verified date, Course JSON-LD, related programs, funnel CTA. Sitemap now 9,952 URLs. `server-only` package added. |
+| `950ddd20` | **Registration gate moved after the form**: all CTAs → ungated /profile; guests submit with a required Terms consent checkbox (timestamped acceptance + TERMS_VERSION ride on the encrypted blob; /api/submit refuses guest submissions without it); /api/results + /api/pdf serve a top-5 `teaserSlice` (2 safe/2 reach/1 ambitious) with locked_count/total/tier_counts while the email has no account — keyed on REGISTRATION not session ownership (submit hands guests an owner cookie); registering with the same email auto-unlocks; parent-share of claimed submissions unchanged; /get-started honours validated `?next=`; guest-trap in its localStorage redirect fixed (only records with an email count as signed in). |
+| `8a84f124` | Results UX: active-filter chips (one-tap removal), "screened from 9,298+ verified programs" funnel line, "Filters are hiding N of your M matches" transparency. |
+
+### 40.3 Locked user rules (added to CLAUDE.md the same day — ALWAYS follow)
+
+1. **Purpose split**: profile rating = application readiness (informs the student, never promises outcomes); Safe/Reach/Ambitious = **likelihood of an offer from that university**. All copy surfaces aligned (`11e9c8d9`) — including the AISA prompt, which was still describing the retired 22-point rating scale.
+2. **30/50/20 proportion CANNOT be breached** (`2a8d08e4`): surplus-reallocation removed; every tier quota is a hard ceiling; underfilled pools → fewer results. Regression-tested.
+3. **Within each tier, quota slots go to the HIGHEST match scores**, displayed descending (`dbe38492`); QS rank is only a tiebreak. Supersedes the 15 May ranked-first sort.
+4. **Mobile verification for every UI change** (≈375px: alignment, overflow, ≥44px targets, no desktop-only labels). Immediately caught the hero clipping 13px on mobile (grid min-width:auto vs truncated mockup rows — fixed with min-w-0, `c04a971b`) and the unlabelled AISA launcher (now an "Ask AISA" pill everywhere).
+
+### 40.4 Post-gate user-driven refinements
+
+- `3e06a6fb` — locked view states the TRUE match count ("12 matches… showing 5 free"); tier headers "(showing 5 of 12)"; **PDF and email are registration-only for guests** (403 register page / 403 JSON; also blocks the auto-email on guest submit).
+- `c765f09e` — per-tier locked counts exact ("+7 more Safe matches — register free to unlock"); genuinely-empty tiers no longer FALSELY claim locked matches; "Continue as Guest" card no longer labelled "Skip for now".
+- `afe878a7` — **Aspirational fill (user decision "Option A")**: when the budget hard-filter empties Reach/Ambitious, append ≤3 programs excluded ONLY by budget, flagged `above_budget` with an amber "Above your stated budget — scholarships/loans may bridge" banner (+ PDF tag). Additive, outside the 30/50/20 quota, never for above_70k, all other eligibility filters still apply. Investigation data: all 12 selective UK MBAs cost >$55k AND publish 2-10yr work-exp requirements — the reporting test profile is ineligible (no work exp), so its tiers stay honestly empty.
+- `a5ae47e7` — empty-tier explainer leads with the MBA work-experience requirement for MBA profiles with <2 years recorded.
+
+### 40.5 Verification & ops notes
+
+- Test suite: **84 tests** across scoring/prestige/profile-score/data-invariants/format-fee/security/empty-tier-reason. CI runs tsc + vitest + build.
+- Canonical smoke: scripts/smoke-threshold-cs-pg.ts → 6/10/4 exact, QS 1-25 Ambitious-only, scores descending within tiers.
+- Deploy loop used all session: push → background `until curl /api/version | grep <sha>` watcher → prod smoke via curl. Env quirk re-confirmed repeatedly: **`npx next build` while the dev server runs poisons `.next`** (dev then 404s/500s) — always stop the preview + `rm -rf .next` around builds.
+- diagnose-shortlist.ts + ad-hoc `NODE_OPTIONS=--conditions=react-server npx tsx` one-liners (server-only modules need the react-server condition outside Next).
+- Throwaway QA submission: `unregistered-zod-check@example.com`, token `4e8b0dd8-0f4b-40bc-837e-aee75727c484` — UNREGISTERED by design; now doubles as the canonical locked-view test. Delete from Supabase Studio when no longer needed.
+
+### 40.6 Known-open (carried forward)
+
+1. **URGENT: /terms + /privacy return 404 in production** while BOTH consent checkboxes (register + guest submit) link to them. Legal pages remain attorney-gated (hard rule #3) — publishing them is now the top P0.
+2. Legal P0 remainder: age gate + parental consent, data export, erasure, retention cron, GO/entity branding (blocked on lawyer), mailboxes.
+3. User QA owed: guest funnel walk-through on a real phone (form → rating → teaser → register → unlock), owner/shared checklists, live-mic interview tests, cross-device prefill.
+4. Phase 3 backlog: pricing/Razorpay (approval-gated), testimonials, outcomes loop, tracker→Supabase, AISA program retrieval, WhatsApp/referral.
+5. Handoff #19 Tier-B/C/D items unchanged (tuition pushes spend-gated; market intelligence paused; M1 CSP, M5, L5, I2-I4; sidecar UI surfacing; degree_level re-extract).
+6. Scholarship filter chip on /results — still blocked on per-program scholarship data.

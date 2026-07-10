@@ -4,9 +4,18 @@ This file is loaded automatically. The full project state, decisions, and ration
 
 ## What this is
 
-Next.js 14 (App Router) study-abroad platform deployed to Vercel at https://www.eduvianai.com. Postgres + RLS in Supabase Cloud (US, Pro plan). Anthropic Claude for AI features, Resend for transactional mail, Sentry for errors. 12 destination countries, **9,298 programs / 9,298 verified at the source (100.0%) / 29 streams (was 21 pre #19) / ~636 universities (419 in universities sidecar — 218 USA + 121 UK + 70 Canada + 10 Singapore) / 77% with international tuition fee (verified + estimated; up from 69% post handoff #19 Wave A) / 99.3% with duration / 64% with city-level living cost** as of 18 May 2026 (handoff #19, late). Beta-gated to 100 NEW unique users / month (returning users skip) under $20/mo Anthropic spend ceiling. Email OTP **and** password (scrypt) both gate register / login.
+Next.js 14 (App Router) study-abroad platform deployed to Vercel at https://www.eduvianai.com. Postgres + RLS in Supabase Cloud (US, Pro plan). Anthropic Claude for AI features, Resend for transactional mail, Sentry for errors. 12 destination countries, **9,298 programs / 9,298 verified at the source (100.0%) / 29 streams (was 21 pre #19) / ~636 universities (419 in universities sidecar — 218 USA + 121 UK + 70 Canada + 10 Singapore) / 77% with international tuition fee (verified + estimated; up from 69% post handoff #19 Wave A) / 99.3% with duration / 64% with city-level living cost** as of 10 July 2026 (handoff #20; data counts unchanged since #19). Beta-gated to 100 NEW unique users / month (returning users skip) under $20/mo Anthropic spend ceiling. Email OTP **and** password (scrypt) both gate register / login.
 
-**Handoff #19 (17-18 May, 28 commits + ~$110 API spend) — high-impact deltas the agent must know:**
+**Handoff #20 (10 July 2026, ~34 commits, $0 API spend) — READ §40 of STATE_SNAPSHOT.md. High-impact deltas:**
+- **Registration gate moved AFTER the form.** All CTAs route to the ungated /profile form; guests submit with a required Terms consent checkbox (timestamped acceptance rides on the encrypted blob; /api/submit rejects guest submissions without it). /api/results + /api/pdf serve a top-5 `teaserSlice` with `locked_count`/`total_matches`/`tier_counts` until the submitting email has a registered account (keyed on REGISTRATION, not session ownership — submit hands guests an owner cookie). PDF + email are 403 for guests. Registering with the same email auto-unlocks; parent-share of claimed submissions unchanged.
+- **9,933 programmatic SEO pages** at /programs/[country]/[university]/[program] via server-only src/lib/program-slugs.ts; sitemap.xml (9,952 URLs) + robots.txt + per-route metadata on all public pages.
+- **Homepage rebuilt** as a 6-section server component (hero · proof strip · how-it-works · journey-tools USP section · parents · CTA); old page archived at _archive/page-pre-phase2-rebuild.tsx.bak. NEVER reduce marketing surfaces to profile+matching — the journey tools (Application Check, Interview Prep, English Test Lab, Visa Coach) are the USP.
+- **Profile rating** is pillar-based (Admissibility 70 / Financial 18 / Visa 12, weighted 0-100) with graded test bands, `cgpa_10` score type, and a top-3 improvement-lever simulator. Duolingo/ACT scoring-0 bugs fixed. Readiness framing only.
+- **Matcher**: explicit tierCeiling (elite never Safe, by rule), penalty-free scoring, budget = hard filter only, scholarship badge-only, stable content-hash program ids, 255 data holes repaired, Netherlands restored to TARGET_COUNTRIES. Aspirational fill (Option A): ≤3 `above_budget`-flagged extras when budget empties Reach/Ambitious.
+- **10MB DB de-shipped from browsers** (all routes <300kB); Zod at API boundaries (M3 closed); results-token contact-PII masking for non-owners; vitest (84 tests) + GitHub Actions CI.
+- **Four locked user rules** added below (purpose split, 30/50/20 unbreachable, highest-score-first within tiers, mobile verification) — read them before touching matching, rating, or UI.
+
+**Handoff #19 (17-18 May, 28 commits + ~$110 API spend) — high-impact deltas (historical):**
 - **Taxonomy expansion: 21 → 29 first-class fields** (18 May late). Promoted **Business Analytics** (155 aliased programs) + **Marketing, FinTech, Education, International Relations, Public Policy & Administration, Film & Animation, Renewable Energy** (7 more, 143 aliased). Then **reclassified 296 programs to their specific primary field_of_study** so they no longer live under broader parents (Data Science / Business & Management / Social Sciences & Humanities / Arts and Design / Engineering / Environmental). User-specified policy: **no cross-listing across categories** — each program lives under its single most-specific primary. Picking "Business & Management" no longer surfaces Marketing programs; picking "Data Science" no longer surfaces Business Analytics programs. Clean dropdown separation. See [scripts/data-fixes/reclassify-new-fields-as-primary.py](scripts/data-fixes/reclassify-new-fields-as-primary.py) for the tie-break priority order. Per-field primary counts post-reclassification: BA 154, Education 44, Marketing 28, IR 18, PP&A 15, Film&Animation 14, Renewable Energy 13, FinTech 10.
 - **Custom-field matcher improvement** ([scoring.ts](src/lib/scoring.ts)): when `intended_field === "Others"` and user types a custom term, haystack now includes `specialization + field_aliases` (was just `field_of_study + program_name`). Also normalizes internal whitespace + trims. +11 programs globally matched for "business analytics" query (no change for the specific UK PG funnel that triggered the investigation — that funnel's bottleneck is downstream filters not field-match).
 - **New diagnose-shortlist debug script** ([scripts/debug/diagnose-shortlist.ts](scripts/debug/diagnose-shortlist.ts)): given a submission token, decrypts the profile via H7 keys and walks the matcher's filter funnel step-by-step printing survivor counts. Used to investigate a user's 1-program-shortlist token a623419b on 18 May. Diagnosis result: profile had compound narrow filters (UK only + custom "Business Analytics" + QS top_200 + 4-of-7 regions + Fall intake + $50k budget + 71% academic) collapsing to 1 final program (Exeter MSc Business Analytics). Filter-by-filter funnel: 9,298 → 6,521 (PG) → 153 (BA name match) → 42 (UK) → 8 (QS top_200) → 1 (region + budget + intake + tier-quota).
@@ -27,8 +36,8 @@ Next.js 14 (App Router) study-abroad platform deployed to Vercel at https://www.
 - **Results page features (this campaign):** Next Best 20 banner-led block (ranks 21-40, same ratio), Application-Strength dropdowns now sourced from user's saved shortlist via new `GET /api/my-shortlist`. Interview-prep silence threshold 3s → 8s. Budget label reinforced as "Tuition + Living combined" with ⚠️ amber callout + worked example.
 
 **Handoff #18 (15-17 May, 35 commits) — kept for context, partially superseded by §39:**
-- Profile-rating fully rewritten — weighted % scoring, 5-bucket star ladder (Weak / Average / Strong / Very Strong / Super Strong), colour-coded params, 3D wall UI. See [src/lib/profile-score.ts](src/lib/profile-score.ts) + `<ProfileCard>`.
-- Match-score weights rebalanced: PG `Academic 0.45 / Budget 0.10` (was 0.35 / 0.20); UG Academic 0.50 (work_exp slot folded in).
+- Profile-rating fully rewritten — weighted % scoring, 5-bucket star ladder, colour-coded params, 3D wall UI. **SUPERSEDED 10 July 2026 (handoff #20): now pillar-based with graded bands + improvement simulator — see §40.**
+- Match-score weights rebalanced: PG `Academic 0.45 / Budget 0.10`; UG Academic 0.50. **SUPERSEDED 10 July 2026 — see Scoring section below.**
 - Bucket-specific implicit academic floor in [src/lib/prestige.ts](src/lib/prestige.ts) `implicitMin`: b0=85, b1=78, b2=70, b3=60, b4=50. Drives `scoreAcademic` when program publishes no min.
 - Matcher hard-caps ambitious at 4 (no surplus reallocation into ambitious); per-uni cap: ambitious=1, safe/reach=2.
 - Alias matching requires program_name keyword evidence + 407 bad aliases stripped + 284 primary fields reclassified.
@@ -86,12 +95,12 @@ User separates "commit" from "deploy" (push). Defaults:
 
 ## Verification pipeline (programs.ts)
 
-The 7,800-program database in `src/data/programs.ts` is built only by `scripts/verify/`. Hard rules:
+The 9,298-program database in `src/data/programs.ts` is built only by `scripts/verify/`. Hard rules:
 
 1. **No hand-authored entries.** Adds go through the pipeline.
 2. **No invented values.** If the live URL doesn't state a fee/deadline/cutoff, the field is `null`.
 3. **`verified_at` is sacred** — set only by the pipeline after a live fetch.
-4. `field_of_study` must be one of the 18 in `FIELDS_OF_STUDY`.
+4. `field_of_study` must be one of the 29 in `FIELDS_OF_STUDY`.
 5. For high-stakes programs.ts edits, prefer `repair-corruption.ts`-style parse-and-emit over inline regex. Brace walkers must track strings (history: see snapshot §4.10).
 6. `verify-program.ts` stays on Opus 4.7 (audited; Haiku/Sonnet fabricate).
 7. **Fresh seeds via `websearch-seed-finder.ts` (Sonnet + web_search) hit ~75% verify pass-rate.** Stale `tier-N-auto.json` seeds (older crawler runs) hit ~5% — they're full of catalog/listing URLs. For new uni additions, always run seed-finder over a curated catalog first; don't reuse old auto-seeds.
@@ -108,7 +117,7 @@ Tier chain runner: `nohup ./scripts/verify/chain-tiers.sh tier-N > /tmp/chain-tN
 - Comments: short, "why" not "what".
 - Copyright trailer on every commit:
   ```
-  Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>
+  Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
   ```
 
 ## Security posture (post-audit, 3 May 2026)
@@ -124,7 +133,7 @@ Audit document: `~/Desktop/EduvianAI-Security-Architecture-Risk-Assessment.docx`
 
 `submissions` rows carry only `profile_encrypted` + `email_hash` for PII. Lookup by email goes through `email_hash` only. The writer guard now refuses to insert any row without both fields set — no NODE_ENV exemption.
 
-**MEDIUM / LOW pass (12 May 2026):** Nine findings closed in production across handoffs #13 and #14 — M4 IP-header trust (`106e364f`), M6 admin audit log (`99c7b2d4` + SQL `20260512-admin-audit-log.sql` applied; chain verified end-to-end), M8 rate-limit sweep across all 28 API routes (`99c7b2d4` admin slice + `9cd3992f` 10-route sweep), M9 Dependabot (`8b2bb998`), L2 chat hardcoded country counts (`47e6f7c8`), L4 constant-time admin/session (`2d478305`), L6 x-request-id propagation (`c15aaf14`), **I1 `/.well-known/security.txt` + `/security-policy` page (`591c25f1`)**, **`students_public_insert` RLS dropped (`5fcabe5a` + SQL applied)**. M2 was already closed (Email OTP). Still open: M1 (CSP), M3 (Zod), M5 (rotation policy doc), M7+L3 (legal-doc edits, attorney-gated), L5 (verified_at HMAC), I2/I3/I4 (informational pre-launch items).
+**MEDIUM / LOW pass (12 May 2026):** Nine findings closed in production across handoffs #13 and #14 — M4 IP-header trust (`106e364f`), M6 admin audit log (`99c7b2d4` + SQL `20260512-admin-audit-log.sql` applied; chain verified end-to-end), M8 rate-limit sweep across all 28 API routes (`99c7b2d4` admin slice + `9cd3992f` 10-route sweep), M9 Dependabot (`8b2bb998`), L2 chat hardcoded country counts (`47e6f7c8`), L4 constant-time admin/session (`2d478305`), L6 x-request-id propagation (`c15aaf14`), **I1 `/.well-known/security.txt` + `/security-policy` page (`591c25f1`)**, **`students_public_insert` RLS dropped (`5fcabe5a` + SQL applied)**. M2 was already closed (Email OTP). **M3 (Zod) CLOSED 10 July 2026** (`6bb2fe45` — submit/results-PATCH/auth/chat boundaries), plus results-token ownership + contact-PII masking for shared links and `wrapUserInput` around the chat programsContext. Still open: M1 (CSP), M5 (rotation policy doc), M7+L3 (legal-doc edits, attorney-gated), L5 (verified_at HMAC), I2/I3/I4 (informational pre-launch items).
 
 ## Authentication
 
@@ -138,12 +147,16 @@ Audit document: `~/Desktop/EduvianAI-Security-Architecture-Risk-Assessment.docx`
 
 | Path | What |
 |---|---|
-| `src/data/programs.ts` | THE database. **7,800 entries / 7,737 verified.** `@ts-nocheck` (large data file). |
-| `src/data/db-stats.ts` | Computed counts. Public surfaces standardise on `verifiedProgramsLabel` (7,986+) and `verifiedUniversitiesLabel` (534+) — `programsLabel` (the unverified-tail total) is internal-only. Don't reintroduce dual numbers in copy. The DB is 100% verified as of handoff #12.5 — `programsLabel === verifiedProgramsLabel` for now. |
+| `src/data/programs.ts` | THE database. **9,298 entries / 9,298 verified (100%).** `@ts-nocheck`. **Never import from client components** (Phase 1 de-ship, 10 July 2026) — use `src/data/programs-indexed.ts` server-side, `/api/programs` from the client. |
+| `src/data/programs-indexed.ts` | Canonical id-stamped list: stable content-hash ids `p_<16hex>` (dual-seed FNV-1a over country\|university\|program\|level\|url), `PROGRAM_BY_ID`, `resolveProgramId` (legacy `prog_N` translation). |
+| `src/lib/program-slugs.ts` | server-only slug maps for /programs/[country]/[university]/[program] (9,933 URLs). Deterministic; collisions get -2/-3 suffixes. |
+| `src/lib/submission-owner.ts` | `isSubmissionOwner` (session email_hash match), `isEmailRegistered` (drives the results teaser gate — fails OPEN), `redactProfileContact` masking for shared links. |
+| `src/lib/profile-score.ts` | Pillar-based 0-100 rating (Admissibility/Financial/Visa) + `computeImprovementLevers` simulator. Readiness framing only — never admission promises. |
+| `src/data/db-stats.ts` | Computed counts, consumed from the PREBUILT literal `src/data/db-stats-generated.ts` (regenerate: `npx tsx scripts/generate-db-stats.ts`, wired as npm `prebuild`) so clients never import PROGRAMS. Public surfaces standardise on `verifiedProgramsLabel` (9,298+) / `verifiedUniversitiesLabel` (623+); no dual numbers in copy. |
 | `src/app/sample-parent-report/page.tsx` | Static, illustrative parent-decision report at `/sample-parent-report`. Print-friendly (Save-as-PDF button). Linked from the Decide-stage 'See sample family report' CTA. |
-| `src/app/page.tsx` | **The homepage** (post v2 → / swap, 5 May 2026). v2 brand redesign + 8-section structure now serves at `/`. Pre-swap homepage backed up at `_archive/page-pre-v2-swap.tsx.bak`; pre-swap `src/app/v2/` preserved (un-routed) at `src/app/_v2-archive/page.tsx` for reference. |
-| `src/lib/types.ts` | Single source of truth. `TARGET_COUNTRIES` (12), `FIELDS_OF_STUDY` (18). |
-| `src/lib/scoring.ts` | 9-signal `recommendPrograms()`. Tiers: Safe 75-100, Reach 50-74, Ambitious <50. |
+| `src/app/page.tsx` | **The homepage** (Phase 2 rebuild, 10 July 2026): 6-section SERVER component — hero, proof strip, how-it-works, journey-tools USP section, parents, closing CTA. Client islands: ChatWidget, LogoutButton only. Prior versions archived at `_archive/page-pre-phase2-rebuild.tsx.bak` and `_archive/page-pre-v2-swap.tsx.bak`. |
+| `src/lib/types.ts` | Single source of truth. `TARGET_COUNTRIES` (12, incl. Netherlands since 10 July 2026), `FIELDS_OF_STUDY` (29). |
+| `src/lib/scoring.ts` | `recommendPrograms()` — tier thresholds are PER PRESTIGE BUCKET (see Scoring section) with explicit tierCeiling (elite never Safe); strict 30/50/20 quotas; highest-match-score-first within tiers; `teaserSlice` (locked-view top 5); aspirational `above_budget` fill for empty Reach/Ambitious. |
 | `src/lib/format-fee.ts` | Null-safe tuition rendering. **Never show $0.** Prefers local currency (`£26,600`) with optional USD parenthetical via `opts.withUsd` — backed by `annual_tuition_amount` + `annual_tuition_currency` on Program. Schema also keeps the legacy `annual_tuition_usd` for filtering / aggregation. |
 | `src/lib/beta-gate.ts` | Per-tool monthly caps + global $20 spend cap. Unique-user counter dedups on (email, phone) over `students` rows from this month — returning users (registered before this month) skip the new-user cap entirely. |
 | `src/lib/rate-limit.ts` | Upstash sliding-window with in-memory fallback. Must never throw. |
@@ -193,68 +206,28 @@ Audit document: `~/Desktop/EduvianAI-Security-Architecture-Risk-Assessment.docx`
 
 The legal/security/pricing Word docs were generated with `docx`. Pricing Excel via `xlsx`. To regenerate legal: `node scripts/build-legal-docs.js`.
 
-## Open work for the next session (handoff #19, 18 May 2026)
+## Open work for the next session (handoff #20, 10 July 2026)
 
-Pinned in priority order. Snapshot §39 has full handoff-#19 detail. **No background processes. Working tree clean.** Last commit: `670b268e` (data: Wave A scoped tuition backfill complete).
+Full detail in STATE_SNAPSHOT §40.6. **No background processes. Working tree clean.** Last deploy: `a5ae47e7`.
 
-**URGENT — legal-docs functional gaps (P0, blocking publication of attorney-vetted docs):**
+**URGENT — legal P0 (now blocking, not just pending):**
 
-1. **Age gate + verifiable parental consent** for under-18 users (Privacy §2.4 + Terms §2/§4). DOB on signup → if <18, parent email + verification + Terms acceptance before processing.
-2. **Right to access (data export)** — new `/account/data` + `GET /api/account/export` JSON-dump endpoint.
-3. **Right to erasure** — delete-my-account button + 30-day grace + hard delete.
-4. **Automated 24-month retention job** — Vercel cron / external scheduler. Anonymise stale submissions; 12-month rolling delete for rate-limit + audit logs.
-5. **Terms + Privacy acceptance checkbox + timestamped log** on register.
-6. **Named Grievance Officer + entity branding** (footer + /privacy + /terms). Needs lawyer to provide entity name / CIN / address / GO individual details.
-7. **Active mailbox routing**: `grievance@`, `privacy@`, `legal@`, `support@`, `security@` (last is carry-over).
+1. **/terms and /privacy return 404 in production** while BOTH consent checkboxes (register + guest-submit) link to them. Publishing the attorney-vetted docs needs user/attorney sign-off (hard rule #3) — top priority.
+2. Age gate + verifiable parental consent for under-18s; data export (`/account/data`); right-to-erasure; 24-month retention cron; named Grievance Officer + entity branding (blocked on lawyer); active mailboxes (grievance@/privacy@/legal@/support@).
 
-**Tier-A — user-driven QA (no API spend, mostly carry-over from #18):**
+**User-driven QA (no spend):**
 
-8. End-to-end QA of inline-password register flow
-9. Change-password modal QA from homepage
-10. Mobile sanity sweep on real iOS Safari + Android Chrome
-11. Live mic test USA + AU interview-prep flows
-12. Cross-device profile prefill — submit on desktop, sign in mobile, verify autofill + draft autosave
-13. Verify feedback-survey modal on all 4 surfaces
-14. **NEW** — verify the rewritten ROI panel renders correctly on /results: city-level living costs labelled, duration heuristic-estimate pill shows on the ~2,868 affected programs, tuition-source provenance correct
-15. **NEW** — verify Monthly Living Cost figure aligns with annual_living/12 (was previously (tuition + living)/12 = misleading)
+3. Guest funnel walk-through on a real phone: form → consent checkbox → rating → teaser (5 of N) → register → auto-unlock → PDF/email.
+4. Owner-path / shared-path checklists (masked PII, 403 PATCH), live-mic interview-prep tests, cross-device prefill, feedback surveys.
+5. Delete throwaway QA submission in Supabase Studio: `unregistered-zod-check@example.com`, token `4e8b0dd8-…` (deliberately unregistered — it's the canonical locked-view test case until deleted).
 
-**Tier-B — API spend (await explicit go):**
+**Product backlog (Phase 3 — monetization/launch):**
 
-16. USA tuition coverage final push beyond 89% — would need either (a) residential proxy ($50/mo for blocked uni pages) or (b) another ~$30 of estimate-fees.ts cycles for the remaining 374 nulls. Marginal value low.
-17. Remaining 7 countries' tuition (FR/NL/IE/MY/NZ/SG/UAE: 489 nulls) via estimate-fees.ts. ~$30-50 spend total.
-18. ~~Stage 4 sidecar for 8 remaining countries~~ — USER SAID NO from handoff #18, still skipped.
+6. Pricing + Razorpay (hard rule #2: ideation only until user approves deployment).
+7. Testimonials pipeline · outcomes loop (admissions_outcomes) · application-tracker → Supabase · AISA program retrieval · WhatsApp deep links + referral.
+8. Scholarship filter chip on /results — blocked on per-program scholarship data.
 
-**Tier-C — Market Intelligence integration (planning approved P0+P1+P2, ~$0 spend):**
-
-19. Build cross-walk: 21 streams × 12 countries → SOC/SOC2020/ANZSCO/NOC codes + Adzuna query terms (~3 hrs).
-20. BLS (US) + UK Discover Uni + WEF report ingestion for field-level demand data (~7 hrs).
-21. Adzuna integration (free tier; 9 of 12 countries covered: US/UK/AU/CA/DE/FR/NL/SG/NZ — IE/UAE/MY get gov-data only) (~6 hrs).
-22. Per-program career-outcomes row in ProgramCard + Market Intelligence card on /results (~8 hrs).
-23. Honest label everywhere: "Aggregated job-market data — never claim LinkedIn as source unless we have partnership". Updated weekly via cron.
-
-**Tier-D — security & ops (carry-over from #18):**
-
-24. M1 CSP (4-6 wk Next.js refactor)
-25. M3 Zod input validation
-26. M5 secrets rotation policy doc
-27. L5 verified_at HMAC signing
-28. I3 incident response plan
-29. I2 + I4 bug bounty + pen-testing schedule
-
-**Pipeline ops:**
-
-30. Re-extract degree_level for the 148 entries that lack it (currently leaving duration_months null for 66 of them after A1 stage).
-31. Universities-sidecar UI surfacing — sidecar has 419 rows but only `acceptance_rate` is wired. ProgramCard could surface TEF / NSS / Russell Group / median earnings.
-
-**Taxonomy follow-ups (low-priority):**
-
-32. Audit existing user submissions for `intended_field` = "Others" with custom text that matches one of the 8 newly-promoted fields. Could surface a "We've added [Marketing/FinTech/etc.] as a first-class option — edit your profile to use it" banner.
-33. Audit other potential streams not yet promoted (Real Estate, Sports Management, Pharmacy, Linguistics, Robotics, Aerospace, Information Systems, Supply Chain, HR, Theology) — all <15 named programs but a few users likely want them. Threshold for promotion = ~10 programs.
-34. Tier-break priority in [reclassify-new-fields-as-primary.py](scripts/data-fixes/reclassify-new-fields-as-primary.py) is hardcoded — if a program legitimately fits multiple promoted fields (e.g. "MSc Public Policy with International Affairs concentration"), the priority order picks one. Manual review of edge cases may be warranted.
-
-**Estimated remaining spend:** ~$0 unless Tier-B #16/#17 get greenlit, or Market Intelligence Adzuna paid tier (~$99/mo) is chosen over the free tier.
-
-**Handoff #19 spend tally:** ~$110 (~$10 duration extraction A1 + ~$100 Wave A tuition US/UK/CA/AU/DE). The late-#19 taxonomy expansion (29 fields + 296 reclassifications) was $0 spend.
+**Carried forward from #19 (unchanged):** Tier-B tuition pushes (spend-gated), Market-Intelligence integration (paused), M1 CSP, M5 rotation doc, L5 verified_at HMAC, I2/I3/I4, universities-sidecar UI surfacing, degree_level re-extract (148 rows), taxonomy follow-ups.
 
 ## Universities sidecar (Stage 1+2+3+5 live as of #17)
 
@@ -273,43 +246,35 @@ ComparePanel renders an "Acceptance Rate" row using `lookupUniversity(p.universi
 
 Never conflate the two: tiers don't describe profile quality; the rating doesn't imply a specific university outcome. Applies to all UI copy, emails, PDFs, the AISA chat prompt, and algorithm changes.
 
-## Scoring weights (locked as of handoff #18, 17 May 2026)
+## Scoring weights (locked as of handoff #20, 10 July 2026)
 
 | Signal | PG | UG |
 |---|---|---|
-| Academic         | 45% | 50% |
-| Budget           | 10% | 10% |
+| Academic         | 55% | 60% |
 | Std Test         | 10% | 10% |
-| English          |  5% |  5% |
-| Scholarship      |  5% |  5% |
+| English          |  8% |  8% |
+| Backlogs         |  7% |  7% |
 | Intake           |  5% |  5% |
-| Backlogs         |  5% |  5% |
 | Gap Year         |  5% |  5% |
 | Work Exp.        |  5% |  —  |
 | Research paper   |  5% |  5% |
+| Budget           |  0% (informational sub-score only) | 0% |
+| Scholarship      |  — removed (visibility badge only) | — |
 | **Sum**          | 100% | 100% |
 
-Rationale: Budget weight dropped 20→10 (hard filter already excludes anything > 110% of budget — the soft signal only differentiates 3 active brackets, so 20% was over-powered). Freed 10pts went to Academic — strongest real predictor of admissions outcome. UG `work_experience` slot (irrelevant at undergraduate) folded into Academic, so UG Academic = 0.50 and sum cleanly = 1.00.
+Budget is a HARD FILTER (110% of bracket, `above_70k` unbounded) — never a ranking signal. Scholarship never affects ranking. Null-tuition programs score a neutral 60 budget sub-score and are capped at 2 per tier.
 
-Research paper is collected from BOTH UG and PG profiles (split out of `{isGrad && (...)}` in StepAcademic on 14 May). Rubric: count 0 → 0, count 1 → 60, count 2 → 85, count ≥ 3 → 100.
+**Prestige bucketing (tierCeiling model, 10 July 2026)** — `getPrestigeBucket(program, degreeLevel?)` in [src/lib/prestige.ts](src/lib/prestige.ts). Uses sidecar `acceptance_rate` where present for UG profiles only (College Scorecard is UG data — PG profiles fall back to QS rank). Each bucket carries an explicit `tierCeiling` (the elite-never-Safe INVARIANT is a rule, not arithmetic), tier thresholds, and an `implicitMin` academic floor when the program publishes no minimum:
 
-**Prestige bucketing** — `getPrestigeBucket(program)` in `src/lib/prestige.ts`. Uses `acceptance_rate` from the universities sidecar where present (419 unis populated), falls back to QS rank otherwise. Five aligned buckets each carrying `prestigePenalty` (subtractive offset on academic), `safeMin` / `reachMin` (tier thresholds), and `implicitMin` (academic floor when program publishes no min):
-
-| Bucket | acceptance% / QS | penalty | safeMin / reachMin | implicitMin |
+| Bucket | acceptance% / QS | tierCeiling | safeMin / reachMin | implicitMin |
 |---|---|---|---|---|
-| 0 ultra-selective | ≤10% / ≤25 | 20 | 92 / 70 | **85** |
-| 1 selective | ≤25% / ≤75 | 15 | 89 / 66 | **78** |
-| 2 moderate | ≤50% / ≤200 | 10 | 86 / 62 | **70** |
-| 3 accessible | ≤75% / ≤500 | 5 | 82 / 57 | **60** |
-| 4 open | >75% / >500 | 0 | 75 / 50 | **50** |
+| 0 ultra-selective | ≤10% / ≤25 | **ambitious** | — / — | 85 |
+| 1 selective | ≤25% / ≤75 | **reach** | — / 70 | 78 |
+| 2 moderate | ≤50% / ≤200 | safe | 88 / 65 | 70 |
+| 3 accessible | ≤75% / ≤500 | safe | 84 / 59 | 60 |
+| 4 open | >75% / >500 | safe | 75 / 50 | 50 |
 
-`scoreAcademic` math:
-```
-effectiveMin = published_min || bucket.implicitMin
-surplus      = studentPct - effectiveMin
-academic     = clamp(58 - bucket.prestigePenalty + surplus × 1.4)
-```
-Below-min guards: `< min-12 → 0`, `< min-5 → 20 - penalty`, `< min → 40 - penalty`. The bucket-specific implicit floor is the key to differentiating weak applicants by uni selectivity (a 60% student is way below MIT's bar but comfortably above an open uni's).
+`scoreAcademic` is penalty-free: `effectiveMin = published_min || implicitMin; academic = clamp(58 + (studentPct - effectiveMin) × 1.4)` with graded below-min steps (< min−12 → 0, < min−5 → 20, < min → 40). The tier is computed from thresholds, then CLAMPED by tierCeiling; `ScoredProgram.prestige` carries {bucket, tierCeiling, source} for explainability.
 
 **Quota + variety**: shortlist split 30% safe / 50% reach / 20% ambitious (6/10/4 per 20-slot page; 12/20/8 across 40). **LOCKED user rule (10 July 2026): this proportion CANNOT be breached — every tier quota is a hard ceiling and NO tier absorbs another tier's unfilled slots** (the earlier safe/reach surplus-reallocation was removed). Per-uni caps inside tiers: ambitious=1, safe/reach=2 (prevents Cambridge's 8 MPhils from monopolising a tier). When a pool can't fill its quota, the response simply returns fewer programs — strict but honest; the UI reports exact counts.
 
