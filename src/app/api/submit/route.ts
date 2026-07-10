@@ -5,6 +5,7 @@ import { submissionStore } from "@/lib/store";
 import type { Program, StudentProfile } from "@/lib/types";
 import { intendedFieldLabel } from "@/lib/types";
 import { apiErrorResponse, captureApiError } from "@/lib/api-error";
+import { submitProfileSchema, zodErrorMessage } from "@/lib/schemas";
 import { scoreStudentProfile } from "@/lib/profile-score";
 import { v4 as uuidv4 } from "uuid";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
@@ -86,19 +87,16 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    const { profile } = (await req.json()) as { profile: StudentProfile };
+    const body = (await req.json().catch(() => null)) as { profile?: unknown } | null;
 
-    if (!profile?.email || !profile?.full_name) {
-      return NextResponse.json(
-        { error: "Missing required fields (email, full_name)" },
-        { status: 400 }
-      );
+    // M3: full-shape validation (types, lengths, ranges). Passthrough
+    // keeps unknown optional profile fields flowing so the evolving form
+    // never bricks a legitimate submission.
+    const parsed = submitProfileSchema.safeParse(body?.profile);
+    if (!parsed.success) {
+      return NextResponse.json({ error: zodErrorMessage(parsed.error) }, { status: 400 });
     }
-
-    // Basic field-length guards
-    if (profile.full_name.length > 120 || profile.email.length > 255) {
-      return NextResponse.json({ error: "Invalid input" }, { status: 400 });
-    }
+    const profile = parsed.data as unknown as StudentProfile;
 
     const normalizedEmail = profile.email.toLowerCase().trim();
 

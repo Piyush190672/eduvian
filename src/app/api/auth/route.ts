@@ -6,6 +6,7 @@ import { verifyOtpCode, OTP_CONFIG } from "@/lib/otp";
 import { emailHash } from "@/lib/pii-crypto";
 import { decryptProfile, SUBMISSION_PROFILE_COLUMNS } from "@/lib/submissions-decrypt";
 import { TERMS_VERSION } from "@/lib/legal-version";
+import { authBodySchema, zodErrorMessage } from "@/lib/schemas";
 
 /** Build a JSON response with the opaque session cookie attached. */
 async function jsonWithUserCookie(
@@ -50,19 +51,13 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    const body = await req.json();
-    const { action, name, email, phone, source, source_stage, otp_code, marketing_opt_in, terms_accepted, password } = body as {
-      action: "register" | "login" | "login_password";
-      name?: string;
-      email: string;
-      phone?: string;
-      source?: string;
-      source_stage?: number;
-      otp_code?: string;
-      marketing_opt_in?: boolean;
-      terms_accepted?: boolean;
-      password?: string;
-    };
+    // M3: shape validation before any destructuring — types, lengths,
+    // action enum, 6-digit OTP format.
+    const parsedBody = authBodySchema.safeParse(await req.json().catch(() => null));
+    if (!parsedBody.success) {
+      return NextResponse.json({ error: zodErrorMessage(parsedBody.error) }, { status: 400 });
+    }
+    const { action, name, email, phone, source, source_stage, otp_code, marketing_opt_in, terms_accepted, password } = parsedBody.data;
 
     if (!email || !isValidEmail(email)) {
       return NextResponse.json({ error: "Invalid email address" }, { status: 400 });

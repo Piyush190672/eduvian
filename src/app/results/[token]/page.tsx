@@ -129,14 +129,22 @@ export default function ResultsPage() {
   }
 
   const toggleShortlist = async (programId: string) => {
+    const prev = new Set(shortlisted);
     const next = new Set(shortlisted);
     if (next.has(programId)) next.delete(programId); else next.add(programId);
     setShortlisted(next);
-    await fetch(`/api/results/${token}`, {
+    const res = await fetch(`/api/results/${token}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ shortlisted_ids: Array.from(next) }),
-    });
+    }).catch(() => null);
+    // Shared-link viewers can browse but not overwrite the owner's saved
+    // shortlist (403 from the ownership gate) — roll back the optimistic
+    // toggle and say why.
+    if (res && res.status === 403) {
+      setShortlisted(prev);
+      toast.error("Only the profile owner can save shortlist changes. Sign in with the account that created this profile.");
+    }
   };
 
   const sendEmail = async () => {

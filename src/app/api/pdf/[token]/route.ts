@@ -9,6 +9,7 @@ import { scoreStudentProfile, categoryBadgeHtml } from "@/lib/profile-score";
 import { escHtml } from "@/lib/html-escape";
 import { decryptProfile } from "@/lib/submissions-decrypt";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
+import { isSubmissionOwner, redactProfileContact } from "@/lib/submission-owner";
 import { captureApiError } from "@/lib/api-error";
 
 // PDF render = decrypt profile + score 8k+ programs + emit ~10KB HTML.
@@ -62,10 +63,20 @@ export async function GET(
     }
 
     // H7: prefer encrypted profile; fall back to plaintext.
-    const profile = decryptProfile(submission as { profile?: unknown; profile_encrypted?: string | null }) as StudentProfile;
-    if (!profile) {
+    const rawProfile = decryptProfile(submission as { profile?: unknown; profile_encrypted?: string | null }) as StudentProfile;
+    if (!rawProfile) {
       return NextResponse.json({ error: "Profile data unavailable" }, { status: 500 });
     }
+
+    // Same contact-PII gate as /api/results (Phase 1 item 5) — the PDF
+    // renders email + phone in its header, so an unredacted PDF would
+    // bypass the results-route redaction entirely. Shared-link viewers
+    // get a masked header; the report content is unaffected.
+    const owner = await isSubmissionOwner(
+      req,
+      (submission as { email_hash?: string | null }).email_hash,
+    );
+    const profile = owner ? rawProfile : redactProfileContact(rawProfile);
 
     // Prefer query param IDs, fall back to stored, then top 20
     const shortlistedIds =

@@ -5,6 +5,8 @@ import { submissionStore } from "@/lib/store";
 import type { Program } from "@/lib/types";
 import { decryptProfile } from "@/lib/submissions-decrypt";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
+import { isSubmissionOwner, redactProfileContact } from "@/lib/submission-owner";
+import { resultsPatchSchema, zodErrorMessage } from "@/lib/schemas";
 
 export async function GET(
   req: NextRequest,
@@ -56,9 +58,21 @@ export async function GET(
       { status: 410 }
     );
   }
-  submission.profile = decryptedProfile;
-  if ("profile_encrypted" in (submission as Record<string, unknown>)) {
-    delete (submission as Record<string, unknown>).profile_encrypted;
+
+  // Ownership gate on contact PII (Phase 1 item 5): the token link is
+  // deliberately shareable (parents open it on their own devices), but
+  // only the submission owner — session email_hash matches — gets the
+  // raw email/phone back. Everyone else sees a masked view; the
+  // academic + preference content being shared stays intact.
+  const owner = await isSubmissionOwner(
+    req,
+    (submission as { email_hash?: string | null }).email_hash,
+  );
+  submission.profile = owner ? decryptedProfile : redactProfileContact(decryptedProfile);
+  for (const k of ["profile_encrypted", "email_hash"] as const) {
+    if (k in (submission as Record<string, unknown>)) {
+      delete (submission as Record<string, unknown>)[k];
+    }
   }
 
   // Canonical id-stamped list — stable content-hash ids, computed once
@@ -81,7 +95,7 @@ export async function GET(
   // button. No extra API round-trip needed.
   const scored = recommendPrograms(submission.profile, programs, 2);
 
-  return NextResponse.json({ submission, programs: scored });
+  return NextResponse.json({ submission, programs: scored, viewer: owner ? "owner" : "shared" });
 }
 
 export async function PATCH(
@@ -94,13 +108,38 @@ export async function PATCH(
   if (!rl.ok) return NextResponse.json({ error: "rate_limited" }, { status: 429, headers: { "Retry-After": String(rl.retryAfter ?? 60) } });
 
   const { token } = params;
-  const { shortlisted_ids } = await req.json();
 
-  // Update Supabase
+  // M3: validate the write payload — ids must match the stable
+  // content-hash or legacy positional formats, max 80 entries.
+  const parsed = resultsPatchSchema.safeParse(await req.json().catch(() => null));
+  if (!parsed.success) {
+    return NextResponse.json({ error: zodErrorMessage(parsed.error) }, { status: 400 });
+  }
+  const { shortlisted_ids } = parsed.data;
+
+  // Ownership gate (Phase 1 item 5): shortlist writes were previously
+  // keyed on the token alone — anyone holding a shared link could
+  // silently overwrite the student's saved shortlist. Now the session
+  // email_hash must match the submission's.
   try {
     const { createServiceClient } = await import("@/lib/supabase");
     const supabase = createServiceClient();
     if (supabase) {
+      const { data: sub } = await supabase
+        .from("submissions")
+        .select("email_hash")
+        .eq("token", token)
+        .single();
+      if (!sub) {
+        return NextResponse.json({ error: "Submission not found" }, { status: 404 });
+      }
+      const owner = await isSubmissionOwner(req, (sub as { email_hash?: string | null }).email_hash);
+      if (!owner) {
+        return NextResponse.json(
+          { error: "Only the profile owner can change the shortlist. Sign in with the account that created this profile." },
+          { status: 403 },
+        );
+      }
       await supabase
         .from("submissions")
         .update({ shortlisted_ids })
@@ -110,9 +149,13 @@ export async function PATCH(
     // fall through
   }
 
-  // Update in-memory
+  // Update in-memory (dev fallback — owner check requires a session)
   const existing = submissionStore.get(token);
   if (existing) {
+    const owner = await isSubmissionOwner(req, (existing as { email_hash?: string | null }).email_hash);
+    if (!owner) {
+      return NextResponse.json({ error: "Only the profile owner can change the shortlist." }, { status: 403 });
+    }
     submissionStore.set(token, { ...existing, shortlisted_ids });
   }
 

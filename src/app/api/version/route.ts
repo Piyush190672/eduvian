@@ -42,17 +42,16 @@ export async function GET(req: NextRequest) {
     );
   }
 
+  // commit_message + branch removed from the public payload (Phase 1
+  // item 5) — this repo's commit messages describe internal changes in
+  // detail, which made the endpoint a reconnaissance aid. The SHA alone
+  // is enough for an is-this-commit-live check.
   const commit = process.env.VERCEL_GIT_COMMIT_SHA ?? null;
   return NextResponse.json(
     {
       commit,
       commit_short: commit ? commit.slice(0, 7) : null,
-      commit_message: process.env.VERCEL_GIT_COMMIT_MESSAGE
-        ? process.env.VERCEL_GIT_COMMIT_MESSAGE.slice(0, 200)
-        : null,
-      branch: process.env.VERCEL_GIT_COMMIT_REF ?? null,
       env: process.env.VERCEL_ENV ?? null,
-      node_env: process.env.NODE_ENV ?? null,
       cold_start_at: COLD_START_AT,
       now: new Date().toISOString(),
     },
