@@ -15,11 +15,13 @@ import LogoutButton from "@/components/LogoutButton";
 /**
  * Homepage — Phase 2 rebuild (10 July 2026), reviewed before ship.
  *
- * Five sections, server-rendered, zero client JS of its own (ChatWidget +
+ * Six sections, server-rendered, zero client JS of its own (ChatWidget +
  * LogoutButton are the only client islands): hero with a single CTA,
- * proof strip, 3-step how-it-works, parent section, closing CTA. The
- * previous 8-section client page (1,417 lines, framer-motion, 3 rotating
- * carousels) is archived at _archive/page-pre-phase2-rebuild.tsx.bak.
+ * proof strip, 3-step how-it-works, journey-tools section (the USP —
+ * Application Check, Interview Prep, English Test Lab, Visa Coach),
+ * parent section, closing CTA. The previous 8-section client page
+ * (1,417 lines, framer-motion, 3 rotating carousels) is archived at
+ * _archive/page-pre-phase2-rebuild.tsx.bak.
  *
  * Copy rules (locked): no superlatives, no dual numbers
  * (verified*Label only), "up to 40 matches customised to your profile"
@@ -52,6 +54,51 @@ const TIER_LABELS: Record<string, string> = {
   reach: "Reach",
   ambitious: "Ambitious",
 };
+
+// The differentiators — pain-point tools for the journey AFTER the
+// shortlist, where competitor platforms stop. Copy (dimension counts,
+// question counts, playbook counts, data sources) carried over verbatim
+// from the pre-rebuild stage cards — all previously verified against the
+// live tools. Card format follows the locked brand rule: title ·
+// benefit · sample output · CTA · trust cue.
+const JOURNEY_TOOLS = [
+  {
+    pain: "Got a shortlist — is my application strong enough?",
+    benefit:
+      "Score and rebuild your SOP, CV and LORs with paragraph-level feedback — story arc, specificity, goal alignment, credibility flags.",
+    sample: { kind: "score" as const, before: 61, after: 84 },
+    cta: "Check my application",
+    href: "/application-check",
+    trust: "Scored across 7 SOP dimensions and 6 CV dimensions — feedback is paragraph-level, not generic.",
+  },
+  {
+    pain: "The interview can undo everything. Practised for it?",
+    benefit:
+      "Mock AU/UK admissions and US F-1 visa interviews with your voice — AI scoring on every answer, question by question.",
+    sample: { kind: "stat" as const, v: "14 / 14", l: "UK credibility questions coached" },
+    cta: "Practise my interview",
+    href: "/interview-prep",
+    trust: "Voice + text mock interviews with per-answer AI scoring.",
+  },
+  {
+    pain: "English test still in the way?",
+    benefit:
+      "Structured IELTS, TOEFL, PTE and Duolingo practice — band-targeted drills for the exact sections dragging your score.",
+    sample: { kind: "pills" as const, items: ["IELTS", "TOEFL", "PTE", "Duolingo"] },
+    cta: "Open the English Test Lab",
+    href: "/english-test-lab",
+    trust: "Exam-style practice based on published test structures: IELTS band descriptors and TOEFL ETS guidelines.",
+  },
+  {
+    pain: "Accepted — what about the visa?",
+    benefit:
+      "Country-specific checklists, financial-proof rules and risk flags for all 12 student visa routes we cover.",
+    sample: { kind: "stat" as const, v: "12", l: "visa playbooks (F-1 · UK · SDS · subclass 500 · 8 more)" },
+    cta: "Open Visa Coach",
+    href: "/visa-coach",
+    trust: "Every playbook links to the official government source (travel.state.gov, gov.uk, IRCC, immi.gov.au and equivalents).",
+  },
+] as const;
 
 const STEPS = [
   {
@@ -128,8 +175,9 @@ export default function HomePage() {
             <p className="text-base sm:text-lg text-white/70 leading-relaxed max-w-xl mb-8">
               eduvianAI gives students and families an independent, data-backed
               layer of clarity before they make high-stakes study abroad
-              decisions — up to 40 program matches customised to your profile,
-              every figure verified at the university&apos;s own page.
+              decisions — and at every stage after: shortlist, application,
+              interviews, English tests, visa. Every figure verified at the
+              university&apos;s own page.
             </p>
             <div className="flex flex-col sm:flex-row sm:items-center gap-4">
               <Link
@@ -234,7 +282,85 @@ export default function HomePage() {
         </p>
       </section>
 
-      {/* ── Section 4 · Parents ──────────────────────────────────────── */}
+      {/* ── Section 4 · Journey tools (the USP) ──────────────────────── */}
+      <section className="bg-[#0E1119] text-white">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 py-16 sm:py-24">
+          <div className="max-w-2xl mb-12">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-violet-300 mb-3">
+              Where most platforms stop
+            </p>
+            <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight leading-tight mb-4">
+              A shortlist is where the hard part{" "}
+              <span className="italic font-medium text-violet-300">begins</span>.
+            </h2>
+            <p className="text-base text-white/60 leading-relaxed">
+              Applications get rejected, interviews go sideways, English scores
+              fall short, visas stall. eduvianAI has a purpose-built tool for
+              each of these pain points — not just the search.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-5">
+            {JOURNEY_TOOLS.map((t) => (
+              <div key={t.href} className="rounded-2xl bg-white/[0.04] border border-white/10 p-6 sm:p-7 flex flex-col">
+                <h3 className="font-display text-lg font-bold leading-snug mb-2">{t.pain}</h3>
+                <p className="text-sm text-white/60 leading-relaxed mb-5">{t.benefit}</p>
+
+                {/* Sample output */}
+                <div className="mb-5">
+                  {t.sample.kind === "score" && (
+                    <div className="space-y-2 max-w-xs">
+                      {[
+                        { label: "Before", v: t.sample.before, bar: "bg-stone-400",   txt: "text-white/50" },
+                        { label: "After",  v: t.sample.after,  bar: "bg-emerald-400", txt: "text-emerald-300" },
+                      ].map((row) => (
+                        <div key={row.label}>
+                          <div className="flex justify-between text-[11px] mb-1">
+                            <span className="text-white/50">{row.label}</span>
+                            <span className={`tabular-nums font-semibold ${row.txt}`}>{row.v}%</span>
+                          </div>
+                          <div className="h-1.5 rounded-full bg-white/10 overflow-hidden">
+                            <div className={`h-full rounded-full ${row.bar}`} style={{ width: `${row.v}%` }} />
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                  {t.sample.kind === "stat" && (
+                    <div className="flex items-baseline gap-2">
+                      <span className="font-display text-2xl font-semibold tabular-nums">{t.sample.v}</span>
+                      <span className="text-xs text-white/50">{t.sample.l}</span>
+                    </div>
+                  )}
+                  {t.sample.kind === "pills" && (
+                    <div className="flex flex-wrap gap-2">
+                      {t.sample.items.map((item) => (
+                        <span key={item} className="text-[11px] font-semibold px-2.5 py-1 rounded-full border border-white/15 bg-white/5 text-white/80">
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                <div className="mt-auto">
+                  <Link
+                    href={t.href}
+                    className="group inline-flex items-center gap-1.5 text-sm font-bold text-violet-300 hover:text-violet-200 transition-colors"
+                  >
+                    {t.cta}
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                  </Link>
+                  <p className="text-[11px] text-white/40 leading-relaxed mt-3 border-t border-white/10 pt-3">
+                    {t.trust}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Section 5 · Parents ──────────────────────────────────────── */}
       <section className="bg-stone-50/60 border-y border-stone-100">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 py-16 sm:py-20 grid lg:grid-cols-2 gap-10 items-center">
           <div>
@@ -301,7 +427,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Section 5 · Closing CTA ──────────────────────────────────── */}
+      {/* ── Section 6 · Closing CTA ──────────────────────────────────── */}
       <section className="bg-[#0E1119] text-white">
         <div className="max-w-4xl mx-auto px-6 sm:px-10 py-16 sm:py-24 text-center">
           <h2 className="font-display text-3xl sm:text-5xl font-bold tracking-tight leading-tight mb-5">
@@ -351,6 +477,10 @@ export default function HomePage() {
             <Link href="/destinations"   className="hover:text-gray-900 transition-colors">Destinations</Link>
             <Link href="/scholarships"   className="hover:text-gray-900 transition-colors">Scholarships</Link>
             <Link href="/match"          className="hover:text-gray-900 transition-colors">Find my programs</Link>
+            <Link href="/application-check" className="hover:text-gray-900 transition-colors">Application check</Link>
+            <Link href="/interview-prep"    className="hover:text-gray-900 transition-colors">Interview prep</Link>
+            <Link href="/english-test-lab"  className="hover:text-gray-900 transition-colors">English Test Lab</Link>
+            <Link href="/visa-coach"        className="hover:text-gray-900 transition-colors">Visa Coach</Link>
             <Link href="/security-policy" className="hover:text-gray-900 transition-colors">Security</Link>
             <span className="hidden sm:inline">·</span>
             <span className="text-gray-400 text-[11px]">Decision-support · not professional advice</span>
