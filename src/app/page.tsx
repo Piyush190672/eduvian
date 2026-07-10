@@ -161,8 +161,11 @@ export default function HomePage() {
         </nav>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 pt-14 sm:pt-20 pb-16 sm:pb-24 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left: message + single CTA */}
-          <div>
+          {/* Left: message + single CTA. min-w-0 on both grid children:
+              grid items default to min-width:auto, so the mockup card's
+              truncated rows forced the track ~37px past a 375px viewport,
+              clipping the whole hero (found 10 July 2026). */}
+          <div className="min-w-0">
             <p className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-violet-300 mb-5">
               <ShieldCheck className="w-4 h-4" />
               Independent study-abroad intelligence
@@ -195,14 +198,17 @@ export default function HomePage() {
 
           {/* Right: static dashboard mockup — real product output shape,
               no rotation, honestly labelled. */}
-          <div className="relative">
+          <div className="relative min-w-0">
             <div className="rounded-2xl bg-white text-gray-900 shadow-2xl shadow-black/40 border border-white/10 overflow-hidden">
-              <div className="px-5 py-3.5 border-b border-stone-100 flex items-center justify-between">
+              {/* flex-wrap + min-w-0: without it this row's min-content width
+                  (~364px) forces the whole hero grid column past a 375px
+                  viewport, clipping every hero element (found 10 July 2026). */}
+              <div className="px-5 py-3.5 border-b border-stone-100 flex flex-wrap items-center justify-between gap-y-1.5 min-w-0">
                 <span className="text-sm font-bold">Your shortlist</span>
-                <span className="flex items-center gap-1.5 text-[11px] font-semibold">
-                  <span className="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">12 Safe</span>
-                  <span className="px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 border border-amber-200">20 Reach</span>
-                  <span className="px-2 py-0.5 rounded-full bg-rose-50 text-rose-700 border border-rose-200">8 Ambitious</span>
+                <span className="flex flex-wrap items-center gap-1.5 text-[11px] font-semibold">
+                  <span className="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 whitespace-nowrap">12 Safe</span>
+                  <span className="px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 border border-amber-200 whitespace-nowrap">20 Reach</span>
+                  <span className="px-2 py-0.5 rounded-full bg-rose-50 text-rose-700 border border-rose-200 whitespace-nowrap">8 Ambitious</span>
                 </span>
               </div>
               <ul className="divide-y divide-stone-100">

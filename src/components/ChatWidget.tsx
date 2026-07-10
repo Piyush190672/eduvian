@@ -331,15 +331,11 @@ export default function ChatWidget({ programs, studentName = "there" }: ChatWidg
           discoverable in compact mode. */}
       <motion.button
         onClick={() => setOpen((o) => !o)}
-        // Three render modes (13 May 2026, user feedback):
-        //   - tool/result pages (compact prefix list): always icon-only 44×44
-        //   - home + similar non-compact pages, mobile (< sm): icon-only 44×44
-        //   - home + similar non-compact pages, sm+: slim pill with text
-        className={
-          compact
-            ? "fixed bottom-5 right-5 z-50 flex items-center justify-center w-11 h-11 rounded-full bg-gradient-to-r from-violet-600 to-fuchsia-500 text-white shadow-lg shadow-violet-500/40 hover:shadow-violet-500/60 transition-all duration-300 hover:-translate-y-1"
-            : "fixed bottom-5 right-5 z-50 flex items-center justify-center w-11 h-11 sm:w-auto sm:h-auto sm:gap-1.5 sm:pl-1.5 sm:pr-3 sm:py-1.5 rounded-full sm:rounded-full bg-gradient-to-r from-violet-600 to-fuchsia-500 text-white font-bold shadow-lg shadow-violet-500/40 hover:shadow-violet-500/60 transition-all duration-300 hover:-translate-y-1"
-        }
+        // Labelled pill in EVERY mode (10 July 2026, user feedback: an
+        // unlabelled avatar circle doesn't read as a chat entry point).
+        // Mobile + compact pages show "Ask AISA"; sm+ non-compact keeps
+        // the longer "Stuck? Ask AISA". min-h keeps the 44px touch target.
+        className="fixed bottom-5 right-5 z-50 flex items-center justify-center gap-1.5 pl-2 pr-3.5 min-h-[44px] rounded-full bg-gradient-to-r from-violet-600 to-fuchsia-500 text-white font-bold shadow-lg shadow-violet-500/40 hover:shadow-violet-500/60 transition-all duration-300 hover:-translate-y-1"
         whileTap={{ scale: 0.95 }}
         animate={!open && pulse ? { y: [0, -8, 0, -4, 0] } : { y: 0 }}
         transition={!open && pulse ? { duration: 1.4, repeat: 0 } : { duration: 0.2 }}
@@ -362,7 +358,12 @@ export default function ChatWidget({ programs, studentName = "there" }: ChatWidg
             </motion.span>
           )}
         </AnimatePresence>
-        {!compact && <span className="hidden sm:inline text-[11px] font-bold whitespace-nowrap">Stuck? Ask AISA</span>}
+        {!open && (
+          <span className="text-[11px] font-bold whitespace-nowrap">
+            {!compact && <span className="hidden sm:inline">Stuck? </span>}
+            Ask AISA
+          </span>
+        )}
         {!open && (
           <span className="absolute -top-1.5 -right-1.5 w-4 h-4 bg-emerald-400 rounded-full border-2 border-white animate-pulse" />
         )}

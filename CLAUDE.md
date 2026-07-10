@@ -179,6 +179,8 @@ Audit document: `~/Desktop/EduvianAI-Security-Architecture-Risk-Assessment.docx`
 
 ## Mobile rules of thumb (learned the hard way)
 
+- **LOCKED user rule (10 July 2026): ALWAYS verify the mobile version — content alignment, look & feel, and functionality — for every UI change before calling it done.** Check the change at a mobile viewport (≈375px) in the preview, not just desktop. Interactive elements keep ≥44px touch targets; no horizontal overflow; labels must not be desktop-only (`hidden sm:inline` on essential affordances is a bug, not a style choice).
+
 - **Decorative `blur-3xl` / `blur-2xl` / `blur-[Xpx]` blobs cripple mobile GPU compositing.** Each one repaints as it scrolls into view. We had 23 of these on the homepage and they were the root cause of the section-flash-on-scroll bug. Fix: every decorative blur (any div with `pointer-events-none` + `blur-*`) carries `hidden md:block` so it only renders from md+. Don't add new mobile-visible blur blobs.
 - **`whileInView` from framer-motion attaches an IntersectionObserver per element AND fires a re-render** when triggered, even with `transition={{ duration: 0 }}`. With 40+ motion elements that's perceptible jank. Use plain `motion.div` (no whileInView/initial/viewport/transition props) for entrance fades. The `<MotionConfig transition={{ duration: 0 }}>` wrapper around `LandingPage` is a belt-and-suspenders for any motion props that slip back in.
 - Always set explicit `width="X" height="Y" loading="lazy" decoding="async"` on user-visible `<img>` tags — Unsplash images otherwise cause CLS as they resolve.
