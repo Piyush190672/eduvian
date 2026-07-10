@@ -264,6 +264,13 @@ ComparePanel renders an "Acceptance Rate" row using `lookupUniversity(p.universi
 
 `scripts/universities/`: fetch-scorecard-usa.ts, merge-scorecard-usa.ts, fetch-uk.ts, merge-uk.ts, usa-ipeds-overrides.json (47 IPEDS UnitID overrides for name-format mismatches), uk-russell-group.json (24-uni canonical list).
 
+## Purpose split: profile rating vs course matching (LOCKED by user, 10 July 2026 — always follow)
+
+1. **Profile rating** informs students about their profile strength / readiness to make an application. Readiness framing only — never promise admission or visa outcomes. (Hence the improvement simulator: the rating is something the student improves.)
+2. **Course matching** matches the right courses to the individual profile and segments them into Safe / Reach / Ambitious based on profile strength. **The three tiers assess the likelihood of the student getting an offer from that particular university.** Tier copy must be framed as offer likelihood (Safe = strong, Reach = moderate, Ambitious = lower). Elite institutions are never Safe (tierCeiling) because their conversion is low for everyone.
+
+Never conflate the two: tiers don't describe profile quality; the rating doesn't imply a specific university outcome. Applies to all UI copy, emails, PDFs, the AISA chat prompt, and algorithm changes.
+
 ## Scoring weights (locked as of handoff #18, 17 May 2026)
 
 | Signal | PG | UG |
