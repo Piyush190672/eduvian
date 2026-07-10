@@ -17,6 +17,7 @@ const fieldSet = new Set<string>();
 // stat without overclaiming on the unverified tail.
 const verifiedUniSet = new Set<string>();
 let verifiedProgramCount = 0;
+let maxVerifiedAt = "";
 
 // universities grouped by country  {country -> sorted string[]}
 const _byCountry: Record<string, Set<string>> = {};
@@ -44,8 +45,22 @@ for (const p of PROGRAMS as MaybeVerified[]) {
   if (p.verified_at) {
     verifiedProgramCount += 1;
     verifiedUniSet.add(p.university_name);
+    // ISO timestamps compare lexicographically — track the newest.
+    if (p.verified_at > maxVerifiedAt) maxVerifiedAt = p.verified_at;
   }
 }
+
+// Human label for the most recent pipeline verification, e.g. "18 May 2026".
+// Computed at build time from the data itself — replaces the hardcoded
+// string on the homepage that silently went stale (trust-integrity sweep,
+// 10 July 2026).
+const MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+function humanDate(iso: string): string {
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return "";
+  return `${d.getUTCDate()} ${MONTHS[d.getUTCMonth()]} ${d.getUTCFullYear()}`;
+}
+const lastVerifiedLabel = maxVerifiedAt ? humanDate(maxVerifiedAt) : "";
 
 export const universitiesByCountry: Record<string, string[]> = {};
 for (const [country, unis] of Object.entries(_byCountry)) {
@@ -84,4 +99,6 @@ export const DB_STATS = {
   verifiedUniversitiesLabel: `${verifiedUniSet.size}+`,
   countriesLabel: `${countrySet.size}`,
   fieldsLabel: `${fieldSet.size}`,
+  /** Most recent verified_at across the DB, e.g. "18 May 2026". */
+  lastVerifiedLabel,
 } as const;

@@ -41,7 +41,10 @@ function SourceProof({
   );
 }
 
-const LAST_VERIFIED_LABEL = "8 May 2026";
+// Computed at build time from max(verified_at) across the DB — the
+// previous hardcoded string ("8 May 2026") silently decayed and read as
+// a stale trust claim. (Trust-integrity sweep, 10 July 2026.)
+const LAST_VERIFIED_LABEL = DB_STATS.lastVerifiedLabel;
 
 // Hero headline carousel — 5 slides auto-rotating every 7s. Each slide
 // shows a bold first line, an italic second-line complement, and a body
@@ -107,7 +110,9 @@ const STAGES: Stage[] = [
     n: "01", label: "Match",
     title: "No idea where to apply?",
     benefit: "Get a Safe, Reach and Ambitious shortlist based on your profile.",
-    sample: { kind: "tier", safe: 6, reach: 9, ambitious: 5 },
+    // Mirrors the REAL per-tier quota (12/20/8 of up to 40) — the earlier
+    // 6/9/5 illustration contradicted the actual product output.
+    sample: { kind: "tier", safe: 12, reach: 20, ambitious: 8 },
     cta: "Find my best-fit programs",
     trust: "Verified against each university's official program page (e.g. ox.ac.uk, mit.edu, daad.de) — fees, deadlines and English cutoffs read live from source.",
     href: "/get-started",
@@ -465,7 +470,7 @@ export default function V2LandingPage() {
                       </div>
                     ))}
                   </div>
-                  <p className="text-[9px] text-gray-400 mt-2.5 pt-2 border-t border-gray-50">Showing 4 of 20 · Safe, Reach &amp; Ambitious</p>
+                  <p className="text-[9px] text-gray-400 mt-2.5 pt-2 border-t border-gray-50">Showing 4 of up to 40 · Safe, Reach &amp; Ambitious</p>
                   <SourceProof
                     kinds={["official", "ai_estimate"]}
                     lastVerified={LAST_VERIFIED_LABEL}
@@ -959,15 +964,18 @@ export default function V2LandingPage() {
                           </div>
                         </div>
                         <div className="space-y-2 text-sm">
+                          {/* Median-realistic illustration (trust sweep, 10 Jul 2026):
+                              the earlier $120K Yr-1 / +$532K figures were top-quartile
+                              outcomes presented as typical. */}
                           <div className="flex justify-between"><span className="text-gray-500">Cost</span><span className="font-mono text-gray-800">$68K</span></div>
-                          <div className="flex justify-between"><span className="text-gray-500">Yr 1 salary</span><span className="font-mono font-bold text-emerald-700">$120K</span></div>
-                          <div className="flex justify-between"><span className="text-gray-500">Break-even</span><span className="font-mono font-bold text-emerald-700">1.8 yrs</span></div>
-                          <div className="flex justify-between"><span className="text-gray-500">5-yr gain</span><span className="font-mono font-bold text-emerald-700">+$532K</span></div>
+                          <div className="flex justify-between"><span className="text-gray-500">Yr 1 salary</span><span className="font-mono font-bold text-emerald-700">$98K</span></div>
+                          <div className="flex justify-between"><span className="text-gray-500">Break-even</span><span className="font-mono font-bold text-emerald-700">2.1 yrs</span></div>
+                          <div className="flex justify-between"><span className="text-gray-500">5-yr gain</span><span className="font-mono font-bold text-emerald-700">+$342K</span></div>
                         </div>
                       </div>
                     </div>
                     <div className="mx-6 mb-5 rounded-2xl bg-emerald-50 border border-emerald-100 px-4 py-3.5">
-                      <p className="text-sm font-semibold text-emerald-800">✓ UIUC recovers 22% faster and yields $299K more over 5 years</p>
+                      <p className="text-sm font-semibold text-emerald-800">✓ UIUC breaks even sooner and yields ~$45K more over 5 years — margins this close can flip with city costs, so run your own numbers</p>
                     </div>
                   </div>
                 )}
