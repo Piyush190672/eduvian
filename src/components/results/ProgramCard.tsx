@@ -330,7 +330,7 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist,
               <span className="text-xs px-2.5 py-1 rounded-full bg-gray-50 text-gray-500 border border-gray-100">
                 {program.city}, {program.country}
               </span>
-              <span className="text-xs px-2.5 py-1 rounded-full bg-purple-50 text-purple-600 border border-purple-100">
+              <span className="text-xs px-2.5 py-1 rounded-full bg-violet-50 text-violet-700 border border-violet-100">
                 {program.field_of_study}
               </span>
               <span
@@ -363,7 +363,7 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist,
               ) : (
                 <>
                   <span className="flex items-center gap-1 text-gray-600">
-                    <DollarSign className="w-3.5 h-3.5 text-indigo-400" />
+                    <DollarSign className="w-3.5 h-3.5 text-violet-500" />
                     <span className="font-semibold">{formatCurrency(totalCost as number)}</span>
                     <span className="text-gray-400 text-xs">/yr total</span>
                   </span>
@@ -470,8 +470,8 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist,
               onClick={onToggleShortlist}
               className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold border-2 transition-all justify-center w-full sm:flex-1 ${
                 isShortlisted
-                  ? "bg-indigo-500 text-white border-indigo-500 hover:bg-rose-500 hover:border-rose-500"
-                  : "bg-white text-indigo-600 border-indigo-400 hover:bg-indigo-50 hover:border-indigo-500"
+                  ? "bg-violet-600 text-white border-violet-600 hover:bg-rose-500 hover:border-rose-500"
+                  : "bg-white text-violet-700 border-violet-400 hover:bg-violet-50 hover:border-violet-600"
               }`}
             >
               {isShortlisted ? (
@@ -514,7 +514,7 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist,
               href={program.apply_url ?? program.program_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-bold hover:shadow-lg hover:shadow-indigo-200 hover:-translate-y-0.5 transition-all whitespace-nowrap w-full sm:w-auto"
+              className="flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-violet-600 text-white text-sm font-bold hover:bg-violet-700 hover:shadow-lg hover:shadow-violet-200 hover:-translate-y-0.5 transition-all whitespace-nowrap w-full sm:w-auto"
             >
               Apply Now
               <ExternalLink className="w-3.5 h-3.5" />

@@ -13,13 +13,12 @@ interface AuthGateProps {
   children: React.ReactNode;
 }
 
+// v2 brand: one violet accent across all stages (the per-stage gradient
+// rainbow violated the locked "no gradient rainbow per stage" rule —
+// Phase 2 reskin, 10 July 2026). Benefits stay stage-specific.
 const STAGE_CONFIG = {
   2: {
     pill:      "Stage 2 · Check & Write",
-    gradient:  "from-violet-600 to-indigo-600",
-    btnGrad:   "from-violet-500 to-indigo-600",
-    btnShadow: "shadow-violet-200",
-    ringColor: "focus:ring-violet-300",
     benefits: [
       "AI-scored application story check",
       "SOP writer trained on real admissions data",
@@ -29,10 +28,6 @@ const STAGE_CONFIG = {
   },
   3: {
     pill:      "Stage 3 · Practice",
-    gradient:  "from-emerald-600 to-teal-600",
-    btnGrad:   "from-emerald-500 to-teal-600",
-    btnShadow: "shadow-emerald-200",
-    ringColor: "focus:ring-emerald-300",
     benefits: [
       "AI Interview Coach — AU, UK & US F-1",
       "Full-length IELTS, PTE, DET & TOEFL mocks",
@@ -42,10 +37,6 @@ const STAGE_CONFIG = {
   },
   4: {
     pill:      "Stage 4 · Decide",
-    gradient:  "from-amber-500 to-orange-500",
-    btnGrad:   "from-amber-500 to-orange-500",
-    btnShadow: "shadow-amber-200",
-    ringColor: "focus:ring-amber-300",
     benefits: [
       "ROI Calculator with 10-year earnings projection",
       "Real payback period with cost-of-living data",
@@ -53,6 +44,14 @@ const STAGE_CONFIG = {
       "Side-by-side university comparison",
     ],
   },
+};
+
+// Single-accent styling shared by every stage.
+const GATE_STYLE = {
+  panelBg:   "bg-[#0E1119]",
+  btn:       "bg-violet-600 hover:bg-violet-700",
+  btnShadow: "shadow-violet-200",
+  ringColor: "focus:ring-violet-300",
 };
 
 const RESEND_COOLDOWN_SECONDS = 60;
@@ -193,8 +192,9 @@ export default function AuthGate({ stage, toolName, source, children }: AuthGate
     }
   };
 
-  // Still hydrating — show blank page in page's own bg colour to avoid flash
-  if (isAuthed === null) return <div className="min-h-screen bg-white" />;
+  // Still hydrating — hold the navy gate shell instead of a blank white
+  // flash (the wall renders navy-left/white-right a beat later anyway).
+  if (isAuthed === null) return <div className={`min-h-screen ${GATE_STYLE.panelBg}`} />;
 
   // Authenticated — render the protected page
   if (isAuthed) return <>{children}</>;
@@ -204,9 +204,9 @@ export default function AuthGate({ stage, toolName, source, children }: AuthGate
     <div className="min-h-screen flex flex-col lg:flex-row">
 
       {/* ─── Left panel: value prop ─── */}
-      <div className={`lg:w-[46%] bg-gradient-to-br ${cfg.gradient} relative overflow-hidden flex flex-col justify-between px-10 py-12 lg:px-16 lg:py-20`}>
-        <div className="absolute -top-24 -right-24 w-96 h-96 bg-white/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-24 -left-24 w-80 h-80 bg-black/10 rounded-full blur-3xl pointer-events-none" />
+      <div className={`lg:w-[46%] ${GATE_STYLE.panelBg} relative overflow-hidden flex flex-col justify-between px-10 py-12 lg:px-16 lg:py-20`}>
+        <div className="hidden md:block absolute -top-24 -right-24 w-96 h-96 bg-violet-600/20 rounded-full blur-3xl pointer-events-none" />
+        <div className="hidden md:block absolute -bottom-24 -left-24 w-80 h-80 bg-violet-900/30 rounded-full blur-3xl pointer-events-none" />
 
         {/* Logo */}
         <Link href="/" className="relative z-10 flex items-center gap-2 w-fit">
@@ -297,7 +297,7 @@ export default function AuthGate({ stage, toolName, source, children }: AuthGate
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         placeholder="e.g. Priya Sharma"
-                        className={`w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 ${cfg.ringColor} transition-shadow`}
+                        className={`w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 ${GATE_STYLE.ringColor} transition-shadow`}
                         required
                       />
                     </div>
@@ -309,7 +309,7 @@ export default function AuthGate({ stage, toolName, source, children }: AuthGate
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="you@example.com"
-                      className={`w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 ${cfg.ringColor} transition-shadow`}
+                      className={`w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 ${GATE_STYLE.ringColor} transition-shadow`}
                       required
                     />
                   </div>
@@ -324,7 +324,7 @@ export default function AuthGate({ stage, toolName, source, children }: AuthGate
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
                         placeholder="+91 98765 43210"
-                        className={`w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 ${cfg.ringColor} transition-shadow`}
+                        className={`w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 ${GATE_STYLE.ringColor} transition-shadow`}
                       />
                     </div>
                   )}
@@ -360,7 +360,7 @@ export default function AuthGate({ stage, toolName, source, children }: AuthGate
                   <button
                     type="submit"
                     disabled={loading}
-                    className={`w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-gradient-to-r ${cfg.btnGrad} text-white font-bold text-sm shadow-lg ${cfg.btnShadow} hover:-translate-y-0.5 hover:shadow-xl transition-all disabled:opacity-60 disabled:translate-y-0 mt-2`}
+                    className={`w-full flex items-center justify-center gap-2 py-3.5 rounded-xl ${GATE_STYLE.btn} text-white font-bold text-sm shadow-lg ${GATE_STYLE.btnShadow} hover:-translate-y-0.5 hover:shadow-xl transition-all disabled:opacity-60 disabled:translate-y-0 mt-2`}
                   >
                     {loading ? (
                       <span className="flex items-center gap-2">
@@ -386,7 +386,7 @@ export default function AuthGate({ stage, toolName, source, children }: AuthGate
             ) : (
               <>
                 <div className="flex items-center gap-3 mb-2">
-                  <div className={`w-10 h-10 rounded-full bg-gradient-to-r ${cfg.btnGrad} flex items-center justify-center shadow-md ${cfg.btnShadow}`}>
+                  <div className={`w-10 h-10 rounded-full bg-violet-600 flex items-center justify-center shadow-md ${GATE_STYLE.btnShadow}`}>
                     <Mail className="w-5 h-5 text-white" />
                   </div>
                   <h1 className="text-2xl font-extrabold text-gray-900">Enter the code</h1>
@@ -409,7 +409,7 @@ export default function AuthGate({ stage, toolName, source, children }: AuthGate
                       value={otp}
                       onChange={(e) => setOtp(e.target.value.replace(/[^0-9]/g, "").slice(0, 6))}
                       placeholder="123456"
-                      className={`w-full px-4 py-3 rounded-xl border border-gray-200 text-center text-2xl font-mono tracking-[0.4em] focus:outline-none focus:ring-2 ${cfg.ringColor} transition-shadow`}
+                      className={`w-full px-4 py-3 rounded-xl border border-gray-200 text-center text-2xl font-mono tracking-[0.4em] focus:outline-none focus:ring-2 ${GATE_STYLE.ringColor} transition-shadow`}
                       required
                     />
                   </div>
@@ -423,7 +423,7 @@ export default function AuthGate({ stage, toolName, source, children }: AuthGate
                   <button
                     type="submit"
                     disabled={loading || otp.length !== 6}
-                    className={`w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-gradient-to-r ${cfg.btnGrad} text-white font-bold text-sm shadow-lg ${cfg.btnShadow} hover:-translate-y-0.5 hover:shadow-xl transition-all disabled:opacity-60 disabled:translate-y-0 mt-2`}
+                    className={`w-full flex items-center justify-center gap-2 py-3.5 rounded-xl ${GATE_STYLE.btn} text-white font-bold text-sm shadow-lg ${GATE_STYLE.btnShadow} hover:-translate-y-0.5 hover:shadow-xl transition-all disabled:opacity-60 disabled:translate-y-0 mt-2`}
                   >
                     {loading ? (
                       <span className="flex items-center gap-2">
