@@ -1,0 +1,40 @@
+# Minimum viable CI (Phase 1 item 4, 10 July 2026).
+#
+# Gates every push/PR on: type-check, the vitest suite (scoring
+# invariants + prestige buckets + data invariants + fee rendering),
+# and a production build. The scoring engine had 4+ rewrites with only
+# a manually-eyeballed smoke script before this existed.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Type-check
+        run: npx tsc --noEmit
+
+      - name: Tests
+        run: npm test
+
+      - name: Build
+        run: npx next build
+        env:
+          # Build-time only — no real secrets needed for a compile check.
+          # Sentry upload is skipped without SENTRY_AUTH_TOKEN.
+          NEXT_TELEMETRY_DISABLED: "1"

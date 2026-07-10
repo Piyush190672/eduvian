@@ -381,6 +381,14 @@ export const TARGET_COUNTRIES = [
   { code: "AE", name: "UAE", flag: "🇦🇪" },
   { code: "SG", name: "Singapore", flag: "🇸🇬" },
   { code: "MY", name: "Malaysia", flag: "🇲🇾" },
+  // Netherlands was missing from this list even though the platform
+  // advertises 12 countries, carries 181 NL programs, and has Netherlands
+  // content on /destinations + CountryModal. Because the profile form's
+  // country picker maps over TARGET_COUNTRIES and ≥1 preference is
+  // mandatory, those 181 programs were unreachable by ANY user until
+  // this entry was added (found by the Phase-1 data-invariant tests,
+  // 10 July 2026).
+  { code: "NL", name: "Netherlands", flag: "🇳🇱" },
 ] as const;
 
 export type CountryCode = (typeof TARGET_COUNTRIES)[number]["code"];
