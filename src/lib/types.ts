@@ -129,6 +129,15 @@ export interface StudentProfile {
   // the encrypted profile blob — no new DB column.
   marketing_opt_in?: boolean;
 
+  // Terms acceptance for UNREGISTERED submissions (Phase 2 #7 — the
+  // profile form is now ungated). Registered users accept at register
+  // time (students.terms_version); guests must tick the consent box on
+  // the review step, and these two fields ride on the encrypted profile
+  // blob as the timestamped record. /api/submit refuses guest
+  // submissions without them.
+  terms_accepted_at?: string;
+  terms_version?: string;
+
   // MBA-specific (only collected when intended_field === "MBA" and
   // degree_level === "postgraduate"). Top MBAs explicitly weight
   // leadership experience and team size; we surface those questions so

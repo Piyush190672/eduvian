@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import type { StudentProfile } from "@/lib/types";
 import { getFieldAlignmentError } from "@/lib/field-prereq";
+import { TERMS_VERSION } from "@/lib/legal-version";
 import StepPersonal from "@/components/form/StepPersonal";
 import StepAcademic from "@/components/form/StepAcademic";
 import StepTests from "@/components/form/StepTests";
@@ -207,6 +208,17 @@ function ProfilePageInner() {
   const [profile, setProfile] = useState<Partial<StudentProfile>>(defaultProfile);
   const [submitting, setSubmitting] = useState(false);
   const [errors, setErrors] = useState<string[]>([]);
+  // Ungated form (Phase 2 #7): guests can fill + submit without an
+  // account. Assume signed OUT until /api/profile-preload proves
+  // otherwise — that way the Terms consent checkbox can never be
+  // skipped by a fetch hiccup. (401 = no session; 200/503 = session.)
+  const [signedOut, setSignedOut] = useState(true);
+  const [termsAccepted, setTermsAccepted] = useState(false);
+  useEffect(() => {
+    fetch("/api/profile-preload", { credentials: "include" })
+      .then((r) => { if (r.status !== 401) setSignedOut(false); })
+      .catch(() => {});
+  }, []);
   const [studentName, setStudentName] = useState<string | null>(null);
   const [isEditing, setIsEditing] = useState(false);
 
@@ -363,17 +375,26 @@ function ProfilePageInner() {
 
   const handleSubmit = async () => {
     const missing = validateStep(4, profile);
+    if (signedOut && !termsAccepted) {
+      missing.push("Please accept the Terms of Service and Privacy Policy to continue.");
+    }
     if (missing.length > 0) {
       setErrors(missing);
+      if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "smooth" });
       return;
     }
     setErrors([]);
     setSubmitting(true);
     try {
+      // Guests carry their timestamped Terms acceptance on the profile
+      // itself (registered users accepted at register time).
+      const payload = signedOut
+        ? { ...profile, terms_accepted_at: new Date().toISOString(), terms_version: TERMS_VERSION }
+        : profile;
       const res = await fetch("/api/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ profile }),
+        body: JSON.stringify({ profile: payload }),
       });
 
       if (!res.ok) {
@@ -551,7 +572,12 @@ function ProfilePageInner() {
               <StepPreferences profile={profile} onChange={updateProfile} />
             )}
             {step === 5 && (
-              <StepReview profile={profile} />
+              <StepReview
+                profile={profile}
+                requireTerms={signedOut}
+                termsAccepted={termsAccepted}
+                onTermsChange={setTermsAccepted}
+              />
             )}
           </motion.div>
         </AnimatePresence>

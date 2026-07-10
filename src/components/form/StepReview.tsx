@@ -5,6 +5,10 @@ import { intendedFieldLabel, TARGET_COUNTRIES } from "@/lib/types";
 
 interface Props {
   profile: Partial<StudentProfile>;
+  /** Guests (no session) must accept Terms before submitting (Phase 2 #7). */
+  requireTerms?: boolean;
+  termsAccepted?: boolean;
+  onTermsChange?: (accepted: boolean) => void;
 }
 
 const COUNTRY_LABELS: Record<string, string> = Object.fromEntries(
@@ -94,7 +98,7 @@ function Section({ title, items }: { title: string; items: { label: string; valu
   );
 }
 
-export default function StepReview({ profile }: Props) {
+export default function StepReview({ profile, requireTerms, termsAccepted, onTermsChange }: Props) {
   const personal: { label: string; value: string }[] = [
     { label: "Full Name", value: val(profile.full_name) },
     { label: "Email", value: val(profile.email) },
@@ -174,6 +178,25 @@ export default function StepReview({ profile }: Props) {
       <Section title="Academic" items={academic} />
       {tests.length > 0 && <Section title="Test Scores" items={tests} />}
       <Section title="Preferences" items={prefs} />
+
+      {requireTerms && (
+        <label className="flex items-start gap-3 rounded-xl border border-violet-200 bg-violet-50/60 px-4 py-3.5 cursor-pointer">
+          <input
+            type="checkbox"
+            checked={termsAccepted ?? false}
+            onChange={(e) => onTermsChange?.(e.target.checked)}
+            className="mt-0.5 w-4 h-4 accent-violet-600 flex-shrink-0"
+          />
+          <span className="text-xs text-gray-700 leading-relaxed">
+            I accept the{" "}
+            <a href="/terms" target="_blank" rel="noopener noreferrer" className="font-semibold text-violet-700 underline">Terms of Service</a>{" "}
+            and{" "}
+            <a href="/privacy" target="_blank" rel="noopener noreferrer" className="font-semibold text-violet-700 underline">Privacy Policy</a>,
+            and consent to my profile being processed to generate university
+            matches. *
+          </span>
+        </label>
+      )}
     </div>
   );
 }

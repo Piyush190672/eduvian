@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { scoreProgram, recommendPrograms } from "@/lib/scoring";
+import { scoreProgram, recommendPrograms, teaserSlice } from "@/lib/scoring";
 import { mkProfile, mkProgram } from "./fixtures";
 
 const perfectProfile = () =>
@@ -155,6 +155,34 @@ describe("dedup + quotas", () => {
     expect(count("safe")).toBeLessThanOrEqual(6);
     expect(count("reach")).toBeLessThanOrEqual(10);
     expect(count("ambitious")).toBeLessThanOrEqual(4);
+  });
+});
+
+describe("teaserSlice (registration gate, Phase 2 #7)", () => {
+  it("returns at most 5 with tier breadth, preserving display order", () => {
+    const programs = [
+      ...Array.from({ length: 12 }, (_, i) => mkProgram({ university_name: `Safe U ${i}` })),
+      ...Array.from({ length: 10 }, (_, i) => mkProgram({ qs_ranking: 50, university_name: `Reach U ${i}` })),
+      ...Array.from({ length: 4 },  (_, i) => mkProgram({ qs_ranking: 5,  university_name: `Amb U ${i}` })),
+    ];
+    const scored = recommendPrograms(mkProfile({ academic_score: 100 }), programs, 2);
+    const teaser = teaserSlice(scored, 5);
+    expect(teaser.length).toBe(5);
+    expect(teaser.filter((p) => p.tier === "safe").length).toBe(2);
+    expect(teaser.filter((p) => p.tier === "reach").length).toBe(2);
+    expect(teaser.filter((p) => p.tier === "ambitious").length).toBe(1);
+    // Order matches the full list's order.
+    const order = new Map(scored.map((p, i) => [p.id, i]));
+    for (let i = 1; i < teaser.length; i++) {
+      expect(order.get(teaser[i].id)!).toBeGreaterThan(order.get(teaser[i - 1].id)!);
+    }
+  });
+
+  it("backfills when a tier can't supply its share", () => {
+    const programs = Array.from({ length: 8 }, (_, i) => mkProgram({ university_name: `Only Safe ${i}` }));
+    const scored = recommendPrograms(mkProfile({ academic_score: 95 }), programs, 2);
+    const teaser = teaserSlice(scored, 5);
+    expect(teaser.length).toBe(Math.min(5, scored.length));
   });
 });
 

@@ -149,9 +149,10 @@ export default function HomePage() {
               <Link href="/destinations" className="hidden sm:inline text-sm text-white/70 hover:text-white transition-colors">Destinations</Link>
               <Link href="/methodology" className="hidden sm:inline text-sm text-white/70 hover:text-white transition-colors">How it works</Link>
               <Link href="/scholarships" className="hidden md:inline text-sm text-white/70 hover:text-white transition-colors">Scholarships</Link>
+              <Link href="/get-started" className="text-sm text-white/70 hover:text-white transition-colors">Sign in</Link>
               <LogoutButton variant="compact" />
               <Link
-                href="/get-started"
+                href="/profile"
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-gray-900 text-sm font-semibold hover:bg-stone-100 transition-colors"
               >
                 See if I qualify
@@ -184,7 +185,7 @@ export default function HomePage() {
             </p>
             <div className="flex flex-col sm:flex-row sm:items-center gap-4">
               <Link
-                href="/get-started"
+                href="/profile"
                 className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-violet-600 hover:bg-violet-700 text-white text-base font-bold shadow-lg shadow-violet-900/40 transition-all"
               >
                 See if I qualify
@@ -448,7 +449,7 @@ export default function HomePage() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
-              href="/get-started"
+              href="/profile"
               className="group inline-flex items-center gap-2 px-8 py-4 rounded-full bg-violet-600 hover:bg-violet-700 text-white text-base font-bold shadow-lg shadow-violet-900/40 transition-all"
             >
               See if I qualify

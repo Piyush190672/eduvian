@@ -1,11 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
-import { recommendPrograms } from "@/lib/scoring";
+import { recommendPrograms, teaserSlice } from "@/lib/scoring";
 import { INDEXED_PROGRAMS } from "@/data/programs-indexed";
 import { submissionStore } from "@/lib/store";
 import type { Program } from "@/lib/types";
 import { decryptProfile } from "@/lib/submissions-decrypt";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
-import { isSubmissionOwner, redactProfileContact } from "@/lib/submission-owner";
+import { isSubmissionOwner, isEmailRegistered, redactProfileContact } from "@/lib/submission-owner";
 import { resultsPatchSchema, zodErrorMessage } from "@/lib/schemas";
 
 export async function GET(
@@ -95,7 +95,32 @@ export async function GET(
   // button. No extra API round-trip needed.
   const scored = recommendPrograms(submission.profile, programs, 2);
 
-  return NextResponse.json({ submission, programs: scored, viewer: owner ? "owner" : "shared" });
+  // Registration gate, moved AFTER the form (Phase 2 #7, 10 July 2026):
+  // anyone can submit a profile and see a top-5 teaser, but the full
+  // list unlocks only once the submitting email has a REGISTERED
+  // account. Keyed on registration, NOT session ownership — /api/submit
+  // hands every guest submitter an owner session cookie, so an
+  // ownership-keyed gate would never bind on the submitting device.
+  // The truncation happens HERE, server-side — a client-side blur would
+  // ship the full data anyway. Shared links of claimed (registered)
+  // submissions are untouched, so the parent-share flow keeps working.
+  if (!(await isEmailRegistered(decryptedProfile.email))) {
+    const preview = teaserSlice(scored, 5);
+    return NextResponse.json({
+      submission,
+      programs: preview,
+      viewer: "locked",
+      locked_count: scored.length - preview.length,
+      total_matches: scored.length,
+    });
+  }
+
+  return NextResponse.json({
+    submission,
+    programs: scored,
+    viewer: owner ? "owner" : "shared",
+    total_matches: scored.length,
+  });
 }
 
 export async function PATCH(

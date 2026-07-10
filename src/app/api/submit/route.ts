@@ -100,6 +100,20 @@ export async function POST(req: NextRequest) {
 
     const normalizedEmail = profile.email.toLowerCase().trim();
 
+    // Ungated-form consent gate (Phase 2 #7): registered users accepted
+    // the Terms at register time (students.terms_version); guests must
+    // send the timestamped acceptance the review-step checkbox stamps
+    // onto the profile. Refuse guest submissions without it.
+    if (!profile.terms_accepted_at) {
+      const { isEmailRegistered } = await import("@/lib/submission-owner");
+      if (!(await isEmailRegistered(normalizedEmail))) {
+        return NextResponse.json(
+          { error: "Please accept the Terms of Service and Privacy Policy to continue.", reason: "terms_required" },
+          { status: 400 },
+        );
+      }
+    }
+
     // Beta gate (in addition to IP rate limit)
     const gate = await checkBetaAccess(normalizedEmail, "submit-match");
     if (!gate.allowed) {

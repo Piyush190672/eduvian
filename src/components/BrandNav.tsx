@@ -10,7 +10,9 @@ type Props = {
 // Brand-locked top nav, post-v2-swap (5 May 2026). `dark` sits transparently
 // over the dark hero; `light` is the white-on-content variant for pages that
 // don't lead with a dark hero.
-export default function BrandNav({ variant = "dark", ctaHref = "/get-started", ctaLabel = "Find my programs" }: Props) {
+// Default CTA goes straight to the ungated profile form (Phase 2 #7,
+// 10 July 2026) — registration moved to the results-unlock step.
+export default function BrandNav({ variant = "dark", ctaHref = "/profile", ctaLabel = "Find my programs" }: Props) {
   const isDark = variant === "dark";
   const wrapperCls = isDark ? "absolute top-0 inset-x-0 z-50" : "sticky top-0 inset-x-0 z-50 bg-white/90 backdrop-blur border-b border-stone-200";
   const logoCls = isDark ? "text-white" : "text-gray-900";

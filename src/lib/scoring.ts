@@ -949,3 +949,23 @@ export function recommendPrograms(profile: StudentProfile, programs: Program[], 
     ...pools.ambitious.slice(0, alloc.ambitious),
   ];
 }
+
+/**
+ * Teaser slice for unclaimed submissions (Phase 2 #7, 10 July 2026):
+ * viewers of a results link whose submitter never registered see only
+ * this preview until the submitter creates an account. Shows breadth —
+ * up to 2 safe, 2 reach, 1 ambitious in display order — then backfills
+ * from the front of the list if those tiers can't supply 5.
+ */
+export function teaserSlice(scored: ScoredProgram[], size = 5): ScoredProgram[] {
+  const byTier = (t: string, n: number) => scored.filter((p) => p.tier === t).slice(0, n);
+  const picked = [...byTier("safe", 2), ...byTier("reach", 2), ...byTier("ambitious", 1)];
+  const ids = new Set(picked.map((p) => p.id));
+  for (const p of scored) {
+    if (picked.length >= size) break;
+    if (!ids.has(p.id)) { picked.push(p); ids.add(p.id); }
+  }
+  // Preserve the display order of the full list.
+  const order = new Map(scored.map((p, i) => [p.id, i]));
+  return picked.slice(0, size).sort((a, b) => (order.get(a.id) ?? 0) - (order.get(b.id) ?? 0));
+}

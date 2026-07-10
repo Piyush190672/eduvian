@@ -127,7 +127,7 @@ export default function ProgramDetailPage({ params }: Props) {
             </a>
           )}
           <Link
-            href="/get-started"
+            href="/profile"
             className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-violet-600 hover:bg-violet-700 text-white text-sm font-bold transition-colors"
           >
             See if I qualify for this program

@@ -37,7 +37,7 @@ export default function FloatingGetStartedButton() {
 
   return (
     <Link
-      href="/get-started"
+      href="/profile"
       aria-label="Get started"
       className="fixed top-[88px] right-4 sm:right-6 z-40 inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-violet-600 hover:bg-violet-700 text-white text-sm font-semibold shadow-lg shadow-violet-900/30 hover:shadow-xl hover:-translate-y-0.5 transition-all"
     >

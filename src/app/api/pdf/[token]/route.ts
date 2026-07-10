@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { recommendPrograms } from "@/lib/scoring";
+import { recommendPrograms, teaserSlice } from "@/lib/scoring";
 import { INDEXED_PROGRAMS, resolveProgramId } from "@/data/programs-indexed";
 import { submissionStore } from "@/lib/store";
 import type { Program, StudentProfile, ScoredProgram } from "@/lib/types";
@@ -9,7 +9,7 @@ import { scoreStudentProfile, categoryBadgeHtml } from "@/lib/profile-score";
 import { escHtml } from "@/lib/html-escape";
 import { decryptProfile } from "@/lib/submissions-decrypt";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
-import { isSubmissionOwner, redactProfileContact } from "@/lib/submission-owner";
+import { isSubmissionOwner, isEmailRegistered, redactProfileContact } from "@/lib/submission-owner";
 import { captureApiError } from "@/lib/api-error";
 
 // PDF render = decrypt profile + score 8k+ programs + emit ~10KB HTML.
@@ -92,10 +92,18 @@ export async function GET(
         .map((id: string) => resolveProgramId(id)?.id ?? id)
         .filter(Boolean),
     );
-    const shortlisted =
+    let shortlisted =
       wantedIds.size > 0
         ? scored.filter((p) => wantedIds.has(p.id))
         : scored.slice(0, 20);
+
+    // Same registration teaser gate as /api/results (Phase 2 #7): an
+    // unclaimed submission's PDF must not leak the full list either.
+    // Keyed on registration, not ownership — guest submitters carry an
+    // owner session cookie from /api/submit.
+    if (!(await isEmailRegistered(rawProfile.email))) {
+      shortlisted = teaserSlice(shortlisted, 5);
+    }
 
     const html = buildPDFHtml(profile, shortlisted);
 

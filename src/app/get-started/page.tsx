@@ -72,6 +72,20 @@ function validatePassword(pw: string): string | null {
 
 export default function GetStartedPage() {
   const router = useRouter();
+
+  // ?next= deep-link support (Phase 2 #7): the locked-results banner
+  // sends users here with next=/results/<token> so registering with the
+  // same email drops them straight back on the now-unlocked list. Read
+  // from window at call time (this is a client page; useSearchParams
+  // would force a Suspense boundary for no benefit). Only same-site
+  // /results or /profile paths are honoured — anything else falls back.
+  const nextParam = (): string | null => {
+    if (typeof window === "undefined") return null;
+    const n = new URLSearchParams(window.location.search).get("next");
+    return n && /^\/(results|profile)(\/|$)/.test(n) ? n : null;
+  };
+  const goNext = (fallback: string) => router.push(nextParam() ?? fallback);
+
   const [mode, setMode] = useState<Mode>("choose");
   // After register OTP success, transition to "password" — set-a-password
   // is part of the same screen so users finish the auth flow in one place
@@ -86,8 +100,16 @@ export default function GetStartedPage() {
   useEffect(() => {
     if (typeof window === "undefined") return;
     try {
-      if (localStorage.getItem("eduvian_student")) {
-        router.replace("/profile");
+      const raw = localStorage.getItem("eduvian_student");
+      // Only records written by a real auth flow carry an email. The
+      // guest profile form also writes eduvian_student (geo fields only)
+      // — a guest arriving here to REGISTER must not be bounced away
+      // (Phase 2 #7). Honour ?next= so signed-in users deep-link back
+      // to the results they came to unlock.
+      const student = raw ? (JSON.parse(raw) as { email?: string }) : null;
+      if (student?.email) {
+        const n = new URLSearchParams(window.location.search).get("next");
+        router.replace(n && /^\/(results|profile)(\/|$)/.test(n) ? n : "/profile");
       }
     } catch {
       /* ignore */
@@ -237,7 +259,7 @@ export default function GetStartedPage() {
           setError(data.error ?? "Could not save password. You can set one later from your profile.");
           return;
         }
-        router.push("/profile");
+        goNext("/profile");
       } catch {
         setError("Connection error. You can set a password later from your profile.");
       } finally {
@@ -249,7 +271,7 @@ export default function GetStartedPage() {
   // Skip the password step without setting one — user can still log in
   // with the email-OTP flow and set a password later from /account/security.
   const skipPassword = () => {
-    router.push("/profile");
+    goNext("/profile");
   };
 
   const handleLogin = async (e: React.FormEvent) => {
@@ -274,8 +296,8 @@ export default function GetStartedPage() {
         const data = await res.json();
         if (data.ok) {
           saveStudentLocally({ name: data.student.name, email: data.student.email, phone: data.student.phone, id: data.student.id });
-          if (data.token) router.push(`/results/${data.token}`);
-          else router.push("/profile");
+          if (data.token) goNext(`/results/${data.token}`);
+          else goNext("/profile");
         } else if (data.reason === "no_password") {
           // Helpful nudge: this email has an account but no password set.
           setError(data.error ?? "No password set for this account.");
@@ -313,10 +335,10 @@ export default function GetStartedPage() {
         saveStudentLocally({ name: data.student.name, email: data.student.email, phone: data.student.phone, id: data.student.id });
         // If they have a previous submission, take them straight to their results
         if (data.token) {
-          router.push(`/results/${data.token}`);
+          goNext(`/results/${data.token}`);
         } else {
           // Account exists but no submission yet — let them fill the profile form
-          router.push("/profile");
+          goNext("/profile");
         }
       } else {
         setError(data.error ?? "No account found. Please create a profile.");
@@ -357,7 +379,7 @@ export default function GetStartedPage() {
 
   const handleGuest = () => {
     if (typeof window !== "undefined") localStorage.removeItem("eduvian_student");
-    router.push("/profile");
+    goNext("/profile");
   };
 
   return (

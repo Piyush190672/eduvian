@@ -35,6 +35,33 @@ export async function isSubmissionOwner(
   }
 }
 
+/**
+ * True when the email belongs to a registered student. Drives the
+ * results-teaser gate (Phase 2 #7, 10 July 2026): submissions from
+ * emails with no account show only a top-5 teaser to non-owner viewers
+ * until the submitter registers (OTP verifies the email, the session
+ * hash then matches, and the full list unlocks). Fails OPEN — if the
+ * lookup is unavailable we show the full list rather than lock paying
+ * attention out of legitimate users.
+ */
+export async function isEmailRegistered(email: string | undefined | null): Promise<boolean> {
+  if (!email || !email.includes("@")) return true;
+  try {
+    const { createServiceClient } = await import("@/lib/supabase");
+    const supabase = createServiceClient();
+    if (!supabase) return true;
+    const { data, error } = await supabase
+      .from("students")
+      .select("id")
+      .eq("email", email.toLowerCase().trim())
+      .maybeSingle();
+    if (error) return true;
+    return !!data;
+  } catch {
+    return true;
+  }
+}
+
 /** "kpiyush@yahoo.com" → "k•••@yahoo.com" (keeps domain for recognisability). */
 export function maskEmail(email: string | undefined | null): string {
   if (!email || !email.includes("@")) return "•••";

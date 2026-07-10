@@ -15,6 +15,7 @@ import {
   ShieldCheck,
   X,
   BarChart2,
+  Lock,
 } from "lucide-react";
 import { EduvianLogoMark } from "@/components/EduvianLogo";
 import type { ScoredProgram, ProgramTier, StudentProfile } from "@/lib/types";
@@ -41,6 +42,11 @@ interface ResultData {
     shortlisted_ids: string[];
   };
   programs: ScoredProgram[];
+  /** owner = full + raw contact · shared = full + masked contact ·
+   *  locked = top-5 teaser, submitter hasn't registered yet (Phase 2 #7). */
+  viewer?: "owner" | "shared" | "locked";
+  locked_count?: number;
+  total_matches?: number;
 }
 
 const TIER_CONFIG = [
@@ -420,6 +426,34 @@ export default function ResultsPage() {
           </div>
         )}
 
+        {/* ── Locked-teaser banner (Phase 2 #7) — the submitter hasn't
+            registered, so the API returned only a top-5 preview. The
+            truncation is server-side; this banner explains it and routes
+            to registration with the same email, which unlocks the rest. */}
+        {data.viewer === "locked" && (
+          <div className="mb-8 rounded-2xl border-2 border-violet-200 bg-violet-50 px-5 py-5">
+            <div className="flex items-start gap-3">
+              <Lock className="w-5 h-5 text-violet-700 flex-shrink-0 mt-0.5" />
+              <div className="flex-1 min-w-0">
+                <p className="text-sm font-bold text-violet-900">
+                  You&apos;re previewing {allPrograms.length} of {data.total_matches ?? allPrograms.length} matches.
+                </p>
+                <p className="text-xs text-violet-800/80 mt-1 leading-relaxed">
+                  {data.locked_count ?? 0} more matches are ready. Create a free
+                  account with the same email you used on the form to unlock the
+                  full list, save shortlists, and get the PDF report.
+                </p>
+                <Link
+                  href={`/get-started?next=/results/${token}`}
+                  className="inline-flex items-center gap-2 mt-3 px-5 py-2.5 rounded-full bg-violet-600 hover:bg-violet-700 text-white text-sm font-bold transition-colors"
+                >
+                  Register free to unlock all {data.total_matches ?? ""} matches
+                </Link>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* ── Tier-grouped program sections (Safe → Reach → Ambitious) ──────
             Programs are grouped by tier in TIER_CONFIG order. Within each
             section programs are sorted by the active filter — default is
@@ -447,7 +481,18 @@ export default function ResultsPage() {
                 </div>
               </div>
 
-              {programs.length === 0 ? (
+              {programs.length === 0 && data.viewer === "locked" ? (
+                // Locked teaser: the tier isn't empty — the rest of the
+                // list is gated behind registration. Don't show the
+                // filter-based "why is this empty" explainer; it would
+                // mis-diagnose the gate as a filter problem.
+                <div className={`rounded-xl border border-dashed ${tc.border} ${tc.bg} px-4 py-3.5`}>
+                  <p className={`text-sm font-semibold ${tc.text} flex items-center gap-2`}>
+                    <Lock className="w-4 h-4" />
+                    More {tc.label} matches are in your locked list — register free to see them.
+                  </p>
+                </div>
+              ) : programs.length === 0 ? (
                 // Compact "why is this empty" explainer.
                 (() => {
                   const expl = explainEmptyTier(tc.tier, profile, allPrograms);

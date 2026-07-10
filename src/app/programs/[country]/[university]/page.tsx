@@ -107,7 +107,7 @@ export default function UniversityHubPage({ params }: Props) {
             likelihood of an offer.
           </p>
           <Link
-            href="/get-started"
+            href="/profile"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-violet-600 hover:bg-violet-700 text-white text-sm font-bold transition-colors"
           >
             See if I qualify
