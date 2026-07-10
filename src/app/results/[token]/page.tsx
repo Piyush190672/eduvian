@@ -519,6 +519,14 @@ export default function ResultsPage() {
             first inside its tier. */}
         {TIER_CONFIG.map((tc, sectionIdx) => {
           const programs = tierPrograms[tc.tier];
+          // Locked view: how many matches this tier holds beyond the
+          // teaser. 0 means the tier is GENUINELY empty — say so
+          // honestly instead of promising locked matches that don't
+          // exist (user feedback, 10 July 2026).
+          const lockedHidden =
+            data.viewer === "locked" && data.tier_counts
+              ? Math.max(0, data.tier_counts[tc.tier] - programs.length)
+              : 0;
           return (
             <motion.section
               key={tc.tier}
@@ -543,15 +551,15 @@ export default function ResultsPage() {
                 </div>
               </div>
 
-              {programs.length === 0 && data.viewer === "locked" ? (
-                // Locked teaser: the tier isn't empty — the rest of the
-                // list is gated behind registration. Don't show the
-                // filter-based "why is this empty" explainer; it would
-                // mis-diagnose the gate as a filter problem.
+              {programs.length === 0 && lockedHidden > 0 ? (
+                // Locked teaser: this tier has real matches, all gated
+                // behind registration — say exactly how many. Don't show
+                // the filter-based "why is this empty" explainer; it
+                // would mis-diagnose the gate as a filter problem.
                 <div className={`rounded-xl border border-dashed ${tc.border} ${tc.bg} px-4 py-3.5`}>
                   <p className={`text-sm font-semibold ${tc.text} flex items-center gap-2`}>
                     <Lock className="w-4 h-4" />
-                    More {tc.label} matches are in your locked list — register free to see them.
+                    {lockedHidden} {tc.label.replace(/ Match$/, "")} {lockedHidden === 1 ? "match is" : "matches are"} locked — register free to see {lockedHidden === 1 ? "it" : "them"}.
                   </p>
                 </div>
               ) : programs.length === 0 ? (
@@ -610,6 +618,19 @@ export default function ResultsPage() {
                       />
                     </motion.div>
                   ))}
+                  {/* Locked stub: the tier shows its teaser share but
+                      holds more — state the exact number. */}
+                  {lockedHidden > 0 && (
+                    <Link
+                      href={`/get-started?next=/results/${token}`}
+                      className={`flex items-center gap-2.5 rounded-xl border border-dashed ${tc.border} ${tc.bg} px-4 py-3.5 hover:opacity-80 transition-opacity`}
+                    >
+                      <Lock className={`w-4 h-4 ${tc.text} flex-shrink-0`} />
+                      <span className={`text-sm font-semibold ${tc.text}`}>
+                        +{lockedHidden} more {tc.label.replace(/ Match$/, "")} {lockedHidden === 1 ? "match" : "matches"} — register free to unlock
+                      </span>
+                    </Link>
+                  )}
                 </div>
               )}
             </motion.section>
