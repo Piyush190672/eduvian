@@ -24,6 +24,8 @@ function toPercentageRough(profile: StudentProfile): number | null {
     case "percentage":
     case "igcse":
       return profile.academic_score;
+    case "cgpa_10":
+      return (profile.academic_score / 10) * 100;
     case "ib":
       return (profile.academic_score / 45) * 100;
     case "gpa":

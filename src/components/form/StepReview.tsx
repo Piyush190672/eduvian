@@ -58,6 +58,7 @@ const VISA_LABELS: Record<string, string> = {
 
 const SCORE_TYPE_LABELS: Record<string, string> = {
   percentage: "Percentage (%)",
+  cgpa_10: "CGPA (10-point)",
   gpa: "GPA (4.0)",
   ib: "IB Points (/45)",
   igcse: "IGCSE / A-Level",

@@ -93,7 +93,9 @@ export default function ProfileEvaluationPage({ params }: { params: { token: str
             Your <span className="italic font-medium text-violet-700">profile evaluation</span>.
           </h1>
           <p className="text-base sm:text-lg text-gray-500 leading-relaxed max-w-2xl">
-            Where you stand on the signals that admission officers actually weigh. Review this, then continue to the programs your profile fits best.
+            A readiness snapshot built from the information you shared — three
+            sub-scores, the parameters behind them, and the fastest ways to
+            improve. It&apos;s a preparation guide, not a prediction of admission.
           </p>
         </header>
 

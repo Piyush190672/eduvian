@@ -225,7 +225,7 @@ function buildPDFHtml(profile: StudentProfile, programs: ScoredProgram[]): strin
       <div><span>Field of Study</span>${escHtml(intendedFieldLabel(profile))}</div>
       <div><span>Nationality</span>${escHtml(profile.nationality)}${profile.city ? ` · ${escHtml(profile.city)}` : ""}</div>
       <div><span>Target Intake</span>${escHtml(profile.target_intake_semester)} ${escHtml(profile.target_intake_year)}</div>
-      <div><span>Academic Score</span>${escHtml(profile.academic_score)}${profile.academic_score_type === "gpa" ? " / 4.0 GPA" : "%"}</div>
+      <div><span>Academic Score</span>${escHtml(profile.academic_score)}${profile.academic_score_type === "gpa" ? " / 4.0 GPA" : profile.academic_score_type === "cgpa_10" ? " / 10 CGPA" : profile.academic_score_type === "ib" ? " / 45 IB" : "%"}</div>
       <div><span>English Test</span>${profile.english_test !== "none" ? `${escHtml(String(profile.english_test).toUpperCase())} ${escHtml(profile.english_score_overall ?? "")}` : "Not taken"}</div>
     </div>
     <!-- Criteria checklist -->

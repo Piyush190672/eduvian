@@ -53,8 +53,8 @@ export interface StudentProfile {
   major_stream: string;
   institution_name: string;
   graduation_year: number;
-  academic_score_type: "gpa" | "percentage" | "ib" | "igcse";
-  academic_score: number; // GPA (0–4.0) | percentage (0–100) | IB points (0–45) | IGCSE grade numeric equiv
+  academic_score_type: "gpa" | "percentage" | "cgpa_10" | "ib" | "igcse";
+  academic_score: number; // GPA (0–4.0) | percentage (0–100) | CGPA (0–10) | IB points (0–45) | IGCSE grade numeric equiv
   backlogs: boolean;
   backlog_count: number;
   academic_gap: boolean;

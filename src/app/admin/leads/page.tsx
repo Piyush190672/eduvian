@@ -430,7 +430,7 @@ export default function LeadsPage() {
                 ["Budget",        BUDGET_LABELS[selected.submission.profile.budget_range]],
                 ["Degree",        selected.submission.profile.current_degree],
                 ["Major",         selected.submission.profile.major_stream],
-                ["Score",         `${selected.submission.profile.academic_score}${selected.submission.profile.academic_score_type === "gpa" ? " GPA" : "%"}`],
+                ["Score",         `${selected.submission.profile.academic_score}${selected.submission.profile.academic_score_type === "gpa" ? " GPA" : selected.submission.profile.academic_score_type === "cgpa_10" ? " CGPA" : selected.submission.profile.academic_score_type === "ib" ? " IB" : "%"}`],
                 ["Backlogs",      selected.submission.profile.backlogs ? `Yes (${selected.submission.profile.backlog_count})` : "No"],
                 ["English test",  selected.submission.profile.english_test],
                 ["English score", selected.submission.profile.english_score_overall?.toString() ?? "—"],

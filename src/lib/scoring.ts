@@ -180,6 +180,8 @@ function toPercentage(profile: StudentProfile): number {
     case "percentage":
     case "igcse": // A*=95, A=85, B=75, C=65, D=55, E=45
       return profile.academic_score;
+    case "cgpa_10": // Indian 10-point CGPA — linear ×10, consistent with IB /45
+      return (profile.academic_score / 10) * 100;
     case "ib":
       return (profile.academic_score / 45) * 100;
     case "gpa":

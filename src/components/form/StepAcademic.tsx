@@ -529,6 +529,7 @@ export default function StepAcademic({ profile, onChange }: Props) {
         <RadioGroup
           options={[
             { value: "percentage", label: "Percentage (%)" },
+            { value: "cgpa_10", label: "CGPA (10-point)" },
             { value: "gpa", label: "GPA (4.0)" },
             ...(!isGrad ? [
               { value: "ib", label: "IB Points (/45)" },
@@ -537,7 +538,7 @@ export default function StepAcademic({ profile, onChange }: Props) {
           ]}
           value={profile.academic_score_type}
           onChange={(v) =>
-            onChange({ academic_score_type: v as "percentage" | "gpa" | "ib" | "igcse", academic_score: undefined as unknown as number })
+            onChange({ academic_score_type: v as "percentage" | "cgpa_10" | "gpa" | "ib" | "igcse", academic_score: undefined as unknown as number })
           }
         />
       </div>
@@ -546,6 +547,8 @@ export default function StepAcademic({ profile, onChange }: Props) {
         <Label>
           {profile.academic_score_type === "gpa"
             ? "GPA (out of 4.0)"
+            : profile.academic_score_type === "cgpa_10"
+            ? "CGPA (out of 10)"
             : profile.academic_score_type === "ib"
             ? "IB Points (out of 45)"
             : profile.academic_score_type === "igcse"
@@ -569,11 +572,12 @@ export default function StepAcademic({ profile, onChange }: Props) {
         ) : (
           <Input
             type="number"
-            step={profile.academic_score_type === "gpa" ? "0.01" : profile.academic_score_type === "ib" ? "1" : "0.1"}
+            step={profile.academic_score_type === "gpa" || profile.academic_score_type === "cgpa_10" ? "0.01" : profile.academic_score_type === "ib" ? "1" : "0.1"}
             min={0}
-            max={profile.academic_score_type === "gpa" ? 4.0 : profile.academic_score_type === "ib" ? 45 : 100}
+            max={profile.academic_score_type === "gpa" ? 4.0 : profile.academic_score_type === "cgpa_10" ? 10 : profile.academic_score_type === "ib" ? 45 : 100}
             placeholder={
               profile.academic_score_type === "gpa" ? "3.5" :
+              profile.academic_score_type === "cgpa_10" ? "8.2" :
               profile.academic_score_type === "ib" ? "36" :
               "78"
             }
