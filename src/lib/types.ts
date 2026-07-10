@@ -330,11 +330,22 @@ export interface ScoredProgram extends Program {
   // user explicitly asks about an arbitrary program — including ones
   // they're not eligible for. The UI surfaces a warning when true.
   prereq_ineligible?: boolean;
+  // Selectivity metadata for explainability: which prestige bucket the
+  // program landed in, the highest tier that bucket permits, and the
+  // data source that drove it. bucket 0 (ultra-selective) is always
+  // Ambitious; bucket 1 is never Safe. Rendered by the UI so the rule
+  // is stated, not implied. (Phase 1 rework, 10 July 2026.)
+  prestige?: {
+    bucket: number;
+    tierCeiling: "safe" | "reach" | "ambitious";
+    source: "acceptance_rate" | "qs_ranking" | "default";
+  };
   score_breakdown: {
     academic: number;
     english: number;
+    // Informational fit metric only — carries ZERO weight in match_score
+    // since the Phase 1 rework. Affordability is a hard filter (110% cap).
     budget: number;
-    scholarship: number;
     intake: number;
     work_experience: number;
     std_test: number;

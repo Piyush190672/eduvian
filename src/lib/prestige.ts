@@ -1,66 +1,70 @@
-// Prestige-adjusted academic penalty + tier thresholds.
+// Prestige buckets: selectivity floors + explicit tier ceilings.
 //
-// Replaces the previous hard-coded "QS rank → penalty" mapping with a
-// two-source approach (14 May 2026):
+// Redesigned 10 July 2026 (Phase 1 algorithm rework, user-approved):
 //
-//   1. If the program's university has a `acceptance_rate` in the
-//      universities sidecar (Stage 2 populated 134 USA unis from College
-//      Scorecard), use that — admit % is a more direct signal than QS
-//      proxy.
-//   2. Otherwise, fall back to the QS-ranking bucket the matcher used
-//      before. This keeps every non-US program scoring identically to
-//      what it scored yesterday until the Stage 3/4 sweeps populate
-//      acceptance data for those geographies.
+// The previous design achieved "elite universities are never Safe" by
+// ARITHMETIC — a prestigePenalty (-20..0) subtracted inside scoreAcademic,
+// stacked with a raised implicitMin AND a raised safeMin. The invariant
+// held, but as an emergent side-effect: match_score stopped being
+// comparable across universities, "Safe" at bucket 0 was unreachable by
+// silent math rather than stated policy, and 5-20 point cliffs appeared
+// at every bucket boundary.
 //
-// Buckets are intentionally aligned across the two sources so a
-// program's penalty/threshold doesn't jump when sidecar data becomes
-// available — only the BASIS of the bucketing changes.
+// New design separates the two questions:
+//   - "How well do you fit?"  → match_score, computed honestly with NO
+//     prestige penalty. implicitMin (the academic bar a competitive
+//     applicant clears) is the only selectivity input to the score.
+//   - "How sure can anyone be?" → tierCeiling, an EXPLICIT rule:
+//       bucket 0 (ultra-selective, ≤10% admit / QS ≤25):  Ambitious only.
+//         Sub-10% admit rates reject 99th-percentile applicants on
+//         cohort-shaping grounds; no profile makes admission likely.
+//       bucket 1 (selective, ≤25% / QS ≤75):  never Safe (Reach cap).
+//       buckets 2-4: all tiers reachable via thresholds.
+//     The ceiling is surfaced to the UI so the rule can be explained in
+//     one sentence ("Ultra-selective — we never label this Safe").
+//
+// Acceptance-rate source is gated to UNDERGRADUATE profiles: College
+// Scorecard acceptance rates are undergrad admissions data. MIT admits
+// ~4% of undergrads but many MIT masters admit 15-25% — bucketing PG
+// programs (the platform's primary audience) by UG rates systematically
+// over-penalised them. PG profiles bucket by QS rank until graduate
+// admit data exists.
 
-import type { Program } from "./types";
+import type { Program, DegreeLevel } from "./types";
 import { lookupUniversity } from "@/data/universities-helpers";
 
+export type TierCeiling = "safe" | "reach" | "ambitious";
+
 export interface PrestigeBucket {
-  /** Subtractive penalty applied to scoreAcademic. 0–20. */
-  prestigePenalty: number;
-  /** match_score threshold below which a program is "reach" instead of "safe". */
+  /** 0 = ultra-selective … 4 = open. For explainability + tests. */
+  bucket: number;
+  /** Highest tier a program in this bucket may receive. */
+  tierCeiling: TierCeiling;
+  /** match_score threshold for "safe" (only reachable when tierCeiling === "safe"). */
   safeMin: number;
-  /** match_score threshold below which a program is "ambitious" instead of "reach". */
+  /** match_score threshold for "reach". */
   reachMin: number;
-  /** Implicit academic minimum for this bucket — used by scoreAcademic
-   *  when the program publishes no min_gpa / min_percentage. Higher for
-   *  selective unis, lower for open. */
+  /** Implicit academic minimum when the program publishes no min_gpa /
+   *  min_percentage — the bar a competitive applicant clears. */
   implicitMin: number;
   /** Which source drove the bucket — for explainability / debugging. */
   source: "acceptance_rate" | "qs_ranking" | "default";
 }
 
-/**
- * Bucket calibration. The five tiers below are aligned so:
- *   - bucket 0 (most selective)  ≈ Harvard / MIT / Stanford  → penalty 20, safe 92, reach 70
- *   - bucket 1                   ≈ Cornell / UCLA / Duke     → penalty 15, safe 89, reach 66
- *   - bucket 2                   ≈ NYU / USC / UT-Austin     → penalty 10, safe 86, reach 62
- *   - bucket 3                   ≈ ASU / OSU / mid-tier      → penalty  5, safe 82, reach 57
- *   - bucket 4 (least selective) ≈ regional state / open     → penalty  0, safe 75, reach 50
- *
- * Buckets land at the same numerical bands when sourced from QS rank
- * vs acceptance rate so a program's threshold doesn't jump as Stage
- * 3/4 sweeps land more data — only the basis of the bucketing changes.
- */
-// Each bucket carries:
-//   - prestigePenalty : subtractive offset on the academic signal
-//   - safeMin / reachMin : tier thresholds on match_score
-//   - implicitMin : the "what a competitive applicant scores" % bar
-//                   used by scoreAcademic when the program publishes
-//                   no min. Lower-prestige unis have a lower bar —
-//                   that's what lets a 60 % student score as Safe at
-//                   QS > 500 and Ambitious at Cambridge from the same
-//                   formula. (15 May 2026, user-requested.)
-const BUCKETS = [
-  { prestigePenalty: 20, safeMin: 92, reachMin: 70, implicitMin: 85 },
-  { prestigePenalty: 15, safeMin: 89, reachMin: 66, implicitMin: 78 },
-  { prestigePenalty: 10, safeMin: 86, reachMin: 62, implicitMin: 70 },
-  { prestigePenalty: 5,  safeMin: 82, reachMin: 57, implicitMin: 60 },
-  { prestigePenalty: 0,  safeMin: 75, reachMin: 50, implicitMin: 50 },
+// Thresholds recalibrated for the penalty-free score scale (removing the
+// old -20..-5 academic penalty raises scores by penalty × academic-weight
+// ≈ +11 / +8 / +5.5 / +2.75 points at buckets 0-3):
+//   bucket 0: ceiling ambitious — thresholds moot but kept coherent.
+//   bucket 1: ceiling reach; reachMin 70 (was 66 on the penalised scale).
+//   bucket 2: safe ≥ 88 (was 86), reach ≥ 65 (was 62).
+//   bucket 3: safe ≥ 84 (was 82), reach ≥ 59 (was 57).
+//   bucket 4: unchanged (penalty was already 0).
+const BUCKETS: ReadonlyArray<Omit<PrestigeBucket, "source">> = [
+  { bucket: 0, tierCeiling: "ambitious", safeMin: 999, reachMin: 999, implicitMin: 85 },
+  { bucket: 1, tierCeiling: "reach",     safeMin: 999, reachMin: 70,  implicitMin: 78 },
+  { bucket: 2, tierCeiling: "safe",      safeMin: 88,  reachMin: 65,  implicitMin: 70 },
+  { bucket: 3, tierCeiling: "safe",      safeMin: 84,  reachMin: 59,  implicitMin: 60 },
+  { bucket: 4, tierCeiling: "safe",      safeMin: 75,  reachMin: 50,  implicitMin: 50 },
 ] as const;
 
 function bucketFromAcceptance(acceptPct: number): number {
@@ -73,8 +77,6 @@ function bucketFromAcceptance(acceptPct: number): number {
 }
 
 function bucketFromQs(qs: number): number {
-  // Tighter than the legacy buckets — the old code drifted toward 7 bands;
-  // collapsed to 5 to align with acceptance-rate-derived tiers above.
   if (qs <= 25)  return 0;
   if (qs <= 75)  return 1;
   if (qs <= 200) return 2;
@@ -82,16 +84,25 @@ function bucketFromQs(qs: number): number {
   return 4;
 }
 
-export function getPrestigeBucket(program: Program): PrestigeBucket {
-  const uni = program.university_name ? lookupUniversity(program.university_name) : null;
-  const accept = uni?.acceptance_rate;
-  if (accept !== null && accept !== undefined && accept >= 0 && accept <= 100) {
-    return { ...BUCKETS[bucketFromAcceptance(accept)], source: "acceptance_rate" };
+/**
+ * @param degreeLevel  The APPLICANT's level. Acceptance-rate bucketing
+ *   only applies to undergraduate profiles (the data is UG admissions);
+ *   postgraduate profiles bucket by QS rank. Omitted → legacy behaviour
+ *   (acceptance first) for callers without profile context.
+ */
+export function getPrestigeBucket(program: Program, degreeLevel?: DegreeLevel): PrestigeBucket {
+  const acceptanceApplies = degreeLevel !== "postgraduate";
+  if (acceptanceApplies) {
+    const uni = program.university_name ? lookupUniversity(program.university_name) : null;
+    const accept = uni?.acceptance_rate;
+    if (accept !== null && accept !== undefined && accept >= 0 && accept <= 100) {
+      return { ...BUCKETS[bucketFromAcceptance(accept)], source: "acceptance_rate" };
+    }
   }
   const qs = program.qs_ranking;
   if (typeof qs === "number" && qs > 0) {
     return { ...BUCKETS[bucketFromQs(qs)], source: "qs_ranking" };
   }
-  // No QS rank, no sidecar data → least-restrictive defaults.
+  // No usable selectivity data → least-restrictive defaults.
   return { ...BUCKETS[4], source: "default" };
 }

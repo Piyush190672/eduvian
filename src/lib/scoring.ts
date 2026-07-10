@@ -25,34 +25,43 @@ import { isAcademicallyEligibleForField } from "./field-prereq";
 // are never reached. 20 % was over-powered for a 3-tier signal; the
 // freed 10 pts move to Academic, which is the strongest real predictor
 // of admission outcomes.
+// Phase 1 rework (10 July 2026, user-approved):
+//   - Budget is a HARD FILTER only (110% ceiling in isHardDisqualified).
+//     The soft budget signal is kept in score_breakdown as an
+//     INFORMATIONAL fit metric (UI chips / ComparePanel) but carries
+//     ZERO weight — an unaffordable program is excluded, an affordable
+//     one isn't ranked lower for costing more. Per user: "budget needs
+//     to act more as a filter".
+//   - Scholarship is removed from scoring entirely. It was a constant 50
+//     (no per-program data exists), i.e. pure weight dilution. Per user:
+//     scholarship should be a visibility badge, never a ranking factor.
+//     Badge work is blocked on a scholarship-availability data campaign.
+//   - Freed 15 points go predominantly to Academic (user: "academic
+//     performance needs the highest weightage") plus English + Backlogs.
 const WEIGHTS_PG = {
-  academic:        0.45,
-  budget:          0.10,
+  academic:        0.55,
   std_test:        0.10,
-  english:         0.05,
-  scholarship:     0.05,
+  english:         0.08,
+  backlogs:        0.07,
   intake:          0.05,
-  backlogs:        0.05,
   gap_year:        0.05,
   work_experience: 0.05,
   research_paper:  0.05,
+  budget:          0, // informational only — see note above
 };
 
-// UG: work_experience is irrelevant at the undergraduate level (no
-// student has multi-year work history before a bachelor's), so its 5 %
-// slot is dropped and rolled into Academic. UG now sums cleanly to 1.00
-// with Academic at 0.50.
+// UG: work_experience is irrelevant at the undergraduate level, so its
+// slot rolls into Academic. Sums to 1.00 with Academic at 0.60.
 const WEIGHTS_UG = {
-  academic:        0.50,
-  budget:          0.10,
+  academic:        0.60,
   std_test:        0.10,
-  english:         0.05,
-  scholarship:     0.05,
+  english:         0.08,
+  backlogs:        0.07,
   intake:          0.05,
-  backlogs:        0.05,
   gap_year:        0.05,
   work_experience: 0,
   research_paper:  0.05,
+  budget:          0, // informational only — see note above
 };
 
 // ─── Countries offering strong Post-Study Work Visas ─────────────────────────
@@ -210,27 +219,25 @@ function scoreAcademic(profile: StudentProfile, program: Program): number {
   const studentPct = toPercentage(profile);
   const minPct = programMinToPercentage(program);
 
-  // Prestige bucket drives both the penalty AND (for programs without
-  // a published min) the implicit academic floor. Selective unis effectively
-  // expect higher scores even when their pages don't publish a number;
-  // open unis admit students whose academics would be borderline at a
-  // top-50 uni. So a 60 % student gets:
-  //   - implicit min 82 at MIT/Oxford-tier → 22 pts below the bar → 0
-  //   - implicit min 60 at QS 200-500 unis → at the bar → 53 academic
-  //   - implicit min 52 at open / QS > 500 → 9 pts above bar → 67 academic
-  // That single design fits the real-world admission pattern (low-prestige
-  // unis take lower percentages, top unis don't) without inflating strong
-  // students or making weak students Safe everywhere. (15 May 2026,
-  // user-requested.)
-  const { prestigePenalty, implicitMin } = getPrestigeBucket(program);
+  // The prestige bucket supplies the implicit academic floor for programs
+  // without a published min — selective unis expect higher scores even
+  // when their pages don't publish a number. The floor is the ONLY
+  // selectivity input to the score: the old prestigePenalty (-20..0) was
+  // removed in the Phase 1 rework because it triple-counted selectivity
+  // with the raised floor AND the raised tier thresholds, making the
+  // score incomparable across universities. "Elite is never Safe" is now
+  // enforced as an explicit tier ceiling in scoreProgram, not by
+  // suppressing the fit score. Acceptance-rate bucketing is gated to UG
+  // profiles inside getPrestigeBucket (the data is UG admissions).
+  const { implicitMin } = getPrestigeBucket(program, profile.degree_level);
   const effectiveMin = minPct > 0 ? minPct : implicitMin;
 
   if (studentPct < effectiveMin - 12) return 0;
-  if (studentPct < effectiveMin - 5)  return clamp(20 - prestigePenalty);
-  if (studentPct < effectiveMin)      return clamp(40 - prestigePenalty);
+  if (studentPct < effectiveMin - 5)  return 20;
+  if (studentPct < effectiveMin)      return 40;
 
   const surplus = studentPct - effectiveMin;
-  return clamp(58 - prestigePenalty + surplus * 1.4);
+  return clamp(58 + surplus * 1.4);
 }
 
 function scoreEnglish(profile: StudentProfile, program: Program): number {
@@ -285,36 +292,28 @@ function scoreEnglish(profile: StudentProfile, program: Program): number {
   return clamp(75 + surplus * 100);
 }
 
+/**
+ * Budget FIT — informational only since the Phase 1 rework (weight 0).
+ * Affordability is enforced by the 110% hard filter in
+ * isHardDisqualified; this value only drives the UI fit chip and the
+ * ComparePanel "Budget Fit" row.
+ *
+ * Null-tuition programs (2,152 of 9,298 — no fee published anywhere the
+ * pipeline could verify) return a NEUTRAL 60: previously they computed
+ * null + living = living-only cost and scored 100, ranking a program
+ * with missing fee data above an honestly-priced peer.
+ */
 function scoreBudget(profile: StudentProfile, program: Program): number {
-  const totalCost = program.annual_tuition_usd + program.avg_living_cost_usd;
+  const tuition = program.annual_tuition_usd;
+  if (typeof tuition !== "number" || tuition <= 0) return 60; // fee unverified
+  const totalCost = tuition + (program.avg_living_cost_usd ?? 0);
   const budgetMax = BUDGET_VALUES[profile.budget_range];
+  if (!budgetMax) return 60;
   const ratio = totalCost / budgetMax;
 
   if (ratio <= 0.70) return 100;
   if (ratio <= 1.00) return 82;
-  if (ratio <= 1.15) return 58;
-  if (ratio <= 1.35) return 35;
-  if (ratio <= 1.60) return 18;
-  if (ratio <= 2.00) return 8;
-  return 2;
-}
-
-/**
- * Scholarship signal.
- *
- * Previously this was a QS-ranking proxy ("higher rank → more aid"), which
- * silently inflated per-program scholarship scores even though we have no
- * per-program scholarship data. That was misleading.
- *
- * Until programs.ts carries explicit scholarship-availability data per
- * program / university, this signal returns a NEUTRAL 50 — it contributes
- * the same constant to every program's match_score and doesn't claim
- * availability one way or the other. The UI no longer shows this row in
- * the score breakdown (see CheckMatchPanel.tsx). Country-level scholarship
- * guidance remains at /options?lens=scholarship and /scholarships.
- */
-function scoreScholarship(_program: Program): number {
-  return 50;
+  return 58; // 1.00 < ratio ≤ 1.10 — survives the hard filter, tight fit
 }
 
 function scoreIntake(profile: StudentProfile, program: Program): number {
@@ -539,10 +538,12 @@ function isHardDisqualified(profile: StudentProfile, program: Program): boolean 
   // Budget ceiling — total annual cost (tuition + living) > 110% of the
   // user's budget. Programs with no fee data (annual_tuition_usd <= 0
   // or null-cast) are NOT disqualified — we can't make a budget claim
-  // without a fee. The ROI / Parent tools surface the missing-fee state
-  // separately via the editable-input path.
+  // without a fee — but recommendPrograms caps them at 2 per tier so
+  // unverified-fee programs never crowd out honestly-priced ones.
+  // "Above $70k" is the open-ended top bracket: no ceiling applies
+  // (the user signalled budget is not their constraint).
   const tuition = program.annual_tuition_usd;
-  if (typeof tuition === "number" && tuition > 0) {
+  if (typeof tuition === "number" && tuition > 0 && profile.budget_range !== "above_70k") {
     const totalCost = tuition + (program.avg_living_cost_usd ?? 0);
     const budgetMax = BUDGET_VALUES[profile.budget_range];
     if (budgetMax > 0 && totalCost > budgetMax * 1.10) return true;
@@ -584,8 +585,7 @@ export function scoreProgram(profile: StudentProfile, program: Program): ScoredP
   const breakdown = {
     academic:        scoreAcademic(profile, program),
     english:         scoreEnglish(profile, program),
-    budget:          scoreBudget(profile, program),
-    scholarship:     scoreScholarship(program),
+    budget:          scoreBudget(profile, program), // informational, weight 0
     intake:          scoreIntake(profile, program),
     work_experience: isPG ? scoreWorkExp(profile, program) : 0,
     std_test:        scoreStdTest(profile, program),
@@ -596,10 +596,8 @@ export function scoreProgram(profile: StudentProfile, program: Program): ScoredP
 
   const match_score = Math.round(
     breakdown.academic        * W.academic +
-    breakdown.budget          * W.budget +
     breakdown.std_test        * W.std_test +
     breakdown.english         * W.english +
-    breakdown.scholarship     * W.scholarship +
     breakdown.intake          * W.intake +
     breakdown.work_experience * W.work_experience +
     breakdown.backlogs        * W.backlogs +
@@ -607,21 +605,31 @@ export function scoreProgram(profile: StudentProfile, program: Program): ScoredP
     breakdown.research_paper  * W.research_paper
   );
 
-  // ── Prestige-adjusted tier thresholds ──────────────────────────────────────
-  // Higher-selectivity universities have holistic admissions — a high match
-  // score does not mean "safe" at MIT or Oxford. The bucket below comes from
-  // real acceptance_rate where the universities sidecar has it (134 USA unis
-  // as of 14 May 2026), and falls back to QS rank where not. Aligned with
-  // the prestigePenalty subtracted in scoreAcademic so a program lands in
-  // the same selectivity band across both signals.
-  const { safeMin, reachMin } = getPrestigeBucket(program);
+  // ── Tier: thresholds + explicit selectivity ceiling ────────────────────────
+  // The score is a pure fit measure (no prestige penalty). Selectivity is
+  // enforced as a stated rule, not arithmetic: ultra-selective programs
+  // (bucket 0 — ≤10% admit / QS ≤25) are ALWAYS Ambitious — sub-10% admit
+  // rates reject 99th-percentile applicants on cohort-shaping grounds, so
+  // labelling them anything else would be dishonest. Selective programs
+  // (bucket 1) can be Reach but never Safe. The bucket is surfaced on the
+  // ScoredProgram so the UI can explain the rule in one sentence.
+  const bucket = getPrestigeBucket(program, profile.degree_level);
 
   let tier: ProgramTier;
-  if (match_score >= safeMin)  tier = "safe";
-  else if (match_score >= reachMin) tier = "reach";
-  else tier = "ambitious";
+  if (match_score >= bucket.safeMin)       tier = "safe";
+  else if (match_score >= bucket.reachMin) tier = "reach";
+  else                                     tier = "ambitious";
 
-  return { ...program, match_score, tier, score_breakdown: breakdown };
+  if (bucket.tierCeiling === "ambitious") tier = "ambitious";
+  else if (bucket.tierCeiling === "reach" && tier === "safe") tier = "reach";
+
+  return {
+    ...program,
+    match_score,
+    tier,
+    score_breakdown: breakdown,
+    prestige: { bucket: bucket.bucket, tierCeiling: bucket.tierCeiling, source: bucket.source },
+  };
 }
 
 // ─── Region matching helper ───────────────────────────────────────────────────
@@ -902,14 +910,31 @@ export function recommendPrograms(profile: StudentProfile, programs: Program[], 
     return out;
   }
 
+  // Unverified-fee cap: null-tuition programs pass the budget hard filter
+  // (we can't judge affordability without a fee) but must never crowd out
+  // honestly-priced programs — cap at 2 per tier, keeping ranked order.
+  function capNullFee(list: ScoredProgram[], cap: number): ScoredProgram[] {
+    let n = 0;
+    const out: ScoredProgram[] = [];
+    for (const p of list) {
+      const feeUnverified = typeof p.annual_tuition_usd !== "number" || p.annual_tuition_usd <= 0;
+      if (feeUnverified) {
+        if (n >= cap) continue;
+        n++;
+      }
+      out.push(p);
+    }
+    return out;
+  }
+
   // Per-uni caps scale with `pages` so the "Next Best 20" page can fill
   // even when one university dominates a tier. Page 1 still sees max 2
   // per uni in safe/reach + 1 in ambitious; page 2 adds up to one more
   // each.
   const pools = {
-    safe:      capByUni(scored.filter((p) => p.tier === "safe"),      2 * safePages),
-    reach:     capByUni(scored.filter((p) => p.tier === "reach"),     2 * safePages),
-    ambitious: capByUni(scored.filter((p) => p.tier === "ambitious"), 1 * safePages),
+    safe:      capNullFee(capByUni(scored.filter((p) => p.tier === "safe"),      2 * safePages), 2),
+    reach:     capNullFee(capByUni(scored.filter((p) => p.tier === "reach"),     2 * safePages), 2),
+    ambitious: capNullFee(capByUni(scored.filter((p) => p.tier === "ambitious"), 1 * safePages), 2),
   };
 
   const alloc = {

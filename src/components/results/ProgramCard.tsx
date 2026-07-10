@@ -106,8 +106,6 @@ function getVerdict(signal: string, value: number, isPG: boolean, budgetPct?: nu
       }
       if (value === 70 || value === 80) return "No test or not required";
       return s === "strong" ? "Meets requirement" : s === "partial" ? "Slightly below" : "Below requirement";
-    case "scholarship":
-      return s === "strong" ? "High scholarship availability" : s === "partial" ? "Some scholarships available" : "Limited scholarships";
     case "intake":
       // value === 60 = empty intake_semesters (data gap on our side) →
       // "Intake to be checked". value === 100 = target intake confirmed
@@ -132,7 +130,6 @@ const SIGNAL_LABELS: Record<string, string> = {
   budget:          "Budget",
   std_test:        "Std. Test",
   english:         "English",
-  scholarship:     "Scholarships",
   intake:          "Intake",
   backlogs:        "Backlogs",
   gap_year:        "Gap Year",
@@ -247,7 +244,6 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist,
     { key: "budget"          },
     { key: "std_test"        },
     { key: "english"         },
-    { key: "scholarship"     },
     { key: "intake"          },
     { key: "backlogs"        },
     { key: "gap_year"        },
