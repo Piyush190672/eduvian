@@ -31,7 +31,7 @@ export function DataBadge({ kind, className = "" }: { kind: DataProvenance; clas
   const Icon = m.Icon;
   return (
     <span
-      className={`inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full border text-[10px] font-bold uppercase tracking-wide whitespace-nowrap ${m.cls} ${className}`}
+      className={`inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full border text-[11px] font-bold uppercase tracking-wide whitespace-nowrap ${m.cls} ${className}`}
       title={m.tooltip}
     >
       <Icon className="w-3 h-3" />

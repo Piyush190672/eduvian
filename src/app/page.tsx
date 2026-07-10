@@ -293,23 +293,45 @@ export default function V2LandingPage() {
   const [activeDemo, setActiveDemo] = useState(0);
   const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
   const [howItWorksOpen, setHowItWorksOpen] = useState(false);
-  // Hero RHS shows one sample card at a time, auto-rotating every 3s.
+  // Hero RHS shows one sample card at a time. 3s → 8s (a11y pass,
+  // 10 Jul 2026): a 4-row shortlist card with scores + provenance can't
+  // be parsed in 3 seconds, least of all by the parent persona.
   const [heroCard, setHeroCard] = useState(0);
   const HERO_CARD_COUNT = 4;
   // Hero LHS headline carousel — 5 slides, auto-rotating every 7s.
   const [heroSlide, setHeroSlide] = useState(0);
+
+  // A11y pass (10 Jul 2026): every auto-rotator (1) freezes entirely for
+  // prefers-reduced-motion users — WCAG 2.2.2 — and (2) pauses while
+  // hovered or focused so content can actually be read / tabbed through.
+  // Dots remain as the manual navigation in both cases.
+  const [reducedMotion, setReducedMotion] = useState(false);
   useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReducedMotion(mq.matches);
+    const onChange = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+  const [heroSlidePaused, setHeroSlidePaused] = useState(false);
+  const [heroCardPaused, setHeroCardPaused] = useState(false);
+  const [demoPaused, setDemoPaused] = useState(false);
+
+  useEffect(() => {
+    if (reducedMotion || demoPaused) return;
     const id = setTimeout(() => setActiveDemo((d) => (d + 1) % DEMOS.length), 5000);
     return () => clearTimeout(id);
-  }, [activeDemo]);
+  }, [activeDemo, reducedMotion, demoPaused]);
   useEffect(() => {
-    const id = setInterval(() => setHeroCard((c) => (c + 1) % HERO_CARD_COUNT), 3000);
+    if (reducedMotion || heroCardPaused) return;
+    const id = setInterval(() => setHeroCard((c) => (c + 1) % HERO_CARD_COUNT), 8000);
     return () => clearInterval(id);
-  }, []);
+  }, [reducedMotion, heroCardPaused]);
   useEffect(() => {
+    if (reducedMotion || heroSlidePaused) return;
     const id = setInterval(() => setHeroSlide((s) => (s + 1) % HERO_SLIDES.length), 7000);
     return () => clearInterval(id);
-  }, []);
+  }, [reducedMotion, heroSlidePaused]);
 
   return (
     <div className="min-h-screen bg-white font-sans antialiased text-gray-900">
@@ -381,7 +403,13 @@ export default function V2LandingPage() {
                 outer wrapper holds a min-h to prevent CLS as line counts
                 shift between slides. Use position:absolute on each slide
                 so the active and exiting ones overlap during the fade. */}
-            <div className="relative min-h-[300px] sm:min-h-[340px] md:min-h-[380px] mb-2">
+            <div
+              className="relative min-h-[300px] sm:min-h-[340px] md:min-h-[380px] mb-2"
+              onMouseEnter={() => setHeroSlidePaused(true)}
+              onMouseLeave={() => setHeroSlidePaused(false)}
+              onFocusCapture={() => setHeroSlidePaused(true)}
+              onBlurCapture={() => setHeroSlidePaused(false)}
+            >
               <AnimatePresence mode="wait" initial={false}>
                 <motion.div
                   key={heroSlide}
@@ -411,10 +439,12 @@ export default function V2LandingPage() {
                   type="button"
                   onClick={() => setHeroSlide(i)}
                   aria-label={`Show slide ${i + 1} of ${HERO_SLIDES.length}`}
-                  className={`h-1.5 rounded-full transition-all ${
+                  className="flex items-center justify-center h-6 min-w-6 -my-2"
+                >
+                  <span className={`block h-1.5 rounded-full transition-all ${
                     i === heroSlide ? "w-8 bg-violet-400" : "w-3 bg-white/20 hover:bg-white/30"
-                  }`}
-                />
+                  }`} />
+                </button>
               ))}
             </div>
             <div className="flex flex-wrap items-center gap-x-3 gap-y-3">
@@ -438,8 +468,14 @@ export default function V2LandingPage() {
               Same 4 cards as before (Shortlist · App Score · ROI · Visa)
               but only one renders at any moment. Palette stays violet +
               emerald/amber/rose semantic per the v2 spec. */}
-          <div className="lg:col-span-5 min-w-0">
-            <p className="text-[10px] uppercase tracking-widest text-white/40 font-bold mb-3 px-1">
+          <div
+            className="lg:col-span-5 min-w-0"
+            onMouseEnter={() => setHeroCardPaused(true)}
+            onMouseLeave={() => setHeroCardPaused(false)}
+            onFocusCapture={() => setHeroCardPaused(true)}
+            onBlurCapture={() => setHeroCardPaused(false)}
+          >
+            <p className="text-[11px] uppercase tracking-widest text-white/60 font-bold mb-3 px-1">
               Sample output {heroCard + 1} of {HERO_CARD_COUNT} · illustrative
             </p>
 
@@ -600,10 +636,12 @@ export default function V2LandingPage() {
                   type="button"
                   onClick={() => setHeroCard(i)}
                   aria-label={`Show sample ${i + 1}`}
-                  className={`h-1.5 rounded-full transition-all ${
+                  className="flex items-center justify-center h-6 min-w-6 -my-2"
+                >
+                  <span className={`block h-1.5 rounded-full transition-all ${
                     i === heroCard ? "w-8 bg-violet-400" : "w-3 bg-white/20 hover:bg-white/30"
-                  }`}
-                />
+                  }`} />
+                </button>
               ))}
             </div>
           </div>
@@ -812,7 +850,13 @@ export default function V2LandingPage() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-12 gap-8">
+          <div
+            className="grid lg:grid-cols-12 gap-8"
+            onMouseEnter={() => setDemoPaused(true)}
+            onMouseLeave={() => setDemoPaused(false)}
+            onFocusCapture={() => setDemoPaused(true)}
+            onBlurCapture={() => setDemoPaused(false)}
+          >
             <div className="lg:col-span-5 space-y-2">
               {DEMOS.map((d) => {
                 const active = activeDemo === d.i;

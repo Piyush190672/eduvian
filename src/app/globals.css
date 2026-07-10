@@ -131,3 +131,33 @@ nav.fixed.top-0:not(.beta-banner) {
   from { width: 0%; }
   to   { width: 100%; }
 }
+
+/* ── Accessibility (Phase 2 a11y pass, 10 Jul 2026) ──────────────────────── */
+
+/* Visible keyboard-focus ring, site-wide. The codebase previously had ZERO
+   focus-visible styles — keyboard users had no idea where they were. Only
+   fires for keyboard focus (not mouse clicks) via :focus-visible. */
+:focus-visible {
+  outline: 2px solid #7c3aed; /* violet-600 */
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+/* On dark (navy) surfaces the violet ring vanishes — use white there. */
+.bg-\[\#0E1119\] :focus-visible,
+[class*="bg-slate-9"] :focus-visible {
+  outline-color: rgba(255, 255, 255, 0.85);
+}
+
+/* Honour prefers-reduced-motion globally: collapse transitions/animations
+   to near-instant. The React-state rotators are additionally frozen via a
+   matchMedia check in page.tsx (CSS can't stop setInterval). */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

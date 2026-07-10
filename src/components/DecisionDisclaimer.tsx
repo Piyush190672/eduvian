@@ -35,7 +35,7 @@ export default function DecisionDisclaimer({ variant, className }: DecisionDiscl
       role="note"
       className={
         className ??
-        "flex items-start gap-2.5 text-[11px] leading-relaxed text-gray-500 bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2.5"
+        "flex items-start gap-2.5 text-xs leading-relaxed text-gray-600 bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2.5"
       }
     >
       <Info className="w-3.5 h-3.5 text-gray-400 flex-shrink-0 mt-0.5" aria-hidden="true" />
