@@ -21,9 +21,16 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "eduvianAI — Independent study-abroad intelligence",
+  metadataBase: new URL("https://www.eduvianai.com"),
+  title: {
+    default: "eduvianAI — Independent study-abroad intelligence",
+    // Per-route titles (from each route's layout.tsx) slot into this
+    // template so every page carries the brand suffix consistently.
+    template: "%s | eduvianAI",
+  },
   description:
     "AI-powered program recommendations for study abroad aspirants. Get matched with universities in USA, UK, Australia, Canada, and more.",
+  alternates: { canonical: "/" },
   keywords: [
     "study abroad",
     "university recommendations",
