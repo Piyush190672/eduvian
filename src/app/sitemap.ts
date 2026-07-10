@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { GENERATED_DB_STATS } from "@/data/db-stats-generated";
+import { allProgramUrls } from "@/lib/program-slugs";
 
 const BASE = "https://www.eduvianai.com";
 
@@ -11,9 +12,11 @@ const BASE = "https://www.eduvianai.com";
  *
  * Deliberately excluded: token-keyed pages (/results, /profile-evaluation,
  * /parent-view), auth/account surfaces, /admin, and tool pages behind the
- * AuthGate whose content is app-like rather than indexable. Programmatic
- * program/university/country landing pages are the Phase-2b follow-up —
- * they'll append here once the URL structure is decided.
+ * AuthGate whose content is app-like rather than indexable.
+ *
+ * Programmatic tree (Phase 2 #10b, 10 July 2026): /programs +
+ * /programs/[country]/[university]/[program] — ~9,900 URLs derived from
+ * the verified database via src/lib/program-slugs.ts.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = GENERATED_DB_STATS.maxVerifiedAt
@@ -42,10 +45,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/security-policy",      priority: 0.2, changeFrequency: "monthly" },
   ];
 
-  return pages.map((p) => ({
+  const staticEntries = pages.map((p) => ({
     url: `${BASE}${p.path}`,
     lastModified,
     changeFrequency: p.changeFrequency,
     priority: p.priority,
   }));
+
+  // Depth-based priority: /programs index 0.8, country hubs 0.7,
+  // university hubs 0.6, program pages 0.5.
+  const programEntries = ["/programs", ...allProgramUrls()].map((path) => {
+    const depth = path.split("/").length - 1; // 1..4
+    return {
+      url: `${BASE}${path}`,
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: [0, 0.8, 0.7, 0.6, 0.5][depth] ?? 0.5,
+    };
+  });
+
+  return [...staticEntries, ...programEntries];
 }

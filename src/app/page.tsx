@@ -483,6 +483,7 @@ export default function HomePage() {
             <Link href="/destinations"   className="hover:text-gray-900 transition-colors">Destinations</Link>
             <Link href="/scholarships"   className="hover:text-gray-900 transition-colors">Scholarships</Link>
             <Link href="/match"          className="hover:text-gray-900 transition-colors">Find my programs</Link>
+            <Link href="/programs"       className="hover:text-gray-900 transition-colors">Browse all programs</Link>
             <Link href="/application-check" className="hover:text-gray-900 transition-colors">Application check</Link>
             <Link href="/interview-prep"    className="hover:text-gray-900 transition-colors">Interview prep</Link>
             <Link href="/english-test-lab"  className="hover:text-gray-900 transition-colors">English Test Lab</Link>
