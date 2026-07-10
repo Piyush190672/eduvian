@@ -20,6 +20,7 @@ import {
 import { EduvianLogoMark } from "@/components/EduvianLogo";
 import type { ScoredProgram, ProgramTier, StudentProfile } from "@/lib/types";
 import { BUDGET_VALUES } from "@/lib/types";
+import { DB_STATS } from "@/data/db-stats";
 import ProgramCard from "@/components/results/ProgramCard";
 import ShortlistSummary from "@/components/results/ShortlistSummary";
 // ProfileCard moved to /profile-evaluation/[token] (13 May 2026) — the
@@ -336,6 +337,7 @@ export default function ResultsPage() {
           <p className="text-gray-400 text-sm font-medium mb-1">Hey {studentName} 👋</p>
           {(() => {
             const shown = safePrograms.length + reachPrograms.length + ambitiousPrograms.length;
+            const filtersActive = filters.country !== "all" || filters.field !== "all";
             return (
               <>
                 <h1 className="text-3xl font-extrabold text-gray-900">
@@ -347,8 +349,16 @@ export default function ResultsPage() {
                   <span className="text-emerald-600 font-semibold">{safePrograms.length} Safe</span>{" · "}
                   <span className="text-amber-600 font-semibold">{reachPrograms.length} Reach</span>{" · "}
                   <span className="text-rose-600 font-semibold">{ambitiousPrograms.length} Ambitious</span>
-                  {" — up to 40 top matches surfaced from across the database. Shortlist the ones you like, then email or download as PDF."}
+                  {` — screened from ${DB_STATS.verifiedProgramsLabel} verified programs against your profile. Shortlist the ones you like, then email or download as PDF.`}
                 </p>
+                {/* Funnel transparency (Phase 2 #12): when filters hide
+                    matches, say exactly how many — a silently shrunken
+                    list reads as "the site lost my matches". */}
+                {filtersActive && shown < allPrograms.length && (
+                  <p className="text-xs font-semibold text-indigo-600 mt-1.5">
+                    Filters are hiding {allPrograms.length - shown} of your {allPrograms.length} matches.
+                  </p>
+                )}
               </>
             );
           })()}
@@ -362,8 +372,9 @@ export default function ResultsPage() {
           <ShortlistSummary programs={shortlistedPrograms} onRemove={toggleShortlist} />
         )}
 
-        {/* Filter bar */}
-        <div className="flex items-center gap-3 mb-6">
+        {/* Filter bar — wraps so active-filter chips never overflow a
+            375px viewport (locked mobile rule). */}
+        <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-6">
           <button
             onClick={() => setShowFilters((s) => !s)}
             className={`flex items-center gap-2 px-4 py-2 rounded-xl border text-sm font-medium transition-all ${
@@ -376,6 +387,28 @@ export default function ResultsPage() {
               <span className="w-2 h-2 rounded-full bg-indigo-500 ml-1" />
             )}
           </button>
+          {/* Active-filter chips (Phase 2 #12) — one-tap removal without
+              opening the Refine panel. */}
+          {filters.country !== "all" && (
+            <button
+              onClick={() => setFilters((f) => ({ ...f, country: "all" }))}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-indigo-50 border border-indigo-200 text-xs font-semibold text-indigo-700 hover:bg-indigo-100 transition-colors"
+              aria-label={`Remove country filter ${filters.country}`}
+            >
+              {filters.country}
+              <X className="w-3 h-3" />
+            </button>
+          )}
+          {filters.field !== "all" && (
+            <button
+              onClick={() => setFilters((f) => ({ ...f, field: "all" }))}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-indigo-50 border border-indigo-200 text-xs font-semibold text-indigo-700 hover:bg-indigo-100 transition-colors max-w-[180px]"
+              aria-label={`Remove field filter ${filters.field}`}
+            >
+              <span className="truncate">{filters.field}</span>
+              <X className="w-3 h-3 flex-shrink-0" />
+            </button>
+          )}
           {(filters.country !== "all" || filters.field !== "all") && (
             <button
               onClick={() => setFilters({ country: "all", field: "all", sort: filters.sort })}
