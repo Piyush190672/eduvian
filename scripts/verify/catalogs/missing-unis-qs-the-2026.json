@@ -1,0 +1,1258 @@
+[
+ {
+  "university": "The University of Notre Dame Australia",
+  "country": "Australia",
+  "city": "",
+  "qs_ranking": 1201,
+  "the_rank_2026": "801–1000",
+  "qs_rank_2026": "1201-1400"
+ },
+ {
+  "university": "Ontario Tech University",
+  "country": "Canada",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "801–1000",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "Université de Sherbrooke",
+  "country": "Canada",
+  "city": "",
+  "qs_ranking": 901,
+  "the_rank_2026": null,
+  "qs_rank_2026": "901-950"
+ },
+ {
+  "university": "Arts et Métiers",
+  "country": "France",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "801–1000",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "CY Cergy Paris University",
+  "country": "France",
+  "city": "",
+  "qs_ranking": 951,
+  "the_rank_2026": "1001–1200",
+  "qs_rank_2026": "951-1000"
+ },
+ {
+  "university": "Claude Bernard University Lyon 1",
+  "country": "France",
+  "city": "",
+  "qs_ranking": 587,
+  "the_rank_2026": "601–800",
+  "qs_rank_2026": "587"
+ },
+ {
+  "university": "IMT Nord Europe",
+  "country": "France",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "801–1000",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "Institut Agro",
+  "country": "France",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "401–500",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "Institut National des Sciences Appliquées de Lyon (INSA)",
+  "country": "France",
+  "city": "",
+  "qs_ranking": 406,
+  "the_rank_2026": "801–1000",
+  "qs_rank_2026": "406"
+ },
+ {
+  "university": "Jean Moulin University – Lyon 3",
+  "country": "France",
+  "city": "",
+  "qs_ranking": 1201,
+  "the_rank_2026": "1501+",
+  "qs_rank_2026": "1201-1400"
+ },
+ {
+  "university": "Marie and Louis Pasteur University",
+  "country": "France",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "801–1000",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "National Institute of Applied Sciences, Strasbourg (INSA Strasbourg)",
+  "country": "France",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "1501+",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "National Veterinary School of Alfort (EnvA)",
+  "country": "France",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "801–1000",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "Panthéon-Sorbonne University – Paris 1",
+  "country": "France",
+  "city": "",
+  "qs_ranking": 257,
+  "the_rank_2026": "801–1000",
+  "qs_rank_2026": "257"
+ },
+ {
+  "university": "Paris Nanterre University",
+  "country": "France",
+  "city": "",
+  "qs_ranking": 1201,
+  "the_rank_2026": "1501+",
+  "qs_rank_2026": "1201-1400"
+ },
+ {
+  "university": "University Toulouse – Jean Jaurès",
+  "country": "France",
+  "city": "",
+  "qs_ranking": 1201,
+  "the_rank_2026": null,
+  "qs_rank_2026": "1201-1400"
+ },
+ {
+  "university": "University of Angers",
+  "country": "France",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "1001–1200",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "University of Clermont Auvergne",
+  "country": "France",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "1001–1200",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "University of La Rochelle",
+  "country": "France",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "1501+",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "University of Lille",
+  "country": "France",
+  "city": "",
+  "qs_ranking": 654,
+  "the_rank_2026": "601–800",
+  "qs_rank_2026": "654"
+ },
+ {
+  "university": "University of Pau and Pays de l’Adour",
+  "country": "France",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "1501+",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "University of Reims Champagne-Ardenne",
+  "country": "France",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "1201–1500",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "University of Rennes 1",
+  "country": "France",
+  "city": "",
+  "qs_ranking": 711,
+  "the_rank_2026": "601–800",
+  "qs_rank_2026": "711-720"
+ },
+ {
+  "university": "University of Rouen Normandie",
+  "country": "France",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "1201–1500",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "University of Savoie Mont Blanc",
+  "country": "France",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "1001–1200",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "University of Technology of Compiègne",
+  "country": "France",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "1201–1500",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "University of Technology of Troyes",
+  "country": "France",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "1501+",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "University of Tours",
+  "country": "France",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "1001–1200",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "Université Bourgogne Europe",
+  "country": "France",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "1001–1200",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "Université Côte d'Azur",
+  "country": "France",
+  "city": "",
+  "qs_ranking": 688,
+  "the_rank_2026": "601–800",
+  "qs_rank_2026": "688"
+ },
+ {
+  "university": "Université Lumière Lyon 2",
+  "country": "France",
+  "city": "",
+  "qs_ranking": 1001,
+  "the_rank_2026": null,
+  "qs_rank_2026": "1001-1200"
+ },
+ {
+  "university": "Université Paris 2 Panthéon-Assas",
+  "country": "France",
+  "city": "",
+  "qs_ranking": 1001,
+  "the_rank_2026": null,
+  "qs_rank_2026": "1001-1200"
+ },
+ {
+  "university": "Université Paul-Valéry Montpellier 3",
+  "country": "France",
+  "city": "",
+  "qs_ranking": 1201,
+  "the_rank_2026": null,
+  "qs_rank_2026": "1201-1400"
+ },
+ {
+  "university": "Université Polytechnique Hauts-de-France",
+  "country": "France",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "1501+",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "Université Sorbonne Nouvelle",
+  "country": "France",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "1501+",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "Université Sorbonne Paris Nord",
+  "country": "France",
+  "city": "",
+  "qs_ranking": 1001,
+  "the_rank_2026": null,
+  "qs_rank_2026": "1001-1200"
+ },
+ {
+  "university": "Université Toulouse 1, Capitole",
+  "country": "France",
+  "city": "",
+  "qs_ranking": 1001,
+  "the_rank_2026": null,
+  "qs_rank_2026": "1001-1200"
+ },
+ {
+  "university": "Université de Bretagne Occidentale",
+  "country": "France",
+  "city": "",
+  "qs_ranking": 1001,
+  "the_rank_2026": "801–1000",
+  "qs_rank_2026": "1001-1200"
+ },
+ {
+  "university": "Université de Caen Normandie",
+  "country": "France",
+  "city": "",
+  "qs_ranking": 1201,
+  "the_rank_2026": null,
+  "qs_rank_2026": "1201-1400"
+ },
+ {
+  "university": "Université de Franche-Comté",
+  "country": "France",
+  "city": "",
+  "qs_ranking": 851,
+  "the_rank_2026": null,
+  "qs_rank_2026": "851-900"
+ },
+ {
+  "university": "Université de Limoges",
+  "country": "France",
+  "city": "",
+  "qs_ranking": 1201,
+  "the_rank_2026": null,
+  "qs_rank_2026": "1201-1400"
+ },
+ {
+  "university": "Université de Lorraine",
+  "country": "France",
+  "city": "",
+  "qs_ranking": 751,
+  "the_rank_2026": null,
+  "qs_rank_2026": "751-760"
+ },
+ {
+  "university": "Université de Poitiers",
+  "country": "France",
+  "city": "",
+  "qs_ranking": 1201,
+  "the_rank_2026": "1201–1500",
+  "qs_rank_2026": "1201-1400"
+ },
+ {
+  "university": "Université d’Orléans",
+  "country": "France",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "1201–1500",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "École Centrale de Lyon",
+  "country": "France",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "801–1000",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "École Nationale des Travaux Publics de l'État (ENTPE)",
+  "country": "France",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "601–800",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "École Normale Supérieure de Lyon",
+  "country": "France",
+  "city": "",
+  "qs_ranking": 205,
+  "the_rank_2026": "301–350",
+  "qs_rank_2026": "205"
+ },
+ {
+  "university": "École des Mines de Saint-Étienne",
+  "country": "France",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "601–800",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "Constructor University",
+  "country": "Germany",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "501–600",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "Georg-August-Universität Göttingen",
+  "country": "Germany",
+  "city": "",
+  "qs_ranking": 243,
+  "the_rank_2026": null,
+  "qs_rank_2026": "243"
+ },
+ {
+  "university": "Leuphana University of Lüneburg",
+  "country": "Germany",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "401–500",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "Otto von Guericke University of Magdeburg",
+  "country": "Germany",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "601–800",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "Paderborn University",
+  "country": "Germany",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "601–800",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "RPTU University Kaiserslautern-Landau",
+  "country": "Germany",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "501–600",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "TU Bergakademie Freiberg",
+  "country": "Germany",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "1001–1200",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "TU Braunschweig",
+  "country": "Germany",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "601–800",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "TU Dortmund University",
+  "country": "Germany",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "501–600",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "Technische Universität Bergakademie Freiberg",
+  "country": "Germany",
+  "city": "",
+  "qs_ranking": 487,
+  "the_rank_2026": null,
+  "qs_rank_2026": "487"
+ },
+ {
+  "university": "Technische Universität Braunschweig",
+  "country": "Germany",
+  "city": "",
+  "qs_ranking": 711,
+  "the_rank_2026": null,
+  "qs_rank_2026": "711-720"
+ },
+ {
+  "university": "Technische Universität Dortmund",
+  "country": "Germany",
+  "city": "",
+  "qs_ranking": 673,
+  "the_rank_2026": null,
+  "qs_rank_2026": "673"
+ },
+ {
+  "university": "Technische Universität Ilmenau",
+  "country": "Germany",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "1001–1200",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "Technische Universität Kaiserslautern",
+  "country": "Germany",
+  "city": "",
+  "qs_ranking": 1201,
+  "the_rank_2026": null,
+  "qs_rank_2026": "1201-1400"
+ },
+ {
+  "university": "University of Duisburg-Essen",
+  "country": "Germany",
+  "city": "",
+  "qs_ranking": 801,
+  "the_rank_2026": "301–350",
+  "qs_rank_2026": "801-850"
+ },
+ {
+  "university": "University of Göttingen",
+  "country": "Germany",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "=122",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "University of Hagen",
+  "country": "Germany",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "801–1000",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "University of Hohenheim",
+  "country": "Germany",
+  "city": "",
+  "qs_ranking": 711,
+  "the_rank_2026": "301–350",
+  "qs_rank_2026": "711-720"
+ },
+ {
+  "university": "University of Passau",
+  "country": "Germany",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "601–800",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "University of Regensburg",
+  "country": "Germany",
+  "city": "",
+  "qs_ranking": 691,
+  "the_rank_2026": "401–500",
+  "qs_rank_2026": "691"
+ },
+ {
+  "university": "University of Siegen",
+  "country": "Germany",
+  "city": "",
+  "qs_ranking": 1201,
+  "the_rank_2026": "501–600",
+  "qs_rank_2026": "1201-1400"
+ },
+ {
+  "university": "University of Wuppertal",
+  "country": "Germany",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "601–800",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "Universität Bielefeld",
+  "country": "Germany",
+  "city": "",
+  "qs_ranking": 1001,
+  "the_rank_2026": null,
+  "qs_rank_2026": "1001-1200"
+ },
+ {
+  "university": "Universität des Saarlandes",
+  "country": "Germany",
+  "city": "",
+  "qs_ranking": 635,
+  "the_rank_2026": null,
+  "qs_rank_2026": "635"
+ },
+ {
+  "university": "Dublin City University",
+  "country": "Ireland",
+  "city": "",
+  "qs_ranking": 410,
+  "the_rank_2026": "301–350",
+  "qs_rank_2026": "410"
+ },
+ {
+  "university": "RCSI University of Medicine and Health Sciences",
+  "country": "Ireland",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "251–300",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "University of Limerick",
+  "country": "Ireland",
+  "city": "",
+  "qs_ranking": 401,
+  "the_rank_2026": "501–600",
+  "qs_rank_2026": "401"
+ },
+ {
+  "university": "Islamic Science University of Malaysia (USIM)",
+  "country": "Malaysia",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "1501+",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "Lincoln University College",
+  "country": "Malaysia",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "1501+",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "Lincoln University College, Malaysia",
+  "country": "Malaysia",
+  "city": "",
+  "qs_ranking": 638,
+  "the_rank_2026": null,
+  "qs_rank_2026": "638"
+ },
+ {
+  "university": "Mahsa University",
+  "country": "Malaysia",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "801–1000",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "Management and Science University",
+  "country": "Malaysia",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "601–800",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "Management and Science University - MSU Malaysia",
+  "country": "Malaysia",
+  "city": "",
+  "qs_ranking": 597,
+  "the_rank_2026": null,
+  "qs_rank_2026": "597"
+ },
+ {
+  "university": "Universiti Kuala Lumpur",
+  "country": "Malaysia",
+  "city": "",
+  "qs_ranking": 1201,
+  "the_rank_2026": "1501+",
+  "qs_rank_2026": "1201-1400"
+ },
+ {
+  "university": "Universiti Malaysia Kelantan",
+  "country": "Malaysia",
+  "city": "",
+  "qs_ranking": 1201,
+  "the_rank_2026": "1501+",
+  "qs_rank_2026": "1201-1400"
+ },
+ {
+  "university": "Universiti Malaysia Pahang Al-Sultan Abdullah (UMPSA)",
+  "country": "Malaysia",
+  "city": "",
+  "qs_ranking": 609,
+  "the_rank_2026": "601–800",
+  "qs_rank_2026": "609"
+ },
+ {
+  "university": "Universiti Malaysia Perlis",
+  "country": "Malaysia",
+  "city": "",
+  "qs_ranking": 1001,
+  "the_rank_2026": "1501+",
+  "qs_rank_2026": "1001-1200"
+ },
+ {
+  "university": "Universiti Malaysia Sabah (UMS)",
+  "country": "Malaysia",
+  "city": "",
+  "qs_ranking": 1001,
+  "the_rank_2026": "1501+",
+  "qs_rank_2026": "1001-1200"
+ },
+ {
+  "university": "Universiti Malaysia Sarawak (UNIMAS)",
+  "country": "Malaysia",
+  "city": "",
+  "qs_ranking": 1001,
+  "the_rank_2026": "1001–1200",
+  "qs_rank_2026": "1001-1200"
+ },
+ {
+  "university": "Universiti Malaysia Terengganu (UMT)",
+  "country": "Malaysia",
+  "city": "",
+  "qs_ranking": 801,
+  "the_rank_2026": "1001–1200",
+  "qs_rank_2026": "801-850"
+ },
+ {
+  "university": "Universiti Pendidikan Sultan Idris",
+  "country": "Malaysia",
+  "city": "",
+  "qs_ranking": 851,
+  "the_rank_2026": "601–800",
+  "qs_rank_2026": "851-900"
+ },
+ {
+  "university": "Universiti Sultan Zainal Abidin",
+  "country": "Malaysia",
+  "city": "",
+  "qs_ranking": 1401,
+  "the_rank_2026": "1001–1200",
+  "qs_rank_2026": "1401+"
+ },
+ {
+  "university": "Universiti Teknikal Malaysia Melaka",
+  "country": "Malaysia",
+  "city": "",
+  "qs_ranking": 1201,
+  "the_rank_2026": "1501+",
+  "qs_rank_2026": "1201-1400"
+ },
+ {
+  "university": "Universiti Teknologi MARA - UiTM",
+  "country": "Malaysia",
+  "city": "",
+  "qs_ranking": 542,
+  "the_rank_2026": "1501+",
+  "qs_rank_2026": "542"
+ },
+ {
+  "university": "Universiti Teknologi Petronas",
+  "country": "Malaysia",
+  "city": "",
+  "qs_ranking": 251,
+  "the_rank_2026": "201–250",
+  "qs_rank_2026": "251"
+ },
+ {
+  "university": "Universiti Tenaga Nasional (UNITEN)",
+  "country": "Malaysia",
+  "city": "",
+  "qs_ranking": 551,
+  "the_rank_2026": "601–800",
+  "qs_rank_2026": "551"
+ },
+ {
+  "university": "Universiti Tun Hussein Onn Malaysia (UTHM)",
+  "country": "Malaysia",
+  "city": "",
+  "qs_ranking": 1001,
+  "the_rank_2026": "1501+",
+  "qs_rank_2026": "1001-1200"
+ },
+ {
+  "university": "Universiti Utara Malaysia",
+  "country": "Malaysia",
+  "city": "",
+  "qs_ranking": 491,
+  "the_rank_2026": "401–500",
+  "qs_rank_2026": "491"
+ },
+ {
+  "university": "University of Cyberjaya",
+  "country": "Malaysia",
+  "city": "",
+  "qs_ranking": 951,
+  "the_rank_2026": "Reporter",
+  "qs_rank_2026": "951-1000"
+ },
+ {
+  "university": "Radboud University Nijmegen",
+  "country": "Netherlands",
+  "city": "",
+  "qs_ranking": 279,
+  "the_rank_2026": "=154",
+  "qs_rank_2026": "279"
+ },
+ {
+  "university": "Tilburg University",
+  "country": "Netherlands",
+  "city": "",
+  "qs_ranking": 347,
+  "the_rank_2026": "301–350",
+  "qs_rank_2026": "347"
+ },
+ {
+  "university": "Utrecht University",
+  "country": "Netherlands",
+  "city": "",
+  "qs_ranking": 103,
+  "the_rank_2026": null,
+  "qs_rank_2026": "103"
+ },
+ {
+  "university": "Ajman University",
+  "country": "UAE",
+  "city": "",
+  "qs_ranking": 440,
+  "the_rank_2026": "401–500",
+  "qs_rank_2026": "440"
+ },
+ {
+  "university": "Al Ain University",
+  "country": "UAE",
+  "city": "",
+  "qs_ranking": 558,
+  "the_rank_2026": "401–500",
+  "qs_rank_2026": "558"
+ },
+ {
+  "university": "American University of Ras Al Khaimah",
+  "country": "UAE",
+  "city": "",
+  "qs_ranking": 591,
+  "the_rank_2026": "Reporter",
+  "qs_rank_2026": "591"
+ },
+ {
+  "university": "University of Dubai",
+  "country": "UAE",
+  "city": "",
+  "qs_ranking": 851,
+  "the_rank_2026": "Reporter",
+  "qs_rank_2026": "851-900"
+ },
+ {
+  "university": "Northumbria University",
+  "country": "UK",
+  "city": "",
+  "qs_ranking": 550,
+  "the_rank_2026": "401–500",
+  "qs_rank_2026": "550"
+ },
+ {
+  "university": "Nottingham Trent University",
+  "country": "UK",
+  "city": "",
+  "qs_ranking": 609,
+  "the_rank_2026": "601–800",
+  "qs_rank_2026": "609"
+ },
+ {
+  "university": "SRUC (Scotland’s Rural College)",
+  "country": "UK",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "601–800",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "The Open University",
+  "country": "UK",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "801–1000",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "University of Bedfordshire",
+  "country": "UK",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "1001–1200",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "Central Michigan University",
+  "country": "USA",
+  "city": "",
+  "qs_ranking": 1401,
+  "the_rank_2026": "1001–1200",
+  "qs_rank_2026": "1401+"
+ },
+ {
+  "university": "Clark University",
+  "country": "USA",
+  "city": "",
+  "qs_ranking": 1001,
+  "the_rank_2026": "801–1000",
+  "qs_rank_2026": "1001-1200"
+ },
+ {
+  "university": "Clarkson University",
+  "country": "USA",
+  "city": "",
+  "qs_ranking": 951,
+  "the_rank_2026": "1001–1200",
+  "qs_rank_2026": "951-1000"
+ },
+ {
+  "university": "Colorado School of Mines",
+  "country": "USA",
+  "city": "",
+  "qs_ranking": 571,
+  "the_rank_2026": "401–500",
+  "qs_rank_2026": "571"
+ },
+ {
+  "university": "Florida Agricultural and Mechanical University",
+  "country": "USA",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "1001–1200",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "Georgia Southern University",
+  "country": "USA",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "1501+",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "Georgia State University",
+  "country": "USA",
+  "city": "",
+  "qs_ranking": 781,
+  "the_rank_2026": "501–600",
+  "qs_rank_2026": "781-790"
+ },
+ {
+  "university": "Grand Valley State University",
+  "country": "USA",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "1501+",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "IU Indianapolis",
+  "country": "USA",
+  "city": "",
+  "qs_ranking": 1001,
+  "the_rank_2026": null,
+  "qs_rank_2026": "1001-1200"
+ },
+ {
+  "university": "Montana State University",
+  "country": "USA",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "1001–1200",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "Morgan State University",
+  "country": "USA",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "1501+",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "Nova Southeastern University",
+  "country": "USA",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "1001–1200",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "Oakland University",
+  "country": "USA",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "1201–1500",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "Ohio University (Main campus)",
+  "country": "USA",
+  "city": "",
+  "qs_ranking": 1001,
+  "the_rank_2026": "601–800",
+  "qs_rank_2026": "1001-1200"
+ },
+ {
+  "university": "Old Dominion University",
+  "country": "USA",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "801–1000",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "Oregon Health and Science University",
+  "country": "USA",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "351–400",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "Portland State University",
+  "country": "USA",
+  "city": "",
+  "qs_ranking": 1201,
+  "the_rank_2026": "801–1000",
+  "qs_rank_2026": "1201-1400"
+ },
+ {
+  "university": "Rowan University",
+  "country": "USA",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "1201–1500",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "Rush University",
+  "country": "USA",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "401–500",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "Seattle University",
+  "country": "USA",
+  "city": "",
+  "qs_ranking": 1201,
+  "the_rank_2026": null,
+  "qs_rank_2026": "1201-1400"
+ },
+ {
+  "university": "South Dakota Mines",
+  "country": "USA",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "1001–1200",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "Southern Illinois University Carbondale",
+  "country": "USA",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "801–1000",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "The Catholic University of America",
+  "country": "USA",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "801–1000",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "The City College of New York",
+  "country": "USA",
+  "city": "",
+  "qs_ranking": 1001,
+  "the_rank_2026": null,
+  "qs_rank_2026": "1001-1200"
+ },
+ {
+  "university": "The New School, New York City and Paris",
+  "country": "USA",
+  "city": "",
+  "qs_ranking": 801,
+  "the_rank_2026": null,
+  "qs_rank_2026": "801-850"
+ },
+ {
+  "university": "University of Alabama, Birmingham",
+  "country": "USA",
+  "city": "",
+  "qs_ranking": 1001,
+  "the_rank_2026": null,
+  "qs_rank_2026": "1001-1200"
+ },
+ {
+  "university": "University of Alaska Fairbanks",
+  "country": "USA",
+  "city": "",
+  "qs_ranking": 901,
+  "the_rank_2026": "601–800",
+  "qs_rank_2026": "901-950"
+ },
+ {
+  "university": "University of California, Merced",
+  "country": "USA",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "401–500",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "University of Colorado Denver/Anschutz Medical Campus",
+  "country": "USA",
+  "city": "",
+  "qs_ranking": 851,
+  "the_rank_2026": "351–400",
+  "qs_rank_2026": "851-900"
+ },
+ {
+  "university": "University of Denver",
+  "country": "USA",
+  "city": "",
+  "qs_ranking": 1001,
+  "the_rank_2026": "501–600",
+  "qs_rank_2026": "1001-1200"
+ },
+ {
+  "university": "University of Hawaii at Hilo",
+  "country": "USA",
+  "city": "",
+  "qs_ranking": 1401,
+  "the_rank_2026": null,
+  "qs_rank_2026": "1401+"
+ },
+ {
+  "university": "University of Idaho",
+  "country": "USA",
+  "city": "",
+  "qs_ranking": 1001,
+  "the_rank_2026": null,
+  "qs_rank_2026": "1001-1200"
+ },
+ {
+  "university": "University of Maryland, Baltimore",
+  "country": "USA",
+  "city": "",
+  "qs_ranking": 801,
+  "the_rank_2026": null,
+  "qs_rank_2026": "801-850"
+ },
+ {
+  "university": "University of Missouri Saint Louis",
+  "country": "USA",
+  "city": "",
+  "qs_ranking": 1401,
+  "the_rank_2026": null,
+  "qs_rank_2026": "1401+"
+ },
+ {
+  "university": "University of Missouri-Kansas City",
+  "country": "USA",
+  "city": "",
+  "qs_ranking": 1001,
+  "the_rank_2026": "501–600",
+  "qs_rank_2026": "1001-1200"
+ },
+ {
+  "university": "University of Nebraska Medical Center",
+  "country": "USA",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "501–600",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "University of Nebraska Omaha",
+  "country": "USA",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "1201–1500",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "University of Nevada - Reno",
+  "country": "USA",
+  "city": "",
+  "qs_ranking": 1001,
+  "the_rank_2026": null,
+  "qs_rank_2026": "1001-1200"
+ },
+ {
+  "university": "University of Nevada, Las Vegas",
+  "country": "USA",
+  "city": "",
+  "qs_ranking": null,
+  "the_rank_2026": "601–800",
+  "qs_rank_2026": null
+ },
+ {
+  "university": "University of North Carolina at Greensboro",
+  "country": "USA",
+  "city": "",
+  "qs_ranking": 1201,
+  "the_rank_2026": null,
+  "qs_rank_2026": "1201-1400"
+ },
+ {
+  "university": "University of Rhode Island",
+  "country": "USA",
+  "city": "",
+  "qs_ranking": 1001,
+  "the_rank_2026": "801–1000",
+  "qs_rank_2026": "1001-1200"
+ },
+ {
+  "university": "University of South Alabama (USA)",
+  "country": "USA",
+  "city": "",
+  "qs_ranking": 1201,
+  "the_rank_2026": null,
+  "qs_rank_2026": "1201-1400"
+ },
+ {
+  "university": "University of Texas El Paso",
+  "country": "USA",
+  "city": "",
+  "qs_ranking": 1201,
+  "the_rank_2026": "1001–1200",
+  "qs_rank_2026": "1201-1400"
+ },
+ {
+  "university": "University of Wyoming",
+  "country": "USA",
+  "city": "",
+  "qs_ranking": 1001,
+  "the_rank_2026": "801–1000",
+  "qs_rank_2026": "1001-1200"
+ },
+ {
+  "university": "University of the Pacific",
+  "country": "USA",
+  "city": "",
+  "qs_ranking": 1401,
+  "the_rank_2026": null,
+  "qs_rank_2026": "1401+"
+ },
+ {
+  "university": "Utah State University",
+  "country": "USA",
+  "city": "",
+  "qs_ranking": 1001,
+  "the_rank_2026": null,
+  "qs_rank_2026": "1001-1200"
+ },
+ {
+  "university": "Virginia Commonwealth University",
+  "country": "USA",
+  "city": "",
+  "qs_ranking": 901,
+  "the_rank_2026": "401–500",
+  "qs_rank_2026": "901-950"
+ },
+ {
+  "university": "Western Michigan University",
+  "country": "USA",
+  "city": "",
+  "qs_ranking": 1201,
+  "the_rank_2026": null,
+  "qs_rank_2026": "1201-1400"
+ }
+]

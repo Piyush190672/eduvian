@@ -1,0 +1,8015 @@
+[
+ {
+  "university": "Abertay University",
+  "country": "UK",
+  "city": "Dundee",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Aberystwyth University",
+  "country": "UK",
+  "city": "Aberystwyth",
+  "qs_ranking": 851,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Abu Dhabi University",
+  "country": "UAE",
+  "city": "Abu Dhabi",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Acadia University",
+  "country": "Canada",
+  "city": "Wolfville",
+  "qs_ranking": 751,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Adelphi University",
+  "country": "USA",
+  "city": "Garden City, NY",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Aix-Marseille University",
+  "country": "France",
+  "city": "Marseille",
+  "qs_ranking": 481,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Algoma University",
+  "country": "Canada",
+  "city": "Sault Ste. Marie, ON",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Algonquin College",
+  "country": "Canada",
+  "city": "Ottawa, ON",
+  "qs_ranking": 0,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "American University",
+  "country": "USA",
+  "city": "Washington, DC",
+  "qs_ranking": 562,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "American University in Dubai",
+  "country": "UAE",
+  "city": "Dubai",
+  "qs_ranking": 621,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "American University of Sharjah",
+  "country": "UAE",
+  "city": "Sharjah",
+  "qs_ranking": 347,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Anglia Ruskin University",
+  "country": "UK",
+  "city": "Chelmsford",
+  "qs_ranking": 601,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology"
+  ]
+ },
+ {
+  "university": "Arizona State University",
+  "country": "USA",
+  "city": "Tempe, AZ",
+  "qs_ranking": 216,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity"
+  ]
+ },
+ {
+  "university": "Arts University Bournemouth",
+  "country": "UK",
+  "city": "Bournemouth",
+  "qs_ranking": 1001,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Asia Pacific University of Technology & Innovation",
+  "country": "Malaysia",
+  "city": "Kuala Lumpur",
+  "qs_ranking": 611,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Aston University",
+  "country": "UK",
+  "city": "Birmingham",
+  "qs_ranking": 446,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Athabasca University",
+  "country": "Canada",
+  "city": "Athabasca, AB",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Atlantic Technological University",
+  "country": "Ireland",
+  "city": "Galway",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Auburn University",
+  "country": "USA",
+  "city": "Auburn, AL",
+  "qs_ranking": 562,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Auckland University of Technology",
+  "country": "New Zealand",
+  "city": "Auckland",
+  "qs_ranking": 412,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Audencia Business School",
+  "country": "France",
+  "city": "Nantes",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Australian Catholic University",
+  "country": "Australia",
+  "city": "Sydney",
+  "qs_ranking": 851,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Australian National University",
+  "country": "Australia",
+  "city": "Canberra",
+  "qs_ranking": 30,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "BITS Pilani Dubai Campus",
+  "country": "UAE",
+  "city": "Dubai",
+  "qs_ranking": 801,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "BPP University",
+  "country": "UK",
+  "city": "London",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Bangor University",
+  "country": "UK",
+  "city": "Bangor",
+  "qs_ranking": 581,
+  "missing_fields": [
+   "FinTech",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Bath Spa University",
+  "country": "UK",
+  "city": "Bath",
+  "qs_ranking": 1001,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Baylor University",
+  "country": "USA",
+  "city": "Waco, TX",
+  "qs_ranking": 601,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Binghamton University",
+  "country": "USA",
+  "city": "Vestal, NY",
+  "qs_ranking": 571,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Birkbeck, University of London",
+  "country": "UK",
+  "city": "London",
+  "qs_ranking": 801,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity"
+  ]
+ },
+ {
+  "university": "Birmingham City University",
+  "country": "UK",
+  "city": "Birmingham",
+  "qs_ranking": 851,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Bishop's University",
+  "country": "Canada",
+  "city": "Sherbrooke",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Bond University",
+  "country": "Australia",
+  "city": "Gold Coast",
+  "qs_ranking": 487,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Boston College",
+  "country": "USA",
+  "city": "Chestnut Hill, MA",
+  "qs_ranking": 488,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Boston University",
+  "country": "USA",
+  "city": "Boston, MA",
+  "qs_ranking": 109,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Bournemouth University",
+  "country": "UK",
+  "city": "Bournemouth",
+  "qs_ranking": 601,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Bradley University",
+  "country": "USA",
+  "city": "Peoria, IL",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Brandeis University",
+  "country": "USA",
+  "city": "Waltham, MA",
+  "qs_ranking": 470,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity"
+  ]
+ },
+ {
+  "university": "Brigham Young University",
+  "country": "USA",
+  "city": "Provo, UT",
+  "qs_ranking": 451,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "British Columbia Institute of Technology (BCIT)",
+  "country": "Canada",
+  "city": "Burnaby, BC",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Brock University",
+  "country": "Canada",
+  "city": "St. Catharines, ON",
+  "qs_ranking": 801,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Brown University",
+  "country": "USA",
+  "city": "Providence, RI",
+  "qs_ranking": 73,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Brunel University London",
+  "country": "UK",
+  "city": "London",
+  "qs_ranking": 333,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Bucknell University",
+  "country": "USA",
+  "city": "Lewisburg, PA",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Burgundy School of Business",
+  "country": "France",
+  "city": "Dijon",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "CQUniversity Australia",
+  "country": "Australia",
+  "city": "Rockhampton",
+  "qs_ranking": 495,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "California Institute of Technology",
+  "country": "USA",
+  "city": "Pasadena, CA",
+  "qs_ranking": 10,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "California Polytechnic State University",
+  "country": "USA",
+  "city": "San Luis Obispo, CA",
+  "qs_ranking": 1401,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "California State Polytechnic University, Pomona",
+  "country": "USA",
+  "city": "Pomona, CA",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "California State University, East Bay",
+  "country": "USA",
+  "city": "Hayward, CA",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "California State University, Fresno",
+  "country": "USA",
+  "city": "Fresno, CA",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "California State University, Fullerton",
+  "country": "USA",
+  "city": "Fullerton, CA",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "California State University, Long Beach",
+  "country": "USA",
+  "city": "Long Beach, CA",
+  "qs_ranking": 1401,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "California State University, Northridge",
+  "country": "USA",
+  "city": "Northridge, CA",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "California State University, Sacramento",
+  "country": "USA",
+  "city": "Sacramento, CA",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Camosun College",
+  "country": "Canada",
+  "city": "Victoria",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Canadian University Dubai",
+  "country": "UAE",
+  "city": "Dubai",
+  "qs_ranking": 523,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Canterbury Christ Church University",
+  "country": "UK",
+  "city": "Canterbury",
+  "qs_ranking": 1001,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Cape Breton University",
+  "country": "Canada",
+  "city": "Sydney",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Capilano University",
+  "country": "Canada",
+  "city": "North Vancouver",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Cardiff Metropolitan University",
+  "country": "UK",
+  "city": "Cardiff",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Cardiff University",
+  "country": "UK",
+  "city": "Cardiff",
+  "qs_ranking": 197,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Carleton University",
+  "country": "Canada",
+  "city": "Ottawa, ON",
+  "qs_ranking": 671,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Carnegie Mellon University",
+  "country": "USA",
+  "city": "Pittsburgh, PA",
+  "qs_ranking": 58,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Case Western Reserve University",
+  "country": "USA",
+  "city": "Cleveland, OH",
+  "qs_ranking": 259,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity"
+  ]
+ },
+ {
+  "university": "Centennial College",
+  "country": "Canada",
+  "city": "Toronto, ON",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Centrale Lille",
+  "country": "France",
+  "city": "Lille",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Centrale Nantes",
+  "country": "France",
+  "city": "Nantes",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "CentraleSup\u00e9lec",
+  "country": "France",
+  "city": "Gif-sur-Yvette",
+  "qs_ranking": 234,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Chapman University",
+  "country": "USA",
+  "city": "Orange, CA",
+  "qs_ranking": 1501,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Charit\u00e9 \u2013 Universit\u00e4tsmedizin Berlin",
+  "country": "Germany",
+  "city": "Berlin",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Charles Darwin University",
+  "country": "Australia",
+  "city": "Darwin",
+  "qs_ranking": 621,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Charles Sturt University",
+  "country": "Australia",
+  "city": "Bathurst",
+  "qs_ranking": 671,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "City, University of London",
+  "country": "UK",
+  "city": "London",
+  "qs_ranking": 348,
+  "missing_fields": [
+   "FinTech",
+   "Marketing"
+  ]
+ },
+ {
+  "university": "Clemson University",
+  "country": "USA",
+  "city": "Clemson, SC",
+  "qs_ranking": 601,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity"
+  ]
+ },
+ {
+  "university": "Cleveland State University",
+  "country": "USA",
+  "city": "Cleveland, OH",
+  "qs_ranking": 1201,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "College of William & Mary",
+  "country": "USA",
+  "city": "Williamsburg, VA",
+  "qs_ranking": 671,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Colorado School of Mines",
+  "country": "USA",
+  "city": "Golden, CO",
+  "qs_ranking": 501,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Colorado State University",
+  "country": "USA",
+  "city": "Fort Collins, CO",
+  "qs_ranking": 442,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Columbia University",
+  "country": "USA",
+  "city": "New York, NY",
+  "qs_ranking": 20,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity"
+  ]
+ },
+ {
+  "university": "Concordia University",
+  "country": "Canada",
+  "city": "Montreal, QC",
+  "qs_ranking": 487,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity"
+  ]
+ },
+ {
+  "university": "Conestoga College",
+  "country": "Canada",
+  "city": "Kitchener, ON",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Cornell University",
+  "country": "USA",
+  "city": "Ithaca, NY",
+  "qs_ranking": 16,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity"
+  ]
+ },
+ {
+  "university": "Coventry University",
+  "country": "UK",
+  "city": "Coventry",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology"
+  ]
+ },
+ {
+  "university": "Curtin University",
+  "country": "Australia",
+  "city": "Perth",
+  "qs_ranking": 232,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology"
+  ]
+ },
+ {
+  "university": "Curtin University Dubai",
+  "country": "UAE",
+  "city": "Dubai",
+  "qs_ranking": 174,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Curtin University Malaysia",
+  "country": "Malaysia",
+  "city": "Miri",
+  "qs_ranking": 174,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Curtin University Singapore",
+  "country": "Singapore",
+  "city": "Singapore",
+  "qs_ranking": 174,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Dalhousie University",
+  "country": "Canada",
+  "city": "Halifax, NS",
+  "qs_ranking": 486,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Dartmouth College",
+  "country": "USA",
+  "city": "Hanover, NH",
+  "qs_ranking": 198,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "De Montfort University",
+  "country": "UK",
+  "city": "Leicester",
+  "qs_ranking": 801,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "DePaul University",
+  "country": "USA",
+  "city": "Chicago, IL",
+  "qs_ranking": 801,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Deakin University",
+  "country": "Australia",
+  "city": "Melbourne",
+  "qs_ranking": 266,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology"
+  ]
+ },
+ {
+  "university": "Delft University of Technology",
+  "country": "Netherlands",
+  "city": "Delft",
+  "qs_ranking": 56,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Drexel University",
+  "country": "USA",
+  "city": "Philadelphia, PA",
+  "qs_ranking": 651,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology"
+  ]
+ },
+ {
+  "university": "Duke University",
+  "country": "USA",
+  "city": "Durham, NC",
+  "qs_ranking": 50,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology"
+  ]
+ },
+ {
+  "university": "Durham College",
+  "country": "Canada",
+  "city": "Oshawa, ON",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Durham University",
+  "country": "UK",
+  "city": "Durham",
+  "qs_ranking": 92,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "EDHEC Business School",
+  "country": "France",
+  "city": "Lille",
+  "qs_ranking": 501,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "EM Lyon Business School",
+  "country": "France",
+  "city": "Lyon",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "EPF Engineering School",
+  "country": "France",
+  "city": "Paris",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "ESCE International Business School",
+  "country": "France",
+  "city": "Paris",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "ESCP Business School",
+  "country": "France",
+  "city": "Paris",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "ESMT Berlin",
+  "country": "Germany",
+  "city": "Berlin",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "ESSEC Asia-Pacific Singapore",
+  "country": "Singapore",
+  "city": "Singapore",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "ESSEC Business School",
+  "country": "France",
+  "city": "Cergy",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Psychology",
+   "Cybersecurity",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Edge Hill University",
+  "country": "UK",
+  "city": "Ormskirk",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Edinburgh Napier University",
+  "country": "UK",
+  "city": "Edinburgh",
+  "qs_ranking": 851,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Edith Cowan University",
+  "country": "Australia",
+  "city": "Perth",
+  "qs_ranking": 446,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology"
+  ]
+ },
+ {
+  "university": "Eindhoven University of Technology",
+  "country": "Netherlands",
+  "city": "Eindhoven",
+  "qs_ranking": 119,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Emory University",
+  "country": "USA",
+  "city": "Atlanta, GA",
+  "qs_ranking": 159,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity"
+  ]
+ },
+ {
+  "university": "Erasmus University Rotterdam",
+  "country": "Netherlands",
+  "city": "Rotterdam",
+  "qs_ranking": 199,
+  "missing_fields": [
+   "FinTech",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "FH Aachen",
+  "country": "Germany",
+  "city": "Aachen",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Falmouth University",
+  "country": "UK",
+  "city": "Falmouth",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Fanshawe College",
+  "country": "Canada",
+  "city": "London",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Federation University Australia",
+  "country": "Australia",
+  "city": "Ballarat",
+  "qs_ranking": 691,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Flinders University",
+  "country": "Australia",
+  "city": "Adelaide",
+  "qs_ranking": 374,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology"
+  ]
+ },
+ {
+  "university": "Florida Atlantic University",
+  "country": "USA",
+  "city": "Boca Raton, FL",
+  "qs_ranking": 1201,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Florida Institute of Technology",
+  "country": "USA",
+  "city": "Melbourne, FL",
+  "qs_ranking": 801,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Florida International University",
+  "country": "USA",
+  "city": "Miami, FL",
+  "qs_ranking": 591,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Florida Polytechnic University",
+  "country": "USA",
+  "city": "Lakeland, FL",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity"
+  ]
+ },
+ {
+  "university": "Florida State University",
+  "country": "USA",
+  "city": "Tallahassee, FL",
+  "qs_ranking": 651,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology"
+  ]
+ },
+ {
+  "university": "Fordham University",
+  "country": "USA",
+  "city": "New York, NY",
+  "qs_ranking": 701,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Frankfurt School of Finance & Management",
+  "country": "Germany",
+  "city": "Frankfurt",
+  "qs_ranking": null,
+  "missing_fields": [
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Free University of Berlin",
+  "country": "Germany",
+  "city": "Berlin",
+  "qs_ranking": 96,
+  "missing_fields": [
+   "FinTech",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Friedrich Schiller University Jena",
+  "country": "Germany",
+  "city": "Jena",
+  "qs_ranking": 526,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Friedrich-Alexander University Erlangen-N\u00fcrnberg",
+  "country": "Germany",
+  "city": "Erlangen",
+  "qs_ranking": 254,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "GISMA University of Applied Sciences",
+  "country": "Germany",
+  "city": "Berlin",
+  "qs_ranking": null,
+  "missing_fields": [
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "George Mason University",
+  "country": "USA",
+  "city": "Fairfax, VA",
+  "qs_ranking": 651,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "George Washington University",
+  "country": "USA",
+  "city": "Washington, DC",
+  "qs_ranking": 371,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology"
+  ]
+ },
+ {
+  "university": "Georgetown University",
+  "country": "USA",
+  "city": "Washington, DC",
+  "qs_ranking": 228,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology"
+  ]
+ },
+ {
+  "university": "Georgia Institute of Technology",
+  "country": "USA",
+  "city": "Atlanta, GA",
+  "qs_ranking": 80,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Georgian College",
+  "country": "Canada",
+  "city": "Barrie, ON",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Glasgow Caledonian University",
+  "country": "UK",
+  "city": "Glasgow",
+  "qs_ranking": 691,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Goethe University Frankfurt",
+  "country": "Germany",
+  "city": "Frankfurt",
+  "qs_ranking": 360,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Goldsmiths, University of London",
+  "country": "UK",
+  "city": "London",
+  "qs_ranking": 651,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Grenoble Ecole de Management",
+  "country": "France",
+  "city": "Grenoble",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Griffith University",
+  "country": "Australia",
+  "city": "Brisbane",
+  "qs_ranking": 270,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "HAW Hamburg",
+  "country": "Germany",
+  "city": "Hamburg",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "HEC Paris",
+  "country": "France",
+  "city": "Paris",
+  "qs_ranking": 296,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "HELP University",
+  "country": "Malaysia",
+  "city": "Kuala Lumpur",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "HHL Leipzig Graduate School of Management",
+  "country": "Germany",
+  "city": "Leipzig",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "HTW Berlin",
+  "country": "Germany",
+  "city": "Berlin",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Hamburg University of Technology",
+  "country": "Germany",
+  "city": "Hamburg",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Harper Adams University",
+  "country": "UK",
+  "city": "Newport",
+  "qs_ranking": 1201,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Harvard University",
+  "country": "USA",
+  "city": "Cambridge, MA",
+  "qs_ranking": 5,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Harvey Mudd College",
+  "country": "USA",
+  "city": "Claremont, CA",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Heidelberg University",
+  "country": "Germany",
+  "city": "Heidelberg",
+  "qs_ranking": 84,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Heinrich Heine University D\u00fcsseldorf",
+  "country": "Germany",
+  "city": "D\u00fcsseldorf",
+  "qs_ranking": 851,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Heriot-Watt University",
+  "country": "UK",
+  "city": "Edinburgh",
+  "qs_ranking": 274,
+  "missing_fields": [
+   "FinTech",
+   "Marketing"
+  ]
+ },
+ {
+  "university": "Heriot-Watt University Dubai",
+  "country": "UAE",
+  "city": "Dubai",
+  "qs_ranking": 274,
+  "missing_fields": [
+   "FinTech"
+  ]
+ },
+ {
+  "university": "Heriot-Watt University Malaysia",
+  "country": "Malaysia",
+  "city": "Putrajaya",
+  "qs_ranking": 256,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Higher Colleges of Technology",
+  "country": "UAE",
+  "city": "Abu Dhabi",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Hochschule D\u00fcsseldorf",
+  "country": "Germany",
+  "city": "D\u00fcsseldorf",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Hochschule M\u00fcnchen",
+  "country": "Germany",
+  "city": "Munich",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Hofstra University",
+  "country": "USA",
+  "city": "Hempstead, NY",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Holland College",
+  "country": "Canada",
+  "city": "Charlottetown",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Holmes Institute",
+  "country": "Australia",
+  "city": "Melbourne",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Howard University",
+  "country": "USA",
+  "city": "Washington, DC",
+  "qs_ranking": 1001,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Humber Polytechnic",
+  "country": "Canada",
+  "city": "Toronto",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Humboldt University Berlin",
+  "country": "Germany",
+  "city": "Berlin",
+  "qs_ranking": 120,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "IMT Atlantique",
+  "country": "France",
+  "city": "Nantes",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "INSEAD",
+  "country": "France",
+  "city": "Fontainebleau",
+  "qs_ranking": 11,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "INSEAD Asia Campus",
+  "country": "Singapore",
+  "city": "Singapore",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "INTI International University",
+  "country": "Malaysia",
+  "city": "Nilai",
+  "qs_ranking": 516,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Illinois Institute of Technology",
+  "country": "USA",
+  "city": "Chicago, IL",
+  "qs_ranking": 601,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology"
+  ]
+ },
+ {
+  "university": "Imperial College London",
+  "country": "UK",
+  "city": "London",
+  "qs_ranking": 2,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Indiana University Bloomington",
+  "country": "USA",
+  "city": "Bloomington, IN",
+  "qs_ranking": 355,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology"
+  ]
+ },
+ {
+  "university": "International Islamic University Malaysia",
+  "country": "Malaysia",
+  "city": "Kuala Lumpur",
+  "qs_ranking": 661,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Iowa State University",
+  "country": "USA",
+  "city": "Ames, IA",
+  "qs_ranking": 470,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology"
+  ]
+ },
+ {
+  "university": "I\u00c9SEG School of Management",
+  "country": "France",
+  "city": "Lille",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Psychology",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "James Cook University",
+  "country": "Australia",
+  "city": "Townsville",
+  "qs_ranking": 415,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "James Cook University Singapore",
+  "country": "Singapore",
+  "city": "Singapore",
+  "qs_ranking": 445,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "James Madison University",
+  "country": "USA",
+  "city": "Harrisonburg, VA",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Johannes Gutenberg University Mainz",
+  "country": "Germany",
+  "city": "Mainz",
+  "qs_ranking": 410,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Johns Hopkins University",
+  "country": "USA",
+  "city": "Baltimore, MD",
+  "qs_ranking": 23,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology"
+  ]
+ },
+ {
+  "university": "Justus Liebig University Giessen",
+  "country": "Germany",
+  "city": "Giessen",
+  "qs_ranking": 691,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "KEDGE Business School",
+  "country": "France",
+  "city": "Bordeaux",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Kansas State University",
+  "country": "USA",
+  "city": "Manhattan, KS",
+  "qs_ranking": 851,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Karlsruhe Institute of Technology",
+  "country": "Germany",
+  "city": "Karlsruhe",
+  "qs_ranking": 119,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Keele University",
+  "country": "UK",
+  "city": "Keele",
+  "qs_ranking": 581,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Kent State University",
+  "country": "USA",
+  "city": "Kent, OH",
+  "qs_ranking": 706,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Khalifa University",
+  "country": "UAE",
+  "city": "Abu Dhabi",
+  "qs_ranking": 230,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Kiel University",
+  "country": "Germany",
+  "city": "Kiel",
+  "qs_ranking": 410,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "King's College London",
+  "country": "UK",
+  "city": "London",
+  "qs_ranking": 40,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Kingston University London",
+  "country": "UK",
+  "city": "London",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology"
+  ]
+ },
+ {
+  "university": "Kwantlen Polytechnic University",
+  "country": "Canada",
+  "city": "Surrey, BC",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "La Trobe University",
+  "country": "Australia",
+  "city": "Melbourne",
+  "qs_ranking": 230,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology"
+  ]
+ },
+ {
+  "university": "Lakehead University",
+  "country": "Canada",
+  "city": "Thunder Bay",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Lamar University",
+  "country": "USA",
+  "city": "Beaumont, TX",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Lancaster University",
+  "country": "UK",
+  "city": "Lancaster",
+  "qs_ranking": 140,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Langara College",
+  "country": "Canada",
+  "city": "Vancouver, BC",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Laurentian University",
+  "country": "Canada",
+  "city": "Sudbury, ON",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Lawrence Technological University",
+  "country": "USA",
+  "city": "Southfield, MI",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Leeds Beckett University",
+  "country": "UK",
+  "city": "Leeds",
+  "qs_ranking": 1001,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Leeds Trinity University",
+  "country": "UK",
+  "city": "Leeds",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Lehigh University",
+  "country": "USA",
+  "city": "Bethlehem, PA",
+  "qs_ranking": 601,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity"
+  ]
+ },
+ {
+  "university": "Leibniz University Hannover",
+  "country": "Germany",
+  "city": "Hannover",
+  "qs_ranking": 491,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Leiden University",
+  "country": "Netherlands",
+  "city": "Leiden",
+  "qs_ranking": 119,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Leipzig University",
+  "country": "Germany",
+  "city": "Leipzig",
+  "qs_ranking": 451,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Lewis University",
+  "country": "USA",
+  "city": "Romeoville, IL",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Lincoln University NZ",
+  "country": "New Zealand",
+  "city": "Christchurch",
+  "qs_ranking": 387,
+  "missing_fields": [
+   "FinTech",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Liverpool Hope University",
+  "country": "UK",
+  "city": "Liverpool",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Liverpool John Moores University",
+  "country": "UK",
+  "city": "Liverpool",
+  "qs_ranking": 591,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "London Metropolitan University",
+  "country": "UK",
+  "city": "London",
+  "qs_ranking": 1001,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "London School of Economics",
+  "country": "UK",
+  "city": "London",
+  "qs_ranking": 50,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "London South Bank University",
+  "country": "UK",
+  "city": "London",
+  "qs_ranking": 801,
+  "missing_fields": [
+   "FinTech",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Long Island University",
+  "country": "USA",
+  "city": "Brookville, NY",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Loughborough University",
+  "country": "UK",
+  "city": "Loughborough",
+  "qs_ranking": 234,
+  "missing_fields": [
+   "FinTech",
+   "Marketing"
+  ]
+ },
+ {
+  "university": "Louisiana State University",
+  "country": "USA",
+  "city": "Baton Rouge, LA",
+  "qs_ranking": 706,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Loyola Marymount University",
+  "country": "USA",
+  "city": "Los Angeles, CA",
+  "qs_ranking": 1001,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Loyola University Chicago",
+  "country": "USA",
+  "city": "Chicago, IL",
+  "qs_ranking": 801,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Maastricht University",
+  "country": "Netherlands",
+  "city": "Maastricht",
+  "qs_ranking": 192,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "MacEwan University",
+  "country": "Canada",
+  "city": "Edmonton",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Macquarie University",
+  "country": "Australia",
+  "city": "Sydney",
+  "qs_ranking": 130,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Manchester Metropolitan University",
+  "country": "UK",
+  "city": "Manchester",
+  "qs_ranking": 801,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology"
+  ]
+ },
+ {
+  "university": "Manipal Academy of Higher Education Dubai",
+  "country": "UAE",
+  "city": "Dubai",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Marquette University",
+  "country": "USA",
+  "city": "Milwaukee, WI",
+  "qs_ranking": 1201,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Martin Luther University Halle-Wittenberg",
+  "country": "Germany",
+  "city": "Halle",
+  "qs_ranking": 671,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Massachusetts Institute of Technology",
+  "country": "USA",
+  "city": "Cambridge, MA",
+  "qs_ranking": 1,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity"
+  ]
+ },
+ {
+  "university": "Massey University",
+  "country": "New Zealand",
+  "city": "Palmerston North",
+  "qs_ranking": 239,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Maynooth University",
+  "country": "Ireland",
+  "city": "Maynooth",
+  "qs_ranking": 851,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity"
+  ]
+ },
+ {
+  "university": "McGill University",
+  "country": "Canada",
+  "city": "Montreal, QC",
+  "qs_ranking": 29,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "McMaster University",
+  "country": "Canada",
+  "city": "Hamilton, ON",
+  "qs_ranking": 176,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Memorial University of Newfoundland",
+  "country": "Canada",
+  "city": "St. John's, NL",
+  "qs_ranking": 801,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Miami University",
+  "country": "USA",
+  "city": "Oxford, OH",
+  "qs_ranking": 851,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Michigan State University",
+  "country": "USA",
+  "city": "East Lansing, MI",
+  "qs_ranking": 130,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Michigan Technological University",
+  "country": "USA",
+  "city": "Houghton, MI",
+  "qs_ranking": 801,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Middlesex University",
+  "country": "UK",
+  "city": "London",
+  "qs_ranking": 691,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Middlesex University Dubai",
+  "country": "UAE",
+  "city": "Dubai",
+  "qs_ranking": 721,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Middlesex University London",
+  "country": "UK",
+  "city": "London",
+  "qs_ranking": 801,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Mines ParisTech (PSL)",
+  "country": "France",
+  "city": "Paris",
+  "qs_ranking": 56,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Mississippi State University",
+  "country": "USA",
+  "city": "Starkville, MS",
+  "qs_ranking": 851,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Missouri University of Science and Technology",
+  "country": "USA",
+  "city": "Rolla, MO",
+  "qs_ranking": 527,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Mohamed bin Zayed University of Artificial Intelligence",
+  "country": "UAE",
+  "city": "Abu Dhabi",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Mohawk College",
+  "country": "Canada",
+  "city": "Hamilton",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Monash University",
+  "country": "Australia",
+  "city": "Melbourne",
+  "qs_ranking": 36,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Mount Allison University",
+  "country": "Canada",
+  "city": "Sackville",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Mount Royal University",
+  "country": "Canada",
+  "city": "Calgary",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Multimedia University",
+  "country": "Malaysia",
+  "city": "Cyberjaya",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Munich Business School",
+  "country": "Germany",
+  "city": "Munich",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Munster Technological University",
+  "country": "Ireland",
+  "city": "Cork",
+  "qs_ranking": null,
+  "missing_fields": [
+   "Marketing",
+   "Psychology",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Murdoch University",
+  "country": "Australia",
+  "city": "Perth",
+  "qs_ranking": 481,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Murdoch University Dubai",
+  "country": "UAE",
+  "city": "Dubai",
+  "qs_ranking": 436,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "NYU Stern School of Business",
+  "country": "USA",
+  "city": "New York, NY",
+  "qs_ranking": 40,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Nanyang Technological University",
+  "country": "Singapore",
+  "city": "Singapore",
+  "qs_ranking": 12,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology"
+  ]
+ },
+ {
+  "university": "National University of Ireland Galway",
+  "country": "Ireland",
+  "city": "Galway",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology"
+  ]
+ },
+ {
+  "university": "National University of Singapore",
+  "country": "Singapore",
+  "city": "Singapore",
+  "qs_ranking": 8,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "New Jersey Institute of Technology",
+  "country": "USA",
+  "city": "Newark, NJ",
+  "qs_ranking": 791,
+  "missing_fields": [
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "New Mexico State University",
+  "country": "USA",
+  "city": "Las Cruces, NM",
+  "qs_ranking": 1201,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "New York Institute of Technology",
+  "country": "USA",
+  "city": "Old Westbury, NY",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "New York University",
+  "country": "USA",
+  "city": "New York, NY",
+  "qs_ranking": 39,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology"
+  ]
+ },
+ {
+  "university": "New York University Abu Dhabi",
+  "country": "UAE",
+  "city": "Abu Dhabi",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Newcastle University",
+  "country": "UK",
+  "city": "Newcastle",
+  "qs_ranking": 110,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Niagara College",
+  "country": "Canada",
+  "city": "Welland",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "North Carolina State University",
+  "country": "USA",
+  "city": "Raleigh, NC",
+  "qs_ranking": 311,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Northeastern University",
+  "country": "USA",
+  "city": "Boston, MA",
+  "qs_ranking": 210,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Northern Arizona University",
+  "country": "USA",
+  "city": "Flagstaff, AZ",
+  "qs_ranking": 1001,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Northern Illinois University",
+  "country": "USA",
+  "city": "DeKalb, IL",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Northwestern University",
+  "country": "USA",
+  "city": "Evanston, IL",
+  "qs_ranking": 50,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "OCAD University",
+  "country": "Canada",
+  "city": "Toronto, ON",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Ohio State University",
+  "country": "USA",
+  "city": "Columbus, OH",
+  "qs_ranking": 92,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Oklahoma State University",
+  "country": "USA",
+  "city": "Stillwater, OK",
+  "qs_ranking": 691,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Oregon State University",
+  "country": "USA",
+  "city": "Corvallis, OR",
+  "qs_ranking": 511,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Oxford Brookes University",
+  "country": "UK",
+  "city": "Oxford",
+  "qs_ranking": 561,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "PSL Research University",
+  "country": "France",
+  "city": "Paris",
+  "qs_ranking": 24,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Pace University",
+  "country": "USA",
+  "city": "New York, NY",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Penn State University",
+  "country": "USA",
+  "city": "University Park, PA",
+  "qs_ranking": 81,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Pennsylvania State University",
+  "country": "USA",
+  "city": "University Park, PA",
+  "qs_ranking": 81,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Pepperdine University",
+  "country": "USA",
+  "city": "Malibu, CA",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Philipps University of Marburg",
+  "country": "Germany",
+  "city": "Marburg",
+  "qs_ranking": 801,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Pomona College",
+  "country": "USA",
+  "city": "Claremont, CA",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Pratt Institute",
+  "country": "USA",
+  "city": "Brooklyn, NY",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Princeton University",
+  "country": "USA",
+  "city": "Princeton, NJ",
+  "qs_ranking": 22,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Purdue University",
+  "country": "USA",
+  "city": "West Lafayette, IN",
+  "qs_ranking": 89,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity"
+  ]
+ },
+ {
+  "university": "Queen Margaret University",
+  "country": "UK",
+  "city": "Edinburgh",
+  "qs_ranking": 951,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Queen Mary University of London",
+  "country": "UK",
+  "city": "London",
+  "qs_ranking": 130,
+  "missing_fields": [
+   "FinTech",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Queen's University",
+  "country": "Canada",
+  "city": "Kingston, ON",
+  "qs_ranking": 213,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Queen's University Belfast",
+  "country": "UK",
+  "city": "Belfast",
+  "qs_ranking": 197,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Queensland University of Technology",
+  "country": "Australia",
+  "city": "Brisbane",
+  "qs_ranking": 258,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Quinnipiac University",
+  "country": "USA",
+  "city": "Hamden, CT",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "RIT Dubai",
+  "country": "UAE",
+  "city": "Dubai",
+  "qs_ranking": 1001,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "RMIT University",
+  "country": "Australia",
+  "city": "Melbourne",
+  "qs_ranking": 123,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "RWTH Aachen University",
+  "country": "Germany",
+  "city": "Aachen",
+  "qs_ranking": 99,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Regent's University London",
+  "country": "UK",
+  "city": "London",
+  "qs_ranking": null,
+  "missing_fields": [
+   "Marketing",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Rennes School of Business",
+  "country": "France",
+  "city": "Rennes",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Psychology",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Rensselaer Polytechnic Institute",
+  "country": "USA",
+  "city": "Troy, NY",
+  "qs_ranking": 491,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Rhode Island School of Design",
+  "country": "USA",
+  "city": "Providence, RI",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Rice University",
+  "country": "USA",
+  "city": "Houston, TX",
+  "qs_ranking": 145,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Robert Gordon University",
+  "country": "UK",
+  "city": "Aberdeen",
+  "qs_ranking": 851,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology"
+  ]
+ },
+ {
+  "university": "Rochester Institute of Technology",
+  "country": "USA",
+  "city": "Rochester, NY",
+  "qs_ranking": 1001,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Royal Agricultural University",
+  "country": "UK",
+  "city": "Cirencester",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Royal College of Art",
+  "country": "UK",
+  "city": "London",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Royal College of Surgeons in Ireland",
+  "country": "Ireland",
+  "city": "Dublin",
+  "qs_ranking": 273,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Royal Holloway, University of London",
+  "country": "UK",
+  "city": "Egham",
+  "qs_ranking": 391,
+  "missing_fields": [
+   "FinTech",
+   "Marketing"
+  ]
+ },
+ {
+  "university": "Royal Roads University",
+  "country": "Canada",
+  "city": "Victoria, BC",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Royal Veterinary College",
+  "country": "UK",
+  "city": "London",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Ruhr University Bochum",
+  "country": "Germany",
+  "city": "Bochum",
+  "qs_ranking": 396,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Rutgers University",
+  "country": "USA",
+  "city": "New Brunswick, NJ",
+  "qs_ranking": 231,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology"
+  ]
+ },
+ {
+  "university": "Rutgers University\u2013New Brunswick",
+  "country": "USA",
+  "city": "New Brunswick, NJ",
+  "qs_ranking": 328,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "S P Jain School of Global Management Singapore",
+  "country": "Singapore",
+  "city": "Singapore",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "SEGi University",
+  "country": "Malaysia",
+  "city": "Petaling Jaya",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "SKEMA Business School",
+  "country": "France",
+  "city": "Lille",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "SOAS, University of London",
+  "country": "UK",
+  "city": "London",
+  "qs_ranking": 508,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Saarland University",
+  "country": "Germany",
+  "city": "Saarbr\u00fccken",
+  "qs_ranking": 521,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Saint Louis University",
+  "country": "USA",
+  "city": "St. Louis, MO",
+  "qs_ranking": 691,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Saint Mary's University",
+  "country": "Canada",
+  "city": "Halifax, NS",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Saint Peter's University",
+  "country": "USA",
+  "city": "Jersey City, NJ",
+  "qs_ranking": 1001,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Sam Houston State University",
+  "country": "USA",
+  "city": "Huntsville, TX",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "San Diego State University",
+  "country": "USA",
+  "city": "San Diego, CA",
+  "qs_ranking": 671,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "San Francisco State University",
+  "country": "USA",
+  "city": "San Francisco, CA",
+  "qs_ranking": 1201,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "San Jose State University",
+  "country": "USA",
+  "city": "San Jose, CA",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Santa Clara University",
+  "country": "USA",
+  "city": "Santa Clara, CA",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Savannah College of Art and Design",
+  "country": "USA",
+  "city": "Savannah, GA",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Sciences Po",
+  "country": "France",
+  "city": "Paris",
+  "qs_ranking": 273,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Selkirk College",
+  "country": "Canada",
+  "city": "Castlegar",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Seneca Polytechnic",
+  "country": "Canada",
+  "city": "Toronto, ON",
+  "qs_ranking": 0,
+  "missing_fields": [
+   "FinTech",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Sheffield Hallam University",
+  "country": "UK",
+  "city": "Sheffield",
+  "qs_ranking": 851,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Sheridan College",
+  "country": "Canada",
+  "city": "Brampton, ON",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Simon Fraser University",
+  "country": "Canada",
+  "city": "Burnaby, BC",
+  "qs_ranking": 298,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Singapore Institute of Technology",
+  "country": "Singapore",
+  "city": "Singapore",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Singapore Management University",
+  "country": "Singapore",
+  "city": "Singapore",
+  "qs_ranking": 545,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Singapore University of Technology and Design",
+  "country": "Singapore",
+  "city": "Singapore",
+  "qs_ranking": 440,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Solent University",
+  "country": "UK",
+  "city": "Southampton",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Sorbonne University",
+  "country": "France",
+  "city": "Paris",
+  "qs_ranking": 59,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Sorbonne Universit\u00e9",
+  "country": "France",
+  "city": "Paris",
+  "qs_ranking": 59,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Southern Alberta Institute of Technology (SAIT)",
+  "country": "Canada",
+  "city": "Calgary, AB",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Southern Cross University",
+  "country": "Australia",
+  "city": "Lismore",
+  "qs_ranking": 576,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Southern Illinois University Edwardsville",
+  "country": "USA",
+  "city": "Edwardsville, IL",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Southern Methodist University",
+  "country": "USA",
+  "city": "Dallas, TX",
+  "qs_ranking": 601,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "St George's, University of London",
+  "country": "UK",
+  "city": "London",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "St Mary's University, Twickenham",
+  "country": "UK",
+  "city": "London",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "St. Francis Xavier University",
+  "country": "Canada",
+  "city": "Antigonish",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Staffordshire University",
+  "country": "UK",
+  "city": "Stoke-on-Trent",
+  "qs_ranking": 1001,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Stanford University",
+  "country": "USA",
+  "city": "Stanford, CA",
+  "qs_ranking": 3,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Stevens Institute of Technology",
+  "country": "USA",
+  "city": "Hoboken, NJ",
+  "qs_ranking": 691,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology"
+  ]
+ },
+ {
+  "university": "Stony Brook University",
+  "country": "USA",
+  "city": "Stony Brook, NY",
+  "qs_ranking": 460,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity"
+  ]
+ },
+ {
+  "university": "Sunway University",
+  "country": "Malaysia",
+  "city": "Subang Jaya",
+  "qs_ranking": 601,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity"
+  ]
+ },
+ {
+  "university": "Swansea University",
+  "country": "UK",
+  "city": "Swansea",
+  "qs_ranking": 312,
+  "missing_fields": [
+   "FinTech",
+   "Marketing"
+  ]
+ },
+ {
+  "university": "Swinburne University of Technology",
+  "country": "Australia",
+  "city": "Melbourne",
+  "qs_ranking": 462,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Swinburne University of Technology Sarawak",
+  "country": "Malaysia",
+  "city": "Kuching",
+  "qs_ranking": 291,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Syracuse University",
+  "country": "USA",
+  "city": "Syracuse, NY",
+  "qs_ranking": 461,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "TU Darmstadt",
+  "country": "Germany",
+  "city": "Darmstadt",
+  "qs_ranking": 273,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "TU Dresden",
+  "country": "Germany",
+  "city": "Dresden",
+  "qs_ranking": 256,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Taylor's University",
+  "country": "Malaysia",
+  "city": "Subang Jaya",
+  "qs_ranking": 251,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Technical University of Berlin",
+  "country": "Germany",
+  "city": "Berlin",
+  "qs_ranking": 174,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Technical University of Darmstadt",
+  "country": "Germany",
+  "city": "Darmstadt",
+  "qs_ranking": 224,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Technical University of Munich",
+  "country": "Germany",
+  "city": "Munich",
+  "qs_ranking": 37,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Technological University Dublin",
+  "country": "Ireland",
+  "city": "Dublin",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Teesside University",
+  "country": "UK",
+  "city": "Middlesbrough",
+  "qs_ranking": 1401,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Temple University",
+  "country": "USA",
+  "city": "Philadelphia, PA",
+  "qs_ranking": 651,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Texas A&M University",
+  "country": "USA",
+  "city": "College Station, TX",
+  "qs_ranking": 152,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Texas State University",
+  "country": "USA",
+  "city": "San Marcos, TX",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Texas Tech University",
+  "country": "USA",
+  "city": "Lubbock, TX",
+  "qs_ranking": 601,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Texas Woman's University",
+  "country": "USA",
+  "city": "Denton, TX",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "The New School",
+  "country": "USA",
+  "city": "New York, NY",
+  "qs_ranking": 706,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Thompson Rivers University",
+  "country": "Canada",
+  "city": "Kamloops, BC",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Toronto Metropolitan University",
+  "country": "Canada",
+  "city": "Toronto, ON",
+  "qs_ranking": 651,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Torrens University Australia",
+  "country": "Australia",
+  "city": "Sydney",
+  "qs_ranking": 1001,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Toulouse School of Economics",
+  "country": "France",
+  "city": "Toulouse",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Trent University",
+  "country": "Canada",
+  "city": "Peterborough",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Trinity College Dublin",
+  "country": "Ireland",
+  "city": "Dublin",
+  "qs_ranking": 81,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Trinity Western University",
+  "country": "Canada",
+  "city": "Langley",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Tufts University",
+  "country": "USA",
+  "city": "Medford, MA",
+  "qs_ranking": 344,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Tulane University",
+  "country": "USA",
+  "city": "New Orleans, LA",
+  "qs_ranking": 601,
+  "missing_fields": [
+   "FinTech",
+   "Psychology"
+  ]
+ },
+ {
+  "university": "UC Riverside",
+  "country": "USA",
+  "city": "Riverside, CA",
+  "qs_ranking": 497,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "UC Santa Cruz",
+  "country": "USA",
+  "city": "Santa Cruz, CA",
+  "qs_ranking": 393,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "UCL",
+  "country": "UK",
+  "city": "London",
+  "qs_ranking": 9,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology"
+  ]
+ },
+ {
+  "university": "UCLA",
+  "country": "USA",
+  "city": "Los Angeles, CA",
+  "qs_ranking": 44,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity"
+  ]
+ },
+ {
+  "university": "UCSI University",
+  "country": "Malaysia",
+  "city": "Kuala Lumpur",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "UNSW Sydney",
+  "country": "Australia",
+  "city": "Sydney",
+  "qs_ranking": 19,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Ulm University",
+  "country": "Germany",
+  "city": "Ulm",
+  "qs_ranking": 339,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Ulster University",
+  "country": "UK",
+  "city": "Coleraine",
+  "qs_ranking": 691,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "United Arab Emirates University",
+  "country": "UAE",
+  "city": "Al Ain",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Universiti Kebangsaan Malaysia",
+  "country": "Malaysia",
+  "city": "Bangi",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Universiti Malaya",
+  "country": "Malaysia",
+  "city": "Kuala Lumpur",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Universiti Putra Malaysia",
+  "country": "Malaysia",
+  "city": "Serdang",
+  "qs_ranking": 148,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Universiti Sains Malaysia",
+  "country": "Malaysia",
+  "city": "Penang",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Universiti Teknologi Malaysia",
+  "country": "Malaysia",
+  "city": "Johor Bahru",
+  "qs_ranking": 181,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Universiti Tunku Abdul Rahman",
+  "country": "Malaysia",
+  "city": "Kampar",
+  "qs_ranking": 801,
+  "missing_fields": [
+   "FinTech",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University College Cork",
+  "country": "Ireland",
+  "city": "Cork",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University College Dublin",
+  "country": "Ireland",
+  "city": "Dublin",
+  "qs_ranking": 124,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University College London",
+  "country": "UK",
+  "city": "London",
+  "qs_ranking": 9,
+  "missing_fields": [
+   "FinTech",
+   "Marketing"
+  ]
+ },
+ {
+  "university": "University at Albany, SUNY",
+  "country": "USA",
+  "city": "Albany, NY",
+  "qs_ranking": 801,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University at Buffalo (SUNY)",
+  "country": "USA",
+  "city": "Buffalo, NY",
+  "qs_ranking": 466,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University at Buffalo, SUNY",
+  "country": "USA",
+  "city": "Buffalo, NY",
+  "qs_ranking": 290,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Aberdeen",
+  "country": "UK",
+  "city": "Aberdeen",
+  "qs_ranking": 264,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Adelaide",
+  "country": "Australia",
+  "city": "Adelaide",
+  "qs_ranking": 82,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Adelaide College",
+  "country": "Australia",
+  "city": "Adelaide",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Akron",
+  "country": "USA",
+  "city": "Akron, OH",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Alabama",
+  "country": "USA",
+  "city": "Tuscaloosa, AL",
+  "qs_ranking": 801,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Alberta",
+  "country": "Canada",
+  "city": "Edmonton, AB",
+  "qs_ranking": 96,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Amsterdam",
+  "country": "Netherlands",
+  "city": "Amsterdam",
+  "qs_ranking": 55,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Arizona",
+  "country": "USA",
+  "city": "Tucson, AZ",
+  "qs_ranking": 293,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology"
+  ]
+ },
+ {
+  "university": "University of Arkansas",
+  "country": "USA",
+  "city": "Fayetteville, AR",
+  "qs_ranking": 651,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Auckland",
+  "country": "New Zealand",
+  "city": "Auckland",
+  "qs_ranking": 65,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity"
+  ]
+ },
+ {
+  "university": "University of Augsburg",
+  "country": "Germany",
+  "city": "Augsburg",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Bath",
+  "country": "UK",
+  "city": "Bath",
+  "qs_ranking": 150,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Bayreuth",
+  "country": "Germany",
+  "city": "Bayreuth",
+  "qs_ranking": 527,
+  "missing_fields": [
+   "FinTech",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Birmingham",
+  "country": "UK",
+  "city": "Birmingham",
+  "qs_ranking": 79,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Bonn",
+  "country": "Germany",
+  "city": "Bonn",
+  "qs_ranking": 232,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Bordeaux",
+  "country": "France",
+  "city": "Bordeaux",
+  "qs_ranking": 461,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Bradford",
+  "country": "UK",
+  "city": "Bradford",
+  "qs_ranking": 691,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Bremen",
+  "country": "Germany",
+  "city": "Bremen",
+  "qs_ranking": 487,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Bridgeport",
+  "country": "USA",
+  "city": "Bridgeport, CT",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Brighton",
+  "country": "UK",
+  "city": "Brighton",
+  "qs_ranking": 671,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Bristol",
+  "country": "UK",
+  "city": "Bristol",
+  "qs_ranking": 54,
+  "missing_fields": [
+   "FinTech",
+   "Marketing"
+  ]
+ },
+ {
+  "university": "University of British Columbia",
+  "country": "Canada",
+  "city": "Vancouver, BC",
+  "qs_ranking": 38,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity"
+  ]
+ },
+ {
+  "university": "University of Buckingham",
+  "country": "UK",
+  "city": "Buckingham",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Calgary",
+  "country": "Canada",
+  "city": "Calgary, AB",
+  "qs_ranking": 154,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of California, Berkeley",
+  "country": "USA",
+  "city": "Berkeley, CA",
+  "qs_ranking": 12,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of California, Davis",
+  "country": "USA",
+  "city": "Davis, CA",
+  "qs_ranking": 123,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of California, Irvine",
+  "country": "USA",
+  "city": "Irvine, CA",
+  "qs_ranking": 226,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of California, Los Angeles",
+  "country": "USA",
+  "city": "Los Angeles, CA",
+  "qs_ranking": 42,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity"
+  ]
+ },
+ {
+  "university": "University of California, San Diego",
+  "country": "USA",
+  "city": "La Jolla, CA",
+  "qs_ranking": 67,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Cybersecurity"
+  ]
+ },
+ {
+  "university": "University of California, Santa Barbara",
+  "country": "USA",
+  "city": "Santa Barbara, CA",
+  "qs_ranking": 157,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Cambridge",
+  "country": "UK",
+  "city": "Cambridge",
+  "qs_ranking": 2,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Canberra",
+  "country": "Australia",
+  "city": "Canberra",
+  "qs_ranking": 461,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Canterbury",
+  "country": "New Zealand",
+  "city": "Christchurch",
+  "qs_ranking": 261,
+  "missing_fields": [
+   "FinTech",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Central Florida",
+  "country": "USA",
+  "city": "Orlando, FL",
+  "qs_ranking": 477,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology"
+  ]
+ },
+ {
+  "university": "University of Central Lancashire",
+  "country": "UK",
+  "city": "Preston",
+  "qs_ranking": 801,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology"
+  ]
+ },
+ {
+  "university": "University of Chester",
+  "country": "UK",
+  "city": "Chester",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Chicago",
+  "country": "USA",
+  "city": "Chicago, IL",
+  "qs_ranking": 21,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity"
+  ]
+ },
+ {
+  "university": "University of Cincinnati",
+  "country": "USA",
+  "city": "Cincinnati, OH",
+  "qs_ranking": 380,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Cologne",
+  "country": "Germany",
+  "city": "Cologne",
+  "qs_ranking": 308,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Colorado Boulder",
+  "country": "USA",
+  "city": "Boulder, CO",
+  "qs_ranking": 320,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity"
+  ]
+ },
+ {
+  "university": "University of Connecticut",
+  "country": "USA",
+  "city": "Storrs, CT",
+  "qs_ranking": 565,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity"
+  ]
+ },
+ {
+  "university": "University of Cumbria",
+  "country": "UK",
+  "city": "Carlisle",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Dayton",
+  "country": "USA",
+  "city": "Dayton, OH",
+  "qs_ranking": 801,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Delaware",
+  "country": "USA",
+  "city": "Newark, DE",
+  "qs_ranking": 506,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology"
+  ]
+ },
+ {
+  "university": "University of Derby",
+  "country": "UK",
+  "city": "Derby",
+  "qs_ranking": 1201,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology"
+  ]
+ },
+ {
+  "university": "University of Detroit Mercy",
+  "country": "USA",
+  "city": "Detroit, MI",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Divinity",
+  "country": "Australia",
+  "city": "Melbourne",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Dundee",
+  "country": "UK",
+  "city": "Dundee",
+  "qs_ranking": 412,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Cybersecurity"
+  ]
+ },
+ {
+  "university": "University of East Anglia",
+  "country": "UK",
+  "city": "Norwich",
+  "qs_ranking": 313,
+  "missing_fields": [
+   "FinTech",
+   "Marketing"
+  ]
+ },
+ {
+  "university": "University of East London",
+  "country": "UK",
+  "city": "London",
+  "qs_ranking": 901,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Edinburgh",
+  "country": "UK",
+  "city": "Edinburgh",
+  "qs_ranking": 27,
+  "missing_fields": [
+   "FinTech",
+   "Marketing"
+  ]
+ },
+ {
+  "university": "University of Essex",
+  "country": "UK",
+  "city": "Colchester",
+  "qs_ranking": 412,
+  "missing_fields": [
+   "FinTech"
+  ]
+ },
+ {
+  "university": "University of Exeter",
+  "country": "UK",
+  "city": "Exeter",
+  "qs_ranking": 149,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Cybersecurity"
+  ]
+ },
+ {
+  "university": "University of Florida",
+  "country": "USA",
+  "city": "Gainesville, FL",
+  "qs_ranking": 162,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Freiburg",
+  "country": "Germany",
+  "city": "Freiburg",
+  "qs_ranking": 213,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Galway",
+  "country": "Ireland",
+  "city": "Galway",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology"
+  ]
+ },
+ {
+  "university": "University of Georgia",
+  "country": "USA",
+  "city": "Athens, GA",
+  "qs_ranking": 461,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Glasgow",
+  "country": "UK",
+  "city": "Glasgow",
+  "qs_ranking": 77,
+  "missing_fields": [
+   "Marketing",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Gloucestershire",
+  "country": "UK",
+  "city": "Cheltenham",
+  "qs_ranking": null,
+  "missing_fields": [
+   "Marketing",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Greenwich",
+  "country": "UK",
+  "city": "London",
+  "qs_ranking": 691,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology"
+  ]
+ },
+ {
+  "university": "University of Greifswald",
+  "country": "Germany",
+  "city": "Greifswald",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Groningen",
+  "country": "Netherlands",
+  "city": "Groningen",
+  "qs_ranking": 139,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Guelph",
+  "country": "Canada",
+  "city": "Guelph, ON",
+  "qs_ranking": 451,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Hamburg",
+  "country": "Germany",
+  "city": "Hamburg",
+  "qs_ranking": 191,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Hartford",
+  "country": "USA",
+  "city": "West Hartford, CT",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Hawaii at Manoa",
+  "country": "USA",
+  "city": "Honolulu, HI",
+  "qs_ranking": 488,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Hertfordshire",
+  "country": "UK",
+  "city": "Hatfield",
+  "qs_ranking": 851,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology"
+  ]
+ },
+ {
+  "university": "University of Highlands and Islands",
+  "country": "UK",
+  "city": "Inverness",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Houston",
+  "country": "USA",
+  "city": "Houston, TX",
+  "qs_ranking": 521,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology"
+  ]
+ },
+ {
+  "university": "University of Houston-Clear Lake",
+  "country": "USA",
+  "city": "Houston, TX",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Huddersfield",
+  "country": "UK",
+  "city": "Huddersfield",
+  "qs_ranking": 691,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Hull",
+  "country": "UK",
+  "city": "Hull",
+  "qs_ranking": 591,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Illinois at Chicago",
+  "country": "USA",
+  "city": "Chicago, IL",
+  "qs_ranking": 365,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Illinois at Urbana-Champaign",
+  "country": "USA",
+  "city": "Urbana-Champaign, IL",
+  "qs_ranking": 65,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Iowa",
+  "country": "USA",
+  "city": "Iowa City, IA",
+  "qs_ranking": 511,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity"
+  ]
+ },
+ {
+  "university": "University of Kansas",
+  "country": "USA",
+  "city": "Lawrence, KS",
+  "qs_ranking": 452,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity"
+  ]
+ },
+ {
+  "university": "University of Kent",
+  "country": "UK",
+  "city": "Canterbury",
+  "qs_ranking": 470,
+  "missing_fields": [
+   "FinTech",
+   "Marketing"
+  ]
+ },
+ {
+  "university": "University of Kentucky",
+  "country": "USA",
+  "city": "Lexington, KY",
+  "qs_ranking": 795,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Konstanz",
+  "country": "Germany",
+  "city": "Konstanz",
+  "qs_ranking": 467,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Law",
+  "country": "UK",
+  "city": "London",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Leeds",
+  "country": "UK",
+  "city": "Leeds",
+  "qs_ranking": 75,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Leicester",
+  "country": "UK",
+  "city": "Leicester",
+  "qs_ranking": 348,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Lethbridge",
+  "country": "Canada",
+  "city": "Lethbridge, AB",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Lincoln",
+  "country": "UK",
+  "city": "Lincoln",
+  "qs_ranking": 651,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Liverpool",
+  "country": "UK",
+  "city": "Liverpool",
+  "qs_ranking": 165,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Louisville",
+  "country": "USA",
+  "city": "Louisville, KY",
+  "qs_ranking": 951,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Manchester",
+  "country": "UK",
+  "city": "Manchester",
+  "qs_ranking": 34,
+  "missing_fields": [
+   "FinTech",
+   "Marketing"
+  ]
+ },
+ {
+  "university": "University of Manitoba",
+  "country": "Canada",
+  "city": "Winnipeg, MB",
+  "qs_ranking": 671,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Mannheim",
+  "country": "Germany",
+  "city": "Mannheim",
+  "qs_ranking": 412,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Maryland",
+  "country": "USA",
+  "city": "College Park, MD",
+  "qs_ranking": 138,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Maryland, Baltimore County",
+  "country": "USA",
+  "city": "Baltimore, MD",
+  "qs_ranking": 771,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Massachusetts Amherst",
+  "country": "USA",
+  "city": "Amherst, MA",
+  "qs_ranking": 275,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity"
+  ]
+ },
+ {
+  "university": "University of Massachusetts Boston",
+  "country": "USA",
+  "city": "Boston, MA",
+  "qs_ranking": 1001,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Massachusetts Lowell",
+  "country": "USA",
+  "city": "Lowell, MA",
+  "qs_ranking": 851,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Cybersecurity",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Melbourne",
+  "country": "Australia",
+  "city": "Melbourne",
+  "qs_ranking": 19,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Cybersecurity"
+  ]
+ },
+ {
+  "university": "University of Memphis",
+  "country": "USA",
+  "city": "Memphis, TN",
+  "qs_ranking": 1201,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Miami",
+  "country": "USA",
+  "city": "Coral Gables, FL",
+  "qs_ranking": 324,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity"
+  ]
+ },
+ {
+  "university": "University of Michigan",
+  "country": "USA",
+  "city": "Ann Arbor, MI",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity"
+  ]
+ },
+ {
+  "university": "University of Minnesota",
+  "country": "USA",
+  "city": "Minneapolis, MN",
+  "qs_ranking": 144,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Mississippi",
+  "country": "USA",
+  "city": "Oxford, MS",
+  "qs_ranking": 851,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Missouri",
+  "country": "USA",
+  "city": "Columbia, MO",
+  "qs_ranking": 437,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Montpellier",
+  "country": "France",
+  "city": "Montpellier",
+  "qs_ranking": 448,
+  "missing_fields": [
+   "FinTech",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Montreal",
+  "country": "Canada",
+  "city": "Montreal, QC",
+  "qs_ranking": 116,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Munich (LMU)",
+  "country": "Germany",
+  "city": "Munich",
+  "qs_ranking": 54,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of M\u00fcnster",
+  "country": "Germany",
+  "city": "M\u00fcnster",
+  "qs_ranking": 314,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Nantes",
+  "country": "France",
+  "city": "Nantes",
+  "qs_ranking": 851,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Nebraska-Lincoln",
+  "country": "USA",
+  "city": "Lincoln, NE",
+  "qs_ranking": 561,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of New Brunswick",
+  "country": "Canada",
+  "city": "Fredericton",
+  "qs_ranking": 712,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of New England",
+  "country": "Australia",
+  "city": "Armidale",
+  "qs_ranking": 601,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of New Hampshire",
+  "country": "USA",
+  "city": "Durham, NH",
+  "qs_ranking": 801,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of New Haven",
+  "country": "USA",
+  "city": "West Haven, CT",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of New Mexico",
+  "country": "USA",
+  "city": "Albuquerque, NM",
+  "qs_ranking": 671,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of New South Wales",
+  "country": "Australia",
+  "city": "Sydney",
+  "qs_ranking": 19,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Newcastle",
+  "country": "Australia",
+  "city": "Newcastle",
+  "qs_ranking": 179,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of North Carolina at Chapel Hill",
+  "country": "USA",
+  "city": "Chapel Hill, NC",
+  "qs_ranking": 261,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of North Carolina at Charlotte",
+  "country": "USA",
+  "city": "Charlotte, NC",
+  "qs_ranking": 851,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of North Dakota",
+  "country": "USA",
+  "city": "Grand Forks, ND",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of North Texas",
+  "country": "USA",
+  "city": "Denton, TX",
+  "qs_ranking": 701,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Northampton",
+  "country": "UK",
+  "city": "Northampton",
+  "qs_ranking": 1001,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Northern British Columbia",
+  "country": "Canada",
+  "city": "Prince George",
+  "qs_ranking": 781,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Notre Dame",
+  "country": "USA",
+  "city": "Notre Dame, IN",
+  "qs_ranking": 248,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity"
+  ]
+ },
+ {
+  "university": "University of Nottingham",
+  "country": "UK",
+  "city": "Nottingham",
+  "qs_ranking": 108,
+  "missing_fields": [
+   "FinTech",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Nottingham Malaysia",
+  "country": "Malaysia",
+  "city": "Semenyih",
+  "qs_ranking": 108,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Oklahoma",
+  "country": "USA",
+  "city": "Norman, OK",
+  "qs_ranking": 651,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Oregon",
+  "country": "USA",
+  "city": "Eugene, OR",
+  "qs_ranking": 601,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Otago",
+  "country": "New Zealand",
+  "city": "Dunedin",
+  "qs_ranking": 197,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Ottawa",
+  "country": "Canada",
+  "city": "Ottawa, ON",
+  "qs_ranking": 191,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Oxford",
+  "country": "UK",
+  "city": "Oxford",
+  "qs_ranking": 4,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Pennsylvania",
+  "country": "USA",
+  "city": "Philadelphia, PA",
+  "qs_ranking": 12,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Pittsburgh",
+  "country": "USA",
+  "city": "Pittsburgh, PA",
+  "qs_ranking": 196,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Plymouth",
+  "country": "UK",
+  "city": "Plymouth",
+  "qs_ranking": 601,
+  "missing_fields": [
+   "FinTech",
+   "Marketing"
+  ]
+ },
+ {
+  "university": "University of Portsmouth",
+  "country": "UK",
+  "city": "Portsmouth",
+  "qs_ranking": 563,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Potsdam",
+  "country": "Germany",
+  "city": "Potsdam",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Queensland",
+  "country": "Australia",
+  "city": "Brisbane",
+  "qs_ranking": 40,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology"
+  ]
+ },
+ {
+  "university": "University of Reading",
+  "country": "UK",
+  "city": "Reading",
+  "qs_ranking": 335,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Regina",
+  "country": "Canada",
+  "city": "Regina, SK",
+  "qs_ranking": 801,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Rochester",
+  "country": "USA",
+  "city": "Rochester, NY",
+  "qs_ranking": 236,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity"
+  ]
+ },
+ {
+  "university": "University of Roehampton",
+  "country": "UK",
+  "city": "London",
+  "qs_ranking": 1201,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology"
+  ]
+ },
+ {
+  "university": "University of Rostock",
+  "country": "Germany",
+  "city": "Rostock",
+  "qs_ranking": 801,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Salford",
+  "country": "UK",
+  "city": "Salford",
+  "qs_ranking": 651,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology"
+  ]
+ },
+ {
+  "university": "University of San Diego",
+  "country": "USA",
+  "city": "San Diego, CA",
+  "qs_ranking": 1201,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of San Francisco",
+  "country": "USA",
+  "city": "San Francisco, CA",
+  "qs_ranking": 1201,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Saskatchewan",
+  "country": "Canada",
+  "city": "Saskatoon, SK",
+  "qs_ranking": 387,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Sharjah",
+  "country": "UAE",
+  "city": "Sharjah",
+  "qs_ranking": 426,
+  "missing_fields": [
+   "Marketing",
+   "Psychology"
+  ]
+ },
+ {
+  "university": "University of Sheffield",
+  "country": "UK",
+  "city": "Sheffield",
+  "qs_ranking": 105,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of South Carolina",
+  "country": "USA",
+  "city": "Columbia, SC",
+  "qs_ranking": 501,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of South Dakota",
+  "country": "USA",
+  "city": "Vermillion, SD",
+  "qs_ranking": 1001,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of South Florida",
+  "country": "USA",
+  "city": "Tampa, FL",
+  "qs_ranking": 388,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology"
+  ]
+ },
+ {
+  "university": "University of South Wales",
+  "country": "UK",
+  "city": "Pontypridd",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Southampton",
+  "country": "UK",
+  "city": "Southampton",
+  "qs_ranking": 80,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Southern California",
+  "country": "USA",
+  "city": "Los Angeles, CA",
+  "qs_ranking": 116,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity"
+  ]
+ },
+ {
+  "university": "University of Southern Queensland",
+  "country": "Australia",
+  "city": "Toowoomba",
+  "qs_ranking": 801,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology"
+  ]
+ },
+ {
+  "university": "University of St Andrews",
+  "country": "UK",
+  "city": "St Andrews",
+  "qs_ranking": 95,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Stirling",
+  "country": "UK",
+  "city": "Stirling",
+  "qs_ranking": 487,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Cybersecurity"
+  ]
+ },
+ {
+  "university": "University of Strasbourg",
+  "country": "France",
+  "city": "Strasbourg",
+  "qs_ranking": 408,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Strathclyde",
+  "country": "UK",
+  "city": "Glasgow",
+  "qs_ranking": 269,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Stuttgart",
+  "country": "Germany",
+  "city": "Stuttgart",
+  "qs_ranking": 312,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Suffolk",
+  "country": "UK",
+  "city": "Ipswich",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Sunderland",
+  "country": "UK",
+  "city": "Sunderland",
+  "qs_ranking": 851,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Surrey",
+  "country": "UK",
+  "city": "Guildford",
+  "qs_ranking": 251,
+  "missing_fields": [
+   "FinTech",
+   "Marketing"
+  ]
+ },
+ {
+  "university": "University of Sussex",
+  "country": "UK",
+  "city": "Brighton",
+  "qs_ranking": 246,
+  "missing_fields": [
+   "FinTech",
+   "Cybersecurity"
+  ]
+ },
+ {
+  "university": "University of Sydney",
+  "country": "Australia",
+  "city": "Sydney",
+  "qs_ranking": 18,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Tasmania",
+  "country": "Australia",
+  "city": "Hobart",
+  "qs_ranking": 318,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Technology Sydney",
+  "country": "Australia",
+  "city": "Sydney",
+  "qs_ranking": 88,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Tennessee",
+  "country": "USA",
+  "city": "Knoxville, TN",
+  "qs_ranking": 591,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity"
+  ]
+ },
+ {
+  "university": "University of Tennessee Knoxville",
+  "country": "USA",
+  "city": "Knoxville, TN",
+  "qs_ranking": 481,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Texas Rio Grande Valley",
+  "country": "USA",
+  "city": "Edinburg, TX",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Texas at Arlington",
+  "country": "USA",
+  "city": "Arlington, TX",
+  "qs_ranking": 632,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity"
+  ]
+ },
+ {
+  "university": "University of Texas at Austin",
+  "country": "USA",
+  "city": "Austin, TX",
+  "qs_ranking": 56,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology"
+  ]
+ },
+ {
+  "university": "University of Texas at Dallas",
+  "country": "USA",
+  "city": "Richardson, TX",
+  "qs_ranking": 470,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology"
+  ]
+ },
+ {
+  "university": "University of Texas at San Antonio",
+  "country": "USA",
+  "city": "San Antonio, TX",
+  "qs_ranking": 1001,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Toledo",
+  "country": "USA",
+  "city": "Toledo, OH",
+  "qs_ranking": 951,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Toronto",
+  "country": "Canada",
+  "city": "Toronto, ON",
+  "qs_ranking": 25,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Tulsa",
+  "country": "USA",
+  "city": "Tulsa, OK",
+  "qs_ranking": 1001,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Twente",
+  "country": "Netherlands",
+  "city": "Enschede",
+  "qs_ranking": 199,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of T\u00fcbingen",
+  "country": "Germany",
+  "city": "T\u00fcbingen",
+  "qs_ranking": 213,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Utah",
+  "country": "USA",
+  "city": "Salt Lake City, UT",
+  "qs_ranking": 531,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Vermont",
+  "country": "USA",
+  "city": "Burlington, VT",
+  "qs_ranking": 801,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Victoria",
+  "country": "Canada",
+  "city": "Victoria, BC",
+  "qs_ranking": 359,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Virginia",
+  "country": "USA",
+  "city": "Charlottesville, VA",
+  "qs_ranking": 244,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Waikato",
+  "country": "New Zealand",
+  "city": "Hamilton",
+  "qs_ranking": 261,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Warwick",
+  "country": "UK",
+  "city": "Coventry",
+  "qs_ranking": 67,
+  "missing_fields": [
+   "FinTech",
+   "Marketing"
+  ]
+ },
+ {
+  "university": "University of Washington",
+  "country": "USA",
+  "city": "Seattle, WA",
+  "qs_ranking": 76,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity"
+  ]
+ },
+ {
+  "university": "University of Waterloo",
+  "country": "Canada",
+  "city": "Waterloo, ON",
+  "qs_ranking": 115,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of West London",
+  "country": "UK",
+  "city": "London",
+  "qs_ranking": 1001,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Western Australia",
+  "country": "Australia",
+  "city": "Perth",
+  "qs_ranking": 77,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Westminster",
+  "country": "UK",
+  "city": "London",
+  "qs_ranking": 670,
+  "missing_fields": [
+   "Marketing",
+   "Psychology",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Winchester",
+  "country": "UK",
+  "city": "Winchester",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Windsor",
+  "country": "Canada",
+  "city": "Windsor, ON",
+  "qs_ranking": 801,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Winnipeg",
+  "country": "Canada",
+  "city": "Winnipeg, MB",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Wisconsin-Madison",
+  "country": "USA",
+  "city": "Madison, WI",
+  "qs_ranking": 87,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of Wisconsin-Milwaukee",
+  "country": "USA",
+  "city": "Milwaukee, WI",
+  "qs_ranking": 951,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Wollongong",
+  "country": "Australia",
+  "city": "Wollongong",
+  "qs_ranking": 167,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Wolverhampton",
+  "country": "UK",
+  "city": "Wolverhampton",
+  "qs_ranking": 1001,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of Worcester",
+  "country": "UK",
+  "city": "Worcester",
+  "qs_ranking": 1001,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of W\u00fcrzburg",
+  "country": "Germany",
+  "city": "W\u00fcrzburg",
+  "qs_ranking": 412,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of York",
+  "country": "UK",
+  "city": "York",
+  "qs_ranking": 168,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of the Arts London",
+  "country": "UK",
+  "city": "London",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of the Fraser Valley",
+  "country": "Canada",
+  "city": "Abbotsford, BC",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "University of the Sunshine Coast",
+  "country": "Australia",
+  "city": "Sippy Downs",
+  "qs_ranking": 1001,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of the West of England",
+  "country": "UK",
+  "city": "Bristol",
+  "qs_ranking": 691,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "University of the West of Scotland",
+  "country": "UK",
+  "city": "Paisley",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Universit\u00e9 Grenoble Alpes",
+  "country": "France",
+  "city": "Grenoble",
+  "qs_ranking": 334,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Universit\u00e9 Laval",
+  "country": "Canada",
+  "city": "Quebec City, QC",
+  "qs_ranking": 451,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Universit\u00e9 Paris Cit\u00e9",
+  "country": "France",
+  "city": "Paris",
+  "qs_ranking": 261,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Universit\u00e9 Paris-Saclay",
+  "country": "France",
+  "city": "Paris",
+  "qs_ranking": 71,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Universit\u00e9 Toulouse III",
+  "country": "France",
+  "city": "Toulouse",
+  "qs_ranking": 491,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Universit\u00e9 de Lyon",
+  "country": "France",
+  "city": "Lyon",
+  "qs_ranking": 410,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Universit\u00e9 du Qu\u00e9bec \u00e0 Montr\u00e9al",
+  "country": "Canada",
+  "city": "Montr\u00e9al, QC",
+  "qs_ranking": 851,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Vancouver Island University",
+  "country": "Canada",
+  "city": "Nanaimo",
+  "qs_ranking": 1201,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Vanderbilt University",
+  "country": "USA",
+  "city": "Nashville, TN",
+  "qs_ranking": 174,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Victoria University",
+  "country": "Australia",
+  "city": "Melbourne",
+  "qs_ranking": 543,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Victoria University of Wellington",
+  "country": "New Zealand",
+  "city": "Wellington",
+  "qs_ranking": 240,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Virginia Tech",
+  "country": "USA",
+  "city": "Blacksburg, VA",
+  "qs_ranking": 389,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity"
+  ]
+ },
+ {
+  "university": "Vrije Universiteit Amsterdam",
+  "country": "Netherlands",
+  "city": "Amsterdam",
+  "qs_ranking": 219,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "WHU \u2013 Otto Beisheim School of Management",
+  "country": "Germany",
+  "city": "Vallendar",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Wageningen University & Research",
+  "country": "Netherlands",
+  "city": "Wageningen",
+  "qs_ranking": 130,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Wake Forest University",
+  "country": "USA",
+  "city": "Winston-Salem, NC",
+  "qs_ranking": 651,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Washington State University",
+  "country": "USA",
+  "city": "Pullman, WA",
+  "qs_ranking": 466,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Washington University in St. Louis",
+  "country": "USA",
+  "city": "St. Louis, MO",
+  "qs_ranking": 224,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Wayne State University",
+  "country": "USA",
+  "city": "Detroit, MI",
+  "qs_ranking": 706,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "West Virginia University",
+  "country": "USA",
+  "city": "Morgantown, WV",
+  "qs_ranking": 851,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Western Illinois University",
+  "country": "USA",
+  "city": "Macomb, IL",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Western Sydney University",
+  "country": "Australia",
+  "city": "Sydney",
+  "qs_ranking": 360,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity"
+  ]
+ },
+ {
+  "university": "Western University",
+  "country": "Canada",
+  "city": "London, ON",
+  "qs_ranking": 109,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Wichita State University",
+  "country": "USA",
+  "city": "Wichita, KS",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Wilfrid Laurier University",
+  "country": "Canada",
+  "city": "Waterloo",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Worcester Polytechnic Institute",
+  "country": "USA",
+  "city": "Worcester, MA",
+  "qs_ranking": 671,
+  "missing_fields": [
+   "Marketing",
+   "Psychology"
+  ]
+ },
+ {
+  "university": "Wright State University",
+  "country": "USA",
+  "city": "Dayton, OH",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Yale University",
+  "country": "USA",
+  "city": "New Haven, CT",
+  "qs_ranking": 23,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "Yeshiva University",
+  "country": "USA",
+  "city": "New York, NY",
+  "qs_ranking": 413,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "York St John University",
+  "country": "UK",
+  "city": "York",
+  "qs_ranking": null,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics"
+  ]
+ },
+ {
+  "university": "York University",
+  "country": "Canada",
+  "city": "Toronto, ON",
+  "qs_ranking": 601,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "Zayed University",
+  "country": "UAE",
+  "city": "Dubai",
+  "qs_ranking": 621,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "\u00c9cole Normale Sup\u00e9rieure",
+  "country": "France",
+  "city": "Paris",
+  "qs_ranking": 50,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "\u00c9cole Normale Sup\u00e9rieure (ENS)",
+  "country": "France",
+  "city": "Paris",
+  "qs_ranking": 26,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Cybersecurity",
+   "Business Analytics",
+   "Data Science"
+  ]
+ },
+ {
+  "university": "\u00c9cole Polytechnique",
+  "country": "France",
+  "city": "Palaiseau",
+  "qs_ranking": 56,
+  "missing_fields": [
+   "FinTech",
+   "Marketing",
+   "Psychology",
+   "Business Analytics"
+  ]
+ }
+]
