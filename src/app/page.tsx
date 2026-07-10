@@ -112,7 +112,7 @@ const STEPS = [
     icon: ListChecks,
     step: "02",
     title: "Get your matches",
-    body: `Up to 40 programs customised to your profile, split into Safe, Reach and Ambitious — drawn from ${DB_STATS.verifiedProgramsLabel} programs verified at the university's own page.`,
+    body: `Up to 40 programs customised to your profile, split into Safe, Reach and Ambitious by your likelihood of an offer — drawn from ${DB_STATS.verifiedProgramsLabel} programs verified at the university's own page.`,
     proof: "Every fee and requirement links to its source",
   },
   {

@@ -23,16 +23,16 @@ WHAT IS eduvianAI:
 eduvianAI is a 100% AI-powered, free study-abroad platform. Students fill in their profile once, and the AI engine scores every program in the database against their exact profile using 10 signals, then delivers up to 40 top matches customised to the profile, ranked into Safe / Reach / Ambitious tiers — in under 2 minutes, no counsellor needed.
 
 HOW IT WORKS (3 steps):
-Step 1 — KNOW YOUR PROFILE: Students fill in academic scores, English results, budget, destination preferences, work experience, backlogs, and gap year. The system assigns a profile rating (Super Strong 🔥 / Very Strong ⭐ / Strong 💪 / Some way to go 📊 / Needs Improvement 📈) using raw points on a 22-point PG / 20-point UG scale.
+Step 1 — KNOW YOUR PROFILE: Students fill in academic scores, English results, budget, destination preferences, work experience, backlogs, and gap year. The system assigns a profile rating (Super Strong 🌟 / Very Strong ⭐ / Strong 💪 / Some way to go 📊 / Needs Improvement 📈) — a weighted 0-100 score built from three labelled sub-scores: Admissibility, Financial readiness, and Visa readiness. The rating's PURPOSE is to inform the student about their profile strength / readiness to make an application — it is NOT a prediction of admission at any specific university.
 Step 2 — MATCHING ENGINE: AI scores every program in the database against the student's profile across 10 signals. Sub-2 minute results.
 Step 3 — SHORTLIST: Up to 40 top matches customised to the student's profile, ranked, tiered (Safe/Reach/Ambitious), emailed as a PDF, and accessible via a permanent link. The actual number can be lower when filters are tight.
 
-PROFILE RATINGS EXPLAINED (raw point thresholds out of 22 max):
-- 🔥 SUPER STRONG (20+): Top-tier applicant. Excellent academic + test scores, strong profile across every signal.
-- ⭐ VERY STRONG (18–19): Strong across all key signals. Great chances at Reach programs.
-- 💪 STRONG (15–17): Solid profile with targeted prep recommended for top universities.
-- 📊 SOME WAY TO GO (10–14): Competitive for many programs; focused preparation will improve chances significantly.
-- 📈 NEEDS IMPROVEMENT (<10): Focused work on academics, tests, finances, or planning is needed before applying.
+PROFILE RATINGS EXPLAINED (weighted 0-100 score; readiness signals, never an admission promise):
+- 🌟 SUPER STRONG (85–100): Exceptional readiness signals across academics, tests, finances and documentation.
+- ⭐ VERY STRONG (70–84): Strong signals on most parameters.
+- 💪 STRONG (55–69): Solid foundation; targeted preparation recommended for the most selective programs.
+- 📊 SOME WAY TO GO (40–54): Several readiness gaps; the evaluation page lists the fastest improvement levers with exact point gains.
+- 📈 NEEDS IMPROVEMENT (<40): Focused work on academics, tests, finances, or planning is needed before applying.
 
 10 MATCHING SIGNALS:
 1. Academic Score (GPA / % / IB / IGCSE)
@@ -46,10 +46,10 @@ PROFILE RATINGS EXPLAINED (raw point thresholds out of 22 max):
 9. Backlogs / arrears history
 10. Academic gap year
 
-MATCHING TIERS:
-- SAFE (score 75–100): Profile comfortably meets requirements. ~30% of shortlist.
-- REACH (score 50–74): Close to the admitted average; strong application can succeed. ~50% of shortlist.
-- AMBITIOUS (score <50): Highly competitive; worth a strong application. ~20% of shortlist.
+MATCHING TIERS (each tier assesses the LIKELIHOOD OF GETTING AN OFFER from that particular university, based on the student's profile strength):
+- SAFE: Strong likelihood of an offer — the profile comfortably clears that university's bar. ~30% of shortlist.
+- REACH: Moderate likelihood of an offer — competitive, but not assured. ~50% of shortlist.
+- AMBITIOUS: Lower likelihood of an offer — highly selective; worth a standout application. ~20% of shortlist. Elite, ultra-selective universities are never labelled Safe regardless of profile strength, because their conversion rates are low for everyone.
 
 COUNTRIES WE COVER (${DB_STATS.totalCountries} destinations):
 ${countryRankSection}
