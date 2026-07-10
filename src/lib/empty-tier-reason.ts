@@ -59,6 +59,22 @@ export function explainEmptyTier(
   const requiresPSW = profile.post_study_work_visa === true;
   const studentPct = toPercentageRough(profile);
 
+  // MBA-specific (10 July 2026): selective MBAs publish 2-10 year
+  // work-experience requirements as HARD eligibility (see the MBA
+  // branch in isHardDisqualified). A missing/low work-exp field is the
+  // single most common reason an MBA profile sees empty Reach/Ambitious
+  // — say so explicitly instead of only talking about filters.
+  const isMba = profile.intended_field === "MBA";
+  const workYears = profile.work_experience_years ?? 0;
+  const mbaWorkExpSuggestion =
+    isMba && workYears < 2
+      ? workYears === 0
+        ? "Selective MBA programs require 2-10 years of work experience as hard eligibility. If you have work experience, add it to your profile — without it, every selective MBA is filtered out before tiering."
+        : `Selective MBA programs typically require 2-3+ years of work experience; your profile shows ${workYears}. Each additional year of experience unlocks more selective MBAs.`
+      : null;
+  const withMbaFirst = (suggestions: string[]): string[] =>
+    mbaWorkExpSuggestion ? [mbaWorkExpSuggestion, ...suggestions].slice(0, 3) : suggestions;
+
   // Number of surviving programs across all tiers — gives signal of whether
   // the empty tier is part of a thin overall pool or a tier-specific gap.
   const totalReturned = allReturnedPrograms.length;
@@ -70,7 +86,7 @@ export function explainEmptyTier(
       body: poolIsThin
         ? "Your filters narrowed the pool enough that nothing above your academic bar survived. Ambitious-tier programs are the ones where you'd be applying above the published minimum — none of those made it through your country / QS / budget filters."
         : "The schools whose published minimum GPA, English score or test cutoffs sit above your current numbers were excluded by the academic hard filter. That's the bucket Ambitious normally pulls from, so it ended up empty.",
-      suggestions: [
+      suggestions: withMbaFirst([
         countryCount === 1
           ? "Add a second or third country to widen the pool — UK, Australia and Canada add many AI/CS/business programs your USA-only shortlist misses."
           : "Try removing one of the more restrictive filters (country, QS preference) to widen the pool.",
@@ -80,7 +96,7 @@ export function explainEmptyTier(
         studentPct !== null && studentPct < 80
           ? "Improving your academic score (or adding a strong test score) is the biggest single lever — most Ambitious-tier programs publish minimums in the 80-90% / 3.3-3.7 GPA range."
           : "Widen your intake — Spring intake opens a different set of programs than Fall.",
-      ],
+      ]),
     };
   }
 
@@ -90,7 +106,7 @@ export function explainEmptyTier(
       body: poolIsThin
         ? "Your filters returned a very small pool and none of it lands comfortably below your academic bar. Safe-tier programs are the ones where you'd be applying with margin to spare — so the section is empty when nothing in the surviving pool is well below your level."
         : "Every program that survived your country / budget / QS filters has a published minimum that's close to or above your current academic score, so nothing scored high enough to be classified as Safe.",
-      suggestions: [
+      suggestions: withMbaFirst([
         hasQsPref
           ? `Drop the ${qsPrefLabel} filter so lower-ranked but appropriate programs surface — many regional / state schools are genuine Safe matches that get hidden by QS prestige filters.`
           : "Widen your country preferences — countries like Germany, France, Ireland, Malaysia and UAE often have programs with more lenient published minimums.",
@@ -100,7 +116,7 @@ export function explainEmptyTier(
         studentPct !== null && studentPct < 75
           ? "Consider applying to programs that explicitly accept lower academic profiles — diploma / PG diploma tracks in Canada, or foundation-style Masters in the UK."
           : "Broaden the field selection in your profile if you're open to adjacent streams (e.g. Data Science vs Computer Science) — the matcher uses your exact intended_field.",
-      ],
+      ]),
     };
   }
 
@@ -110,7 +126,7 @@ export function explainEmptyTier(
     body: poolIsThin
       ? "Your filters returned a very small pool, and what survived clustered at either end of your fit — programs you comfortably qualify for or ones above your bar — with nothing in the natural middle."
       : "The surviving programs split into two groups: ones you comfortably qualify for (Safe) and ones with published minimums above your numbers (Ambitious). Nothing landed in the in-between band.",
-    suggestions: [
+    suggestions: withMbaFirst([
       countryCount === 1
         ? "Add one more country preference — different countries often fill in the mid-tier band that's empty in your current selection."
         : "Try removing one country to see if a more focused pool produces a different shape.",
@@ -118,6 +134,6 @@ export function explainEmptyTier(
         ? `Drop the ${qsPrefLabel} filter to surface mid-ranked schools that often produce Reach-tier matches.`
         : "Widen your intake (Spring + Fall) — different cohorts open up different mid-tier programs.",
       "Adjust your budget range up or down by one bracket — the budget hard ceiling can clip out an entire mid-tier band of programs.",
-    ],
+    ]),
   };
 }
