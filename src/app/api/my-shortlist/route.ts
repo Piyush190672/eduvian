@@ -3,7 +3,7 @@ import { getUserFromRequest } from "@/lib/user-cookie";
 import { createServiceClient } from "@/lib/supabase";
 import { emailHash } from "@/lib/pii-crypto";
 import { apiErrorResponse } from "@/lib/api-error";
-import { PROGRAMS } from "@/data/programs";
+import { resolveProgramId } from "@/data/programs-indexed";
 
 // Per-request — session cookie drives the lookup.
 export const dynamic = "force-dynamic";
@@ -47,17 +47,15 @@ export async function GET(req: NextRequest) {
     const ids: string[] = data[0].shortlisted_ids ?? [];
     if (ids.length === 0) return NextResponse.json({ items: [] satisfies ShortlistItem[] }, { status: 200 });
 
-    // Program ids are computed `prog_${index}` against PROGRAMS — same
-    // mapping as /api/results/[token]. Resolve back to metadata for the
-    // dropdown payload. Anything that no longer resolves (program
-    // removed in a later data refresh) is silently dropped.
+    // Ids are stable content-hashes (p_…) as of Phase 1; legacy
+    // positional ids (prog_N) resolve best-effort against the current
+    // array position. Anything that no longer resolves is dropped.
     const items: ShortlistItem[] = [];
     for (const id of ids) {
-      const idx = parseInt(id.replace(/^prog_/, ""), 10);
-      if (!Number.isFinite(idx) || idx < 0 || idx >= PROGRAMS.length) continue;
-      const p = PROGRAMS[idx];
+      const p = resolveProgramId(id);
+      if (!p) continue;
       items.push({
-        id,
+        id: p.id,
         university_name: p.university_name,
         program_name: p.program_name,
         country: p.country,

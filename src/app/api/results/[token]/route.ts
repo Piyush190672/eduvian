@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { recommendPrograms } from "@/lib/scoring";
-import { PROGRAMS } from "@/data/programs";
+import { INDEXED_PROGRAMS } from "@/data/programs-indexed";
 import { submissionStore } from "@/lib/store";
 import type { Program } from "@/lib/types";
 import { decryptProfile } from "@/lib/submissions-decrypt";
@@ -61,13 +61,9 @@ export async function GET(
     delete (submission as Record<string, unknown>).profile_encrypted;
   }
 
-  // Get programs
-  let programs: Program[] = PROGRAMS.map((p, i) => ({
-    ...p,
-    id: `prog_${i}`,
-    is_active: true,
-    last_updated: new Date().toISOString(),
-  }));
+  // Canonical id-stamped list — stable content-hash ids, computed once
+  // per lambda instance (see src/data/programs-indexed.ts).
+  let programs: Program[] = INDEXED_PROGRAMS;
 
   try {
     const { createServiceClient } = await import("@/lib/supabase");

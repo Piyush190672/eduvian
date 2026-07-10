@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { recommendPrograms } from "@/lib/scoring";
-import { PROGRAMS } from "@/data/programs";
+import { INDEXED_PROGRAMS } from "@/data/programs-indexed";
 import { submissionStore } from "@/lib/store";
 import type { Program, StudentProfile } from "@/lib/types";
 import { intendedFieldLabel } from "@/lib/types";
@@ -111,13 +111,9 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Build program list with stable IDs
-    let programs: Program[] = PROGRAMS.map((p, i) => ({
-      ...p,
-      id: `prog_${i}`,
-      is_active: true,
-      last_updated: new Date().toISOString(),
-    }));
+    // Canonical id-stamped list — stable content-hash ids, computed once
+    // per lambda instance (see src/data/programs-indexed.ts).
+    let programs: Program[] = INDEXED_PROGRAMS;
 
     // Try Supabase if configured
     try {

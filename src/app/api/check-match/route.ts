@@ -69,17 +69,12 @@ export async function GET(req: NextRequest) {
   const limited = await aiToolLimit(req, "check-match", gateEmail, { limit: 30 });
   if (limited) return limited;
 
-  // Load all programs
-  const { PROGRAMS } = await import("@/data/programs");
+  // Load all programs — canonical id-stamped list (stable content-hash ids)
+  const { INDEXED_PROGRAMS } = await import("@/data/programs-indexed");
   const { scoreProgram } = await import("@/lib/scoring");
   const { isAcademicallyEligibleForField } = await import("@/lib/field-prereq");
 
-  const allPrograms: Program[] = (PROGRAMS as unknown[]).map((p, i) => ({
-    ...(p as object),
-    id: `prog_${i}`,
-    is_active: true,
-    last_updated: new Date().toISOString(),
-  })) as Program[];
+  const allPrograms: Program[] = INDEXED_PROGRAMS;
 
   // Try DB programs
   let programs = allPrograms;

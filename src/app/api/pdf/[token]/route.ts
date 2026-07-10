@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { recommendPrograms } from "@/lib/scoring";
-import { PROGRAMS } from "@/data/programs";
+import { INDEXED_PROGRAMS, resolveProgramId } from "@/data/programs-indexed";
 import { submissionStore } from "@/lib/store";
 import type { Program, StudentProfile, ScoredProgram } from "@/lib/types";
 import { intendedFieldLabel } from "@/lib/types";
@@ -71,17 +71,19 @@ export async function GET(
     const shortlistedIds =
       queryIds.length > 0 ? queryIds : (submission.shortlisted_ids ?? []);
 
-    const programs: Program[] = PROGRAMS.map((p, i) => ({
-      ...p,
-      id: `prog_${i}`,
-      is_active: true,
-      last_updated: new Date().toISOString(),
-    }));
+    const programs: Program[] = INDEXED_PROGRAMS;
 
     const scored = recommendPrograms(profile, programs);
+    // Stored ids may be legacy positional (prog_N) — translate to the
+    // stable content-hash ids before filtering.
+    const wantedIds = new Set(
+      shortlistedIds
+        .map((id: string) => resolveProgramId(id)?.id ?? id)
+        .filter(Boolean),
+    );
     const shortlisted =
-      shortlistedIds.length > 0
-        ? scored.filter((p) => shortlistedIds.includes(p.id))
+      wantedIds.size > 0
+        ? scored.filter((p) => wantedIds.has(p.id))
         : scored.slice(0, 20);
 
     const html = buildPDFHtml(profile, shortlisted);
