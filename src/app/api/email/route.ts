@@ -45,6 +45,20 @@ export async function POST(req: NextRequest) {
     // H7: prefer encrypted blob; fall back to plaintext profile.
     const profile = (submission ? decryptProfile(submission as { profile?: unknown; profile_encrypted?: string | null }) : null) as StudentProfile | null;
 
+    // Registration gate (Phase 2 #7, hardened per user 10 July 2026):
+    // guests get no emailed report — the full shortlist would bypass the
+    // results-page teaser. This also blocks the automatic send fired by
+    // /api/submit for guest submissions, by design.
+    if (profile) {
+      const { isEmailRegistered } = await import("@/lib/submission-owner");
+      if (!(await isEmailRegistered(profile.email))) {
+        return NextResponse.json(
+          { error: "Register free with the email you used on the form to receive your report by email.", reason: "registration_required" },
+          { status: 403 },
+        );
+      }
+    }
+
     // Generate scored programs
     let allPrograms: ScoredProgram[] = [];
     if (profile) {

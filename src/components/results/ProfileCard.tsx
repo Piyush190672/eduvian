@@ -66,10 +66,15 @@ export default function ProfileCard({ profile, token }: Props) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ token }),
       });
-      if (!res.ok) throw new Error();
+      if (!res.ok) {
+        // Guests get a 403 with a register prompt (Phase 2 #7) — show
+        // the server's message rather than a generic failure.
+        const j = await res.json().catch(() => null);
+        throw new Error(j?.error ?? "Failed to send email. Try again.");
+      }
       toast.success("Profile & shortlist sent to your email!");
-    } catch {
-      toast.error("Failed to send email. Try again.");
+    } catch (e) {
+      toast.error(e instanceof Error ? e.message : "Failed to send email. Try again.");
     } finally {
       setSendingEmail(false);
     }

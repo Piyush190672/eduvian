@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState, useCallback } from "react";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import toast from "react-hot-toast";
@@ -48,6 +48,9 @@ interface ResultData {
   viewer?: "owner" | "shared" | "locked";
   locked_count?: number;
   total_matches?: number;
+  /** Full per-tier totals — present on locked responses so the UI can
+   *  state the TRUE match count, not just the teaser size. */
+  tier_counts?: { safe: number; reach: number; ambitious: number };
 }
 
 const TIER_CONFIG = [
@@ -85,6 +88,7 @@ const TIER_CONFIG = [
 
 export default function ResultsPage() {
   const params = useParams();
+  const router = useRouter();
   const token = params.token as string;
 
   const [data, setData] = useState<ResultData | null>(null);
@@ -154,7 +158,18 @@ export default function ResultsPage() {
     }
   };
 
+  // PDF + email are registration perks (Phase 2 #7, user rule): guests
+  // are routed to register instead. The server enforces this too — the
+  // client gate is just the friendlier path.
+  const requireRegistration = () => {
+    if (data?.viewer !== "locked") return false;
+    toast("Register free to unlock PDF and email reports", { icon: "🔒" });
+    router.push(`/get-started?next=/results/${token}`);
+    return true;
+  };
+
   const sendEmail = async () => {
+    if (requireRegistration()) return;
     if (shortlisted.size === 0) { toast("Shortlist at least one program first!", { icon: "🔖" }); return; }
     setSendingEmail(true);
     try {
@@ -170,6 +185,7 @@ export default function ResultsPage() {
   };
 
   const downloadPDF = () => {
+    if (requireRegistration()) return;
     if (shortlisted.size === 0) { toast("Shortlist at least one program first!", { icon: "🔖" }); return; }
     toast("Opening print view — use Save as PDF", { icon: "📄" });
     window.open(`/api/pdf/${token}?ids=${Array.from(shortlisted).join(",")}`, "_blank");
@@ -338,18 +354,27 @@ export default function ResultsPage() {
           {(() => {
             const shown = safePrograms.length + reachPrograms.length + ambitiousPrograms.length;
             const filtersActive = filters.country !== "all" || filters.field !== "all";
+            // Locked view: the headline states the TRUE match count (the
+            // API returns per-tier totals), not the teaser size — "5
+            // matches" when 12 exist read as the matcher losing results.
+            const locked = data.viewer === "locked";
+            const total = locked ? (data.total_matches ?? shown) : shown;
+            const tc = locked ? data.tier_counts : undefined;
             return (
               <>
                 <h1 className="text-3xl font-extrabold text-gray-900">
-                  {shown === 1
+                  {total === 1
                     ? "1 match customised to your profile"
-                    : `${shown} matches customised to your profile`}
+                    : `${total} matches customised to your profile`}
                 </h1>
                 <p className="text-gray-500 mt-1">
-                  <span className="text-emerald-600 font-semibold">{safePrograms.length} Safe</span>{" · "}
-                  <span className="text-amber-600 font-semibold">{reachPrograms.length} Reach</span>{" · "}
-                  <span className="text-rose-600 font-semibold">{ambitiousPrograms.length} Ambitious</span>
-                  {` — screened from ${DB_STATS.verifiedProgramsLabel} verified programs against your profile. Shortlist the ones you like, then email or download as PDF.`}
+                  <span className="text-emerald-600 font-semibold">{tc?.safe ?? safePrograms.length} Safe</span>{" · "}
+                  <span className="text-amber-600 font-semibold">{tc?.reach ?? reachPrograms.length} Reach</span>{" · "}
+                  <span className="text-rose-600 font-semibold">{tc?.ambitious ?? ambitiousPrograms.length} Ambitious</span>
+                  {` — screened from ${DB_STATS.verifiedProgramsLabel} verified programs against your profile. `}
+                  {locked
+                    ? `Showing ${shown} free — register to unlock the rest, plus PDF and email.`
+                    : "Shortlist the ones you like, then email or download as PDF."}
                 </p>
                 {/* Funnel transparency (Phase 2 #12): when filters hide
                     matches, say exactly how many — a silently shrunken
@@ -508,7 +533,11 @@ export default function ResultsPage() {
                 <div className="flex-1">
                   <span className={`font-extrabold text-base ${tc.text}`}>
                     {tc.label}
-                    <span className="ml-2 font-normal text-sm opacity-70">({programs.length} programs)</span>
+                    <span className="ml-2 font-normal text-sm opacity-70">
+                      {data.viewer === "locked" && data.tier_counts
+                        ? `(showing ${programs.length} of ${data.tier_counts[tc.tier]})`
+                        : `(${programs.length} programs)`}
+                    </span>
                   </span>
                   <p className="text-xs text-gray-500 mt-0.5">{tc.description}</p>
                 </div>

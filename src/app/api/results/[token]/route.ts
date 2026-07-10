@@ -112,6 +112,14 @@ export async function GET(
       viewer: "locked",
       locked_count: scored.length - preview.length,
       total_matches: scored.length,
+      // Full per-tier totals so the locked UI can show the TRUE match
+      // count ("12 matches — showing 5 free") instead of pretending
+      // only the teaser exists.
+      tier_counts: {
+        safe: scored.filter((p) => p.tier === "safe").length,
+        reach: scored.filter((p) => p.tier === "reach").length,
+        ambitious: scored.filter((p) => p.tier === "ambitious").length,
+      },
     });
   }
 

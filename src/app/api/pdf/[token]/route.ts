@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { recommendPrograms, teaserSlice } from "@/lib/scoring";
+import { recommendPrograms } from "@/lib/scoring";
 import { INDEXED_PROGRAMS, resolveProgramId } from "@/data/programs-indexed";
 import { submissionStore } from "@/lib/store";
 import type { Program, StudentProfile, ScoredProgram } from "@/lib/types";
@@ -92,17 +92,27 @@ export async function GET(
         .map((id: string) => resolveProgramId(id)?.id ?? id)
         .filter(Boolean),
     );
-    let shortlisted =
+    const shortlisted =
       wantedIds.size > 0
         ? scored.filter((p) => wantedIds.has(p.id))
         : scored.slice(0, 20);
 
-    // Same registration teaser gate as /api/results (Phase 2 #7): an
-    // unclaimed submission's PDF must not leak the full list either.
-    // Keyed on registration, not ownership — guest submitters carry an
-    // owner session cookie from /api/submit.
+    // Registration gate (Phase 2 #7, hardened per user 10 July 2026):
+    // guests get NO PDF at all — not even a teaser. This route opens in
+    // a new tab, so the refusal is a small human-readable page with a
+    // register link rather than raw JSON. Keyed on registration, not
+    // ownership — guest submitters carry an owner session cookie from
+    // /api/submit.
     if (!(await isEmailRegistered(rawProfile.email))) {
-      shortlisted = teaserSlice(shortlisted, 5);
+      return new NextResponse(
+        `<!doctype html><html><head><title>Register to unlock your PDF</title><meta name="robots" content="noindex"></head>
+<body style="font-family:system-ui,sans-serif;max-width:480px;margin:80px auto;padding:0 24px;color:#111827;">
+  <h1 style="font-size:22px;">Your PDF report is waiting</h1>
+  <p style="color:#4b5563;line-height:1.6;">Create a free account with the same email you used on the form to download the full PDF report and unlock all your matches.</p>
+  <a href="/get-started?next=/results/${encodeURIComponent(token)}" style="display:inline-block;background:#7c3aed;color:#fff;padding:12px 24px;border-radius:999px;font-weight:700;text-decoration:none;">Register free</a>
+</body></html>`,
+        { status: 403, headers: { "Content-Type": "text/html; charset=utf-8" } },
+      );
     }
 
     const html = buildPDFHtml(profile, shortlisted);
