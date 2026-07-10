@@ -350,6 +350,21 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist,
               </span>
             </div>
 
+            {/* Aspirational-option banner (Option A, 10 July 2026) — this
+                program exceeds the user's stated budget and appears only
+                because its tier had no affordable matches. Must never
+                read as affordable. */}
+            {program.above_budget && (
+              <div className="flex items-start gap-2 mt-3 px-3 py-2 rounded-lg bg-amber-50 border border-amber-200">
+                <DollarSign className="w-3.5 h-3.5 text-amber-600 flex-shrink-0 mt-0.5" />
+                <p className="text-xs text-amber-800 leading-relaxed">
+                  <span className="font-bold">Above your stated budget</span> — shown as an
+                  aspirational option because it fits your profile. Scholarships,
+                  assistantships or education loans may bridge the gap.
+                </p>
+              </div>
+            )}
+
             {/* Cost & deadline row */}
             <div className="flex flex-wrap items-center gap-4 mt-3 text-sm">
               {tuitionUnavailable ? (

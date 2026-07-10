@@ -158,6 +158,54 @@ describe("dedup + quotas", () => {
   });
 });
 
+describe("aspirational fill (Option A, 10 July 2026)", () => {
+  // Pool shape mirroring the real UK-MBA case: plenty of affordable open
+  // universities (all Safe for a strong profile) + selective programs
+  // that ONLY fail the budget ceiling.
+  const tightBudget = () => mkProfile({ academic_score: 90, budget_range: "35k_50k" });
+  const pool = () => [
+    ...Array.from({ length: 10 }, (_, i) =>
+      mkProgram({ university_name: `Open U ${i}`, annual_tuition_usd: 20000, avg_living_cost_usd: 12000 })),
+    ...Array.from({ length: 4 }, (_, i) =>
+      mkProgram({ university_name: `Selective U ${i}`, qs_ranking: 50, annual_tuition_usd: 60000, avg_living_cost_usd: 20000 })),
+    ...Array.from({ length: 4 }, (_, i) =>
+      mkProgram({ university_name: `Elite U ${i}`, qs_ranking: 5, annual_tuition_usd: 90000, avg_living_cost_usd: 25000 })),
+  ];
+
+  it("fills empty Reach/Ambitious with ≤3 above-budget programs, clearly flagged", () => {
+    const results = recommendPrograms(tightBudget(), pool(), 1);
+    const reach = results.filter((p) => p.tier === "reach");
+    const ambitious = results.filter((p) => p.tier === "ambitious");
+    expect(reach.length).toBeGreaterThan(0);
+    expect(reach.length).toBeLessThanOrEqual(3);
+    expect(reach.every((p) => p.above_budget === true)).toBe(true);
+    expect(ambitious.length).toBeGreaterThan(0);
+    expect(ambitious.length).toBeLessThanOrEqual(3);
+    expect(ambitious.every((p) => p.above_budget === true)).toBe(true);
+    // The affordable Safe list is untouched — additive, not displacing.
+    const safe = results.filter((p) => p.tier === "safe");
+    expect(safe.every((p) => !p.above_budget)).toBe(true);
+    expect(safe.length).toBeLessThanOrEqual(6);
+  });
+
+  it("does NOT add above-budget programs when the tier already has affordable matches", () => {
+    const withAffordableReach = [
+      ...pool(),
+      // Affordable selective program → lands in Reach on its own merits.
+      mkProgram({ university_name: "Affordable Selective", qs_ranking: 50, annual_tuition_usd: 25000, avg_living_cost_usd: 10000 }),
+    ];
+    const results = recommendPrograms(tightBudget(), withAffordableReach, 1);
+    const reach = results.filter((p) => p.tier === "reach");
+    expect(reach.some((p) => !p.above_budget)).toBe(true);
+    expect(reach.every((p) => !p.above_budget)).toBe(true);
+  });
+
+  it("never fires for the open-ended above_70k bracket", () => {
+    const results = recommendPrograms(mkProfile({ academic_score: 90, budget_range: "above_70k" }), pool(), 1);
+    expect(results.every((p) => !p.above_budget)).toBe(true);
+  });
+});
+
 describe("teaserSlice (registration gate, Phase 2 #7)", () => {
   it("returns at most 5 with tier breadth, preserving display order", () => {
     const programs = [

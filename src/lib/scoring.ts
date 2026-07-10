@@ -512,7 +512,11 @@ function scoreResearchPaper(profile: StudentProfile): number {
 // annual cost exceeds 110% of the user's selected budget, are now
 // excluded from the matched results entirely rather than just penalised.
 
-function isHardDisqualified(profile: StudentProfile, program: Program): boolean {
+function isHardDisqualified(
+  profile: StudentProfile,
+  program: Program,
+  opts?: { ignoreBudget?: boolean },
+): boolean {
   // English floor — student must be within shouting distance of the
   // published minimum. Buffer reflects scale-conversion noise; tighter
   // than the academic floor below because English tests are deterministic.
@@ -545,7 +549,7 @@ function isHardDisqualified(profile: StudentProfile, program: Program): boolean 
   // "Above $70k" is the open-ended top bracket: no ceiling applies
   // (the user signalled budget is not their constraint).
   const tuition = program.annual_tuition_usd;
-  if (typeof tuition === "number" && tuition > 0 && profile.budget_range !== "above_70k") {
+  if (!opts?.ignoreBudget && typeof tuition === "number" && tuition > 0 && profile.budget_range !== "above_70k") {
     const totalCost = tuition + (program.avg_living_cost_usd ?? 0);
     const budgetMax = BUDGET_VALUES[profile.budget_range];
     if (budgetMax > 0 && totalCost > budgetMax * 1.10) return true;
@@ -943,11 +947,46 @@ export function recommendPrograms(profile: StudentProfile, programs: Program[], 
     ambitious: Math.min(QUOTA.ambitious, pools.ambitious.length),
   };
 
-  return [
+  const result = [
     ...pools.safe.slice(0, alloc.safe),
     ...pools.reach.slice(0, alloc.reach),
     ...pools.ambitious.slice(0, alloc.ambitious),
   ];
+
+  // Aspirational fill (user decision "Option A", 10 July 2026): when a
+  // tight budget hard-filters out every selective university, Reach /
+  // Ambitious end up legitimately empty (e.g. UK MBA at a $50k budget —
+  // all 12 selective UK MBAs cost more). Rather than an empty tier, show
+  // up to 3 programs excluded ONLY by the budget ceiling, flagged
+  // above_budget so the UI labels them clearly ("above your stated
+  // budget — scholarships or loans may bridge"). They are ADDITIVE
+  // extras outside the locked 30/50/20 quota, appear only when the tier
+  // would otherwise be empty, and never displace an affordable match.
+  const emptyTiers = (["reach", "ambitious"] as const).filter(
+    (t) => !result.some((p) => p.tier === t),
+  );
+  if (emptyTiers.length > 0 && profile.budget_range !== "above_70k") {
+    const budgetOnlyExcluded = filtered
+      .filter(
+        (p) =>
+          isHardDisqualified(profile, p) &&
+          !isHardDisqualified(profile, p, { ignoreBudget: true }),
+      )
+      .map((p) => scoreProgram(profile, p))
+      .filter((p) => p.match_score >= 10)
+      .sort((a, b) => {
+        if (a.match_score !== b.match_score) return b.match_score - a.match_score;
+        return (a.qs_ranking ?? Infinity) - (b.qs_ranking ?? Infinity);
+      });
+    for (const tier of emptyTiers) {
+      const picks = capByUni(budgetOnlyExcluded.filter((p) => p.tier === tier), 1)
+        .slice(0, 3)
+        .map((p) => ({ ...p, above_budget: true }));
+      result.push(...picks);
+    }
+  }
+
+  return result;
 }
 
 /**

@@ -159,7 +159,7 @@ function buildPDFHtml(profile: StudentProfile, programs: ScoredProgram[]): strin
         <div class="uni-name">${escHtml(p.university_name)} · ${escHtml(p.city)}</div>
       </td>
       <td class="center">
-        <span class="tier-badge tier-${escHtml(p.tier)}">${escHtml(getTierLabel(p.tier))}</span>
+        <span class="tier-badge tier-${escHtml(p.tier)}">${escHtml(getTierLabel(p.tier))}</span>${p.above_budget ? '<span style="display:inline-block;margin-left:6px;background:#fffbeb;color:#b45309;border:1px solid #fcd34d;border-radius:12px;padding:2px 8px;font-size:10px;font-weight:700;">ABOVE STATED BUDGET</span>' : ""}
       </td>
       <td class="center score">${escHtml(p.match_score)}%</td>
       <td class="right">${escHtml(formatCurrency(p.annual_tuition_usd + p.avg_living_cost_usd))}/yr</td>

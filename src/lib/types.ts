@@ -339,6 +339,12 @@ export interface ScoredProgram extends Program {
   // user explicitly asks about an arbitrary program — including ones
   // they're not eligible for. The UI surfaces a warning when true.
   prereq_ineligible?: boolean;
+  // Aspirational fill (Option A, 10 July 2026): true when this program
+  // exceeds the user's stated budget and was surfaced ONLY because its
+  // tier (Reach / Ambitious) would otherwise be empty. Additive extra
+  // outside the 30/50/20 quota; the UI must label it clearly and never
+  // present it as affordable.
+  above_budget?: boolean;
   // Selectivity metadata for explainability: which prestige bucket the
   // program landed in, the highest tier that bucket permits, and the
   // data source that drove it. bucket 0 (ultra-selective) is always
