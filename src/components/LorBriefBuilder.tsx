@@ -17,9 +17,12 @@ import {
   FileSearch,
 } from "lucide-react";
 import { encodeBrief, type LorBrief, type LorProgram } from "@/lib/lor-coach";
-import { PROGRAMS } from "@/data/programs";
+import { useProgramSearch } from "@/lib/use-program-search";
 import { DB_STATS } from "@/data/db-stats";
 
+// Rows come from GET /api/programs (slim payload) since the Phase-1
+// bundle fix — importing programs.ts here shipped the 10MB database
+// to the browser.
 interface ProgramRow {
   university_name: string;
   program_name: string;
@@ -27,7 +30,6 @@ interface ProgramRow {
   country?: string;
   field_of_study?: string;
 }
-const ALL_PROGRAMS = PROGRAMS as unknown as ProgramRow[];
 
 function ProgramPickerModal({
   open,
@@ -39,18 +41,7 @@ function ProgramPickerModal({
   onSelect: (p: ProgramRow) => void;
 }) {
   const [query, setQuery] = useState("");
-  const results = useMemo(() => {
-    const q = query.trim().toLowerCase();
-    if (!q || q.length < 2) return [];
-    return ALL_PROGRAMS
-      .filter(
-        (p) =>
-          p.university_name?.toLowerCase().includes(q) ||
-          p.program_name?.toLowerCase().includes(q) ||
-          p.field_of_study?.toLowerCase().includes(q)
-      )
-      .slice(0, 30);
-  }, [query]);
+  const { results } = useProgramSearch(query, { limit: 30 });
 
   useEffect(() => {
     if (!open) return;

@@ -53,6 +53,18 @@ describe("programs.ts structural integrity", () => {
   });
 });
 
+describe("generated stats stay in sync with the live data", () => {
+  it("db-stats-generated.ts matches a fresh computation over PROGRAMS", async () => {
+    const { GENERATED_DB_STATS } = await import("@/data/db-stats-generated");
+    const unis = new Set(arr.map((p) => p.university_name as string));
+    const verified = arr.filter((p) => p.verified_at).length;
+    expect(GENERATED_DB_STATS.totalPrograms).toBe(arr.length);
+    expect(GENERATED_DB_STATS.totalUniversities).toBe(unis.size);
+    expect(GENERATED_DB_STATS.totalVerifiedPrograms).toBe(verified);
+    expect(GENERATED_DB_STATS.totalCountries).toBe(new Set(arr.map((p) => p.country)).size);
+  });
+});
+
 describe("stable program identity", () => {
   it("stamps every entry with a p_<16 hex> id", () => {
     expect(INDEXED_PROGRAMS.length).toBe(arr.length);

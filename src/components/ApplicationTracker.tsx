@@ -36,7 +36,7 @@ import {
   TrendingUp,
   X,
 } from "lucide-react";
-import { PROGRAMS } from "@/data/programs";
+import { useProgramSearch } from "@/lib/use-program-search";
 import {
   checklistCompletion,
   computeStats,
@@ -611,20 +611,9 @@ function AddApplicationModal({
     priority: "target" as Priority,
   });
 
-  const matches = useMemo(() => {
-    if (!query || query.length < 2) return [];
-    const q = query.toLowerCase();
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return (PROGRAMS as any[])
-      .filter(
-        (p) =>
-          p.application_deadline &&
-          (p.university_name?.toLowerCase().includes(q) ||
-            p.program_name?.toLowerCase().includes(q) ||
-            p.country?.toLowerCase().includes(q))
-      )
-      .slice(0, 20);
-  }, [query]);
+  // API-backed since the Phase-1 bundle fix — deadline-carrying programs
+  // only, searched across university / program / country names.
+  const { results: matches } = useProgramSearch(query, { limit: 20, deadlineOnly: true });
 
   return (
     <Modal onClose={onClose} title="Add a program to your tracker" wide>
@@ -677,8 +666,8 @@ function AddApplicationModal({
                         universityName: p.university_name,
                         programName: p.program_name,
                         country: p.country,
-                        deadline: p.application_deadline,
-                        applyUrl: p.apply_url,
+                        deadline: p.application_deadline ?? "",
+                        applyUrl: p.apply_url ?? undefined,
                         priority: "target",
                         programRef: `${p.university_name}::${p.program_name}`,
                       })
@@ -696,7 +685,7 @@ function AddApplicationModal({
                       </p>
                       <p className="text-[11px] text-gray-400 mt-0.5">
                         {p.city}, {p.country} · Deadline{" "}
-                        {formatDeadline(p.application_deadline)}
+                        {formatDeadline(p.application_deadline ?? "")}
                         {p.qs_ranking ? ` · QS #${p.qs_ranking}` : ""}
                       </p>
                     </div>

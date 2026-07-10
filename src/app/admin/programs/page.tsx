@@ -12,7 +12,8 @@ import {
   Trophy,
 } from "lucide-react";
 import { EduvianLogoMark } from "@/components/EduvianLogo";
-import { PROGRAMS } from "@/data/programs";
+import { DB_STATS, programsByCountry } from "@/data/db-stats";
+import { type SlimProgram } from "@/lib/use-program-search";
 import { getCountryFlag, formatCurrency } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 
@@ -65,25 +66,45 @@ export default function ProgramsPage() {
   const [countryFilter, setCountryFilter] = useState("all");
   const [levelFilter, setLevelFilter] = useState("all");
 
-  const programs = PROGRAMS.map((p, i) => ({ ...p, id: `prog_${i}` }));
-  const countries = [...new Set(programs.map((p) => p.country))].sort();
+  const countries = programsByCountry.map((c) => c.country).sort();
 
-  const filtered = programs.filter((p) => {
-    const matchSearch =
-      !search ||
-      p.university_name.toLowerCase().includes(search.toLowerCase()) ||
-      p.program_name.toLowerCase().includes(search.toLowerCase()) ||
-      p.field_of_study.toLowerCase().includes(search.toLowerCase());
-    const matchCountry = countryFilter === "all" || p.country === countryFilter;
-    const matchLevel = levelFilter === "all" || p.degree_level === levelFilter;
-    return matchSearch && matchCountry && matchLevel;
-  });
+  // API-backed since the Phase-1 bundle fix — this page used to import the
+  // full 10MB programs.ts AND render all 9,298 rows into the DOM. Now it
+  // shows the first 100 matches of the active search/filter combination.
+  const [filtered, setFiltered] = useState<SlimProgram[]>([]);
+  useEffect(() => {
+    const params = new URLSearchParams({ limit: "100" });
+    if (search.trim().length >= 2) params.set("q", search.trim());
+    if (countryFilter !== "all") params.set("country", countryFilter);
+    if (levelFilter !== "all") params.set("level", levelFilter);
+    // Bare default view (no query, no filters): browse the first country
+    // bucket alphabetically is arbitrary — instead prompt via empty state.
+    if (![...params.keys()].some((k) => k !== "limit")) {
+      setFiltered([]);
+      return;
+    }
+    let cancelled = false;
+    const t = setTimeout(() => {
+      fetch(`/api/programs?${params.toString()}`)
+        .then((r) => (r.ok ? r.json() : { results: [] }))
+        .then((d: { results?: SlimProgram[] }) => {
+          if (!cancelled) setFiltered(d.results ?? []);
+        })
+        .catch(() => {
+          if (!cancelled) setFiltered([]);
+        });
+    }, 250);
+    return () => {
+      cancelled = true;
+      clearTimeout(t);
+    };
+  }, [search, countryFilter, levelFilter]);
 
   return (
     <AdminShell>
       <div className="flex items-center justify-between mb-6">
         <h1 className="text-2xl font-bold text-gray-900">
-          Programs ({filtered.length} / {programs.length})
+          Programs (showing {filtered.length} of {DB_STATS.totalPrograms.toLocaleString()})
         </h1>
         <span className="text-xs text-gray-400 bg-amber-50 border border-amber-200 text-amber-600 px-3 py-1.5 rounded-full">
           Phase 2: Scraper will auto-populate this DB
@@ -158,7 +179,7 @@ export default function ProgramsPage() {
                   {p.field_of_study}
                 </td>
                 <td className="px-5 py-3 text-right font-semibold text-indigo-600">
-                  {formatCurrency(p.annual_tuition_usd)}
+                  {p.annual_tuition_usd != null ? formatCurrency(p.annual_tuition_usd) : "—"}
                 </td>
                 <td className="px-5 py-3 text-center">
                   {p.qs_ranking ? (
@@ -175,7 +196,7 @@ export default function ProgramsPage() {
                 </td>
                 <td className="px-5 py-3 text-center">
                   <a
-                    href={p.program_url}
+                    href={p.program_url ?? undefined}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 text-indigo-500 hover:text-indigo-700 text-xs"

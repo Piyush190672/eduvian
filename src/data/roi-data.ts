@@ -1,5 +1,9 @@
 // ─── ROI Calculator Data ──────────────────────────────────────────────────────
-import { PROGRAMS } from "./programs";
+// University options come from the AUTO-GENERATED stats module since the
+// Phase-1 bundle fix — importing programs.ts here compiled the whole 10MB
+// database into the client chunks of /roi-calculator, /parent-decision
+// and /results (the three pages that import this module).
+import { GENERATED_DB_STATS } from "./db-stats-generated";
 
 export type SalaryCountry =
   | "USA" | "UK" | "Australia" | "Canada" | "Germany"
@@ -506,38 +510,19 @@ const FLAGS: Record<SalaryCountry, string> = {
   France: "🇫🇷", UAE: "🇦🇪", Malaysia: "🇲🇾",
 };
 
-// ── Dynamically build CURATED_UNIVERSITIES from the live PROGRAMS database ──
-// This means every university added to programs.ts automatically appears in
-// the typeahead for both the ROI Calculator and Parent Decision Tool.
+// ── CURATED_UNIVERSITIES from the generated stats module ────────────────────
+// Every university in programs.ts appears in the typeahead for both the
+// ROI Calculator and Parent Decision Tool. The generated list is already
+// sorted ranked-first; countries without a salary model (Netherlands)
+// are filtered here, matching the previous behaviour.
 
-const _seen = new Map<string, UniversityOption>();
-
-for (const p of PROGRAMS) {
-  if (!p || !p.university_name) continue;
-  const country = p.country as SalaryCountry;
-  if (!FLAGS[country]) continue; // skip unknown/unsupported countries
-  const key = p.university_name;
-  if (!_seen.has(key)) {
-    _seen.set(key, {
-      name: p.university_name,
-      country,
-      qs_ranking: p.qs_ranking ?? null,
-      flag: FLAGS[country],
-    });
-  } else if (!_seen.get(key)!.qs_ranking && p.qs_ranking) {
-    // upgrade to a non-null QS ranking if we find one
-    _seen.get(key)!.qs_ranking = p.qs_ranking;
-  }
-}
-
-export const CURATED_UNIVERSITIES: UniversityOption[] = [..._seen.values()].sort(
-  (a, b) => {
-    // ranked universities first (ascending), unranked last, then alpha
-    if (a.qs_ranking && b.qs_ranking) return a.qs_ranking - b.qs_ranking;
-    if (a.qs_ranking) return -1;
-    if (b.qs_ranking) return 1;
-    return a.name.localeCompare(b.name);
-  }
-);
+export const CURATED_UNIVERSITIES: UniversityOption[] = GENERATED_DB_STATS.universityOptions
+  .filter((u) => FLAGS[u.country as SalaryCountry])
+  .map((u) => ({
+    name: u.name,
+    country: u.country as SalaryCountry,
+    qs_ranking: u.qs_ranking,
+    flag: FLAGS[u.country as SalaryCountry],
+  }));
 
 export const COUNTRY_FLAGS = FLAGS;

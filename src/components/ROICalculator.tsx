@@ -10,7 +10,7 @@ import {
 import { CURATED_UNIVERSITIES, SALARY_LOOKUP } from "@/data/roi-data";
 import type { SalaryCountry, FieldOfStudy } from "@/data/roi-data";
 import { calculateROI, lookupSalary } from "@/lib/roi-calculator";
-import { PROGRAMS } from "@/data/programs";
+import { useUniversityPrograms } from "@/lib/use-program-search";
 import { DB_STATS } from "@/data/db-stats";
 import { formatCurrency } from "@/lib/utils";
 import DecisionDisclaimer from "@/components/DecisionDisclaimer";
@@ -20,23 +20,24 @@ import { DataBadge } from "@/components/DataBadge";
 
 // ── types ─────────────────────────────────────────────────────────────────────
 
+// Program rows come from GET /api/programs (slim payload) since the
+// Phase-1 bundle fix — importing programs.ts here shipped the whole
+// 10MB database to the browser.
 interface ProgramEntry {
   university_name: string;
   country: string;
-  city: string;
+  city: string | null;
   program_name: string;
   degree_level: string;
   field_of_study: string;
-  annual_tuition_usd: number;
-  avg_living_cost_usd: number;
-  duration_months: number;
-  program_url?: string;
-  tuition_fee_source?: "verified" | "estimated";
-  living_cost_source?: "city" | "country_avg";
-  verified_at?: string;
+  annual_tuition_usd: number | null;
+  avg_living_cost_usd: number | null;
+  duration_months: number | null;
+  program_url?: string | null;
+  tuition_fee_source?: string | null;
+  living_cost_source?: string | null;
+  verified_at?: string | null;
 }
-
-const ALL_PROGRAMS = PROGRAMS as unknown as ProgramEntry[];
 
 // ── helpers ───────────────────────────────────────────────────────────────────
 
@@ -203,11 +204,8 @@ export default function ROICalculator() {
       .slice(0, 7);
   }, [uniQuery]);
 
-  // ── All programs for selected university ─────────────────────────────────────
-  const uniPrograms = useMemo(() => {
-    if (!matchedUni) return [];
-    return ALL_PROGRAMS.filter((p) => p.university_name === matchedUni.name);
-  }, [matchedUni]);
+  // ── All programs for selected university (API-backed, cached) ────────────────
+  const { programs: uniPrograms } = useUniversityPrograms(matchedUni?.name ?? null);
 
   // ── Fields available at this university ──────────────────────────────────────
   const availableFields = useMemo<FieldOfStudy[]>(() => {
@@ -249,8 +247,8 @@ export default function ROICalculator() {
     // input renders empty and the calculator stays inert until a fee is
     // typed. Same for living cost — keep it pre-filled when available.
     setTuition(p.annual_tuition_usd || 0);
-    setLiving(p.avg_living_cost_usd);
-    setDuration(p.duration_months);
+    setLiving(p.avg_living_cost_usd ?? 0);
+    setDuration(p.duration_months ?? 24);
     if (matchedUni) setSalary(lookupSalary(matchedUni.country as SalaryCountry, p.field_of_study as FieldOfStudy, matchedUni.qs_ranking, matchedUni.name));
   }
 
@@ -937,8 +935,8 @@ export default function ROICalculator() {
                       { field: "Expected salary", source: "AI estimate from market data" },
                       { field: "Payback / ROI", source: "Computed by EduvianAI from the inputs above" },
                     ]}
-                    lastVerified={selectedProgram?.verified_at}
-                    sourceUrl={selectedProgram?.program_url}
+                    lastVerified={selectedProgram?.verified_at ?? undefined}
+                    sourceUrl={selectedProgram?.program_url ?? undefined}
                     sourceLabel="Open the official program page"
                   />
 

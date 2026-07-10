@@ -11,7 +11,7 @@ import {
 import { CURATED_UNIVERSITIES } from "@/data/roi-data";
 import type { SalaryCountry, FieldOfStudy } from "@/data/roi-data";
 import { calculateParentDecision } from "@/lib/parent-decision-calculator";
-import { PROGRAMS } from "@/data/programs";
+import { useUniversityPrograms } from "@/lib/use-program-search";
 import Link from "next/link";
 import { NextBestAction } from "@/components/NextBestAction";
 import { SourceProof } from "@/components/SourceProof";
@@ -19,24 +19,25 @@ import { DataBadge } from "@/components/DataBadge";
 
 // ── types ─────────────────────────────────────────────────────────────────────
 
+// Program rows come from GET /api/programs (slim payload) since the
+// Phase-1 bundle fix — importing programs.ts here shipped the whole
+// 10MB database to the browser.
 interface ProgramEntry {
   university_name: string;
   country: string;
-  city: string;
+  city: string | null;
   program_name: string;
   degree_level: string;
   field_of_study: string;
-  annual_tuition_usd: number;
-  avg_living_cost_usd: number;
-  duration_months: number;
-  program_url?: string;
-  tuition_fee_source?: "verified" | "estimated";
-  verified_at?: string;
+  annual_tuition_usd: number | null;
+  avg_living_cost_usd: number | null;
+  duration_months: number | null;
+  program_url?: string | null;
+  tuition_fee_source?: string | null;
+  verified_at?: string | null;
 }
 
 type QualityLevel = "Excellent" | "Good" | "Concerning";
-
-const ALL_PROGRAMS = PROGRAMS as unknown as ProgramEntry[];
 
 // ── helpers ───────────────────────────────────────────────────────────────────
 
@@ -192,11 +193,8 @@ export default function ParentDecisionTool() {
       .slice(0, 7);
   }, [query]);
 
-  // Programs for selected university
-  const uniPrograms = useMemo(() => {
-    if (!selectedUni) return [];
-    return ALL_PROGRAMS.filter((p) => p.university_name === selectedUni.name);
-  }, [selectedUni]);
+  // Programs for selected university (API-backed, cached)
+  const { programs: uniPrograms } = useUniversityPrograms(selectedUni?.name ?? null);
 
   function selectUniversity(u: typeof CURATED_UNIVERSITIES[0]) {
     setSelectedUni(u);
@@ -215,8 +213,8 @@ export default function ParentDecisionTool() {
     // When the official page has no fee, start with 0 so the user-entry
     // input renders empty and the decision math stays inert until typed.
     setAnnualTuition(p.annual_tuition_usd || 0);
-    setLivingCost(p.avg_living_cost_usd);
-    setDurationMonths(p.duration_months);
+    setLivingCost(p.avg_living_cost_usd ?? 0);
+    setDurationMonths(p.duration_months ?? 24);
   }
 
   // Hard rule (locked 10 May 2026, extended 11 May 2026): never run the
@@ -564,7 +562,7 @@ export default function ParentDecisionTool() {
                     Confirm the figure with the university&apos;s admissions office before relying on the numbers we compute from it.
                   </p>
                   <a
-                    href={selectedProgram.program_url}
+                    href={selectedProgram.program_url ?? undefined}
                     target="_blank" rel="noopener noreferrer"
                     className="mt-4 inline-flex items-center gap-2 text-xs font-semibold text-amber-800 hover:text-amber-900"
                   >
@@ -803,8 +801,8 @@ export default function ParentDecisionTool() {
                       { field: "Safety / job market", source: "Official statistics + ranking aggregators" },
                       { field: "Family verdict", source: "Computed by EduvianAI from the inputs above" },
                     ]}
-                    lastVerified={selectedProgram?.verified_at}
-                    sourceUrl={selectedProgram?.program_url}
+                    lastVerified={selectedProgram?.verified_at ?? undefined}
+                    sourceUrl={selectedProgram?.program_url ?? undefined}
                     sourceLabel="Open the official program page"
                   />
 
