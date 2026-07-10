@@ -664,7 +664,7 @@ export function recommendPrograms(profile: StudentProfile, programs: Program[], 
   // The /results page calls with pages=2 so the client can render a
   // "Next Best 20" button without re-running the matcher.
   const safePages = Math.max(1, Math.min(pages, 4));
-  const TOTAL = 20 * safePages;
+  // 30/50/20 proportion — locked user rule, never breached (see alloc below).
   const QUOTA = { safe: 6 * safePages, reach: 10 * safePages, ambitious: 4 * safePages };
 
   // ── QS ranking preference threshold ──────────────────────────────────────
@@ -939,24 +939,18 @@ export function recommendPrograms(profile: StudentProfile, programs: Program[], 
     ambitious: capNullFee(capByUni(scored.filter((p) => p.tier === "ambitious"), 1 * safePages), 2),
   };
 
+  // STRICT per-tier quotas — the 30/50/20 proportion is a locked user
+  // rule (10 July 2026) and CANNOT be breached. No tier ever exceeds its
+  // quota, and no tier absorbs another tier's unfilled slots. (The
+  // earlier surplus-reallocation let Reach/Safe soak up leftover slots —
+  // e.g. an all-open-university pool returned 20 Safe / 0 / 0.) When a
+  // pool can't fill its quota the shortlist simply returns fewer
+  // programs — strict but honest, and the UI already reports exact counts.
   const alloc = {
     safe:      Math.min(QUOTA.safe, pools.safe.length),
     reach:     Math.min(QUOTA.reach, pools.reach.length),
     ambitious: Math.min(QUOTA.ambitious, pools.ambitious.length),
   };
-
-  // Surplus reallocation: when safe / reach pools are short, fill the
-  // remaining slots from the OTHER understaffed tier — never spill into
-  // ambitious. Ambitious is a hard cap. (15 May 2026, user-reported on
-  // token d70bfaca: ambitious bloated to 19 when safe + reach were
-  // short, breaking the quota contract.)
-  let remaining = TOTAL - alloc.safe - alloc.reach - alloc.ambitious;
-  const surplus = (t: "safe" | "reach") => pools[t].length - alloc[t];
-  for (const t of ["reach", "safe"] as const) {
-    if (remaining <= 0) break;
-    const extra = Math.min(remaining, surplus(t));
-    if (extra > 0) { alloc[t] += extra; remaining -= extra; }
-  }
 
   return [
     ...pools.safe.slice(0, alloc.safe),

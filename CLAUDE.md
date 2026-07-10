@@ -309,7 +309,7 @@ academic     = clamp(58 - bucket.prestigePenalty + surplus × 1.4)
 ```
 Below-min guards: `< min-12 → 0`, `< min-5 → 20 - penalty`, `< min → 40 - penalty`. The bucket-specific implicit floor is the key to differentiating weak applicants by uni selectivity (a 60% student is way below MIT's bar but comfortably above an open uni's).
 
-**Quota + variety**: 20-program shortlist split 6 safe / 10 reach / 4 ambitious. **Ambitious is a HARD cap** (no surplus reallocation into ambitious). Per-uni caps inside tiers: ambitious=1, safe/reach=2 (prevents Cambridge's 8 MPhils from monopolising a tier). When safe+reach can't fill 16 slots, response returns < 20 — strict but honest.
+**Quota + variety**: shortlist split 30% safe / 50% reach / 20% ambitious (6/10/4 per 20-slot page; 12/20/8 across 40). **LOCKED user rule (10 July 2026): this proportion CANNOT be breached — every tier quota is a hard ceiling and NO tier absorbs another tier's unfilled slots** (the earlier safe/reach surplus-reallocation was removed). Per-uni caps inside tiers: ambitious=1, safe/reach=2 (prevents Cambridge's 8 MPhils from monopolising a tier). When a pool can't fill its quota, the response simply returns fewer programs — strict but honest; the UI reports exact counts.
 
 **Top-20 sort**: ranked-first (`qs_ranking != null`) → `qs_ranking` ASC → `match_score` DESC. Unranked programs only included when ranked ones can't fill the per-tier quota.
 

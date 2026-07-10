@@ -144,6 +144,18 @@ describe("dedup + quotas", () => {
     const results = recommendPrograms(mkProfile(), programs, 1);
     expect(results.filter((r) => r.tier === "ambitious").length).toBeLessThanOrEqual(4);
   });
+
+  it("30/50/20 proportion is NEVER breached — no tier absorbs another tier's unfilled slots", () => {
+    // All-open-university pool: everything lands in the safe pool for a
+    // strong profile. Pre-lock, surplus reallocation returned 20 Safe /
+    // 0 / 0; the locked rule caps safe at its own quota of 6.
+    const programs = Array.from({ length: 30 }, () => mkProgram());
+    const results = recommendPrograms(mkProfile({ academic_score: 95 }), programs, 1);
+    const count = (t: string) => results.filter((r) => r.tier === t).length;
+    expect(count("safe")).toBeLessThanOrEqual(6);
+    expect(count("reach")).toBeLessThanOrEqual(10);
+    expect(count("ambitious")).toBeLessThanOrEqual(4);
+  });
 });
 
 describe("field-prerequisite gate", () => {
