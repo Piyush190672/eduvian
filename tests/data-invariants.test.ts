@@ -30,9 +30,11 @@ describe("programs.ts structural integrity", () => {
     }
   });
 
-  it("degree_level missing count can only shrink (pipeline backlog item #30 — 152 known)", () => {
+  it("degree_level missing count can only shrink (pipeline backlog item #30 — 165 known)", () => {
+    // 152 pre-#20 + 13 from the 12 Jul 2026 gap campaign (exec-ed/certificate
+    // pages that publish no degree level; null keeps them out of matcher funnels)
     const missing = arr.filter((p) => !p.degree_level).length;
-    expect(missing).toBeLessThanOrEqual(152);
+    expect(missing).toBeLessThanOrEqual(165);
   });
 
   it("every field_of_study is in the canonical FIELDS_OF_STUDY enum", () => {

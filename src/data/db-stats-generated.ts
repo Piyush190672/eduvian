@@ -3,13 +3,13 @@
 // The vitest data-invariant suite fails if this file drifts from the live data.
 
 export const GENERATED_DB_STATS = {
-  "totalPrograms": 9298,
-  "totalVerifiedPrograms": 9298,
+  "totalPrograms": 10728,
+  "totalVerifiedPrograms": 10728,
   "totalUniversities": 623,
   "totalVerifiedUniversities": 623,
   "totalCountries": 12,
   "totalFields": 29,
-  "maxVerifiedAt": "2026-05-14T17:27:26.538Z",
+  "maxVerifiedAt": "2026-07-12T17:45:56.017Z",
   "universitiesByCountry": {
     "USA": [
       "Adelphi University",
@@ -662,51 +662,51 @@ export const GENERATED_DB_STATS = {
   "programsByCountry": [
     {
       "country": "USA",
-      "count": 3411
+      "count": 3979
     },
     {
       "country": "UK",
-      "count": 2245
+      "count": 2558
     },
     {
       "country": "Canada",
-      "count": 852
+      "count": 1010
     },
     {
       "country": "Germany",
-      "count": 753
+      "count": 825
     },
     {
       "country": "Australia",
-      "count": 651
+      "count": 752
     },
     {
       "country": "France",
-      "count": 397
+      "count": 454
     },
     {
       "country": "Malaysia",
-      "count": 233
+      "count": 268
     },
     {
       "country": "UAE",
-      "count": 183
+      "count": 219
     },
     {
       "country": "Netherlands",
-      "count": 181
+      "count": 207
     },
     {
       "country": "New Zealand",
-      "count": 159
+      "count": 178
     },
     {
       "country": "Ireland",
-      "count": 141
+      "count": 167
     },
     {
       "country": "Singapore",
-      "count": 92
+      "count": 111
     }
   ],
   "universityOptions": [
