@@ -296,9 +296,9 @@ export default function HomeV3() {
             />
             <div className="min-w-0">
               <p className="text-sm text-slate-700 leading-snug">
-                “After eleven years leading one of the world&apos;s largest
-                international education businesses, I built the independent
-                layer families were missing.”
+                “After eleven years leading regional businesses at one of the
+                world&apos;s largest international education companies, I built
+                the independent layer families were missing.”
               </p>
               <p className="text-[11px] text-slate-500 mt-1.5">
                 Piyush Kumar · Founder{" · "}
@@ -467,7 +467,7 @@ export default function HomeV3() {
             </p>
             <div className="grid grid-cols-3 gap-4 mb-5">
               <div>
-                <p className="font-display text-2xl font-bold text-slate-900 tabular-nums">₹82L</p>
+                <p className="font-display text-2xl font-bold text-slate-900 tabular-nums">₹92L</p>
                 <p className="text-[11px] text-slate-500 mt-0.5">total investment</p>
               </div>
               <div>
@@ -475,7 +475,7 @@ export default function HomeV3() {
                 <p className="text-[11px] text-slate-500 mt-0.5">payback period</p>
               </div>
               <div>
-                <p className="font-display text-2xl font-bold text-emerald-700 tabular-nums">+₹2.9Cr</p>
+                <p className="font-display text-2xl font-bold text-emerald-700 tabular-nums">+₹3.2Cr</p>
                 <p className="text-[11px] text-slate-500 mt-0.5">10-year net gain</p>
               </div>
             </div>
@@ -486,7 +486,7 @@ export default function HomeV3() {
               best-case story.
             </p>
             <p className="text-[11px] text-slate-400 mt-3">
-              Sample output — illustrative figures ($98K · +$342K converted at ₹84/USD), real product format
+              Sample output — illustrative figures ($98K · +$342K converted at ₹94/USD), real product format
             </p>
           </div>
         </div>

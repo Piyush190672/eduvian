@@ -68,19 +68,19 @@ export default function WhyEduvianAI() {
 
         <div className="space-y-6 text-[17px] text-slate-700 leading-relaxed">
           <p>
-            For more than eleven years, I had the privilege of leading one of
-            the world&apos;s largest international education businesses at IDP
-            Education. During that time, I worked with teams across South Asia,
-            Canada, Latin America and Mauritius, helping students pursue higher
-            education overseas while navigating an increasingly complex global
-            landscape.
+            For more than eleven years at IDP Education, one of the
+            world&apos;s largest international education companies, I had the
+            privilege of leading its business across South Asia, Canada, Latin
+            America and Mauritius — helping students pursue higher education
+            overseas while navigating an increasingly complex global landscape.
           </p>
           <p>
-            The biggest challenge was rarely a lack of information. It was a
-            lack of trustworthy, transparent and personalised guidance.
-            Families were often forced to rely on fragmented information,
-            conflicting opinions or advice influenced by commercial interests.
-            I believed there had to be a better way.
+            Across the international education industry, the biggest challenge
+            was rarely a lack of information. It was a lack of trustworthy,
+            transparent and personalised guidance. Families were often forced
+            to rely on fragmented information, conflicting opinions or advice
+            influenced by commercial interests. I believed there had to be a
+            better way.
           </p>
           <p>
             eduvianAI was created to combine deep domain expertise with modern
