@@ -169,6 +169,18 @@ export const STEM_UG_REQUIRED_SUBJECTS: ReadonlyArray<string> = [
 ];
 
 /**
+ * UG Medicine subject pool (founder rule, 14 Jul 2026): any 3 of the 4
+ * qualify — Mathematics is NOT mandatory for Medicine, unlike the PCM
+ * gate on the other STEM UG fields.
+ */
+export const MEDICINE_UG_SUBJECTS: ReadonlyArray<string> = [
+  "Physics",
+  "Chemistry",
+  "Biology",
+  "Mathematics",
+];
+
+/**
  * Centralised alignment check used by both the form (blocking Continue)
  * and the matcher (hard filter). Returns null when the picked field
  * aligns with the profile's qualifications, or a user-facing reason
@@ -208,6 +220,21 @@ export function getFieldAlignmentError(
 
   // Undergraduate path: STEM UG requires Class XII PCM.
   if (profile.degree_level === "undergraduate") {
+    // Medicine (founder rule, 14 Jul 2026): Mathematics is NOT mandatory —
+    // any 3 of Physics, Chemistry, Biology, Mathematics qualify.
+    if (field === "Medicine & Public Health") {
+      const subjects = (profile.major_stream ?? "")
+        .split(",")
+        .map((s) => s.trim().toLowerCase())
+        .filter(Boolean);
+      if (subjects.length === 0) return null; // don't pre-scold
+      const have = MEDICINE_UG_SUBJECTS.filter((req) =>
+        subjects.includes(req.toLowerCase()),
+      ).length;
+      if (have >= 3) return null;
+      return `Medicine programs require at least 3 of Class XII ${MEDICINE_UG_SUBJECTS.join(", ")}. Update your subjects or choose a suitable program.`;
+    }
+
     if (!STEM_UG_FIELDS.has(field)) return null;
 
     // major_stream is a comma-separated list of HS subjects in the UG

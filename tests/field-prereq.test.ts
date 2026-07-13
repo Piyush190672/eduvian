@@ -65,3 +65,41 @@ describe("getFieldAlignmentError — PG form gating order", () => {
     expect(isAcademicallyEligibleForField(p, "Data Science")).toBe(true);
   });
 });
+
+// Founder rule (14 Jul 2026): UG Medicine requires any 3 of Class XII
+// Physics, Chemistry, Biology, Mathematics — Mathematics is NOT mandatory.
+describe("getFieldAlignmentError — UG Medicine 3-of-4 rule", () => {
+  const ug = { degree_level: "undergraduate" as const };
+  const med = "Medicine & Public Health";
+
+  it("PCB without Mathematics is eligible", () => {
+    expect(
+      getFieldAlignmentError({ ...ug, major_stream: "Physics, Chemistry, Biology" }, med),
+    ).toBeNull();
+  });
+
+  it("PCM without Biology is eligible", () => {
+    expect(
+      getFieldAlignmentError({ ...ug, major_stream: "Physics, Chemistry, Mathematics" }, med),
+    ).toBeNull();
+  });
+
+  it("only 2 of the 4 is not eligible", () => {
+    expect(
+      getFieldAlignmentError({ ...ug, major_stream: "Physics, Chemistry, English" }, med),
+    ).toMatch(/3 of/i);
+  });
+
+  it("no subjects selected yet — stays silent", () => {
+    expect(getFieldAlignmentError({ ...ug, major_stream: "" }, med)).toBeNull();
+  });
+
+  it("PCM gate for other STEM UG fields unchanged (Biotech still requires Math)", () => {
+    expect(
+      getFieldAlignmentError(
+        { ...ug, major_stream: "Physics, Chemistry, Biology" },
+        "Biotechnology & Life Sciences",
+      ),
+    ).toMatch(/Mathematics/);
+  });
+});
