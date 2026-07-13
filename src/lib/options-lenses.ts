@@ -43,7 +43,9 @@ const SCHOLARSHIP_RANK: Record<string, number> = {
 
 // Per-field selectivity bias for the "safer" lens. 1.0 = neutral.
 const FIELD_SELECTIVITY: Record<string, number> = {
-  "Medicine & Public Health":                0.55,
+  "Medicine & Public Health":                0.55, // legacy
+  "Medicine":                                0.55,
+  "Public Health":                           0.55,
   "MBA":                                     0.65,
   "Law":                                     0.70,
   "Artificial Intelligence":  0.80,

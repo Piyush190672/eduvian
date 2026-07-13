@@ -16,7 +16,9 @@ export type FieldOfStudy =
   | "MBA"
   | "Economics & Finance"
   | "Engineering (Mechanical/Civil/Electrical)"
-  | "Medicine & Public Health"
+  | "Medicine"
+  | "Public Health"
+  | "Medicine & Public Health" // legacy — old submissions/drafts
   | "Law"
   | "Nursing & Allied Health"
   | "Natural Sciences"
@@ -72,6 +74,8 @@ export const SALARY_LOOKUP: Record<SalaryCountry, Record<FieldOfStudy, number>> 
     "Economics & Finance":                         76000,  // BLS Financial Analysts 13-2051; CFA entry $72-80K
     "Engineering (Mechanical/Civil/Electrical)":   88000,  // NACE Spring 2024: Eng. MS average ~$86-92K
     "Medicine & Public Health":                    66000,  // AAMC MPH/DrPH entry; BLS 29-1221
+    "Medicine":                    66000, // AAMC MPH/DrPH entry; BLS 29-1221
+    "Public Health":                    66000, // AAMC MPH/DrPH entry; BLS 29-1221
     "Law":                                         82000,  // NALP JD class 2023 overall employed median
     "Nursing & Allied Health":                     72000,  // BLS RN 29-1141; new grad market 2024 $68-76K
     "Natural Sciences":                            72000,  // BLS Life/Physical Scientists 19-xxxx; MS premium
@@ -95,6 +99,8 @@ export const SALARY_LOOKUP: Record<SalaryCountry, Record<FieldOfStudy, number>> 
     "Economics & Finance":                         52000,  // £40.9K — MSc Finance; ISE Finance & Prof Services
     "Engineering (Mechanical/Civil/Electrical)":   46000,  // £36.2K — HESA Eng. PGT; Glassdoor grad eng.
     "Medicine & Public Health":                    48000,  // £37.8K — blended MPH/NHS FY1 (£43.9K) adjusted
+    "Medicine":                    48000, // £37.8K — blended MPH/NHS FY1 (£43.9K) adjusted
+    "Public Health":                    48000, // £37.8K — blended MPH/NHS FY1 (£43.9K) adjusted
     "Law":                                         47000,  // £37.0K — blended LLM; City TC via ranking premium
     "Nursing & Allied Health":                     40700,  // £32.0K — NHS Band 5 2024/25 exact
     "Natural Sciences":                            38000,  // £29.9K — HESA physical/natural sciences median
@@ -116,6 +122,8 @@ export const SALARY_LOOKUP: Record<SalaryCountry, Record<FieldOfStudy, number>> 
     "Economics & Finance":                         49000,  // Finance analyst entry AUD 75K
     "Engineering (Mechanical/Civil/Electrical)":   57000,  // Engineers Australia 2024: grad AUD 88K median
     "Medicine & Public Health":                    57000,  // QILT Health: MPH/PH AUD 88K
+    "Medicine":                    57000, // QILT Health: MPH/PH AUD 88K
+    "Public Health":                    57000, // QILT Health: MPH/PH AUD 88K
     "Law":                                         51000,  // Legal grad AUD 78K; varies city/firm
     "Nursing & Allied Health":                     47000,  // ANMF RN Band 2 base AUD 72K
     "Natural Sciences":                            46000,  // QILT Science PGT AUD 71K
@@ -137,6 +145,8 @@ export const SALARY_LOOKUP: Record<SalaryCountry, Record<FieldOfStudy, number>> 
     "Economics & Finance":                         44000,  // Finance analyst NOC 11101 CAD 60K
     "Engineering (Mechanical/Civil/Electrical)":   54000,  // Engineers Canada: new grad CAD 74K
     "Medicine & Public Health":                    52000,  // Public Health Canada: CAD 71K
+    "Medicine":                    52000, // Public Health Canada: CAD 71K
+    "Public Health":                    52000, // Public Health Canada: CAD 71K
     "Law":                                         48000,  // Articling associate CAD 66K avg
     "Nursing & Allied Health":                     47000,  // RN Canada entry CAD 64K
     "Natural Sciences":                            41000,  // Natural sciences NOC 21xxx entry CAD 56K
@@ -158,6 +168,8 @@ export const SALARY_LOOKUP: Record<SalaryCountry, Record<FieldOfStudy, number>> 
     "Economics & Finance":                         46000,  // Finance/Economics entry EUR 43K
     "Engineering (Mechanical/Civil/Electrical)":   55000,  // Engineering entry EUR 51K; Stepstone Ingenieur
     "Medicine & Public Health":                    62000,  // Assistenzarzt entry EUR 57K = $62K
+    "Medicine":                    62000, // Assistenzarzt entry EUR 57K = $62K
+    "Public Health":                    62000, // Assistenzarzt entry EUR 57K = $62K
     "Law":                                         54000,  // Rechtsanwalt entry EUR 50K
     "Nursing & Allied Health":                     39000,  // Krankenschwester entry EUR 36K
     "Natural Sciences":                            46000,  // Natural sciences MSc entry EUR 43K
@@ -180,6 +192,8 @@ export const SALARY_LOOKUP: Record<SalaryCountry, Record<FieldOfStudy, number>> 
     "Economics & Finance":                         38000,  // Economics entry SGD 4,300/month
     "Engineering (Mechanical/Civil/Electrical)":   38000,  // Engineering entry SGD 4,300/month
     "Medicine & Public Health":                    40000,  // Public health officer SG entry
+    "Medicine":                    40000, // Public health officer SG entry
+    "Public Health":                    40000, // Public health officer SG entry
     "Law":                                         62000,  // Singapore law associate SGD 7,000+/month
     "Nursing & Allied Health":                     35000,  // MOE Nursing SGD 4,000/month
     "Natural Sciences":                            34000,  // MOE Science SGD 3,800/month
@@ -201,6 +215,8 @@ export const SALARY_LOOKUP: Record<SalaryCountry, Record<FieldOfStudy, number>> 
     "Economics & Finance":                         33600,  // Finance entry NZD 56K
     "Engineering (Mechanical/Civil/Electrical)":   39000,  // Engineers NZ 2024: new grad NZD 65K
     "Medicine & Public Health":                    48000,  // NZ House Officer NZD 80K (MECA rate 2024)
+    "Medicine":                    48000, // NZ House Officer NZD 80K (MECA rate 2024)
+    "Public Health":                    48000, // NZ House Officer NZD 80K (MECA rate 2024)
     "Law":                                         36000,  // NZ law grad NZD 60K
     "Nursing & Allied Health":                     33000,  // NZ RN entry NZD 55K (NZNO Band 2)
     "Natural Sciences":                            31200,  // Natural sciences NZD 52K
@@ -222,6 +238,8 @@ export const SALARY_LOOKUP: Record<SalaryCountry, Record<FieldOfStudy, number>> 
     "Economics & Finance":                         32400,  // Finance entry EUR 30-40K
     "Engineering (Mechanical/Civil/Electrical)":   37800,  // Eng. Ireland EUR 34-44K
     "Medicine & Public Health":                    51700,  // Public Health Officer EUR 45-55K
+    "Medicine":                    51700, // Public Health Officer EUR 45-55K
+    "Public Health":                    51700, // Public Health Officer EUR 45-55K
     "Law":                                         37800,  // Solicitor entry EUR 32-50K
     "Nursing & Allied Health":                     30200,  // HSE RN Band 5 EUR 28-32K
     "Natural Sciences":                            37500,  // Science roles EUR 32-42K
@@ -244,6 +262,8 @@ export const SALARY_LOOKUP: Record<SalaryCountry, Record<FieldOfStudy, number>> 
     "Economics & Finance":                         41000,  // Finance entry EUR 36-48K
     "Engineering (Mechanical/Civil/Electrical)":   40600,  // Ingénieur Bac+5 EUR 36-44K
     "Medicine & Public Health":                    41000,  // MPH/Santé publique EUR 34-44K
+    "Medicine":                    41000, // MPH/Santé publique EUR 34-44K
+    "Public Health":                    41000, // MPH/Santé publique EUR 34-44K
     "Law":                                         32400,  // Avocat entry EUR 28-36K
     "Nursing & Allied Health":                     30200,  // Infirmier public sector EUR 22-30K
     "Natural Sciences":                            34600,  // Sciences entry EUR 30-38K
@@ -265,6 +285,8 @@ export const SALARY_LOOKUP: Record<SalaryCountry, Record<FieldOfStudy, number>> 
     "Economics & Finance":                         38900,  // Finance/banking UAE AED 130-160K
     "Engineering (Mechanical/Civil/Electrical)":   38900,  // Engineering UAE AED 130-160K
     "Medicine & Public Health":                    54000,  // UAE doctor entry AED 180-220K; specialist more
+    "Medicine":                    54000, // UAE doctor entry AED 180-220K; specialist more
+    "Public Health":                    54000, // UAE doctor entry AED 180-220K; specialist more
     "Law":                                         32400,  // UAE lawyer AED 100-200K; mid AED 120K
     "Nursing & Allied Health":                     27000,  // UAE RN AED 84-120K; mid AED 100K
     "Natural Sciences":                            29200,  // Natural sciences UAE AED 100-120K
@@ -286,6 +308,8 @@ export const SALARY_LOOKUP: Record<SalaryCountry, Record<FieldOfStudy, number>> 
     "Economics & Finance":                          9900,  // Finance analyst MYR 3,500-4,500/month; MYR 45K
     "Engineering (Mechanical/Civil/Electrical)":   11400,  // Engineering entry MYR 3,500-5,000/month; MYR 52K
     "Medicine & Public Health":                    17200,  // HO doctor MYR 4,845/month base + allowances ~MYR 78K
+    "Medicine":                    17200, // HO doctor MYR 4,845/month base + allowances ~MYR 78K
+    "Public Health":                    17200, // HO doctor MYR 4,845/month base + allowances ~MYR 78K
     "Law":                                          7700,  // Chambering pupil MYR 2,000-4,000/month; MYR 35K
     "Nursing & Allied Health":                      8400,  // Nurse Malaysia MYR 2,500-4,000/month; MYR 38K
     "Natural Sciences":                             8400,  // Natural sciences entry MYR 2,800-3,800/month
@@ -370,6 +394,8 @@ export const UNIVERSITY_SALARY_OVERRIDES: Partial<Record<string, Partial<Record<
   "Johns Hopkins University": {
     "Natural Sciences":                           86000,  // JHU Applied Math/Stats → finance/healthcare analytics
     "Medicine & Public Health":                   84000,  // JHU MPH → healthcare/CDC/NIH $80-90K
+    "Medicine":                   84000, // JHU MPH → healthcare/CDC/NIH $80-90K
+    "Public Health":                   84000, // JHU MPH → healthcare/CDC/NIH $80-90K
   },
   "Georgetown University": {
     "Social Sciences & Humanities":              84000,   // Georgetown MSFS → State Dept/consulting/think tanks

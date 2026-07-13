@@ -70,7 +70,7 @@ describe("getFieldAlignmentError — PG form gating order", () => {
 // Physics, Chemistry, Biology, Mathematics — Mathematics is NOT mandatory.
 describe("getFieldAlignmentError — UG Medicine 3-of-4 rule", () => {
   const ug = { degree_level: "undergraduate" as const };
-  const med = "Medicine & Public Health";
+  const med = "Medicine";
 
   it("PCB without Mathematics is eligible", () => {
     expect(
@@ -92,6 +92,22 @@ describe("getFieldAlignmentError — UG Medicine 3-of-4 rule", () => {
 
   it("no subjects selected yet — stays silent", () => {
     expect(getFieldAlignmentError({ ...ug, major_stream: "" }, med)).toBeNull();
+  });
+
+
+  it("legacy 'Medicine & Public Health' drafts still get the 3-of-4 rule", () => {
+    expect(
+      getFieldAlignmentError(
+        { degree_level: "undergraduate", major_stream: "Physics, Chemistry, Biology" },
+        "Medicine & Public Health",
+      ),
+    ).toBeNull();
+    expect(
+      getFieldAlignmentError(
+        { degree_level: "undergraduate", major_stream: "Physics, English" },
+        "Medicine & Public Health",
+      ),
+    ).toMatch(/3 of/i);
   });
 
   it("PCM gate for other STEM UG fields unchanged (Biotech still requires Math)", () => {

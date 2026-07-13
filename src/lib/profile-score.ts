@@ -387,6 +387,16 @@ function nextStdTestTarget(profile: StudentProfile): { patch: Partial<StudentPro
   const test = isUG ? profile.std_test_ug : profile.std_test_pg;
   const score = (isUG ? profile.std_test_ug_score : profile.std_test_pg_score) ?? 0;
   if (!test || test === "none") {
+    // Medicine UG: SAT/ACT is a US/Canada/Singapore-market test. UK/AU/NZ
+    // medicine admission runs on UCAT (+ interviews) — pushing SAT at a
+    // UK-bound medicine aspirant is wrong (founder report, 14 Jul 2026).
+    if (isUG) {
+      const fields = [profile.intended_field, ...(profile.intended_field_extra ?? [])];
+      const isMedicine = fields.includes("Medicine") || fields.includes("Medicine & Public Health");
+      const satMarkets = ["USA", "Canada", "Singapore"];
+      const wantsSatMarket = (profile.country_preferences ?? []).some((c) => satMarkets.includes(c));
+      if (isMedicine && !wantsSatMarket) return null;
+    }
     return isUG
       ? {
           patch: { std_test_ug: "sat", std_test_ug_score: 1400 },

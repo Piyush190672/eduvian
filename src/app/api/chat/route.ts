@@ -60,7 +60,7 @@ ALL UNIVERSITIES IN DATABASE:
 ${uniListSection}
 
 FIELDS OF STUDY (${DB_STATS.totalFields}):
-Computer Science & IT · Artificial Intelligence · Business & Management · MBA · Engineering (Mechanical/Civil/Electrical) · Biotechnology & Life Sciences · Medicine & Public Health · Law · Architecture · Arts and Design · Social Sciences & Humanities · Economics & Finance · Media & Communications · Environmental & Sustainability Studies · Natural Sciences · Nursing & Allied Health · Agriculture & Veterinary Sciences · Hospitality & Tourism
+Computer Science & IT · Artificial Intelligence · Business & Management · MBA · Engineering (Mechanical/Civil/Electrical) · Biotechnology & Life Sciences · Medicine · Public Health · Law · Architecture · Arts and Design · Social Sciences & Humanities · Economics & Finance · Media & Communications · Environmental & Sustainability Studies · Natural Sciences · Nursing & Allied Health · Agriculture & Veterinary Sciences · Hospitality & Tourism
 
 COUNTRY-SPECIFIC DETAILS:
 

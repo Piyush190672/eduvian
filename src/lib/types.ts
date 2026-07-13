@@ -87,7 +87,7 @@ export interface StudentProfile {
   /** GMAT Data Insights (60-90). GMAT only. */
   std_test_pg_data_insights?: number;
   /** Medical admission test — asked when the intended field (primary or
-   *  extra) includes "Medicine & Public Health" (founder request,
+   *  extra) includes "Medicine" (founder request,
    *  14 Jul 2026). Informational: collected and surfaced on review/admin;
    *  NOT a matching signal — the program DB carries no per-program
    *  med-test cutoffs, so scoring on it would invent data. */
@@ -431,7 +431,8 @@ export const FIELDS_OF_STUDY = [
   "Engineering (Mechanical/Civil/Electrical)",
   "Architecture",
   "Biotechnology & Life Sciences",
-  "Medicine & Public Health",
+  "Medicine",
+  "Public Health",
   "Law",
   "Arts and Design",
   "Film & Animation",

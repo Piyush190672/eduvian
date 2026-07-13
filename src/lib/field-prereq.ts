@@ -69,7 +69,10 @@ const FIELD_PREREQUISITES: Record<string, RegExp> = {
   // ── Life sciences / health ──────────────────────────────────────────────
   "Biotechnology & Life Sciences":
     /\b(biotech|bio(?:logy|chem|tech|medic|inform|engineer)?|chem|life\s*scien|microbiolog|genet|pharma|botany|zoolog|medic|health|agricultur|veterinar|animal\s*scien)/i,
-  "Medicine & Public Health":
+  // Medicine (clinical) keeps the strict prereq; Public Health is
+  // deliberately NOT gated — MPH programs widely accept diverse
+  // undergraduate backgrounds.
+  "Medicine":
     /\b(medic|mbbs|bds|dental|pharma|nurs|health|public\s*health|epidem|biostat|allied\s*health|physiother|biotech|bio)/i,
   "Nursing & Allied Health":
     /\b(nurs|medic|mbbs|health|allied\s*health|physiother|midwif|paramed|pharma|biomed|biolog)/i,
@@ -133,7 +136,7 @@ export const STEM_PG_FIELDS: ReadonlySet<string> = new Set([
   "Architecture",
   "Renewable Energy",
   "Biotechnology & Life Sciences",
-  "Medicine & Public Health",
+  "Medicine",
   "Nursing & Allied Health",
   "Natural Sciences",
   "Agriculture & Veterinary Sciences",
@@ -222,7 +225,7 @@ export function getFieldAlignmentError(
   if (profile.degree_level === "undergraduate") {
     // Medicine (founder rule, 14 Jul 2026): Mathematics is NOT mandatory —
     // any 3 of Physics, Chemistry, Biology, Mathematics qualify.
-    if (field === "Medicine & Public Health") {
+    if (field === "Medicine" || field === "Medicine & Public Health" /* legacy drafts */) {
       const subjects = (profile.major_stream ?? "")
         .split(",")
         .map((s) => s.trim().toLowerCase())

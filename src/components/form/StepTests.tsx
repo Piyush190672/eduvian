@@ -112,8 +112,9 @@ export default function StepTests({ profile, onChange }: Props) {
   const englishTest = profile.english_test ?? "none";
   const config = englishTest !== "none" ? ENGLISH_CONFIG[englishTest] : null;
   // Medicine picked as the primary intended field OR as one of the extras.
-  const isMedicine = [profile.intended_field, ...(profile.intended_field_extra ?? [])]
-    .includes("Medicine & Public Health");
+  const pickedFields = [profile.intended_field, ...(profile.intended_field_extra ?? [])];
+  const isMedicine = pickedFields.includes("Medicine")
+    || pickedFields.includes("Medicine & Public Health"); // legacy drafts
 
   return (
     <div className="space-y-6">
@@ -201,7 +202,8 @@ export default function StepTests({ profile, onChange }: Props) {
       )}
 
       {/* Medical admission test — shown when any picked intended field is
-          Medicine & Public Health (14 Jul 2026). Informational only: the
+          "Medicine" (14 Jul 2026; legacy drafts may carry the pre-split
+          "Medicine & Public Health"). Informational only: the
           program DB carries no per-program med-test cutoffs, so this is
           collected + surfaced, never scored. */}
       {isMedicine && (

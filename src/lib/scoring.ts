@@ -120,7 +120,9 @@ const FIELD_NAME_PATTERNS: Record<string, RegExp> = {
   "Economics & Finance":         /\b(economics|finance|financial|accounting)\b/i,
   "Engineering (Mechanical/Civil/Electrical)": /\bengineering\b/i,
   "Architecture":                /\barchitecture\b/i,
-  "Medicine & Public Health":    /\b(medicine|medical|public health|epidemiology)\b/i,
+  "Medicine & Public Health":    /\b(medicine|medical|public health|epidemiology)\b/i, // legacy
+  "Medicine":                    /\b(medicine|medical|mbbs|surgery|clinical)\b/i,
+  "Public Health":               /\b(public health|epidemiology|health policy|global health)\b/i,
   "Nursing & Allied Health":     /\b(nursing|midwifery|physiotherapy|allied health)\b/i,
   "Biotechnology & Life Sciences": /\b(biotech|biotechnology|life sciences|biology|biochem)\b/i,
   "Natural Sciences":            /\b(physics|chemistry|natural sciences|geology|earth science)\b/i,
@@ -149,10 +151,12 @@ const RELATED_FIELDS: Record<string, string[]> = {
   "Business & Management":                   ["MBA", "Economics & Finance"],
   "MBA":                                     ["Business & Management"],
   "Economics & Finance":                     ["Business & Management"],
-  "Biotechnology & Life Sciences":           ["Natural Sciences", "Medicine & Public Health"],
+  "Biotechnology & Life Sciences":           ["Natural Sciences", "Medicine"],
   "Natural Sciences":                        ["Biotechnology & Life Sciences", "Environmental & Sustainability Studies"],
-  "Medicine & Public Health":                ["Nursing & Allied Health", "Biotechnology & Life Sciences"],
-  "Nursing & Allied Health":                 ["Medicine & Public Health"],
+  "Medicine & Public Health":                ["Medicine", "Public Health"], // legacy
+  "Medicine":                                ["Public Health", "Nursing & Allied Health", "Biotechnology & Life Sciences"],
+  "Public Health":                           ["Medicine", "Nursing & Allied Health"],
+  "Nursing & Allied Health":                 ["Medicine", "Public Health"],
   "Environmental & Sustainability Studies":  ["Natural Sciences"],
   "Media & Communications":                  ["Arts and Design", "Architecture", "Social Sciences & Humanities"],
   "Arts and Design":                         ["Architecture", "Media & Communications"],
@@ -725,6 +729,13 @@ export function recommendPrograms(profile: StudentProfile, programs: Program[], 
         profile.intended_field,
         ...(profile.intended_field_extra ?? []),
       ].filter((f): f is string => typeof f === "string" && f.length > 0));
+  // Legacy taxonomy (pre 14 Jul 2026): "Medicine & Public Health" split
+  // into two first-class fields. Old drafts/submissions still carry the
+  // combined value — expand it so they keep matching both.
+  if (allowedFields?.has("Medicine & Public Health")) {
+    allowedFields.add("Medicine");
+    allowedFields.add("Public Health");
+  }
 
   // Build reverse map: country name → country code
   const nameToCode = Object.fromEntries(TARGET_COUNTRIES.map((t) => [t.name, t.code]));
