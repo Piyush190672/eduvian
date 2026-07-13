@@ -150,7 +150,7 @@ export default function SampleParentReportPage() {
                 { key: "cost",        label: "Cost",                   verdict: "High",     tone: "warn",    note: "Total investment ₹65.6L runs ~₹20.6L above the family's ₹45L ceiling.",                                              Icon: TRADEOFF_ICONS.cost },
                 { key: "roi",         label: "ROI",                    verdict: "Strong",   tone: "good",    note: "Payback in 4.8 years on a CAD 78k median graduate salary; 10-year net value ≈ CAD 612k above the no-study baseline.", Icon: TRADEOFF_ICONS.roi },
                 { key: "visa",        label: "Visa complexity",        verdict: "Medium",   tone: "medium",  note: "Canada SDS — fast lane if funds & GIC are in order; SOP and study-plan still need strengthening.",                  Icon: TRADEOFF_ICONS.visa },
-                { key: "safety",      label: "Safety",                 verdict: "Strong",   tone: "good",    note: "Toronto Numbeo safety index 65/100, consistent across recent student forum surveys.",                              Icon: TRADEOFF_ICONS.safety },
+                { key: "safety",      label: "Safety",                 verdict: "Strong",   tone: "good",    note: "Toronto's crime severity sits below the Canadian national average (Statistics Canada CSI), echoed by student-city safety surveys.",                              Icon: TRADEOFF_ICONS.safety },
                 { key: "scholarship", label: "Scholarship possibility", verdict: "Medium",   tone: "medium",  note: "OGS + Vector Institute scholarships open in March; deadlines ~4 weeks out at the time of this sample.",            Icon: TRADEOFF_ICONS.scholarship },
               ] as TradeoffFactor[]}
               compareActions={[
@@ -190,7 +190,11 @@ export default function SampleParentReportPage() {
 
           {/* Cost breakdown */}
           <section className="mb-8">
-            <h2 className="text-[11px] font-bold text-gray-500 uppercase tracking-widest mb-3">Cost breakdown</h2>
+            <div className="flex flex-wrap items-center gap-2 mb-3">
+              <h2 className="text-[11px] font-bold text-gray-500 uppercase tracking-widest">Cost breakdown</h2>
+              <DataBadge kind="official" />
+              <DataBadge kind="third_party" />
+            </div>
             <table className="w-full text-sm">
               <tbody>
                 {COSTS.map((c) => (
@@ -206,7 +210,11 @@ export default function SampleParentReportPage() {
 
           {/* ROI snapshot */}
           <section className="mb-8">
-            <h2 className="text-[11px] font-bold text-gray-500 uppercase tracking-widest mb-3">10-year ROI snapshot</h2>
+            <div className="flex flex-wrap items-center gap-2 mb-3">
+              <h2 className="text-[11px] font-bold text-gray-500 uppercase tracking-widest">10-year ROI snapshot</h2>
+              <DataBadge kind="ai_estimate" />
+              <DataBadge kind="user_provided" />
+            </div>
             <div className="grid sm:grid-cols-2 gap-3">
               {[
                 { label: "Expected starting salary", value: ROI.expected_starting_salary },
@@ -244,20 +252,28 @@ export default function SampleParentReportPage() {
             <SourceProof
               lines={[
                 { field: "Tuition fee", source: "Official university page" },
-                { field: "Living cost (Toronto)", source: "Numbeo + city benchmarks" },
-                { field: "Salary projection", source: "StatsCan + market benchmarks" },
+                { field: "Living cost (Toronto)", source: "Government & university cost-of-living pages" },
+                { field: "Salary projection", source: "Statistics Canada + labour-market benchmarks" },
                 { field: "Visa requirements", source: "Canada IRCC official portal" },
               ]}
               lastVerified="2026-05-01"
               sourceUrl="https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada.html"
               sourceLabel="Open the official source"
             />
-            <div className="flex flex-wrap items-center gap-2">
-              <DataBadge kind="illustrative" />
-              <span className="text-[11px] text-gray-500">on the entire report — sample student, not a real case</span>
-              <span className="text-gray-300">·</span>
-              <DataBadge kind="ai_estimate" />
-              <span className="text-[11px] text-gray-500">on payback, ROI &amp; 10-year projection</span>
+            <div className="space-y-1.5">
+              <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">How every figure is tagged</p>
+              <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5 text-[11px] text-gray-500">
+                <DataBadge kind="official" /> <span>tuition, visa rules</span>
+                <span className="text-gray-300">·</span>
+                <DataBadge kind="third_party" /> <span>living costs, safety, salaries</span>
+                <span className="text-gray-300">·</span>
+                <DataBadge kind="ai_estimate" /> <span>payback, ROI &amp; 10-year projection</span>
+              </div>
+              <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5 text-[11px] text-gray-500">
+                <DataBadge kind="user_provided" /> <span>budget ceiling, profile</span>
+                <span className="text-gray-300">·</span>
+                <DataBadge kind="illustrative" /> <span>this entire sample — not a real case</span>
+              </div>
             </div>
           </section>
 

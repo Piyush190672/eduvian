@@ -40,14 +40,9 @@ const SAMPLE_READINESS = {
   score: 72,
   band: "Strong readiness",
   pillars: [
-    { label: "Admissibility", v: 78 },
+    { label: "Admission fit", v: 78 },
     { label: "Financial fit", v: 64 },
     { label: "Visa readiness", v: 71 },
-  ],
-  tiers: [
-    { label: "12 Safe", cls: "bg-emerald-50 text-emerald-700 border-emerald-200" },
-    { label: "20 Reach", cls: "bg-amber-50 text-amber-700 border-amber-200" },
-    { label: "8 Ambitious", cls: "bg-rose-50 text-rose-700 border-rose-200" },
   ],
   lever: "Fastest improvement: retake IELTS 6.5 → 7.0 (+4 pts)",
 } as const;
@@ -63,7 +58,7 @@ const JOURNEY_TOOLS = [
     sample: { kind: "score" as const, before: 61, after: 84 },
     cta: "Check my application",
     href: "/application-check",
-    trust: "Scored across 7 SOP dimensions and 6 CV dimensions — feedback is paragraph-level, not generic.",
+    trust: "Feedback is paragraph-level and dimension-by-dimension, not generic.",
   },
   {
     pain: "The interview can undo everything. Practised for it?",
@@ -100,27 +95,28 @@ const STEPS = [
     step: "01",
     title: "Share your profile",
     body: "Five minutes: academics, tests, budget, and where you want to go. You get a readiness rating with three labelled sub-scores — and the fastest ways to improve it.",
-    proof: "Admissibility · Financial · Visa readiness",
+    proof: "Admission fit · Financial · Visa readiness",
   },
   {
     icon: ListChecks,
     step: "02",
-    title: "Get your evidence-backed matches",
-    body: `Up to 40 programs customised to your profile, split into Safe, Reach and Ambitious by your likelihood of an offer — drawn from ${DB_STATS.verifiedProgramsLabel} programs verified at the university's own page.`,
+    title: "Get your verified best-fit matches",
+    body: "Up to 40 programs customised to your profile, split into Safe, Reach and Ambitious by your likelihood of an offer — every one verified at the university's own page.",
+    note: "Safe, Reach and Ambitious compare your academic and test profile with published entry requirements and available admissions indicators. They are decision-support classifications, not admission guarantees.",
     proof: "Every fee and requirement links to its source",
   },
   {
     icon: Scale,
     step: "03",
     title: "Decide with your family",
-    body: "Compare shortlisted programs on cost, earning-back timelines, scholarship signals and visa readiness. Generate a parent-ready report the whole family can weigh in on.",
+    body: "Compare shortlisted programs on cost, time to recover your investment, scholarship potential and visa readiness. Generate a parent-ready report the whole family can weigh in on.",
     proof: "Same verified data behind every tool",
   },
 ] as const;
 
 const TRUST_BADGES = [
   { icon: BadgeCheck, label: "No placement commissions" },
-  { icon: Landmark, label: "Official sources only" },
+  { icon: Landmark, label: "Official sources · third-party benchmarks labelled" },
   { icon: Fingerprint, label: "Explainable recommendations" },
 ] as const;
 
@@ -243,14 +239,6 @@ export default function HomePage() {
                     ))}
                   </div>
                 </div>
-                <div className="flex flex-wrap items-center gap-1.5 mb-4">
-                  <span className="text-[11px] text-slate-500 mr-1">Matches:</span>
-                  {SAMPLE_READINESS.tiers.map((t) => (
-                    <span key={t.label} className={`px-2 py-0.5 rounded-full border text-[11px] font-semibold whitespace-nowrap ${t.cls}`}>
-                      {t.label}
-                    </span>
-                  ))}
-                </div>
                 <p className="text-[11px] text-slate-600 bg-slate-50 border border-slate-100 rounded-xl px-3 py-2">
                   {SAMPLE_READINESS.lever}
                 </p>
@@ -301,7 +289,7 @@ export default function HomePage() {
                 were short of certainty. That&apos;s why I built eduvianAI.”
               </p>
               <p className="text-[11px] text-slate-500 mt-1.5">
-                Piyush Kumar · Founder · former Regional Director, IDP Education{" · "}
+                Piyush Kumar · Founder, eduvianAI · Former IDP Education Regional Director and Global Leadership Team member{" · "}
                 <Link href="/why-eduvianai" className="font-semibold text-blue-800 hover:underline whitespace-nowrap">
                   Read why eduvianAI exists →
                 </Link>
@@ -316,7 +304,7 @@ export default function HomePage() {
         <div className="max-w-2xl mb-12">
           <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-blue-800 mb-3">How it works</p>
           <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 leading-tight">
-            From confusion to a defended decision in three steps.
+            From uncertainty to a decision you can trust.
           </h2>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
@@ -333,6 +321,9 @@ export default function HomePage() {
               <p className="text-[11px] font-semibold text-emerald-700 bg-emerald-50 border border-emerald-100 rounded-full px-3 py-1 inline-block">
                 {s.proof}
               </p>
+              {"note" in s ? (
+                <p className="text-[11px] text-slate-400 leading-relaxed mt-3">{s.note}</p>
+              ) : null}
             </div>
           ))}
         </div>
@@ -440,7 +431,8 @@ export default function HomePage() {
             <p className="text-base text-slate-600 leading-relaxed mb-6 max-w-xl">
               Study abroad is a large financial and emotional decision. Every
               shortlist becomes a family-ready report: total cost in rupees,
-              earning-back timelines, scholarship signals, visa readiness — and
+              time to recover the investment, scholarship potential, visa
+              readiness — and
               the reasons behind each recommendation, traced to source.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
@@ -501,8 +493,8 @@ export default function HomePage() {
             stand.
           </h2>
           <p className="text-base text-white/60 leading-relaxed max-w-2xl mx-auto mb-8">
-            A readiness rating, up to 40 verified program matches customised to
-            your profile, and the evidence to defend the decision at the dinner
+            A readiness rating, verified program matches customised to your
+            profile, and the evidence to defend the decision at the dinner
             table.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

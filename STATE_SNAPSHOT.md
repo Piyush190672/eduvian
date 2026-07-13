@@ -3962,3 +3962,14 @@ Founder request: recheck visa fee + related charges for all countries from offic
 | UAE | AED ~1,200 indicative | kept (no single official total) | Emirates ID **170 → 200** (ICP online standard); medical note: Dubai 320 / other emirates ~260 | icp.gov.ae, u.ae |
 
 Watch-list for future sessions: US Visa Integrity Fee implementation; Campus France India ₹20,000 (1 Aug 2026); IND fee reset each 1 January; NZ Pacific-band concessions; AU ASEAN/Pacific concessional pricing.
+
+### 42.7 Round 5 (same session): homepage trust/copy pass (founder's 8-point review)
+
+1. **Data inconsistency (8,007/534 vs 10,728/623)**: already architecture-fixed — homepage AND methodology both render DB_STATS labels from the prebuilt stats literal; live prod re-checked serving 10,728+/623+ on both. The stale figures were a pre-regeneration build. One real straggler fixed: options/layout.tsx metadata hardcoded "9,298".
+2. **Source policy**: trust badge "Official sources only" → "Official sources · third-party benchmarks labelled". DEEPER FIX: the sample Parent Decision Report cited Numbeo (safety index + living costs) — factually wrong about our product (city-living-costs.ts is deliberately Numbeo-free, commercial-use policy 18 May 2026) and licence-risky. All Numbeo mentions replaced with Statistics Canada CSI / government cost-of-living sourcing (page + data.ts, which also feeds the PDF).
+3. **"Defended decision"** → "From uncertainty to a decision you can trust." (founder's pick).
+4. **Plain-language swaps (marketing surfaces only)**: Admission fit / time to recover your investment / scholarship potential / verified best-fit matches. Reports and tools keep technical terms.
+5. **Safe/Reach/Ambitious clarifier** added under step 2 (visible small print, founder's exact wording): decision-support classifications, not admission guarantees.
+6. **Provenance taxonomy**: DataBadge gains "third_party" (Third-party benchmark); ai_estimate relabelled "EduvianAI estimate". Sample report: Cost-breakdown header tagged official+third_party, ROI header tagged EduvianAI-estimate+user-provided, full 5-tag legend replaces the 2-badge row. Platform-wide rollout of the taxonomy = follow-up item.
+7. **Founder descriptor**: "Founder, eduvianAI · Former IDP Education Regional Director and Global Leadership Team member" — founder explicitly added GLT membership, superseding the earlier descriptor lock (letter untouched).
+8. **Numerical density**: hero tier chips (12/20/8) removed (score owns the hero); step-2 duplicate DB count dropped; SOP 7/6 dimension counts dropped (61→84 is that module's number); closing-CTA "40" dropped. Proof strip (database scale) + one number per tool module + 3 financial numbers in Parent Decision Room retained per hierarchy.

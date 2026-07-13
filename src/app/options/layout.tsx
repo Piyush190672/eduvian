@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: 'Compare Options by Cost, ROI, Visa & Scholarships',
   description:
-    'Rank 9,298 verified programs through five lenses: lowest cost, better ROI, safer admits, lower visa complexity and stronger scholarship fit.',
+    'Rank our verified program database through five lenses: lowest cost, better ROI, safer admits, lower visa complexity and stronger scholarship fit.',
   alternates: { canonical: "/options" },
 };
 

@@ -25,7 +25,7 @@ export const FACTORS: Factor[] = [
   { factor: "Tuition budget fit",   view: "Good",                tone: "good",    note: "Tuition ₹39.4L over 2 years sits inside the family's stated ceiling of ₹45L." },
   { factor: "Total investment fit", view: "Needs discussion",    tone: "warn",    note: "Total investment ₹65.6L (tuition + living + setup) is ~₹20.6L above the family's ₹45L ceiling. Either revisit the ceiling, target scholarships, or compare a lower-cost program." },
   { factor: "Payback period",       view: "4.8 years",           tone: "neutral", note: "Median CS new-grad salary in Toronto: CAD 78,000 (StatsCan 2025)." },
-  { factor: "Safety",               view: "Good",                tone: "good",    note: "Toronto Numbeo safety index 65/100; consistent rating across student forums." },
+  { factor: "Safety",               view: "Good",                tone: "good",    note: "Toronto's crime severity sits below the Canadian national average (Statistics Canada Crime Severity Index); student-city surveys echo the rating." },
   { factor: "Job market",           view: "Strong",              tone: "good",    note: "PGWP up to 3 years post-graduation; CS new-grad placement >85% within 6 months." },
   { factor: "Visa readiness",       view: "Medium risk",         tone: "warn",    note: "SDS funds (CAD 22,895) confirmed in GIC. Statement of purpose still needs work." },
   { factor: "Scholarship fit",      view: "Worth applying",      tone: "neutral", note: "OGS and Vector Institute scholarships open in March; deadline 4 weeks out." },
@@ -54,8 +54,8 @@ export const RISKS = [
 
 export const SOURCES = [
   { field: "Tuition fee",            source: "Official university page" },
-  { field: "Living cost (Toronto)",  source: "Numbeo + city benchmarks" },
-  { field: "Salary projection",      source: "StatsCan + market benchmarks" },
+  { field: "Living cost (Toronto)",  source: "Government & university cost-of-living pages" },
+  { field: "Salary projection",      source: "Statistics Canada + labour-market benchmarks" },
   { field: "Visa requirements",      source: "Canada IRCC official portal" },
 ];
 

@@ -13,17 +13,19 @@ import { ShieldCheck, Sparkles, User, AlertTriangle, BookOpen } from "lucide-rea
  */
 export type DataProvenance =
   | "official"            // Read from an official source (university page, govt portal)
-  | "ai_estimate"         // Computed/inferred by Claude (salary lookup, ROI math)
+  | "third_party"         // Named third-party dataset used where no official figure exists
+  | "ai_estimate"         // Computed/inferred by EduvianAI (salary lookup, ROI math)
   | "user_provided"       // Entered by the user in the calculator
   | "needs_verification"  // Live data, but the user should re-confirm before relying
   | "illustrative";       // Sample / example data, not real
 
 const META: Record<DataProvenance, { label: string; cls: string; Icon: typeof ShieldCheck; tooltip: string }> = {
-  official:            { label: "Official source",     cls: "bg-emerald-50 text-emerald-700 border-emerald-200",  Icon: ShieldCheck,      tooltip: "Read directly from the official university or government source page." },
-  ai_estimate:         { label: "AI estimate",         cls: "bg-blue-50  text-blue-800  border-blue-200",   Icon: Sparkles,         tooltip: "Computed by EduvianAI from market benchmarks or model output — not a directly quoted figure." },
-  user_provided:       { label: "User provided",       cls: "bg-blue-50  text-blue-800  border-blue-200",   Icon: User,             tooltip: "Entered by you in the calculator. Re-confirm with the university before acting on it." },
-  needs_verification:  { label: "Needs verification",  cls: "bg-amber-50   text-amber-700   border-amber-200",    Icon: AlertTriangle,    tooltip: "Live data but the underlying rule changes often — verify with the official source before committing." },
-  illustrative:        { label: "Illustrative sample", cls: "bg-gray-100   text-gray-700    border-gray-200",     Icon: BookOpen,         tooltip: "Sample / illustrative numbers. Not a real recommendation for a real student." },
+  official:            { label: "Official source",        cls: "bg-emerald-50 text-emerald-700 border-emerald-200",  Icon: ShieldCheck,      tooltip: "Read directly from the official university or government source page." },
+  third_party:         { label: "Third-party benchmark",  cls: "bg-white      text-slate-600   border-slate-300",    Icon: BookOpen,         tooltip: "From a named third-party dataset or survey — used only where no official figure exists, and always labelled." },
+  ai_estimate:         { label: "EduvianAI estimate",     cls: "bg-blue-50  text-blue-800  border-blue-200",   Icon: Sparkles,         tooltip: "Computed by EduvianAI from sourced inputs — not a directly quoted figure." },
+  user_provided:       { label: "User provided",          cls: "bg-blue-50  text-blue-800  border-blue-200",   Icon: User,             tooltip: "Entered by you in the calculator. Re-confirm with the university before acting on it." },
+  needs_verification:  { label: "Needs verification",     cls: "bg-amber-50   text-amber-700   border-amber-200",    Icon: AlertTriangle,    tooltip: "Live data but the underlying rule changes often — verify with the official source before committing." },
+  illustrative:        { label: "Illustrative sample",    cls: "bg-gray-100   text-gray-700    border-gray-200",     Icon: BookOpen,         tooltip: "Sample / illustrative numbers. Not a real recommendation for a real student." },
 };
 
 export function DataBadge({ kind, className = "" }: { kind: DataProvenance; className?: string }) {
