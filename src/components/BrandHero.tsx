@@ -9,12 +9,12 @@ type Props = {
 };
 
 // Dark-navy hero block matching /destinations and /methodology. Use the
-// `accent` helper for italic violet-300 emphasis inside title.
+// `accent` helper for italic blue-300 emphasis inside title.
 export default function BrandHero({ eyebrow, title, subtitle, trustLine }: Props) {
   return (
     <section className="relative bg-[#0E1119] text-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-10 pt-28 sm:pt-36 pb-16 sm:pb-20">
-        <p className="text-[11px] uppercase tracking-[0.25em] text-violet-300/85 mb-8 font-semibold">{eyebrow}</p>
+        <p className="text-[11px] uppercase tracking-[0.25em] text-blue-300/85 mb-8 font-semibold">{eyebrow}</p>
         <h1 className="font-display font-bold text-[2.25rem] leading-[1.08] sm:text-5xl md:text-[3.75rem] tracking-tight max-w-3xl mb-7">
           {title}
         </h1>
@@ -35,5 +35,5 @@ export default function BrandHero({ eyebrow, title, subtitle, trustLine }: Props
 }
 
 export const accent = (text: string) => (
-  <span className="italic font-medium text-violet-300">{text}</span>
+  <span className="italic font-medium text-blue-300">{text}</span>
 );

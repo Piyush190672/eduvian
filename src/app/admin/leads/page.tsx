@@ -119,13 +119,13 @@ function AdminShell({ children }: { children: React.ReactNode }) {
   };
   return (
     <div className="min-h-screen bg-slate-50 flex">
-      <aside className="w-60 bg-indigo-900 text-white flex flex-col fixed inset-y-0 left-0">
+      <aside className="w-60 bg-blue-950 text-white flex flex-col fixed inset-y-0 left-0">
         <div className="p-6 border-b border-white/10">
           <div className="flex items-center gap-2">
             <EduvianLogoMark size={32} />
-            <span className="font-display font-bold text-lg tracking-tight">eduvian<span className="text-indigo-300">AI</span></span>
+            <span className="font-display font-bold text-lg tracking-tight">eduvian<span className="text-blue-300">AI</span></span>
           </div>
-          <span className="text-xs text-indigo-300 mt-1 block">Admin Panel</span>
+          <span className="text-xs text-blue-300 mt-1 block">Admin Panel</span>
         </div>
         <nav className="flex-1 p-4 space-y-1">
           {[
@@ -134,7 +134,7 @@ function AdminShell({ children }: { children: React.ReactNode }) {
             { href: "/admin/programs",  icon: BookOpen,        label: "Programs"  },
           ].map((item) => (
             <Link key={item.href} href={item.href}
-              className="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm text-indigo-200 hover:bg-white/10 hover:text-white transition-colors">
+              className="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm text-blue-200 hover:bg-white/10 hover:text-white transition-colors">
               <item.icon className="w-4 h-4" />
               {item.label}
             </Link>
@@ -142,7 +142,7 @@ function AdminShell({ children }: { children: React.ReactNode }) {
         </nav>
         <div className="p-4 border-t border-white/10">
           <button onClick={logout}
-            className="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm text-indigo-300 hover:text-white hover:bg-white/10 transition-colors w-full">
+            className="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm text-blue-300 hover:text-white hover:bg-white/10 transition-colors w-full">
             <LogOut className="w-4 h-4" /> Sign Out
           </button>
         </div>
@@ -299,8 +299,8 @@ export default function LeadsPage() {
           <button key={f.key} onClick={() => setStatusFilter(f.key)}
             className={`px-3 py-1.5 rounded-full text-xs font-semibold border transition-colors ${
               statusFilter === f.key
-                ? "bg-indigo-600 text-white border-indigo-600"
-                : "bg-white text-gray-500 border-gray-200 hover:border-indigo-300"
+                ? "bg-blue-900 text-white border-blue-900"
+                : "bg-white text-gray-500 border-gray-200 hover:border-blue-300"
             }`}>
             {f.label}
           </button>
@@ -312,7 +312,7 @@ export default function LeadsPage() {
         <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
         <input type="text" placeholder="Search by name, email, country, stream…"
           value={search} onChange={(e) => setSearch(e.target.value)}
-          className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300 bg-white" />
+          className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300 bg-white" />
       </div>
 
       <div className="flex gap-6">
@@ -346,8 +346,8 @@ export default function LeadsPage() {
                     <tr key={l.key}
                       onClick={() => l.status === "complete" ? setSelected(l === selected ? null : l) : undefined}
                       className={`border-b border-gray-50 transition-colors ${
-                        l.status === "complete" ? "cursor-pointer hover:bg-indigo-50/50" : ""
-                      } ${selected?.key === l.key ? "bg-indigo-50" : ""}`}>
+                        l.status === "complete" ? "cursor-pointer hover:bg-blue-50/50" : ""
+                      } ${selected?.key === l.key ? "bg-blue-50" : ""}`}>
                       <td className="px-4 py-3">
                         <div className="font-semibold text-gray-900 truncate max-w-[130px]">{l.name}</div>
                         {l.status === "complete" && l.profile_category && (
@@ -369,7 +369,7 @@ export default function LeadsPage() {
                       <td className="px-4 py-3 text-xs text-gray-600 whitespace-nowrap">
                         {l.source ? (
                           <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold ${
-                            l.source_stage === 2 ? "bg-violet-100 text-violet-700" :
+                            l.source_stage === 2 ? "bg-blue-100 text-blue-800" :
                             l.source_stage === 3 ? "bg-emerald-100 text-emerald-700" :
                             l.source_stage === 4 ? "bg-amber-100 text-amber-700" :
                             "bg-gray-100 text-gray-600"
@@ -381,12 +381,12 @@ export default function LeadsPage() {
                       <td className="px-4 py-3">
                         {l.token ? (
                           <div className="flex items-center gap-1.5">
-                            <span className="text-sm font-bold text-indigo-600">
+                            <span className="text-sm font-bold text-blue-900">
                               {l.total_matched ?? "—"}
                             </span>
                             <Link href={`/results/${l.token}`} target="_blank"
                               onClick={(e) => e.stopPropagation()}
-                              className="text-indigo-400 hover:text-indigo-600">
+                              className="text-blue-400 hover:text-blue-900">
                               <ExternalLink className="w-3 h-3" />
                             </Link>
                           </div>
@@ -450,7 +450,7 @@ export default function LeadsPage() {
                 {selected.submission.profile.country_preferences?.map((code, i) => {
                   const c = TARGET_COUNTRIES.find((t) => t.code === code);
                   return (
-                    <span key={code} className="text-xs px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-600">
+                    <span key={code} className="text-xs px-2 py-0.5 rounded-full bg-blue-50 text-blue-900">
                       {i + 1}. {c?.flag} {c?.name ?? code}
                     </span>
                   );
@@ -459,7 +459,7 @@ export default function LeadsPage() {
             </div>
 
             <Link href={`/results/${selected.token}`} target="_blank"
-              className="mt-5 flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-indigo-500 text-white text-sm font-semibold hover:bg-indigo-600 transition-colors">
+              className="mt-5 flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-blue-800 text-white text-sm font-semibold hover:bg-blue-900 transition-colors">
               <ExternalLink className="w-4 h-4" /> View Shortlist
             </Link>
           </div>

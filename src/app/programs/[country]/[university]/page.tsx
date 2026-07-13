@@ -48,9 +48,9 @@ export default function UniversityHubPage({ params }: Props) {
       <BrandNav variant="light" />
       <main className="max-w-5xl mx-auto px-6 sm:px-10 py-12 sm:py-16">
         <nav className="text-xs text-gray-500 mb-6" aria-label="Breadcrumb">
-          <Link href="/programs" className="hover:text-violet-700 hover:underline">Programs</Link>
+          <Link href="/programs" className="hover:text-blue-800 hover:underline">Programs</Link>
           <span className="mx-1.5">/</span>
-          <Link href={`/programs/${country.slug}`} className="hover:text-violet-700 hover:underline">{country.name}</Link>
+          <Link href={`/programs/${country.slug}`} className="hover:text-blue-800 hover:underline">{country.name}</Link>
           <span className="mx-1.5">/</span>
           <span className="text-gray-800 font-semibold">{uni.name}</span>
         </nav>
@@ -76,7 +76,7 @@ export default function UniversityHubPage({ params }: Props) {
                   <li key={n.slug}>
                     <Link
                       href={`/programs/${country.slug}/${uni.slug}/${n.slug}`}
-                      className="group flex items-center gap-3 rounded-xl border border-stone-200 bg-white px-4 py-3 hover:border-violet-300 hover:shadow-sm transition-all"
+                      className="group flex items-center gap-3 rounded-xl border border-stone-200 bg-white px-4 py-3 hover:border-blue-300 hover:shadow-sm transition-all"
                     >
                       <span className="flex-1 min-w-0">
                         <span className="block text-sm font-semibold text-gray-900 truncate">{p.program_name}</span>
@@ -89,7 +89,7 @@ export default function UniversityHubPage({ params }: Props) {
                             : `${formatFee(p)} (${FEE_STATUS_LABEL[feeStatus].toLowerCase()})`}
                         </span>
                       </span>
-                      <ArrowRight className="w-4 h-4 flex-shrink-0 text-gray-300 group-hover:text-violet-600 group-hover:translate-x-0.5 transition-all" />
+                      <ArrowRight className="w-4 h-4 flex-shrink-0 text-gray-300 group-hover:text-blue-900 group-hover:translate-x-0.5 transition-all" />
                     </Link>
                   </li>
                 );
@@ -108,7 +108,7 @@ export default function UniversityHubPage({ params }: Props) {
           </p>
           <Link
             href="/profile"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-violet-600 hover:bg-violet-700 text-white text-sm font-bold transition-colors"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-blue-900 hover:bg-blue-800 text-white text-sm font-bold transition-colors"
           >
             See if I qualify
             <ArrowRight className="w-4 h-4" />

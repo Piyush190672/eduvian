@@ -168,20 +168,20 @@ function Nav({ stage }: { stage: Stage }) {
   const progressPct = Math.round((activeIdx / (stages.length - 1)) * 100);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 border-b border-white/10 shadow-lg">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0F172A] border-b border-white/10 shadow-lg">
       <div className="flex items-center justify-between px-8 py-0">
         <Link href="/english-test-lab" className="flex items-center gap-3 py-4">
           <EduvianLogoMark size={36} />
           <div>
             <span className="font-extrabold text-base text-white">PTE Academic-Style</span>
-            <p className="text-[10px] text-violet-300 leading-none">Mock Test · eduvianAI</p>
+            <p className="text-[10px] text-blue-300 leading-none">Mock Test · eduvianAI</p>
           </div>
         </Link>
         <Link href="/english-test-lab" className="text-slate-400 hover:text-white text-sm transition-colors py-4">← Back to Lab</Link>
       </div>
       {stage !== "landing" && stage !== "results" && (
         <div className="h-1 bg-slate-800">
-          <div className="h-full bg-gradient-to-r from-violet-400 to-purple-500 transition-all duration-500" style={{ width: `${progressPct}%` }} />
+          <div className="h-full bg-blue-800 transition-all duration-500" style={{ width: `${progressPct}%` }} />
         </div>
       )}
     </nav>
@@ -470,7 +470,7 @@ export default function PTEPage() {
 
           {stage === "submitting" && (
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex flex-col items-center justify-center min-h-[60vh] gap-4">
-              <Loader2 className="w-12 h-12 text-violet-500 animate-spin" />
+              <Loader2 className="w-12 h-12 text-blue-800 animate-spin" />
               <h2 className="text-xl font-black text-slate-900">Scoring your test...</h2>
               <p className="text-slate-500 text-sm">AI is evaluating your responses. This takes a moment.</p>
             </motion.div>
@@ -493,7 +493,7 @@ function PTELanding({ onBegin }: { onBegin: () => void }) {
     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
       className="max-w-3xl mx-auto px-6 py-16">
       <div className="text-center mb-8">
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-violet-100 text-violet-700 border border-violet-200 mb-5 text-sm font-bold">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 text-blue-800 border border-blue-200 mb-5 text-sm font-bold">
           PTE Academic-Style Practice
         </div>
         <h1 className="text-3xl font-black text-slate-900 mb-3">PTE Academic-style Mock Test</h1>
@@ -517,7 +517,7 @@ function PTELanding({ onBegin }: { onBegin: () => void }) {
               <p className="font-bold text-slate-900 text-sm">{s.name}</p>
               <p className="text-xs text-slate-500">{s.desc}</p>
             </div>
-            <span className="text-xs font-semibold text-violet-600 bg-violet-50 px-2 py-1 rounded-lg">{s.time}</span>
+            <span className="text-xs font-semibold text-blue-900 bg-blue-50 px-2 py-1 rounded-lg">{s.time}</span>
           </div>
         ))}
       </div>
@@ -530,12 +530,12 @@ function PTELanding({ onBegin }: { onBegin: () => void }) {
           <li className="flex items-start gap-2"><AlertTriangle className="w-3.5 h-3.5 text-amber-500 mt-0.5 flex-shrink-0" />Audio is computer-generated (real PTE uses professional recordings)</li>
           <li className="flex items-start gap-2"><AlertTriangle className="w-3.5 h-3.5 text-amber-500 mt-0.5 flex-shrink-0" />Scores are readiness estimates only — not produced by Pearson's official scoring engine</li>
         </ul>
-        <a href="https://www.pearsonpte.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 mt-3 text-xs font-semibold text-violet-700 hover:text-violet-900 transition-colors">
+        <a href="https://www.pearsonpte.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 mt-3 text-xs font-semibold text-blue-800 hover:text-blue-950 transition-colors">
           Visit official Pearson PTE site <ExternalLink className="w-3 h-3" />
         </a>
       </div>
 
-      <button onClick={onBegin} className="w-full py-4 rounded-2xl bg-gradient-to-r from-violet-500 to-purple-600 text-white font-bold text-base flex items-center justify-center gap-2 hover:shadow-xl hover:shadow-violet-500/30 transition-all hover:-translate-y-0.5">
+      <button onClick={onBegin} className="w-full py-4 rounded-2xl bg-blue-900 hover:bg-blue-800 text-white font-bold text-base flex items-center justify-center gap-2 hover:shadow-xl hover:shadow-blue-800/30 transition-all hover:-translate-y-0.5">
         Begin Mock <ArrowRight className="w-5 h-5" />
       </button>
     </motion.div>
@@ -574,12 +574,12 @@ function ReadAloudSection({ idx, setIdx, prepSeconds, setPrepSeconds, prepRunnin
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="max-w-3xl mx-auto px-6 py-8">
       <div className="mb-6">
-        <span className="text-xs font-bold text-violet-600 uppercase tracking-widest">Read Aloud — Speaking</span>
+        <span className="text-xs font-bold text-blue-900 uppercase tracking-widest">Read Aloud — Speaking</span>
         <h2 className="text-xl font-black text-slate-900">Passage {idx + 1} of {READ_ALOUD_PASSAGES.length}</h2>
       </div>
 
-      <div className="bg-violet-50 border border-violet-200 rounded-2xl p-6 mb-5">
-        <p className="text-xs font-bold text-violet-700 mb-3">Read this passage aloud. Prepare for 40 seconds, then record your reading.</p>
+      <div className="bg-blue-50 border border-blue-200 rounded-2xl p-6 mb-5">
+        <p className="text-xs font-bold text-blue-800 mb-3">Read this passage aloud. Prepare for 40 seconds, then record your reading.</p>
         <p className="text-base text-slate-800 leading-relaxed">{READ_ALOUD_PASSAGES[idx]}</p>
       </div>
 
@@ -598,7 +598,7 @@ function ReadAloudSection({ idx, setIdx, prepSeconds, setPrepSeconds, prepRunnin
           </div>
         )}
         <button onClick={() => isRecording ? onStopRecord() : onStartRecord(`RA-${idx}`)}
-          className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm transition-all ${isRecording ? "bg-red-500 text-white animate-pulse" : "bg-violet-600 text-white hover:bg-violet-700"}`}>
+          className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm transition-all ${isRecording ? "bg-red-500 text-white animate-pulse" : "bg-blue-900 text-white hover:bg-blue-800"}`}>
           {isRecording ? <><MicOff className="w-4 h-4" /> Stop</> : <><Mic className="w-4 h-4" /> Record</>}
         </button>
       </div>
@@ -617,12 +617,12 @@ function ReadAloudSection({ idx, setIdx, prepSeconds, setPrepSeconds, prepRunnin
         </button>
         {isLast ? (
           <button onClick={onComplete}
-            className="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-gradient-to-r from-violet-500 to-purple-600 text-white font-bold text-sm hover:shadow-lg transition-all">
+            className="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-blue-900 hover:bg-blue-800 text-white font-bold text-sm hover:shadow-lg transition-all">
             Continue to Repeat Sentence <ChevronRight className="w-4 h-4" />
           </button>
         ) : (
           <button onClick={() => setIdx(idx + 1)}
-            className="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-violet-600 text-white font-bold text-sm hover:bg-violet-700 transition-all">
+            className="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-blue-900 text-white font-bold text-sm hover:bg-blue-800 transition-all">
             Next Passage <ChevronRight className="w-4 h-4" />
           </button>
         )}
@@ -655,7 +655,7 @@ function RepeatSentenceSection({ idx, setIdx, prepRunning, setPrepRunning, prepS
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="max-w-3xl mx-auto px-6 py-8">
       <div className="mb-6">
-        <span className="text-xs font-bold text-violet-600 uppercase tracking-widest">Repeat Sentence — Speaking</span>
+        <span className="text-xs font-bold text-blue-900 uppercase tracking-widest">Repeat Sentence — Speaking</span>
         <h2 className="text-xl font-black text-slate-900">Sentence {idx + 1} of {REPEAT_SENTENCES.length}</h2>
       </div>
       <div className="bg-amber-50 border border-amber-200 rounded-xl p-3 mb-5 flex items-start gap-2 text-xs text-amber-800">
@@ -665,7 +665,7 @@ function RepeatSentenceSection({ idx, setIdx, prepRunning, setPrepRunning, prepS
       <div className="bg-slate-800 rounded-2xl p-5 mb-5 flex items-center justify-between gap-4">
         <p className="text-slate-400 text-sm">Listen to the sentence, then repeat it exactly.</p>
         <button onClick={() => isPlayingTTS ? onStopTTS() : (setIsPlayingTTS(true), onPlayTTS(REPEAT_SENTENCES[idx]))}
-          className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm transition-all flex-shrink-0 ${isPlayingTTS ? "bg-red-500 text-white" : "bg-violet-500 text-white hover:bg-violet-600"}`}>
+          className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm transition-all flex-shrink-0 ${isPlayingTTS ? "bg-red-500 text-white" : "bg-blue-800 text-white hover:bg-blue-900"}`}>
           {isPlayingTTS ? <><VolumeX className="w-4 h-4" /> Stop</> : <><Volume2 className="w-4 h-4" /> Play</>}
         </button>
       </div>
@@ -678,7 +678,7 @@ function RepeatSentenceSection({ idx, setIdx, prepRunning, setPrepRunning, prepS
       )}
       {!prepRunning && (
         <button onClick={() => isRecording ? onStopRecord() : onStartRecord(`RS-${idx}`)}
-          className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm transition-all mb-4 ${isRecording ? "bg-red-500 text-white animate-pulse" : "bg-violet-600 text-white hover:bg-violet-700"}`}>
+          className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm transition-all mb-4 ${isRecording ? "bg-red-500 text-white animate-pulse" : "bg-blue-900 text-white hover:bg-blue-800"}`}>
           {isRecording ? <><MicOff className="w-4 h-4" /> Stop</> : <><Mic className="w-4 h-4" /> Record</>}
         </button>
       )}
@@ -691,9 +691,9 @@ function RepeatSentenceSection({ idx, setIdx, prepRunning, setPrepRunning, prepS
       <div className="flex items-center justify-between">
         <button disabled={idx === 0} onClick={() => setIdx(idx - 1)} className="flex items-center gap-1 px-4 py-2 rounded-xl border border-slate-200 text-sm font-semibold disabled:opacity-40 hover:bg-slate-50"><ArrowLeft className="w-4 h-4" /> Prev</button>
         {isLast ? (
-          <button onClick={onComplete} className="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-gradient-to-r from-violet-500 to-purple-600 text-white font-bold text-sm hover:shadow-lg transition-all">Continue to Describe Image <ChevronRight className="w-4 h-4" /></button>
+          <button onClick={onComplete} className="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-blue-900 hover:bg-blue-800 text-white font-bold text-sm hover:shadow-lg transition-all">Continue to Describe Image <ChevronRight className="w-4 h-4" /></button>
         ) : (
-          <button onClick={() => setIdx(idx + 1)} className="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-violet-600 text-white font-bold text-sm hover:bg-violet-700 transition-all">Next <ChevronRight className="w-4 h-4" /></button>
+          <button onClick={() => setIdx(idx + 1)} className="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-blue-900 text-white font-bold text-sm hover:bg-blue-800 transition-all">Next <ChevronRight className="w-4 h-4" /></button>
         )}
       </div>
     </motion.div>
@@ -711,15 +711,15 @@ function DescribeImageSection({ idx, setIdx, isRecording, onStartRecord, onStopR
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="max-w-3xl mx-auto px-6 py-8">
       <div className="mb-6">
-        <span className="text-xs font-bold text-violet-600 uppercase tracking-widest">Describe Image — Speaking</span>
+        <span className="text-xs font-bold text-blue-900 uppercase tracking-widest">Describe Image — Speaking</span>
         <h2 className="text-xl font-black text-slate-900">Image {idx + 1} of {DESCRIBE_IMAGE_PROMPTS.length}</h2>
       </div>
-      <div className="bg-violet-50 border border-violet-200 rounded-2xl p-5 mb-5">
-        <p className="text-xs font-bold text-violet-700 mb-2">{DESCRIBE_IMAGE_PROMPTS[idx].instruction}</p>
-        <p className="text-sm text-slate-700 leading-relaxed bg-white rounded-xl p-4 border border-violet-100">{DESCRIBE_IMAGE_PROMPTS[idx].prompt}</p>
+      <div className="bg-blue-50 border border-blue-200 rounded-2xl p-5 mb-5">
+        <p className="text-xs font-bold text-blue-800 mb-2">{DESCRIBE_IMAGE_PROMPTS[idx].instruction}</p>
+        <p className="text-sm text-slate-700 leading-relaxed bg-white rounded-xl p-4 border border-blue-100">{DESCRIBE_IMAGE_PROMPTS[idx].prompt}</p>
       </div>
       <button onClick={() => isRecording ? onStopRecord() : onStartRecord(`DI-${idx}`)}
-        className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm transition-all mb-4 ${isRecording ? "bg-red-500 text-white animate-pulse" : "bg-violet-600 text-white hover:bg-violet-700"}`}>
+        className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm transition-all mb-4 ${isRecording ? "bg-red-500 text-white animate-pulse" : "bg-blue-900 text-white hover:bg-blue-800"}`}>
         {isRecording ? <><MicOff className="w-4 h-4" /> Stop recording</> : <><Mic className="w-4 h-4" /> Record response</>}
       </button>
       {transcripts[`DI-${idx}`] && (
@@ -731,9 +731,9 @@ function DescribeImageSection({ idx, setIdx, isRecording, onStartRecord, onStopR
       <div className="flex items-center justify-between">
         <button disabled={idx === 0} onClick={() => setIdx(idx - 1)} className="flex items-center gap-1 px-4 py-2 rounded-xl border border-slate-200 text-sm font-semibold disabled:opacity-40 hover:bg-slate-50"><ArrowLeft className="w-4 h-4" /> Prev</button>
         {isLast ? (
-          <button onClick={onComplete} className="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-gradient-to-r from-violet-500 to-purple-600 text-white font-bold text-sm hover:shadow-lg transition-all">Continue to Essay <ChevronRight className="w-4 h-4" /></button>
+          <button onClick={onComplete} className="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-blue-900 hover:bg-blue-800 text-white font-bold text-sm hover:shadow-lg transition-all">Continue to Essay <ChevronRight className="w-4 h-4" /></button>
         ) : (
-          <button onClick={() => setIdx(idx + 1)} className="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-violet-600 text-white font-bold text-sm hover:bg-violet-700 transition-all">Next <ChevronRight className="w-4 h-4" /></button>
+          <button onClick={() => setIdx(idx + 1)} className="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-blue-900 text-white font-bold text-sm hover:bg-blue-800 transition-all">Next <ChevronRight className="w-4 h-4" /></button>
         )}
       </div>
     </motion.div>
@@ -753,16 +753,16 @@ function EssaySection({ essayText, setEssayText, timer, onComplete }: {
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="max-w-3xl mx-auto px-6 py-8">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <span className="text-xs font-bold text-violet-600 uppercase tracking-widest">Essay — Writing</span>
+          <span className="text-xs font-bold text-blue-900 uppercase tracking-widest">Essay — Writing</span>
           <h2 className="text-xl font-black text-slate-900">Write an Essay</h2>
         </div>
-        <div className={`flex items-center gap-2 px-4 py-2 rounded-xl font-mono font-bold text-sm ${timer.seconds < 300 ? "bg-red-100 text-red-700" : "bg-violet-100 text-violet-700"}`}>
+        <div className={`flex items-center gap-2 px-4 py-2 rounded-xl font-mono font-bold text-sm ${timer.seconds < 300 ? "bg-red-100 text-red-700" : "bg-blue-100 text-blue-800"}`}>
           <Clock className="w-4 h-4" />
           {timer.formatted}
         </div>
       </div>
 
-      <div className="bg-violet-50 border border-violet-200 rounded-2xl p-5 mb-5">
+      <div className="bg-blue-50 border border-blue-200 rounded-2xl p-5 mb-5">
         <p className="text-sm text-slate-800 leading-relaxed">{ESSAY_PROMPT}</p>
       </div>
 
@@ -771,7 +771,7 @@ function EssaySection({ essayText, setEssayText, timer, onComplete }: {
         onChange={(e) => setEssayText(e.target.value)}
         rows={16}
         placeholder="Write your essay here..."
-        className="w-full rounded-2xl border border-slate-200 p-4 text-sm focus:outline-none focus:border-violet-400 resize-none mb-2"
+        className="w-full rounded-2xl border border-slate-200 p-4 text-sm focus:outline-none focus:border-blue-400 resize-none mb-2"
       />
       <div className="flex justify-between text-xs text-slate-500 mb-6">
         <span>Words: <strong className={wc >= 200 && wc <= 300 ? "text-emerald-600" : "text-amber-600"}>{wc}</strong> / 200–300</span>
@@ -780,7 +780,7 @@ function EssaySection({ essayText, setEssayText, timer, onComplete }: {
       </div>
 
       <button onClick={onComplete}
-        className="w-full py-3.5 rounded-2xl bg-gradient-to-r from-violet-500 to-purple-600 text-white font-bold flex items-center justify-center gap-2 hover:shadow-xl transition-all">
+        className="w-full py-3.5 rounded-2xl bg-blue-900 hover:bg-blue-800 text-white font-bold flex items-center justify-center gap-2 hover:shadow-xl transition-all">
         Submit Essay <ChevronRight className="w-5 h-5" />
       </button>
     </motion.div>
@@ -797,7 +797,7 @@ function FillBlanksSection({ answers, setAnswers, onComplete }: {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="max-w-3xl mx-auto px-6 py-8">
       <div className="mb-6">
-        <span className="text-xs font-bold text-violet-600 uppercase tracking-widest">Fill in the Blanks — Reading</span>
+        <span className="text-xs font-bold text-blue-900 uppercase tracking-widest">Fill in the Blanks — Reading</span>
         <h2 className="text-xl font-black text-slate-900">Complete the paragraphs</h2>
         <p className="text-sm text-slate-500 mt-1">Select the best word to fill each blank.</p>
       </div>
@@ -806,7 +806,7 @@ function FillBlanksSection({ answers, setAnswers, onComplete }: {
         const parts = item.text.split("________");
         return (
           <div key={pi} className="bg-white rounded-2xl border border-slate-200 p-6 mb-5">
-            <p className="text-xs font-bold text-violet-600 mb-3">Paragraph {pi + 1}</p>
+            <p className="text-xs font-bold text-blue-900 mb-3">Paragraph {pi + 1}</p>
             <p className="text-sm text-slate-700 leading-loose">
               {parts.map((part, i) => (
                 <React.Fragment key={i}>
@@ -815,7 +815,7 @@ function FillBlanksSection({ answers, setAnswers, onComplete }: {
                     <select
                       value={answers[`F${pi}-${item.blanks[i].index}`] ?? ""}
                       onChange={(e) => setAnswers((prev) => ({ ...prev, [`F${pi}-${item.blanks[i].index}`]: e.target.value }))}
-                      className="inline mx-1 px-2 py-0.5 rounded-lg border border-violet-300 text-xs font-semibold bg-violet-50 focus:outline-none focus:ring-1 focus:ring-violet-400"
+                      className="inline mx-1 px-2 py-0.5 rounded-lg border border-blue-300 text-xs font-semibold bg-blue-50 focus:outline-none focus:ring-1 focus:ring-blue-400"
                     >
                       <option value="">-- select --</option>
                       {item.blanks[i].options.map((opt) => (
@@ -831,7 +831,7 @@ function FillBlanksSection({ answers, setAnswers, onComplete }: {
       })}
 
       <button onClick={onComplete}
-        className="w-full py-3.5 rounded-2xl bg-gradient-to-r from-violet-500 to-purple-600 text-white font-bold flex items-center justify-center gap-2 hover:shadow-xl transition-all">
+        className="w-full py-3.5 rounded-2xl bg-blue-900 hover:bg-blue-800 text-white font-bold flex items-center justify-center gap-2 hover:shadow-xl transition-all">
         Continue to Reorder <ChevronRight className="w-5 h-5" />
       </button>
     </motion.div>
@@ -864,7 +864,7 @@ function ReorderSection({ order, setOrder, onComplete }: {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="max-w-3xl mx-auto px-6 py-8">
       <div className="mb-6">
-        <span className="text-xs font-bold text-violet-600 uppercase tracking-widest">Reorder Paragraphs — Reading</span>
+        <span className="text-xs font-bold text-blue-900 uppercase tracking-widest">Reorder Paragraphs — Reading</span>
         <h2 className="text-xl font-black text-slate-900">Arrange these sentences in logical order</h2>
         <p className="text-sm text-slate-500 mt-1">Use the arrows to move sentences up or down.</p>
       </div>
@@ -874,7 +874,7 @@ function ReorderSection({ order, setOrder, onComplete }: {
           const sentence = sentences.find((s) => s.id === id)!;
           return (
             <div key={id} className="bg-white rounded-xl border border-slate-200 p-4 flex items-start gap-3">
-              <span className="w-6 h-6 rounded-full bg-violet-100 text-violet-700 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">{i + 1}</span>
+              <span className="w-6 h-6 rounded-full bg-blue-100 text-blue-800 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">{i + 1}</span>
               <p className="text-sm text-slate-700 flex-1">{sentence.text}</p>
               <div className="flex flex-col gap-1">
                 <button onClick={() => moveUp(i)} disabled={i === 0}
@@ -888,7 +888,7 @@ function ReorderSection({ order, setOrder, onComplete }: {
       </div>
 
       <button onClick={onComplete}
-        className="w-full py-3.5 rounded-2xl bg-gradient-to-r from-violet-500 to-purple-600 text-white font-bold flex items-center justify-center gap-2 hover:shadow-xl transition-all">
+        className="w-full py-3.5 rounded-2xl bg-blue-900 hover:bg-blue-800 text-white font-bold flex items-center justify-center gap-2 hover:shadow-xl transition-all">
         Continue to Write from Dictation <ChevronRight className="w-5 h-5" />
       </button>
     </motion.div>
@@ -907,7 +907,7 @@ function WriteFromDictationSection({ idx, setIdx, answers, setAnswers, isPlaying
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="max-w-3xl mx-auto px-6 py-8">
       <div className="mb-6">
-        <span className="text-xs font-bold text-violet-600 uppercase tracking-widest">Write from Dictation — Listening</span>
+        <span className="text-xs font-bold text-blue-900 uppercase tracking-widest">Write from Dictation — Listening</span>
         <h2 className="text-xl font-black text-slate-900">Sentence {idx + 1} of {WRITE_FROM_DICTATION_ITEMS.length}</h2>
       </div>
       <div className="bg-amber-50 border border-amber-200 rounded-xl p-3 mb-5 flex items-start gap-2 text-xs text-amber-800">
@@ -917,19 +917,19 @@ function WriteFromDictationSection({ idx, setIdx, answers, setAnswers, isPlaying
       <div className="bg-slate-800 rounded-2xl p-5 mb-5 flex items-center justify-between gap-4">
         <p className="text-slate-400 text-sm">Listen and type the sentence exactly as you hear it.</p>
         <button onClick={() => isPlaying ? onStop() : onPlay(WRITE_FROM_DICTATION_ITEMS[idx], idx)}
-          className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm transition-all flex-shrink-0 ${isPlaying ? "bg-red-500 text-white" : "bg-violet-500 text-white hover:bg-violet-600"}`}>
+          className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm transition-all flex-shrink-0 ${isPlaying ? "bg-red-500 text-white" : "bg-blue-800 text-white hover:bg-blue-900"}`}>
           {isPlaying ? <><VolumeX className="w-4 h-4" /> Stop</> : <><Volume2 className="w-4 h-4" /> {hasPlayed[idx] ? "Replay" : "Play"}</>}
         </button>
       </div>
       <input type="text" value={answers[idx] ?? ""} onChange={(e) => setAnswers((prev) => ({ ...prev, [idx]: e.target.value }))}
         placeholder="Type the sentence exactly as you heard it..."
-        className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-violet-400 mb-6" />
+        className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-400 mb-6" />
       <div className="flex items-center justify-between">
         <button disabled={idx === 0} onClick={() => setIdx(idx - 1)} className="flex items-center gap-1 px-4 py-2 rounded-xl border border-slate-200 text-sm font-semibold disabled:opacity-40 hover:bg-slate-50"><ArrowLeft className="w-4 h-4" /> Prev</button>
         {isLast ? (
-          <button onClick={onComplete} className="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-gradient-to-r from-violet-500 to-purple-600 text-white font-bold text-sm hover:shadow-lg transition-all">Submit Test <ChevronRight className="w-4 h-4" /></button>
+          <button onClick={onComplete} className="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-blue-900 hover:bg-blue-800 text-white font-bold text-sm hover:shadow-lg transition-all">Submit Test <ChevronRight className="w-4 h-4" /></button>
         ) : (
-          <button onClick={() => setIdx(idx + 1)} className="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-violet-600 text-white font-bold text-sm hover:bg-violet-700 transition-all">Next <ChevronRight className="w-4 h-4" /></button>
+          <button onClick={() => setIdx(idx + 1)} className="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-blue-900 text-white font-bold text-sm hover:bg-blue-800 transition-all">Next <ChevronRight className="w-4 h-4" /></button>
         )}
       </div>
     </motion.div>
@@ -942,16 +942,16 @@ function PTEResults({ scores, scoringError }: { scores: Record<string, SectionSc
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-4xl mx-auto px-6 py-12">
       <div className="text-center mb-10">
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-violet-100 text-violet-700 border border-violet-200 mb-4 text-sm font-bold">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 text-blue-800 border border-blue-200 mb-4 text-sm font-bold">
           <Star className="w-4 h-4" /> Test Complete
         </div>
         <h1 className="text-3xl font-black text-slate-900 mb-2">Your PTE Results</h1>
         <p className="text-slate-500 text-sm">Estimated communicative skills scores out of 90</p>
 
-        <div className="inline-flex items-center justify-center w-32 h-32 rounded-full bg-gradient-to-br from-violet-400 to-purple-600 shadow-2xl shadow-violet-500/40 mt-6 mb-2">
+        <div className="inline-flex items-center justify-center w-32 h-32 rounded-full bg-blue-900 shadow-2xl shadow-blue-800/40 mt-6 mb-2">
           <div className="text-center">
             <p className="text-4xl font-black text-white">{scores.overall?.score ?? "—"}</p>
-            <p className="text-[10px] text-violet-200 font-bold uppercase">Overall /90</p>
+            <p className="text-[10px] text-blue-200 font-bold uppercase">Overall /90</p>
           </div>
         </div>
 
@@ -966,7 +966,7 @@ function PTEResults({ scores, scoringError }: { scores: Record<string, SectionSc
       {/* Skill bars */}
       <div className="bg-white rounded-2xl border border-slate-200 p-6 mb-6">
         <div className="flex items-center gap-2 mb-5">
-          <TrendingUp className="w-5 h-5 text-violet-600" />
+          <TrendingUp className="w-5 h-5 text-blue-900" />
           <h3 className="font-extrabold text-slate-900">Communicative Skills Breakdown</h3>
         </div>
         <p className="text-sm text-slate-500 mb-4">{scores.skills?.band ?? "Scores unavailable"}</p>
@@ -983,10 +983,10 @@ function PTEResults({ scores, scoringError }: { scores: Record<string, SectionSc
             <div key={s.key} className="mb-4">
               <div className="flex justify-between text-xs mb-1">
                 <span className="font-semibold text-slate-700">{s.label}</span>
-                <span className="text-violet-600 font-bold">{sc?.band ?? "—"}</span>
+                <span className="text-blue-900 font-bold">{sc?.band ?? "—"}</span>
               </div>
               <div className="h-2 bg-slate-100 rounded-full">
-                <div className="h-2 rounded-full bg-gradient-to-r from-violet-400 to-purple-500 transition-all duration-700" style={{ width: `${pct}%` }} />
+                <div className="h-2 rounded-full bg-blue-800 transition-all duration-700" style={{ width: `${pct}%` }} />
               </div>
             </div>
           );
@@ -997,7 +997,7 @@ function PTEResults({ scores, scoringError }: { scores: Record<string, SectionSc
       {scores.essay && (
         <div className="bg-white rounded-2xl border border-slate-200 p-6 mb-6">
           <div className="flex items-center gap-2 mb-4">
-            <PenLine className="w-5 h-5 text-violet-600" />
+            <PenLine className="w-5 h-5 text-blue-900" />
             <h3 className="font-extrabold text-slate-900">Essay Feedback</h3>
           </div>
           {scores.essay.feedback && <p className="text-sm text-slate-600 mb-3">{scores.essay.feedback}</p>}
@@ -1025,9 +1025,9 @@ function PTEResults({ scores, scoringError }: { scores: Record<string, SectionSc
         ];
         const weakest = areas.reduce((a, b) => a.score < b.score ? a : b);
         return (
-          <div className="bg-indigo-50 border border-indigo-200 rounded-2xl p-5 mb-6">
-            <h3 className="font-extrabold text-indigo-900 mb-1 text-sm">Recommended next action</h3>
-            <p className="text-sm text-indigo-800">Your weakest productive skill is <strong>{weakest.label}</strong>. Focus your practice on {weakest.label === "Speaking" ? "Read Aloud, Repeat Sentence, and Describe Image tasks" : "Essay and Summarize Written Text tasks"} before your next attempt.</p>
+          <div className="bg-blue-50 border border-blue-200 rounded-2xl p-5 mb-6">
+            <h3 className="font-extrabold text-blue-950 mb-1 text-sm">Recommended next action</h3>
+            <p className="text-sm text-blue-900">Your weakest productive skill is <strong>{weakest.label}</strong>. Focus your practice on {weakest.label === "Speaking" ? "Read Aloud, Repeat Sentence, and Describe Image tasks" : "Essay and Summarize Written Text tasks"} before your next attempt.</p>
           </div>
         );
       })()}
@@ -1037,10 +1037,10 @@ function PTEResults({ scores, scoringError }: { scores: Record<string, SectionSc
       </div>
 
       <div className="grid sm:grid-cols-2 gap-4">
-        <Link href="/english-test-lab/pte" className="flex items-center justify-center gap-2 py-3.5 rounded-2xl border-2 border-violet-200 text-violet-700 font-bold text-sm hover:bg-violet-50 transition-all">
+        <Link href="/english-test-lab/pte" className="flex items-center justify-center gap-2 py-3.5 rounded-2xl border-2 border-blue-200 text-blue-800 font-bold text-sm hover:bg-blue-50 transition-all">
           <RotateCcw className="w-4 h-4" /> Try again
         </Link>
-        <Link href="/get-started" className="flex items-center justify-center gap-2 py-3.5 rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-bold text-sm hover:shadow-xl transition-all">
+        <Link href="/get-started" className="flex items-center justify-center gap-2 py-3.5 rounded-2xl bg-blue-900 hover:bg-blue-800 text-white font-bold text-sm hover:shadow-xl transition-all">
           <BookOpen className="w-4 h-4" /> Check your university shortlist
         </Link>
       </div>

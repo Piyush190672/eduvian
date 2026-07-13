@@ -53,7 +53,7 @@ export function TradeoffView({
   return (
     <section className="rounded-3xl border border-stone-200 bg-white px-5 py-5 sm:px-6 sm:py-6 shadow-sm">
       <div className="flex items-center gap-2 mb-4">
-        <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-violet-700">{title}</p>
+        <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-blue-800">{title}</p>
       </div>
       <ul className="divide-y divide-stone-100">
         {factors.map((f) => {
@@ -79,10 +79,10 @@ export function TradeoffView({
 
       {compareActions && compareActions.length > 0 && (
         <div className="mt-5 pt-4 border-t border-stone-100">
-          <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-violet-700 mb-2">Compare with</p>
+          <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-blue-800 mb-2">Compare with</p>
           <div className="flex flex-wrap gap-2">
             {compareActions.map((a) => {
-              const cls = "text-xs font-semibold px-3 py-1.5 rounded-full border border-violet-200 bg-violet-50 text-violet-700 hover:bg-violet-100 hover:border-violet-300 transition-colors";
+              const cls = "text-xs font-semibold px-3 py-1.5 rounded-full border border-blue-200 bg-blue-50 text-blue-800 hover:bg-blue-100 hover:border-blue-300 transition-colors";
               return a.href ? (
                 <a key={a.label} href={a.href} className={cls}>{a.label}</a>
               ) : (

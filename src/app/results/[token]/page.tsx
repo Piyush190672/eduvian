@@ -220,7 +220,7 @@ export default function ResultsPage() {
   if (loading) return (
     <div className="min-h-screen flex items-center justify-center">
       <div className="text-center">
-        <Loader2 className="w-12 h-12 animate-spin text-indigo-500 mx-auto mb-4" />
+        <Loader2 className="w-12 h-12 animate-spin text-blue-800 mx-auto mb-4" />
         <p className="text-gray-500">Building your personalised shortlist...</p>
       </div>
     </div>
@@ -230,7 +230,7 @@ export default function ResultsPage() {
     <div className="min-h-screen flex items-center justify-center">
       <div className="text-center">
         <p className="text-gray-500 mb-4">{error}</p>
-        <Link href="/profile" className="px-6 py-2.5 rounded-xl bg-indigo-500 text-white font-medium hover:bg-indigo-600 transition-colors">
+        <Link href="/profile" className="px-6 py-2.5 rounded-xl bg-blue-800 text-white font-medium hover:bg-blue-900 transition-colors">
           Start over
         </Link>
       </div>
@@ -299,7 +299,7 @@ export default function ResultsPage() {
   const tierPrograms = { safe: safePrograms, reach: reachPrograms, ambitious: ambitiousPrograms };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50/30">
+    <div className="min-h-screen bg-[#F8FAFC]">
       {/* Nav — anchored below the dismissable banner stack via CSS vars.
           On mobile only Logo + Logout + PDF (primary action) show; the
           rest collapse into a smaller set with icon-only buttons.  */}
@@ -338,7 +338,7 @@ export default function ResultsPage() {
             onClick={downloadPDF}
             aria-label="Download PDF shortlist"
             title="Download PDF shortlist"
-            className="flex items-center gap-1.5 px-2.5 sm:px-4 py-2 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-medium hover:shadow-lg hover:shadow-indigo-200 transition-all"
+            className="flex items-center gap-1.5 px-2.5 sm:px-4 py-2 rounded-xl bg-blue-900 hover:bg-blue-800 text-white text-sm font-medium hover:shadow-lg transition-all"
           >
             <Download className="w-4 h-4" />
             <span className="hidden sm:inline">PDF Shortlist{shortlisted.size > 0 ? ` (${shortlisted.size})` : ""}</span>
@@ -380,7 +380,7 @@ export default function ResultsPage() {
                     matches, say exactly how many — a silently shrunken
                     list reads as "the site lost my matches". */}
                 {filtersActive && shown < allPrograms.length && (
-                  <p className="text-xs font-semibold text-indigo-600 mt-1.5">
+                  <p className="text-xs font-semibold text-blue-900 mt-1.5">
                     Filters are hiding {allPrograms.length - shown} of your {allPrograms.length} matches.
                   </p>
                 )}
@@ -403,13 +403,13 @@ export default function ResultsPage() {
           <button
             onClick={() => setShowFilters((s) => !s)}
             className={`flex items-center gap-2 px-4 py-2 rounded-xl border text-sm font-medium transition-all ${
-              showFilters ? "bg-indigo-50 border-indigo-200 text-indigo-700" : "bg-white border-gray-200 text-gray-600 hover:border-indigo-200"
+              showFilters ? "bg-blue-50 border-blue-200 text-blue-800" : "bg-white border-gray-200 text-gray-600 hover:border-blue-200"
             }`}
           >
             <SlidersHorizontal className="w-4 h-4" />
             Refine
             {(filters.country !== "all" || filters.field !== "all") && (
-              <span className="w-2 h-2 rounded-full bg-indigo-500 ml-1" />
+              <span className="w-2 h-2 rounded-full bg-blue-800 ml-1" />
             )}
           </button>
           {/* Active-filter chips (Phase 2 #12) — one-tap removal without
@@ -417,7 +417,7 @@ export default function ResultsPage() {
           {filters.country !== "all" && (
             <button
               onClick={() => setFilters((f) => ({ ...f, country: "all" }))}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-indigo-50 border border-indigo-200 text-xs font-semibold text-indigo-700 hover:bg-indigo-100 transition-colors"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-xs font-semibold text-blue-800 hover:bg-blue-100 transition-colors"
               aria-label={`Remove country filter ${filters.country}`}
             >
               {filters.country}
@@ -427,7 +427,7 @@ export default function ResultsPage() {
           {filters.field !== "all" && (
             <button
               onClick={() => setFilters((f) => ({ ...f, field: "all" }))}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-indigo-50 border border-indigo-200 text-xs font-semibold text-indigo-700 hover:bg-indigo-100 transition-colors max-w-[180px]"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-xs font-semibold text-blue-800 hover:bg-blue-100 transition-colors max-w-[180px]"
               aria-label={`Remove field filter ${filters.field}`}
             >
               <span className="truncate">{filters.field}</span>
@@ -447,7 +447,7 @@ export default function ResultsPage() {
             <select
               value={filters.sort}
               onChange={(e) => setFilters((f) => ({ ...f, sort: e.target.value }))}
-              className="px-3 py-1.5 rounded-xl border border-gray-200 text-sm text-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-300 bg-white"
+              className="px-3 py-1.5 rounded-xl border border-gray-200 text-sm text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-300 bg-white"
             >
               <option value="match_score">Sort: Best Match</option>
               <option value="tuition">Sort: Lowest Tuition</option>
@@ -464,7 +464,7 @@ export default function ResultsPage() {
               <select
                 value={filters.country}
                 onChange={(e) => setFilters((f) => ({ ...f, country: e.target.value }))}
-                className="w-full px-3 py-2 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300 bg-white"
+                className="w-full px-3 py-2 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300 bg-white"
               >
                 <option value="all">All Countries</option>
                 {countries.map((c) => <option key={c} value={c}>{c}</option>)}
@@ -475,7 +475,7 @@ export default function ResultsPage() {
               <select
                 value={filters.field}
                 onChange={(e) => setFilters((f) => ({ ...f, field: e.target.value }))}
-                className="w-full px-3 py-2 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300 bg-white"
+                className="w-full px-3 py-2 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300 bg-white"
               >
                 <option value="all">All Fields</option>
                 {fields.map((f) => <option key={f} value={f}>{f}</option>)}
@@ -489,21 +489,21 @@ export default function ResultsPage() {
             truncation is server-side; this banner explains it and routes
             to registration with the same email, which unlocks the rest. */}
         {data.viewer === "locked" && (
-          <div className="mb-8 rounded-2xl border-2 border-violet-200 bg-violet-50 px-5 py-5">
+          <div className="mb-8 rounded-2xl border-2 border-blue-200 bg-blue-50 px-5 py-5">
             <div className="flex items-start gap-3">
-              <Lock className="w-5 h-5 text-violet-700 flex-shrink-0 mt-0.5" />
+              <Lock className="w-5 h-5 text-blue-800 flex-shrink-0 mt-0.5" />
               <div className="flex-1 min-w-0">
-                <p className="text-sm font-bold text-violet-900">
+                <p className="text-sm font-bold text-blue-950">
                   You&apos;re previewing {allPrograms.length} of {data.total_matches ?? allPrograms.length} matches.
                 </p>
-                <p className="text-xs text-violet-800/80 mt-1 leading-relaxed">
+                <p className="text-xs text-blue-900/80 mt-1 leading-relaxed">
                   {data.locked_count ?? 0} more matches are ready. Create a free
                   account with the same email you used on the form to unlock the
                   full list, save shortlists, and get the PDF report.
                 </p>
                 <Link
                   href={`/get-started?next=/results/${token}`}
-                  className="inline-flex items-center gap-2 mt-3 px-5 py-2.5 rounded-full bg-violet-600 hover:bg-violet-700 text-white text-sm font-bold transition-colors"
+                  className="inline-flex items-center gap-2 mt-3 px-5 py-2.5 rounded-full bg-blue-900 hover:bg-blue-800 text-white text-sm font-bold transition-colors"
                 >
                   Register free to unlock all {data.total_matches ?? ""} matches
                 </Link>
@@ -587,7 +587,7 @@ export default function ResultsPage() {
                           {(filters.country !== "all" || filters.field !== "all") && (
                             <button
                               onClick={() => setFilters({ country: "all", field: "all", sort: filters.sort })}
-                              className="mt-2.5 text-xs text-indigo-500 hover:underline"
+                              className="mt-2.5 text-xs text-blue-800 hover:underline"
                             >
                               Clear page-level filters
                             </button>
@@ -676,9 +676,9 @@ export default function ResultsPage() {
             <div className="max-w-5xl mx-auto flex items-center gap-3 flex-wrap">
               {/* Selected chips */}
               {comparePrograms.map((p) => (
-                <div key={p.id} className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-violet-50 border border-violet-200 text-sm font-medium text-violet-700">
+                <div key={p.id} className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-blue-50 border border-blue-200 text-sm font-medium text-blue-800">
                   <span className="max-w-[120px] truncate">{p.program_name}</span>
-                  <button onClick={() => toggleCompare(p.id)} className="text-violet-400 hover:text-violet-600 transition-colors">
+                  <button onClick={() => toggleCompare(p.id)} className="text-blue-400 hover:text-blue-900 transition-colors">
                     <X className="w-3.5 h-3.5" />
                   </button>
                 </div>
@@ -712,8 +712,8 @@ export default function ResultsPage() {
                   aria-disabled={comparePrograms.length < 2}
                   className={`flex items-center gap-2 px-5 py-2 rounded-xl text-white text-sm font-bold transition-all ${
                     comparePrograms.length >= 2
-                      ? "bg-gradient-to-r from-violet-500 to-purple-600 hover:shadow-lg hover:shadow-violet-200 hover:-translate-y-0.5"
-                      : "bg-gradient-to-r from-violet-300 to-purple-300 cursor-pointer"
+                      ? "bg-blue-900 hover:shadow-lg hover:shadow-blue-200 hover:-translate-y-0.5"
+                      : "bg-blue-300 cursor-pointer"
                   }`}
                 >
                   <BarChart2 className="w-4 h-4" />

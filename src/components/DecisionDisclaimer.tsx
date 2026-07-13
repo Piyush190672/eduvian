@@ -10,7 +10,7 @@ const COPY: Record<Variant, string> = {
   "english-test":
     "Exam-style practice based on published test structures. Not affiliated with, endorsed by, or licensed under IELTS, ETS (TOEFL), Pearson (PTE), or Duolingo. AI scoring is a directional estimate — final scores are decided only by the official test provider.",
   shortlist:
-    "AI-powered shortlist based on your inputs. Match scores are decision-support estimates, not admission predictions. Always verify fees, deadlines and entry requirements directly with each university.",
+    "A shortlist computed from your inputs and verified program data. Match scores are decision-support estimates, not admission predictions. Always verify fees, deadlines and entry requirements directly with each university.",
   scholarship:
     "Scholarship eligibility, amounts and deadlines change by university, intake and applicant profile. Confirm current rules from the official university page before applying.",
 };

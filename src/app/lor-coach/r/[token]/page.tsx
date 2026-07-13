@@ -66,14 +66,14 @@ const DIM_LABELS: Record<keyof AssessResult["dimension_scores"], string> = {
 
 function Nav() {
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-0 bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 border-b border-white/10 shadow-lg shadow-black/20">
+    <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-0 bg-[#0F172A] border-b border-white/10 shadow-lg shadow-black/20">
       <Link href="/" className="flex items-center gap-3 py-4 flex-shrink-0">
         <EduvianLogoMark size={36} />
         <div>
           <span className="font-display font-bold text-base text-white tracking-tight">
-            eduvian<span className="text-indigo-300">AI</span>
+            eduvian<span className="text-blue-300">AI</span>
           </span>
-          <p className="text-[10px] text-indigo-300 leading-none font-medium">LOR Coach · Recommender</p>
+          <p className="text-[10px] text-blue-300 leading-none font-medium">LOR Coach · Recommender</p>
         </div>
       </Link>
       <Link
@@ -107,7 +107,7 @@ export default function RecommenderPage({ params }: { params: Promise<{ token: s
 
   if (!brief) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50/30 font-sans">
+      <div className="min-h-screen bg-[#F8FAFC] font-sans">
         <Nav />
         <main className="pt-32 pb-20 px-4 max-w-lg mx-auto">
           <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 text-center">
@@ -138,7 +138,7 @@ function RecommenderApp({ brief }: { brief: LorBrief }) {
   const [highlightsExpanded, setHighlightsExpanded] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50/30 font-sans">
+    <div className="min-h-screen bg-[#F8FAFC] font-sans">
       <Nav />
       <main className="pt-24 pb-20 px-4 max-w-5xl mx-auto">
         {/* Summary card */}
@@ -205,7 +205,7 @@ function RecommenderApp({ brief }: { brief: LorBrief }) {
             {brief.applicant_highlights.length > 200 && (
               <button
                 onClick={() => setHighlightsExpanded((v) => !v)}
-                className="text-[11px] font-bold text-indigo-600 hover:text-indigo-700 mt-1"
+                className="text-[11px] font-bold text-blue-900 hover:text-blue-800 mt-1"
               >
                 {highlightsExpanded ? "Show less" : "Show more"}
               </button>
@@ -229,7 +229,7 @@ function RecommenderApp({ brief }: { brief: LorBrief }) {
             onClick={() => setTab("check")}
             className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold transition-all duration-200 ${
               tab === "check"
-                ? "bg-gradient-to-r from-indigo-500 to-purple-600 text-white shadow-md"
+                ? "bg-blue-900 hover:bg-blue-800 text-white shadow-md"
                 : "text-gray-500 hover:text-gray-700 hover:bg-gray-50"
             }`}
           >
@@ -640,7 +640,7 @@ function CheckTab({ brief }: { brief: LorBrief }) {
     return (
       <div className="fixed inset-0 z-[90] bg-white/80 backdrop-blur-sm flex items-center justify-center">
         <div className="text-center">
-          <Loader2 className="w-10 h-10 text-indigo-500 animate-spin mx-auto mb-4" />
+          <Loader2 className="w-10 h-10 text-blue-800 animate-spin mx-auto mb-4" />
           <p className="text-sm font-bold text-gray-700">Scoring letter across 7 dimensions…</p>
           <p className="text-xs text-gray-400 mt-1">This takes 10-20 seconds.</p>
         </div>
@@ -663,7 +663,7 @@ function CheckTab({ brief }: { brief: LorBrief }) {
           onChange={(e) => setLetterText(e.target.value)}
           rows={14}
           placeholder="Paste the full letter text here…"
-          className="w-full px-3 py-3 rounded-lg border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 resize-y font-mono"
+          className="w-full px-3 py-3 rounded-lg border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 resize-y font-mono"
         />
         <div className="flex items-center gap-3">
           <label className="inline-flex items-center gap-2 px-3 py-2 rounded-lg border border-gray-200 text-xs font-bold text-gray-700 hover:bg-gray-50 cursor-pointer transition-colors">
@@ -693,7 +693,7 @@ function CheckTab({ brief }: { brief: LorBrief }) {
           <select
             value={selectedProgramIdx}
             onChange={(e) => setSelectedProgramIdx(Number(e.target.value))}
-            className="w-full px-3 py-2 rounded-lg border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400"
+            className="w-full px-3 py-2 rounded-lg border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
           >
             {brief.target_programs.map((p, i) => (
               <option key={i} value={i}>
@@ -718,7 +718,7 @@ function CheckTab({ brief }: { brief: LorBrief }) {
       <button
         type="submit"
         disabled={letterText.trim().length < 100}
-        className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-bold shadow-md hover:shadow-lg hover:shadow-indigo-200 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-blue-900 hover:bg-blue-800 text-white text-sm font-bold shadow-md hover:shadow-lg hover:shadow-blue-200 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
       >
         <FileText className="w-4 h-4" />
         Score this letter
@@ -816,7 +816,7 @@ function AssessResultView({
                 </div>
                 <div className="w-full h-1.5 bg-gray-100 rounded-full overflow-hidden mb-1.5">
                   <div
-                    className="h-full bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full"
+                    className="h-full bg-blue-900 hover:bg-blue-800 rounded-full"
                     style={{ width: `${p}%` }}
                   />
                 </div>
@@ -922,8 +922,8 @@ function AssessResultView({
       {result.suggested_strengthening_rewrites?.length > 0 && (
         <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
           <div className="flex items-center gap-2 mb-4">
-            <Sparkles className="w-4 h-4 text-indigo-600" />
-            <h3 className="text-sm font-extrabold text-indigo-700 uppercase tracking-wider">
+            <Sparkles className="w-4 h-4 text-blue-900" />
+            <h3 className="text-sm font-extrabold text-blue-800 uppercase tracking-wider">
               Suggested strengthening rewrites
             </h3>
           </div>
@@ -934,7 +934,7 @@ function AssessResultView({
                   Original paragraph
                 </p>
                 <p className="text-xs text-gray-600 italic mb-3">&ldquo;{r.original_paragraph_snippet}&rdquo;</p>
-                <p className="text-[10px] font-bold text-indigo-600 uppercase tracking-wider mb-1">Rewrite</p>
+                <p className="text-[10px] font-bold text-blue-900 uppercase tracking-wider mb-1">Rewrite</p>
                 <p className="text-xs text-gray-900 leading-relaxed whitespace-pre-wrap">{r.rewrite}</p>
               </div>
             ))}

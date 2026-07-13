@@ -48,9 +48,9 @@ export default function DestinationsPage() {
       {/* ───── HERO ───── */}
       <section className="relative bg-[#0E1119] text-white">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 pt-28 sm:pt-36 pb-16 sm:pb-20">
-          <p className="text-[11px] uppercase tracking-[0.25em] text-violet-300/85 mb-8 font-semibold">Destinations</p>
+          <p className="text-[11px] uppercase tracking-[0.25em] text-blue-300/85 mb-8 font-semibold">Destinations</p>
           <h1 className="font-display font-bold text-[2.25rem] leading-[1.08] sm:text-5xl md:text-[3.75rem] tracking-tight max-w-3xl mb-7">
-            Twelve countries. One <span className="italic font-medium text-violet-300">verified-source</span> standard.
+            Twelve countries. One <span className="italic font-medium text-blue-300">verified-source</span> standard.
           </h1>
           <p className="text-lg sm:text-xl text-white/65 leading-relaxed max-w-2xl">
             Every destination on EduvianAI carries the same rule: live URL fetch from the official university page, no invented values, blank fields where the source is silent. Tap any country to see universities, fees and visa rules.
@@ -111,14 +111,14 @@ export default function DestinationsPage() {
       <section className="bg-white border-b border-stone-200">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 py-24 sm:py-32 grid lg:grid-cols-12 gap-12 items-start">
           <div className="lg:col-span-5">
-            <p className="text-[11px] uppercase tracking-[0.25em] text-violet-700 font-semibold mb-6">How destinations enter the database</p>
+            <p className="text-[11px] uppercase tracking-[0.25em] text-blue-800 font-semibold mb-6">How destinations enter the database</p>
             <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight leading-[1.1] mb-6">
-              Every figure is <span className="italic font-medium text-violet-700">fetched live</span>.
+              Every figure is <span className="italic font-medium text-blue-800">fetched live</span>.
             </h2>
             <p className="text-base text-gray-500 leading-relaxed mb-6">
               Adding a country means seeding its universities, then scraping each program page directly. Tuition, deadlines, English minimums and intake months land in the database only after a successful fetch.
             </p>
-            <Link href="/get-started" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-violet-600 hover:bg-violet-700 text-white text-sm font-semibold transition-colors">
+            <Link href="/get-started" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-blue-900 hover:bg-blue-800 text-white text-sm font-semibold transition-colors">
               Find my best-fit programs
               <ArrowRight className="w-4 h-4" />
             </Link>
@@ -132,7 +132,7 @@ export default function DestinationsPage() {
                 { n: "04", t: "Stamped with verified_at", p: "Successfully verified programs carry a verified_at timestamp. The scoring engine prefers verified entries." },
               ].map((s) => (
                 <div key={s.n} className="flex gap-5 p-6 rounded-2xl bg-stone-50 border border-stone-200">
-                  <span className="font-display text-2xl font-light text-violet-600 tabular-nums flex-shrink-0">{s.n}</span>
+                  <span className="font-display text-2xl font-light text-blue-900 tabular-nums flex-shrink-0">{s.n}</span>
                   <div>
                     <h3 className="font-display text-lg font-semibold tracking-tight text-gray-900 mb-1.5">{s.t}</h3>
                     <p className="text-sm text-gray-500 leading-relaxed">{s.p}</p>
@@ -148,10 +148,10 @@ export default function DestinationsPage() {
       <section className="bg-stone-50 border-b border-stone-200">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 py-24 sm:py-32 text-center">
           <h2 className="font-display text-3xl sm:text-5xl font-bold tracking-tight leading-[1.1] mb-6 max-w-3xl mx-auto text-gray-900">
-            Pick a destination, or let the <span className="italic font-medium text-violet-700">AI shortlist</span> across all twelve.
+            Pick a destination, or let the <span className="italic font-medium text-blue-800">AI shortlist</span> across all twelve.
           </h2>
           <div className="flex flex-wrap items-center justify-center gap-3 mt-8">
-            <Link href="/get-started" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-violet-600 hover:bg-violet-700 text-white text-sm font-semibold transition-colors shadow-lg shadow-violet-200">
+            <Link href="/get-started" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-blue-900 hover:bg-blue-800 text-white text-sm font-semibold transition-colors shadow-lg shadow-blue-200">
               Find my best-fit programs
               <ArrowRight className="w-4 h-4" />
             </Link>

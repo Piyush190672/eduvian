@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     template: "%s | eduvianAI",
   },
   description:
-    "AI-powered program recommendations for study abroad aspirants. Get matched with universities in USA, UK, Australia, Canada, and more.",
+    "Independent study-abroad decision support built on verified university data. Get matched with programs in the USA, UK, Australia, Canada, and more.",
   alternates: { canonical: "/" },
   keywords: [
     "study abroad",
@@ -53,7 +53,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
-      <body className="antialiased min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50/30 overflow-x-hidden">
+      <body className="antialiased min-h-screen bg-[#F8FAFC] overflow-x-hidden">
         <BetaBanner />
         <SecurityNoticeBanner />
         <IdleLogout />

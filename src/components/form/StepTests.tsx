@@ -16,7 +16,7 @@ const Label = ({ children }: { children: React.ReactNode }) => (
 const Input = ({ ...props }: React.InputHTMLAttributes<HTMLInputElement>) => (
   <input
     {...props}
-    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-transparent transition-all placeholder:text-gray-400"
+    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent transition-all placeholder:text-gray-400"
   />
 );
 
@@ -37,8 +37,8 @@ const RadioGroup = ({
         onClick={() => onChange(o.value)}
         className={`px-4 py-2 rounded-xl text-sm font-medium border transition-all ${
           value === o.value
-            ? "bg-indigo-500 text-white border-indigo-500 shadow-sm"
-            : "bg-white text-gray-600 border-gray-200 hover:border-indigo-300 hover:text-indigo-600"
+            ? "bg-blue-800 text-white border-blue-800 shadow-sm"
+            : "bg-white text-gray-600 border-gray-200 hover:border-blue-300 hover:text-blue-900"
         }`}
       >
         {o.label}
@@ -125,7 +125,7 @@ export default function StepTests({ profile, onChange }: Props) {
       </div>
 
       {config && (
-        <div className="space-y-4 p-5 rounded-2xl bg-indigo-50/50 border border-indigo-100">
+        <div className="space-y-4 p-5 rounded-2xl bg-blue-50/50 border border-blue-100">
           <div>
             <Label>{config.overall.label}</Label>
             <Input

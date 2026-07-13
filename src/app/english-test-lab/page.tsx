@@ -23,7 +23,7 @@ import { EduvianLogoMark } from "@/components/EduvianLogo";
 
 function Nav() {
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-0 bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 border-b border-white/10 shadow-lg shadow-black/20">
+    <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-0 bg-[#0F172A] border-b border-white/10 shadow-lg shadow-black/20">
       <Link href="/" className="flex items-center gap-3 py-4 flex-shrink-0">
         <EduvianLogoMark size={36} />
       </Link>
@@ -33,7 +33,7 @@ function Nav() {
         </Link>
         <Link
           href="/get-started"
-          className="flex items-center gap-2 px-5 py-2.5 my-3 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-bold hover:shadow-lg hover:shadow-indigo-500/40 transition-all duration-200 hover:-translate-y-0.5"
+          className="flex items-center gap-2 px-5 py-2.5 my-3 rounded-xl bg-blue-900 hover:bg-blue-800 text-white text-sm font-bold hover:shadow-lg hover:shadow-blue-800/40 transition-all duration-200 hover:-translate-y-0.5"
         >
           Get Started Free
           <ArrowRight className="w-3.5 h-3.5" />
@@ -66,11 +66,11 @@ const EXAMS = [
     id: "pte",
     name: "PTE Academic-Style",
     subtitle: "Pearson Test of English Academic practice",
-    accent: "from-violet-500 to-purple-600",
-    accentLight: "from-violet-50 to-purple-50",
-    accentBorder: "border-violet-200",
-    accentText: "text-violet-700",
-    accentBadge: "bg-violet-100 text-violet-700",
+    accent: "from-blue-800 to-blue-900",
+    accentLight: "from-blue-50 to-blue-50",
+    accentBorder: "border-blue-200",
+    accentText: "text-blue-800",
+    accentBadge: "bg-blue-100 text-blue-800",
     duration: "Approx. 45 min",
     skills: ["Speaking", "Writing", "Reading"],
     mocks: 3,
@@ -144,20 +144,20 @@ export default function EnglishTestLabPage() {
       <Nav />
 
       {/* Hero */}
-      <section className="pt-24 pb-16 bg-gradient-to-br from-slate-900 via-indigo-950 to-purple-950 relative overflow-hidden">
-        <div aria-hidden className="hidden md:block absolute top-20 left-1/4 w-96 h-96 bg-indigo-500/15 rounded-full blur-3xl pointer-events-none" />
-        <div aria-hidden className="hidden md:block absolute bottom-0 right-1/4 w-72 h-72 bg-purple-500/15 rounded-full blur-3xl pointer-events-none" />
+      <section className="pt-24 pb-16 bg-[#0F172A] relative overflow-hidden">
+        <div aria-hidden className="hidden md:block absolute top-20 left-1/4 w-96 h-96 bg-blue-800/15 rounded-full blur-3xl pointer-events-none" />
+        <div aria-hidden className="hidden md:block absolute bottom-0 right-1/4 w-72 h-72 bg-blue-800/15 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-4xl mx-auto px-6 text-center relative">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-6">
-              <FlaskConical className="w-4 h-4 text-indigo-300" />
-              <span className="text-sm font-bold text-indigo-200 tracking-wide">English Test Lab</span>
+              <FlaskConical className="w-4 h-4 text-blue-300" />
+              <span className="text-sm font-bold text-blue-200 tracking-wide">English Test Lab</span>
             </div>
 
             <h1 className="text-4xl md:text-5xl font-black text-white mb-4 leading-tight">
               Free English test practice<br />
-              <span className="bg-gradient-to-r from-sky-300 via-violet-300 to-emerald-300 bg-clip-text text-transparent">
+              <span className="text-blue-300">
                 that feels close to the real thing
               </span>
             </h1>
@@ -168,7 +168,7 @@ export default function EnglishTestLabPage() {
 
             <Link
               href="/english-test-lab/ielts"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-bold text-base hover:shadow-xl hover:shadow-indigo-500/40 transition-all duration-200 hover:-translate-y-1"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-blue-900 hover:bg-blue-800 text-white font-bold text-base hover:shadow-xl hover:shadow-blue-800/40 transition-all duration-200 hover:-translate-y-1"
             >
               Start a free mock
               <ArrowRight className="w-4 h-4" />
@@ -274,8 +274,8 @@ export default function EnglishTestLabPage() {
         <div className="max-w-5xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { icon: <Mic className="w-6 h-6 text-indigo-400" />, title: "Voice recording", desc: "Browser Web Speech API — no app download" },
-              { icon: <FlaskConical className="w-6 h-6 text-violet-400" />, title: "AI scoring", desc: "Claude AI scores writing & speaking tasks" },
+              { icon: <Mic className="w-6 h-6 text-blue-400" />, title: "Voice recording", desc: "Browser Web Speech API — no app download" },
+              { icon: <FlaskConical className="w-6 h-6 text-blue-400" />, title: "AI scoring", desc: "Claude AI scores writing & speaking tasks" },
               { icon: <Clock className="w-6 h-6 text-sky-400" />, title: "Timed sections", desc: "Real exam timers with auto-advance" },
               { icon: <CheckCircle2 className="w-6 h-6 text-emerald-400" />, title: "Instant feedback", desc: "Strengths, improvements, and band estimate" },
             ].map((f, i) => (
@@ -307,13 +307,13 @@ export default function EnglishTestLabPage() {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between px-4 py-3 rounded-xl border border-slate-200 bg-white hover:border-indigo-300 hover:shadow-sm transition-all group"
+                className="flex items-center justify-between px-4 py-3 rounded-xl border border-slate-200 bg-white hover:border-blue-300 hover:shadow-sm transition-all group"
               >
                 <div>
-                  <p className="text-sm font-bold text-slate-900 group-hover:text-indigo-700 transition-colors">{link.name}</p>
+                  <p className="text-sm font-bold text-slate-900 group-hover:text-blue-800 transition-colors">{link.name}</p>
                   <p className="text-xs text-slate-500">{link.org}</p>
                 </div>
-                <ExternalLink className="w-4 h-4 text-slate-400 group-hover:text-indigo-500 transition-colors" />
+                <ExternalLink className="w-4 h-4 text-slate-400 group-hover:text-blue-800 transition-colors" />
               </a>
             ))}
           </div>

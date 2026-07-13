@@ -56,16 +56,16 @@ function OptionsBody() {
   return (
     <main className="min-h-screen bg-stone-50">
       <div className="max-w-5xl mx-auto px-6 sm:px-10 py-12 sm:py-16">
-        <Link href="/" className="inline-flex items-center gap-2 text-xs font-semibold text-gray-500 hover:text-violet-700 mb-6">
+        <Link href="/" className="inline-flex items-center gap-2 text-xs font-semibold text-gray-500 hover:text-blue-800 mb-6">
           <ArrowLeft className="w-3.5 h-3.5" /> Back to home
         </Link>
 
         <header className="mb-10">
           <div className="flex items-center gap-2 mb-3">
-            <div className="w-10 h-10 rounded-2xl bg-violet-600 text-white flex items-center justify-center shadow-sm shadow-violet-200">
+            <div className="w-10 h-10 rounded-2xl bg-blue-900 text-white flex items-center justify-center shadow-sm shadow-blue-200">
               <Icon className="w-5 h-5" />
             </div>
-            <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-violet-700">Compare-with lens</p>
+            <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-blue-800">Compare-with lens</p>
           </div>
           <h1 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 mb-3">{meta.title}</h1>
           <p className="text-base text-gray-600 leading-relaxed max-w-3xl">{meta.tagline}</p>
@@ -89,7 +89,7 @@ function OptionsBody() {
               <Link
                 key={k}
                 href={`/options?lens=${k}`}
-                className={`text-xs font-semibold px-3 py-1.5 rounded-full border transition-colors ${active ? "bg-violet-600 text-white border-violet-600" : "border-violet-200 bg-violet-50 text-violet-700 hover:bg-violet-100"}`}
+                className={`text-xs font-semibold px-3 py-1.5 rounded-full border transition-colors ${active ? "bg-blue-900 text-white border-blue-900" : "border-blue-200 bg-blue-50 text-blue-800 hover:bg-blue-100"}`}
               >
                 {LENS_META[k].title.replace(" options", "")}
               </Link>
@@ -112,7 +112,7 @@ function OptionsBody() {
           {ranked.map((p, i) => (
             <article
               key={p.id}
-              className="rounded-2xl border border-stone-200 bg-white px-5 py-4 hover:border-violet-300 hover:shadow-md transition-all"
+              className="rounded-2xl border border-stone-200 bg-white px-5 py-4 hover:border-blue-300 hover:shadow-md transition-all"
             >
               <div className="flex items-start gap-4">
                 <div className="text-xs font-bold text-gray-400 tabular-nums w-8 flex-shrink-0 mt-1">{i + 1}.</div>
@@ -122,7 +122,7 @@ function OptionsBody() {
                       <span className="mr-2">{getCountryFlag(p.country)}</span>
                       {p.university_name}
                     </p>
-                    <p className="text-xs text-violet-700 font-bold whitespace-nowrap">{p.metric}</p>
+                    <p className="text-xs text-blue-800 font-bold whitespace-nowrap">{p.metric}</p>
                   </div>
                   <p className="text-sm text-gray-700">{p.program_name}</p>
                   <p className="text-xs text-gray-500 mt-1">
@@ -138,7 +138,7 @@ function OptionsBody() {
                     href={p.program_url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-shrink-0 text-xs font-semibold text-violet-700 hover:text-violet-900 inline-flex items-center gap-1"
+                    className="flex-shrink-0 text-xs font-semibold text-blue-800 hover:text-blue-950 inline-flex items-center gap-1"
                   >
                     Open <ExternalLink className="w-3 h-3" />
                   </a>

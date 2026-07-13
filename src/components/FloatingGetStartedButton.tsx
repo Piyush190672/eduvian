@@ -22,9 +22,13 @@ export default function FloatingGetStartedButton() {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    // Don't render at all on the destination pages.
+    // Don't render on the destination pages, nor over the founder letter
+    // (a floating conversion pill on top of a trust-building personal
+    // letter undercuts the letter — found in 375px review, 14 Jul 2026).
     const path = window.location.pathname;
-    if (path.startsWith("/get-started") || path.startsWith("/profile")) return;
+    // /results: the user already submitted — a readiness CTA is redundant
+    // and collides with the results toolbar (found in Wave-2 review).
+    if (path.startsWith("/get-started") || path.startsWith("/profile") || path.startsWith("/why-eduvianai") || path.startsWith("/results")) return;
 
     const SHOW_AFTER = 600; // px scrolled past hero before button appears
     const onScroll = () => setVisible(window.scrollY > SHOW_AFTER);
@@ -38,10 +42,10 @@ export default function FloatingGetStartedButton() {
   return (
     <Link
       href="/profile"
-      aria-label="Get started"
-      className="fixed top-[88px] right-4 sm:right-6 z-40 inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-violet-600 hover:bg-violet-700 text-white text-sm font-semibold shadow-lg shadow-violet-900/30 hover:shadow-xl hover:-translate-y-0.5 transition-all"
+      aria-label="Check my readiness"
+      className="fixed top-[88px] right-4 sm:right-6 z-40 inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-blue-900 hover:bg-blue-800 text-white text-sm font-semibold shadow-lg shadow-blue-950/30 hover:shadow-xl hover:-translate-y-0.5 transition-all"
     >
-      Get started
+      Check my readiness
       <ArrowRight className="w-4 h-4" />
     </Link>
   );

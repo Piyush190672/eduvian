@@ -152,7 +152,7 @@ const APPLICANT_TYPES = [
 
 function Nav() {
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-0 bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 border-b border-white/10 shadow-lg shadow-black/20">
+    <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-0 bg-[#0F172A] border-b border-white/10 shadow-lg shadow-black/20">
       <Link href="/" className="flex items-center gap-3 py-4 flex-shrink-0">
         <EduvianLogoMark size={36} />
       </Link>
@@ -166,7 +166,7 @@ function Nav() {
         </Link>
         <Link
           href="/get-started"
-          className="flex items-center gap-2 px-5 py-2.5 my-3 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-bold hover:shadow-lg hover:shadow-indigo-500/40 transition-all duration-200 hover:-translate-y-0.5"
+          className="flex items-center gap-2 px-5 py-2.5 my-3 rounded-xl bg-blue-900 hover:bg-blue-800 text-white text-sm font-bold hover:shadow-lg hover:shadow-blue-800/40 transition-all duration-200 hover:-translate-y-0.5"
         >
           Get Started Free
           <ArrowRight className="w-3.5 h-3.5" />
@@ -185,7 +185,7 @@ function ScoreCircle({ score }: { score: number }) {
 
   const getColour = () => {
     if (score >= 7.5) return { ring: "stroke-emerald-500", fill: "text-emerald-600" };
-    if (score >= 5.5) return { ring: "stroke-indigo-500", fill: "text-indigo-600" };
+    if (score >= 5.5) return { ring: "stroke-blue-800", fill: "text-blue-900" };
     if (score >= 4) return { ring: "stroke-amber-500", fill: "text-amber-600" };
     return { ring: "stroke-red-500", fill: "text-red-600" };
   };
@@ -223,7 +223,7 @@ function VerdictBadge({ verdict }: { verdict: ScoreResult["verdict"] }) {
     },
     "Competitive": {
       label: "Competitive ✅  (7–8)",
-      badge: "bg-indigo-100 text-indigo-700 border border-indigo-200",
+      badge: "bg-blue-100 text-blue-800 border border-blue-200",
     },
     "Borderline": {
       label: "Borderline ⚠️  (5–6)",
@@ -257,7 +257,7 @@ function DimensionBar({
   const [showFeedback, setShowFeedback] = useState(false);
   const pct = (score / max) * 100;
   const barColour =
-    pct >= 75 ? "bg-emerald-500" : pct >= 50 ? "bg-indigo-500" : pct >= 30 ? "bg-amber-500" : "bg-red-500";
+    pct >= 75 ? "bg-emerald-500" : pct >= 50 ? "bg-blue-800" : pct >= 30 ? "bg-amber-500" : "bg-red-500";
 
   const feedbackItems = Array.isArray(feedback)
     ? feedback
@@ -423,7 +423,7 @@ function ProgramPickerModal({
                 onSelect(p);
                 onClose();
               }}
-              className="w-full text-left px-5 py-3 border-b border-gray-50 hover:bg-indigo-50/40 transition-colors"
+              className="w-full text-left px-5 py-3 border-b border-gray-50 hover:bg-blue-50/40 transition-colors"
             >
               <p className="text-sm font-semibold text-gray-900 leading-tight">{p.program_name}</p>
               <p className="text-xs text-gray-500 mt-0.5">
@@ -450,18 +450,18 @@ function ProgramIntelCard({
 }) {
   if (loading) {
     return (
-      <div className="rounded-2xl border border-indigo-100 bg-gradient-to-br from-indigo-50/70 to-white p-5">
+      <div className="rounded-2xl border border-blue-100 bg-blue-50/60 p-5">
         <div className="flex items-center gap-2 mb-3">
           <motion.div animate={{ rotate: 360 }} transition={{ duration: 1.2, repeat: Infinity, ease: "linear" }}>
-            <RefreshCw className="w-3.5 h-3.5 text-indigo-500" />
+            <RefreshCw className="w-3.5 h-3.5 text-blue-800" />
           </motion.div>
-          <span className="text-xs font-bold text-indigo-700 uppercase tracking-widest">
+          <span className="text-xs font-bold text-blue-800 uppercase tracking-widest">
             Extracting program intelligence…
           </span>
         </div>
         <div className="space-y-2">
           {[1, 2, 3].map((i) => (
-            <div key={i} className="h-3 bg-indigo-100/60 rounded animate-pulse" />
+            <div key={i} className="h-3 bg-blue-100/60 rounded animate-pulse" />
           ))}
         </div>
       </div>
@@ -474,7 +474,7 @@ function ProgramIntelCard({
     ctx.confidence === "high"
       ? "bg-emerald-100 text-emerald-700"
       : ctx.confidence === "medium"
-      ? "bg-indigo-100 text-indigo-700"
+      ? "bg-blue-100 text-blue-800"
       : "bg-amber-100 text-amber-700";
 
   const sections: { icon: React.ReactNode; title: string; items: string[] }[] = [
@@ -506,11 +506,11 @@ function ProgramIntelCard({
   ];
 
   return (
-    <div className="rounded-2xl border border-indigo-100 bg-gradient-to-br from-indigo-50/70 to-white p-5">
+    <div className="rounded-2xl border border-blue-100 bg-blue-50/60 p-5">
       <div className="flex items-center justify-between mb-3 flex-wrap gap-2">
         <div className="flex items-center gap-2">
-          <Sparkles className="w-4 h-4 text-indigo-500" />
-          <span className="text-xs font-extrabold text-indigo-800 uppercase tracking-widest">
+          <Sparkles className="w-4 h-4 text-blue-800" />
+          <span className="text-xs font-extrabold text-blue-900 uppercase tracking-widest">
             Program Intelligence
           </span>
         </div>
@@ -527,13 +527,13 @@ function ProgramIntelCard({
         {sections.map((s) =>
           s.items.length === 0 ? null : (
             <div key={s.title}>
-              <div className="flex items-center gap-1.5 mb-1 text-[11px] font-bold text-indigo-700 uppercase tracking-wider">
+              <div className="flex items-center gap-1.5 mb-1 text-[11px] font-bold text-blue-800 uppercase tracking-wider">
                 {s.icon}
                 {s.title}
               </div>
               <ul className="space-y-1 pl-5">
                 {s.items.slice(0, 5).map((it, i) => (
-                  <li key={i} className="text-xs text-gray-700 leading-snug list-disc marker:text-indigo-300">
+                  <li key={i} className="text-xs text-gray-700 leading-snug list-disc marker:text-blue-300">
                     {it}
                   </li>
                 ))}
@@ -554,7 +554,7 @@ function ProgramFitAudit({ fit }: { fit: ProgramSpecificFit }) {
     pct >= 75
       ? { ring: "stroke-emerald-500", text: "text-emerald-600", label: "Program-specific" }
       : pct >= 50
-      ? { ring: "stroke-indigo-500", text: "text-indigo-600", label: "Mostly tied to program" }
+      ? { ring: "stroke-blue-800", text: "text-blue-900", label: "Mostly tied to program" }
       : pct >= 25
       ? { ring: "stroke-amber-500", text: "text-amber-600", label: "Too generic" }
       : { ring: "stroke-red-500", text: "text-red-600", label: "Copy-paste risk" };
@@ -570,10 +570,10 @@ function ProgramFitAudit({ fit }: { fit: ProgramSpecificFit }) {
   const progress = (pct / 100) * circ;
 
   return (
-    <div className="rounded-2xl border border-indigo-200 bg-gradient-to-br from-white to-indigo-50/40 p-5 mb-3">
+    <div className="rounded-2xl border border-blue-200 bg-blue-50/40 p-5 mb-3">
       <div className="flex items-center gap-2 mb-3">
-        <Target className="w-4 h-4 text-indigo-600" />
-        <span className="text-xs font-extrabold text-indigo-800 uppercase tracking-widest">
+        <Target className="w-4 h-4 text-blue-900" />
+        <span className="text-xs font-extrabold text-blue-900 uppercase tracking-widest">
           Program-Specific Fit
         </span>
       </div>
@@ -636,7 +636,7 @@ function ProgramFitAudit({ fit }: { fit: ProgramSpecificFit }) {
                   {f.reason}
                 </p>
                 {f.rewrite_hint && (
-                  <p className="text-xs text-indigo-700 leading-snug">
+                  <p className="text-xs text-blue-800 leading-snug">
                     <span className="font-semibold">→ Rewrite: </span>
                     {f.rewrite_hint}
                   </p>
@@ -862,26 +862,26 @@ export default function SOPAssistantPage() {
     const canSubmit = form.university.trim() && form.course.trim() && form.opening_hook.trim();
 
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50/30 font-sans">
+      <div className="min-h-screen bg-[#F8FAFC] font-sans">
         <Nav />
         <ProgramPickerModal open={pickerOpen} onClose={() => setPickerOpen(false)} onSelect={handleProgramPick} />
         <main className="pt-24 pb-20 px-4 max-w-6xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
             {/* Header */}
             <div className="text-center mb-10">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-100 text-indigo-700 text-sm font-bold uppercase tracking-widest mb-4">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-100 text-blue-800 text-sm font-bold uppercase tracking-widest mb-4">
                 <Sparkles className="w-3.5 h-3.5" />
                 AI SOP Writer
               </div>
               <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight mb-3">
                 Write a{" "}
-                <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                <span className="text-blue-900">
                   Compelling SOP
                 </span>{" "}
                 in Minutes
               </h1>
               <p className="text-gray-500 text-base leading-relaxed max-w-2xl mx-auto">
-                Pick your target program, fill in your story, and our AI drafts an SOP bound to that program&apos;s actual faculty, labs, and courses — then audits every paragraph for generic copy-paste vs. real program fit.
+                Pick your target program, fill in your story, and eduvianAI drafts an SOP bound to that program&apos;s actual faculty, labs, and courses — then audits every paragraph for generic copy-paste vs. real program fit.
               </p>
             </div>
 
@@ -906,7 +906,7 @@ export default function SOPAssistantPage() {
                       <button
                         type="button"
                         onClick={() => setPickerOpen(true)}
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-50 hover:bg-indigo-100 text-indigo-700 text-xs font-bold transition-colors"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-50 hover:bg-blue-100 text-blue-800 text-xs font-bold transition-colors"
                       >
                         <Search className="w-3.5 h-3.5" />
                         Pick from database
@@ -927,7 +927,7 @@ export default function SOPAssistantPage() {
                         }}
                         required
                         placeholder="e.g. University of Edinburgh"
-                        className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition placeholder-gray-400"
+                        className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition placeholder-gray-400"
                       />
                     </div>
                     <div>
@@ -945,7 +945,7 @@ export default function SOPAssistantPage() {
                         }}
                         required
                         placeholder="e.g. MSc Data Science"
-                        className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition placeholder-gray-400"
+                        className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition placeholder-gray-400"
                       />
                     </div>
                     <div>
@@ -956,7 +956,7 @@ export default function SOPAssistantPage() {
                         name="degree_level"
                         value={form.degree_level}
                         onChange={handleFormChange}
-                        className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition bg-white"
+                        className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition bg-white"
                       >
                         {DEGREE_LEVELS.map((l) => (
                           <option key={l} value={l}>{l}</option>
@@ -971,7 +971,7 @@ export default function SOPAssistantPage() {
                         name="applicant_type"
                         value={form.applicant_type}
                         onChange={handleFormChange}
-                        className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition bg-white"
+                        className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition bg-white"
                       >
                         {APPLICANT_TYPES.map((t) => (
                           <option key={t} value={t}>{t}</option>
@@ -996,7 +996,7 @@ export default function SOPAssistantPage() {
                         onChange={handleFormChange}
                         rows={3}
                         placeholder="e.g. Software engineer intern at XYZ for 6 months — built a recommendation engine, learned ML in production…"
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition placeholder-gray-400 resize-y"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition placeholder-gray-400 resize-y"
                       />
                     </div>
                     <div>
@@ -1010,7 +1010,7 @@ export default function SOPAssistantPage() {
                         onChange={handleFormChange}
                         rows={3}
                         placeholder="e.g. My internship exposed a gap in my statistical foundations — a dedicated MSc will give me rigour I cannot get on the job…"
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition placeholder-gray-400 resize-y"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition placeholder-gray-400 resize-y"
                       />
                     </div>
                     <div>
@@ -1024,7 +1024,7 @@ export default function SOPAssistantPage() {
                         onChange={handleFormChange}
                         rows={3}
                         placeholder="e.g. Short term: ML engineer at a climate-tech startup. Long term: build data infrastructure for renewable energy transition in South Asia…"
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition placeholder-gray-400 resize-y"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition placeholder-gray-400 resize-y"
                       />
                     </div>
                   </div>
@@ -1044,7 +1044,7 @@ export default function SOPAssistantPage() {
                         onChange={handleFormChange}
                         rows={2}
                         placeholder="e.g. Ran a 50-member coding club, mentored 10 juniors, competed in national hackathons…"
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition placeholder-gray-400 resize-y"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition placeholder-gray-400 resize-y"
                       />
                     </div>
                     <div>
@@ -1057,7 +1057,7 @@ export default function SOPAssistantPage() {
                         onChange={handleFormChange}
                         rows={2}
                         placeholder="Any specific instructions, tone preferences, or additional context…"
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition placeholder-gray-400 resize-y"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition placeholder-gray-400 resize-y"
                       />
                     </div>
                   </div>
@@ -1081,7 +1081,7 @@ export default function SOPAssistantPage() {
                         required
                         rows={4}
                         placeholder="e.g. During my third-year dissertation on urban traffic flow, I discovered that our city's signals were optimised for 1970s traffic patterns. I spent three weeks building a simple simulation in Python — and reduced theoretical congestion by 22%…"
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition placeholder-gray-400 resize-y"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition placeholder-gray-400 resize-y"
                       />
                     </div>
                     <div>
@@ -1095,7 +1095,7 @@ export default function SOPAssistantPage() {
                         onChange={handleFormChange}
                         rows={4}
                         placeholder="e.g. BEng Computer Engineering (GPA 3.7). Core modules: Algorithms, Linear Algebra, Probability. Thesis on real-time object detection using YOLO architecture. Published at ICIP 2024…"
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition placeholder-gray-400 resize-y"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition placeholder-gray-400 resize-y"
                       />
                     </div>
                     <div>
@@ -1109,7 +1109,7 @@ export default function SOPAssistantPage() {
                         onChange={handleFormChange}
                         rows={4}
                         placeholder="e.g. Edinburgh's MSc Data Science features Prof. Smith's NLP module and the Alan Turing Institute partnership. The cohort's interdisciplinary intake (CS + social sciences) matches my goal of applying ML to public policy…"
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition placeholder-gray-400 resize-y"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition placeholder-gray-400 resize-y"
                       />
                     </div>
                   </div>
@@ -1120,10 +1120,10 @@ export default function SOPAssistantPage() {
                   )}
 
                   {/* Tips card */}
-                  <div className="bg-indigo-50 border border-indigo-100 rounded-2xl p-5">
+                  <div className="bg-blue-50 border border-blue-100 rounded-2xl p-5">
                     <div className="flex items-center gap-2 mb-3">
-                      <Sparkles className="w-4 h-4 text-indigo-500" />
-                      <span className="text-sm font-bold text-indigo-700">Tips for a great SOP</span>
+                      <Sparkles className="w-4 h-4 text-blue-800" />
+                      <span className="text-sm font-bold text-blue-800">Tips for a great SOP</span>
                     </div>
                     <ul className="space-y-1.5">
                       {[
@@ -1133,8 +1133,8 @@ export default function SOPAssistantPage() {
                         'Why this university must name real courses/faculty — not "world-class"',
                         "Career goals should be specific and logically follow your background",
                       ].map((tip) => (
-                        <li key={tip} className="flex items-start gap-2 text-xs text-indigo-600">
-                          <CheckCircle2 className="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-indigo-400" />
+                        <li key={tip} className="flex items-start gap-2 text-xs text-blue-900">
+                          <CheckCircle2 className="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-blue-400" />
                           {tip}
                         </li>
                       ))}
@@ -1148,7 +1148,7 @@ export default function SOPAssistantPage() {
                 <button
                   type="submit"
                   disabled={!canSubmit}
-                  className="w-full flex items-center justify-center gap-2.5 px-8 py-4 rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-base font-bold shadow-lg shadow-indigo-200 hover:shadow-xl hover:shadow-indigo-300/50 hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:translate-y-0 disabled:shadow-none"
+                  className="w-full flex items-center justify-center gap-2.5 px-8 py-4 rounded-2xl bg-blue-900 hover:bg-blue-800 text-white text-base font-bold shadow-lg shadow-blue-200 hover:shadow-xl hover:shadow-blue-300/50 hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:translate-y-0 disabled:shadow-none"
                 >
                   <FileText className="w-4 h-4" />
                   Generate My SOP →
@@ -1170,7 +1170,7 @@ export default function SOPAssistantPage() {
 
   if (step === "loading") {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50/30 font-sans">
+      <div className="min-h-screen bg-[#F8FAFC] font-sans">
         <Nav />
         <div className="min-h-screen flex flex-col items-center justify-center gap-6 px-4">
           <motion.div
@@ -1179,14 +1179,14 @@ export default function SOPAssistantPage() {
             className="text-center max-w-sm"
           >
             <div className="relative w-20 h-20 mx-auto mb-8">
-              <div className="absolute inset-0 rounded-full border-4 border-indigo-100" />
+              <div className="absolute inset-0 rounded-full border-4 border-blue-100" />
               <motion.div
-                className="absolute inset-0 rounded-full border-4 border-t-indigo-500"
+                className="absolute inset-0 rounded-full border-4 border-t-blue-800"
                 animate={{ rotate: 360 }}
                 transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
               />
               <div className="absolute inset-0 flex items-center justify-center">
-                <FileText className="w-7 h-7 text-indigo-500" />
+                <FileText className="w-7 h-7 text-blue-800" />
               </div>
             </div>
             <h2 className="text-2xl font-extrabold text-gray-900 mb-6">Writing your SOP…</h2>
@@ -1201,7 +1201,7 @@ export default function SOPAssistantPage() {
                   transition={{ duration: 0.4 }}
                   className={`flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all ${
                     i === loadingStepIdx
-                      ? "bg-indigo-50 border border-indigo-200"
+                      ? "bg-blue-50 border border-blue-200"
                       : "bg-gray-50 border border-gray-100"
                   }`}
                 >
@@ -1212,14 +1212,14 @@ export default function SOPAssistantPage() {
                       animate={{ rotate: 360 }}
                       transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                     >
-                      <RefreshCw className="w-4 h-4 text-indigo-500 flex-shrink-0" />
+                      <RefreshCw className="w-4 h-4 text-blue-800 flex-shrink-0" />
                     </motion.div>
                   ) : (
                     <div className="w-4 h-4 rounded-full border-2 border-gray-300 flex-shrink-0" />
                   )}
                   <span
                     className={`text-sm font-medium ${
-                      i === loadingStepIdx ? "text-indigo-700" : "text-gray-400"
+                      i === loadingStepIdx ? "text-blue-800" : "text-gray-400"
                     }`}
                   >
                     {label}
@@ -1238,7 +1238,7 @@ export default function SOPAssistantPage() {
 
   return (
     <AuthGate stage={2} toolName="SOP Writer" source="sop-assistant">
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50/30 font-sans">
+    <div className="min-h-screen bg-[#F8FAFC] font-sans">
       <Nav />
       <main className="pt-24 pb-20 px-4 max-w-7xl mx-auto">
         <AnimatePresence>
@@ -1263,7 +1263,7 @@ export default function SOPAssistantPage() {
               </div>
               <button
                 onClick={handleReset}
-                className="flex items-center gap-2 px-4 py-2 rounded-xl border border-gray-200 text-sm font-semibold text-gray-600 hover:border-indigo-300 hover:text-indigo-600 transition-all"
+                className="flex items-center gap-2 px-4 py-2 rounded-xl border border-gray-200 text-sm font-semibold text-gray-600 hover:border-blue-300 hover:text-blue-900 transition-all"
               >
                 <RefreshCw className="w-4 h-4" />
                 Start Over
@@ -1285,7 +1285,7 @@ export default function SOPAssistantPage() {
                 <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 flex flex-col">
                   <div className="flex items-center justify-between mb-3">
                     <h2 className="text-sm font-extrabold text-gray-700 uppercase tracking-wider flex items-center gap-2">
-                      <FileText className="w-4 h-4 text-indigo-500" />
+                      <FileText className="w-4 h-4 text-blue-800" />
                       Your Statement of Purpose
                     </h2>
                     <span className="text-xs text-gray-400 font-medium">{wordCount} words</span>
@@ -1301,7 +1301,7 @@ export default function SOPAssistantPage() {
                     <button
                       onClick={() => handleScore(editedSOP)}
                       disabled={scoreLoading || !editedSOP.trim()}
-                      className="flex-1 flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-bold hover:shadow-md hover:shadow-indigo-300/40 hover:-translate-y-0.5 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:translate-y-0"
+                      className="flex-1 flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-blue-900 hover:bg-blue-800 text-white text-sm font-bold hover:shadow-md hover:shadow-blue-300/40 hover:-translate-y-0.5 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:translate-y-0"
                     >
                       {scoreLoading ? (
                         <>
@@ -1320,7 +1320,7 @@ export default function SOPAssistantPage() {
                     <button
                       onClick={handleDownload}
                       disabled={!editedSOP.trim()}
-                      className="flex-1 flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl border border-gray-200 text-gray-700 text-sm font-bold hover:border-indigo-300 hover:text-indigo-600 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="flex-1 flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl border border-gray-200 text-gray-700 text-sm font-bold hover:border-blue-300 hover:text-blue-900 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       <Download className="w-4 h-4" />
                       Download as Text
@@ -1437,7 +1437,7 @@ export default function SOPAssistantPage() {
                         <ol className="space-y-2">
                           {scoreResult.improvements.map((imp, i) => (
                             <li key={i} className="flex items-start gap-2.5 text-xs text-gray-700">
-                              <span className="flex-shrink-0 w-5 h-5 rounded-full bg-indigo-100 text-indigo-700 text-[11px] font-black flex items-center justify-center mt-0.5">
+                              <span className="flex-shrink-0 w-5 h-5 rounded-full bg-blue-100 text-blue-800 text-[11px] font-black flex items-center justify-center mt-0.5">
                                 {i + 1}
                               </span>
                               {imp}
@@ -1472,7 +1472,7 @@ export default function SOPAssistantPage() {
                         <p className="text-xs text-gray-400 mb-3">Happy with your SOP?</p>
                         <Link
                           href="/get-started"
-                          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-bold hover:shadow-md hover:shadow-indigo-300/40 hover:-translate-y-0.5 transition-all"
+                          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-blue-900 hover:bg-blue-800 text-white text-sm font-bold hover:shadow-md hover:shadow-blue-300/40 hover:-translate-y-0.5 transition-all"
                         >
                           Ready to apply?
                           <ArrowRight className="w-3.5 h-3.5" />
@@ -1481,7 +1481,7 @@ export default function SOPAssistantPage() {
                     </motion.div>
                   ) : (
                     <div className="text-center py-8">
-                      <Sparkles className="w-8 h-8 text-indigo-300 mx-auto mb-3" />
+                      <Sparkles className="w-8 h-8 text-blue-300 mx-auto mb-3" />
                       <p className="text-sm text-gray-400">
                         Click &quot;Re-score My Edits&quot; to score your SOP.
                       </p>

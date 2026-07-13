@@ -20,7 +20,7 @@ export default function FilterBar({ filters, countries, fields, onChange }: Prop
         <select
           value={filters.tier}
           onChange={(e) => onChange({ tier: e.target.value })}
-          className="w-full px-3 py-2 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300 bg-white"
+          className="w-full px-3 py-2 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300 bg-white"
         >
           <option value="all">All Tiers</option>
           <option value="safe">✅ Safe Match</option>
@@ -34,7 +34,7 @@ export default function FilterBar({ filters, countries, fields, onChange }: Prop
         <select
           value={filters.country}
           onChange={(e) => onChange({ country: e.target.value })}
-          className="w-full px-3 py-2 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300 bg-white"
+          className="w-full px-3 py-2 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300 bg-white"
         >
           <option value="all">All Countries</option>
           {countries.map((c) => (
@@ -50,7 +50,7 @@ export default function FilterBar({ filters, countries, fields, onChange }: Prop
         <select
           value={filters.field}
           onChange={(e) => onChange({ field: e.target.value })}
-          className="w-full px-3 py-2 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300 bg-white"
+          className="w-full px-3 py-2 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300 bg-white"
         >
           <option value="all">All Fields</option>
           {fields.map((f) => (

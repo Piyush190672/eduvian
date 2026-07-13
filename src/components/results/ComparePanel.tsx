@@ -246,7 +246,7 @@ export default function ComparePanel({ programs, onClose, onRemove }: Props) {
           <div className="w-10 h-1 bg-gray-300 rounded-full mx-auto mb-3 sm:mb-4" />
           <div className="flex items-center justify-between gap-3">
             <div className="flex items-center gap-2 sm:gap-3 min-w-0">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center flex-shrink-0">
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-800 to-blue-900 flex items-center justify-center flex-shrink-0">
                 <BarChart2 className="w-5 h-5 text-white" />
               </div>
               <div className="min-w-0">

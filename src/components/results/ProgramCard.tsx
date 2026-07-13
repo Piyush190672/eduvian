@@ -324,13 +324,37 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist,
 
             {/* Tags row */}
             <div className="flex flex-wrap items-center gap-2 mt-2">
-              <span className={`text-xs px-2.5 py-1 rounded-full border font-medium ${tierStyle}`}>
+              {/* Tier = likelihood of an offer (locked purpose split). The
+                  tooltip states the ceiling rule so it's explained, not
+                  implied: bucket 0 is always Ambitious, bucket 1 never Safe. */}
+              <span
+                className={`text-xs px-2.5 py-1 rounded-full border font-medium cursor-help ${tierStyle}`}
+                title={(() => {
+                  const base =
+                    program.tier === "safe"
+                      ? "Safe — strong likelihood of an offer for your profile."
+                      : program.tier === "reach"
+                        ? "Reach — moderate likelihood of an offer for your profile."
+                        : "Ambitious — lower likelihood of an offer for your profile.";
+                  const p = program.prestige;
+                  if (p && p.tierCeiling !== "safe" && program.tier === p.tierCeiling) {
+                    const src =
+                      p.source === "acceptance_rate"
+                        ? "its published acceptance rate"
+                        : p.source === "qs_ranking"
+                          ? "its QS ranking"
+                          : "its selectivity profile";
+                    return `${base} Highly selective institutions (based on ${src}) are capped at ${p.tierCeiling === "ambitious" ? "Ambitious" : "Reach"} — their offer rates are low for every applicant, however strong.`;
+                  }
+                  return base;
+                })()}
+              >
                 {tierLabel}
               </span>
               <span className="text-xs px-2.5 py-1 rounded-full bg-gray-50 text-gray-500 border border-gray-100">
                 {program.city}, {program.country}
               </span>
-              <span className="text-xs px-2.5 py-1 rounded-full bg-violet-50 text-violet-700 border border-violet-100">
+              <span className="text-xs px-2.5 py-1 rounded-full bg-blue-50 text-blue-800 border border-blue-100">
                 {program.field_of_study}
               </span>
               <span
@@ -378,7 +402,7 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist,
               ) : (
                 <>
                   <span className="flex items-center gap-1 text-gray-600">
-                    <DollarSign className="w-3.5 h-3.5 text-violet-500" />
+                    <DollarSign className="w-3.5 h-3.5 text-blue-800" />
                     <span className="font-semibold">{formatCurrency(totalCost as number)}</span>
                     <span className="text-gray-400 text-xs">/yr total</span>
                   </span>
@@ -485,8 +509,8 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist,
               onClick={onToggleShortlist}
               className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold border-2 transition-all justify-center w-full sm:flex-1 ${
                 isShortlisted
-                  ? "bg-violet-600 text-white border-violet-600 hover:bg-rose-500 hover:border-rose-500"
-                  : "bg-white text-violet-700 border-violet-400 hover:bg-violet-50 hover:border-violet-600"
+                  ? "bg-blue-900 text-white border-blue-900 hover:bg-rose-500 hover:border-rose-500"
+                  : "bg-white text-blue-800 border-blue-400 hover:bg-blue-50 hover:border-blue-900"
               }`}
             >
               {isShortlisted ? (
@@ -501,10 +525,10 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist,
                 disabled={compareDisabled}
                 className={`flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl text-sm font-bold border-2 transition-all whitespace-nowrap w-full sm:w-auto ${
                   isInCompare
-                    ? "bg-violet-500 text-white border-violet-500 hover:bg-violet-600"
+                    ? "bg-blue-800 text-white border-blue-800 hover:bg-blue-900"
                     : compareDisabled
                     ? "bg-white text-gray-400 border-gray-200 opacity-40 cursor-not-allowed"
-                    : "bg-white text-violet-600 border-violet-300 hover:bg-violet-50 hover:border-violet-400"
+                    : "bg-white text-blue-900 border-blue-300 hover:bg-blue-50 hover:border-blue-400"
                 }`}
               >
                 <BarChart2 className="w-4 h-4" />
@@ -529,7 +553,7 @@ export default function ProgramCard({ program, isShortlisted, onToggleShortlist,
               href={program.apply_url ?? program.program_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-violet-600 text-white text-sm font-bold hover:bg-violet-700 hover:shadow-lg hover:shadow-violet-200 hover:-translate-y-0.5 transition-all whitespace-nowrap w-full sm:w-auto"
+              className="flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-blue-900 text-white text-sm font-bold hover:bg-blue-800 hover:shadow-lg hover:shadow-blue-200 hover:-translate-y-0.5 transition-all whitespace-nowrap w-full sm:w-auto"
             >
               Apply Now
               <ExternalLink className="w-3.5 h-3.5" />

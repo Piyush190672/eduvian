@@ -46,7 +46,7 @@ const SCHOLARSHIPS: {
   {
     name: "Canada", flag: "🇨🇦",
     scholarships: [
-      { name: "Vanier Canada Graduate Scholarship", coverage: "CAD 50,000/yr", note: "Doctoral students; world-class research" },
+      { name: "Vanier Canada Graduate Scholarship", coverage: "CAD 50,000/yr", note: "Doctoral students; research excellence" },
       { name: "Banting Postdoctoral Fellowship",    coverage: "CAD 70,000/yr", note: "For postdoctoral researchers" },
       { name: "UBC International Major Entrance",   coverage: "CAD 40,000+", note: "For top UG applicants to UBC" },
       { name: "UofT International Scholar Award",   coverage: "CAD 40,000+", note: "For high-achieving incoming UG students" },
@@ -167,9 +167,9 @@ export default function ScholarshipsPage() {
       {/* ───── HERO ───── */}
       <section className="relative bg-[#0E1119] text-white">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 pt-28 sm:pt-36 pb-16 sm:pb-20">
-          <p className="text-[11px] uppercase tracking-[0.25em] text-violet-300/85 mb-8 font-semibold">Scholarships</p>
+          <p className="text-[11px] uppercase tracking-[0.25em] text-blue-300/85 mb-8 font-semibold">Scholarships</p>
           <h1 className="font-display font-bold text-[2.25rem] leading-[1.08] sm:text-5xl md:text-[3.75rem] tracking-tight max-w-3xl mb-7">
-            Money on the table you can <span className="italic font-medium text-violet-300">claim</span>.
+            Money on the table you can <span className="italic font-medium text-blue-300">claim</span>.
           </h1>
           <p className="text-lg sm:text-xl text-white/65 leading-relaxed max-w-2xl">
             Marquee scholarships across our twelve destinations — Fulbright, Chevening, DAAD, Australia Awards and more. Hundreds more sit inside individual university pages; verify eligibility and amounts on the official source before you apply.
@@ -188,7 +188,7 @@ export default function ScholarshipsPage() {
       {/* ───── COUNTRY PICKER + DETAIL ───── */}
       <section className="bg-stone-50 border-b border-stone-200">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 py-20 sm:py-24">
-          <p className="text-[11px] uppercase tracking-[0.25em] text-violet-700 font-semibold mb-6">Choose a country</p>
+          <p className="text-[11px] uppercase tracking-[0.25em] text-blue-800 font-semibold mb-6">Choose a country</p>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 mb-12">
             {SCHOLARSHIPS.map((c) => {
@@ -199,15 +199,15 @@ export default function ScholarshipsPage() {
                   onClick={() => setSelected(c.name)}
                   className={`text-left p-4 rounded-2xl border transition-all ${
                     active
-                      ? "bg-violet-600 text-white border-violet-600 shadow-md"
-                      : "bg-white text-gray-700 border-stone-200 hover:border-violet-300 hover:shadow-sm hover:-translate-y-0.5"
+                      ? "bg-blue-900 text-white border-blue-900 shadow-md"
+                      : "bg-white text-gray-700 border-stone-200 hover:border-blue-300 hover:shadow-sm hover:-translate-y-0.5"
                   }`}
                 >
                   <div className="flex items-center gap-2 mb-1.5">
                     <span className="text-xl">{c.flag}</span>
                     <span className="font-semibold text-sm">{c.name}</span>
                   </div>
-                  <p className={`text-[11px] leading-snug ${active ? "text-violet-100" : "text-gray-500"}`}>
+                  <p className={`text-[11px] leading-snug ${active ? "text-blue-100" : "text-gray-500"}`}>
                     {TEASERS[c.name] ?? c.scholarships[0].name}
                   </p>
                 </button>
@@ -221,7 +221,7 @@ export default function ScholarshipsPage() {
                 <span className="text-2xl">{active.flag}</span>
                 <h2 className="font-display text-xl sm:text-2xl font-semibold tracking-tight text-gray-900">{active.name} — scholarships</h2>
               </div>
-              <span className="text-[10px] uppercase tracking-widest text-violet-700 font-bold">{active.scholarships.length} listed</span>
+              <span className="text-[10px] uppercase tracking-widest text-blue-800 font-bold">{active.scholarships.length} listed</span>
             </div>
             <ul className="divide-y divide-stone-200">
               {active.scholarships.map((s) => (
@@ -231,7 +231,7 @@ export default function ScholarshipsPage() {
                     {s.note && <p className="text-xs text-gray-500 mt-1.5 leading-relaxed">{s.note}</p>}
                   </div>
                   <div className="col-span-12 sm:col-span-5 sm:text-right">
-                    <span className="inline-block text-xs font-semibold text-violet-700 bg-violet-50 border border-violet-100 rounded-full px-3 py-1">
+                    <span className="inline-block text-xs font-semibold text-blue-800 bg-blue-50 border border-blue-100 rounded-full px-3 py-1">
                       {s.coverage}
                     </span>
                   </div>
@@ -251,9 +251,9 @@ export default function ScholarshipsPage() {
       <section className="bg-white border-b border-stone-200">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 py-24 sm:py-32 grid lg:grid-cols-12 gap-12 items-start">
           <div className="lg:col-span-5">
-            <p className="text-[11px] uppercase tracking-[0.25em] text-violet-700 font-semibold mb-6">How to actually claim one</p>
+            <p className="text-[11px] uppercase tracking-[0.25em] text-blue-800 font-semibold mb-6">How to actually claim one</p>
             <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight leading-[1.1] mb-6">
-              Start broad, then <span className="italic font-medium text-violet-700">shortlist only what fits</span>.
+              Start broad, then <span className="italic font-medium text-blue-800">shortlist only what fits</span>.
             </h2>
             <p className="text-base text-gray-500 leading-relaxed">
               Most students apply to too few scholarships and to the wrong ones. The fastest filter is your eligibility on three axes: nationality, degree level, and minimum GPA / test score. Cut anything that doesn&apos;t match before reading the full criteria.
@@ -267,7 +267,7 @@ export default function ScholarshipsPage() {
               { n: "04", t: "Verify on the official page",   p: "Eligibility, amounts and deadlines change yearly. The list above is a starting map — confirm everything on the awarding body's current-year page before applying." },
             ].map((s) => (
               <div key={s.n} className="flex gap-5 p-6 rounded-2xl bg-stone-50 border border-stone-200">
-                <span className="font-display text-2xl font-light text-violet-600 tabular-nums flex-shrink-0">{s.n}</span>
+                <span className="font-display text-2xl font-light text-blue-900 tabular-nums flex-shrink-0">{s.n}</span>
                 <div>
                   <h3 className="font-display text-lg font-semibold tracking-tight text-gray-900 mb-1.5">{s.t}</h3>
                   <p className="text-sm text-gray-500 leading-relaxed">{s.p}</p>
@@ -282,10 +282,10 @@ export default function ScholarshipsPage() {
       <section className="bg-stone-50 border-b border-stone-200">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 py-24 sm:py-32 text-center">
           <h2 className="font-display text-3xl sm:text-5xl font-bold tracking-tight leading-[1.1] mb-6 max-w-3xl mx-auto text-gray-900">
-            Build a shortlist first, then <span className="italic font-medium text-violet-700">layer scholarships</span> that fit.
+            Build a shortlist first, then <span className="italic font-medium text-blue-800">layer scholarships</span> that fit.
           </h2>
           <div className="flex flex-wrap items-center justify-center gap-3 mt-8">
-            <Link href="/get-started" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-violet-600 hover:bg-violet-700 text-white text-sm font-semibold transition-colors shadow-lg shadow-violet-200">
+            <Link href="/get-started" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-blue-900 hover:bg-blue-800 text-white text-sm font-semibold transition-colors shadow-lg shadow-blue-200">
               Find my best-fit programs
               <ArrowRight className="w-4 h-4" />
             </Link>

@@ -25,13 +25,13 @@ function AdminShell({ children }: { children: React.ReactNode }) {
   };
   return (
     <div className="min-h-screen bg-slate-50 flex">
-      <aside className="w-60 bg-indigo-900 text-white flex flex-col fixed inset-y-0 left-0">
+      <aside className="w-60 bg-blue-950 text-white flex flex-col fixed inset-y-0 left-0">
         <div className="p-6 border-b border-white/10">
           <div className="flex items-center gap-2">
             <EduvianLogoMark size={32} />
-            <span className="font-display font-bold text-lg tracking-tight">eduvian<span className="text-indigo-300">AI</span></span>
+            <span className="font-display font-bold text-lg tracking-tight">eduvian<span className="text-blue-300">AI</span></span>
           </div>
-          <span className="text-xs text-indigo-300 mt-1 block">Admin Panel</span>
+          <span className="text-xs text-blue-300 mt-1 block">Admin Panel</span>
         </div>
         <nav className="flex-1 p-4 space-y-1">
           {[
@@ -42,7 +42,7 @@ function AdminShell({ children }: { children: React.ReactNode }) {
             <Link
               key={item.href}
               href={item.href}
-              className="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm text-indigo-200 hover:bg-white/10 hover:text-white transition-colors"
+              className="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm text-blue-200 hover:bg-white/10 hover:text-white transition-colors"
             >
               <item.icon className="w-4 h-4" />
               {item.label}
@@ -50,7 +50,7 @@ function AdminShell({ children }: { children: React.ReactNode }) {
           ))}
         </nav>
         <div className="p-4 border-t border-white/10">
-          <button onClick={logout} className="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm text-indigo-300 hover:text-white hover:bg-white/10 transition-colors w-full">
+          <button onClick={logout} className="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm text-blue-300 hover:text-white hover:bg-white/10 transition-colors w-full">
             <LogOut className="w-4 h-4" />
             Sign Out
           </button>
@@ -120,13 +120,13 @@ export default function ProgramsPage() {
             placeholder="Search programs, universities..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300 bg-white"
+            className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300 bg-white"
           />
         </div>
         <select
           value={countryFilter}
           onChange={(e) => setCountryFilter(e.target.value)}
-          className="px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300 bg-white"
+          className="px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300 bg-white"
         >
           <option value="all">All Countries</option>
           {countries.map((c) => (
@@ -136,7 +136,7 @@ export default function ProgramsPage() {
         <select
           value={levelFilter}
           onChange={(e) => setLevelFilter(e.target.value)}
-          className="px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300 bg-white"
+          className="px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300 bg-white"
         >
           <option value="all">UG + PG</option>
           <option value="undergraduate">Undergraduate</option>
@@ -171,14 +171,14 @@ export default function ProgramsPage() {
                   </div>
                 </td>
                 <td className="px-5 py-3">
-                  <span className={`text-xs px-2 py-1 rounded-full font-medium ${p.degree_level === "postgraduate" ? "bg-purple-50 text-purple-600" : p.degree_level === "undergraduate" ? "bg-blue-50 text-blue-600" : "bg-gray-100 text-gray-600"}`}>
+                  <span className={`text-xs px-2 py-1 rounded-full font-medium ${p.degree_level === "postgraduate" ? "bg-blue-50 text-blue-900" : p.degree_level === "undergraduate" ? "bg-blue-50 text-blue-600" : "bg-gray-100 text-gray-600"}`}>
                     {p.degree_level === "postgraduate" ? "PG" : p.degree_level === "undergraduate" ? "UG" : "Both"}
                   </span>
                 </td>
                 <td className="px-5 py-3 text-xs text-gray-500 max-w-32 truncate">
                   {p.field_of_study}
                 </td>
-                <td className="px-5 py-3 text-right font-semibold text-indigo-600">
+                <td className="px-5 py-3 text-right font-semibold text-blue-900">
                   {p.annual_tuition_usd != null ? formatCurrency(p.annual_tuition_usd) : "—"}
                 </td>
                 <td className="px-5 py-3 text-center">
@@ -199,7 +199,7 @@ export default function ProgramsPage() {
                     href={p.program_url ?? undefined}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-indigo-500 hover:text-indigo-700 text-xs"
+                    className="inline-flex items-center gap-1 text-blue-800 hover:text-blue-800 text-xs"
                   >
                     <ExternalLink className="w-3.5 h-3.5" />
                   </a>

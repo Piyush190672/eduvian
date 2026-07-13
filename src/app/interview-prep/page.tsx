@@ -985,7 +985,7 @@ function MicPulse({ listening }: { listening: boolean }) {
 function CountrySelect({ onSelect }: { onSelect: (c: Country) => void }) {
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-2xl mx-auto text-center">
-      <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-100 text-indigo-700 text-sm font-semibold mb-6">
+      <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-100 text-blue-800 text-sm font-semibold mb-6">
         <Sparkles className="w-3.5 h-3.5" /> VOICE INTERVIEW COACH
       </div>
       <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
@@ -1002,7 +1002,7 @@ function CountrySelect({ onSelect }: { onSelect: (c: Country) => void }) {
             <span className="text-4xl">🇦🇺</span>
             <div>
               <p className="text-[11px] font-bold text-sky-600 uppercase tracking-wider">Australia</p>
-              <h3 className="text-xl font-extrabold text-gray-900">GS Interview Prep</h3>
+              <h3 className="text-xl font-extrabold text-gray-900">GS Interview Coach</h3>
             </div>
           </div>
           <p className="text-sm text-gray-500 leading-relaxed">
@@ -1025,7 +1025,7 @@ function CountrySelect({ onSelect }: { onSelect: (c: Country) => void }) {
             <span className="text-4xl">🇬🇧</span>
             <div>
               <p className="text-[11px] font-bold text-rose-600 uppercase tracking-wider">United Kingdom</p>
-              <h3 className="text-xl font-extrabold text-gray-900">UK Credibility Interview Prep</h3>
+              <h3 className="text-xl font-extrabold text-gray-900">UK Credibility Interview Coach</h3>
             </div>
           </div>
           <p className="text-sm text-gray-500 leading-relaxed">
@@ -1048,7 +1048,7 @@ function CountrySelect({ onSelect }: { onSelect: (c: Country) => void }) {
             <span className="text-4xl">🇺🇸</span>
             <div>
               <p className="text-[11px] font-bold text-blue-700 uppercase tracking-wider">United States</p>
-              <h3 className="text-xl font-extrabold text-gray-900">F-1 Visa Interview Prep</h3>
+              <h3 className="text-xl font-extrabold text-gray-900">F-1 Visa Interview Coach</h3>
             </div>
           </div>
           <p className="text-sm text-gray-500 leading-relaxed">
@@ -1389,7 +1389,7 @@ function FeedbackPanel({
     <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className="space-y-4">
       {loading ? (
         <div className="flex flex-col items-center gap-4 py-10">
-          <Loader2 className="w-8 h-8 animate-spin text-indigo-400" />
+          <Loader2 className="w-8 h-8 animate-spin text-blue-400" />
           <p className="text-sm text-gray-400">Generating your feedback, {studentName}…</p>
         </div>
       ) : parsed ? (
@@ -1400,7 +1400,7 @@ function FeedbackPanel({
               <>
                 <div className="flex items-center gap-[3px] h-5 flex-shrink-0">
                   {Array.from({ length: 5 }).map((_, i) => (
-                    <motion.div key={i} className="w-1 rounded-full bg-indigo-400"
+                    <motion.div key={i} className="w-1 rounded-full bg-blue-400"
                       animate={{ scaleY: [0.3, 1, 0.3], transition: { duration: 0.7, repeat: Infinity, delay: i * 0.1 } }}
                       style={{ height: "100%", originY: "center" }} />
                   ))}
@@ -1413,8 +1413,8 @@ function FeedbackPanel({
               </>
             ) : countdown !== null ? (
               <>
-                <div className="w-6 h-6 rounded-full bg-indigo-100 flex items-center justify-center flex-shrink-0">
-                  <span className="text-xs font-black text-indigo-600">{countdown}</span>
+                <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+                  <span className="text-xs font-black text-blue-900">{countdown}</span>
                 </div>
                 <p className="text-xs text-gray-500 flex-1">Next question in {countdown}…</p>
                 <button onClick={handleStop}
@@ -1427,7 +1427,7 @@ function FeedbackPanel({
                 <Volume2 className="w-4 h-4 text-gray-400 flex-shrink-0" />
                 <p className="text-xs text-gray-400 flex-1">Feedback read aloud</p>
                 <button onClick={handleReplay}
-                  className="flex items-center gap-1.5 text-xs font-semibold text-indigo-500 hover:text-indigo-700 flex-shrink-0">
+                  className="flex items-center gap-1.5 text-xs font-semibold text-blue-800 hover:text-blue-800 flex-shrink-0">
                   <RotateCcw className="w-3.5 h-3.5" /> Replay
                 </button>
               </>
@@ -1458,12 +1458,12 @@ function FeedbackPanel({
 
           {/* Sample answer */}
           {parsed.sample && (
-            <div className="rounded-2xl bg-indigo-50 border border-indigo-200 p-4">
+            <div className="rounded-2xl bg-blue-50 border border-blue-200 p-4">
               <div className="flex items-center gap-2 mb-2">
-                <MessageSquare className="w-4 h-4 text-indigo-600" />
-                <p className="text-xs font-bold text-indigo-700 uppercase tracking-wider">{sampleLabel}</p>
+                <MessageSquare className="w-4 h-4 text-blue-900" />
+                <p className="text-xs font-bold text-blue-800 uppercase tracking-wider">{sampleLabel}</p>
               </div>
-              <div className="text-sm text-indigo-800 leading-relaxed whitespace-pre-line">{parsed.sample}</div>
+              <div className="text-sm text-blue-900 leading-relaxed whitespace-pre-line">{parsed.sample}</div>
             </div>
           )}
 
@@ -2526,18 +2526,18 @@ function InterviewSession({
           <div className="text-left">
             <p className={`text-xs font-bold uppercase tracking-wider ${accentText}`}>{countryLabel}</p>
             <h2 className="text-2xl font-extrabold text-gray-900">
-              {country === "australia" ? "Genuine Student Interview Prep" : country === "usa" ? "US F-1 Visa Interview Prep" : "UK Credibility Interview Prep"}
+              {country === "australia" ? "Genuine Student Interview Coach" : country === "usa" ? "US F-1 Visa Interview Coach" : "UK Credibility Interview Coach"}
             </h2>
           </div>
         </div>
 
         <div className="bg-white rounded-3xl border border-gray-100 shadow-sm p-8 mb-6">
           {/* Coach speech bubble */}
-          <div className="flex items-start gap-3 bg-indigo-50 border border-indigo-100 rounded-2xl px-4 py-4 mb-6 text-left">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center flex-shrink-0 mt-0.5">
+          <div className="flex items-start gap-3 bg-blue-50 border border-blue-100 rounded-2xl px-4 py-4 mb-6 text-left">
+            <div className="w-8 h-8 rounded-full bg-blue-900 flex items-center justify-center flex-shrink-0 mt-0.5">
               <Volume2 className="w-3.5 h-3.5 text-white" />
             </div>
-            <p className="text-sm font-medium text-indigo-900 leading-relaxed">{coachText}</p>
+            <p className="text-sm font-medium text-blue-950 leading-relaxed">{coachText}</p>
           </div>
 
           {/* Speak name — auto-advances immediately on detection. Auto-fires
@@ -2549,7 +2549,7 @@ function InterviewSession({
               className={`w-full flex items-center justify-center gap-2 py-3 rounded-xl border-2 mb-3 text-sm font-semibold transition-all ${
                 nameListening
                   ? "border-rose-400 bg-rose-50 text-rose-600 animate-pulse"
-                  : "border-gray-200 text-gray-500 hover:border-indigo-300 hover:text-indigo-600"
+                  : "border-gray-200 text-gray-500 hover:border-blue-300 hover:text-blue-900"
               }`}
             >
               <Mic className="w-4 h-4" />
@@ -2564,7 +2564,7 @@ function InterviewSession({
             onChange={(e) => setNameInput(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && nameInput.trim() && handleNameSubmit()}
             placeholder="Or type your name here"
-            className="w-full px-4 py-3 rounded-xl border border-gray-200 text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300 mb-4"
+            className="w-full px-4 py-3 rounded-xl border border-gray-200 text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300 mb-4"
           />
           <motion.button
             whileHover={{ y: -1 }}
@@ -2591,7 +2591,7 @@ function InterviewSession({
           <span className="text-5xl">🇬🇧</span>
           <div className="text-left">
             <p className="text-xs font-bold text-rose-600 uppercase tracking-wider">United Kingdom</p>
-            <h2 className="text-2xl font-extrabold text-gray-900">UK Credibility Interview Prep</h2>
+            <h2 className="text-2xl font-extrabold text-gray-900">UK Credibility Interview Coach</h2>
           </div>
         </div>
         <div className="bg-white rounded-3xl border border-gray-100 shadow-sm p-8 mb-6">
@@ -2884,7 +2884,7 @@ function InterviewSession({
             {flag} {sessionLabel} · Q{qIndex + 1}/{activeQuestions.length}
           </span>
           {mode === "text" ? (
-            <span className="flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-full bg-indigo-50 text-indigo-600 border border-indigo-200">
+            <span className="flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-full bg-blue-50 text-blue-900 border border-blue-200">
               <MessageSquare className="w-3 h-3" /> Text Mode
             </span>
           ) : (
@@ -2995,7 +2995,7 @@ function InterviewSession({
               </div>
               {(!sttSupported || sttError) && phase === "listening" && (
                 <textarea
-                  className="mt-3 w-full border border-gray-200 rounded-2xl px-4 py-3 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-300 resize-none"
+                  className="mt-3 w-full border border-gray-200 rounded-2xl px-4 py-3 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-300 resize-none"
                   rows={3} placeholder="Type your answer here…"
                   value={transcript} onChange={(e) => setTranscript(e.target.value)}
                 />
@@ -3163,7 +3163,7 @@ function InterviewPrepInner() {
       </main>
 
       <footer className="border-t border-gray-100 py-8 text-center text-sm text-gray-400">
-        © {new Date().getFullYear()} eduvianAI · Voice Interview Prep
+        © {new Date().getFullYear()} eduvianAI · Voice Interview Coach
       </footer>
     </div>
   );
@@ -3174,7 +3174,7 @@ export default function InterviewPrepPage() {
     <AuthGate stage={3} toolName="AI Interview Coach" source="interview-prep">
       <Suspense fallback={
         <div className="min-h-screen flex items-center justify-center bg-slate-50">
-          <div className="w-8 h-8 border-4 border-indigo-200 border-t-indigo-500 rounded-full animate-spin" />
+          <div className="w-8 h-8 border-4 border-blue-200 border-t-blue-800 rounded-full animate-spin" />
         </div>
       }>
         <InterviewPrepInner />

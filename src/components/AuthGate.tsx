@@ -13,7 +13,7 @@ interface AuthGateProps {
   children: React.ReactNode;
 }
 
-// v2 brand: one violet accent across all stages (the per-stage gradient
+// v3 brand: one blue accent across all stages (the per-stage gradient
 // rainbow violated the locked "no gradient rainbow per stage" rule —
 // Phase 2 reskin, 10 July 2026). Benefits stay stage-specific.
 const STAGE_CONFIG = {
@@ -49,9 +49,9 @@ const STAGE_CONFIG = {
 // Single-accent styling shared by every stage.
 const GATE_STYLE = {
   panelBg:   "bg-[#0E1119]",
-  btn:       "bg-violet-600 hover:bg-violet-700",
-  btnShadow: "shadow-violet-200",
-  ringColor: "focus:ring-violet-300",
+  btn:       "bg-blue-900 hover:bg-blue-800",
+  btnShadow: "shadow-blue-200",
+  ringColor: "focus:ring-blue-300",
 };
 
 const RESEND_COOLDOWN_SECONDS = 60;
@@ -205,8 +205,8 @@ export default function AuthGate({ stage, toolName, source, children }: AuthGate
 
       {/* ─── Left panel: value prop ─── */}
       <div className={`lg:w-[46%] ${GATE_STYLE.panelBg} relative overflow-hidden flex flex-col justify-between px-10 py-12 lg:px-16 lg:py-20`}>
-        <div className="hidden md:block absolute -top-24 -right-24 w-96 h-96 bg-violet-600/20 rounded-full blur-3xl pointer-events-none" />
-        <div className="hidden md:block absolute -bottom-24 -left-24 w-80 h-80 bg-violet-900/30 rounded-full blur-3xl pointer-events-none" />
+        <div className="hidden md:block absolute -top-24 -right-24 w-96 h-96 bg-blue-900/20 rounded-full blur-3xl pointer-events-none" />
+        <div className="hidden md:block absolute -bottom-24 -left-24 w-80 h-80 bg-blue-950/30 rounded-full blur-3xl pointer-events-none" />
 
         {/* Logo */}
         <Link href="/" className="relative z-10 flex items-center gap-2 w-fit">
@@ -345,14 +345,14 @@ export default function AuthGate({ stage, toolName, source, children }: AuthGate
                         type="checkbox"
                         checked={termsAccepted}
                         onChange={(e) => setTermsAccepted(e.target.checked)}
-                        className="mt-0.5 w-4 h-4 rounded border-gray-300 accent-violet-600 cursor-pointer flex-shrink-0"
+                        className="mt-0.5 w-4 h-4 rounded border-gray-300 accent-blue-900 cursor-pointer flex-shrink-0"
                         required
                       />
                       <span className="leading-relaxed">
                         I agree to the{" "}
-                        <Link href="/terms" target="_blank" rel="noopener noreferrer" className="font-semibold text-violet-700 hover:text-violet-900 underline-offset-2 hover:underline">Terms of Service</Link>
+                        <Link href="/terms" target="_blank" rel="noopener noreferrer" className="font-semibold text-blue-800 hover:text-blue-950 underline-offset-2 hover:underline">Terms of Service</Link>
                         {" "}and{" "}
-                        <Link href="/privacy" target="_blank" rel="noopener noreferrer" className="font-semibold text-violet-700 hover:text-violet-900 underline-offset-2 hover:underline">Privacy Policy</Link>.
+                        <Link href="/privacy" target="_blank" rel="noopener noreferrer" className="font-semibold text-blue-800 hover:text-blue-950 underline-offset-2 hover:underline">Privacy Policy</Link>.
                       </span>
                     </label>
                   )}
@@ -386,7 +386,7 @@ export default function AuthGate({ stage, toolName, source, children }: AuthGate
             ) : (
               <>
                 <div className="flex items-center gap-3 mb-2">
-                  <div className={`w-10 h-10 rounded-full bg-violet-600 flex items-center justify-center shadow-md ${GATE_STYLE.btnShadow}`}>
+                  <div className={`w-10 h-10 rounded-full bg-blue-900 flex items-center justify-center shadow-md ${GATE_STYLE.btnShadow}`}>
                     <Mail className="w-5 h-5 text-white" />
                   </div>
                   <h1 className="text-2xl font-extrabold text-gray-900">Enter the code</h1>

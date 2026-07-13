@@ -157,7 +157,7 @@ export default function FeedbackPrompt({ surface, delayMs = 8000 }: Props) {
                 onChange={(e) => setComment(e.target.value.slice(0, 1000))}
                 rows={2}
                 placeholder="What worked, what felt slow, what's missing…"
-                className="w-full px-3 py-2 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-transparent transition placeholder:text-gray-400 resize-none"
+                className="w-full px-3 py-2 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent transition placeholder:text-gray-400 resize-none"
               />
             </div>
 
@@ -174,7 +174,7 @@ export default function FeedbackPrompt({ surface, delayMs = 8000 }: Props) {
                 type="button"
                 onClick={submit}
                 disabled={!rating || submitting}
-                className="inline-flex items-center gap-2 px-5 py-2 rounded-xl bg-violet-600 hover:bg-violet-700 text-white text-sm font-semibold transition-colors disabled:opacity-50"
+                className="inline-flex items-center gap-2 px-5 py-2 rounded-xl bg-blue-900 hover:bg-blue-800 text-white text-sm font-semibold transition-colors disabled:opacity-50"
               >
                 {submitting ? <><Loader2 className="w-4 h-4 animate-spin" /> Sending…</> : "Submit"}
               </button>

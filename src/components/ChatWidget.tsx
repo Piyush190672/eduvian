@@ -24,7 +24,7 @@ function renderRich(text: string): React.ReactNode[] {
   while ((m = re.exec(text)) !== null) {
     if (m.index > last) out.push(text.slice(last, m.index));
     if (m[1] !== undefined) {
-      out.push(<u key={`u${i++}`} className="underline decoration-2 underline-offset-2 decoration-indigo-400">{m[1]}</u>);
+      out.push(<u key={`u${i++}`} className="underline decoration-2 underline-offset-2 decoration-blue-400">{m[1]}</u>);
     } else if (m[2] !== undefined) {
       out.push(<strong key={`b${i++}`}>{m[2]}</strong>);
     }
@@ -99,7 +99,7 @@ ${ambitious.map(fmt).join("\n") || "  None"}
 `;
 }
 
-// AISA — sleek abstract AI mark (neural spark on indigo gradient)
+// AISA — sleek abstract AI mark (neural spark on deep-blue gradient)
 function AisaAvatar({ size = 36, className = "" }: { size?: number; className?: string }) {
   const id = "ag" + size; // unique gradient id per size
   return (
@@ -124,8 +124,8 @@ function AisaAvatar({ size = 36, className = "" }: { size?: number; className?: 
       <circle cx="31.5" cy="20" r="1.8" fill="white" fillOpacity="0.95"/>
       <defs>
         <linearGradient id={id} x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#6366F1"/>
-          <stop offset="1" stopColor="#A855F7"/>
+          <stop stopColor="#1E40AF"/>
+          <stop offset="1" stopColor="#172554"/>
         </linearGradient>
       </defs>
     </svg>
@@ -176,28 +176,28 @@ function ContactForm({ lastQuestion, onSubmitted }: ContactFormProps) {
 
   return (
     <form onSubmit={submit}
-      className="bg-indigo-50 border border-indigo-100 rounded-2xl p-4 space-y-2.5 text-sm">
-      <p className="text-xs font-semibold text-indigo-700 uppercase tracking-wide mb-1">Leave your details</p>
+      className="bg-blue-50 border border-blue-100 rounded-2xl p-4 space-y-2.5 text-sm">
+      <p className="text-xs font-semibold text-blue-800 uppercase tracking-wide mb-1">Leave your details</p>
       <input
         value={name} onChange={(e) => setName(e.target.value)}
         placeholder="Your name"
-        className="w-full px-3 py-2 rounded-xl border border-indigo-200 bg-white text-gray-800 text-xs placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-300"
+        className="w-full px-3 py-2 rounded-xl border border-blue-200 bg-white text-gray-800 text-xs placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300"
       />
       <input
         type="email" required
         value={email} onChange={(e) => setEmail(e.target.value)}
         placeholder="Email address *"
-        className="w-full px-3 py-2 rounded-xl border border-indigo-200 bg-white text-gray-800 text-xs placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-300"
+        className="w-full px-3 py-2 rounded-xl border border-blue-200 bg-white text-gray-800 text-xs placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300"
       />
       <input
         type="tel"
         value={phone} onChange={(e) => setPhone(e.target.value)}
         placeholder="Contact number"
-        className="w-full px-3 py-2 rounded-xl border border-indigo-200 bg-white text-gray-800 text-xs placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-300"
+        className="w-full px-3 py-2 rounded-xl border border-blue-200 bg-white text-gray-800 text-xs placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300"
       />
       {err && <p className="text-xs text-rose-500">{err}</p>}
       <button type="submit" disabled={busy}
-        className="w-full py-2 rounded-xl bg-indigo-500 hover:bg-indigo-600 text-white text-xs font-bold transition-colors disabled:opacity-60 flex items-center justify-center gap-2">
+        className="w-full py-2 rounded-xl bg-blue-800 hover:bg-blue-900 text-white text-xs font-bold transition-colors disabled:opacity-60 flex items-center justify-center gap-2">
         {busy ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : null}
         {busy ? "Sending…" : "Send — we'll be in touch shortly ✉️"}
       </button>
@@ -335,7 +335,7 @@ export default function ChatWidget({ programs, studentName = "there" }: ChatWidg
         // unlabelled avatar circle doesn't read as a chat entry point).
         // Mobile + compact pages show "Ask AISA"; sm+ non-compact keeps
         // the longer "Stuck? Ask AISA". min-h keeps the 44px touch target.
-        className="fixed bottom-5 right-5 z-50 flex items-center justify-center gap-1.5 pl-2 pr-3.5 min-h-[44px] rounded-full bg-gradient-to-r from-violet-600 to-fuchsia-500 text-white font-bold shadow-lg shadow-violet-500/40 hover:shadow-violet-500/60 transition-all duration-300 hover:-translate-y-1"
+        className="fixed bottom-5 right-5 z-50 flex items-center justify-center gap-1.5 pl-2 pr-3.5 min-h-[44px] rounded-full bg-blue-900 hover:bg-blue-800 text-white font-bold shadow-lg shadow-blue-950/40 hover:shadow-blue-950/60 transition-all duration-300 hover:-translate-y-1"
         whileTap={{ scale: 0.95 }}
         animate={!open && pulse ? { y: [0, -8, 0, -4, 0] } : { y: 0 }}
         transition={!open && pulse ? { duration: 1.4, repeat: 0 } : { duration: 0.2 }}
@@ -377,17 +377,17 @@ export default function ChatWidget({ programs, studentName = "there" }: ChatWidg
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 24, scale: 0.95 }}
             transition={{ type: "spring", stiffness: 400, damping: 30 }}
-            className="fixed bottom-24 right-6 z-50 w-[370px] max-w-[calc(100vw-24px)] flex flex-col bg-white rounded-3xl shadow-2xl shadow-indigo-200/60 border border-gray-100 overflow-hidden"
+            className="fixed bottom-24 right-6 z-50 w-[370px] max-w-[calc(100vw-24px)] flex flex-col bg-white rounded-3xl shadow-2xl shadow-slate-300/60 border border-gray-100 overflow-hidden"
             style={{ height: "540px" }}
           >
             {/* Header */}
-            <div className="flex items-center gap-3 px-5 py-3.5 bg-gradient-to-r from-indigo-500 to-purple-600 flex-shrink-0">
+            <div className="flex items-center gap-3 px-5 py-3.5 bg-[#0F172A] flex-shrink-0">
               <AisaAvatar size={40} />
               <div>
                 <p className="font-bold text-white text-sm leading-tight">AISA</p>
                 <div className="flex items-center gap-1.5 mt-0.5">
                   <span className="w-2 h-2 rounded-full bg-emerald-400" />
-                  <p className="text-indigo-200 text-xs">AI Student Advisor · Online</p>
+                  <p className="text-blue-200 text-xs">AI Student Advisor · Online</p>
                 </div>
               </div>
               <button onClick={() => setOpen(false)}
@@ -414,7 +414,7 @@ export default function ChatWidget({ programs, studentName = "there" }: ChatWidg
                   <div className="flex flex-col gap-2 max-w-[82%]">
                     <div className={`px-4 py-2.5 rounded-2xl text-sm leading-relaxed whitespace-pre-wrap ${
                       m.role === "user"
-                        ? "bg-indigo-500 text-white rounded-tr-sm"
+                        ? "bg-blue-800 text-white rounded-tr-sm"
                         : "bg-white text-gray-800 rounded-tl-sm shadow-sm border border-gray-100"
                     }`}>
                       {m.role === "assistant" ? renderRich(m.content) : m.content}
@@ -436,7 +436,7 @@ export default function ChatWidget({ programs, studentName = "there" }: ChatWidg
                   <p className="text-xs text-gray-400 px-1">Try asking:</p>
                   {SUGGESTED.map((q) => (
                     <button key={q} onClick={() => send(q)}
-                      className="w-full text-left px-3.5 py-2 rounded-xl bg-white border border-indigo-100 text-indigo-600 text-xs font-medium hover:bg-indigo-50 hover:border-indigo-300 transition-all">
+                      className="w-full text-left px-3.5 py-2 rounded-xl bg-white border border-blue-100 text-blue-900 text-xs font-medium hover:bg-blue-50 hover:border-blue-300 transition-all">
                       {q}
                     </button>
                   ))}
@@ -448,9 +448,9 @@ export default function ChatWidget({ programs, studentName = "there" }: ChatWidg
                 <div className="flex gap-2 justify-start">
                   <AisaAvatar size={28} className="flex-shrink-0" />
                   <div className="bg-white border border-gray-100 rounded-2xl rounded-tl-sm shadow-sm px-4 py-3 flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-bounce" style={{ animationDelay: "0ms" }} />
-                    <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-bounce" style={{ animationDelay: "150ms" }} />
-                    <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-bounce" style={{ animationDelay: "300ms" }} />
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-bounce" style={{ animationDelay: "0ms" }} />
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-bounce" style={{ animationDelay: "150ms" }} />
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-bounce" style={{ animationDelay: "300ms" }} />
                   </div>
                 </div>
               )}
@@ -460,7 +460,7 @@ export default function ChatWidget({ programs, studentName = "there" }: ChatWidg
 
             {/* Input */}
             <div className="flex-shrink-0 px-4 py-3 bg-white border-t border-gray-100">
-              <div className="flex items-end gap-2 bg-gray-50 rounded-2xl border border-gray-200 px-4 py-2 focus-within:border-indigo-300 focus-within:ring-2 focus-within:ring-indigo-100 transition-all">
+              <div className="flex items-end gap-2 bg-gray-50 rounded-2xl border border-gray-200 px-4 py-2 focus-within:border-blue-300 focus-within:ring-2 focus-within:ring-blue-100 transition-all">
                 <textarea
                   ref={inputRef}
                   value={input}
@@ -482,7 +482,7 @@ export default function ChatWidget({ programs, studentName = "there" }: ChatWidg
                 <button
                   onClick={() => send()}
                   disabled={!input.trim() || loading}
-                  className="flex-shrink-0 w-8 h-8 rounded-xl bg-indigo-500 disabled:bg-gray-200 flex items-center justify-center transition-colors hover:bg-indigo-600 mb-1"
+                  className="flex-shrink-0 w-8 h-8 rounded-xl bg-blue-800 disabled:bg-gray-200 flex items-center justify-center transition-colors hover:bg-blue-900 mb-1"
                   aria-label="Send"
                 >
                   {loading

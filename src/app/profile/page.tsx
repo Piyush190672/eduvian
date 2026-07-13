@@ -437,7 +437,7 @@ function ProfilePageInner() {
   const completion = computeProfileCompletion(profile);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50/50">
+    <div className="min-h-screen bg-[#F8FAFC]">
       {/* Nav */}
       <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 glass border-b border-white/30">
         <Link href="/" className="flex items-center gap-2">
@@ -482,12 +482,12 @@ function ProfilePageInner() {
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mb-6 flex items-center gap-3 px-5 py-3.5 rounded-2xl bg-indigo-50 border border-indigo-100"
+            className="mb-6 flex items-center gap-3 px-5 py-3.5 rounded-2xl bg-blue-50 border border-blue-100"
           >
-            <div className="w-8 h-8 rounded-xl bg-indigo-500 flex items-center justify-center flex-shrink-0">
+            <div className="w-8 h-8 rounded-xl bg-blue-800 flex items-center justify-center flex-shrink-0">
               <User className="w-4 h-4 text-white" />
             </div>
-            <p className="text-sm text-indigo-700 font-medium">
+            <p className="text-sm text-blue-800 font-medium">
               👋 Hey <span className="font-bold">{studentName}</span>! Your name, email & phone are pre-filled below.
             </p>
           </motion.div>
@@ -501,14 +501,14 @@ function ProfilePageInner() {
               4-step counter. */}
           <div className="flex items-center justify-between mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider text-gray-500">Profile completion</span>
-            <span className="text-xs font-bold text-indigo-600">
+            <span className="text-xs font-bold text-blue-900">
               {completion.pct}%
               <span className="ml-1 font-normal text-gray-400">({completion.filled}/{completion.total} fields)</span>
             </span>
           </div>
           <div className="relative h-1.5 bg-gray-100 rounded-full overflow-hidden">
             <motion.div
-              className="absolute left-0 top-0 h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"
+              className="absolute left-0 top-0 h-full bg-blue-900 rounded-full"
               animate={{ width: `${progressPct}%` }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
             />
@@ -520,9 +520,9 @@ function ProfilePageInner() {
                 <div
                   className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-300 ${
                     s.id < step
-                      ? "bg-gradient-to-br from-indigo-500 to-purple-600 text-white shadow-lg shadow-indigo-200"
+                      ? "bg-blue-900 text-white shadow-lg shadow-blue-200"
                       : s.id === step
-                      ? "bg-gradient-to-br from-indigo-500 to-purple-600 text-white ring-4 ring-indigo-100 shadow-lg shadow-indigo-200"
+                      ? "bg-blue-900 text-white ring-4 ring-blue-100 shadow-lg shadow-blue-200"
                       : "bg-gray-100 text-gray-400"
                   }`}
                 >
@@ -530,7 +530,7 @@ function ProfilePageInner() {
                 </div>
                 <span
                   className={`text-xs font-medium ${
-                    s.id <= step ? "text-indigo-600" : "text-gray-400"
+                    s.id <= step ? "text-blue-900" : "text-gray-400"
                   }`}
                 >
                   {s.label}
@@ -627,7 +627,7 @@ function ProfilePageInner() {
           {step < 4 ? (
             <button
               onClick={next}
-              className="flex items-center gap-2 px-7 py-2.5 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-semibold hover:shadow-lg hover:shadow-indigo-200 transition-all hover:-translate-y-0.5"
+              className="flex items-center gap-2 px-7 py-2.5 rounded-xl bg-blue-900 hover:bg-blue-800 text-white text-sm font-semibold hover:shadow-lg hover:shadow-blue-200 transition-all hover:-translate-y-0.5"
             >
               Continue
               <ChevronRight className="w-4 h-4" />
@@ -635,7 +635,7 @@ function ProfilePageInner() {
           ) : step === 4 ? (
             <button
               onClick={next}
-              className="flex items-center gap-2 px-7 py-2.5 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-semibold hover:shadow-lg hover:shadow-indigo-200 transition-all hover:-translate-y-0.5"
+              className="flex items-center gap-2 px-7 py-2.5 rounded-xl bg-blue-900 hover:bg-blue-800 text-white text-sm font-semibold hover:shadow-lg hover:shadow-blue-200 transition-all hover:-translate-y-0.5"
             >
               Continue to Review
               <ChevronRight className="w-4 h-4" />
@@ -644,7 +644,7 @@ function ProfilePageInner() {
             <button
               onClick={handleSubmit}
               disabled={submitting}
-              className="flex items-center gap-2 px-7 py-2.5 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-semibold hover:shadow-lg hover:shadow-indigo-200 transition-all hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed"
+              className="flex items-center gap-2 px-7 py-2.5 rounded-xl bg-blue-900 hover:bg-blue-800 text-white text-sm font-semibold hover:shadow-lg hover:shadow-blue-200 transition-all hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed"
             >
               {submitting ? (
                 <>
@@ -670,7 +670,7 @@ export default function ProfilePage() {
   return (
     <Suspense fallback={
       <div className="min-h-screen flex items-center justify-center">
-        <div className="w-8 h-8 rounded-full border-4 border-indigo-500 border-t-transparent animate-spin" />
+        <div className="w-8 h-8 rounded-full border-4 border-blue-800 border-t-transparent animate-spin" />
       </div>
     }>
       <ProfilePageInner />

@@ -9,7 +9,7 @@ import AuthGate from "@/components/AuthGate";
 export default function ApplicationTrackerPage() {
   return (
     <AuthGate stage={3} toolName="Application Tracker" source="application-tracker">
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50/50">
+      <div className="min-h-screen bg-[#F8FAFC]">
         {/* Nav */}
         <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-white/80 backdrop-blur-md border-b border-white/30 print-hidden">
           <Link href="/" className="flex items-center gap-2">
@@ -28,14 +28,14 @@ export default function ApplicationTrackerPage() {
           <div className="max-w-7xl mx-auto">
             {/* Header */}
             <div className="text-center mb-10 print-hidden">
-              <div className="inline-flex items-center gap-2 bg-indigo-50 border border-indigo-200 text-indigo-700 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">
+              <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 text-blue-800 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">
                 <LayoutDashboard className="w-3.5 h-3.5" />
                 Application Tracker & Smart Deadlines
               </div>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight leading-tight">
                 Every application,
                 <br />
-                <span className="bg-gradient-to-r from-indigo-600 via-violet-600 to-pink-600 bg-clip-text text-transparent">
+                <span className="text-blue-900">
                   one Kanban board.
                 </span>
               </h1>
