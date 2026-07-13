@@ -53,7 +53,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
-      <body className="antialiased min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50/30 overflow-x-hidden">
+      <body className="antialiased min-h-screen bg-[#F8FAFC] overflow-x-hidden">
         <BetaBanner />
         <SecurityNoticeBanner />
         <IdleLogout />

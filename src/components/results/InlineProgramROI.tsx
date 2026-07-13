@@ -11,6 +11,7 @@ import type { ScoredProgram } from "@/lib/types";
 import { calculateROI, lookupSalary, defaultDurationMonths } from "@/lib/roi-calculator";
 import type { SalaryCountry, FieldOfStudy } from "@/data/roi-data";
 import { formatCurrency } from "@/lib/utils";
+import { formatInr, USD_TO_INR } from "@/lib/format-inr";
 
 // ── field / country coercion ──────────────────────────────────────────────────
 
@@ -62,7 +63,7 @@ function paybackScheme(years: number) {
 function AutoBadge() {
   return (
     <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-full
-      bg-indigo-500/20 text-indigo-300 text-[9px] font-bold border border-indigo-500/30">
+      bg-blue-800/20 text-blue-300 text-[9px] font-bold border border-blue-800/30">
       <Zap className="w-2 h-2" /> auto
     </span>
   );
@@ -78,8 +79,8 @@ function Chip({
       onClick={onClick}
       className={`px-2 py-1 rounded-lg text-[11px] font-semibold border transition-all ${
         active
-          ? "bg-indigo-500 text-white border-indigo-500"
-          : "bg-white/5 text-slate-300 border-white/10 hover:border-indigo-400 hover:text-indigo-300"
+          ? "bg-blue-800 text-white border-blue-800"
+          : "bg-white/5 text-slate-300 border-white/10 hover:border-blue-400 hover:text-blue-300"
       }`}
     >
       {label}
@@ -139,7 +140,7 @@ function EditableMoneyRow({
   const ringClass = vacant
     ? "bg-amber-500/10 border-amber-500/40"
     : emphasis === "user"
-      ? "bg-indigo-500/5 border-indigo-500/30"
+      ? "bg-blue-800/5 border-blue-800/30"
       : "bg-white/5 border-white/10";
   const labelClass = vacant ? "text-amber-200" : "text-slate-300";
   const dollarClass = vacant ? "text-amber-300" : "text-slate-400";
@@ -167,7 +168,7 @@ function EditableMoneyRow({
           value={value || ""}
           onChange={(e) => onChange(Math.max(0, parseInt(e.target.value, 10) || 0))}
           className="flex-1 px-2.5 py-1.5 rounded-lg bg-white/10 border border-white/10
-            text-sm text-white font-mono focus:outline-none focus:ring-1 focus:ring-indigo-400"
+            text-sm text-white font-mono focus:outline-none focus:ring-1 focus:ring-blue-400"
         />
         <span className={`text-[10px] font-semibold uppercase tracking-wide ${dollarClass}`}>USD / yr</span>
       </div>
@@ -296,8 +297,8 @@ export default function InlineProgramROI({ program }: Props) {
         onClick={() => setOpen((o) => !o)}
         className={`w-full mt-3 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold border-2 transition-all ${
           open
-            ? "bg-slate-800 text-indigo-300 border-slate-700 hover:bg-slate-700"
-            : "bg-gradient-to-r from-slate-800 to-indigo-900 text-indigo-200 border-indigo-800/50 hover:border-indigo-600 hover:text-white"
+            ? "bg-slate-800 text-blue-300 border-slate-700 hover:bg-slate-700"
+            : "bg-slate-900 text-blue-200 border-slate-700 hover:border-blue-700 hover:text-white"
         }`}
       >
         <TrendingUp className="w-4 h-4" />
@@ -315,14 +316,14 @@ export default function InlineProgramROI({ program }: Props) {
             transition={{ duration: 0.25, ease: "easeOut" }}
             className="overflow-hidden"
           >
-            <div className="mt-3 rounded-2xl bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950
-              border border-indigo-900/50 p-4 space-y-4">
+            <div className="mt-3 rounded-2xl bg-[#0F172A]
+              border border-slate-700/60 p-4 space-y-4">
 
               {/* Header + auto-filled info */}
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <div className="w-7 h-7 rounded-lg bg-indigo-500/20 flex items-center justify-center">
-                    <BarChart3 className="w-4 h-4 text-indigo-400" />
+                  <div className="w-7 h-7 rounded-lg bg-blue-800/20 flex items-center justify-center">
+                    <BarChart3 className="w-4 h-4 text-blue-400" />
                   </div>
                   <div>
                     <p className="text-sm font-bold text-white">ROI Analysis</p>
@@ -343,8 +344,8 @@ export default function InlineProgramROI({ program }: Props) {
                 ].map((tag) => (
                   <span
                     key={tag}
-                    className="px-2 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20
-                      text-indigo-300 font-medium"
+                    className="px-2 py-1 rounded-full bg-blue-800/10 border border-blue-800/20
+                      text-blue-300 font-medium"
                   >
                     {tag}
                   </span>
@@ -381,7 +382,7 @@ export default function InlineProgramROI({ program }: Props) {
                     value={customDuration || ""}
                     onChange={(e) => setCustomDuration(Math.max(0, parseInt(e.target.value, 10) || 0))}
                     className="flex-1 px-2.5 py-1.5 rounded-lg bg-white/10 border border-white/10
-                      text-sm text-white font-mono focus:outline-none focus:ring-1 focus:ring-indigo-400"
+                      text-sm text-white font-mono focus:outline-none focus:ring-1 focus:ring-blue-400"
                   />
                   <span className={`text-[10px] font-semibold uppercase tracking-wide ${durationFromDefault ? "text-amber-300/80" : "text-slate-400"}`}>
                     months
@@ -508,9 +509,9 @@ export default function InlineProgramROI({ program }: Props) {
                 <div className="flex items-center justify-between bg-white/5 rounded-xl px-3.5 py-2.5
                   border border-white/8">
                   <div className="flex items-center gap-2">
-                    <DollarSign className="w-4 h-4 text-indigo-400 flex-shrink-0" />
+                    <DollarSign className="w-4 h-4 text-blue-400 flex-shrink-0" />
                     <div>
-                      <p className="text-[10px] font-semibold text-indigo-300 uppercase tracking-wide leading-none mb-0.5">
+                      <p className="text-[10px] font-semibold text-blue-300 uppercase tracking-wide leading-none mb-0.5">
                         Expected Starting Salary
                       </p>
                       {editSalary ? (
@@ -521,13 +522,13 @@ export default function InlineProgramROI({ program }: Props) {
                             value={salaryInput}
                             onChange={(e) => setSalaryInput(e.target.value)}
                             onKeyDown={(e) => { if (e.key === "Enter") commitSalary(); }}
-                            className="w-24 bg-white/10 border border-indigo-400 rounded-lg px-2 py-0.5
-                              text-sm text-white font-semibold focus:outline-none focus:ring-1 focus:ring-indigo-400"
+                            className="w-24 bg-white/10 border border-blue-400 rounded-lg px-2 py-0.5
+                              text-sm text-white font-semibold focus:outline-none focus:ring-1 focus:ring-blue-400"
                             autoFocus
                           />
                           <button
                             onClick={commitSalary}
-                            className="text-indigo-400 hover:text-indigo-300"
+                            className="text-blue-400 hover:text-blue-300"
                           >
                             <Check className="w-4 h-4" />
                           </button>
@@ -558,7 +559,7 @@ export default function InlineProgramROI({ program }: Props) {
                   icon={Landmark}
                   label="Total Investment"
                   value={fmtK(roi.total_investment_usd)}
-                  sub={scholarship > 0 ? `After ${fmtK(scholarship)} grant` : undefined}
+                  sub={`≈ ${formatInr(roi.total_investment_usd)}${scholarship > 0 ? ` · after ${fmtK(scholarship)} grant` : ""}`}
                   accent="text-white"
                 />
                 <Metric
@@ -593,7 +594,7 @@ export default function InlineProgramROI({ program }: Props) {
                   icon={BarChart3}
                   label="Net 10-Yr Gain"
                   value={fmtK(roi.net_earnings_10yr_usd)}
-                  sub="salary − investment"
+                  sub={`≈ ${formatInr(roi.net_earnings_10yr_usd)} · salary − investment`}
                   accent={roi.net_earnings_10yr_usd >= 0 ? "text-emerald-400" : "text-rose-400"}
                 />
               </div>
@@ -612,6 +613,9 @@ export default function InlineProgramROI({ program }: Props) {
                     : ` · ${fmtK(roi.breakeven_salary_usd - salary)} below — consider scholarships or budget adjustments`}
                 </span>
               </div>
+              <p className="text-[10px] text-slate-500">
+                ₹ figures converted at ₹{USD_TO_INR}/USD (display only, rate as of July 2026) — actual costs follow prevailing exchange rates.
+              </p>
               </>
               )}
             </div>

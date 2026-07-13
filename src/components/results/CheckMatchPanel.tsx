@@ -89,9 +89,9 @@ export default function CheckMatchPanel({ token }: Props) {
         transition={{ delay: 0.3 }}
         className="mt-8 mb-2"
       >
-        <div className="rounded-2xl border border-dashed border-indigo-200 bg-indigo-50/50 p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div className="rounded-2xl border border-dashed border-blue-200 bg-blue-50/50 p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center flex-shrink-0">
+            <div className="w-10 h-10 rounded-xl bg-blue-900 flex items-center justify-center flex-shrink-0">
               <Search className="w-5 h-5 text-white" />
             </div>
             <div>
@@ -103,7 +103,7 @@ export default function CheckMatchPanel({ token }: Props) {
           </div>
           <button
             onClick={() => setOpen(true)}
-            className="flex-shrink-0 flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-semibold hover:shadow-lg hover:shadow-indigo-200 transition-all hover:-translate-y-0.5"
+            className="flex-shrink-0 flex items-center gap-2 px-5 py-2.5 rounded-xl bg-blue-900 hover:bg-blue-800 text-white text-sm font-semibold hover:shadow-lg hover:shadow-blue-200 transition-all hover:-translate-y-0.5"
           >
             <TrendingUp className="w-4 h-4" />
             Check
@@ -134,7 +134,7 @@ export default function CheckMatchPanel({ token }: Props) {
             >
               {/* Header */}
               <div className="flex items-center gap-3 px-6 py-4 border-b border-gray-100">
-                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center flex-shrink-0">
+                <div className="w-9 h-9 rounded-xl bg-blue-900 flex items-center justify-center flex-shrink-0">
                   <Search className="w-4 h-4 text-white" />
                 </div>
                 <div className="flex-1">
@@ -158,7 +158,7 @@ export default function CheckMatchPanel({ token }: Props) {
                     value={query}
                     onChange={(e) => { setQuery(e.target.value); setSelected(null); }}
                     placeholder="e.g. Harvard, MSc Data Science, Canada..."
-                    className="w-full pl-10 pr-10 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-transparent bg-gray-50"
+                    className="w-full pl-10 pr-10 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent bg-gray-50"
                   />
                   {query && (
                     <button
@@ -176,7 +176,7 @@ export default function CheckMatchPanel({ token }: Props) {
                 {/* Loading */}
                 {loading && (
                   <div className="flex items-center justify-center py-12">
-                    <Loader2 className="w-8 h-8 animate-spin text-indigo-400" />
+                    <Loader2 className="w-8 h-8 animate-spin text-blue-400" />
                   </div>
                 )}
 
@@ -189,13 +189,13 @@ export default function CheckMatchPanel({ token }: Props) {
                   >
                     <button
                       onClick={() => setSelected(null)}
-                      className="flex items-center gap-1.5 text-xs text-indigo-500 hover:text-indigo-700 mb-4"
+                      className="flex items-center gap-1.5 text-xs text-blue-800 hover:text-blue-800 mb-4"
                     >
                       ← Back to results
                     </button>
 
                     {/* Score header */}
-                    <div className="rounded-2xl bg-gradient-to-br from-indigo-50 to-purple-50 border border-indigo-100 p-5 mb-4">
+                    <div className="rounded-2xl bg-blue-50 border border-blue-100 p-5 mb-4">
                       <div className="flex items-start justify-between gap-4">
                         <div className="flex-1">
                           <h4 className="font-bold text-gray-900 text-base leading-snug">
@@ -265,7 +265,7 @@ export default function CheckMatchPanel({ token }: Props) {
                             ] as string[]
                           ).map((label) => (
                             <div key={label} className="flex items-center gap-2 px-3 py-2 rounded-xl border border-gray-100 bg-gray-50">
-                              <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 flex-shrink-0" />
+                              <span className="w-1.5 h-1.5 rounded-full bg-blue-400 flex-shrink-0" />
                               <span className="text-xs text-gray-700 font-medium truncate">{label}</span>
                             </div>
                           ))}
@@ -279,7 +279,7 @@ export default function CheckMatchPanel({ token }: Props) {
                         href={selected.apply_url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="mt-5 flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-semibold hover:shadow-lg hover:shadow-indigo-200 transition-all"
+                        className="mt-5 flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-blue-900 hover:bg-blue-800 text-white text-sm font-semibold hover:shadow-lg hover:shadow-blue-200 transition-all"
                       >
                         View Program & Apply →
                       </a>
@@ -298,11 +298,11 @@ export default function CheckMatchPanel({ token }: Props) {
                           initial={{ opacity: 0, y: 6 }}
                           animate={{ opacity: 1, y: 0 }}
                           onClick={() => setSelected(p)}
-                          className="w-full text-left p-4 rounded-xl border border-gray-100 hover:border-indigo-200 hover:bg-indigo-50/40 transition-all group"
+                          className="w-full text-left p-4 rounded-xl border border-gray-100 hover:border-blue-200 hover:bg-blue-50/40 transition-all group"
                         >
                           <div className="flex items-start justify-between gap-3">
                             <div className="flex-1 min-w-0">
-                              <p className="font-semibold text-gray-900 text-sm truncate group-hover:text-indigo-700 transition-colors">
+                              <p className="font-semibold text-gray-900 text-sm truncate group-hover:text-blue-800 transition-colors">
                                 {p.program_name}
                               </p>
                               <p className="text-xs text-gray-500 mt-0.5 truncate">

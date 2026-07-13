@@ -16,10 +16,10 @@ export default function ShortlistSummary({ programs, onRemove }: Props) {
   if (programs.length === 0) return null;
 
   return (
-    <div className="p-5 rounded-2xl bg-gradient-to-br from-indigo-50 to-purple-50 border border-indigo-100 mb-6">
+    <div className="p-5 rounded-2xl bg-blue-50 border border-blue-100 mb-6">
       <div className="flex items-center gap-2 mb-4">
-        <BookmarkCheck className="w-5 h-5 text-indigo-500" />
-        <span className="font-semibold text-indigo-800">
+        <BookmarkCheck className="w-5 h-5 text-blue-800" />
+        <span className="font-semibold text-blue-800">
           My Shortlist ({programs.length})
         </span>
       </div>
