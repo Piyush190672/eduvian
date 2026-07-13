@@ -881,7 +881,7 @@ export default function SOPAssistantPage() {
                 in Minutes
               </h1>
               <p className="text-gray-500 text-base leading-relaxed max-w-2xl mx-auto">
-                Pick your target program, fill in your story, and our AI drafts an SOP bound to that program&apos;s actual faculty, labs, and courses — then audits every paragraph for generic copy-paste vs. real program fit.
+                Pick your target program, fill in your story, and eduvianAI drafts an SOP bound to that program&apos;s actual faculty, labs, and courses — then audits every paragraph for generic copy-paste vs. real program fit.
               </p>
             </div>
 

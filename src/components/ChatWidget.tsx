@@ -335,7 +335,7 @@ export default function ChatWidget({ programs, studentName = "there" }: ChatWidg
         // unlabelled avatar circle doesn't read as a chat entry point).
         // Mobile + compact pages show "Ask AISA"; sm+ non-compact keeps
         // the longer "Stuck? Ask AISA". min-h keeps the 44px touch target.
-        className="fixed bottom-5 right-5 z-50 flex items-center justify-center gap-1.5 pl-2 pr-3.5 min-h-[44px] rounded-full bg-gradient-to-r from-violet-600 to-fuchsia-500 text-white font-bold shadow-lg shadow-violet-500/40 hover:shadow-violet-500/60 transition-all duration-300 hover:-translate-y-1"
+        className="fixed bottom-5 right-5 z-50 flex items-center justify-center gap-1.5 pl-2 pr-3.5 min-h-[44px] rounded-full bg-blue-900 hover:bg-blue-800 text-white font-bold shadow-lg shadow-blue-950/40 hover:shadow-blue-950/60 transition-all duration-300 hover:-translate-y-1"
         whileTap={{ scale: 0.95 }}
         animate={!open && pulse ? { y: [0, -8, 0, -4, 0] } : { y: 0 }}
         transition={!open && pulse ? { duration: 1.4, repeat: 0 } : { duration: 0.2 }}
@@ -377,17 +377,17 @@ export default function ChatWidget({ programs, studentName = "there" }: ChatWidg
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 24, scale: 0.95 }}
             transition={{ type: "spring", stiffness: 400, damping: 30 }}
-            className="fixed bottom-24 right-6 z-50 w-[370px] max-w-[calc(100vw-24px)] flex flex-col bg-white rounded-3xl shadow-2xl shadow-indigo-200/60 border border-gray-100 overflow-hidden"
+            className="fixed bottom-24 right-6 z-50 w-[370px] max-w-[calc(100vw-24px)] flex flex-col bg-white rounded-3xl shadow-2xl shadow-slate-300/60 border border-gray-100 overflow-hidden"
             style={{ height: "540px" }}
           >
             {/* Header */}
-            <div className="flex items-center gap-3 px-5 py-3.5 bg-gradient-to-r from-indigo-500 to-purple-600 flex-shrink-0">
+            <div className="flex items-center gap-3 px-5 py-3.5 bg-[#0F172A] flex-shrink-0">
               <AisaAvatar size={40} />
               <div>
                 <p className="font-bold text-white text-sm leading-tight">AISA</p>
                 <div className="flex items-center gap-1.5 mt-0.5">
                   <span className="w-2 h-2 rounded-full bg-emerald-400" />
-                  <p className="text-indigo-200 text-xs">AI Student Advisor · Online</p>
+                  <p className="text-blue-200 text-xs">AI Student Advisor · Online</p>
                 </div>
               </div>
               <button onClick={() => setOpen(false)}

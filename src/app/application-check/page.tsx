@@ -573,7 +573,7 @@ export default function ApplicationCheckPage() {
           color="indigo"
           icon={<Sparkles className="w-7 h-7 text-indigo-500 animate-pulse" />}
           title="Analysing your application…"
-          subtitle="Our AI is checking for credibility, consistency, and risk signals. This usually takes 10–20 seconds."
+          subtitle="Checking for credibility, consistency, and risk signals. This usually takes 10–20 seconds."
           tags={["Reviewing SOP", "Checking consistency", "Generating insights"]}
         />
       </div>
@@ -668,7 +668,7 @@ export default function ApplicationCheckPage() {
                     <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">QA Analysis</span>
                   </h1>
                   <p className="text-gray-500 text-base leading-relaxed max-w-lg mx-auto">
-                    Paste your SOP, CV highlights, and profile details. Our AI analyses credibility, flags risks, and tells you what an admissions officer or visa panel would question.
+                    Paste your SOP, CV highlights, and profile details. eduvianAI analyses credibility, flags risks, and tells you what an admissions officer or visa panel would question.
                   </p>
                 </div>
 
@@ -1176,7 +1176,7 @@ export default function ApplicationCheckPage() {
                   </div>
                   <h3 className="text-lg font-extrabold mb-2">Build Your Stronger CV</h3>
                   <p className="text-sm text-white/80 mb-5 max-w-xs mx-auto">
-                    Our AI will craft an admission-ready CV for {cvInputForm.course}, addressing every weak point identified above.
+                    eduvianAI will draft an admission-ready CV for {cvInputForm.course}, addressing every weak point identified above.
                   </p>
                   <button
                     onClick={() => setCvStep("builder_form")}

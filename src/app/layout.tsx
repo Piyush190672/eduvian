@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     template: "%s | eduvianAI",
   },
   description:
-    "AI-powered program recommendations for study abroad aspirants. Get matched with universities in USA, UK, Australia, Canada, and more.",
+    "Independent study-abroad decision support built on verified university data. Get matched with programs in the USA, UK, Australia, Canada, and more.",
   alternates: { canonical: "/" },
   keywords: [
     "study abroad",
