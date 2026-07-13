@@ -581,9 +581,9 @@ const AUS: VisaCountry = {
   processingTime:
     "75% of applications processed in ~4 weeks, 90% in ~8 weeks. Processing times vary by sector (Higher Education, Postgraduate Research, etc.) and country. Check immi.homeaffairs.gov.au for current figures.",
   visaFee: {
-    amount: 2000,
+    amount: 2500,
     currency: "AUD",
-    notes: "Base visa application charge effective July 2025 (previously AUD 1,600). Confirm the current figure on immi.homeaffairs.gov.au before applying.",
+    notes: "Base visa application charge effective 1 July 2026 (previously AUD 2,000). ELICOS-only (standalone English course) applications pay a reduced AUD 2,050. Confirm the current figure on immi.homeaffairs.gov.au before applying.",
   },
   additionalFees: [
     { label: "OSHC (Overseas Student Health Cover)", amount: 620, currency: "AUD", notes: "Typical single-student annual premium — varies by insurer and course length." },
@@ -634,7 +634,7 @@ const AUS: VisaCountry = {
       order: 5,
       title: "Apply online via ImmiAccount",
       detail:
-        "Create an ImmiAccount, attach CoE, OSHC, financial evidence, academic docs, and GS statement. Pay AUD 1,600. Biometrics are collected at a VFS centre if requested by the case officer.",
+        "Create an ImmiAccount, attach CoE, OSHC, financial evidence, academic docs, and GS statement. Pay the AUD 2,500 visa application charge (from 1 July 2026). Biometrics are collected at a VFS centre if requested by the case officer.",
       officialLink: { label: "ImmiAccount", url: "https://online.immi.gov.au/lusc/login" },
     },
   ],

@@ -445,6 +445,19 @@ function formatDuration(s: number) {
   return `${Math.floor(s / 60)}m ${s % 60}s`;
 }
 
+// Key-point coverage verdict computed server-side by /api/interview-feedback
+// (founder rule, 14 Jul 2026: ≥75% of the question's priority-ordered key
+// points covered → the student is told they're ready for the interview).
+interface FeedbackReadiness {
+  ready: boolean;
+  total: number;
+  coveredCount: number;
+  /** Every key point in priority order, with coverage status. */
+  points: { text: string; covered: boolean }[];
+  /** Key points still missing, in priority order (spoken feedback). */
+  missing: string[];
+}
+
 function parseFeedback(text: string, country: Country) {
   // Split the raw text into sections by looking for the known headings.
   // Both AU and UK share "What you did well:" as the first heading.
@@ -520,6 +533,34 @@ function speechFriendlyName(name: string): string {
     }
   }
   return key;
+}
+
+// ─── Acronym pronunciation (TTS only — display text stays as-written) ─────────
+// Browser TTS spells word-acronyms letter-by-letter ("T-O-E-F-L") instead of
+// saying them the way interviewers do (founder report, 14 Jul 2026). Respell
+// them phonetically for the engine. Letter-spoken acronyms (GRE, SAT, PTE,
+// DS-160) are already read correctly and stay out of this map.
+const ACRONYM_PRONUNCIATIONS: ReadonlyArray<[RegExp, string]> = [
+  [/\bTOEFL\b/g,  "toefel"],
+  [/\bIELTS\b/g,  "eye-elts"],
+  [/\bUCAT\b/g,   "you-cat"],
+  [/\bGAMSAT\b/g, "gam-sat"],
+  [/\bNEET\b/g,   "neet"],
+  [/\bSEVIS\b/g,  "say-viss"],
+  [/\bOSHC\b/g,   "O S H C"],
+  [/\bCoE\b/g,    "C o E"],
+  [/\bI-20\b/g,   "eye twenty"],
+];
+function speechFriendlyText(text: string): string {
+  let out = text;
+  for (const [re, say] of ACRONYM_PRONUNCIATIONS) out = out.replace(re, say);
+  // "TOEFL/IELTS" style alternatives: a slash between words reads badly —
+  // speak it as "or".
+  out = out.replace(/([a-z])\/([a-z])/gi, "$1 or $2");
+  // Markdown that survives into spoken text gets read aloud ("hash hash",
+  // "asterisk") — strip it defensively (founder report, 14 Jul 2026).
+  out = out.replace(/[#*_`~]+/g, " ").replace(/\s+/g, " ").trim();
+  return out;
 }
 
 // ─── TTS hook ──────────────────────────────────────────────────────────────────
@@ -764,7 +805,9 @@ function useTTS(country: Country) {
       };
 
       const utterAndAdvance = (seg: string) => {
-        const utter = new SpeechSynthesisUtterance(seg);
+        // Acronym respell + markdown strip for the ENGINE only — the
+        // display text callers render stays untouched.
+        const utter = new SpeechSynthesisUtterance(speechFriendlyText(seg));
         // Rate 1.0 across all three countries per user preference (11 May 2026).
         // Pitch: 1.0 for USA (male/neutral character), 1.12 for UK/AU
         // (slightly raised, warmer female read on synthesised voices).
@@ -1296,6 +1339,7 @@ function FeedbackPanel({
   isLast,
   studentName,
   muted,
+  readiness,
 }: {
   feedbackText: string;
   feedbackError: boolean;
@@ -1307,6 +1351,7 @@ function FeedbackPanel({
   isLast: boolean;
   studentName: string;
   muted: boolean;
+  readiness?: FeedbackReadiness | null;
 }) {
   const { speak, speakSegments, cancel } = useTTS(country);
   const [isSpeaking, setIsSpeaking] = useState(false);
@@ -1322,14 +1367,30 @@ function FeedbackPanel({
   // IMPORTANT: the sample answer is spoken as if FROM the student TO the interviewer —
   // it must NOT be addressed to the student (no "studentName" in that segment).
   const buildSpokenSegments = useCallback((p: ReturnType<typeof parseFeedback>): string[] => {
-    const clean = (s: string) => s.replace(/^[-•*]\s*/gm, " ").replace(/\n/g, ". ").replace(/\s+/g, " ").trim();
+    // Strip bullets AND any markdown the model leaked (##/**/_) — TTS
+    // reads them aloud as "hash hash" / "asterisk" (founder report,
+    // 14 Jul 2026). speechFriendlyText in useTTS is the second net.
+    const clean = (s: string) => s.replace(/^[-•*]\s*/gm, " ").replace(/[#*_`~]+/g, " ").replace(/\n/g, ". ").replace(/\s+/g, " ").trim();
     const segments: string[] = [];
+    // Readiness verdict first (founder rule, 14 Jul 2026): ≥75% key-point
+    // coverage → tell the student they're ready; always name the missing
+    // key points so the "remaining 25%" is concrete.
+    if (readiness) {
+      const missingSpoken = readiness.missing.length
+        ? ` To make it even stronger, also cover: ${readiness.missing.map(clean).join(". ")}.`
+        : "";
+      segments.push(
+        readiness.ready
+          ? `Fantastic news! You covered ${readiness.coveredCount} of the ${readiness.total} key points for this question — you are ready for this one in the real interview!${missingSpoken}`
+          : `You covered ${readiness.coveredCount} of the ${readiness.total} key points for this question. Before the real interview, make sure you also cover: ${readiness.missing.map(clean).join(". ")}.`,
+      );
+    }
     if (p.well)    segments.push(`Great effort! Here is what you did really well. ${clean(p.well)}`);
     if (p.improve) segments.push(`Now, here is what you could work on. ${clean(p.improve)}`);
     if (p.sample)  segments.push(`And here is how a strong answer to the interviewer would sound. ${clean(p.sample)}`);
     if (!segments.length && p.raw) segments.push(clean(p.raw));
     return segments;
-  }, []);
+  }, [readiness]);
 
   const startCountdown = useCallback((onDone: () => void) => {
     setCountdown(3);
@@ -1433,6 +1494,33 @@ function FeedbackPanel({
               </>
             )}
           </div>
+
+          {/* Readiness verdict + key-point coverage (founder rule, 14 Jul 2026) */}
+          {readiness && (
+            <div className={`rounded-2xl border p-4 ${readiness.ready ? "bg-emerald-50 border-emerald-200" : "bg-amber-50 border-amber-200"}`}>
+              <div className="flex items-center gap-2 mb-1.5">
+                {readiness.ready
+                  ? <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                  : <AlertCircle className="w-4 h-4 text-amber-600 flex-shrink-0" />}
+                <p className={`text-sm font-bold ${readiness.ready ? "text-emerald-700" : "text-amber-700"}`}>
+                  {readiness.ready
+                    ? `You're ready for this question — ${readiness.coveredCount} of ${readiness.total} key points covered`
+                    : `${readiness.coveredCount} of ${readiness.total} key points covered — not quite there yet`}
+                </p>
+              </div>
+              <p className={`text-xs mb-2.5 ${readiness.ready ? "text-emerald-700" : "text-amber-700"}`}>
+                Key points to cover, in order of priority:
+              </p>
+              <ul className="space-y-1.5">
+                {readiness.points.map((pt) => (
+                  <li key={pt.text} className={`flex items-start gap-2 text-xs ${pt.covered ? "text-emerald-800" : "text-rose-700"}`}>
+                    <span className="font-bold flex-shrink-0 mt-px">{pt.covered ? "✓" : "✗"}</span>
+                    <span className="leading-relaxed">{pt.text}{!pt.covered && <span className="font-semibold"> (missing)</span>}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           {/* What you did well */}
           {parsed.well && (
@@ -1538,6 +1626,7 @@ function InterviewSession({
   const [answers, setAnswers] = useState<Answer[]>([]);
   const [elapsed, setElapsed] = useState(0);
   const [feedbackText, setFeedbackText] = useState("");
+  const [feedbackReadiness, setFeedbackReadiness] = useState<FeedbackReadiness | null>(null);
   const [feedbackLoading, setFeedbackLoading] = useState(false);
   const [feedbackError, setFeedbackError] = useState(false);
 
@@ -1810,15 +1899,16 @@ function InterviewSession({
       // Only arm if we have at least a few words — prevents triggering on single words
       if (currentFinal.trim().split(/\s+/).length < 3) return;
       silenceTimer = setTimeout(() => {
-        // User has been silent for 8s after their last final result → auto-submit.
-        // Bumped from 3s (17 May 2026): 3s clipped users who paused mid-thought,
-        // generating feedback on incomplete answers. 8s gives interview-realistic
-        // think time without making the user wait if they're truly done.
+        // User has been silent for 5s after their last final result → auto-submit.
+        // History: 3s (clipped mid-thought pauses) → 8s (17 May 2026) → 5s
+        // (founder rule, 14 Jul 2026: feedback must start 5 seconds after the
+        // student stops speaking). Interim results below still reset the
+        // countdown, so mid-sentence pauses don't fire it.
         if (recogRef.current) {
           try { recogRef.current.stop(); } catch { /* ignore */ }
         }
         autoSubmitRef.current?.();
-      }, 8000);
+      }, 5000);
     };
 
     // Audible cue when SR is actually capturing audio. onaudiostart fires
@@ -2129,6 +2219,7 @@ function InterviewSession({
   const fetchFeedback = useCallback(async (question: string, objective: string, t: string) => {
     setFeedbackLoading(true);
     setFeedbackText("");
+    setFeedbackReadiness(null);
     setFeedbackError(false);
 
     // Look up the official checklist for this question from the knowledge files
@@ -2155,11 +2246,12 @@ function InterviewSession({
         setFeedbackError(true);
         return;
       }
-      const data = await res.json() as { feedback?: string; error?: string };
+      const data = await res.json() as { feedback?: string; readiness?: FeedbackReadiness; error?: string };
       if (data.error || !data.feedback) {
         setFeedbackError(true);
       } else {
         setFeedbackText(data.feedback);
+        setFeedbackReadiness(data.readiness ?? null);
       }
     } catch {
       setFeedbackError(true);
@@ -2437,6 +2529,7 @@ function InterviewSession({
     setTranscript("");
     transcriptRef.current = "";
     setFeedbackText("");
+    setFeedbackReadiness(null);
     setFeedbackError(false);
     elapsedRef.current = 0;
     setElapsed(0);
@@ -2455,6 +2548,7 @@ function InterviewSession({
     setTranscript("");
     transcriptRef.current = "";
     setFeedbackText("");
+    setFeedbackReadiness(null);
     setFeedbackError(false);
     elapsedRef.current = 0;
     setElapsed(0);
@@ -2493,6 +2587,7 @@ function InterviewSession({
     setTranscript("");
     transcriptRef.current = "";
     setFeedbackText("");
+    setFeedbackReadiness(null);
     setFeedbackError(false);
     elapsedRef.current = 0;
     setElapsed(0);
@@ -3047,6 +3142,7 @@ function InterviewSession({
               isLast={qIndex + 1 >= activeQuestions.length}
               studentName={studentName}
               muted={mode === "text" ? true : muted}
+              readiness={feedbackReadiness}
             />
           </motion.div>
         )}
