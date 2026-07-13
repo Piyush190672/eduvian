@@ -3,25 +3,27 @@ import Link from "next/link";
 import { ArrowRight, ArrowLeft } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Why I built eduvianAI — a note from the founder",
+  title: "Why eduvianAI exists — a note from the founder",
   description:
-    "After eleven years leading one of the world's largest international education businesses, Piyush Kumar built eduvianAI: independent, verified, transparent decision support for students and families.",
+    "After more than eleven years at IDP Education leading its business across South Asia, Canada, Latin America and Mauritius, Piyush Kumar built eduvianAI: independent, transparent, evidence-based decision support for students and families.",
 };
 
 /**
- * /why-eduvianai — founder letter (source: user's Word doc, 13 Jul 2026).
- * One wording change from the original, approved path: "Independent
- * advice" → "Independent guidance" (the word "advice" is reserved —
- * "decision-support, not professional advice").
+ * /why-eduvianai — founder letter, refined problem-first version
+ * (source: EduvianAI_Founder_Story_Refined.docx, 14 Jul 2026) with two
+ * founder-locked factual constraints restored: IDP role is REGIONAL
+ * (South Asia, Canada, Latin America, Mauritius) and the guidance-gap is
+ * an INDUSTRY observation, not an IDP one. "advice" → "guidance"
+ * throughout (reserved: "decision-support, not professional advice").
+ * Canonical scale fact: "tens of thousands of students".
  */
 
 const PRINCIPLES = [
   "Trust before transactions.",
+  "Evidence before opinion.",
+  "Transparency before persuasion.",
   "Independent guidance before commercial interests.",
-  "Verified facts before opinions.",
-  "Transparency in every recommendation.",
-  "Technology that empowers people, not replaces them.",
-  "Long-term student success over short-term outcomes.",
+  "Long-term student success above everything else.",
 ] as const;
 
 export default function WhyEduvianAI() {
@@ -48,7 +50,7 @@ export default function WhyEduvianAI() {
           A personal note from the founder
         </p>
         <h1 className="font-display text-4xl sm:text-5xl font-bold tracking-tight text-slate-900 leading-[1.08] mb-10">
-          Why I built eduvianAI
+          Why eduvianAI exists
         </h1>
 
         <div className="flex items-center gap-5 mb-10">
@@ -68,45 +70,50 @@ export default function WhyEduvianAI() {
 
         <div className="space-y-6 text-[17px] text-slate-700 leading-relaxed">
           <p>
-            For more than eleven years at IDP Education, one of the
-            world&apos;s largest international education companies, I had the
-            privilege of leading its business across South Asia, Canada, Latin
-            America and Mauritius — helping students pursue higher education
-            overseas while navigating an increasingly complex global landscape.
+            Over the years, I have met thousands of students and parents
+            standing at one of the most important crossroads of their lives.
           </p>
           <p>
-            Across the international education industry, the biggest challenge
-            was rarely a lack of information. It was a lack of trustworthy,
-            transparent and personalised guidance. Families were often forced
-            to rely on fragmented information, conflicting opinions or advice
-            influenced by commercial interests. I believed there had to be a
-            better way.
+            Choosing where, what and how to study abroad is no longer a simple
+            decision. Immigration policies change. Tuition fees continue to
+            rise. Career opportunities evolve rapidly. Information is
+            everywhere, yet clarity is often missing.
           </p>
           <p>
-            eduvianAI was created to combine deep domain expertise with modern
-            technology so that every recommendation is grounded in verified
-            information and tailored to the individual student. The goal is not
-            to replace human judgement, but to help families make
-            better-informed decisions with greater confidence.
+            After more than eleven years at IDP Education, one of the
+            world&apos;s largest international education companies — where I
+            led its business across South Asia, Canada, Latin America and
+            Mauritius — I came to one important realisation. Across the
+            international education industry, the biggest challenge
+            wasn&apos;t helping students access information. It was helping
+            them know what to trust.
           </p>
           <p>
-            The principles behind eduvianAI reflect the values that have guided
-            my career: trust, integrity, transparency, factual information,
-            independence and an unwavering focus on students. I want every
-            student and every parent to understand not only what decision to
-            make, but why that decision is right for them.
+            During this journey, the teams I had the privilege to lead
+            supported <strong>tens of thousands of students from South
+            Asia</strong> in pursuing higher education across the world. Every
+            interaction reinforced the same belief: students and parents
+            deserve guidance that is transparent, personalised and grounded in
+            evidence — not assumptions or commercial interests.
           </p>
+          <p>That belief became eduvianAI.</p>
           <p>
-            eduvianAI is my commitment to making one of life&apos;s most
-            important decisions clearer, more transparent and more
-            evidence-based.
+            I didn&apos;t build eduvianAI to replace human expertise. I built
+            it to make trusted expertise more accessible. By combining deep
+            domain knowledge with modern technology, eduvianAI helps students
+            compare options, understand trade-offs and make informed decisions
+            with confidence.
           </p>
         </div>
 
         <div className="mt-12 rounded-3xl bg-white border border-slate-200 shadow-[0_16px_40px_rgba(15,23,42,0.06)] p-7 sm:p-8">
-          <h2 className="font-display text-xl font-bold text-slate-900 mb-5">
+          <h2 className="font-display text-xl font-bold text-slate-900 mb-2">
             The principles that guide eduvianAI
           </h2>
+          <p className="text-sm text-slate-500 mb-5">
+            Every recommendation on this platform is guided by principles that
+            have shaped my career.
+          </p>
           <ul className="space-y-3">
             {PRINCIPLES.map((p) => (
               <li key={p} className="flex items-start gap-3 text-[15px] text-slate-700">
@@ -115,6 +122,18 @@ export default function WhyEduvianAI() {
               </li>
             ))}
           </ul>
+        </div>
+
+        <div className="mt-12 space-y-6 text-[17px] text-slate-700 leading-relaxed">
+          <p>
+            My hope is simple. Every student should leave with greater
+            clarity. Every parent should leave with greater confidence.
+          </p>
+          <p>
+            If eduvianAI helps even one family make a better-informed decision
+            because they had access to information they could understand and
+            trust, then we will have achieved exactly what we set out to do.
+          </p>
         </div>
 
         <div className="mt-12 flex flex-col sm:flex-row items-start sm:items-center gap-4">

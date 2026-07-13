@@ -296,14 +296,13 @@ export default function HomeV3() {
             />
             <div className="min-w-0">
               <p className="text-sm text-slate-700 leading-snug">
-                “After eleven years leading regional businesses at one of the
-                world&apos;s largest international education companies, I built
-                the independent layer families were missing.”
+                “Students and parents weren&apos;t short of information — they
+                were short of certainty. That&apos;s why I built eduvianAI.”
               </p>
               <p className="text-[11px] text-slate-500 mt-1.5">
-                Piyush Kumar · Founder{" · "}
+                Piyush Kumar · Founder · former Regional Director, IDP Education{" · "}
                 <Link href="/why-eduvianai" className="font-semibold text-blue-800 hover:underline whitespace-nowrap">
-                  Read why I built eduvianAI →
+                  Read why eduvianAI exists →
                 </Link>
               </p>
             </div>
