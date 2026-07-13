@@ -92,10 +92,28 @@ const ENGLISH_CONFIG: Record<
   },
 };
 
+// Medical admission tests — real score ranges per test (14 Jul 2026):
+// UCAT cognitive total 1200-3600 (SJT band excluded), MCAT 472-528,
+// GAMSAT overall 0-100, HPAT-Ireland 0-300, NEET 0-720.
+const MED_TEST_CONFIG: Record<
+  string,
+  { label: string; min: number; max: number; step: number; placeholder: string }
+> = {
+  ucat:   { label: "UCAT total (1200–3600)", min: 1200, max: 3600, step: 10, placeholder: "2800" },
+  mcat:   { label: "MCAT total (472–528)",   min: 472,  max: 528,  step: 1,  placeholder: "510" },
+  gamsat: { label: "GAMSAT overall (0–100)", min: 0,    max: 100,  step: 1,  placeholder: "65" },
+  hpat:   { label: "HPAT total (0–300)",     min: 0,    max: 300,  step: 1,  placeholder: "170" },
+  neet:   { label: "NEET score (0–720)",     min: 0,    max: 720,  step: 1,  placeholder: "550" },
+  other:  { label: "Score",                  min: 0,    max: 3600, step: 1,  placeholder: "" },
+};
+
 export default function StepTests({ profile, onChange }: Props) {
   const isGrad = profile.degree_level === "postgraduate";
   const englishTest = profile.english_test ?? "none";
   const config = englishTest !== "none" ? ENGLISH_CONFIG[englishTest] : null;
+  // Medicine picked as the primary intended field OR as one of the extras.
+  const isMedicine = [profile.intended_field, ...(profile.intended_field_extra ?? [])]
+    .includes("Medicine & Public Health");
 
   return (
     <div className="space-y-6">
@@ -179,6 +197,80 @@ export default function StepTests({ profile, onChange }: Props) {
         <div className="p-4 rounded-2xl bg-amber-50 border border-amber-100 text-sm text-amber-700">
           💡 Many universities require English proficiency scores. We&apos;ll still
           show you eligible programs, but your match score may be lower.
+        </div>
+      )}
+
+      {/* Medical admission test — shown when any picked intended field is
+          Medicine & Public Health (14 Jul 2026). Informational only: the
+          program DB carries no per-program med-test cutoffs, so this is
+          collected + surfaced, never scored. */}
+      {isMedicine && (
+        <div className="pt-2">
+          <Label>Medical Admission Test</Label>
+          <p className="text-xs text-gray-500 mb-2 leading-relaxed">
+            Many medicine programs require an admission test — e.g. UCAT for
+            UK, Australia and NZ undergraduate medicine; MCAT for US and
+            Canadian MD programs; GAMSAT for graduate-entry medicine in the
+            UK, Australia and Ireland. Indian students planning to practise
+            in India later typically also need a NEET qualification.
+          </p>
+          <RadioGroup
+            options={[
+              { value: "ucat", label: "UCAT" },
+              { value: "mcat", label: "MCAT" },
+              { value: "gamsat", label: "GAMSAT" },
+              { value: "hpat", label: "HPAT" },
+              { value: "neet", label: "NEET" },
+              { value: "other", label: "Other" },
+              { value: "none", label: "Not appeared yet" },
+            ]}
+            value={profile.med_test ?? "none"}
+            onChange={(v) =>
+              onChange({
+                med_test: v as StudentProfile["med_test"],
+                med_test_score: undefined,
+                med_test_other_name: undefined,
+              })
+            }
+          />
+          {profile.med_test === "other" && (
+            <div className="mt-3">
+              <Label>Test name</Label>
+              <Input
+                type="text"
+                maxLength={80}
+                placeholder="e.g. ISAT"
+                value={profile.med_test_other_name ?? ""}
+                onChange={(e) => onChange({ med_test_other_name: e.target.value })}
+              />
+            </div>
+          )}
+          {profile.med_test && profile.med_test !== "none" && (
+            <div className="mt-3">
+              <Label>
+                {MED_TEST_CONFIG[profile.med_test]?.label ?? "Score"}
+              </Label>
+              <Input
+                type="number"
+                min={MED_TEST_CONFIG[profile.med_test]?.min ?? 0}
+                max={MED_TEST_CONFIG[profile.med_test]?.max ?? 10000}
+                step={MED_TEST_CONFIG[profile.med_test]?.step ?? 1}
+                placeholder={MED_TEST_CONFIG[profile.med_test]?.placeholder ?? ""}
+                value={profile.med_test_score ?? ""}
+                onChange={(e) => {
+                  const n = parseFloat(e.target.value);
+                  onChange({ med_test_score: Number.isFinite(n) ? n : undefined });
+                }}
+              />
+            </div>
+          )}
+          {profile.med_test === "none" && (
+            <div className="mt-3 p-4 rounded-2xl bg-amber-50 border border-amber-100 text-sm text-amber-700">
+              💡 Check each shortlisted program&apos;s admission-test
+              requirement early — UCAT and MCAT test dates fill up months
+              before application deadlines.
+            </div>
+          )}
         </div>
       )}
 

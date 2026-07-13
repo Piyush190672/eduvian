@@ -33,6 +33,11 @@ export const submitProfileSchema = z
     std_test_pg_score: z.number().min(0).max(805).optional(),
     std_test_ug: z.enum(["sat", "act", "none"]).optional(),
     std_test_ug_score: z.number().min(0).max(1600).optional(),
+    // Medical admission test (14 Jul 2026). Widest legal range across
+    // tests (UCAT tops at 3600); per-test tightness enforced in the form.
+    med_test: z.enum(["ucat", "mcat", "gamsat", "hpat", "neet", "other", "none"]).optional(),
+    med_test_score: z.number().min(0).max(3600).optional(),
+    med_test_other_name: z.string().max(80).optional(),
     backlogs: z.boolean().optional(),
     backlog_count: z.number().int().min(0).max(60).optional(),
     work_experience_years: z.number().min(0).max(45).optional(),

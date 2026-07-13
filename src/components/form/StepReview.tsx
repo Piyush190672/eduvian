@@ -155,6 +155,12 @@ export default function StepReview({ profile, requireTerms, termsAccepted, onTer
   if (profile.std_test_ug && profile.std_test_ug !== "none" && profile.std_test_ug_score !== undefined) {
     tests.push({ label: profile.std_test_ug.toUpperCase(), value: String(profile.std_test_ug_score) });
   }
+  if (profile.med_test && profile.med_test !== "none") {
+    const name = profile.med_test === "other"
+      ? (profile.med_test_other_name || "Medical admission test")
+      : profile.med_test.toUpperCase();
+    tests.push({ label: name, value: profile.med_test_score !== undefined ? String(profile.med_test_score) : "Score pending" });
+  }
 
   const prefs: { label: string; value: string }[] = [
     { label: "Country Preferences", value: (profile.country_preferences ?? []).map((c) => COUNTRY_LABELS[c] ?? c).join(", ") || dash },

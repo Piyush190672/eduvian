@@ -86,6 +86,17 @@ export interface StudentProfile {
   std_test_pg_awa?: number;
   /** GMAT Data Insights (60-90). GMAT only. */
   std_test_pg_data_insights?: number;
+  /** Medical admission test — asked when the intended field (primary or
+   *  extra) includes "Medicine & Public Health" (founder request,
+   *  14 Jul 2026). Informational: collected and surfaced on review/admin;
+   *  NOT a matching signal — the program DB carries no per-program
+   *  med-test cutoffs, so scoring on it would invent data. */
+  med_test?: "ucat" | "mcat" | "gamsat" | "hpat" | "neet" | "other" | "none";
+  /** Score in the chosen test's own scale (UCAT 1200-3600, MCAT 472-528,
+   *  GAMSAT 0-100, HPAT 0-300, NEET 0-720). */
+  med_test_score?: number;
+  /** Test name when med_test === "other". */
+  med_test_other_name?: string;
 
   // Step 4 — Preferences
   country_preferences: string[]; // ordered array, up to 10 countries
