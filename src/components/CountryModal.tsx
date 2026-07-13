@@ -24,7 +24,7 @@ export const COUNTRY_PROFILES: Record<string, CountryProfile> = {
     flag: "🇺🇸",
     img: "https://images.unsplash.com/photo-1568515387631-8b650bbcdb90?w=800&q=80",
     ecosystem:
-      "The US hosts the world's largest higher education system with over 4,000 accredited institutions. It leads globally in research output, Nobel laureates, and industry-academia collaboration. Both STEM and liberal arts programs are world-class, with strong ties to Silicon Valley, Wall Street, and major industry hubs.",
+      "The US hosts the world's largest higher education system with over 4,000 accredited institutions. It leads globally in research output, Nobel laureates, and industry-academia collaboration. US universities lead global rankings in both STEM and liberal arts, with strong ties to Silicon Valley, Wall Street, and major industry hubs.",
     institutions:
       "Ivy League universities (Harvard, Yale, Columbia), large public research universities (UCLA, Michigan, UT Austin), liberal arts colleges, community colleges, and specialized institutions. Public universities offer lower tuition to in-state students; private universities are often research-heavy and well-funded.",
     admission:
@@ -118,7 +118,7 @@ export const COUNTRY_PROFILES: Record<string, CountryProfile> = {
     ecosystem:
       "Germany offers one of the most cost-effective quality education systems in the world. Public universities charge no or minimal tuition — even for international students. Germany is Europe's largest economy and a global hub for engineering, automotive, and manufacturing industries.",
     institutions:
-      "Technical Universities (TU Munich, RWTH Aachen, TU Berlin) are world-class in engineering and sciences. LMU Munich and Heidelberg excel in humanities and medicine. Fachhochschulen (Universities of Applied Sciences) are practice-oriented with strong industry ties. Most programs at public universities are tuition-free.",
+      "Technical Universities (TU Munich, RWTH Aachen, TU Berlin) rank among Europe's leading institutions for engineering and sciences. LMU Munich and Heidelberg excel in humanities and medicine. Fachhochschulen (Universities of Applied Sciences) are practice-oriented with strong industry ties. Most programs at public universities are tuition-free.",
     admission:
       "Apply via uni-assist or directly. German-taught programs require B2/C1 German proficiency. English-taught master's programs require IELTS 6.5+/TOEFL 90+. APS certificate required for Indian students. UG deadlines: Jan 15 (summer) / Jul 15 (winter). PG deadlines vary by program.",
     quality:
@@ -139,7 +139,7 @@ export const COUNTRY_PROFILES: Record<string, CountryProfile> = {
     flag: "🇸🇬",
     img: "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=800&q=80",
     ecosystem:
-      "Singapore is Asia's premier education hub with two top-15 globally ranked universities. It serves as a gateway to Asia-Pacific business and finance and is known for world-class infrastructure, safety, and quality of life. English is the universal medium of instruction.",
+      "Singapore is a leading Asian education hub with two top-15 globally ranked universities. It serves as a gateway to Asia-Pacific business and finance and is known for its infrastructure, safety, and quality of life. English is the universal medium of instruction.",
     institutions:
       "National University of Singapore (NUS, #8 globally), Nanyang Technological University (NTU, #15), Singapore Management University (SMU) for business, and SUTD for technology and design. International branch campuses include INSEAD, SP Jain, and James Cook Singapore.",
     admission:
@@ -151,7 +151,7 @@ export const COUNTRY_PROFILES: Record<string, CountryProfile> = {
     scholarships:
       "ASEAN Scholarships, Singapore Government Scholarships (MOE), university merit scholarships (NUS and NTU Research Scholarships), and A*STAR research fellowships. Many scholarships include tuition, stipend, and accommodation — highly competitive.",
     safety:
-      "Consistently ranked the safest city in Asia and one of the safest globally. Extremely low crime rates. Strict laws govern public behaviour. Excellent public healthcare. Mandatory student health insurance. World-class emergency services.",
+      "Consistently ranked the safest city in Asia and one of the safest globally. Extremely low crime rates. Strict laws govern public behaviour. Excellent public healthcare. Mandatory student health insurance. Highly rated emergency services.",
     studentLife:
       "Cosmopolitan, fast-paced, and incredibly diverse. English is universal. Excellent food, transport, and connectivity. Students can work up to 16 hrs/week during term. Strategic location for travel across Southeast Asia. Smaller student population means stronger faculty relationships.",
     jobMarket:
@@ -168,7 +168,7 @@ export const COUNTRY_PROFILES: Record<string, CountryProfile> = {
     admission:
       "Apply directly. UG: 12th grade equivalent + IELTS 6.0+. PG: relevant bachelor's + IELTS 6.5+. Rolling admissions for February and July intakes. No GRE required for most programs. Applications are straightforward with fast decisions.",
     quality:
-      "3 NZ universities in the QS top 200. Strong in agriculture, environmental science, marine biology, engineering, and business. Creative arts and film studies are world-class (Weta Workshop connections). Small class sizes ensure personalised learning.",
+      "3 NZ universities in the QS top 200. Strong in agriculture, environmental science, marine biology, engineering, and business. Creative arts and film studies are internationally recognised (Weta Workshop connections). Small class sizes ensure personalised learning.",
     cost:
       "Tuition: NZD 22,000–35,000/yr for most programs. Living costs: NZD 15,000–20,000/yr (Auckland is most expensive). Total: NZD 37,000–55,000/yr (approx. $22,000–$33,000 USD).",
     scholarships:
@@ -224,7 +224,7 @@ export const COUNTRY_PROFILES: Record<string, CountryProfile> = {
     studentLife:
       "Exceptional quality of life — food, fashion, culture, and history. Even basic French dramatically improves integration. Students can work up to 964 hours/year. Internships (stages) are mandatory in most programs, providing excellent industry exposure and networking.",
     jobMarket:
-      "France's job market rewards graduates from Grandes Écoles highly — a degree from HEC, Polytechnique, or Sciences Po is a near-guaranteed fast track. For international graduates, the Recherche d'Emploi / Création d'Entreprise (RCE) permit allows 12 months post-study job search or business creation. Demand is strong in luxury goods, aerospace (Airbus), automotive, energy (TotalEnergies), finance, and tech. French language proficiency (B2+) is essential for most corporate roles. Average salary: €30,000–€50,000/yr starting. Paris is home to major global HQs and a growing startup ecosystem (Station F is the world's largest startup campus).",
+      "France's job market rewards graduates from Grandes Écoles highly — a degree from HEC, Polytechnique, or Sciences Po is a strong fast track. For international graduates, the Recherche d'Emploi / Création d'Entreprise (RCE) permit allows 12 months post-study job search or business creation. Demand is strong in luxury goods, aerospace (Airbus), automotive, energy (TotalEnergies), finance, and tech. French language proficiency (B2+) is essential for most corporate roles. Average salary: €30,000–€50,000/yr starting. Paris is home to major global HQs and a growing startup ecosystem (Station F is the world's largest startup campus).",
   },
   UAE: {
     name: "UAE",
@@ -256,7 +256,7 @@ export const COUNTRY_PROFILES: Record<string, CountryProfile> = {
     ecosystem:
       "The Netherlands is one of Europe's most international higher-education destinations, with over 2,100 English-taught degree programs — the highest number outside the UK. Dutch universities combine research excellence with a practical, project-based learning culture. The country sits at the heart of Europe's logistics, tech, and agri-food industries, giving students outstanding industry access.",
     institutions:
-      "University of Amsterdam (UvA, QS #55) and Vrije Universiteit Amsterdam (VU, QS #219) are the flagship research universities. TU Delft, Eindhoven (TU/e), and Wageningen (WUR) are world-class in engineering and life sciences. Leiden, Utrecht, and Groningen round out the research-intensive universities. Universities of Applied Sciences (HBO) offer more vocational, industry-oriented bachelor's and master's degrees.",
+      "University of Amsterdam (UvA, QS #55) and Vrije Universiteit Amsterdam (VU, QS #219) are the flagship research universities. TU Delft, Eindhoven (TU/e), and Wageningen (WUR) are among Europe's leading universities for engineering and life sciences. Leiden, Utrecht, and Groningen round out the research-intensive universities. Universities of Applied Sciences (HBO) offer more vocational, industry-oriented bachelor's and master's degrees.",
     admission:
       "Apply directly to universities via Studielink (Dutch portal) or university websites. Requirements: bachelor's degree, IELTS 6.5+ (some programs require 7.0), and a motivation letter. No GRE/GMAT required for most programs. Application deadlines: February 1 (April 1 for non-EEA) for September intake. Some programs have limited seats — apply early.",
     quality:

@@ -22,9 +22,11 @@ export default function FloatingGetStartedButton() {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    // Don't render at all on the destination pages.
+    // Don't render on the destination pages, nor over the founder letter
+    // (a floating conversion pill on top of a trust-building personal
+    // letter undercuts the letter — found in 375px review, 14 Jul 2026).
     const path = window.location.pathname;
-    if (path.startsWith("/get-started") || path.startsWith("/profile")) return;
+    if (path.startsWith("/get-started") || path.startsWith("/profile") || path.startsWith("/why-eduvianai")) return;
 
     const SHOW_AFTER = 600; // px scrolled past hero before button appears
     const onScroll = () => setVisible(window.scrollY > SHOW_AFTER);

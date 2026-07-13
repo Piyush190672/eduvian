@@ -46,7 +46,7 @@ const SCHOLARSHIPS: {
   {
     name: "Canada", flag: "🇨🇦",
     scholarships: [
-      { name: "Vanier Canada Graduate Scholarship", coverage: "CAD 50,000/yr", note: "Doctoral students; world-class research" },
+      { name: "Vanier Canada Graduate Scholarship", coverage: "CAD 50,000/yr", note: "Doctoral students; research excellence" },
       { name: "Banting Postdoctoral Fellowship",    coverage: "CAD 70,000/yr", note: "For postdoctoral researchers" },
       { name: "UBC International Major Entrance",   coverage: "CAD 40,000+", note: "For top UG applicants to UBC" },
       { name: "UofT International Scholar Award",   coverage: "CAD 40,000+", note: "For high-achieving incoming UG students" },

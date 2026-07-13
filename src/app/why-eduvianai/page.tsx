@@ -136,6 +136,25 @@ export default function WhyEduvianAI() {
           </p>
         </div>
 
+        <div className="mt-12 rounded-3xl bg-[#0F172A] text-white p-7 sm:p-8">
+          <h2 className="font-display text-xl font-bold mb-4">About the founder</h2>
+          <p className="text-[15px] text-white/80 leading-relaxed">
+            Piyush Kumar is the Founder of eduvianAI and former Regional
+            Director at IDP Education, where he served on the Global
+            Leadership Team and led businesses across South Asia, Canada,
+            Latin America and Mauritius. Over a 27-year career spanning
+            international education, financial services and consumer
+            businesses, he has led large-scale growth, digital transformation,
+            operational excellence and customer experience initiatives. Under
+            his leadership, teams supported tens of thousands of students from
+            South Asia in pursuing higher education overseas. He is a regular
+            contributor to leading media on international education and global
+            student mobility. eduvianAI reflects his belief that every student
+            and parent deserves independent, transparent and evidence-based
+            guidance when making one of life&apos;s most important decisions.
+          </p>
+        </div>
+
         <div className="mt-12 flex flex-col sm:flex-row items-start sm:items-center gap-4">
           <Link
             href="/profile"
