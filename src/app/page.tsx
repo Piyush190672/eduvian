@@ -289,7 +289,7 @@ export default function HomePage() {
                 were short of certainty. That&apos;s why I built eduvianAI.”
               </p>
               <p className="text-[11px] text-slate-500 mt-1.5">
-                Piyush Kumar · Founder, eduvianAI · Former IDP Education Regional Director and Global Leadership Team member{" · "}
+                Piyush Kumar · Founder, eduvianAI · Former Regional Director and Global Leadership Team member at IDP Education{" · "}
                 <Link href="/why-eduvianai" className="font-semibold text-blue-800 hover:underline whitespace-nowrap">
                   Read why eduvianAI exists →
                 </Link>
