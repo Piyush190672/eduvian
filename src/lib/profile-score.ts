@@ -396,6 +396,16 @@ function nextStdTestTarget(profile: StudentProfile): { patch: Partial<StudentPro
       const satMarkets = ["USA", "Canada", "Singapore"];
       const wantsSatMarket = (profile.country_preferences ?? []).some((c) => satMarkets.includes(c));
       if (isMedicine && !wantsSatMarket) return null;
+      if (isMedicine) {
+        // US/Canada medicine is graduate-entry (MD) — SAT applies to the
+        // pre-med bachelor's stage; the MD itself runs on the MCAT (and
+        // often CASPer). Say so instead of the generic SAT pitch.
+        return {
+          patch: { std_test_ug: "sat", std_test_ug_score: 1400 },
+          label: "Take the SAT, target 1400+",
+          detail: "US and Canadian medicine is graduate-entry: the SAT strengthens your pre-med bachelor's application, and the MD stage later requires the MCAT (plus CASPer at most Canadian schools).",
+        };
+      }
     }
     return isUG
       ? {

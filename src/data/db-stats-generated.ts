@@ -8,7 +8,7 @@ export const GENERATED_DB_STATS = {
   "totalUniversities": 623,
   "totalVerifiedUniversities": 623,
   "totalCountries": 12,
-  "totalFields": 30,
+  "totalFields": 31,
   "maxVerifiedAt": "2026-07-12T17:45:56.017Z",
   "universitiesByCountry": {
     "USA": [

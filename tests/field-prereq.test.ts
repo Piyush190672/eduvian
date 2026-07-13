@@ -163,3 +163,38 @@ describe("Public Health gating", () => {
     ).toBeNull();
   });
 });
+
+// Founder decision (14 Jul 2026): Biomedicine is a first-class field —
+// PG-gated on a life/health-sciences background like Biotech; UG has NO
+// subject gate (3-of-4 stays Medicine-only; biomedical science UG entry
+// typically wants Bio+Chem, not Maths).
+describe("Biomedicine gating", () => {
+  const pg = { degree_level: "postgraduate" as const };
+
+  it("PG Biomedicine blocks a non-science background", () => {
+    expect(
+      getFieldAlignmentError(
+        { ...pg, current_degree: "B.Com", major_stream: "Business & Management" },
+        "Biomedicine",
+      ),
+    ).toMatch(/not eligible/i);
+  });
+
+  it("PG Biomedicine passes a life-sciences background", () => {
+    expect(
+      getFieldAlignmentError(
+        { ...pg, current_degree: "B.Sc.", major_stream: "Biotechnology & Life Sciences" },
+        "Biomedicine",
+      ),
+    ).toBeNull();
+  });
+
+  it("UG Biomedicine has no subject gate — PCB without Maths passes", () => {
+    expect(
+      getFieldAlignmentError(
+        { degree_level: "undergraduate", major_stream: "Physics, Chemistry, Biology" },
+        "Biomedicine",
+      ),
+    ).toBeNull();
+  });
+});

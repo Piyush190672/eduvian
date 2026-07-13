@@ -69,6 +69,12 @@ const FIELD_PREREQUISITES: Record<string, RegExp> = {
   // ── Life sciences / health ──────────────────────────────────────────────
   "Biotechnology & Life Sciences":
     /\b(biotech|bio(?:logy|chem|tech|medic|inform|engineer)?|chem|life\s*scien|microbiolog|genet|pharma|botany|zoolog|medic|health|agricultur|veterinar|animal\s*scien)/i,
+  // Biomedicine (added 14 Jul 2026, founder decision): same life/health-
+  // sciences background pool as Biotech. PG-gated only — UG has no
+  // subject rule (founder: the 3-of-4 rule is Medicine-only, and UG
+  // biomedical science entry typically wants Bio+Chem, not Maths).
+  "Biomedicine":
+    /\b(biotech|bio(?:logy|chem|tech|medic|inform|engineer)?|chem|life\s*scien|microbiolog|genet|pharma|botany|zoolog|medic|health|agricultur|veterinar|animal\s*scien)/i,
   // Medicine (clinical) keeps the strict prereq. Public Health gated
   // too (founder decision, 14 Jul 2026 — was deliberately ungated at
   // the split): same health-sciences background pool as Medicine.
@@ -142,6 +148,7 @@ export const STEM_PG_FIELDS: ReadonlySet<string> = new Set([
   "Architecture",
   "Renewable Energy",
   "Biotechnology & Life Sciences",
+  "Biomedicine",
   "Medicine",
   "Public Health",
   "Nursing & Allied Health",

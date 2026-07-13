@@ -54,6 +54,7 @@ const FIELD_SELECTIVITY: Record<string, number> = {
   "Economics & Finance":                     0.90,
   "Engineering (Mechanical/Civil/Electrical)": 1.00,
   "Biotechnology & Life Sciences":           1.05,
+  "Biomedicine":                             1.05, // same as Biotech (split out 14 Jul 2026)
   "Natural Sciences":                        1.10,
   "Social Sciences & Humanities":            1.15,
   "Architecture":                            1.10,

@@ -125,6 +125,7 @@ const FIELD_NAME_PATTERNS: Record<string, RegExp> = {
   "Public Health":               /\b(public health|epidemiology|health policy|global health)\b/i,
   "Nursing & Allied Health":     /\b(nursing|midwifery|physiotherapy|allied health)\b/i,
   "Biotechnology & Life Sciences": /\b(biotech|biotechnology|life sciences|biology|biochem)\b/i,
+  "Biomedicine":                 /\b(bio-?medicine|bio-?medical|bio-?med)\b/i,
   "Natural Sciences":            /\b(physics|chemistry|natural sciences|geology|earth science)\b/i,
   "Environmental & Sustainability Studies": /\b(environment|sustainability|ecology|climate)\b/i,
   "Psychology":                  /\bpsycholog/i,
@@ -151,7 +152,8 @@ const RELATED_FIELDS: Record<string, string[]> = {
   "Business & Management":                   ["MBA", "Economics & Finance"],
   "MBA":                                     ["Business & Management"],
   "Economics & Finance":                     ["Business & Management"],
-  "Biotechnology & Life Sciences":           ["Natural Sciences", "Medicine"],
+  "Biotechnology & Life Sciences":           ["Natural Sciences", "Medicine", "Biomedicine"],
+  "Biomedicine":                             ["Biotechnology & Life Sciences", "Medicine", "Natural Sciences"],
   "Natural Sciences":                        ["Biotechnology & Life Sciences", "Environmental & Sustainability Studies"],
   "Medicine & Public Health":                ["Medicine", "Public Health"], // legacy
   "Medicine":                                ["Public Health", "Nursing & Allied Health", "Biotechnology & Life Sciences"],

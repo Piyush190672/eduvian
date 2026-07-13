@@ -23,6 +23,7 @@ export type FieldOfStudy =
   | "Nursing & Allied Health"
   | "Natural Sciences"
   | "Biotechnology & Life Sciences"
+  | "Biomedicine" // added 14 Jul 2026 — biomedical sciences split out of Biotech
   | "Environmental & Sustainability Studies"
   | "Social Sciences & Humanities"
   | "Arts, Design & Architecture"
@@ -80,6 +81,7 @@ export const SALARY_LOOKUP: Record<SalaryCountry, Record<FieldOfStudy, number>> 
     "Nursing & Allied Health":                     72000,  // BLS RN 29-1141; new grad market 2024 $68-76K
     "Natural Sciences":                            72000,  // BLS Life/Physical Scientists 19-xxxx; MS premium
     "Biotechnology & Life Sciences":               70000,  // BLS Biochemists 19-1021; Biotech MS entry $68-74K
+    "Biomedicine":                                 70000,  // same sourced figure as Biotech (BLS Biochemists 19-1021; Biotech MS entry $68-74K) — biomed-specific pass pending
     "Environmental & Sustainability Studies":      66000,  // BLS Environmental Scientists 19-2041; growing field
     "Social Sciences & Humanities":                58000,  // BLS Social Scientists; policy/research roles
     "Arts, Design & Architecture":                 52000,  // BLS Architects 17-1011; Designers 27-1021
@@ -105,6 +107,7 @@ export const SALARY_LOOKUP: Record<SalaryCountry, Record<FieldOfStudy, number>> 
     "Nursing & Allied Health":                     40700,  // £32.0K — NHS Band 5 2024/25 exact
     "Natural Sciences":                            38000,  // £29.9K — HESA physical/natural sciences median
     "Biotechnology & Life Sciences":               40000,  // £31.5K — biomed/biotech MSc entry
+    "Biomedicine":                                 40000,  // same sourced figure as Biotech (£31.5K — biomed/biotech MSc entry) — biomed-specific pass pending
     "Environmental & Sustainability Studies":      37000,  // £29.1K — HESA environmental/geography
     "Social Sciences & Humanities":                38000,  // £29.9K — HESA social sciences median
     "Arts, Design & Architecture":                 34000,  // £26.8K — HESA design/architecture
@@ -128,6 +131,7 @@ export const SALARY_LOOKUP: Record<SalaryCountry, Record<FieldOfStudy, number>> 
     "Nursing & Allied Health":                     47000,  // ANMF RN Band 2 base AUD 72K
     "Natural Sciences":                            46000,  // QILT Science PGT AUD 71K
     "Biotechnology & Life Sciences":               48000,  // Pharma/biotech entry AUD 74K
+    "Biomedicine":                                 48000,  // same sourced figure as Biotech (Pharma/biotech entry AUD 74K) — biomed-specific pass pending
     "Environmental & Sustainability Studies":      48000,  // QILT Environment AUD 74K
     "Social Sciences & Humanities":                46000,  // QILT Social Sci AUD 71K
     "Arts, Design & Architecture":                 41000,  // Creative arts entry AUD 63K
@@ -151,6 +155,7 @@ export const SALARY_LOOKUP: Record<SalaryCountry, Record<FieldOfStudy, number>> 
     "Nursing & Allied Health":                     47000,  // RN Canada entry CAD 64K
     "Natural Sciences":                            41000,  // Natural sciences NOC 21xxx entry CAD 56K
     "Biotechnology & Life Sciences":               45000,  // Pharma/biotech Canada CAD 62K
+    "Biomedicine":                                 45000,  // same sourced figure as Biotech (Pharma/biotech Canada CAD 62K) — biomed-specific pass pending
     "Environmental & Sustainability Studies":      41000,  // Environmental CAD 56K
     "Social Sciences & Humanities":                38000,  // Social worker/researcher CAD 52K
     "Arts, Design & Architecture":                 35000,  // Creative roles CAD 48K
@@ -174,6 +179,7 @@ export const SALARY_LOOKUP: Record<SalaryCountry, Record<FieldOfStudy, number>> 
     "Nursing & Allied Health":                     39000,  // Krankenschwester entry EUR 36K
     "Natural Sciences":                            46000,  // Natural sciences MSc entry EUR 43K
     "Biotechnology & Life Sciences":               50000,  // Pharma/biotech Germany EUR 46K
+    "Biomedicine":                                 50000,  // same sourced figure as Biotech (Pharma/biotech Germany EUR 46K) — biomed-specific pass pending
     "Environmental & Sustainability Studies":      46000,  // Environmental eng/science EUR 43K
     "Social Sciences & Humanities":                42000,  // Social sci/Sozialwiss EUR 39K
     "Arts, Design & Architecture":                 38000,  // Design/Architektur entry EUR 35K
@@ -198,6 +204,7 @@ export const SALARY_LOOKUP: Record<SalaryCountry, Record<FieldOfStudy, number>> 
     "Nursing & Allied Health":                     35000,  // MOE Nursing SGD 4,000/month
     "Natural Sciences":                            34000,  // MOE Science SGD 3,800/month
     "Biotechnology & Life Sciences":               34000,  // MOE Life Sciences SGD 3,800/month
+    "Biomedicine":                                 34000,  // same sourced figure as Biotech (MOE Life Sciences SGD 3,800/month) — biomed-specific pass pending
     "Environmental & Sustainability Studies":      34000,  // Environmental roles SGD 3,800/month
     "Social Sciences & Humanities":                34000,  // MOE Arts/SS SGD 3,850/month
     "Arts, Design & Architecture":                 31000,  // Design/Architecture entry
@@ -221,6 +228,7 @@ export const SALARY_LOOKUP: Record<SalaryCountry, Record<FieldOfStudy, number>> 
     "Nursing & Allied Health":                     33000,  // NZ RN entry NZD 55K (NZNO Band 2)
     "Natural Sciences":                            31200,  // Natural sciences NZD 52K
     "Biotechnology & Life Sciences":               33000,  // Biotech/pharma entry NZD 55K
+    "Biomedicine":                                 33000,  // same sourced figure as Biotech (Biotech/pharma entry NZD 55K) — biomed-specific pass pending
     "Environmental & Sustainability Studies":      30600,  // Environmental science NZD 51K
     "Social Sciences & Humanities":                30000,  // Social work/research NZD 50K
     "Arts, Design & Architecture":                 28800,  // Design entry NZD 48K
@@ -244,6 +252,7 @@ export const SALARY_LOOKUP: Record<SalaryCountry, Record<FieldOfStudy, number>> 
     "Nursing & Allied Health":                     30200,  // HSE RN Band 5 EUR 28-32K
     "Natural Sciences":                            37500,  // Science roles EUR 32-42K
     "Biotechnology & Life Sciences":               43200,  // Pharma MNCs (Pfizer/J&J/Lilly) EUR 38-48K
+    "Biomedicine":                                 43200,  // same sourced figure as Biotech (Pharma MNCs (Pfizer/J&J/Lilly) EUR 38-48K) — biomed-specific pass pending
     "Environmental & Sustainability Studies":      34600,  // Environmental roles EUR 30-38K
     "Social Sciences & Humanities":                29300,  // Social sci/NGO EUR 26-32K
     "Arts, Design & Architecture":                 25900,  // Creative entry EUR 22-28K
@@ -268,6 +277,7 @@ export const SALARY_LOOKUP: Record<SalaryCountry, Record<FieldOfStudy, number>> 
     "Nursing & Allied Health":                     30200,  // Infirmier public sector EUR 22-30K
     "Natural Sciences":                            34600,  // Sciences entry EUR 30-38K
     "Biotechnology & Life Sciences":               34600,  // Pharma/biotech France EUR 30-40K
+    "Biomedicine":                                 34600,  // same sourced figure as Biotech (Pharma/biotech France EUR 30-40K) — biomed-specific pass pending
     "Environmental & Sustainability Studies":      32400,  // Environmental roles EUR 28-36K
     "Social Sciences & Humanities":                30200,  // Sciences humaines EUR 25-34K
     "Arts, Design & Architecture":                 28100,  // Design/Archi entry EUR 24-32K
@@ -291,6 +301,7 @@ export const SALARY_LOOKUP: Record<SalaryCountry, Record<FieldOfStudy, number>> 
     "Nursing & Allied Health":                     27000,  // UAE RN AED 84-120K; mid AED 100K
     "Natural Sciences":                            29200,  // Natural sciences UAE AED 100-120K
     "Biotechnology & Life Sciences":               32400,  // Pharma/biotech UAE AED 110-140K
+    "Biomedicine":                                 32400,  // same sourced figure as Biotech (Pharma/biotech UAE AED 110-140K) — biomed-specific pass pending
     "Environmental & Sustainability Studies":      27500,  // Environmental roles AED 90-120K
     "Social Sciences & Humanities":                25900,  // Social sci UAE AED 84-108K
     "Arts, Design & Architecture":                 22700,  // Design/Arch UAE AED 72-96K
@@ -314,6 +325,7 @@ export const SALARY_LOOKUP: Record<SalaryCountry, Record<FieldOfStudy, number>> 
     "Nursing & Allied Health":                      8400,  // Nurse Malaysia MYR 2,500-4,000/month; MYR 38K
     "Natural Sciences":                             8400,  // Natural sciences entry MYR 2,800-3,800/month
     "Biotechnology & Life Sciences":                9900,  // Pharma/biotech Malaysia MYR 3,500-4,500/month
+    "Biomedicine":                                  9900,  // same sourced figure as Biotech (Pharma/biotech Malaysia MYR 3,500-4,500/month) — biomed-specific pass pending
     "Environmental & Sustainability Studies":       7900,  // Environmental entry MYR 2,800-3,600/month
     "Social Sciences & Humanities":                 7400,  // Social sci/NGO MYR 2,500-3,500/month
     "Arts, Design & Architecture":                  7700,  // Design/Arch entry MYR 2,800-3,800/month

@@ -211,11 +211,15 @@ export default function StepTests({ profile, onChange }: Props) {
         <div className="pt-2">
           <Label>Medical Admission Test</Label>
           <p className="text-xs text-gray-500 mb-2 leading-relaxed">
-            Many medicine programs require an admission test — e.g. UCAT for
-            UK, Australia and NZ undergraduate medicine; MCAT for US and
-            Canadian MD programs; GAMSAT for graduate-entry medicine in the
-            UK, Australia and Ireland. Indian students planning to practise
-            in India later typically also need a NEET qualification.
+            Many medicine programs require an admission test — UCAT for UK,
+            Australia and NZ undergraduate medicine; GAMSAT for
+            graduate-entry medicine in the UK, Australia and Ireland. US and
+            Canadian medicine is graduate-entry: the MD requires the MCAT
+            (SAT/ACT covers only the pre-med bachelor&apos;s stage), and most
+            Canadian plus roughly a third of US schools also require CASPer,
+            a situational-judgement test with no numeric score to enter
+            here. Indian students planning to practise in India later
+            typically also need a NEET qualification.
           </p>
           <RadioGroup
             options={[
