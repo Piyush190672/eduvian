@@ -11,7 +11,7 @@
  */
 
 /** Month/year the figures in this file were audited against official sources. */
-export const VISA_DATA_LAST_VERIFIED = "April 2026";
+export const VISA_DATA_LAST_VERIFIED = "July 2026";
 
 export type VisaCountryCode =
   | "USA" | "UK" | "CAN" | "AUS" | "DEU"
@@ -108,7 +108,7 @@ const USA: VisaCountry = {
   visaFee: {
     amount: 185,
     currency: "USD",
-    notes: "Machine-readable visa (MRV) fee. Non-refundable, valid 365 days from payment.",
+    notes: "Machine-readable visa (MRV) fee. Non-refundable, valid 365 days from payment. A separate US$250 'Visa Integrity Fee' has been legislated (2025) but is NOT yet implemented — check travel.state.gov.",
   },
   additionalFees: [
     {
@@ -279,7 +279,7 @@ const UK: VisaCountry = {
   visaFee: {
     amount: 558,
     currency: "GBP",
-    notes: "Applications from outside the UK (fee effective 2026; check gov.uk for the current figure).",
+    notes: "Applications from outside the UK (confirmed on gov.uk, July 2026).",
   },
   additionalFees: [
     {
@@ -322,7 +322,7 @@ const UK: VisaCountry = {
       order: 3,
       title: "Complete the online application and pay IHS + visa fee",
       detail:
-        "Apply at gov.uk/student-visa/apply. Pay the visa fee (£524) and the full IHS up-front (£776 × years of course). Save the 8-character IHS reference number.",
+        "Apply at gov.uk/student-visa/apply. Pay the visa fee (£558) and the full IHS up-front (£776 × years of course). Save the 8-character IHS reference number.",
       officialLink: { label: "gov.uk Student Visa", url: "https://www.gov.uk/student-visa/apply" },
     },
     {
@@ -586,7 +586,7 @@ const AUS: VisaCountry = {
     notes: "Base visa application charge effective 1 July 2026 (previously AUD 2,000). ELICOS-only (standalone English course) applications pay a reduced AUD 2,050. Confirm the current figure on immi.homeaffairs.gov.au before applying.",
   },
   additionalFees: [
-    { label: "OSHC (Overseas Student Health Cover)", amount: 620, currency: "AUD", notes: "Typical single-student annual premium — varies by insurer and course length." },
+    { label: "OSHC (Overseas Student Health Cover)", amount: 620, currency: "AUD", notes: "Single-student annual premium from ~AUD 620 (2026 range roughly 620–950) — varies by insurer and course length." },
   ],
   financial: {
     label: "AUD 29,710 per year living costs + tuition + return travel",
@@ -722,7 +722,7 @@ const DEU: VisaCountry = {
     notes: "National long-stay visa fee. Paid in local currency equivalent at the mission.",
   },
   additionalFees: [
-    { label: "Blocked account opening fee", amount: 50, currency: "EUR", notes: "Typical one-time fee; varies by provider (Expatrio, Fintiba, Deutsche Bank, Coracle)." },
+    { label: "Blocked account opening fee", amount: 89, currency: "EUR", notes: "€89–119 one-time depending on provider (Fintiba €89, Expatrio €119; 2026 pricing), plus ~€5–9/month service fee — some bundles waive the setup fee." },
     { label: "Health insurance (first 3 months until residence permit)", amount: 100, currency: "EUR", notes: "Travel/expat health insurance; converts to statutory (TK, AOK) or private cover after arrival." },
   ],
   financial: {
@@ -1018,9 +1018,9 @@ const NLD: VisaCountry = {
   processingTime:
     "Legal IND decision deadline is 90 days after a complete application. Most university sponsors receive a decision within 2–4 weeks.",
   visaFee: {
-    amount: 260,
+    amount: 254,
     currency: "EUR",
-    notes: "IND fee for study residence permit (2026). The university typically charges this to you + a small admin fee.",
+    notes: "IND fee for a study residence permit (2026 rate, valid to 31 Dec 2026 — IND fees reset every 1 January). The university typically charges this to you + a small admin fee.",
   },
   additionalFees: [
     { label: "Dutch public health insurance OR private student plan", amount: 600, currency: "EUR", notes: "AON Student Insurance or equivalent — approx. €50/month. Mandatory during study." },
@@ -1154,11 +1154,11 @@ const FRA: VisaCountry = {
   visaFee: {
     amount: 99,
     currency: "EUR",
-    notes: "Long-stay visa fee. Campus France fee is charged separately (varies by country, ~€100–300).",
+    notes: "Standard long-stay visa fee. Students applying through the Études en France procedure (incl. India) pay a reduced €50. Campus France fee is charged separately.",
   },
   additionalFees: [
-    { label: "Campus France processing fee", amount: 200, currency: "EUR", notes: "Paid to the Études en France procedure. Varies by country (India ₹18,000; many African countries ~€180)." },
-    { label: "OFII / VLS-TS online validation fee", amount: 60, currency: "EUR", notes: "Paid online on administration-etrangers-en-france.interieur.gouv.fr within 3 months of arrival (2026 tax stamp)." },
+    { label: "Campus France processing fee", amount: 190, currency: "EUR", notes: "Paid to the Études en France procedure. Varies by country — India ₹18,500 now, rising to ₹20,000 on 1 Aug 2026 (officially announced)." },
+    { label: "OFII / VLS-TS online validation fee", amount: 150, currency: "EUR", notes: "Tax stamp paid online on administration-etrangers-en-france.interieur.gouv.fr within 3 months of arrival — €150 as of 2026 (was €60)." },
     { label: "Student health insurance (Sécurité Sociale Étudiante)", amount: 0, currency: "EUR", notes: "Registration is FREE at etudiant-etranger.ameli.fr — mandatory for non-EU students." },
   ],
   financial: {
@@ -1242,7 +1242,7 @@ const FRA: VisaCountry = {
     { id: "language", group: "academic", label: "Language proof (French or English)",
       detail: "DELF B2 / DALF C1 for French-taught programmes; IELTS 6.5 / TOEFL iBT 90 for English-taught." },
     { id: "ofii", group: "post-approval", label: "VLS-TS online validation (within 3 months of arrival)",
-      detail: "Log in to administration-etrangers-en-france.interieur.gouv.fr and pay €50 to activate residence permit status.",
+      detail: "Log in to administration-etrangers-en-france.interieur.gouv.fr and pay the €150 tax stamp to activate residence permit status.",
       risk: "Failing to validate within 3 months of arrival = undocumented status, with fines and re-entry difficulties." },
   ],
   risks: [
@@ -1305,11 +1305,10 @@ const NZL: VisaCountry = {
   visaFee: {
     amount: 850,
     currency: "NZD",
-    notes: "Online offshore fee effective 2026. Paper applications and onshore applications have different fees — check INZ site.",
+    notes: "Online offshore fee (INZ Fees Guide, May 2026) — all-in: NZD 485 application + NZD 265 immigration levy + NZD 100 IVL. Paper and onshore applications differ — check INZ site.",
   },
   additionalFees: [
-    { label: "International Visitor Conservation & Tourism Levy (IVL)", amount: 100, currency: "NZD", notes: "Charged alongside visa fee for most student visas." },
-    { label: "Medical & X-ray examination (panel physician)", amount: 150, currency: "NZD", notes: "Typical cost in India/Pakistan; higher elsewhere. Via Bupa Medical Visa Services or country panel." },
+        { label: "Medical & X-ray examination (panel physician)", amount: 150, currency: "NZD", notes: "Typical cost in India/Pakistan; higher elsewhere. Via Bupa Medical Visa Services or country panel." },
   ],
   financial: {
     label: "NZ$20,000/year living expenses + tuition + onward travel",
@@ -1438,9 +1437,9 @@ const SGP: VisaCountry = {
   processingTime:
     "In-principle approval (IPA) is issued within 1–4 weeks after eForm 16 submission. Most approvals land in ~10 working days.",
   visaFee: {
-    amount: 90,
+    amount: 105,
     currency: "SGD",
-    notes: "Processing (SGD 30) + issuance (SGD 60) fees. Both payable online via SOLAR.",
+    notes: "Processing (SGD 45, non-refundable) + issuance (SGD 60) fees. Both payable online via SOLAR.",
   },
   additionalFees: [
     { label: "Multiple Journey Visa (nationalities that require it)", amount: 30, currency: "SGD", notes: "E.g., Indian, Chinese, Bangladeshi passport holders — auto-charged with Student's Pass." },
@@ -1572,9 +1571,9 @@ const MYS: VisaCountry = {
   processingTime:
     "EMGS targets 10–14 working days for Visa Approval Letter issuance. Add 3–5 working days for VDR endorsement at the nearest Malaysian mission before travel.",
   visaFee: {
-    amount: 1060,
+    amount: 1600,
     currency: "MYR",
-    notes: "EMGS processing fee for a Bachelor's-level Student Pass (indicative). Fees vary slightly by level and nationality.",
+    notes: "EMGS processing fee for a degree-level Student Pass (courses over 6 months; EMGS fee schedule v1.6, Nov 2025). 8% service tax applies and the mandatory eVAL is MYR 150 extra — fees vary by course length and institution type.",
   },
   additionalFees: [
     { label: "Medical screening in Malaysia (at EMGS-approved clinic)", amount: 250, currency: "MYR", notes: "Mandatory within 7 days of arrival." },
@@ -1717,8 +1716,8 @@ const UAE: VisaCountry = {
     notes: "Indicative cost for Entry Permit + Student Residence for one year, via ICP. Varies by emirate and institution; Dubai (GDRFA) has different fee tables.",
   },
   additionalFees: [
-    { label: "Emirates ID card (1 year)", amount: 170, currency: "AED", notes: "ICA Smart Services. Mandatory ID for all residents." },
-    { label: "Medical fitness test (screening centre)", amount: 320, currency: "AED", notes: "Chest X-ray + blood test at DHA or SEHA approved centre." },
+    { label: "Emirates ID card (1 year)", amount: 200, currency: "AED", notes: "ICP online: AED 100 card fee per year + AED 100 smart-service fee. Mandatory ID for all residents." },
+    { label: "Medical fitness test (screening centre)", amount: 320, currency: "AED", notes: "Chest X-ray + blood test at a DHA or SEHA approved centre (Dubai-level rate; MOHAP centres in other emirates charge ~AED 260)." },
     { label: "Health insurance", amount: 1500, currency: "AED", notes: "Mandatory minimum-benefit policy in Dubai and Abu Dhabi; varies by insurer." },
   ],
   financial: {

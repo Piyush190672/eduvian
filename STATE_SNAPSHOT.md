@@ -3941,3 +3941,24 @@ Founder requests (14 Jul 2026), all shipped:
 6. **Australia visa fee**: subclass 500 AUD 2,000 → **2,500** from 1 Jul 2026 (ELICOS-only 2,050) per Home Affairs fee increase — [visa-data.ts](../src/data/visa-data.ts) visaFee + ImmiAccount step (which still said the two-generations-stale 1,600). Sources: AFMC-independent — IDP/emigratelawyers/eduaid July-2026 fee guides.
 
 Verified: 110/110 vitest, tsc, next build; Playwright 375px walk (USA text mode, feedback API stubbed): readiness banner + ✓/✗ list render, missing point flagged, no overflow. Live-latency measured via scratch script against the real API (3 trials). NOT live-verified: voice-mode silence timing (needs a real mic session — founder QA).
+
+### 42.6 Round 4 (same session): 12-country visa-fee audit vs OFFICIAL immigration sources
+
+Founder request: recheck visa fee + related charges for all countries from official immigration webpages. 4 parallel research agents, official gov/operator sources only. VISA_DATA_LAST_VERIFIED → "July 2026". Verdicts:
+
+| Country | Item | Was | Now | Source |
+|---|---|---|---|---|
+| USA | MRV $185 / SEVIS $350 | ✓ confirmed | unchanged (+ note: legislated-but-unimplemented $250 Visa Integrity Fee) | travel.state.gov, ice.gov |
+| UK | Visa £558 / IHS £776/yr | ✓ confirmed | apply-step's stale **£524 → £558** | gov.uk |
+| Canada | Permit CAD 150 / biometrics 85 | ✓ confirmed | unchanged | ircc.canada.ca |
+| Australia | 2,500 / ELICOS 2,050 (1 Jul 2026) | ✓ confirmed via Home Affairs pricing API | OSHC note reworded (2026 range ~620–950) | immi.homeaffairs.gov.au |
+| Germany | D-visa €75 | ✓ confirmed | blocked-account setup **€50 → €89** (€89–119 + €5–9/mo, 2026 provider pricing); Sperrkonto €11,904 already correct | germany.info, providers |
+| Ireland | D-visa €60/€100 / IRP €300 | ✓ confirmed | unchanged | irishimmigration.ie |
+| Netherlands | IND study fee | €260 | **€254** (2026 rate; IND fees reset every 1 Jan — re-verify annually) | ind.nl |
+| France | VLS-TS €99 | partially | note: EEF applicants (incl. India) pay reduced €50 (LOW confidence — france-visas 403s automated fetch, founder spot-check advised); Campus France India **₹18,500 now, ₹20,000 from 1 Aug 2026**; **VLS-TS validation tax €60 → €150** (arrival step said €50 — also fixed) | service-public.gouv.fr, inde.campusfrance.org |
+| New Zealand | NZD 850 + separate IVL 100 | DOUBLE-COUNTED | **850 is all-in** (485 fee + 265 levy + 100 IVL, INZ Fees Guide May 2026) — separate IVL line REMOVED | immigration.govt.nz |
+| Singapore | SGD 30+60 | stale | processing **SGD 30 → 45** (total 105; +30 MJV for visa-required nationals) | ica.gov.sg |
+| Malaysia | EMGS MYR 1,060 | stale | **MYR 1,600** degree-band processing (schedule v1.6 Nov 2025; +8% svc tax; eVAL MYR 150 extra; realistic first-year EMGS bill ~2,500–3,000) | visa.educationmalaysia.gov.my |
+| UAE | AED ~1,200 indicative | kept (no single official total) | Emirates ID **170 → 200** (ICP online standard); medical note: Dubai 320 / other emirates ~260 | icp.gov.ae, u.ae |
+
+Watch-list for future sessions: US Visa Integrity Fee implementation; Campus France India ₹20,000 (1 Aug 2026); IND fee reset each 1 January; NZ Pacific-band concessions; AU ASEAN/Pacific concessional pricing.
