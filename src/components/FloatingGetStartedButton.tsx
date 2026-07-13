@@ -26,7 +26,9 @@ export default function FloatingGetStartedButton() {
     // (a floating conversion pill on top of a trust-building personal
     // letter undercuts the letter — found in 375px review, 14 Jul 2026).
     const path = window.location.pathname;
-    if (path.startsWith("/get-started") || path.startsWith("/profile") || path.startsWith("/why-eduvianai")) return;
+    // /results: the user already submitted — a readiness CTA is redundant
+    // and collides with the results toolbar (found in Wave-2 review).
+    if (path.startsWith("/get-started") || path.startsWith("/profile") || path.startsWith("/why-eduvianai") || path.startsWith("/results")) return;
 
     const SHOW_AFTER = 600; // px scrolled past hero before button appears
     const onScroll = () => setVisible(window.scrollY > SHOW_AFTER);
