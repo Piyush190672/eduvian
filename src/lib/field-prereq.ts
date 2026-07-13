@@ -193,8 +193,13 @@ export function getFieldAlignmentError(
       // hard-filter but we don't surface them as form-blocking errors.
       return null;
     }
-    const hasBackground = (profile.major_stream ?? "").trim().length > 0
-      || (profile.current_degree ?? "").trim().length > 0;
+    // Gate on the STREAM being chosen, not the degree: current_degree is
+    // picked first in the form, and a non-STEM degree label (e.g. "B.Com")
+    // fired "not eligible" before the user reached the stream question
+    // (founder report, 14 Jul 2026). The eligibility haystack still joins
+    // degree + stream below, so a STEM degree name keeps its rescue power —
+    // we just wait for the stream before scolding.
+    const hasBackground = (profile.major_stream ?? "").trim().length > 0;
     if (!hasBackground) return null; // don't pre-scold
 
     if (isAcademicallyEligibleForField(profile as _SP, field)) return null;
