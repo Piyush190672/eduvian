@@ -3820,3 +3820,81 @@ Everything in this section is LIVE in production (last deploy `a5ae47e7`). Follo
 4. Phase 3 backlog: pricing/Razorpay (approval-gated), testimonials, outcomes loop, tracker→Supabase, AISA program retrieval, WhatsApp/referral.
 5. Handoff #19 Tier-B/C/D items unchanged (tuition pushes spend-gated; market intelligence paused; M1 CSP, M5, L5, I2-I4; sidecar UI surfacing; degree_level re-extract).
 6. Scholarship filter chip on /results — still blocked on per-program scholarship data.
+
+## §41 Session log — 12-14 July 2026 (handoff #21 — Batch A data expansion · v3 premium redesign · Medicine taxonomy split · post-deploy fixes; 18 commits, ~$220-250 API spend)
+
+Everything in this section is LIVE in production (last deploy `8be88031`, confirmed via /api/version + homepage "30 fields of study"). DB grew 9,298 → **10,728 programs** (still 100% verified-at-source); sitemap 9,952 → **11,382 URLs**; taxonomy 29 → **30 fields**.
+
+### 41.1 Batch A — DB gap-fill campaign ($300 cap approved; ~$220-250 spent)
+
+User request: add all missing programs for ~20 named fields + all missing QS/THE-2026 universities, **12 destinations only**. Approved sequencing: 6 thinnest fields first (FinTech, Marketing, Psychology, Cybersecurity, Business Analytics, Data Science), Phase 0 free scoping, then Batch A at $300 cap.
+
+| Commit | What |
+|---|---|
+| `50e41a19` | Phase-0 catalogs (free): [scripts/verify/catalogs/gap-queue-6fields-2026-07.json](../scripts/verify/catalogs/gap-queue-6fields-2026-07.json) (623 unis × 6 fields = 3,029 empty cells) + [missing-unis-qs-the-2026.json](../scripts/verify/catalogs/missing-unis-qs-the-2026.json) (157 QS/THE-2026 unis absent from DB, 12-destination filtered). |
+| `6ae01308` | Batch A merge: **+1,430 verified programs** across the 6 fields. Seed-finder: [scripts/verify/gap-6fields-seed-finder.ts](../scripts/verify/gap-6fields-seed-finder.ts) — budget-capped, resumable, cost-tracked ($3/$15 per MTok + $0.01/search, $0.40/uni runaway guard). Verify via standard Opus 4.7 pipeline with --skip-existing resume. |
+
+**Ops findings (fix before Batch B):**
+- `web_search_20250305` tool variant costs 2.5× via input-token bloat — pilot hit $0.33/uni; switching to `web_search_20260209` (dynamic filtering) + capped searches + combined-fields prompt → **$0.152/uni**. Never use the old variant.
+- **merge.ts idempotency bug**: 7 entries evade the existing-key walker and re-insert every run. Ran dedupe-programs.py (removed 20 rows). NOT patched — must fix before Batch B.
+- Post-merge invariant failures fixed: legacy "Artificial Intelligence & Data Science" leaked on Sciences Po BASC (retagged → Data Science); 13 new null-degree_level rows (exec-ed/cert pages) → null-ratchet raised 152→165 with comment.
+- Residue: 47 unseeded unis + ~160 verify errors retryable (~$15-25).
+- **Batch B (157 missing QS/THE unis, est. $180-260) NOT started — needs fresh budget approval.**
+
+### 41.2 v3 premium redesign — decision-blue system + founder story (Waves 1-3, all approved)
+
+User asked for a "world class premium website"; accepted design-in-code approach (no Figma). Locked inputs (now in auto-memory + Bible): **brand voice** (8 attributes; NEVER say "AI-powered" — demonstrate via verifiable claims), **emotional design** (7-stage emotion map; one emotional job per section; acknowledge then solve, never amplify anxiety), **trust design** (Verified/Transparent/Personalised/Independent across copy/interface/interaction/feature; monetisation must be user-pays or "Independent" dies). 30 redesign points approved in 3 waves. Canonical design spec: **EduvianAI_Brand_Design_Bible_v2.docx** on the founder's Desktop (builder: docx npm; regenerated via scratchpad build-bible.js).
+
+| Commit | What |
+|---|---|
+| `a929cdec` | Wave 1: /v3 homepage prototype, /why-eduvianai page, blue-accent sweep, AI-word purge. |
+| `dba31972` | Founder-letter factual accuracy (see below) + INR at **₹94/USD** ([src/lib/format-inr.ts](../src/lib/format-inr.ts), display-only, dated Jul 2026). |
+| `3c498c65` + `6c5ab18b` | Problem-first founder letter "Why eduvianAI exists" + certainty quote on homepage founder row; About-the-founder dark panel; banned-words sweep. |
+| `03665025` | Wave 2: results page on blue token system; **tier-ceiling tooltip on ProgramCard tier pill** (offer-likelihood framing + data source); INR in ROI panel. |
+| `88c5ad38` | Floating readiness CTA excluded from /results (redundant post-submit; toolbar collision). Exclusions now: /get-started, /profile, /why-eduvianai, /results. |
+| `e2ef6b0f` | Wave 3: sitewide blue system (54 files), modal rainbow converged, "Interview Prep" → "Interview Coach" rename. |
+| `4219ae5c` + `75c6b86d` | /v3 swapped to /; old homepage archived at `_archive/page-pre-v3-swap.tsx.bak` (**gitignored — local + git history only**); merge to main. |
+| `0e91aec9` | CLAUDE.md palette/homepage entries refreshed (Bible v2 canonical). |
+
+**Palette (supersedes violet)**: mist white #F8FAFC base · slate navy #0F172A panels · single accent **blue-900 #1E3A8A** (hover blue-800) · semantic emerald/amber/rose unchanged. `logo.svg` is the LAST violet asset — founder decision pending.
+
+**Founder-letter locked facts (user corrections — never regress):**
+- IDP role was REGIONAL: "led its business across South Asia, Canada, Latin America and Mauritius" — NOT global leadership.
+- Guidance-gap critique framed INDUSTRY-wide ("Across the international education industry…"), never IDP-specific.
+- Scale fact: "tens of thousands of students from South Asia" (canonical; NOT 250,000+).
+- "guidance" not "advice"; media claim accurate ("regular contributor to leading media" — multiple national publications + electronic media).
+- USD→INR at ₹94. User reviewed a "Refined" doc that regressed the corrections — rejected; shipped phrasing is locked ("Keep what shipped for the three items").
+
+**Homepage (v3, 6 sections, emotional-journey order)**: hero with readiness-preview card (score ring + Admissibility/Financial/Visa pillars + 12/20/8 tier chips) · proof strip + founder row · how-it-works · journey-tools USP · Parent Decision Room (INR sample ₹92L / 2.1yrs payback / +₹3.2Cr) · closing CTA · grouped footer. CTA everywhere: **"Check my readiness"**. Mobile drawer nav: [src/components/v3/MobileNav.tsx](../src/components/v3/MobileNav.tsx) (44px targets).
+
+### 41.3 Post-deploy fixes (user bug reports, 13-14 July)
+
+| Commit | What |
+|---|---|
+| `b6b14b0a` | **Eligibility error fired on degree selection before stream chosen.** PG form gate in [src/lib/field-prereq.ts](../src/lib/field-prereq.ts) now waits for `major_stream` non-empty, not `current_degree`. |
+| `45cece91` | Second latent Tailwind JIT `${color}-*` interpolation bug (application-check loading tags) — classes silently vanish when no static usage remains post-violet-removal. First was the spinner. Grep for template-literal color classes after any palette change. |
+| `1fdd28f6` | **UG Medicine 3-of-4 rule** (user): eligible with any 3 of Physics/Chemistry/Biology/Mathematics — Maths NOT mandatory. |
+| `c27f9749` | **Medical admission test capture** in [StepTests.tsx](../src/components/form/StepTests.tsx): UCAT 1200-3600 / MCAT 472-528 / GAMSAT 0-100 / HPAT 0-300 / NEET 0-720 + other/none; `med_test`/`med_test_score`/`med_test_other_name` on profile + Zod. Factual hint (UCAT UK/AU/NZ UG, MCAT US/CA MD, GAMSAT graduate-entry, NEET for practising in India). Shown when picked fields include Medicine (or legacy combined value). Not yet a matching signal — cutoff data campaign would be needed. |
+| `8be88031` | **Taxonomy split: "Medicine & Public Health" → Medicine (114) + Public Health (395)** via [scripts/data-fixes/split-medicine-public-health.py](../scripts/data-fixes/split-medicine-public-health.py) (clinical-stem regex; ambiguous → Public Health; --dry-run caught trailing-\b bug misrouting "MBChB Medicine"). Legacy compat: matcher expands old combined value to both fields; gates/med-test block accept it. Public Health deliberately UNGATED (MPH accepts diverse backgrounds). ROI/lenses dual-keyed with IDENTICAL sourced values (splitting numbers would invent data — future sourcing pass optional). **+ UK Medicine SAT fix**: profile-score SAT lever suppressed for UG Medicine unless country prefs include USA/Canada/Singapore. |
+
+**Registration-gate scare (no code change)**: user reported gates gone; proved intact in prod (locked 5-of-12 teaser, PDF 403, email 403 on canonical token `4e8b0dd8-…`). Likely cause: testing with an already-registered email — unlock is REGISTRATION-keyed by design (locked #20). Hardening option (session-ownership unlock) offered, **not decided**.
+
+**Functionality audit** (user asked "what changed without asking"): 10-item list delivered — nav "How it works" link removal, floating-CTA exclusions, welcome-email edits, modal color convergence, footer additions, admin backgrounds, global body background, local-only archive, LoadingScreen prop, data-side items. User has not yet said which to revert.
+
+### 41.4 Verification & ops notes
+
+- **96 vitest tests** (was 84): +16 in [tests/field-prereq.test.ts](../tests/field-prereq.test.ts) minus consolidation — PG gating order, UG Medicine 3-of-4, legacy combined-value, Biotech-still-requires-Math control.
+- Matcher smoke post-split: Medicine UG/UK = 33 matches {safe 12, reach 17, ambitious 4} honest underfill; legacy combined value = 36. Lever check: UK-only Medicine → no SAT lever; USA Medicine → "Take the SAT, target 1400+" intact.
+- **Browser-pane renderer broke mid-session** (viewport 0, blank captures) — environmental. All visual verification pivoted to repo Playwright (`chromium.launch`, fullPage screenshots, overflow checks). Form-walk selectors that work: placeholders "Arjun Mehta"/"arjun@email.com"/"98765 43210"/"Mumbai"; "Percentage (%)" score type; institution "IIT Bombay / Delhi Public School"; "Select degree"/"Select year" selects.
+- `recommendPrograms(profile, INDEXED_PROGRAMS, pages)` — programs array is a parameter (ad-hoc smoke scripts must pass it).
+- git commit+push in one Bash call timed out at 5m once (commit had landed; push separately).
+- Coverage after Batch A: fee 72.2% (was 77% of 9,298 — new programs diluted), duration 95.0%, city-level living cost 6,018 (56%). New Batch-A programs have NOT had apply-city-costs.py run over them — optional follow-up.
+
+### 41.5 Known-open (decisions awaited + carried forward)
+
+1. **URGENT legal P0 unchanged**: /terms + /privacy 404 in prod while consent checkboxes link to them (attorney-gated, hard rule #3); age gate, /account/data, erasure, retention cron, GO/entity branding, mailboxes.
+2. **User decisions awaited**: (a) extend 3-of-4 subject rule to Biotechnology & Life Sciences / Agriculture & Veterinary (still Math-mandatory — likely source of the original Medicine complaint via co-picked fields); (b) registration-gate hardening (session-ownership) or keep as-is; (c) logo.svg violet→blue; (d) functionality-audit items to revert (nav "How it works" restore?); (e) Public Health gating (currently ungated).
+3. **Batch B**: fix merge.ts key-walker FIRST; then 157 unis (~$180-260, fresh approval) + retry 47 unseeded/160 errors (~$15-25).
+4. User QA owed: phone guest-funnel walk; do NOT delete throwaway submission `unregistered-zod-check@example.com` / token `4e8b0dd8-0f4b-40bc-837e-aee75727c484` (canonical locked-view test).
+5. Possible future: med-test cutoffs as matching signal; Medicine vs Public Health per-field salary sourcing; apply-city-costs over Batch-A adds.
+6. Phase 3 backlog + #19 carry-forwards unchanged (§40.6 items 4-6).

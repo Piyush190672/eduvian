@@ -4,9 +4,16 @@ This file is loaded automatically. The full project state, decisions, and ration
 
 ## What this is
 
-Next.js 14 (App Router) study-abroad platform deployed to Vercel at https://www.eduvianai.com. Postgres + RLS in Supabase Cloud (US, Pro plan). Anthropic Claude for AI features, Resend for transactional mail, Sentry for errors. 12 destination countries, **9,298 programs / 9,298 verified at the source (100.0%) / 30 streams (Medicine split from Public Health 14 Jul 2026; was 21 pre #19) / ~636 universities (419 in universities sidecar — 218 USA + 121 UK + 70 Canada + 10 Singapore) / 77% with international tuition fee (verified + estimated; up from 69% post handoff #19 Wave A) / 99.3% with duration / 64% with city-level living cost** as of 10 July 2026 (handoff #20; data counts unchanged since #19). Beta-gated to 100 NEW unique users / month (returning users skip) under $20/mo Anthropic spend ceiling. Email OTP **and** password (scrypt) both gate register / login.
+Next.js 14 (App Router) study-abroad platform deployed to Vercel at https://www.eduvianai.com. Postgres + RLS in Supabase Cloud (US, Pro plan). Anthropic Claude for AI features, Resend for transactional mail, Sentry for errors. 12 destination countries, **10,728 programs / 10,728 verified at the source (100.0%) / 30 streams (Medicine split from Public Health 14 Jul 2026; was 21 pre #19) / 623 universities (419 in universities sidecar — 218 USA + 121 UK + 70 Canada + 10 Singapore) / 72% with international tuition fee (verified + estimated; diluted from 77% by the 1,430 Batch-A adds) / 95% with duration / 56% with city-level living cost (Batch-A adds haven't had apply-city-costs.py run)** as of 14 July 2026 (handoff #21; Batch A grew the DB 9,298 → 10,728). Beta-gated to 100 NEW unique users / month (returning users skip) under $20/mo Anthropic spend ceiling. Email OTP **and** password (scrypt) both gate register / login.
 
-**Handoff #20 (10 July 2026, ~34 commits, $0 API spend) — READ §40 of STATE_SNAPSHOT.md. High-impact deltas:**
+**Handoff #21 (12-14 July 2026, 18 commits, ~$220-250 API spend) — READ §41 of STATE_SNAPSHOT.md. High-impact deltas:**
+- **Batch A gap-fill: +1,430 verified programs (9,298 → 10,728)** across the 6 thinnest fields (FinTech, Marketing, Psychology, Cybersecurity, Business Analytics, Data Science). Sitemap 9,952 → 11,382 URLs. Batch B (157 missing QS/THE-2026 unis, ~$180-260) NOT started — needs fresh budget approval AND the merge.ts key-walker idempotency fix first (7 entries re-insert every run; dedupe-programs.py is the current mop-up).
+- **v3 premium redesign live** (Waves 1-3, all founder-approved): single decision-blue accent (#1E3A8A) replaced violet sitewide (54 files; logo.svg is the last violet asset, decision pending); 6-section emotional-journey homepage with readiness-preview hero card; founder letter at /why-eduvianai ("Why eduvianAI exists" — REGIONAL IDP phrasing, industry-wide critique, "tens of thousands of students", ₹94/USD — all founder-locked, never regress); "Check my readiness" CTA everywhere; "Interview Prep" → "Interview Coach". Canonical spec: EduvianAI_Brand_Design_Bible_v2.docx (founder's Desktop). Brand voice / emotional design / trust design rules in auto-memory + §41.2.
+- **Medicine split from Public Health** (30 fields): 114 clinical / 395 PH; legacy combined value auto-expands in the matcher; Public Health deliberately ungated; UG Medicine needs any 3 of Physics/Chemistry/Biology/Maths (Maths NOT mandatory); med-test capture (UCAT/MCAT/GAMSAT/HPAT/NEET) on StepTests; SAT improvement lever suppressed for UG Medicine unless prefs include USA/Canada/Singapore.
+- **PG eligibility gate waits for `major_stream`** (not just degree) — error no longer fires before the stream is chosen. Tailwind JIT hazard confirmed twice: template-literal `${color}-*` classes silently lose styling when no static usage remains — grep after any palette change.
+- Registration gates verified INTACT in prod after a user scare (unlock is registration-keyed by design; hardening to session-ownership offered, undecided). 96 vitest tests (was 84).
+
+**Handoff #20 (10 July 2026, ~34 commits, $0 API spend) — READ §40 of STATE_SNAPSHOT.md. High-impact deltas (historical):**
 - **Registration gate moved AFTER the form.** All CTAs route to the ungated /profile form; guests submit with a required Terms consent checkbox (timestamped acceptance rides on the encrypted blob; /api/submit rejects guest submissions without it). /api/results + /api/pdf serve a top-5 `teaserSlice` with `locked_count`/`total_matches`/`tier_counts` until the submitting email has a registered account (keyed on REGISTRATION, not session ownership — submit hands guests an owner cookie). PDF + email are 403 for guests. Registering with the same email auto-unlocks; parent-share of claimed submissions unchanged.
 - **9,933 programmatic SEO pages** at /programs/[country]/[university]/[program] via server-only src/lib/program-slugs.ts; sitemap.xml (9,952 URLs) + robots.txt + per-route metadata on all public pages.
 - **Homepage rebuilt** as a 6-section server component (hero · proof strip · how-it-works · journey-tools USP section · parents · CTA); old page archived at _archive/page-pre-phase2-rebuild.tsx.bak. NEVER reduce marketing surfaces to profile+matching — the journey tools (Application Check, Interview Prep, English Test Lab, Visa Coach) are the USP.
@@ -95,12 +102,12 @@ User separates "commit" from "deploy" (push). Defaults:
 
 ## Verification pipeline (programs.ts)
 
-The 9,298-program database in `src/data/programs.ts` is built only by `scripts/verify/`. Hard rules:
+The 10,728-program database in `src/data/programs.ts` is built only by `scripts/verify/`. Hard rules:
 
 1. **No hand-authored entries.** Adds go through the pipeline.
 2. **No invented values.** If the live URL doesn't state a fee/deadline/cutoff, the field is `null`.
 3. **`verified_at` is sacred** — set only by the pipeline after a live fetch.
-4. `field_of_study` must be one of the 29 in `FIELDS_OF_STUDY`.
+4. `field_of_study` must be one of the 30 in `FIELDS_OF_STUDY`.
 5. For high-stakes programs.ts edits, prefer `repair-corruption.ts`-style parse-and-emit over inline regex. Brace walkers must track strings (history: see snapshot §4.10).
 6. `verify-program.ts` stays on Opus 4.7 (audited; Haiku/Sonnet fabricate).
 7. **Fresh seeds via `websearch-seed-finder.ts` (Sonnet + web_search) hit ~75% verify pass-rate.** Stale `tier-N-auto.json` seeds (older crawler runs) hit ~5% — they're full of catalog/listing URLs. For new uni additions, always run seed-finder over a curated catalog first; don't reuse old auto-seeds.
@@ -147,15 +154,15 @@ Audit document: `~/Desktop/EduvianAI-Security-Architecture-Risk-Assessment.docx`
 
 | Path | What |
 |---|---|
-| `src/data/programs.ts` | THE database. **9,298 entries / 9,298 verified (100%).** `@ts-nocheck`. **Never import from client components** (Phase 1 de-ship, 10 July 2026) — use `src/data/programs-indexed.ts` server-side, `/api/programs` from the client. |
+| `src/data/programs.ts` | THE database. **10,728 entries / 10,728 verified (100%).** `@ts-nocheck`. **Never import from client components** (Phase 1 de-ship, 10 July 2026) — use `src/data/programs-indexed.ts` server-side, `/api/programs` from the client. |
 | `src/data/programs-indexed.ts` | Canonical id-stamped list: stable content-hash ids `p_<16hex>` (dual-seed FNV-1a over country\|university\|program\|level\|url), `PROGRAM_BY_ID`, `resolveProgramId` (legacy `prog_N` translation). |
 | `src/lib/program-slugs.ts` | server-only slug maps for /programs/[country]/[university]/[program] (9,933 URLs). Deterministic; collisions get -2/-3 suffixes. |
 | `src/lib/submission-owner.ts` | `isSubmissionOwner` (session email_hash match), `isEmailRegistered` (drives the results teaser gate — fails OPEN), `redactProfileContact` masking for shared links. |
 | `src/lib/profile-score.ts` | Pillar-based 0-100 rating (Admissibility/Financial/Visa) + `computeImprovementLevers` simulator. Readiness framing only — never admission promises. |
-| `src/data/db-stats.ts` | Computed counts, consumed from the PREBUILT literal `src/data/db-stats-generated.ts` (regenerate: `npx tsx scripts/generate-db-stats.ts`, wired as npm `prebuild`) so clients never import PROGRAMS. Public surfaces standardise on `verifiedProgramsLabel` (9,298+) / `verifiedUniversitiesLabel` (623+); no dual numbers in copy. |
+| `src/data/db-stats.ts` | Computed counts, consumed from the PREBUILT literal `src/data/db-stats-generated.ts` (regenerate: `npx tsx scripts/generate-db-stats.ts`, wired as npm `prebuild`) so clients never import PROGRAMS. Public surfaces standardise on `verifiedProgramsLabel` (10,728+) / `verifiedUniversitiesLabel` (623+); no dual numbers in copy. |
 | `src/app/sample-parent-report/page.tsx` | Static, illustrative parent-decision report at `/sample-parent-report`. Print-friendly (Save-as-PDF button). Linked from the Decide-stage 'See sample family report' CTA. |
 | `src/app/page.tsx` | **The homepage** (v3 redesign swap, 14 July 2026): 6-section SERVER component in emotional-journey order — hero (readiness-preview card), proof strip (+ founder row), how-it-works, journey-tools USP section, Parent Decision Room (INR at ₹94/USD), closing CTA; grouped footer. Client islands: ChatWidget, LogoutButton, MobileNav. Pre-v3 page at `_archive/page-pre-v3-swap.tsx.bak` (gitignored, also in git history). Founder letter at `src/app/why-eduvianai/page.tsx`. Voice rules: never "AI-powered" in copy (brand name + AISA carry the signal); CTA is "Check my readiness" (never "See if I qualify"). |
-| `src/lib/types.ts` | Single source of truth. `TARGET_COUNTRIES` (12, incl. Netherlands since 10 July 2026), `FIELDS_OF_STUDY` (29). |
+| `src/lib/types.ts` | Single source of truth. `TARGET_COUNTRIES` (12, incl. Netherlands since 10 July 2026), `FIELDS_OF_STUDY` (30). |
 | `src/lib/scoring.ts` | `recommendPrograms()` — tier thresholds are PER PRESTIGE BUCKET (see Scoring section) with explicit tierCeiling (elite never Safe); strict 30/50/20 quotas; highest-match-score-first within tiers; `teaserSlice` (locked-view top 5); aspirational `above_budget` fill for empty Reach/Ambitious. |
 | `src/lib/format-fee.ts` | Null-safe tuition rendering. **Never show $0.** Prefers local currency (`£26,600`) with optional USD parenthetical via `opts.withUsd` — backed by `annual_tuition_amount` + `annual_tuition_currency` on Program. Schema also keeps the legacy `annual_tuition_usd` for filtering / aggregation. |
 | `src/lib/beta-gate.ts` | Per-tool monthly caps + global $20 spend cap. Unique-user counter dedups on (email, phone) over `students` rows from this month — returning users (registered before this month) skip the new-user cap entirely. |
@@ -206,28 +213,36 @@ Audit document: `~/Desktop/EduvianAI-Security-Architecture-Risk-Assessment.docx`
 
 The legal/security/pricing Word docs were generated with `docx`. Pricing Excel via `xlsx`. To regenerate legal: `node scripts/build-legal-docs.js`.
 
-## Open work for the next session (handoff #20, 10 July 2026)
+## Open work for the next session (handoff #21, 14 July 2026)
 
-Full detail in STATE_SNAPSHOT §40.6. **No background processes. Working tree clean.** Last deploy: `a5ae47e7`.
+Full detail in STATE_SNAPSHOT §41.5. **No background processes.** Last deploy: `8be88031` (confirmed live — prod /api/version + homepage "30 fields of study"). Untracked leftovers: `scripts/verify/seeds/gap-6fields-pilot*.json` (pilot scratch — commit or delete at will).
 
-**URGENT — legal P0 (now blocking, not just pending):**
+**URGENT — legal P0 (unchanged, still blocking):**
 
 1. **/terms and /privacy return 404 in production** while BOTH consent checkboxes (register + guest-submit) link to them. Publishing the attorney-vetted docs needs user/attorney sign-off (hard rule #3) — top priority.
 2. Age gate + verifiable parental consent for under-18s; data export (`/account/data`); right-to-erasure; 24-month retention cron; named Grievance Officer + entity branding (blocked on lawyer); active mailboxes (grievance@/privacy@/legal@/support@).
 
+**User decisions awaited (from #21):**
+
+3. Extend the 3-of-4 subject rule to Biotechnology & Life Sciences / Agriculture & Veterinary (still Math-mandatory — likely source of the original Medicine complaint via co-picked fields)?
+4. Registration-gate hardening (session-ownership unlock) or keep registration-keyed as designed?
+5. logo.svg violet → blue (last violet asset)? · Public Health gating (currently ungated)? · Functionality-audit items to revert (e.g. nav "How it works" link)?
+
+**Data campaigns (spend-gated):**
+
+6. **Batch B**: fix merge.ts key-walker idempotency FIRST (7 entries re-insert each run), then 157 missing QS/THE-2026 unis (~$180-260, fresh approval) + retry 47 unseeded / ~160 verify errors (~$15-25). Optional: apply-city-costs.py over the 1,430 Batch-A adds.
+
 **User-driven QA (no spend):**
 
-3. Guest funnel walk-through on a real phone: form → consent checkbox → rating → teaser (5 of N) → register → auto-unlock → PDF/email.
-4. Owner-path / shared-path checklists (masked PII, 403 PATCH), live-mic interview-prep tests, cross-device prefill, feedback surveys.
-5. Delete throwaway QA submission in Supabase Studio: `unregistered-zod-check@example.com`, token `4e8b0dd8-…` (deliberately unregistered — it's the canonical locked-view test case until deleted).
+7. Guest funnel walk-through on a real phone: form → consent checkbox → rating → teaser (5 of N) → register → auto-unlock → PDF/email.
+8. Owner-path / shared-path checklists (masked PII, 403 PATCH), live-mic interview-prep tests, cross-device prefill, feedback surveys. Do NOT delete `unregistered-zod-check@example.com` / token `4e8b0dd8-…` — canonical locked-view test case.
 
 **Product backlog (Phase 3 — monetization/launch):**
 
-6. Pricing + Razorpay (hard rule #2: ideation only until user approves deployment).
-7. Testimonials pipeline · outcomes loop (admissions_outcomes) · application-tracker → Supabase · AISA program retrieval · WhatsApp deep links + referral.
-8. Scholarship filter chip on /results — blocked on per-program scholarship data.
+9. Pricing + Razorpay (hard rule #2: ideation only until user approves deployment).
+10. Testimonials pipeline · outcomes loop (admissions_outcomes) · application-tracker → Supabase · AISA program retrieval · WhatsApp deep links + referral · scholarship filter chip (blocked on per-program data) · med-test cutoffs as matching signal (data campaign) · Medicine vs Public Health per-field salary sourcing.
 
-**Carried forward from #19 (unchanged):** Tier-B tuition pushes (spend-gated), Market-Intelligence integration (paused), M1 CSP, M5 rotation doc, L5 verified_at HMAC, I2/I3/I4, universities-sidecar UI surfacing, degree_level re-extract (148 rows), taxonomy follow-ups.
+**Carried forward from #19 (unchanged):** Tier-B tuition pushes (spend-gated), Market-Intelligence integration (paused), M1 CSP, M5 rotation doc, L5 verified_at HMAC, I2/I3/I4, universities-sidecar UI surfacing, degree_level re-extract, taxonomy follow-ups.
 
 ## Universities sidecar (Stage 1+2+3+5 live as of #17)
 
