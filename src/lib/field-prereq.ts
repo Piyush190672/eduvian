@@ -69,10 +69,16 @@ const FIELD_PREREQUISITES: Record<string, RegExp> = {
   // ── Life sciences / health ──────────────────────────────────────────────
   "Biotechnology & Life Sciences":
     /\b(biotech|bio(?:logy|chem|tech|medic|inform|engineer)?|chem|life\s*scien|microbiolog|genet|pharma|botany|zoolog|medic|health|agricultur|veterinar|animal\s*scien)/i,
-  // Medicine (clinical) keeps the strict prereq; Public Health is
-  // deliberately NOT gated — MPH programs widely accept diverse
-  // undergraduate backgrounds.
+  // Medicine (clinical) keeps the strict prereq. Public Health gated
+  // too (founder decision, 14 Jul 2026 — was deliberately ungated at
+  // the split): same health-sciences background pool as Medicine.
   "Medicine":
+    /\b(medic|mbbs|bds|dental|pharma|nurs|health|public\s*health|epidem|biostat|allied\s*health|physiother|biotech|bio)/i,
+  "Public Health":
+    /\b(medic|mbbs|bds|dental|pharma|nurs|health|public\s*health|epidem|biostat|allied\s*health|physiother|biotech|bio)/i,
+  // Legacy pre-split drafts (field retired 14 Jul 2026) — keep them
+  // gated like the split fields they expand to.
+  "Medicine & Public Health":
     /\b(medic|mbbs|bds|dental|pharma|nurs|health|public\s*health|epidem|biostat|allied\s*health|physiother|biotech|bio)/i,
   "Nursing & Allied Health":
     /\b(nurs|medic|mbbs|health|allied\s*health|physiother|midwif|paramed|pharma|biomed|biolog)/i,
@@ -137,6 +143,7 @@ export const STEM_PG_FIELDS: ReadonlySet<string> = new Set([
   "Renewable Energy",
   "Biotechnology & Life Sciences",
   "Medicine",
+  "Public Health",
   "Nursing & Allied Health",
   "Natural Sciences",
   "Agriculture & Veterinary Sciences",

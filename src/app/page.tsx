@@ -149,6 +149,7 @@ export default function HomePage() {
               <Link href="/destinations" className="text-sm text-white/70 hover:text-white transition-colors">Destinations</Link>
               <Link href="/scholarships" className="text-sm text-white/70 hover:text-white transition-colors">Scholarships</Link>
               <Link href="/why-eduvianai" className="text-sm text-white/70 hover:text-white transition-colors">Why eduvianAI</Link>
+              <Link href="/methodology" className="text-sm text-white/70 hover:text-white transition-colors">How it works</Link>
               <Link href="/get-started" className="text-sm text-white/70 hover:text-white transition-colors">Sign in</Link>
               <LogoutButton variant="compact" />
               <Link

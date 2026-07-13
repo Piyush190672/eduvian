@@ -93,18 +93,19 @@ const ENGLISH_CONFIG: Record<
 };
 
 // Medical admission tests — real score ranges per test (14 Jul 2026):
-// UCAT cognitive total 1200-3600 (SJT band excluded), MCAT 472-528,
-// GAMSAT overall 0-100, HPAT-Ireland 0-300, NEET 0-720.
+// UCAT cognitive total 900-2700 (Abstract Reasoning removed from the
+// 2025 test onwards — 3 subtests × 300-900; SJT band excluded),
+// MCAT 472-528, GAMSAT overall 0-100, HPAT-Ireland 0-300, NEET 0-720.
 const MED_TEST_CONFIG: Record<
   string,
   { label: string; min: number; max: number; step: number; placeholder: string }
 > = {
-  ucat:   { label: "UCAT total (1200–3600)", min: 1200, max: 3600, step: 10, placeholder: "2800" },
+  ucat:   { label: "UCAT total (900–2700)",  min: 900,  max: 2700, step: 10, placeholder: "2100" },
   mcat:   { label: "MCAT total (472–528)",   min: 472,  max: 528,  step: 1,  placeholder: "510" },
   gamsat: { label: "GAMSAT overall (0–100)", min: 0,    max: 100,  step: 1,  placeholder: "65" },
   hpat:   { label: "HPAT total (0–300)",     min: 0,    max: 300,  step: 1,  placeholder: "170" },
   neet:   { label: "NEET score (0–720)",     min: 0,    max: 720,  step: 1,  placeholder: "550" },
-  other:  { label: "Score",                  min: 0,    max: 3600, step: 1,  placeholder: "" },
+  other:  { label: "Score",                  min: 0,    max: 2700, step: 1,  placeholder: "" },
 };
 
 export default function StepTests({ profile, onChange }: Props) {

@@ -119,3 +119,47 @@ describe("getFieldAlignmentError — UG Medicine 3-of-4 rule", () => {
     ).toMatch(/Mathematics/);
   });
 });
+
+// Founder decision (14 Jul 2026): Public Health is gated at PG like
+// Medicine — health-sciences background required. UG Public Health has
+// no subject rule (the 3-of-4 rule is Medicine-only, founder rule).
+describe("Public Health gating", () => {
+  const pg = { degree_level: "postgraduate" as const };
+
+  it("PG Public Health blocks a non-health background", () => {
+    expect(
+      getFieldAlignmentError(
+        { ...pg, current_degree: "B.A.", major_stream: "History" },
+        "Public Health",
+      ),
+    ).toMatch(/not eligible/i);
+  });
+
+  it("PG Public Health passes a health-sciences background", () => {
+    expect(
+      getFieldAlignmentError(
+        { ...pg, current_degree: "B.Sc. Nursing", major_stream: "Nursing" },
+        "Public Health",
+      ),
+    ).toBeNull();
+  });
+
+  it("matcher hard-filter gates Public Health programs for non-health PG profiles", () => {
+    const p = {
+      degree_level: "postgraduate",
+      current_degree: "B.Com",
+      major_stream: "Commerce",
+    } as unknown as StudentProfile;
+    expect(isAcademicallyEligibleForField(p, "Public Health")).toBe(false);
+    expect(isAcademicallyEligibleForField(p, "Medicine & Public Health")).toBe(false); // legacy rows
+  });
+
+  it("UG Public Health has no subject gate (3-of-4 is Medicine-only)", () => {
+    expect(
+      getFieldAlignmentError(
+        { degree_level: "undergraduate", major_stream: "History, English" },
+        "Public Health",
+      ),
+    ).toBeNull();
+  });
+});

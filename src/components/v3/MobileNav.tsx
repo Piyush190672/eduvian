@@ -14,7 +14,7 @@ const LINKS = [
   { href: "/destinations", label: "Destinations" },
   { href: "/scholarships", label: "Scholarships" },
   { href: "/why-eduvianai", label: "Why eduvianAI" },
-  { href: "/methodology", label: "How we verify data" },
+  { href: "/methodology", label: "How it works" },
   { href: "/get-started", label: "Sign in" },
 ] as const;
 

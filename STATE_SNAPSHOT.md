@@ -3898,3 +3898,27 @@ User asked for a "world class premium website"; accepted design-in-code approach
 4. User QA owed: phone guest-funnel walk; do NOT delete throwaway submission `unregistered-zod-check@example.com` / token `4e8b0dd8-0f4b-40bc-837e-aee75727c484` (canonical locked-view test).
 5. Possible future: med-test cutoffs as matching signal; Medicine vs Public Health per-field salary sourcing; apply-city-costs over Batch-A adds.
 6. Phase 3 backlog + #19 carry-forwards unchanged (§40.6 items 4-6).
+
+## §42 Session log — 14 July 2026 (handoff #22 — founder decision round: taxonomy locks, Public Health gate, UCAT new format, nav restore; hardening decided-but-held)
+
+§0 re-verified before work: HEAD `3c79bc63` on `8be88031`, prod /api/version `3c79bc63`, 96/96 vitest, homepage proof strip + split dropdown confirmed in prod bundles (the two remaining "Medicine & Public Health" hits in the profile chunk are the designed legacy-compat paths, not dropdown options).
+
+### 42.1 Founder decisions (this session — all verbal, from the priority-queue answers)
+
+1. **Medicine / Public Health permanently separate fields — LOCKED, never re-merge.**
+2. **3-of-4 subject rule is Medicine-ONLY.** No extension to Biotechnology & Life Sciences / Agriculture & Veterinary — they stay PCM Math-mandatory. (Decision (a) closed as no-change.)
+3. **logo.svg stays as-is** (violet). Decision (c) closed as no-change.
+4. **Nav "How it works" reinstated** (decision (d)): desktop nav link in [src/app/page.tsx](../src/app/page.tsx) + MobileNav drawer label "How we verify data" → "How it works", both → /methodology. Footer keeps its more descriptive "How we verify data" label. Verified at 375px (44px targets, no overflow) and desktop.
+5. **Public Health GATED at PG** (decision (e)): added to `FIELD_PREREQUISITES` + `STEM_PG_FIELDS` in [src/lib/field-prereq.ts](../src/lib/field-prereq.ts) with the same health-sciences regex as Medicine; legacy "Medicine & Public Health" key restored to the prereq map so pre-split PG drafts stay gated (matches pre-split behavior). **UG Public Health has NO subject rule** (3-of-4 is Medicine-only). Playwright-verified at 375px: PG + Public Health + Law stream → "not eligible" warning; Nursing stream clears it. +4 vitest tests (100 total).
+6. **UCAT new format** (founder report: AR module removed, max 2700): [StepTests.tsx](../src/components/form/StepTests.tsx) `MED_TEST_CONFIG.ucat` 1200–3600 → **900–2700** (3 subtests × 300–900, SJT excluded), placeholder 2800 → 2100, "other" ceiling 3600 → 2700; [schemas.ts](../src/lib/schemas.ts) `med_test_score` max 3600 → 2700. Playwright-verified: label renders "UCAT total (900–2700)", 3000 fails HTML range validation. NOTE: any draft/preload carrying an old-format score >2700 will fail Zod at submit and must re-enter — accepted (old-format scores are from the pre-2025 cycle, expired).
+
+### 42.2 Registration-gate hardening — DECIDED but ON HOLD (do not implement without greenlight)
+
+Founder's rule: registration is one-time; every viewing of complete data requires a signed-in session (email + password/OTP); full data / email / PDF stay registration-gated per submission. Chosen model for shared links: **any-signed-in-account** — full shared view requires the VIEWER signed in to any eduvianAI account AND the submitter registered; contact PII stays masked for non-owners; PDF/email remain owner-only. Parents sign into their own free account to view a shared link.
+
+Blocked on: `user_sessions.authenticated boolean` migration (hard rule 8 — SQL file under src/lib/migrations/, founder runs it in Studio). Founder chose "hold for now" on the migration. Implementation notes for when it ships: /api/auth sessions set authenticated=true; /api/submit guest owner-cookies stay false (they must NEVER unlock — that's the "type a registered email into the form" bypass being closed); gate = authenticated session (+ email match for owner surfaces); code must fail toward CURRENT behavior while the column is absent so the deploy is safe pre-migration.
+
+### 42.3 Open (delta from §41.5)
+
+- Legal P0 unchanged and still top priority (/terms + /privacy 404 behind consent checkboxes; attorney-gated).
+- Hardening on hold per §42.2. Batch B still needs merge.ts key-walker fix + fresh budget. Canonical locked-view test submission untouched.
