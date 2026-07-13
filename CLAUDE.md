@@ -154,7 +154,7 @@ Audit document: `~/Desktop/EduvianAI-Security-Architecture-Risk-Assessment.docx`
 | `src/lib/profile-score.ts` | Pillar-based 0-100 rating (Admissibility/Financial/Visa) + `computeImprovementLevers` simulator. Readiness framing only — never admission promises. |
 | `src/data/db-stats.ts` | Computed counts, consumed from the PREBUILT literal `src/data/db-stats-generated.ts` (regenerate: `npx tsx scripts/generate-db-stats.ts`, wired as npm `prebuild`) so clients never import PROGRAMS. Public surfaces standardise on `verifiedProgramsLabel` (9,298+) / `verifiedUniversitiesLabel` (623+); no dual numbers in copy. |
 | `src/app/sample-parent-report/page.tsx` | Static, illustrative parent-decision report at `/sample-parent-report`. Print-friendly (Save-as-PDF button). Linked from the Decide-stage 'See sample family report' CTA. |
-| `src/app/page.tsx` | **The homepage** (Phase 2 rebuild, 10 July 2026): 6-section SERVER component — hero, proof strip, how-it-works, journey-tools USP section, parents, closing CTA. Client islands: ChatWidget, LogoutButton only. Prior versions archived at `_archive/page-pre-phase2-rebuild.tsx.bak` and `_archive/page-pre-v2-swap.tsx.bak`. |
+| `src/app/page.tsx` | **The homepage** (v3 redesign swap, 14 July 2026): 6-section SERVER component in emotional-journey order — hero (readiness-preview card), proof strip (+ founder row), how-it-works, journey-tools USP section, Parent Decision Room (INR at ₹94/USD), closing CTA; grouped footer. Client islands: ChatWidget, LogoutButton, MobileNav. Pre-v3 page at `_archive/page-pre-v3-swap.tsx.bak` (gitignored, also in git history). Founder letter at `src/app/why-eduvianai/page.tsx`. Voice rules: never "AI-powered" in copy (brand name + AISA carry the signal); CTA is "Check my readiness" (never "See if I qualify"). |
 | `src/lib/types.ts` | Single source of truth. `TARGET_COUNTRIES` (12, incl. Netherlands since 10 July 2026), `FIELDS_OF_STUDY` (29). |
 | `src/lib/scoring.ts` | `recommendPrograms()` — tier thresholds are PER PRESTIGE BUCKET (see Scoring section) with explicit tierCeiling (elite never Safe); strict 30/50/20 quotas; highest-match-score-first within tiers; `teaserSlice` (locked-view top 5); aspirational `above_budget` fill for empty Reach/Ambitious. |
 | `src/lib/format-fee.ts` | Null-safe tuition rendering. **Never show $0.** Prefers local currency (`£26,600`) with optional USD parenthetical via `opts.withUsd` — backed by `annual_tuition_amount` + `annual_tuition_currency` on Program. Schema also keeps the legacy `annual_tuition_usd` for filtering / aggregation. |
@@ -307,10 +307,10 @@ Apply across the v2 homepage and all deep pages. **Snapshot §26 has the as-ship
 
 - **Positioning statement** (use across the website): *"EduvianAI gives students and families an independent, data-backed layer of clarity before they make high-stakes study abroad decisions."*
 - **Visual style**: Premium AI advisor + youthful student energy + parent-grade credibility.
-- **Palette**:
-  - White / off-white base
-  - Deep navy / charcoal (`#0E1119`) — used selectively (hero only)
-  - Electric purple accent (`violet-600`) for the AI feel — used selectively
+- **Palette (v3, 14 July 2026 — supersedes the violet system; canonical spec: EduvianAI_Brand_Design_Bible_v2.docx on the founder's Desktop)**:
+  - Mist white base (`#F8FAFC`)
+  - Slate navy (`#0F172A`) — hero, journey-tools section, final CTA, footer panels
+  - Decision-blue accent (`blue-900` = #1E3A8A, hover `blue-800`) — SINGLE accent, founder-approved 13 Jul 2026; violet retired sitewide (logo.svg is the one remaining violet asset, pending founder decision)
   - Semantic only: emerald = safe / approved / good fit · amber = medium risk · rose = risk flag
 - **Typography**: keep v2 type pair (Space Grotesk display + Inter body). Don't reintroduce display-script or decorative fonts.
 - **Cards**: every tool/stage card carries 5 elements in this order — Title · One-line benefit · Sample output · CTA · Trust cue.
