@@ -1,0 +1,58 @@
+[
+ {
+  "university": "Abertay University",
+  "country": "UK",
+  "city": "Dundee",
+  "qs_ranking": null,
+  "field_of_study": "FinTech",
+  "program_url": "https://www.abertay.ac.uk/course-search/postgraduate-taught/fintech/"
+ },
+ {
+  "university": "Abertay University",
+  "country": "UK",
+  "city": "Dundee",
+  "qs_ranking": null,
+  "field_of_study": "Marketing",
+  "program_url": "https://www.abertay.ac.uk/course-search/undergraduate/marketing-and-business-management/"
+ },
+ {
+  "university": "Abertay University",
+  "country": "UK",
+  "city": "Dundee",
+  "qs_ranking": null,
+  "field_of_study": "Psychology",
+  "program_url": "https://www.abertay.ac.uk/course-search/undergraduate/psychology"
+ },
+ {
+  "university": "Abertay University",
+  "country": "UK",
+  "city": "Dundee",
+  "qs_ranking": null,
+  "field_of_study": "Cybersecurity",
+  "program_url": "https://www.abertay.ac.uk/course-search/postgraduate-taught/ethical-hacking-and-cybersecurity/"
+ },
+ {
+  "university": "Abertay University",
+  "country": "UK",
+  "city": "Dundee",
+  "qs_ranking": null,
+  "field_of_study": "Data Science",
+  "program_url": "https://www.abertay.ac.uk/course-search/postgraduate-research/data-science-and-systems-modelling/"
+ },
+ {
+  "university": "Aberystwyth University",
+  "country": "UK",
+  "city": "Aberystwyth",
+  "qs_ranking": 851,
+  "field_of_study": "Marketing",
+  "program_url": "https://courses.aber.ac.uk/postgraduate/international-business-marketing-msc/"
+ },
+ {
+  "university": "Aberystwyth University",
+  "country": "UK",
+  "city": "Aberystwyth",
+  "qs_ranking": 851,
+  "field_of_study": "Psychology",
+  "program_url": "https://courses.aber.ac.uk/postgraduate/C801-behaviour-change/"
+ }
+]
