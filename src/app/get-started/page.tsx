@@ -28,22 +28,22 @@ const BENEFITS = [
     icon: Bookmark,
     title: "Save your shortlist",
     desc: "Come back anytime and find your shortlisted universities exactly where you left them.",
-    color: "text-violet-600",
-    bg: "bg-violet-50",
+    color: "text-blue-900",
+    bg: "bg-blue-50",
   },
   {
     icon: Bell,
     title: "Stay updated",
     desc: "Get notified about new matching programs, scholarship deadlines, and intake openings.",
-    color: "text-violet-500",
-    bg: "bg-violet-50",
+    color: "text-blue-800",
+    bg: "bg-blue-50",
   },
   {
     icon: GraduationCap,
     title: "Personalised guidance",
     desc: "Your profile remembers your scores and preferences so you never have to fill the form again.",
-    color: "text-violet-400",
-    bg: "bg-violet-50",
+    color: "text-blue-400",
+    bg: "bg-blue-50",
   },
   {
     icon: Shield,
@@ -407,12 +407,12 @@ export default function GetStartedPage() {
               transition={{ duration: 0.35 }}
             >
               <div className="text-center mb-10">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-violet-500/20 border border-violet-500/30 text-violet-300 text-sm font-medium mb-4">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-800/20 border border-blue-800/30 text-blue-300 text-sm font-medium mb-4">
                   <GraduationCap className="w-4 h-4" /> Your study abroad journey starts here
                 </div>
                 <h1 className="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-3">
                   How would you like<br />
-                  <span className="text-violet-300">
+                  <span className="text-blue-300">
                     to get started?
                   </span>
                 </h1>
@@ -427,13 +427,13 @@ export default function GetStartedPage() {
                   whileHover={{ y: -4 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => { setMode("register"); setError(""); setEmail(""); setName(""); setPhone(""); }}
-                  className="group relative flex flex-col items-center text-center p-8 rounded-3xl bg-violet-600 text-white shadow-2xl shadow-violet-900/40 hover:bg-violet-500 hover:shadow-violet-900/60 transition-all"
+                  className="group relative flex flex-col items-center text-center p-8 rounded-3xl bg-blue-900 text-white shadow-2xl shadow-blue-950/40 hover:bg-blue-800 hover:shadow-blue-950/60 transition-all"
                 >
                   <div className="w-16 h-16 rounded-2xl bg-white/20 flex items-center justify-center mb-5">
                     <UserPlus className="w-8 h-8 text-white" />
                   </div>
                   <h2 className="text-xl font-extrabold mb-2">Create Profile</h2>
-                  <p className="text-violet-200 text-sm leading-relaxed mb-5">
+                  <p className="text-blue-200 text-sm leading-relaxed mb-5">
                     Best if you want to save your shortlist, ROI report, application checks, and visa tracker.
                   </p>
                   <span className="flex items-center gap-1.5 text-sm font-bold bg-white/20 rounded-xl px-4 py-2 group-hover:bg-white/30 transition-colors">
@@ -449,16 +449,16 @@ export default function GetStartedPage() {
                   whileHover={{ y: -4 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => { setMode("login"); setError(""); setEmail(""); }}
-                  className="group flex flex-col items-center text-center p-8 rounded-3xl bg-white/5 border border-white/10 text-white hover:bg-white/10 hover:border-violet-400/40 transition-all"
+                  className="group flex flex-col items-center text-center p-8 rounded-3xl bg-white/5 border border-white/10 text-white hover:bg-white/10 hover:border-blue-400/40 transition-all"
                 >
-                  <div className="w-16 h-16 rounded-2xl bg-violet-500/20 flex items-center justify-center mb-5">
-                    <LogIn className="w-8 h-8 text-violet-300" />
+                  <div className="w-16 h-16 rounded-2xl bg-blue-800/20 flex items-center justify-center mb-5">
+                    <LogIn className="w-8 h-8 text-blue-300" />
                   </div>
                   <h2 className="text-xl font-extrabold mb-2">Log In</h2>
                   <p className="text-slate-400 text-sm leading-relaxed mb-5">
                     Welcome back! Continue your journey and see your saved shortlist.
                   </p>
-                  <span className="flex items-center gap-1.5 text-sm font-semibold text-violet-300 border border-violet-500/40 rounded-xl px-4 py-2 group-hover:border-violet-300 group-hover:text-violet-200 transition-colors">
+                  <span className="flex items-center gap-1.5 text-sm font-semibold text-blue-300 border border-blue-800/40 rounded-xl px-4 py-2 group-hover:border-blue-300 group-hover:text-blue-200 transition-colors">
                     Continue <ArrowRight className="w-4 h-4" />
                   </span>
                 </motion.button>
@@ -524,7 +524,7 @@ export default function GetStartedPage() {
               </button>
 
               <div className="text-center mb-8">
-                <div className="w-16 h-16 rounded-2xl bg-violet-600 flex items-center justify-center mx-auto mb-4 shadow-xl shadow-violet-900/40">
+                <div className="w-16 h-16 rounded-2xl bg-blue-900 flex items-center justify-center mx-auto mb-4 shadow-xl shadow-blue-950/40">
                   <UserPlus className="w-8 h-8 text-white" />
                 </div>
                 <h2 className="text-3xl font-extrabold text-white mb-2">
@@ -551,7 +551,7 @@ export default function GetStartedPage() {
                           value={name}
                           onChange={(e) => setName(e.target.value)}
                           placeholder="Priya Sharma"
-                          className="w-full pl-11 pr-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder:text-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all"
+                          className="w-full pl-11 pr-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder:text-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-blue-800 focus:border-transparent transition-all"
                           required
                         />
                       </div>
@@ -566,7 +566,7 @@ export default function GetStartedPage() {
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
                           placeholder="priya@example.com"
-                          className="w-full pl-11 pr-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder:text-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all"
+                          className="w-full pl-11 pr-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder:text-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-blue-800 focus:border-transparent transition-all"
                           required
                         />
                       </div>
@@ -581,7 +581,7 @@ export default function GetStartedPage() {
                           value={phone}
                           onChange={(e) => setPhone(e.target.value)}
                           placeholder="+91 98765 43210"
-                          className="w-full pl-11 pr-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder:text-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all"
+                          className="w-full pl-11 pr-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder:text-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-blue-800 focus:border-transparent transition-all"
                           required
                         />
                       </div>
@@ -609,7 +609,7 @@ export default function GetStartedPage() {
                         value={otp}
                         onChange={(e) => setOtp(e.target.value.replace(/[^0-9]/g, "").slice(0, 6))}
                         placeholder="123456"
-                        className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white text-center text-2xl font-mono tracking-[0.4em] focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all"
+                        className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white text-center text-2xl font-mono tracking-[0.4em] focus:outline-none focus:ring-2 focus:ring-blue-800 focus:border-transparent transition-all"
                         required
                       />
                     </div>
@@ -634,7 +634,7 @@ export default function GetStartedPage() {
                         autoComplete="new-password"
                         placeholder="At least 8 characters, letter, number, special"
                         minLength={PW_MIN_LENGTH}
-                        className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder:text-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all"
+                        className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder:text-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-blue-800 focus:border-transparent transition-all"
                         autoFocus
                       />
                       <ul className="mt-2.5 space-y-0.5 text-[11px] text-slate-400">
@@ -675,14 +675,14 @@ export default function GetStartedPage() {
                         type="checkbox"
                         checked={termsAccepted}
                         onChange={(e) => setTermsAccepted(e.target.checked)}
-                        className="mt-0.5 w-4 h-4 rounded border-white/20 bg-white/10 accent-violet-600 cursor-pointer flex-shrink-0"
+                        className="mt-0.5 w-4 h-4 rounded border-white/20 bg-white/10 accent-blue-900 cursor-pointer flex-shrink-0"
                         required
                       />
                       <span className="leading-relaxed">
                         I agree to the{" "}
-                        <Link href="/terms" target="_blank" rel="noopener noreferrer" className="font-semibold text-violet-300 hover:text-violet-200 underline-offset-2 hover:underline">Terms of Service</Link>
+                        <Link href="/terms" target="_blank" rel="noopener noreferrer" className="font-semibold text-blue-300 hover:text-blue-200 underline-offset-2 hover:underline">Terms of Service</Link>
                         {" "}and{" "}
-                        <Link href="/privacy" target="_blank" rel="noopener noreferrer" className="font-semibold text-violet-300 hover:text-violet-200 underline-offset-2 hover:underline">Privacy Policy</Link>.
+                        <Link href="/privacy" target="_blank" rel="noopener noreferrer" className="font-semibold text-blue-300 hover:text-blue-200 underline-offset-2 hover:underline">Privacy Policy</Link>.
                       </span>
                     </label>
                     {/* Marketing opt-in — Privacy Policy §11. Default OFF; transactional sends ignore this flag. */}
@@ -691,7 +691,7 @@ export default function GetStartedPage() {
                         type="checkbox"
                         checked={marketingOptIn}
                         onChange={(e) => setMarketingOptIn(e.target.checked)}
-                        className="mt-0.5 w-4 h-4 rounded border-white/20 bg-white/10 accent-violet-600 cursor-pointer flex-shrink-0"
+                        className="mt-0.5 w-4 h-4 rounded border-white/20 bg-white/10 accent-blue-900 cursor-pointer flex-shrink-0"
                       />
                       <span className="leading-relaxed">
                         Send me occasional emails with study-abroad tips, scholarship deadlines and product updates. Unsubscribe anytime via the link in any email. <span className="text-slate-500">(Optional — service-related emails such as your match results are sent regardless.)</span>
@@ -707,7 +707,7 @@ export default function GetStartedPage() {
                     || (step === "otp" && otp.length !== 6)
                     || (step === "password" && password.length < PW_MIN_LENGTH)
                   }
-                  className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-violet-600 text-white font-bold text-sm hover:bg-violet-500 hover:shadow-lg hover:shadow-violet-900/40 transition-all disabled:opacity-60"
+                  className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-blue-900 text-white font-bold text-sm hover:bg-blue-800 hover:shadow-lg hover:shadow-blue-950/40 transition-all disabled:opacity-60"
                 >
                   {loading ? (
                     <><Loader2 className="w-4 h-4 animate-spin" /> {step === "details" ? "Sending code…" : step === "otp" ? "Verifying…" : "Saving password…"}</>
@@ -757,7 +757,7 @@ export default function GetStartedPage() {
                   <button
                     type="button"
                     onClick={() => { setMode("login"); setError(""); setEmail(""); }}
-                    className="text-violet-300 hover:text-violet-200 font-semibold transition-colors"
+                    className="text-blue-300 hover:text-blue-200 font-semibold transition-colors"
                   >
                     Log in
                   </button>
@@ -795,7 +795,7 @@ export default function GetStartedPage() {
 
               <div className="text-center mb-8">
                 <div className="w-16 h-16 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center mx-auto mb-4">
-                  <LogIn className="w-8 h-8 text-violet-300" />
+                  <LogIn className="w-8 h-8 text-blue-300" />
                 </div>
                 <h2 className="text-3xl font-extrabold text-white mb-2">Welcome back!</h2>
                 <p className="text-slate-400 text-sm">Enter your email to pick up where you left off.</p>
@@ -811,7 +811,7 @@ export default function GetStartedPage() {
                       onClick={() => { setLoginMethod("otp"); setError(""); setPassword(""); }}
                       className={`py-2 rounded-lg text-xs font-bold transition-all ${
                         loginMethod === "otp"
-                          ? "bg-violet-600 text-white shadow"
+                          ? "bg-blue-900 text-white shadow"
                           : "text-slate-400 hover:text-white"
                       }`}
                     >
@@ -822,7 +822,7 @@ export default function GetStartedPage() {
                       onClick={() => { setLoginMethod("password"); setError(""); setOtp(""); }}
                       className={`py-2 rounded-lg text-xs font-bold transition-all ${
                         loginMethod === "password"
-                          ? "bg-violet-600 text-white shadow"
+                          ? "bg-blue-900 text-white shadow"
                           : "text-slate-400 hover:text-white"
                       }`}
                     >
@@ -843,7 +843,7 @@ export default function GetStartedPage() {
                           onChange={(e) => setEmail(e.target.value)}
                           placeholder="priya@example.com"
                           autoComplete="email"
-                          className="w-full pl-11 pr-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder:text-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all"
+                          className="w-full pl-11 pr-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder:text-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-blue-800 focus:border-transparent transition-all"
                           required
                         />
                       </div>
@@ -861,7 +861,7 @@ export default function GetStartedPage() {
                           onChange={(e) => setPassword(e.target.value)}
                           placeholder="Your password"
                           autoComplete="current-password"
-                          className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder:text-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all"
+                          className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder:text-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-blue-800 focus:border-transparent transition-all"
                           required
                         />
                         <p className="mt-2 text-[11px] text-slate-500 leading-relaxed">
@@ -891,7 +891,7 @@ export default function GetStartedPage() {
                         value={otp}
                         onChange={(e) => setOtp(e.target.value.replace(/[^0-9]/g, "").slice(0, 6))}
                         placeholder="123456"
-                        className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white text-center text-2xl font-mono tracking-[0.4em] focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all"
+                        className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white text-center text-2xl font-mono tracking-[0.4em] focus:outline-none focus:ring-2 focus:ring-blue-800 focus:border-transparent transition-all"
                         required
                       />
                     </div>
@@ -911,7 +911,7 @@ export default function GetStartedPage() {
                         <button
                           type="button"
                           onClick={() => { setMode("register"); setError(""); }}
-                          className="text-violet-300 font-semibold underline"
+                          className="text-blue-300 font-semibold underline"
                         >
                           Create one now
                         </button>
@@ -933,7 +933,7 @@ export default function GetStartedPage() {
                     || (step === "otp" && otp.length !== 6)
                     || (loginMethod === "password" && !password)
                   }
-                  className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-violet-600 text-white font-bold text-sm hover:bg-violet-500 hover:shadow-lg hover:shadow-violet-900/40 transition-all disabled:opacity-60"
+                  className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-blue-900 text-white font-bold text-sm hover:bg-blue-800 hover:shadow-lg hover:shadow-blue-950/40 transition-all disabled:opacity-60"
                 >
                   {loading ? (
                     <><Loader2 className="w-4 h-4 animate-spin" /> {step === "details" && loginMethod === "otp" ? "Sending code…" : "Signing in…"}</>
@@ -971,7 +971,7 @@ export default function GetStartedPage() {
                   <button
                     type="button"
                     onClick={() => { setMode("register"); setError(""); setEmail(""); }}
-                    className="text-violet-300 hover:text-violet-200 font-semibold transition-colors"
+                    className="text-blue-300 hover:text-blue-200 font-semibold transition-colors"
                   >
                     Create a free profile
                   </button>

@@ -66,7 +66,7 @@ const SCHOLARSHIP_OPTIONS = [0, 5000, 10000, 15000, 20000, 30000, 50000];
 
 function AutoTag() {
   return (
-    <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-purple-100 text-purple-600 text-[10px] font-bold">
+    <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-blue-100 text-blue-900 text-[10px] font-bold">
       <Zap className="w-2.5 h-2.5" /> auto
     </span>
   );
@@ -75,7 +75,7 @@ function AutoTag() {
 function StepLabel({ n, label, done }: { n: number; label: string; done: boolean }) {
   return (
     <div className="flex items-center gap-2 mb-2">
-      <div className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-black flex-shrink-0 transition-colors ${done ? "bg-purple-500 text-white" : "bg-gray-100 text-gray-400"}`}>
+      <div className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-black flex-shrink-0 transition-colors ${done ? "bg-blue-800 text-white" : "bg-gray-100 text-gray-400"}`}>
         {done ? <CheckCircle2 className="w-3 h-3" /> : n}
       </div>
       <span className="text-xs font-semibold text-gray-400 uppercase tracking-wide">{label}</span>
@@ -87,10 +87,10 @@ function AutoFilledCard({ icon: Icon, label, value, sub }: {
   icon: React.ComponentType<{ className?: string }>; label: string; value: string; sub?: string;
 }) {
   return (
-    <div className="flex items-center gap-3 px-3.5 py-2.5 bg-purple-50 border border-purple-100 rounded-xl">
-      <Icon className="w-4 h-4 text-purple-500 flex-shrink-0" />
+    <div className="flex items-center gap-3 px-3.5 py-2.5 bg-blue-50 border border-blue-100 rounded-xl">
+      <Icon className="w-4 h-4 text-blue-800 flex-shrink-0" />
       <div className="min-w-0 flex-1">
-        <p className="text-[10px] font-semibold text-purple-500 uppercase tracking-wide leading-none mb-0.5">{label}</p>
+        <p className="text-[10px] font-semibold text-blue-800 uppercase tracking-wide leading-none mb-0.5">{label}</p>
         <p className="text-sm font-semibold text-gray-800 truncate">{value}</p>
         {sub && <p className="text-[10px] text-gray-400 leading-snug">{sub}</p>}
       </div>
@@ -132,7 +132,7 @@ function ScoreBar({ label, score, max }: { label: string; score: number; max: nu
   );
 }
 
-function MetricRow({ label, value, sub, icon: Icon, iconColor = "text-indigo-500" }: {
+function MetricRow({ label, value, sub, icon: Icon, iconColor = "text-blue-800" }: {
   label: string; value: React.ReactNode; sub?: string;
   icon: React.ComponentType<{ className?: string }>; iconColor?: string;
 }) {
@@ -366,7 +366,7 @@ export default function ParentDecisionTool() {
                     placeholder="Type to search universities…"
                     onChange={(e) => { setQuery(e.target.value); setShowSugg(true); if (!e.target.value.trim()) { setSelectedUni(null); setSelectedProgram(null); } }}
                     onFocus={() => { if (query.length >= 2) setShowSugg(true); }}
-                    className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-400"
+                    className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-blue-400"
                   />
                 </div>
                 {!selectedUni && !query && (
@@ -379,7 +379,7 @@ export default function ParentDecisionTool() {
                     >
                       {suggestions.map((u) => (
                         <button key={u.name} onMouseDown={() => selectUniversity(u)}
-                          className="w-full text-left px-4 py-2.5 hover:bg-purple-50 flex items-center gap-3 transition-colors"
+                          className="w-full text-left px-4 py-2.5 hover:bg-blue-50 flex items-center gap-3 transition-colors"
                         >
                           <span className="text-lg flex-shrink-0">{u.flag}</span>
                           <div className="min-w-0 flex-1">
@@ -400,7 +400,7 @@ export default function ParentDecisionTool() {
               <AnimatePresence>
                 {selectedUni && (
                   <motion.div initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
-                    className="mt-2 flex items-center gap-3 px-3.5 py-2.5 bg-purple-50 border border-purple-100 rounded-xl"
+                    className="mt-2 flex items-center gap-3 px-3.5 py-2.5 bg-blue-50 border border-blue-100 rounded-xl"
                   >
                     <span className="text-xl">{selectedUni.flag}</span>
                     <div className="min-w-0 flex-1">
@@ -423,12 +423,12 @@ export default function ParentDecisionTool() {
                   <StepLabel n={2} label="Program / Degree" done={step2Done} />
                   <div ref={programRef} className="relative">
                     <button onClick={() => setProgramOpen((o) => !o)}
-                      className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl border text-sm text-left transition-colors focus:outline-none focus:ring-2 focus:ring-purple-300 ${
+                      className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl border text-sm text-left transition-colors focus:outline-none focus:ring-2 focus:ring-blue-300 ${
                         selectedProgram ? "border-gray-200 text-gray-800" : "border-gray-200 text-gray-400"
                       }`}
                     >
                       <span className="flex items-center gap-2 min-w-0">
-                        <GraduationCap className="w-3.5 h-3.5 text-purple-400 flex-shrink-0" />
+                        <GraduationCap className="w-3.5 h-3.5 text-blue-400 flex-shrink-0" />
                         <span className="truncate">{selectedProgram?.program_name || "Select a program…"}</span>
                       </span>
                       <ChevronDown className={`w-4 h-4 text-gray-400 flex-shrink-0 ml-2 transition-transform ${programOpen ? "rotate-180" : ""}`} />
@@ -443,7 +443,7 @@ export default function ParentDecisionTool() {
                         >
                           {uniPrograms.map((p, i) => (
                             <button key={i} onMouseDown={() => selectProgram(p)}
-                              className={`w-full text-left px-4 py-3 hover:bg-purple-50 transition-colors border-b border-gray-50 last:border-0 ${selectedProgram?.program_name === p.program_name ? "bg-purple-50" : ""}`}
+                              className={`w-full text-left px-4 py-3 hover:bg-blue-50 transition-colors border-b border-gray-50 last:border-0 ${selectedProgram?.program_name === p.program_name ? "bg-blue-50" : ""}`}
                             >
                               <p className="text-sm font-semibold text-gray-800 leading-tight">{p.program_name}</p>
                               <p className="text-xs text-gray-400 mt-0.5">{p.degree_level} · {p.duration_months} mo · {p.annual_tuition_usd ? `${fmtK(p.annual_tuition_usd)}/yr` : "fee unavailable"}</p>
@@ -462,7 +462,7 @@ export default function ParentDecisionTool() {
               {step2Done && (
                 <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="space-y-2">
                   <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-wide flex items-center gap-1.5">
-                    <Zap className="w-3 h-3 text-purple-400" /> Auto-filled from database
+                    <Zap className="w-3 h-3 text-blue-400" /> Auto-filled from database
                   </p>
                   <div className="grid grid-cols-2 gap-2">
                     <AutoFilledCard icon={MapPin}        label="Location"    value={city || selectedUni?.country || "—"} />
@@ -484,12 +484,12 @@ export default function ParentDecisionTool() {
                   <div>
                     <div className="flex items-center justify-between mb-2">
                       <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Scholarship Received</label>
-                      <span className="text-xs font-bold text-purple-600">{scholarship === 0 ? "None" : fmtK(scholarship)}</span>
+                      <span className="text-xs font-bold text-blue-900">{scholarship === 0 ? "None" : fmtK(scholarship)}</span>
                     </div>
                     <div className="flex flex-wrap gap-1.5">
                       {SCHOLARSHIP_OPTIONS.map((v) => (
                         <button key={v} onClick={() => setScholarship(v)}
-                          className={`px-2.5 py-1 rounded-lg text-xs font-semibold transition-colors ${scholarship === v ? "bg-purple-500 text-white" : "bg-gray-100 text-gray-600 hover:bg-purple-50"}`}
+                          className={`px-2.5 py-1 rounded-lg text-xs font-semibold transition-colors ${scholarship === v ? "bg-blue-800 text-white" : "bg-gray-100 text-gray-600 hover:bg-blue-50"}`}
                         >
                           {v === 0 ? "None" : `$${v / 1000}K`}
                         </button>
@@ -505,7 +505,7 @@ export default function ParentDecisionTool() {
                       {BUDGET_OPTIONS.map((b) => (
                         <button key={b.value} onClick={() => setBudgetUsd(b.value)}
                           className={`px-3 py-2 rounded-xl text-xs font-semibold border transition-all ${
-                            budgetUsd === b.value ? "bg-purple-600 text-white border-purple-600" : "bg-white text-gray-600 border-gray-200 hover:border-purple-300"
+                            budgetUsd === b.value ? "bg-blue-900 text-white border-blue-900" : "bg-white text-gray-600 border-gray-200 hover:border-blue-300"
                           }`}
                         >
                           {b.label}
@@ -514,9 +514,9 @@ export default function ParentDecisionTool() {
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-2 p-3 rounded-xl bg-indigo-50 border border-indigo-100">
-                    <CheckCircle2 className="w-4 h-4 text-indigo-500 mt-0.5 flex-shrink-0" />
-                    <p className="text-xs text-indigo-700 leading-snug">Results update automatically as you adjust scholarship and budget.</p>
+                  <div className="flex items-start gap-2 p-3 rounded-xl bg-blue-50 border border-blue-100">
+                    <CheckCircle2 className="w-4 h-4 text-blue-800 mt-0.5 flex-shrink-0" />
+                    <p className="text-xs text-blue-800 leading-snug">Results update automatically as you adjust scholarship and budget.</p>
                   </div>
                 </motion.div>
               )}
@@ -573,8 +573,8 @@ export default function ParentDecisionTool() {
                 <motion.div key="empty" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
                   className="h-full min-h-[480px] bg-white rounded-3xl border border-dashed border-gray-200 flex flex-col items-center justify-center p-10 text-center"
                 >
-                  <div className="w-16 h-16 rounded-2xl bg-purple-50 flex items-center justify-center mb-4">
-                    <Users className="w-8 h-8 text-purple-400" />
+                  <div className="w-16 h-16 rounded-2xl bg-blue-50 flex items-center justify-center mb-4">
+                    <Users className="w-8 h-8 text-blue-400" />
                   </div>
                   <h3 className="text-lg font-bold text-gray-700 mb-2">Your verdict appears here</h3>
                   <p className="text-gray-400 text-sm max-w-xs mb-8">
@@ -584,8 +584,8 @@ export default function ParentDecisionTool() {
                   <div className="flex items-center gap-3">
                     {[{ label: "University", done: step1Done }, { label: "Program", done: step2Done }].map((s, i) => (
                       <div key={i} className="flex items-center gap-2">
-                        {i > 0 && <div className={`w-8 h-px ${step1Done ? "bg-purple-300" : "bg-gray-200"}`} />}
-                        <div className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-colors ${s.done ? "bg-purple-500 text-white" : "bg-gray-100 text-gray-500"}`}>
+                        {i > 0 && <div className={`w-8 h-px ${step1Done ? "bg-blue-300" : "bg-gray-200"}`} />}
+                        <div className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-colors ${s.done ? "bg-blue-800 text-white" : "bg-gray-100 text-gray-500"}`}>
                           {s.done ? <CheckCircle2 className="w-3 h-3" /> : <span>{i + 1}</span>}
                           {s.label}
                         </div>
@@ -659,7 +659,7 @@ export default function ParentDecisionTool() {
                     {/* Financial */}
                     <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
                       <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Financials</p>
-                      <MetricRow icon={DollarSign} iconColor="text-indigo-500"
+                      <MetricRow icon={DollarSign} iconColor="text-blue-800"
                         label="Tuition Fee (total)" value={fmtK(result.total_tuition_usd)}
                         sub={`${fmtK(annualTuition)}/yr × ${(durationMonths / 12).toFixed(1)} years`}
                       />
@@ -675,7 +675,7 @@ export default function ParentDecisionTool() {
                         label="Net Cost (after scholarship)" value={fmtK(result.net_cost_usd)}
                         sub={result.net_cost_usd < result.total_cost_usd ? `Scholarship saves ${fmtK(result.total_cost_usd - result.net_cost_usd)}` : "No scholarship applied"}
                       />
-                      <MetricRow icon={TrendingUp} iconColor="text-purple-500"
+                      <MetricRow icon={TrendingUp} iconColor="text-blue-800"
                         label="Potential Starting Salary" value={`${fmtK(result.expected_salary_usd)}/yr`}
                         sub={`Based on grad salary trends in ${selectedUni!.country}`}
                       />
@@ -730,24 +730,24 @@ export default function ParentDecisionTool() {
                   {/* ── Export bar ── */}
                   <div className="bg-gray-50 border border-gray-100 rounded-2xl p-4">
                     <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-3 flex items-center gap-1.5">
-                      <FileDown className="w-3.5 h-3.5 text-purple-500" /> Save or Share Results
+                      <FileDown className="w-3.5 h-3.5 text-blue-800" /> Save or Share Results
                     </p>
                     <div className="flex flex-wrap gap-2.5">
                       {/* PDF button */}
                       <button
                         onClick={handleDownloadPDF}
                         disabled={pdfLoading}
-                        className="flex items-center gap-2 px-4 py-2 rounded-xl bg-purple-50 border border-purple-200 text-purple-700 text-sm font-semibold hover:bg-purple-100 transition-all disabled:opacity-50"
+                        className="flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-50 border border-blue-200 text-blue-800 text-sm font-semibold hover:bg-blue-100 transition-all disabled:opacity-50"
                       >
                         {pdfLoading
-                          ? <><span className="w-3.5 h-3.5 border-2 border-purple-400/40 border-t-purple-500 rounded-full animate-spin" /> Generating…</>
+                          ? <><span className="w-3.5 h-3.5 border-2 border-blue-400/40 border-t-blue-800 rounded-full animate-spin" /> Generating…</>
                           : <><FileDown className="w-3.5 h-3.5" /> Download PDF</>}
                       </button>
 
                       {/* Sample parent report — what the printable report looks like */}
                       <Link
                         href="/sample-parent-report"
-                        className="flex items-center gap-2 px-4 py-2 rounded-xl bg-purple-600 text-white text-sm font-semibold hover:bg-purple-700 transition-all"
+                        className="flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-900 text-white text-sm font-semibold hover:bg-blue-800 transition-all"
                       >
                         <Users className="w-3.5 h-3.5" /> See sample parent report
                       </Link>
@@ -756,7 +756,7 @@ export default function ParentDecisionTool() {
                       {!showEmailForm ? (
                         <button
                           onClick={() => { setShowEmailForm(true); setEmailSent(false); setEmailError(null); }}
-                          className="flex items-center gap-2 px-4 py-2 rounded-xl bg-indigo-50 border border-indigo-200 text-indigo-700 text-sm font-semibold hover:bg-indigo-100 transition-all"
+                          className="flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-50 border border-blue-200 text-blue-800 text-sm font-semibold hover:bg-blue-100 transition-all"
                         >
                           <Mail className="w-3.5 h-3.5" /> Email Results
                         </button>
@@ -773,10 +773,10 @@ export default function ParentDecisionTool() {
                             placeholder="your@email.com"
                             required
                             autoFocus
-                            className="flex-1 min-w-0 border border-gray-200 rounded-xl px-3 py-2 text-gray-800 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                            className="flex-1 min-w-0 border border-gray-200 rounded-xl px-3 py-2 text-gray-800 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400"
                           />
                           <button type="submit" disabled={emailLoading}
-                            className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-indigo-500 text-white text-sm font-semibold hover:bg-indigo-600 transition-all disabled:opacity-50 flex-shrink-0"
+                            className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-blue-800 text-white text-sm font-semibold hover:bg-blue-900 transition-all disabled:opacity-50 flex-shrink-0"
                           >
                             {emailLoading
                               ? <span className="w-3.5 h-3.5 border-2 border-white/40 border-t-white rounded-full animate-spin" />
@@ -822,13 +822,13 @@ export default function ParentDecisionTool() {
                   />
 
                   {/* CTA */}
-                  <div className="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl p-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+                  <div className="bg-blue-900 rounded-2xl p-5 flex flex-col sm:flex-row items-center justify-between gap-4">
                     <div>
                       <p className="text-white font-bold text-base">Ready to take the next step?</p>
-                      <p className="text-indigo-200 text-sm mt-0.5">Get a personalised shortlist for your child in minutes.</p>
+                      <p className="text-blue-200 text-sm mt-0.5">Get a personalised shortlist for your child in minutes.</p>
                     </div>
                     <Link href="/profile"
-                      className="flex-shrink-0 flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white text-indigo-700 text-sm font-bold hover:shadow-lg transition-all"
+                      className="flex-shrink-0 flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white text-blue-800 text-sm font-bold hover:shadow-lg transition-all"
                     >
                       Build Shortlist <ArrowRight className="w-4 h-4" />
                     </Link>

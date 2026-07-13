@@ -68,11 +68,11 @@ export default function ProgramDetailPage({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <main className="max-w-4xl mx-auto px-6 sm:px-10 py-12 sm:py-16">
         <nav className="text-xs text-gray-500 mb-6" aria-label="Breadcrumb">
-          <Link href="/programs" className="hover:text-violet-700 hover:underline">Programs</Link>
+          <Link href="/programs" className="hover:text-blue-800 hover:underline">Programs</Link>
           <span className="mx-1.5">/</span>
-          <Link href={`/programs/${country.slug}`} className="hover:text-violet-700 hover:underline">{country.name}</Link>
+          <Link href={`/programs/${country.slug}`} className="hover:text-blue-800 hover:underline">{country.name}</Link>
           <span className="mx-1.5">/</span>
-          <Link href={`/programs/${country.slug}/${university.slug}`} className="hover:text-violet-700 hover:underline">{university.name}</Link>
+          <Link href={`/programs/${country.slug}/${university.slug}`} className="hover:text-blue-800 hover:underline">{university.name}</Link>
         </nav>
 
         <h1 className="font-display text-2xl sm:text-4xl font-bold tracking-tight text-gray-900 mb-2">
@@ -128,7 +128,7 @@ export default function ProgramDetailPage({ params }: Props) {
           )}
           <Link
             href="/profile"
-            className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-violet-600 hover:bg-violet-700 text-white text-sm font-bold transition-colors"
+            className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-blue-900 hover:bg-blue-800 text-white text-sm font-bold transition-colors"
           >
             See if I qualify for this program
             <ArrowRight className="w-4 h-4" />
@@ -153,12 +153,12 @@ export default function ProgramDetailPage({ params }: Props) {
                 <li key={n.slug}>
                   <Link
                     href={`/programs/${country.slug}/${university.slug}/${n.slug}`}
-                    className="group flex items-center gap-3 rounded-xl border border-stone-200 bg-white px-4 py-3 hover:border-violet-300 hover:shadow-sm transition-all"
+                    className="group flex items-center gap-3 rounded-xl border border-stone-200 bg-white px-4 py-3 hover:border-blue-300 hover:shadow-sm transition-all"
                   >
                     <span className="flex-1 min-w-0 text-sm font-semibold text-gray-900 truncate">
                       {n.program.program_name}
                     </span>
-                    <ArrowRight className="w-4 h-4 flex-shrink-0 text-gray-300 group-hover:text-violet-600 transition-all" />
+                    <ArrowRight className="w-4 h-4 flex-shrink-0 text-gray-300 group-hover:text-blue-900 transition-all" />
                   </Link>
                 </li>
               ))}

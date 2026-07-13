@@ -180,18 +180,18 @@ export default function StepReview({ profile, requireTerms, termsAccepted, onTer
       <Section title="Preferences" items={prefs} />
 
       {requireTerms && (
-        <label className="flex items-start gap-3 rounded-xl border border-violet-200 bg-violet-50/60 px-4 py-3.5 cursor-pointer">
+        <label className="flex items-start gap-3 rounded-xl border border-blue-200 bg-blue-50/60 px-4 py-3.5 cursor-pointer">
           <input
             type="checkbox"
             checked={termsAccepted ?? false}
             onChange={(e) => onTermsChange?.(e.target.checked)}
-            className="mt-0.5 w-4 h-4 accent-violet-600 flex-shrink-0"
+            className="mt-0.5 w-4 h-4 accent-blue-900 flex-shrink-0"
           />
           <span className="text-xs text-gray-700 leading-relaxed">
             I accept the{" "}
-            <a href="/terms" target="_blank" rel="noopener noreferrer" className="font-semibold text-violet-700 underline">Terms of Service</a>{" "}
+            <a href="/terms" target="_blank" rel="noopener noreferrer" className="font-semibold text-blue-800 underline">Terms of Service</a>{" "}
             and{" "}
-            <a href="/privacy" target="_blank" rel="noopener noreferrer" className="font-semibold text-violet-700 underline">Privacy Policy</a>,
+            <a href="/privacy" target="_blank" rel="noopener noreferrer" className="font-semibold text-blue-800 underline">Privacy Policy</a>,
             and consent to my profile being processed to generate university
             matches. *
           </span>

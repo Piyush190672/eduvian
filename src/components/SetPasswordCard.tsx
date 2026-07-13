@@ -103,8 +103,8 @@ export default function SetPasswordCard() {
     <section className="max-w-2xl mx-auto mt-10 mb-6">
       <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
         <div className="flex items-start gap-3 mb-4">
-          <div className="w-10 h-10 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center flex-shrink-0">
-            <Lock className="w-5 h-5 text-indigo-600" />
+          <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center flex-shrink-0">
+            <Lock className="w-5 h-5 text-blue-900" />
           </div>
           <div>
             <h3 className="text-base font-bold text-gray-900">Set / change your password</h3>
@@ -123,7 +123,7 @@ export default function SetPasswordCard() {
               onChange={(e) => setCurrentPassword(e.target.value)}
               autoComplete="current-password"
               placeholder="Leave blank if you've never set one"
-              className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition placeholder:text-gray-400"
+              className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition placeholder:text-gray-400"
             />
           </div>
           <div>
@@ -136,7 +136,7 @@ export default function SetPasswordCard() {
               placeholder={`At least ${MIN_LENGTH} characters, letters, numbers, special`}
               minLength={MIN_LENGTH}
               required
-              className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition placeholder:text-gray-400"
+              className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition placeholder:text-gray-400"
             />
             {/* Live strength checklist — green ticks as the user types so they
                 see exactly which rule is still missing. */}
@@ -164,7 +164,7 @@ export default function SetPasswordCard() {
               onChange={(e) => setConfirm(e.target.value)}
               autoComplete="new-password"
               required
-              className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition placeholder:text-gray-400"
+              className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition placeholder:text-gray-400"
             />
           </div>
 
@@ -184,7 +184,7 @@ export default function SetPasswordCard() {
           <button
             type="submit"
             disabled={busy}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 disabled:opacity-60 text-white text-sm font-semibold transition-colors"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-blue-900 hover:bg-blue-800 disabled:opacity-60 text-white text-sm font-semibold transition-colors"
           >
             {busy ? (
               <>

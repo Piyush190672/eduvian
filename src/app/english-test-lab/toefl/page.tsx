@@ -180,7 +180,7 @@ function Nav({ stage }: { stage: Stage }) {
   const stages: Stage[] = ["landing", "reading", "listening", "writing_integrated", "writing_academic", "speaking_independent", "submitting", "results"];
   const progressPct = Math.round((stages.indexOf(stage) / (stages.length - 1)) * 100);
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 border-b border-white/10 shadow-lg">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0F172A] border-b border-white/10 shadow-lg">
       <div className="flex items-center justify-between px-8 py-0">
         <Link href="/english-test-lab" className="flex items-center gap-3 py-4">
           <EduvianLogoMark size={36} />
@@ -951,9 +951,9 @@ function TOEFLResults({ scores, scoringError }: { scores: Record<string, Section
         ];
         const weakest = sectionScores.reduce((a, b) => a.score < b.score ? a : b);
         return (
-          <div className="bg-indigo-50 border border-indigo-200 rounded-2xl p-5 mb-6">
-            <h3 className="font-extrabold text-indigo-900 mb-1 text-sm">Recommended next action</h3>
-            <p className="text-sm text-indigo-800">Your weakest section is <strong>{weakest.label}</strong> ({weakest.score}/30). Focus your next practice session on {weakest.label.toLowerCase()} tasks before retaking the full mock.</p>
+          <div className="bg-blue-50 border border-blue-200 rounded-2xl p-5 mb-6">
+            <h3 className="font-extrabold text-blue-950 mb-1 text-sm">Recommended next action</h3>
+            <p className="text-sm text-blue-900">Your weakest section is <strong>{weakest.label}</strong> ({weakest.score}/30). Focus your next practice session on {weakest.label.toLowerCase()} tasks before retaking the full mock.</p>
           </div>
         );
       })()}
@@ -966,7 +966,7 @@ function TOEFLResults({ scores, scoringError }: { scores: Record<string, Section
         <Link href="/english-test-lab/toefl" className="flex items-center justify-center gap-2 py-3.5 rounded-2xl border-2 border-amber-200 text-amber-700 font-bold text-sm hover:bg-amber-50 transition-all">
           <RotateCcw className="w-4 h-4" /> Try again
         </Link>
-        <Link href="/get-started" className="flex items-center justify-center gap-2 py-3.5 rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-bold text-sm hover:shadow-xl transition-all">
+        <Link href="/get-started" className="flex items-center justify-center gap-2 py-3.5 rounded-2xl bg-blue-900 hover:bg-blue-800 text-white font-bold text-sm hover:shadow-xl transition-all">
           Check your university shortlist
         </Link>
       </div>

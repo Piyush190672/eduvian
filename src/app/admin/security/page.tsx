@@ -156,8 +156,8 @@ export default function AdminSecurityPage() {
 
   if (!hydrated) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-indigo-900 flex items-center justify-center">
-        <Loader2 className="w-6 h-6 animate-spin text-indigo-200" />
+      <div className="min-h-screen bg-[#0F172A] flex items-center justify-center">
+        <Loader2 className="w-6 h-6 animate-spin text-blue-200" />
       </div>
     );
   }
@@ -165,11 +165,11 @@ export default function AdminSecurityPage() {
   const verifiedFactor = factors.find((f) => f.status === "verified");
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-indigo-900 px-4 py-12">
+    <div className="min-h-screen bg-[#0F172A] px-4 py-12">
       <div className="max-w-xl mx-auto">
         <Link
           href="/admin/dashboard"
-          className="inline-flex items-center gap-1.5 text-indigo-300 hover:text-white text-sm mb-6 transition-colors"
+          className="inline-flex items-center gap-1.5 text-blue-300 hover:text-white text-sm mb-6 transition-colors"
         >
           <ArrowLeft className="w-4 h-4" /> Back to dashboard
         </Link>
@@ -177,20 +177,20 @@ export default function AdminSecurityPage() {
         <div className="text-center mb-8">
           <div className="inline-flex items-center gap-2 mb-4">
             <EduvianLogoMark size={36} />
-            <span className="font-display font-bold text-2xl text-white tracking-tight">eduvian<span className="text-indigo-300">AI</span></span>
+            <span className="font-display font-bold text-2xl text-white tracking-tight">eduvian<span className="text-blue-300">AI</span></span>
           </div>
           <h1 className="text-3xl font-bold text-white">Security</h1>
           {adminEmail && (
-            <p className="text-indigo-300 text-sm mt-1">Signed in as <span className="font-mono">{adminEmail}</span></p>
+            <p className="text-blue-300 text-sm mt-1">Signed in as <span className="font-mono">{adminEmail}</span></p>
           )}
         </div>
 
         <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-8">
           <div className="flex items-start gap-3 mb-6">
-            <ShieldCheck className="w-6 h-6 text-indigo-300 flex-shrink-0 mt-0.5" />
+            <ShieldCheck className="w-6 h-6 text-blue-300 flex-shrink-0 mt-0.5" />
             <div>
               <h2 className="text-xl font-bold text-white">Two-factor authentication</h2>
-              <p className="text-indigo-200 text-sm mt-1 leading-relaxed">
+              <p className="text-blue-200 text-sm mt-1 leading-relaxed">
                 Adds a 6-digit code from your authenticator app on top of email + password. Recommended for the admin account.
               </p>
             </div>
@@ -217,7 +217,7 @@ export default function AdminSecurityPage() {
                   <ShieldCheck className="w-5 h-5 text-emerald-400" />
                   <div>
                     <p className="text-white font-semibold text-sm">Authenticator app</p>
-                    <p className="text-indigo-300 text-xs">
+                    <p className="text-blue-300 text-xs">
                       Enrolled {new Date(verifiedFactor.created_at).toLocaleDateString()}
                     </p>
                   </div>
@@ -240,7 +240,7 @@ export default function AdminSecurityPage() {
               type="button"
               onClick={startEnrolment}
               disabled={loading}
-              className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-white text-indigo-700 font-bold hover:bg-indigo-50 transition-colors disabled:opacity-60"
+              className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-white text-blue-800 font-bold hover:bg-blue-50 transition-colors disabled:opacity-60"
             >
               {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <KeyRound className="w-4 h-4" />}
               Set up authenticator app
@@ -256,9 +256,9 @@ export default function AdminSecurityPage() {
                   dangerouslySetInnerHTML={{ __html: qrSvg }}
                 />
               </div>
-              <div className="text-indigo-100 text-sm leading-relaxed space-y-2">
+              <div className="text-blue-100 text-sm leading-relaxed space-y-2">
                 <p>1. Open your authenticator app (1Password, Authy, Google Authenticator).</p>
-                <p>2. Scan the QR code above. <span className="text-indigo-300">Or enter the secret manually:</span></p>
+                <p>2. Scan the QR code above. <span className="text-blue-300">Or enter the secret manually:</span></p>
                 {secret && (
                   <p className="font-mono text-xs bg-white/10 rounded-lg px-3 py-2 break-all">{secret}</p>
                 )}
@@ -275,7 +275,7 @@ export default function AdminSecurityPage() {
                   value={code}
                   onChange={(e) => setCode(e.target.value.replace(/[^0-9]/g, "").slice(0, 6))}
                   placeholder="123456"
-                  className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white text-center text-2xl font-mono tracking-[0.4em] focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                  className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white text-center text-2xl font-mono tracking-[0.4em] focus:outline-none focus:ring-2 focus:ring-blue-400"
                   required
                 />
                 <div className="flex gap-2">
@@ -296,7 +296,7 @@ export default function AdminSecurityPage() {
                   <button
                     type="submit"
                     disabled={loading || code.length !== 6}
-                    className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-white text-indigo-700 font-bold text-sm hover:bg-indigo-50 transition-colors disabled:opacity-60"
+                    className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-white text-blue-800 font-bold text-sm hover:bg-blue-50 transition-colors disabled:opacity-60"
                   >
                     {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <ShieldCheck className="w-4 h-4" />}
                     Verify and enable
@@ -308,7 +308,7 @@ export default function AdminSecurityPage() {
 
           {/* Helpful note when no factor yet */}
           {!verifiedFactor && !enrolling && !success && (
-            <div className="mt-6 flex gap-3 text-indigo-200 text-xs leading-relaxed bg-amber-500/10 border border-amber-400/20 rounded-xl p-3">
+            <div className="mt-6 flex gap-3 text-blue-200 text-xs leading-relaxed bg-amber-500/10 border border-amber-400/20 rounded-xl p-3">
               <ShieldAlert className="w-4 h-4 text-amber-300 flex-shrink-0 mt-0.5" />
               <p>
                 Until you enrol, the admin login is protected by email + password + the owner allowlist. Adding 2FA closes the last open security audit finding.

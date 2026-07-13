@@ -13,11 +13,11 @@ export const metadata: Metadata = {
 
 export default function SecurityPolicyPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-50 to-indigo-50/40 px-6 py-16">
+    <main className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50/40 px-6 py-16">
       <div className="mx-auto max-w-3xl">
         <Link
           href="/"
-          className="inline-block text-sm text-indigo-600 hover:text-indigo-800 mb-6"
+          className="inline-block text-sm text-blue-900 hover:text-blue-900 mb-6"
         >
           ← Back to home
         </Link>
@@ -27,7 +27,7 @@ export default function SecurityPolicyPage() {
         </h1>
         <p className="text-sm text-gray-500 mb-10">
           Last updated 12 May 2026 · Linked from{" "}
-          <code className="text-indigo-700 bg-indigo-50 px-1.5 py-0.5 rounded">
+          <code className="text-blue-800 bg-blue-50 px-1.5 py-0.5 rounded">
             /.well-known/security.txt
           </code>{" "}
           (RFC 9116)
@@ -37,7 +37,7 @@ export default function SecurityPolicyPage() {
           <h2>How to report a vulnerability</h2>
           <p>
             Email{" "}
-            <a href="mailto:security@eduvianai.com" className="text-indigo-700 hover:text-indigo-900 font-semibold">
+            <a href="mailto:security@eduvianai.com" className="text-blue-800 hover:text-blue-950 font-semibold">
               security@eduvianai.com
             </a>
             {" "}with a clear description, reproduction steps, the URL(s) affected,

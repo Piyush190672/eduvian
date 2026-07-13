@@ -16,15 +16,15 @@ import SetPasswordCard from "@/components/SetPasswordCard";
  */
 export default function AccountSecurityPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50/40 pb-16">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50/40 pb-16">
       <header className="px-6 pt-8 pb-4 max-w-2xl mx-auto">
-        <Link href="/results" className="inline-flex items-center gap-2 text-sm text-indigo-600 hover:text-indigo-800 mb-6">
+        <Link href="/results" className="inline-flex items-center gap-2 text-sm text-blue-900 hover:text-blue-900 mb-6">
           <ArrowLeft className="w-4 h-4" />
           Back
         </Link>
         <div className="flex items-start gap-4">
-          <div className="w-12 h-12 rounded-2xl bg-indigo-50 border border-indigo-100 flex items-center justify-center flex-shrink-0">
-            <ShieldCheck className="w-6 h-6 text-indigo-600" />
+          <div className="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center flex-shrink-0">
+            <ShieldCheck className="w-6 h-6 text-blue-900" />
           </div>
           <div>
             <h1 className="font-display text-2xl sm:text-3xl font-bold text-gray-900">Account &amp; security</h1>
@@ -38,7 +38,7 @@ export default function AccountSecurityPage() {
       <SetPasswordCard />
 
       <div className="max-w-2xl mx-auto px-6 mt-8 text-xs text-gray-400 leading-relaxed">
-        Not signed in? <Link href="/get-started" className="text-indigo-600 hover:text-indigo-800 underline">Sign in here</Link> first, then come back to this page to set a password.
+        Not signed in? <Link href="/get-started" className="text-blue-900 hover:text-blue-900 underline">Sign in here</Link> first, then come back to this page to set a password.
       </div>
     </div>
   );

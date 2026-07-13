@@ -224,7 +224,7 @@ export default function ApplicationTracker() {
             onClick={() => setFilter("all")}
             className={`px-3 py-1.5 rounded-full text-xs font-semibold border transition-colors ${
               filter === "all"
-                ? "bg-indigo-600 text-white border-indigo-600"
+                ? "bg-blue-900 text-white border-blue-900"
                 : "bg-white text-gray-600 border-gray-200 hover:bg-gray-50"
             }`}
           >
@@ -263,7 +263,7 @@ export default function ApplicationTracker() {
           </button>
           <button
             onClick={() => setAddOpen(true)}
-            className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-indigo-600 text-white text-xs font-bold hover:bg-indigo-700 transition-colors"
+            className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-blue-900 text-white text-xs font-bold hover:bg-blue-800 transition-colors"
           >
             <Plus className="w-3.5 h-3.5" />
             Add Program
@@ -376,10 +376,10 @@ function StatCard({
   tone: "indigo" | "rose" | "emerald" | "violet" | "slate";
 }) {
   const tones: Record<typeof tone, string> = {
-    indigo: "bg-indigo-50 text-indigo-700 border-indigo-100",
+    indigo: "bg-blue-50 text-blue-800 border-blue-100",
     rose: "bg-rose-50 text-rose-700 border-rose-100",
     emerald: "bg-emerald-50 text-emerald-700 border-emerald-100",
-    violet: "bg-violet-50 text-violet-700 border-violet-100",
+    violet: "bg-blue-50 text-blue-800 border-blue-100",
     slate: "bg-slate-50 text-slate-700 border-slate-100",
   };
   return (
@@ -471,7 +471,7 @@ function KanbanCard({
   return (
     <div
       onClick={onClick}
-      className="group bg-white rounded-xl border border-gray-200 hover:border-indigo-300 hover:shadow-md transition-all p-3 cursor-pointer"
+      className="group bg-white rounded-xl border border-gray-200 hover:border-blue-300 hover:shadow-md transition-all p-3 cursor-pointer"
     >
       <div className="flex items-start justify-between gap-2 mb-1.5">
         <p className="font-bold text-sm text-gray-900 leading-tight line-clamp-2">
@@ -522,7 +522,7 @@ function KanbanCard({
               completion.percent === 100
                 ? "bg-emerald-500"
                 : completion.percent >= 50
-                ? "bg-indigo-500"
+                ? "bg-blue-800"
                 : "bg-amber-400"
             }`}
             style={{ width: `${completion.percent}%` }}
@@ -551,7 +551,7 @@ function KanbanCard({
               e.stopPropagation();
               onMove(nextStatus);
             }}
-            className="flex-1 flex items-center justify-center gap-1 px-2 py-1 rounded-md bg-indigo-50 border border-indigo-200 text-[10px] font-semibold text-indigo-700 hover:bg-indigo-100"
+            className="flex-1 flex items-center justify-center gap-1 px-2 py-1 rounded-md bg-blue-50 border border-blue-200 text-[10px] font-semibold text-blue-800 hover:bg-blue-100"
             title={`Move to ${STATUS_META[nextStatus].label}`}
           >
             {STATUS_META[nextStatus].shortLabel}
@@ -569,8 +569,8 @@ function KanbanCard({
 function EmptyState({ onAdd }: { onAdd: () => void }) {
   return (
     <div className="rounded-3xl border-2 border-dashed border-gray-200 bg-white py-16 px-8 text-center">
-      <div className="inline-flex w-16 h-16 items-center justify-center rounded-2xl bg-indigo-100 mb-5">
-        <Target className="w-8 h-8 text-indigo-600" />
+      <div className="inline-flex w-16 h-16 items-center justify-center rounded-2xl bg-blue-100 mb-5">
+        <Target className="w-8 h-8 text-blue-900" />
       </div>
       <h3 className="text-xl font-extrabold text-gray-900 mb-2">
         Your tracker is empty. Add your first program.
@@ -581,7 +581,7 @@ function EmptyState({ onAdd }: { onAdd: () => void }) {
       </p>
       <button
         onClick={onAdd}
-        className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-indigo-600 text-white text-sm font-bold hover:bg-indigo-700 transition-colors"
+        className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-900 text-white text-sm font-bold hover:bg-blue-800 transition-colors"
       >
         <Plus className="w-4 h-4" />
         Add your first program
@@ -622,7 +622,7 @@ function AddApplicationModal({
           onClick={() => setTab("search")}
           className={`px-4 py-2 text-sm font-bold border-b-2 -mb-px ${
             tab === "search"
-              ? "border-indigo-600 text-indigo-700"
+              ? "border-blue-900 text-blue-800"
               : "border-transparent text-gray-500 hover:text-gray-700"
           }`}
         >
@@ -633,7 +633,7 @@ function AddApplicationModal({
           onClick={() => setTab("manual")}
           className={`px-4 py-2 text-sm font-bold border-b-2 -mb-px ${
             tab === "manual"
-              ? "border-indigo-600 text-indigo-700"
+              ? "border-blue-900 text-blue-800"
               : "border-transparent text-gray-500 hover:text-gray-700"
           }`}
         >
@@ -649,7 +649,7 @@ function AddApplicationModal({
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search by university, program, or country…"
             autoFocus
-            className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-indigo-400 outline-none text-sm"
+            className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-400 outline-none text-sm"
           />
           {query.length >= 2 && matches.length === 0 && (
             <p className="text-xs text-gray-500 mt-3 text-center py-6">
@@ -673,7 +673,7 @@ function AddApplicationModal({
                       })
                     );
                   }}
-                  className="w-full text-left p-3 rounded-xl border border-gray-200 hover:border-indigo-300 hover:bg-indigo-50/30 transition-colors"
+                  className="w-full text-left p-3 rounded-xl border border-gray-200 hover:border-blue-300 hover:bg-blue-50/30 transition-colors"
                 >
                   <div className="flex items-start justify-between gap-2">
                     <div className="flex-1 min-w-0">
@@ -689,7 +689,7 @@ function AddApplicationModal({
                         {p.qs_ranking ? ` · QS #${p.qs_ranking}` : ""}
                       </p>
                     </div>
-                    <Plus className="w-4 h-4 text-indigo-600 flex-shrink-0 mt-0.5" />
+                    <Plus className="w-4 h-4 text-blue-900 flex-shrink-0 mt-0.5" />
                   </div>
                 </button>
               )
@@ -705,7 +705,7 @@ function AddApplicationModal({
                 setManualData({ ...manualData, universityName: e.target.value })
               }
               placeholder="e.g. Imperial College London"
-              className="w-full px-3 py-2 rounded-xl border-2 border-gray-200 focus:border-indigo-400 outline-none text-sm"
+              className="w-full px-3 py-2 rounded-xl border-2 border-gray-200 focus:border-blue-400 outline-none text-sm"
             />
           </Field>
           <Field label="Program name" required>
@@ -715,7 +715,7 @@ function AddApplicationModal({
                 setManualData({ ...manualData, programName: e.target.value })
               }
               placeholder="e.g. MSc Computing (AI & ML)"
-              className="w-full px-3 py-2 rounded-xl border-2 border-gray-200 focus:border-indigo-400 outline-none text-sm"
+              className="w-full px-3 py-2 rounded-xl border-2 border-gray-200 focus:border-blue-400 outline-none text-sm"
             />
           </Field>
           <div className="grid grid-cols-2 gap-3">
@@ -726,7 +726,7 @@ function AddApplicationModal({
                   setManualData({ ...manualData, country: e.target.value })
                 }
                 placeholder="UK"
-                className="w-full px-3 py-2 rounded-xl border-2 border-gray-200 focus:border-indigo-400 outline-none text-sm"
+                className="w-full px-3 py-2 rounded-xl border-2 border-gray-200 focus:border-blue-400 outline-none text-sm"
               />
             </Field>
             <Field label="Deadline" required>
@@ -736,7 +736,7 @@ function AddApplicationModal({
                 onChange={(e) =>
                   setManualData({ ...manualData, deadline: e.target.value })
                 }
-                className="w-full px-3 py-2 rounded-xl border-2 border-gray-200 focus:border-indigo-400 outline-none text-sm"
+                className="w-full px-3 py-2 rounded-xl border-2 border-gray-200 focus:border-blue-400 outline-none text-sm"
               />
             </Field>
           </div>
@@ -747,7 +747,7 @@ function AddApplicationModal({
                 setManualData({ ...manualData, applyUrl: e.target.value })
               }
               placeholder="https://…"
-              className="w-full px-3 py-2 rounded-xl border-2 border-gray-200 focus:border-indigo-400 outline-none text-sm"
+              className="w-full px-3 py-2 rounded-xl border-2 border-gray-200 focus:border-blue-400 outline-none text-sm"
             />
           </Field>
           <Field label="Priority">
@@ -786,7 +786,7 @@ function AddApplicationModal({
                 })
               );
             }}
-            className="w-full py-3 rounded-xl bg-indigo-600 text-white text-sm font-bold hover:bg-indigo-700 disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed transition-colors"
+            className="w-full py-3 rounded-xl bg-blue-900 text-white text-sm font-bold hover:bg-blue-800 disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed transition-colors"
           >
             Add to tracker
           </button>
@@ -908,7 +908,7 @@ function DetailDrawer({
               href={app.applyUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-xs font-bold text-indigo-700 hover:underline ml-auto"
+              className="inline-flex items-center gap-1 text-xs font-bold text-blue-800 hover:underline ml-auto"
             >
               Official portal
               <ExternalLink className="w-3 h-3" />
@@ -1009,7 +1009,7 @@ function DetailDrawer({
                 completion.percent === 100
                   ? "bg-emerald-500"
                   : completion.percent >= 50
-                  ? "bg-indigo-500"
+                  ? "bg-blue-800"
                   : "bg-amber-400"
               }`}
               style={{ width: `${completion.percent}%` }}
@@ -1043,7 +1043,7 @@ function DetailDrawer({
             onChange={(e) => onUpdate({ notes: e.target.value })}
             placeholder="Anything relevant — contact person in admissions, interview prep notes, open questions…"
             rows={3}
-            className="w-full px-3 py-2 rounded-xl border-2 border-gray-200 focus:border-indigo-400 outline-none text-sm resize-y"
+            className="w-full px-3 py-2 rounded-xl border-2 border-gray-200 focus:border-blue-400 outline-none text-sm resize-y"
           />
         </div>
 
@@ -1150,7 +1150,7 @@ function ChecklistSection({
                         className={`flex-shrink-0 mt-0.5 w-4 h-4 rounded border-2 flex items-center justify-center transition-colors ${
                           item.done
                             ? "bg-emerald-500 border-emerald-500"
-                            : "bg-white border-gray-300 hover:border-indigo-400"
+                            : "bg-white border-gray-300 hover:border-blue-400"
                         }`}
                       >
                         {item.done && (
@@ -1196,7 +1196,7 @@ function ChecklistSection({
                         }}
                         placeholder="New item…"
                         autoFocus
-                        className="flex-1 px-2 py-1 rounded-md border border-indigo-200 text-xs outline-none focus:border-indigo-400"
+                        className="flex-1 px-2 py-1 rounded-md border border-blue-200 text-xs outline-none focus:border-blue-400"
                       />
                       <button
                         onClick={() => {
@@ -1206,7 +1206,7 @@ function ChecklistSection({
                             setAddingTo(null);
                           }
                         }}
-                        className="px-2 py-1 rounded-md bg-indigo-600 text-white text-[10px] font-bold hover:bg-indigo-700"
+                        className="px-2 py-1 rounded-md bg-blue-900 text-white text-[10px] font-bold hover:bg-blue-800"
                       >
                         Add
                       </button>
@@ -1214,7 +1214,7 @@ function ChecklistSection({
                   ) : (
                     <button
                       onClick={() => setAddingTo(g)}
-                      className="flex items-center gap-1 text-[10px] font-semibold text-indigo-600 hover:text-indigo-700 mt-1"
+                      className="flex items-center gap-1 text-[10px] font-semibold text-blue-900 hover:text-blue-800 mt-1"
                     >
                       <Plus className="w-3 h-3" />
                       Add item
@@ -1275,7 +1275,7 @@ function DocumentsSection({
         </label>
         <button
           onClick={() => setAddOpen(true)}
-          className="flex items-center gap-1 text-[10px] font-semibold text-indigo-600 hover:text-indigo-700"
+          className="flex items-center gap-1 text-[10px] font-semibold text-blue-900 hover:text-blue-800"
         >
           <Plus className="w-3 h-3" />
           Log new version
@@ -1293,19 +1293,19 @@ function DocumentsSection({
             {Object.entries(byType).map(([type, versions]) => (
               <div key={type}>
                 <div className="flex items-center gap-1.5 text-[11px] font-bold text-gray-800 mb-1.5">
-                  <FileText className="w-3 h-3 text-indigo-500" />
+                  <FileText className="w-3 h-3 text-blue-800" />
                   {type}
                   <span className="text-[9px] font-semibold text-gray-400">
                     {versions.length} version{versions.length === 1 ? "" : "s"}
                   </span>
                 </div>
-                <div className="space-y-1 pl-4 border-l-2 border-indigo-100">
+                <div className="space-y-1 pl-4 border-l-2 border-blue-100">
                   {versions.map((v) => (
                     <div
                       key={v.id}
                       className="group flex items-start gap-2 py-1"
                     >
-                      <span className="flex-shrink-0 w-8 text-center text-[10px] font-bold text-indigo-600 bg-indigo-50 rounded px-1 py-0.5">
+                      <span className="flex-shrink-0 w-8 text-center text-[10px] font-bold text-blue-900 bg-blue-50 rounded px-1 py-0.5">
                         v{v.version}
                       </span>
                       <div className="flex-1 min-w-0">
@@ -1345,7 +1345,7 @@ function DocumentsSection({
               <select
                 value={docType}
                 onChange={(e) => setDocType(e.target.value)}
-                className="w-full px-3 py-2 rounded-xl border-2 border-gray-200 focus:border-indigo-400 outline-none text-sm bg-white"
+                className="w-full px-3 py-2 rounded-xl border-2 border-gray-200 focus:border-blue-400 outline-none text-sm bg-white"
               >
                 {[
                   "SOP",
@@ -1367,7 +1367,7 @@ function DocumentsSection({
                 value={label}
                 onChange={(e) => setLabel(e.target.value)}
                 placeholder="e.g. SOP — Stanford AI"
-                className="w-full px-3 py-2 rounded-xl border-2 border-gray-200 focus:border-indigo-400 outline-none text-sm"
+                className="w-full px-3 py-2 rounded-xl border-2 border-gray-200 focus:border-blue-400 outline-none text-sm"
               />
             </Field>
             <Field label="What changed?" required>
@@ -1376,7 +1376,7 @@ function DocumentsSection({
                 onChange={(e) => setChangeNote(e.target.value)}
                 placeholder="e.g. Added research fit paragraph referencing Prof. X's lab."
                 rows={3}
-                className="w-full px-3 py-2 rounded-xl border-2 border-gray-200 focus:border-indigo-400 outline-none text-sm resize-y"
+                className="w-full px-3 py-2 rounded-xl border-2 border-gray-200 focus:border-blue-400 outline-none text-sm resize-y"
               />
             </Field>
             <Field label="Filename reference (optional)">
@@ -1385,7 +1385,7 @@ function DocumentsSection({
                   value={fileName}
                   onChange={(e) => setFileName(e.target.value)}
                   placeholder="sop_stanford_v3.pdf"
-                  className="flex-1 px-3 py-2 rounded-xl border-2 border-gray-200 focus:border-indigo-400 outline-none text-sm"
+                  className="flex-1 px-3 py-2 rounded-xl border-2 border-gray-200 focus:border-blue-400 outline-none text-sm"
                 />
                 <input
                   type="file"
@@ -1419,7 +1419,7 @@ function DocumentsSection({
                 reset();
               }}
               disabled={!changeNote.trim()}
-              className="w-full py-3 rounded-xl bg-indigo-600 text-white text-sm font-bold hover:bg-indigo-700 disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed transition-colors"
+              className="w-full py-3 rounded-xl bg-blue-900 text-white text-sm font-bold hover:bg-blue-800 disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed transition-colors"
             >
               Save version
             </button>

@@ -382,7 +382,7 @@ function Nav({ stage }: { stage: Stage }) {
   const progressPct = Math.round((activeIdx / (stages.length - 1)) * 100);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 border-b border-white/10 shadow-lg">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0F172A] border-b border-white/10 shadow-lg">
       <div className="flex items-center justify-between px-8 py-0">
         <Link href="/english-test-lab" className="flex items-center gap-3 py-4 flex-shrink-0">
           <EduvianLogoMark size={36} />
@@ -853,7 +853,7 @@ function LandingScreen({ onBegin }: { onBegin: () => void }) {
         {[
           { icon: <Headphones className="w-5 h-5 text-sky-600" />, name: "Listening", time: "30 minutes", note: "4 parts, 40 questions" },
           { icon: <BookOpen className="w-5 h-5 text-blue-600" />, name: "Reading", time: "60 minutes", note: "3 passages, 39 questions" },
-          { icon: <PenLine className="w-5 h-5 text-violet-600" />, name: "Writing", time: "60 minutes", note: "Task 1 + Task 2" },
+          { icon: <PenLine className="w-5 h-5 text-blue-900" />, name: "Writing", time: "60 minutes", note: "Task 1 + Task 2" },
           { icon: <Mic className="w-5 h-5 text-emerald-600" />, name: "Speaking", time: "11–14 minutes", note: "3 parts, browser recording" },
         ].map((s) => (
           <div key={s.name} className="bg-white rounded-2xl border border-slate-200 p-4 flex items-start gap-3">
@@ -1145,10 +1145,10 @@ function WritingSection({ task1Text, setTask1Text, task2Text, setTask2Text, time
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="max-w-4xl mx-auto px-6 py-8">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <span className="text-xs font-bold text-violet-600 uppercase tracking-widest">Writing</span>
+          <span className="text-xs font-bold text-blue-900 uppercase tracking-widest">Writing</span>
           <h2 className="text-xl font-black text-slate-900">Writing Tasks</h2>
         </div>
-        <div className={`flex items-center gap-2 px-4 py-2 rounded-xl font-mono font-bold text-sm ${timer.seconds < 600 ? "bg-red-100 text-red-700" : "bg-violet-100 text-violet-700"}`}>
+        <div className={`flex items-center gap-2 px-4 py-2 rounded-xl font-mono font-bold text-sm ${timer.seconds < 600 ? "bg-red-100 text-red-700" : "bg-blue-100 text-blue-800"}`}>
           <Clock className="w-4 h-4" />
           {timer.formatted}
         </div>
@@ -1157,7 +1157,7 @@ function WritingSection({ task1Text, setTask1Text, task2Text, setTask2Text, time
       <div className="flex gap-2 mb-6">
         {([1, 2] as const).map((t) => (
           <button key={t} onClick={() => setActiveTask(t)}
-            className={`px-5 py-2 rounded-xl text-sm font-bold transition-all ${activeTask === t ? "bg-violet-600 text-white shadow" : "bg-white border border-slate-200 text-slate-600 hover:border-slate-300"}`}>
+            className={`px-5 py-2 rounded-xl text-sm font-bold transition-all ${activeTask === t ? "bg-blue-900 text-white shadow" : "bg-white border border-slate-200 text-slate-600 hover:border-slate-300"}`}>
             Task {t} {t === 1 ? "(20 min)" : "(40 min)"}
           </button>
         ))}
@@ -1166,7 +1166,7 @@ function WritingSection({ task1Text, setTask1Text, task2Text, setTask2Text, time
       {activeTask === 1 && (
         <div>
           <div className="bg-white rounded-2xl border border-slate-200 p-5 mb-4">
-            <p className="text-xs font-bold text-violet-600 uppercase tracking-wide mb-2">Task 1 — Visual Description</p>
+            <p className="text-xs font-bold text-blue-900 uppercase tracking-wide mb-2">Task 1 — Visual Description</p>
             <pre className="text-sm text-slate-700 whitespace-pre-wrap leading-relaxed">{WRITING_TASK1_PROMPT}</pre>
           </div>
           <textarea
@@ -1174,7 +1174,7 @@ function WritingSection({ task1Text, setTask1Text, task2Text, setTask2Text, time
             onChange={(e) => setTask1Text(e.target.value)}
             rows={14}
             placeholder="Write your response here (minimum 150 words)..."
-            className="w-full rounded-2xl border border-slate-200 p-4 text-sm focus:outline-none focus:border-violet-400 resize-none"
+            className="w-full rounded-2xl border border-slate-200 p-4 text-sm focus:outline-none focus:border-blue-400 resize-none"
           />
           <div className="flex justify-between text-xs mt-1 text-slate-500">
             <span>Words: <strong className={wordCount(task1Text) >= 150 ? "text-emerald-600" : "text-amber-600"}>{wordCount(task1Text)}</strong> / 150 minimum</span>
@@ -1185,7 +1185,7 @@ function WritingSection({ task1Text, setTask1Text, task2Text, setTask2Text, time
       {activeTask === 2 && (
         <div>
           <div className="bg-white rounded-2xl border border-slate-200 p-5 mb-4">
-            <p className="text-xs font-bold text-violet-600 uppercase tracking-wide mb-2">Task 2 — Essay</p>
+            <p className="text-xs font-bold text-blue-900 uppercase tracking-wide mb-2">Task 2 — Essay</p>
             <p className="text-sm text-slate-700 leading-relaxed">{WRITING_TASK2_PROMPT}</p>
           </div>
           <textarea
@@ -1193,7 +1193,7 @@ function WritingSection({ task1Text, setTask1Text, task2Text, setTask2Text, time
             onChange={(e) => setTask2Text(e.target.value)}
             rows={18}
             placeholder="Write your response here (minimum 250 words)..."
-            className="w-full rounded-2xl border border-slate-200 p-4 text-sm focus:outline-none focus:border-violet-400 resize-none"
+            className="w-full rounded-2xl border border-slate-200 p-4 text-sm focus:outline-none focus:border-blue-400 resize-none"
           />
           <div className="flex justify-between text-xs mt-1 text-slate-500">
             <span>Words: <strong className={wordCount(task2Text) >= 250 ? "text-emerald-600" : "text-amber-600"}>{wordCount(task2Text)}</strong> / 250 minimum</span>
@@ -1202,7 +1202,7 @@ function WritingSection({ task1Text, setTask1Text, task2Text, setTask2Text, time
       )}
 
       <button onClick={onComplete}
-        className="w-full mt-6 py-3.5 rounded-2xl bg-gradient-to-r from-violet-500 to-purple-600 text-white font-bold flex items-center justify-center gap-2 hover:shadow-xl transition-all">
+        className="w-full mt-6 py-3.5 rounded-2xl bg-blue-900 hover:bg-blue-800 text-white font-bold flex items-center justify-center gap-2 hover:shadow-xl transition-all">
         Submit Writing
         <ChevronRight className="w-5 h-5" />
       </button>
@@ -1421,7 +1421,7 @@ function ResultsScreen({ scores, scoringError }: { scores: Record<string, Sectio
   const sections = [
     { key: "listening", label: "Listening", color: "bg-sky-500", icon: <Headphones className="w-4 h-4" /> },
     { key: "reading", label: "Reading", color: "bg-blue-500", icon: <BookOpen className="w-4 h-4" /> },
-    { key: "writing", label: "Writing", color: "bg-violet-500", icon: <PenLine className="w-4 h-4" /> },
+    { key: "writing", label: "Writing", color: "bg-blue-800", icon: <PenLine className="w-4 h-4" /> },
     { key: "speaking", label: "Speaking", color: "bg-emerald-500", icon: <Mic className="w-4 h-4" /> },
   ];
 
@@ -1510,9 +1510,9 @@ function ResultsScreen({ scores, scoringError }: { scores: Record<string, Sectio
         if (sectionBands.length === 0) return null;
         const weakest = sectionBands.reduce((a, b) => (a.band ?? 10) < (b.band ?? 10) ? a : b);
         return (
-          <div className="bg-indigo-50 border border-indigo-200 rounded-2xl p-5 mb-6">
-            <h3 className="font-extrabold text-indigo-900 mb-1 text-sm">Recommended next action</h3>
-            <p className="text-sm text-indigo-800">Your weakest section is <strong>{weakest.label}</strong> (Band {weakest.band ?? "N/A"}). Focus your next practice session on {weakest.label.toLowerCase()}-specific tasks, or retake the {weakest.label} section alone using &ldquo;Section Only&rdquo; mode.</p>
+          <div className="bg-blue-50 border border-blue-200 rounded-2xl p-5 mb-6">
+            <h3 className="font-extrabold text-blue-950 mb-1 text-sm">Recommended next action</h3>
+            <p className="text-sm text-blue-900">Your weakest section is <strong>{weakest.label}</strong> (Band {weakest.band ?? "N/A"}). Focus your next practice session on {weakest.label.toLowerCase()}-specific tasks, or retake the {weakest.label} section alone using &ldquo;Section Only&rdquo; mode.</p>
           </div>
         );
       })()}
@@ -1521,7 +1521,7 @@ function ResultsScreen({ scores, scoringError }: { scores: Record<string, Sectio
       {(scores.writing_task1 || scores.writing_task2) && (
         <div className="bg-white rounded-2xl border border-slate-200 p-6 mb-6">
           <div className="flex items-center gap-2 mb-4">
-            <TrendingUp className="w-5 h-5 text-violet-600" />
+            <TrendingUp className="w-5 h-5 text-blue-900" />
             <h3 className="font-extrabold text-slate-900">Writing Feedback</h3>
           </div>
           {[
@@ -1587,7 +1587,7 @@ function ResultsScreen({ scores, scoringError }: { scores: Record<string, Sectio
           <RotateCcw className="w-4 h-4" /> Try this mock again
         </Link>
         <Link href="/get-started"
-          className="flex items-center justify-center gap-2 py-3.5 rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-bold text-sm hover:shadow-xl transition-all">
+          className="flex items-center justify-center gap-2 py-3.5 rounded-2xl bg-blue-900 hover:bg-blue-800 text-white font-bold text-sm hover:shadow-xl transition-all">
           <BarChart2 className="w-4 h-4" /> Check your university shortlist
         </Link>
       </div>

@@ -20,8 +20,8 @@ export type DataProvenance =
 
 const META: Record<DataProvenance, { label: string; cls: string; Icon: typeof ShieldCheck; tooltip: string }> = {
   official:            { label: "Official source",     cls: "bg-emerald-50 text-emerald-700 border-emerald-200",  Icon: ShieldCheck,      tooltip: "Read directly from the official university or government source page." },
-  ai_estimate:         { label: "AI estimate",         cls: "bg-violet-50  text-violet-700  border-violet-200",   Icon: Sparkles,         tooltip: "Computed by EduvianAI from market benchmarks or model output — not a directly quoted figure." },
-  user_provided:       { label: "User provided",       cls: "bg-indigo-50  text-indigo-700  border-indigo-200",   Icon: User,             tooltip: "Entered by you in the calculator. Re-confirm with the university before acting on it." },
+  ai_estimate:         { label: "AI estimate",         cls: "bg-blue-50  text-blue-800  border-blue-200",   Icon: Sparkles,         tooltip: "Computed by EduvianAI from market benchmarks or model output — not a directly quoted figure." },
+  user_provided:       { label: "User provided",       cls: "bg-blue-50  text-blue-800  border-blue-200",   Icon: User,             tooltip: "Entered by you in the calculator. Re-confirm with the university before acting on it." },
   needs_verification:  { label: "Needs verification",  cls: "bg-amber-50   text-amber-700   border-amber-200",    Icon: AlertTriangle,    tooltip: "Live data but the underlying rule changes often — verify with the official source before committing." },
   illustrative:        { label: "Illustrative sample", cls: "bg-gray-100   text-gray-700    border-gray-200",     Icon: BookOpen,         tooltip: "Sample / illustrative numbers. Not a real recommendation for a real student." },
 };

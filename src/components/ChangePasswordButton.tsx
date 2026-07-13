@@ -122,8 +122,8 @@ export default function ChangePasswordButton({ className, compact }: Props) {
           <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl overflow-hidden">
             <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100">
               <div className="flex items-center gap-2.5">
-                <div className="w-9 h-9 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center">
-                  <Lock className="w-4 h-4 text-indigo-600" />
+                <div className="w-9 h-9 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center">
+                  <Lock className="w-4 h-4 text-blue-900" />
                 </div>
                 <h2 id="change-pw-title" className="text-base font-bold text-gray-900">Change password</h2>
               </div>
@@ -147,7 +147,7 @@ export default function ChangePasswordButton({ className, compact }: Props) {
                   autoComplete="current-password"
                   required
                   autoFocus
-                  className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition placeholder:text-gray-400"
+                  className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition placeholder:text-gray-400"
                 />
               </div>
               <div>
@@ -160,7 +160,7 @@ export default function ChangePasswordButton({ className, compact }: Props) {
                   placeholder={`At least ${MIN_LENGTH} characters, letter, number, special`}
                   minLength={MIN_LENGTH}
                   required
-                  className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition placeholder:text-gray-400"
+                  className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition placeholder:text-gray-400"
                 />
                 <ul className="mt-2 space-y-0.5 text-[11px] text-gray-500">
                   {[
@@ -184,7 +184,7 @@ export default function ChangePasswordButton({ className, compact }: Props) {
                   onChange={(e) => setConfirm(e.target.value)}
                   autoComplete="new-password"
                   required
-                  className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition placeholder:text-gray-400"
+                  className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition placeholder:text-gray-400"
                 />
               </div>
 
@@ -211,7 +211,7 @@ export default function ChangePasswordButton({ className, compact }: Props) {
                 <button
                   type="submit"
                   disabled={busy}
-                  className="inline-flex items-center gap-2 px-5 py-2 rounded-xl bg-violet-600 hover:bg-violet-700 text-white text-sm font-semibold transition-colors disabled:opacity-60"
+                  className="inline-flex items-center gap-2 px-5 py-2 rounded-xl bg-blue-900 hover:bg-blue-800 text-white text-sm font-semibold transition-colors disabled:opacity-60"
                 >
                   {busy ? <><Loader2 className="w-4 h-4 animate-spin" /> Saving…</> : "Change password"}
                 </button>

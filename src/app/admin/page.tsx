@@ -149,18 +149,18 @@ export default function AdminLogin() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-900 via-purple-900 to-indigo-900 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-[#0F172A] px-4">
       <div className="w-full max-w-sm">
         <div className="text-center mb-8">
           <Link href="/" className="inline-flex items-center gap-2 mb-6">
             <EduvianLogoMark size={40} />
             <div>
-              <span className="font-display font-bold text-2xl text-white tracking-tight">eduvian<span className="text-indigo-300">AI</span></span>
-              <p className="text-sm font-bold text-indigo-300 leading-none">Independent study-abroad intelligence</p>
+              <span className="font-display font-bold text-2xl text-white tracking-tight">eduvian<span className="text-blue-300">AI</span></span>
+              <p className="text-sm font-bold text-blue-300 leading-none">Independent study-abroad intelligence</p>
             </div>
           </Link>
           <h1 className="text-2xl font-bold text-white">Admin Login</h1>
-          <p className="text-indigo-300 text-sm mt-1">
+          <p className="text-blue-300 text-sm mt-1">
             {step === "credentials" ? "Counselor & admin access" : "Two-factor authentication"}
           </p>
         </div>
@@ -172,7 +172,7 @@ export default function AdminLogin() {
             className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-8 space-y-4"
           >
             <div>
-              <label className="block text-sm font-medium text-indigo-200 mb-1.5">Email</label>
+              <label className="block text-sm font-medium text-blue-200 mb-1.5">Email</label>
               <input
                 type="email"
                 value={email}
@@ -180,11 +180,11 @@ export default function AdminLogin() {
                 placeholder="Email address"
                 required
                 autoComplete="off"
-                className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-indigo-300 focus:outline-none focus:ring-2 focus:ring-indigo-400 text-sm"
+                className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400 text-sm"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-indigo-200 mb-1.5">Password</label>
+              <label className="block text-sm font-medium text-blue-200 mb-1.5">Password</label>
               <input
                 type="password"
                 value={password}
@@ -192,7 +192,7 @@ export default function AdminLogin() {
                 placeholder="••••••••"
                 required
                 autoComplete="new-password"
-                className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-indigo-300 focus:outline-none focus:ring-2 focus:ring-indigo-400 text-sm"
+                className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400 text-sm"
               />
             </div>
 
@@ -205,7 +205,7 @@ export default function AdminLogin() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-white text-indigo-700 font-bold hover:bg-indigo-50 transition-colors disabled:opacity-60"
+              className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-white text-blue-800 font-bold hover:bg-blue-50 transition-colors disabled:opacity-60"
             >
               {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Lock className="w-4 h-4" />}
               Sign In
@@ -218,7 +218,7 @@ export default function AdminLogin() {
           >
             <div className="flex items-center gap-3 mb-2">
               <ShieldCheck className="w-5 h-5 text-emerald-300" />
-              <p className="text-indigo-200 text-sm leading-relaxed">
+              <p className="text-blue-200 text-sm leading-relaxed">
                 Enter the 6-digit code from your authenticator app.
               </p>
             </div>
@@ -233,7 +233,7 @@ export default function AdminLogin() {
               value={otp}
               onChange={(e) => setOtp(e.target.value.replace(/[^0-9]/g, "").slice(0, 6))}
               placeholder="123456"
-              className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white text-center text-2xl font-mono tracking-[0.4em] focus:outline-none focus:ring-2 focus:ring-indigo-400"
+              className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white text-center text-2xl font-mono tracking-[0.4em] focus:outline-none focus:ring-2 focus:ring-blue-400"
               required
             />
 
@@ -246,7 +246,7 @@ export default function AdminLogin() {
             <button
               type="submit"
               disabled={loading || otp.length !== 6}
-              className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-white text-indigo-700 font-bold hover:bg-indigo-50 transition-colors disabled:opacity-60"
+              className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-white text-blue-800 font-bold hover:bg-blue-50 transition-colors disabled:opacity-60"
             >
               {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <ShieldCheck className="w-4 h-4" />}
               Verify and continue
@@ -262,7 +262,7 @@ export default function AdminLogin() {
                 setFactorId(null);
                 setError("");
               }}
-              className="w-full text-indigo-300 hover:text-white text-xs underline-offset-2 hover:underline pt-2"
+              className="w-full text-blue-300 hover:text-white text-xs underline-offset-2 hover:underline pt-2"
             >
               ← Sign out and start over
             </button>

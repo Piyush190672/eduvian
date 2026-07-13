@@ -49,9 +49,9 @@ const GROUP_META: Record<
   VisaChecklistItem["group"],
   { label: string; icon: string; color: string }
 > = {
-  "pre-application":     { label: "Before you apply",           icon: "📝", color: "text-indigo-600 bg-indigo-50 border-indigo-200" },
+  "pre-application":     { label: "Before you apply",           icon: "📝", color: "text-blue-900 bg-blue-50 border-blue-200" },
   "financial":           { label: "Financial evidence",         icon: "💰", color: "text-emerald-600 bg-emerald-50 border-emerald-200" },
-  "academic":            { label: "Academic documents",         icon: "🎓", color: "text-violet-600 bg-violet-50 border-violet-200" },
+  "academic":            { label: "Academic documents",         icon: "🎓", color: "text-blue-900 bg-blue-50 border-blue-200" },
   "identity":            { label: "Identity & passport",        icon: "🪪", color: "text-sky-600 bg-sky-50 border-sky-200" },
   "biometric-interview": { label: "Biometrics & medical",       icon: "🩺", color: "text-pink-600 bg-pink-50 border-pink-200" },
   "post-approval":       { label: "After approval",             icon: "✈️", color: "text-amber-600 bg-amber-50 border-amber-200" },
@@ -81,8 +81,8 @@ function CountryTab({
       onClick={onClick}
       className={`flex flex-col items-start gap-1 px-4 py-3 rounded-xl border-2 text-left transition-all min-w-[180px] ${
         active
-          ? "border-indigo-500 bg-white shadow-md scale-[1.02]"
-          : "border-gray-200 bg-white/60 hover:border-indigo-200 hover:bg-white"
+          ? "border-blue-800 bg-white shadow-md scale-[1.02]"
+          : "border-gray-200 bg-white/60 hover:border-blue-200 hover:bg-white"
       }`}
     >
       <div className="flex items-center gap-2">
@@ -109,7 +109,7 @@ function ChecklistRow({
       className={`flex gap-3 p-4 rounded-xl border transition-colors ${
         checked
           ? "bg-emerald-50/60 border-emerald-200"
-          : "bg-white border-gray-200 hover:border-indigo-200"
+          : "bg-white border-gray-200 hover:border-blue-200"
       }`}
     >
       <button
@@ -121,7 +121,7 @@ function ChecklistRow({
           className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-colors ${
             checked
               ? "bg-emerald-500 border-emerald-500"
-              : "bg-white border-gray-300 hover:border-indigo-400"
+              : "bg-white border-gray-300 hover:border-blue-400"
           }`}
         >
           {checked && <CheckCircle2 className="w-4 h-4 text-white" strokeWidth={3} />}
@@ -241,10 +241,10 @@ export default function VisaCoach() {
       {/* ── Country switcher ────────────────────────────────── */}
       <div>
         <div className="flex items-center gap-2 mb-3">
-          <div className="text-xs font-bold uppercase tracking-widest text-indigo-600">
+          <div className="text-xs font-bold uppercase tracking-widest text-blue-900">
             Pick your destination
           </div>
-          <div className="flex-1 h-px bg-gradient-to-r from-indigo-200 to-transparent" />
+          <div className="flex-1 h-px bg-blue-100" />
         </div>
         <div className="flex gap-3 overflow-x-auto pb-2 -mx-1 px-1">
           {VISA_COUNTRY_LIST.map((c) => (
@@ -259,15 +259,15 @@ export default function VisaCoach() {
       </div>
 
       {/* ── Hero card ────────────────────────────────────────── */}
-      <section className="bg-gradient-to-br from-indigo-900 via-violet-900 to-indigo-950 rounded-3xl p-8 md:p-10 text-white shadow-xl relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-violet-500/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-indigo-500/20 rounded-full blur-3xl" />
+      <section className="bg-gradient-to-br from-blue-950 via-blue-950 to-blue-950 rounded-3xl p-8 md:p-10 text-white shadow-xl relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-blue-800/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-800/20 rounded-full blur-3xl" />
         <div className="relative">
           <div className="flex items-start justify-between gap-4 flex-wrap">
             <div className="flex items-center gap-4">
               <span className="text-5xl">{active.flag}</span>
               <div>
-                <p className="text-indigo-300 text-xs font-bold uppercase tracking-widest">
+                <p className="text-blue-300 text-xs font-bold uppercase tracking-widest">
                   {active.country} · {active.visaCode}
                 </p>
                 <h2 className="text-2xl md:text-3xl font-extrabold mt-1">{active.visaName}</h2>
@@ -286,7 +286,7 @@ export default function VisaCoach() {
                 href={active.applyUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-white text-indigo-900 px-6 py-3.5 rounded-xl font-bold text-sm hover:bg-indigo-50 transition-colors shadow-lg"
+                className="inline-flex items-center gap-2 bg-white text-blue-950 px-6 py-3.5 rounded-xl font-bold text-sm hover:bg-blue-50 transition-colors shadow-lg"
               >
                 Apply for Visa
                 <ExternalLink className="w-4 h-4" />
@@ -294,7 +294,7 @@ export default function VisaCoach() {
             </div>
           </div>
 
-          <p className="text-indigo-100 mt-5 leading-relaxed max-w-3xl">{active.tagline}</p>
+          <p className="text-blue-100 mt-5 leading-relaxed max-w-3xl">{active.tagline}</p>
 
           {budgetUsd > 0 && (
             <BudgetFitBanner
@@ -307,7 +307,7 @@ export default function VisaCoach() {
           {/* Headline stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-7">
             <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4">
-              <div className="flex items-center gap-1.5 text-indigo-200 text-[10px] font-bold uppercase tracking-wider">
+              <div className="flex items-center gap-1.5 text-blue-200 text-[10px] font-bold uppercase tracking-wider">
                 <Banknote className="w-3.5 h-3.5" /> Visa fee
               </div>
               <div className="mt-1 text-lg font-extrabold">
@@ -315,7 +315,7 @@ export default function VisaCoach() {
               </div>
             </div>
             <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4">
-              <div className="flex items-center gap-1.5 text-indigo-200 text-[10px] font-bold uppercase tracking-wider">
+              <div className="flex items-center gap-1.5 text-blue-200 text-[10px] font-bold uppercase tracking-wider">
                 <ShieldCheck className="w-3.5 h-3.5" /> Financial proof
               </div>
               <div className="mt-1 text-lg font-extrabold">
@@ -324,13 +324,13 @@ export default function VisaCoach() {
                   : "Per I-20 / CoE"}
               </div>
               {active.financial.coverMonths > 0 && (
-                <div className="text-[10px] text-indigo-300 mt-0.5">
+                <div className="text-[10px] text-blue-300 mt-0.5">
                   covers {active.financial.coverMonths} mo
                 </div>
               )}
             </div>
             <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4">
-              <div className="flex items-center gap-1.5 text-indigo-200 text-[10px] font-bold uppercase tracking-wider">
+              <div className="flex items-center gap-1.5 text-blue-200 text-[10px] font-bold uppercase tracking-wider">
                 <Clock className="w-3.5 h-3.5" /> Processing
               </div>
               <div className="mt-1 text-sm font-bold leading-tight">
@@ -338,7 +338,7 @@ export default function VisaCoach() {
               </div>
             </div>
             <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4">
-              <div className="flex items-center gap-1.5 text-indigo-200 text-[10px] font-bold uppercase tracking-wider">
+              <div className="flex items-center gap-1.5 text-blue-200 text-[10px] font-bold uppercase tracking-wider">
                 <ListChecks className="w-3.5 h-3.5" /> Steps
               </div>
               <div className="mt-1 text-lg font-extrabold">
@@ -350,7 +350,7 @@ export default function VisaCoach() {
       </section>
 
       {/* ── Fees breakdown ──────────────────────────────────── */}
-      <section className="bg-white border-2 border-indigo-100 rounded-2xl p-6 md:p-8">
+      <section className="bg-white border-2 border-blue-100 rounded-2xl p-6 md:p-8">
         <div className="flex items-center justify-between flex-wrap gap-2 mb-5">
           <h3 className="text-lg font-extrabold text-gray-900 flex items-center gap-2">
             <Banknote className="w-5 h-5 text-emerald-600" /> Fees you'll actually pay
@@ -378,11 +378,11 @@ export default function VisaCoach() {
               <div className="font-extrabold text-gray-900">{fmtMoney(f.amount, f.currency)}</div>
             </div>
           ))}
-          <div className="flex items-center justify-between py-3 px-4 bg-indigo-50 border border-indigo-200 rounded-lg mt-3">
-            <div className="font-bold text-indigo-900 text-sm">
+          <div className="flex items-center justify-between py-3 px-4 bg-blue-50 border border-blue-200 rounded-lg mt-3">
+            <div className="font-bold text-blue-950 text-sm">
               Baseline up-front cost (before tuition/living)
             </div>
-            <div className="font-extrabold text-indigo-900 text-lg">
+            <div className="font-extrabold text-blue-950 text-lg">
               ~{fmtMoney(totalInitialCost, active.visaFee.currency)}
             </div>
           </div>
@@ -416,7 +416,7 @@ export default function VisaCoach() {
       {/* ── Step-by-step timeline ───────────────────────────── */}
       <section>
         <h3 className="text-lg font-extrabold text-gray-900 mb-5 flex items-center gap-2">
-          <span className="w-8 h-8 bg-indigo-100 rounded-lg flex items-center justify-center text-indigo-700 font-extrabold text-sm">
+          <span className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center text-blue-800 font-extrabold text-sm">
             1·2·3
           </span>
           Step-by-step application
@@ -425,9 +425,9 @@ export default function VisaCoach() {
           {active.steps.map((step) => (
             <div
               key={step.order}
-              className="flex gap-4 p-5 bg-white border-2 border-gray-100 rounded-xl hover:border-indigo-200 transition-colors"
+              className="flex gap-4 p-5 bg-white border-2 border-gray-100 rounded-xl hover:border-blue-200 transition-colors"
             >
-              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-violet-600 text-white font-extrabold text-sm flex items-center justify-center shadow-md">
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-blue-800 to-blue-900 text-white font-extrabold text-sm flex items-center justify-center shadow-md">
                 {step.order}
               </div>
               <div className="flex-1 min-w-0">
@@ -438,7 +438,7 @@ export default function VisaCoach() {
                     href={step.officialLink.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-indigo-600 font-semibold text-xs mt-2 hover:underline"
+                    className="inline-flex items-center gap-1.5 text-blue-900 font-semibold text-xs mt-2 hover:underline"
                   >
                     {step.officialLink.label}
                     <ExternalLink className="w-3 h-3" />
@@ -454,12 +454,12 @@ export default function VisaCoach() {
       <section>
         <div className="flex items-center justify-between flex-wrap gap-2 mb-5">
           <h3 className="text-lg font-extrabold text-gray-900 flex items-center gap-2">
-            <FileText className="w-5 h-5 text-indigo-600" /> Document checklist
+            <FileText className="w-5 h-5 text-blue-900" /> Document checklist
           </h3>
           <div className="flex items-center gap-3">
             <div className="w-48 h-2 bg-gray-200 rounded-full overflow-hidden">
               <div
-                className="h-full bg-gradient-to-r from-indigo-500 to-emerald-500 transition-all"
+                className="h-full bg-blue-900 transition-all"
                 style={{ width: `${progressPct}%` }}
               />
             </div>
@@ -572,16 +572,16 @@ export default function VisaCoach() {
           href={active.applyUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="md:col-span-1 bg-gradient-to-br from-indigo-600 to-violet-700 text-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow flex flex-col justify-between group"
+          className="md:col-span-1 bg-gradient-to-br from-blue-900 to-blue-800 text-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow flex flex-col justify-between group"
         >
           <div>
-            <div className="text-indigo-200 text-[10px] font-bold uppercase tracking-widest">
+            <div className="text-blue-200 text-[10px] font-bold uppercase tracking-widest">
               Ready when you are
             </div>
             <h4 className="text-xl font-extrabold mt-2">
               Apply for your {active.country} visa
             </h4>
-            <p className="text-indigo-100 text-sm mt-2 leading-relaxed">
+            <p className="text-blue-100 text-sm mt-2 leading-relaxed">
               Takes you directly to the {active.applyUrlLabel}. Opens in a new tab.
             </p>
           </div>
@@ -591,7 +591,7 @@ export default function VisaCoach() {
         </a>
         <div className="md:col-span-2 bg-white border-2 border-gray-100 rounded-2xl p-6">
           <div className="flex items-center gap-2 mb-3">
-            <BookOpen className="w-4 h-4 text-indigo-600" />
+            <BookOpen className="w-4 h-4 text-blue-900" />
             <h4 className="font-extrabold text-gray-900 text-sm uppercase tracking-wider">
               Official sources used
             </h4>
@@ -611,7 +611,7 @@ export default function VisaCoach() {
                 href={s.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-xs text-indigo-700 hover:underline py-1"
+                className="flex items-center gap-1.5 text-xs text-blue-800 hover:underline py-1"
               >
                 <ExternalLink className="w-3 h-3 flex-shrink-0" />
                 <span className="truncate">{s.label}</span>
@@ -670,7 +670,7 @@ function BudgetFitBanner({
   };
   if (financialFloor === 0) {
     return (
-      <div className="mt-5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-xs text-indigo-100">
+      <div className="mt-5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-xs text-blue-100">
         You indicated a funding pool of{" "}
         <span className="font-bold text-white">${budgetUsd.toLocaleString()}</span>. This
         destination does not publish a government minimum; the institution verifies funding.
@@ -688,7 +688,7 @@ function BudgetFitBanner({
       <span className={`inline-flex items-center gap-1 text-white font-bold px-2 py-0.5 rounded ${colour}`}>
         {label}
       </span>
-      <span className="text-indigo-100">
+      <span className="text-blue-100">
         Your funding: <span className="font-semibold text-white">${budgetUsd.toLocaleString()}</span>
         {" · "}Required: <span className="font-semibold text-white">≈ ${floorUsd.toLocaleString()}</span>
         {" · "}Ratio: <span className="font-semibold text-white">{Math.round(ratio * 100)}%</span>
@@ -719,10 +719,10 @@ function EasyVisaComparison({
   }, [view, budgetUsd]);
 
   return (
-    <section className="bg-white border-2 border-indigo-100 rounded-2xl p-6 md:p-8">
+    <section className="bg-white border-2 border-blue-100 rounded-2xl p-6 md:p-8">
       <div className="flex items-start justify-between gap-4 flex-wrap mb-4">
         <div>
-          <div className="inline-flex items-center gap-2 text-indigo-600 font-bold text-[10px] uppercase tracking-widest mb-2">
+          <div className="inline-flex items-center gap-2 text-blue-900 font-bold text-[10px] uppercase tracking-widest mb-2">
             <Trophy className="w-3.5 h-3.5" />
             Easiest → Hardest visas
           </div>
@@ -785,14 +785,14 @@ function EasyVisaComparison({
                   key={r.country.code}
                   onClick={() => onPick(r.country.code)}
                   className={`border-b border-gray-100 cursor-pointer transition-colors ${
-                    active ? "bg-indigo-50" : "hover:bg-gray-50"
+                    active ? "bg-blue-50" : "hover:bg-gray-50"
                   }`}
                 >
                   <td className="py-2.5 pr-3 text-gray-400 font-mono text-xs">{i + 1}</td>
                   <td className="py-2.5 pr-3">
                     <div className="flex items-center gap-2">
                       <span className="text-lg">{r.country.flag}</span>
-                      <span className={`font-semibold ${active ? "text-indigo-700" : "text-gray-900"}`}>
+                      <span className={`font-semibold ${active ? "text-blue-800" : "text-gray-900"}`}>
                         {r.country.country}
                       </span>
                     </div>
@@ -829,7 +829,7 @@ function EasyVisaComparison({
                   </td>
                   <td className="py-2.5 pr-3 text-right">
                     {active ? (
-                      <CheckCircle2 className="w-4 h-4 text-indigo-600" />
+                      <CheckCircle2 className="w-4 h-4 text-blue-900" />
                     ) : (
                       <TrendingUp className="w-4 h-4 text-gray-300" />
                     )}

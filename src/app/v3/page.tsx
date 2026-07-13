@@ -53,8 +53,8 @@ const SAMPLE_READINESS = {
 } as const;
 
 // Journey tools — copy carried from the live page (already pain-point
-// first and verified against the live tools); "Interview Prep" naming
-// kept until the Wave-3 rename commit.
+// first and verified against the live tools). "Interview Coach" naming
+// landed in the Wave-3 rename (route stays /interview-prep).
 const JOURNEY_TOOLS = [
   {
     pain: "Got a shortlist — is my application strong enough?",
@@ -553,7 +553,7 @@ export default function HomeV3() {
                 h: "Tools",
                 links: [
                   ["Application check", "/application-check"],
-                  ["Interview prep", "/interview-prep"],
+                  ["Interview Coach", "/interview-prep"],
                   ["English Test Lab", "/english-test-lab"],
                   ["Visa Coach", "/visa-coach"],
                   ["Parent decision tool", "/parent-decision"],

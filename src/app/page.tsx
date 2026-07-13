@@ -18,7 +18,7 @@ import LogoutButton from "@/components/LogoutButton";
  * Six sections, server-rendered, zero client JS of its own (ChatWidget +
  * LogoutButton are the only client islands): hero with a single CTA,
  * proof strip, 3-step how-it-works, journey-tools section (the USP —
- * Application Check, Interview Prep, English Test Lab, Visa Coach),
+ * Application Check, Interview Coach, English Test Lab, Visa Coach),
  * parent section, closing CTA. The previous 8-section client page
  * (1,417 lines, framer-motion, 3 rotating carousels) is archived at
  * _archive/page-pre-phase2-rebuild.tsx.bak.
@@ -137,7 +137,7 @@ export default function HomePage() {
       {/* ── Section 1 · Hero ─────────────────────────────────────────── */}
       <section className="relative bg-[#0E1119] text-white overflow-hidden">
         {/* Single decorative glow — desktop only (mobile GPU rule). */}
-        <div className="hidden md:block pointer-events-none absolute -top-32 right-[-10%] w-[540px] h-[540px] rounded-full bg-violet-600/20 blur-3xl" aria-hidden />
+        <div className="hidden md:block pointer-events-none absolute -top-32 right-[-10%] w-[540px] h-[540px] rounded-full bg-blue-900/20 blur-3xl" aria-hidden />
 
         <nav className="relative z-10">
           <div className="max-w-7xl mx-auto px-6 sm:px-10 h-16 flex items-center justify-between">
@@ -167,13 +167,13 @@ export default function HomePage() {
               truncated rows forced the track ~37px past a 375px viewport,
               clipping the whole hero (found 10 July 2026). */}
           <div className="min-w-0">
-            <p className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-violet-300 mb-5">
+            <p className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-blue-300 mb-5">
               <ShieldCheck className="w-4 h-4" />
               Independent study-abroad intelligence
             </p>
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.08] mb-6">
               Know where you stand{" "}
-              <span className="italic font-medium text-violet-300">before</span>{" "}
+              <span className="italic font-medium text-blue-300">before</span>{" "}
               you apply abroad.
             </h1>
             <p className="text-base sm:text-lg text-white/70 leading-relaxed max-w-xl mb-8">
@@ -186,7 +186,7 @@ export default function HomePage() {
             <div className="flex flex-col sm:flex-row sm:items-center gap-4">
               <Link
                 href="/profile"
-                className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-violet-600 hover:bg-violet-700 text-white text-base font-bold shadow-lg shadow-violet-900/40 transition-all"
+                className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-blue-900 hover:bg-blue-800 text-white text-base font-bold shadow-lg shadow-blue-950/40 transition-all"
               >
                 See if I qualify
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
@@ -250,7 +250,7 @@ export default function HomePage() {
             Every figure checked against the university&apos;s official page
             {LAST_VERIFIED_LABEL ? <> · last verified {LAST_VERIFIED_LABEL}</> : null}
             {" · "}
-            <Link href="/methodology" className="font-semibold text-violet-700 hover:underline">
+            <Link href="/methodology" className="font-semibold text-blue-800 hover:underline">
               see how we verify
             </Link>
           </p>
@@ -260,7 +260,7 @@ export default function HomePage() {
       {/* ── Section 3 · How it works ─────────────────────────────────── */}
       <section className="max-w-7xl mx-auto px-6 sm:px-10 py-16 sm:py-24">
         <div className="max-w-2xl mb-12">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-violet-700 mb-3">How it works</p>
+          <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-blue-800 mb-3">How it works</p>
           <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 leading-tight">
             Three steps from profile to a defensible decision.
           </h2>
@@ -269,8 +269,8 @@ export default function HomePage() {
           {STEPS.map((s) => (
             <div key={s.step} className="rounded-2xl border border-stone-200 bg-white p-6 sm:p-7">
               <div className="flex items-center justify-between mb-5">
-                <span className="w-11 h-11 rounded-xl bg-violet-50 border border-violet-100 flex items-center justify-center">
-                  <s.icon className="w-5 h-5 text-violet-700" />
+                <span className="w-11 h-11 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center">
+                  <s.icon className="w-5 h-5 text-blue-800" />
                 </span>
                 <span className="font-display text-sm font-bold text-stone-300">{s.step}</span>
               </div>
@@ -293,12 +293,12 @@ export default function HomePage() {
       <section className="bg-[#0E1119] text-white">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 py-16 sm:py-24">
           <div className="max-w-2xl mb-12">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-violet-300 mb-3">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-blue-300 mb-3">
               Where most platforms stop
             </p>
             <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight leading-tight mb-4">
               A shortlist is where the hard part{" "}
-              <span className="italic font-medium text-violet-300">begins</span>.
+              <span className="italic font-medium text-blue-300">begins</span>.
             </h2>
             <p className="text-base text-white/60 leading-relaxed">
               Applications get rejected, interviews go sideways, English scores
@@ -352,7 +352,7 @@ export default function HomePage() {
                 <div className="mt-auto">
                   <Link
                     href={t.href}
-                    className="group inline-flex items-center gap-1.5 text-sm font-bold text-violet-300 hover:text-violet-200 transition-colors"
+                    className="group inline-flex items-center gap-1.5 text-sm font-bold text-blue-300 hover:text-blue-200 transition-colors"
                   >
                     {t.cta}
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
@@ -371,7 +371,7 @@ export default function HomePage() {
       <section className="bg-stone-50/60 border-y border-stone-100">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 py-16 sm:py-20 grid lg:grid-cols-2 gap-10 items-center">
           <div>
-            <p className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-violet-700 mb-3">
+            <p className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-blue-800 mb-3">
               <Users className="w-4 h-4" />
               For parents
             </p>
@@ -388,7 +388,7 @@ export default function HomePage() {
             <div className="flex flex-col sm:flex-row gap-3">
               <Link
                 href="/sample-parent-report"
-                className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-violet-600 hover:bg-violet-700 text-white text-sm font-bold transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-blue-900 hover:bg-blue-800 text-white text-sm font-bold transition-colors"
               >
                 See a sample family report
                 <ArrowUpRight className="w-4 h-4" />
@@ -439,7 +439,7 @@ export default function HomePage() {
         <div className="max-w-4xl mx-auto px-6 sm:px-10 py-16 sm:py-24 text-center">
           <h2 className="font-display text-3xl sm:text-5xl font-bold tracking-tight leading-tight mb-5">
             Five minutes to know where you{" "}
-            <span className="italic font-medium text-violet-300">actually</span>{" "}
+            <span className="italic font-medium text-blue-300">actually</span>{" "}
             stand.
           </h2>
           <p className="text-base text-white/60 leading-relaxed max-w-2xl mx-auto mb-8">
@@ -450,7 +450,7 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/profile"
-              className="group inline-flex items-center gap-2 px-8 py-4 rounded-full bg-violet-600 hover:bg-violet-700 text-white text-base font-bold shadow-lg shadow-violet-900/40 transition-all"
+              className="group inline-flex items-center gap-2 px-8 py-4 rounded-full bg-blue-900 hover:bg-blue-800 text-white text-base font-bold shadow-lg shadow-blue-950/40 transition-all"
             >
               See if I qualify
               <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
@@ -486,7 +486,7 @@ export default function HomePage() {
             <Link href="/match"          className="hover:text-gray-900 transition-colors">Find my programs</Link>
             <Link href="/programs"       className="hover:text-gray-900 transition-colors">Browse all programs</Link>
             <Link href="/application-check" className="hover:text-gray-900 transition-colors">Application check</Link>
-            <Link href="/interview-prep"    className="hover:text-gray-900 transition-colors">Interview prep</Link>
+            <Link href="/interview-prep"    className="hover:text-gray-900 transition-colors">Interview Coach</Link>
             <Link href="/english-test-lab"  className="hover:text-gray-900 transition-colors">English Test Lab</Link>
             <Link href="/visa-coach"        className="hover:text-gray-900 transition-colors">Visa Coach</Link>
             <Link href="/security-policy" className="hover:text-gray-900 transition-colors">Security</Link>
@@ -494,7 +494,7 @@ export default function HomePage() {
             <span className="text-gray-400 text-[11px]">Decision-support · not professional advice</span>
             <Link
               href="/admin"
-              className="ml-2 text-[10px] font-mono text-gray-400 hover:text-violet-700 transition-colors opacity-40 hover:opacity-100 select-none"
+              className="ml-2 text-[10px] font-mono text-gray-400 hover:text-blue-800 transition-colors opacity-40 hover:opacity-100 select-none"
             >
               admin
             </Link>

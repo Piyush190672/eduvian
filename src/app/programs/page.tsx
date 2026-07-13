@@ -24,7 +24,7 @@ export default function ProgramsIndexPage() {
     <div className="min-h-screen bg-white">
       <BrandNav variant="light" />
       <main className="max-w-5xl mx-auto px-6 sm:px-10 py-12 sm:py-16">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-violet-700 mb-3">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-blue-800 mb-3">
           Program directory
         </p>
         <h1 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 mb-3">
@@ -41,7 +41,7 @@ export default function ProgramsIndexPage() {
             <Link
               key={c.slug}
               href={`/programs/${c.slug}`}
-              className="group flex items-center gap-3 rounded-2xl border border-stone-200 bg-white p-5 hover:border-violet-300 hover:shadow-md transition-all"
+              className="group flex items-center gap-3 rounded-2xl border border-stone-200 bg-white p-5 hover:border-blue-300 hover:shadow-md transition-all"
             >
               <span className="text-2xl" aria-hidden>{c.flag}</span>
               <span className="flex-1 min-w-0">
@@ -50,7 +50,7 @@ export default function ProgramsIndexPage() {
                   {c.programCount.toLocaleString()} programs · {c.universities.size} universities
                 </span>
               </span>
-              <ArrowRight className="w-4 h-4 text-gray-300 group-hover:text-violet-600 group-hover:translate-x-0.5 transition-all" />
+              <ArrowRight className="w-4 h-4 text-gray-300 group-hover:text-blue-900 group-hover:translate-x-0.5 transition-all" />
             </Link>
           ))}
         </div>

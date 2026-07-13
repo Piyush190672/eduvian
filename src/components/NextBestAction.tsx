@@ -7,7 +7,7 @@ import { ArrowRight, Target } from "lucide-react";
  * NextBestAction — high-contrast CTA panel rendered at the bottom of each
  * tool's primary output. Removes the "now what?" gap after a result.
  *
- * Design intent: read as a clear, eye-catching next step — dark violet
+ * Design intent: read as a clear, eye-catching next step — dark blue
  * gradient with a glowing icon block, animated arrow, and a soft accent
  * bar above. Sized to sit prominently within a result column without
  * dominating the actual data.
@@ -36,7 +36,7 @@ export function NextBestAction({
     <div className="relative group flex items-center gap-3 sm:gap-4 w-full">
       {/* Glowing icon block */}
       <div className="relative flex-shrink-0">
-        <span aria-hidden className="absolute inset-0 rounded-xl bg-violet-400/40 blur-md group-hover:bg-violet-300/60 transition-colors" />
+        <span aria-hidden className="absolute inset-0 rounded-xl bg-blue-400/40 blur-md group-hover:bg-blue-300/60 transition-colors" />
         <div className="relative w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-white/15 backdrop-blur-sm border border-white/30 flex items-center justify-center shadow-inner">
           <Target className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
         </div>
@@ -44,7 +44,7 @@ export function NextBestAction({
 
       {/* Copy */}
       <div className="min-w-0 flex-1 text-left">
-        <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-violet-200 mb-0.5 sm:mb-1 flex items-center gap-1.5">
+        <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-blue-200 mb-0.5 sm:mb-1 flex items-center gap-1.5">
           <span className="inline-block w-1 h-1 rounded-full bg-emerald-400 animate-pulse" />
           Next best action
         </p>
@@ -54,19 +54,19 @@ export function NextBestAction({
       </div>
 
       {/* Arrow */}
-      <div className="flex-shrink-0 w-8 h-8 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-white text-violet-700 flex items-center justify-center shadow-md group-hover:translate-x-1 group-hover:shadow-lg group-hover:bg-violet-50 transition-all">
+      <div className="flex-shrink-0 w-8 h-8 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-white text-blue-800 flex items-center justify-center shadow-md group-hover:translate-x-1 group-hover:shadow-lg group-hover:bg-blue-50 transition-all">
         <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
       </div>
     </div>
   );
 
   const shellClass =
-    "relative overflow-hidden block w-full bg-gradient-to-br from-violet-600 via-violet-700 to-indigo-700 rounded-2xl px-5 py-4 shadow-lg shadow-violet-900/25 hover:shadow-violet-900/40 hover:-translate-y-0.5 transition-all";
+    "relative overflow-hidden block w-full bg-blue-900 rounded-2xl px-5 py-4 shadow-lg shadow-blue-950/25 hover:shadow-blue-950/40 hover:-translate-y-0.5 transition-all";
 
   const accentBar = (
     <>
-      <span aria-hidden className="pointer-events-none absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-fuchsia-300 to-transparent" />
-      <span aria-hidden className="pointer-events-none absolute -top-12 -right-12 w-40 h-40 rounded-full bg-fuchsia-400/20 blur-2xl" />
+      <span aria-hidden className="pointer-events-none absolute inset-x-0 -top-px h-px bg-blue-200" />
+      <span aria-hidden className="pointer-events-none hidden md:block absolute -top-12 -right-12 w-40 h-40 rounded-full bg-blue-400/20 blur-2xl" />
     </>
   );
 

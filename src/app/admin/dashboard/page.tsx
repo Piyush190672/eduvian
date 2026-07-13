@@ -62,15 +62,15 @@ function AdminShell({ children }: { children: React.ReactNode }) {
   };
   return (
     <div className="min-h-screen bg-slate-50 flex">
-      <aside className="w-60 bg-indigo-900 text-white flex flex-col fixed inset-y-0 left-0">
+      <aside className="w-60 bg-blue-950 text-white flex flex-col fixed inset-y-0 left-0">
         <div className="p-6 border-b border-white/10">
           <div className="flex items-center gap-2">
             <EduvianLogoMark size={32} />
             <span className="font-display font-bold text-lg tracking-tight">
-              eduvian<span className="text-indigo-300">AI</span>
+              eduvian<span className="text-blue-300">AI</span>
             </span>
           </div>
-          <span className="text-xs text-indigo-300 mt-1 block">Admin Panel</span>
+          <span className="text-xs text-blue-300 mt-1 block">Admin Panel</span>
         </div>
         <nav className="flex-1 p-4 space-y-1">
           {[
@@ -80,7 +80,7 @@ function AdminShell({ children }: { children: React.ReactNode }) {
             { href: "/admin/security",  icon: ShieldCheck,     label: "Security"  },
           ].map((item) => (
             <Link key={item.href} href={item.href}
-              className="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm text-indigo-200 hover:bg-white/10 hover:text-white transition-colors">
+              className="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm text-blue-200 hover:bg-white/10 hover:text-white transition-colors">
               <item.icon className="w-4 h-4" />
               {item.label}
             </Link>
@@ -88,7 +88,7 @@ function AdminShell({ children }: { children: React.ReactNode }) {
         </nav>
         <div className="p-4 border-t border-white/10">
           <button onClick={logout}
-            className="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm text-indigo-300 hover:text-white hover:bg-white/10 transition-colors w-full">
+            className="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm text-blue-300 hover:text-white hover:bg-white/10 transition-colors w-full">
             <LogOut className="w-4 h-4" /> Sign Out
           </button>
         </div>
@@ -229,7 +229,7 @@ export default function DashboardPage() {
           </p>
         </div>
         <Link href="/admin/leads"
-          className="flex items-center gap-2 px-4 py-2 rounded-xl bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-700 transition-colors">
+          className="flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-900 text-white text-sm font-semibold hover:bg-blue-800 transition-colors">
           View all leads <ArrowRight className="w-4 h-4" />
         </Link>
       </div>
@@ -252,7 +252,7 @@ export default function DashboardPage() {
             <div>
               <div className="flex items-baseline justify-between mb-2">
                 <span className="text-sm font-semibold text-gray-700">Unique users</span>
-                <span className="text-2xl font-black text-indigo-600">
+                <span className="text-2xl font-black text-blue-900">
                   {betaUsage.uniqueUsers}
                   <span className="text-sm font-semibold text-gray-400"> / {betaUsage.cap}</span>
                 </span>
@@ -264,7 +264,7 @@ export default function DashboardPage() {
                       ? "bg-rose-500"
                       : betaUsage.uniqueUsers / betaUsage.cap >= 0.75
                       ? "bg-amber-500"
-                      : "bg-indigo-500"
+                      : "bg-blue-800"
                   }`}
                   style={{
                     width: `${Math.min(100, (betaUsage.uniqueUsers / betaUsage.cap) * 100)}%`,
@@ -331,14 +331,14 @@ export default function DashboardPage() {
             value: loading ? "—" : totalRegistrations,
             sub:   `${submissions.length} profiles · ${registrations.length} sign-ups`,
             icon:  Users,
-            color: "bg-indigo-50 text-indigo-600",
+            color: "bg-blue-50 text-blue-900",
           },
           {
             label: "Program Matches",
             value: loading ? "—" : totalMatches.toLocaleString(),
             sub:   "AI-generated shortlists",
             icon:  Sparkles,
-            color: "bg-violet-50 text-violet-600",
+            color: "bg-blue-50 text-blue-900",
           },
           {
             label: "UG / PG Split",
@@ -370,7 +370,7 @@ export default function DashboardPage() {
       <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden mb-8">
         <div className="flex items-center justify-between px-6 py-4 border-b border-gray-50">
           <h2 className="font-bold text-gray-900">Recent Activity</h2>
-          <Link href="/admin/leads" className="text-xs text-indigo-500 hover:text-indigo-700 font-semibold">
+          <Link href="/admin/leads" className="text-xs text-blue-800 hover:text-blue-800 font-semibold">
             View all →
           </Link>
         </div>
@@ -401,7 +401,7 @@ export default function DashboardPage() {
                 {recentLeads.map((lead) => {
                   const rating = RATING_CONFIG[lead.profile_category ?? ""];
                   return (
-                    <tr key={lead.key} className="border-b border-gray-50 hover:bg-indigo-50/30 transition-colors">
+                    <tr key={lead.key} className="border-b border-gray-50 hover:bg-blue-50/30 transition-colors">
                       <td className="px-5 py-3">
                         <div className="font-semibold text-gray-900 truncate max-w-[140px]">{lead.name}</div>
                         {rating && (
@@ -419,9 +419,9 @@ export default function DashboardPage() {
                       <td className="px-5 py-3">
                         {lead.token ? (
                           <div className="flex items-center gap-1.5">
-                            <span className="text-sm font-bold text-indigo-600">{lead.total_matched ?? "—"}</span>
+                            <span className="text-sm font-bold text-blue-900">{lead.total_matched ?? "—"}</span>
                             <Link href={`/results/${lead.token}`} target="_blank"
-                              className="text-indigo-400 hover:text-indigo-600">
+                              className="text-blue-400 hover:text-blue-900">
                               <ExternalLink className="w-3 h-3" />
                             </Link>
                           </div>

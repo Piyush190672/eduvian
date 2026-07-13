@@ -20,7 +20,7 @@ const Input = ({
 }: React.InputHTMLAttributes<HTMLInputElement>) => (
   <input
     {...props}
-    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-transparent transition-all placeholder:text-gray-400"
+    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent transition-all placeholder:text-gray-400"
   />
 );
 
@@ -30,7 +30,7 @@ const Select = ({
 }: React.SelectHTMLAttributes<HTMLSelectElement>) => (
   <select
     {...props}
-    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-transparent transition-all bg-white"
+    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent transition-all bg-white"
   >
     {children}
   </select>
@@ -53,8 +53,8 @@ const RadioGroup = ({
         onClick={() => onChange(o.value)}
         className={`px-4 py-2 rounded-xl text-sm font-medium border transition-all ${
           value === o.value
-            ? "bg-indigo-500 text-white border-indigo-500 shadow-sm"
-            : "bg-white text-gray-600 border-gray-200 hover:border-indigo-300 hover:text-indigo-600"
+            ? "bg-blue-800 text-white border-blue-800 shadow-sm"
+            : "bg-white text-gray-600 border-gray-200 hover:border-blue-300 hover:text-blue-900"
         }`}
       >
         {o.label}
@@ -142,7 +142,7 @@ export default function StepPersonal({ profile, onChange }: Props) {
               value={phoneParts.dialCode}
               onChange={(e) => handleDialChange(e.target.value)}
               aria-label="Country code"
-              className="w-28 shrink-0 px-2 py-2.5 rounded-xl border border-gray-200 text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-transparent transition-all bg-white"
+              className="w-28 shrink-0 px-2 py-2.5 rounded-xl border border-gray-200 text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent transition-all bg-white"
             >
               {COUNTRIES.map((c) => (
                 <option key={c.code} value={c.dialCode}>
@@ -156,7 +156,7 @@ export default function StepPersonal({ profile, onChange }: Props) {
               placeholder="98765 43210"
               value={phoneParts.number}
               onChange={(e) => handleNumberChange(e.target.value)}
-              className="flex-1 min-w-0 px-4 py-2.5 rounded-xl border border-gray-200 text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-transparent transition-all placeholder:text-gray-400"
+              className="flex-1 min-w-0 px-4 py-2.5 rounded-xl border border-gray-200 text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent transition-all placeholder:text-gray-400"
             />
           </div>
         </div>

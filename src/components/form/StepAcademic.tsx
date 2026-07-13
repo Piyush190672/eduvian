@@ -19,7 +19,7 @@ const Label = ({ children }: { children: React.ReactNode }) => (
 const Input = ({ ...props }: React.InputHTMLAttributes<HTMLInputElement>) => (
   <input
     {...props}
-    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-transparent transition-all placeholder:text-gray-400"
+    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent transition-all placeholder:text-gray-400"
   />
 );
 
@@ -29,7 +29,7 @@ const Select = ({
 }: React.SelectHTMLAttributes<HTMLSelectElement>) => (
   <select
     {...props}
-    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-transparent transition-all bg-white"
+    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent transition-all bg-white"
   >
     {children}
   </select>
@@ -52,8 +52,8 @@ const RadioGroup = ({
         onClick={() => onChange(o.value)}
         className={`px-4 py-2 rounded-xl text-sm font-medium border transition-all ${
           value === o.value
-            ? "bg-indigo-500 text-white border-indigo-500 shadow-sm"
-            : "bg-white text-gray-600 border-gray-200 hover:border-indigo-300 hover:text-indigo-600"
+            ? "bg-blue-800 text-white border-blue-800 shadow-sm"
+            : "bg-white text-gray-600 border-gray-200 hover:border-blue-300 hover:text-blue-900"
         }`}
       >
         {o.label}
@@ -280,7 +280,7 @@ export default function StepAcademic({ profile, onChange }: Props) {
                 onClick={() => onChange({
                   intended_field_extra: [...(profile.intended_field_extra ?? []), ""],
                 })}
-                className="text-xs font-semibold text-violet-700 hover:text-violet-900 transition-colors"
+                className="text-xs font-semibold text-blue-800 hover:text-blue-950 transition-colors"
               >
                 + Add another field
               </button>
@@ -309,7 +309,7 @@ export default function StepAcademic({ profile, onChange }: Props) {
             meets the BPS Graduate Basis for Chartered Membership. Shown only
             for Psychology + postgraduate. */}
         {profile.intended_field === "Psychology" && profile.degree_level === "postgraduate" && (
-          <div className="mt-3 rounded-xl bg-violet-50 border border-violet-200 p-3.5">
+          <div className="mt-3 rounded-xl bg-blue-50 border border-blue-200 p-3.5">
             <Label>Is your current degree program BPS accredited? *</Label>
             <p className="text-xs text-gray-600 leading-relaxed mb-2.5">
               Many UK Psychology Masters (Health, Clinical, Counselling, Forensic,
@@ -331,8 +331,8 @@ export default function StepAcademic({ profile, onChange }: Props) {
                     onClick={() => onChange({ bps_accredited: v })}
                     className={`flex-1 px-3 py-2 rounded-lg text-sm font-semibold transition-colors border ${
                       active
-                        ? "bg-violet-600 text-white border-violet-600"
-                        : "bg-white text-gray-700 border-gray-200 hover:border-violet-300"
+                        ? "bg-blue-900 text-white border-blue-900"
+                        : "bg-white text-gray-700 border-gray-200 hover:border-blue-300"
                     }`}
                   >
                     {label}
@@ -359,8 +359,8 @@ export default function StepAcademic({ profile, onChange }: Props) {
                 onClick={() => onChange({ universities_researched: v })}
                 className={`flex-1 px-3 py-2 rounded-lg text-sm font-semibold transition-colors border ${
                   active
-                    ? "bg-violet-600 text-white border-violet-600"
-                    : "bg-white text-gray-700 border-gray-200 hover:border-violet-300"
+                    ? "bg-blue-900 text-white border-blue-900"
+                    : "bg-white text-gray-700 border-gray-200 hover:border-blue-300"
                 }`}
               >
                 {label}
@@ -453,7 +453,7 @@ export default function StepAcademic({ profile, onChange }: Props) {
           <div className="space-y-4">
             {HS_SUBJECTS.map((group) => (
               <div key={group.category}>
-                <p className="text-xs font-semibold text-indigo-500 uppercase tracking-wide mb-2">
+                <p className="text-xs font-semibold text-blue-800 uppercase tracking-wide mb-2">
                   {group.category}
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -468,10 +468,10 @@ export default function StepAcademic({ profile, onChange }: Props) {
                         onClick={() => toggleSubject(subject)}
                         className={`px-3 py-1.5 rounded-xl text-xs font-medium border transition-all ${
                           isSelected
-                            ? "bg-indigo-500 text-white border-indigo-500 shadow-sm"
+                            ? "bg-blue-800 text-white border-blue-800 shadow-sm"
                             : isDisabled
                             ? "bg-gray-50 text-gray-300 border-gray-100 cursor-not-allowed"
-                            : "bg-white text-gray-600 border-gray-200 hover:border-indigo-300 hover:text-indigo-600"
+                            : "bg-white text-gray-600 border-gray-200 hover:border-blue-300 hover:text-blue-900"
                         }`}
                       >
                         {subject}
@@ -637,7 +637,7 @@ export default function StepAcademic({ profile, onChange }: Props) {
       {isGrad && (
         <>
           <div className="pt-2 border-t border-gray-100">
-            <p className="text-xs text-indigo-500 font-medium mb-4 uppercase tracking-wide">
+            <p className="text-xs text-blue-800 font-medium mb-4 uppercase tracking-wide">
               Postgraduate extras
             </p>
           </div>
@@ -690,8 +690,8 @@ export default function StepAcademic({ profile, onChange }: Props) {
               matcher prefer programs that match the user's profile. Shown
               only when intended_field is MBA. */}
           {profile.intended_field === "MBA" && (
-            <div className="rounded-2xl border border-indigo-100 bg-indigo-50/40 px-4 py-4 space-y-4">
-              <p className="text-xs font-bold text-indigo-700 uppercase tracking-wide">MBA-specific</p>
+            <div className="rounded-2xl border border-blue-100 bg-blue-50/40 px-4 py-4 space-y-4">
+              <p className="text-xs font-bold text-blue-800 uppercase tracking-wide">MBA-specific</p>
               <div>
                 <Label>Do you have experience of leading teams? *</Label>
                 <RadioGroup

@@ -13,10 +13,10 @@ const STAGES = [
   {
     num: 1,
     label: "MATCH",
-    gradient: "from-indigo-600 to-violet-600",
-    bg: "from-slate-950 via-indigo-950 to-slate-950",
-    accent: "text-indigo-300",
-    accentBg: "bg-indigo-500/20 border-indigo-500/30",
+    gradient: "from-blue-800 to-blue-900",
+    bg: "from-slate-950 via-blue-950 to-slate-950",
+    accent: "text-blue-300",
+    accentBg: "bg-blue-800/20 border-blue-800/30",
     // Story
     moment: "The confusion",
     before: `Priya is a 22-year-old CS graduate from Pune. She wants to study abroad — but stares at ${DB_STATS.verifiedProgramsLabel} programs across ${DB_STATS.totalCountries} countries and has no idea where she actually stands a chance.`,
@@ -29,10 +29,10 @@ const STAGES = [
   {
     num: 2,
     label: "CHECK",
-    gradient: "from-fuchsia-600 to-pink-600",
-    bg: "from-slate-950 via-fuchsia-950 to-slate-950",
-    accent: "text-pink-300",
-    accentBg: "bg-pink-500/20 border-pink-500/30",
+    gradient: "from-blue-800 to-blue-900",
+    bg: "from-slate-950 via-blue-950 to-slate-950",
+    accent: "text-blue-300",
+    accentBg: "bg-blue-800/20 border-blue-800/30",
     moment: "The self-doubt",
     before: "Priya has her shortlist. But her SOP starts with \"I have always been passionate about technology\" — exactly like the 10,000 other applicants competing for the same seats.",
     quote: "\"My SOP feels generic. My CV has a 6-month gap. I don't know if any of this is strong enough.\"",
@@ -44,10 +44,10 @@ const STAGES = [
   {
     num: 3,
     label: "PRACTICE",
-    gradient: "from-emerald-500 to-teal-500",
-    bg: "from-slate-950 via-teal-950 to-slate-950",
-    accent: "text-emerald-300",
-    accentBg: "bg-emerald-500/20 border-emerald-500/30",
+    gradient: "from-blue-800 to-blue-900",
+    bg: "from-slate-950 via-blue-950 to-slate-950",
+    accent: "text-blue-300",
+    accentBg: "bg-blue-800/20 border-blue-800/30",
     moment: "The fear",
     before: "Priya's UK visa interview is in 3 weeks. She's never been asked \"Why leave India?\" or \"Prove you'll come back.\" She has no idea what the officer is really looking for.",
     quote: "\"I know my subject. But I might completely freeze when they ask about my return plans.\"",
@@ -59,10 +59,10 @@ const STAGES = [
   {
     num: 4,
     label: "DECIDE",
-    gradient: "from-amber-500 to-orange-500",
-    bg: "from-slate-950 via-amber-950 to-slate-950",
-    accent: "text-amber-300",
-    accentBg: "bg-amber-500/20 border-amber-500/30",
+    gradient: "from-blue-800 to-blue-900",
+    bg: "from-slate-950 via-blue-950 to-slate-950",
+    accent: "text-blue-300",
+    accentBg: "bg-blue-800/20 border-blue-800/30",
     moment: "The impossible choice",
     before: "Priya has three offers — UCL London, University of Edinburgh, and University of Melbourne. Her parents push for Melbourne because they've heard of it. Priya isn't sure.",
     quote: "\"All three feel amazing. How do I tell my parents that the 'lesser-known' one might be the smarter choice?\"",
@@ -74,10 +74,10 @@ const STAGES = [
   {
     num: 5,
     label: "APPLY VISA",
-    gradient: "from-sky-500 to-cyan-500",
-    bg: "from-slate-950 via-sky-950 to-slate-950",
-    accent: "text-sky-300",
-    accentBg: "bg-sky-500/20 border-sky-500/30",
+    gradient: "from-blue-800 to-blue-900",
+    bg: "from-slate-950 via-blue-950 to-slate-950",
+    accent: "text-blue-300",
+    accentBg: "bg-blue-800/20 border-blue-800/30",
     moment: "The visa wall",
     before: "Priya has accepted UCL. Now the UK Student visa: 23 documents to compile, country-specific financial-proof rules, a 3-week filing window, and zero room for error. One missing field can mean refusal.",
     quote: "\"I've got this far. I'm scared I'll mess up the visa now.\"",
@@ -97,13 +97,13 @@ function EvidencePanel({ num, active }: { num: number; active: boolean }) {
       { flag: "🇨🇦", uni: "Univ. of Toronto",     prog: "MEng Computer Science",  score: 91, tier: "Safe",      tc: "text-emerald-400", bc: "bg-emerald-900/40 border-emerald-600/30" },
       { flag: "🏴󠁧󠁢󠁳󠁣󠁴󠁿", uni: "Univ. of Edinburgh",  prog: "MSc Computer Science",   score: 76, tier: "Reach",     tc: "text-amber-400",   bc: "bg-amber-900/40 border-amber-600/30" },
       { flag: "🇩🇪", uni: "TU Munich",             prog: "MSc Informatics",         score: 79, tier: "Reach",     tc: "text-amber-400",   bc: "bg-amber-900/40 border-amber-600/30" },
-      { flag: "🇬🇧", uni: "Imperial College",      prog: "MSc Machine Learning",    score: 63, tier: "Ambitious", tc: "text-violet-400",  bc: "bg-violet-900/40 border-violet-600/30" },
+      { flag: "🇬🇧", uni: "Imperial College",      prog: "MSc Machine Learning",    score: 63, tier: "Ambitious", tc: "text-blue-400",  bc: "bg-blue-950/40 border-blue-900/30" },
     ];
     return (
       <div className="bg-white/5 border border-white/10 rounded-2xl p-3.5">
         <div className="flex items-center justify-between mb-2.5">
           <p className="text-[9px] font-black text-white/70 uppercase tracking-widest">Priya&apos;s Shortlist</p>
-          <span className="text-[8px] font-bold px-2 py-0.5 rounded-full bg-indigo-500/30 text-indigo-300 border border-indigo-500/30">AI Match · 90s</span>
+          <span className="text-[8px] font-bold px-2 py-0.5 rounded-full bg-blue-800/30 text-blue-300 border border-blue-800/30">AI Match · 90s</span>
         </div>
         <div className="space-y-1.5">
           {rows.map((r, i) => (
@@ -129,7 +129,7 @@ function EvidencePanel({ num, active }: { num: number; active: boolean }) {
           transition={{ delay: 1.6 }}
           className="mt-2.5 pt-2 border-t border-white/5 flex items-center justify-between">
           <span className="text-[8px] text-white/25">Showing 5 — up to 40 in full list</span>
-          <span className="text-[8px] font-bold text-indigo-400">View all →</span>
+          <span className="text-[8px] font-bold text-blue-400">View all →</span>
         </motion.div>
       </div>
     );
@@ -396,7 +396,7 @@ export default function HowItWorksModal({ open, onClose }: Props) {
                     </defs>
                   </svg>
                   <div>
-                    <span className="text-white font-bold text-sm">eduvian<span className="text-indigo-300">AI</span></span>
+                    <span className="text-white font-bold text-sm">eduvian<span className="text-blue-300">AI</span></span>
                     <span className="text-white/25 text-xs mx-1.5 hidden sm:inline">·</span>
                     <span className="text-white/45 text-xs hidden sm:inline">Priya&apos;s journey — from confused to confident</span>
                   </div>

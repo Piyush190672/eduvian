@@ -148,7 +148,7 @@ export async function POST(req: NextRequest) {
                     <div style="width:44px;height:44px;background:linear-gradient(135deg,#FFF7ED,#FED7AA);border-radius:12px;text-align:center;line-height:44px;font-size:22px;">🎤</div>
                   </td>
                   <td valign="top">
-                    <p style="margin:0 0 3px;font-size:15px;font-weight:700;color:#1e1b4b;">Interview Prep Coach</p>
+                    <p style="margin:0 0 3px;font-size:15px;font-weight:700;color:#1e1b4b;">Interview Coach</p>
                     <p style="margin:0;font-size:14px;color:#6b7280;line-height:1.5;">Practice real visa and university interview questions with an AI voice coach. Get instant feedback on structure, clarity, and confidence — for AU, UK, and USA.</p>
                   </td>
                 </tr>
@@ -267,7 +267,7 @@ export async function POST(req: NextRequest) {
       "  • University Matching — personalised shortlist across USA, UK, Australia, Canada and Europe",
       "  • SOP Assistant — write a Statement of Purpose tailored to each university",
       "  • Application Strength Check — uncover risk flags before you submit",
-      "  • Interview Prep Coach — practise visa & university interviews with an AI voice coach",
+      "  • Interview Coach — practise visa and university interviews with a voice coach",
       "  • English Test Lab — IELTS, PTE, TOEFL & DET mock tests with AI scoring",
       "  • ROI Calculator — payback period and 10-year income projection",
       "  • Parent Decision Tool — clear, data-driven family-ready report",

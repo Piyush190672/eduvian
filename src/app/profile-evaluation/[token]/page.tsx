@@ -45,25 +45,25 @@ export default function ProfileEvaluationPage({ params }: { params: { token: str
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50/30 flex items-center justify-center">
-        <Loader2 className="w-8 h-8 animate-spin text-violet-600" />
+      <div className="min-h-screen bg-[#F8FAFC] flex items-center justify-center">
+        <Loader2 className="w-8 h-8 animate-spin text-blue-900" />
       </div>
     );
   }
 
   if (error || !profile) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50/30 flex items-center justify-center px-6">
+      <div className="min-h-screen bg-[#F8FAFC] flex items-center justify-center px-6">
         <div className="max-w-md text-center">
           <p className="text-base font-semibold text-rose-700 mb-2">{error ?? "Something went wrong."}</p>
-          <Link href="/profile" className="text-sm text-violet-700 hover:underline">Back to profile</Link>
+          <Link href="/profile" className="text-sm text-blue-800 hover:underline">Back to profile</Link>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50/30 pb-32">
+    <div className="min-h-screen bg-[#F8FAFC] pb-32">
       {/* Nav — anchored below the BetaBanner + SecurityNoticeBanner stack
           via the CSS variables those banners publish. Without this offset
           the fixed nav lands behind the banners (fixed elements ignore
@@ -88,9 +88,9 @@ export default function ProfileEvaluationPage({ params }: { params: { token: str
 
       <main className="max-w-4xl mx-auto px-4 sm:px-10 pt-20 sm:pt-28">
         <header className="mb-8 sm:mb-10">
-          <p className="text-[11px] uppercase tracking-[0.25em] text-violet-700 font-semibold mb-3">Step 1 of 2</p>
+          <p className="text-[11px] uppercase tracking-[0.25em] text-blue-800 font-semibold mb-3">Step 1 of 2</p>
           <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-gray-900 leading-tight mb-3">
-            Your <span className="italic font-medium text-violet-700">profile evaluation</span>.
+            Your <span className="italic font-medium text-blue-800">profile evaluation</span>.
           </h1>
           <p className="text-base sm:text-lg text-gray-500 leading-relaxed max-w-2xl">
             A readiness snapshot built from the information you shared — three
@@ -108,7 +108,7 @@ export default function ProfileEvaluationPage({ params }: { params: { token: str
       <div className="fixed inset-x-4 bottom-4 sm:inset-x-auto sm:right-10 sm:bottom-6 z-40">
         <Link
           href={`/results/${token}`}
-          className="group flex sm:inline-flex items-center justify-center sm:justify-start gap-2 w-full sm:w-auto px-6 py-3.5 rounded-full bg-violet-600 hover:bg-violet-700 text-white text-sm font-bold shadow-2xl shadow-violet-900/30 hover:shadow-xl sm:hover:-translate-y-0.5 transition-all"
+          className="group flex sm:inline-flex items-center justify-center sm:justify-start gap-2 w-full sm:w-auto px-6 py-3.5 rounded-full bg-blue-900 hover:bg-blue-800 text-white text-sm font-bold shadow-2xl shadow-blue-950/30 hover:shadow-xl sm:hover:-translate-y-0.5 transition-all"
         >
           Continue to matched programs
           <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />

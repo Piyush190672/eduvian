@@ -32,7 +32,7 @@ const toneClasses = {
   good:    { bg: "bg-emerald-50",  border: "border-emerald-200", text: "text-emerald-700",  dotBg: "bg-emerald-500" },
   warn:    { bg: "bg-amber-50",    border: "border-amber-200",   text: "text-amber-800",    dotBg: "bg-amber-500"   },
   neutral: { bg: "bg-gray-50",     border: "border-gray-200",    text: "text-gray-700",     dotBg: "bg-gray-400"    },
-  verdict: { bg: "bg-indigo-50",   border: "border-indigo-200",  text: "text-indigo-800",   dotBg: "bg-indigo-600"  },
+  verdict: { bg: "bg-blue-50",   border: "border-blue-200",  text: "text-blue-900",   dotBg: "bg-blue-900"  },
 } as const;
 
 export default function SampleParentReportPage() {
@@ -75,20 +75,20 @@ export default function SampleParentReportPage() {
           Back to home
         </Link>
         <div className="flex items-center gap-2">
-          <span className="text-xs font-bold text-purple-700 bg-purple-50 border border-purple-200 px-3 py-1.5 rounded-full">
+          <span className="text-xs font-bold text-blue-800 bg-blue-50 border border-blue-200 px-3 py-1.5 rounded-full">
             SAMPLE · illustrative
           </span>
           <button
             onClick={handleDownloadPdf}
             disabled={downloading}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 disabled:opacity-60 text-white text-sm font-bold transition-colors shadow-md"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-900 hover:bg-blue-800 disabled:opacity-60 text-white text-sm font-bold transition-colors shadow-md"
           >
             <Download className="w-4 h-4" />
             {downloading ? "Generating…" : "Download PDF"}
           </button>
           <button
             onClick={() => window.print()}
-            className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-purple-300 text-purple-700 hover:bg-purple-50 text-sm font-bold transition-colors"
+            className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-blue-300 text-blue-800 hover:bg-blue-50 text-sm font-bold transition-colors"
             title="Print or use the browser's Save-as-PDF dialog"
           >
             <Printer className="w-4 h-4" />
@@ -96,7 +96,7 @@ export default function SampleParentReportPage() {
           </button>
           <Link
             href="/parent-decision"
-            className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-purple-300 text-purple-700 hover:bg-purple-50 text-sm font-bold transition-colors"
+            className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-blue-300 text-blue-800 hover:bg-blue-50 text-sm font-bold transition-colors"
           >
             Generate my own
           </Link>
@@ -112,7 +112,7 @@ export default function SampleParentReportPage() {
               <div className="flex items-center gap-2 mb-3">
                 <EduvianLogoMark size={28} />
               </div>
-              <p className="text-[11px] font-bold text-purple-700 uppercase tracking-widest mb-2">Parent Decision Report</p>
+              <p className="text-[11px] font-bold text-blue-800 uppercase tracking-widest mb-2">Parent Decision Report</p>
               <h1 className="font-display text-2xl sm:text-3xl font-bold text-gray-900 leading-tight">
                 {SAMPLE.program}
               </h1>
@@ -127,12 +127,12 @@ export default function SampleParentReportPage() {
 
           {/* Executive verdict */}
           <section className="mb-8">
-            <div className="flex items-start gap-4 p-5 rounded-2xl bg-gradient-to-r from-indigo-50 to-purple-50 border border-indigo-200">
-              <div className="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center flex-shrink-0">
+            <div className="flex items-start gap-4 p-5 rounded-2xl bg-blue-50 border border-blue-200">
+              <div className="w-10 h-10 rounded-xl bg-blue-900 text-white flex items-center justify-center flex-shrink-0">
                 <Users className="w-5 h-5" />
               </div>
               <div>
-                <p className="text-[10px] font-bold text-indigo-700 uppercase tracking-widest mb-1">Family verdict</p>
+                <p className="text-[10px] font-bold text-blue-800 uppercase tracking-widest mb-1">Family verdict</p>
                 <p className="text-lg font-bold text-gray-900 mb-1">Worth considering — strong on cost, safety and outcomes.</p>
                 <p className="text-sm text-gray-600 leading-relaxed">
                   This program fits the family budget, has clear post-study work pathways, and ranks well on safety. The main open item is visa readiness — the SOP needs strengthening before filing.
@@ -275,7 +275,7 @@ export default function SampleParentReportPage() {
               <strong className="text-gray-700">Decision-support estimate.</strong> Generated from the student&apos;s profile + verified-at-source program data. Final fees, eligibility, scholarships and visa rules should always be confirmed directly with the university and the relevant consulate before committing. EduvianAI is not a financial, legal or immigration adviser.
             </p>
             <p className="text-[10px] text-gray-400 mt-3">
-              Sample report · Numbers and case study are illustrative. Generate yours at <span className="font-semibold text-purple-600">eduvianai.com/parent-decision</span>.
+              Sample report · Numbers and case study are illustrative. Generate yours at <span className="font-semibold text-blue-900">eduvianai.com/parent-decision</span>.
             </p>
           </footer>
         </article>
@@ -284,7 +284,7 @@ export default function SampleParentReportPage() {
         <div className="print:hidden flex flex-col sm:flex-row gap-3 justify-center mt-8">
           <Link
             href="/parent-decision"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-purple-600 hover:bg-purple-700 text-white text-sm font-bold transition-colors shadow-md"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-blue-900 hover:bg-blue-800 text-white text-sm font-bold transition-colors shadow-md"
           >
             <Users className="w-4 h-4" />
             Generate my own report
@@ -292,7 +292,7 @@ export default function SampleParentReportPage() {
           <button
             onClick={handleDownloadPdf}
             disabled={downloading}
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-purple-300 text-purple-700 hover:bg-purple-50 disabled:opacity-60 text-sm font-bold transition-colors"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-blue-300 text-blue-800 hover:bg-blue-50 disabled:opacity-60 text-sm font-bold transition-colors"
           >
             <Download className="w-4 h-4" />
             {downloading ? "Generating PDF…" : "Download this sample as PDF"}
