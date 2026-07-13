@@ -286,7 +286,7 @@ function LoadingScreen({ color, icon, title, subtitle, tags }: {
           {tags.map((label, i) => (
             <motion.span key={label} initial={{ opacity: 0 }} animate={{ opacity: [0, 1, 0] }}
               transition={{ duration: 2, repeat: Infinity, delay: i * 0.6 }}
-              className={`text-xs text-${color}-400 font-medium bg-${color}-50 px-3 py-1 rounded-full`}>
+              className="text-xs text-blue-400 font-medium bg-blue-50 px-3 py-1 rounded-full">
               {label}
             </motion.span>
           ))}
