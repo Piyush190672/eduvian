@@ -29,10 +29,17 @@
  * scripts/verify/dedupe-programs.py safety net catches anything that
  * slips through; re-run it periodically.
  *
+ * Idempotency fix (14 Jul 2026): the key extractor used `"([^"]*)"`, which
+ * truncated at an escaped quote — 8 entries (Sciences Po BASC, IMT
+ * Atlantique, Kiel, Halle-Wittenberg, Augsburg, Nantes) therefore keyed on a
+ * prefix and re-inserted on every run. Key logic now lives in merge-keys.ts
+ * with regression tests in tests/merge-keys.test.ts.
+ *
  * Usage: npx tsx scripts/verify/merge.ts
  */
 
 import { readFileSync, readdirSync, writeFileSync } from "node:fs";
+import { buildExistingKeys, makeKey } from "./merge-keys";
 import { spawnSync } from "node:child_process";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -51,81 +58,10 @@ if (closeIdx === -1) {
   process.exit(1);
 }
 
-// Build the 3-key set from existing programs.ts. We walk the array
-// char-by-char (brace counter tracking strings) rather than regex —
-// the file's accumulated history mixes `},`, `},,`, and `},,,` entry
-// separators and a non-greedy `[\s\S]*?` regex misses ~134 of 8,216
-// entries (different field order, missing fields, or punctuation
-// variants). Per CLAUDE.md: "Brace walkers must track strings."
-function parseProgramEntries(text: string): string[] {
-  const arrayOpen = text.indexOf("([");
-  const arrayClose = text.lastIndexOf("]) as ProgramEntry[]");
-  const body = text.slice(arrayOpen + 2, arrayClose);
-  const entries: string[] = [];
-  let i = 0;
-  const n = body.length;
-  while (i < n) {
-    // Skip whitespace, commas, and `// ...` line comments between entries.
-    while (i < n) {
-      const c = body[i];
-      if (c === " " || c === "\t" || c === "\n" || c === ",") { i++; continue; }
-      if (c === "/" && body[i + 1] === "/") {
-        const nl = body.indexOf("\n", i);
-        i = nl >= 0 ? nl + 1 : n;
-        continue;
-      }
-      break;
-    }
-    if (i >= n) break;
-    if (body[i] !== "{") {
-      throw new Error(`merge.ts brace parser: unexpected char ${JSON.stringify(body[i])} at offset ${i}`);
-    }
-    const start = i;
-    let depth = 0;
-    let inStr = false;
-    while (i < n) {
-      const c = body[i];
-      if (inStr) {
-        if (c === "\\") { i += 2; continue; }
-        if (c === '"') inStr = false;
-        i++;
-        continue;
-      }
-      if (c === '"') inStr = true;
-      else if (c === "{") depth++;
-      else if (c === "}") {
-        depth--;
-        if (depth === 0) { i++; break; }
-      }
-      i++;
-    }
-    entries.push(body.slice(start, i));
-  }
-  return entries;
-}
-
-function extractField(entry: string, key: string): string {
-  const m = entry.match(new RegExp(`${key}:\\s*"([^"]*)"`));
-  return m ? m[1] : "";
-}
-
-const existing = new Set<string>();
-for (const entry of parseProgramEntries(programsTs)) {
-  const uni = extractField(entry, "university_name");
-  const pn = extractField(entry, "program_name");
-  const dl = extractField(entry, "degree_level"); // may be "" when DB carries null
-  if (!uni || !pn) continue; // identity requires uni + pn; dl may be empty
-  existing.add(makeKey(uni, pn, dl));
-}
-
-/** Build the 3-key dedup string, case-folded + whitespace-trimmed. */
-function makeKey(uni: string, pn: string, dl: string): string {
-  return [
-    uni.toLowerCase().trim(),
-    pn.toLowerCase().trim(),
-    (dl ?? "").toLowerCase().trim(),
-  ].join("|");
-}
+// Existing-key set (see merge-keys.ts). The escape-aware extractor there
+// fixed the idempotency bug where 8 entries carrying \" in program_name
+// re-inserted on every run. (14 Jul 2026)
+const existing = buildExistingKeys(programsTs);
 
 // Only these 12 countries are in scope. Programs from any other country (e.g.
 // ETH Zurich → Switzerland) must NOT be merged regardless of how they ended
