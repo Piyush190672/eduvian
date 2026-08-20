@@ -7,6 +7,8 @@ import { decryptProfile } from "@/lib/submissions-decrypt";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 import { isSubmissionOwner, isEmailRegistered, redactProfileContact } from "@/lib/submission-owner";
 import { resultsPatchSchema, zodErrorMessage } from "@/lib/schemas";
+import { explainNoMatches, applyRelaxation, type RelaxKey } from "@/lib/no-match-reason";
+import type { MatchDiagnostics } from "@/lib/scoring";
 
 export async function GET(
   req: NextRequest,
@@ -93,7 +95,26 @@ export async function GET(
   // pages=2 → up to 40 programs in the same per-tier ratio. The /results
   // client renders the first 20 and reveals 21-40 via the "Next Best 20"
   // button. No extra API round-trip needed.
-  const scored = recommendPrograms(submission.profile, programs, 2);
+  // One-tap relaxation (14 Jul 2026): the empty-state offers "drop the PSW
+  // requirement", "remove the ranking filter" etc. Applying one is a
+  // READ-ONLY preview — the stored profile is never mutated, so the student
+  // can try a change before committing to it on the form.
+  const relaxParam = req.nextUrl.searchParams.get("relax") as RelaxKey | null;
+  const VALID_RELAX: RelaxKey[] = ["psw", "qs", "budget", "countries", "intake"];
+  const relax = relaxParam && VALID_RELAX.includes(relaxParam) ? relaxParam : null;
+  const effectiveProfile = relax
+    ? applyRelaxation(submission.profile, relax)
+    : submission.profile;
+
+  const diag: MatchDiagnostics = { rejects: {}, totalPrograms: 0, survivedHardFilters: 0, scored: 0, returned: 0 };
+  const scored = recommendPrograms(effectiveProfile, programs, 2, diag);
+
+  // Empty shortlist → explain it with measured numbers + the changes that
+  // would actually surface programs. Costs a few extra in-memory matcher
+  // passes, and only on the (rare) zero-result path.
+  const noMatch = scored.length === 0
+    ? explainNoMatches(effectiveProfile, programs, diag)
+    : null;
 
   // Registration gate, moved AFTER the form (Phase 2 #7, 10 July 2026):
   // anyone can submit a profile and see a top-5 teaser, but the full
@@ -109,6 +130,8 @@ export async function GET(
     return NextResponse.json({
       submission,
       programs: preview,
+      no_match: noMatch,
+      relaxed: relax,
       viewer: "locked",
       locked_count: scored.length - preview.length,
       total_matches: scored.length,
@@ -126,6 +149,8 @@ export async function GET(
   return NextResponse.json({
     submission,
     programs: scored,
+    no_match: noMatch,
+    relaxed: relax,
     viewer: owner ? "owner" : "shared",
     total_matches: scored.length,
   });

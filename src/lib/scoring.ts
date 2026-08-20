@@ -64,10 +64,59 @@ const WEIGHTS_UG = {
   budget:          0, // informational only — see note above
 };
 
-// ─── Countries offering strong Post-Study Work Visas ─────────────────────────
-const PSW_COUNTRIES = new Set([
-  "UK", "Australia", "Canada", "USA", "Germany", "Ireland", "New Zealand",
-]);
+// ─── Countries offering a Post-Study Work route ──────────────────────────────
+//
+// Corrected 14 Jul 2026 (founder) after a UG shortlist returned zero: the
+// old seven-country list silently excluded three destinations that DO run
+// post-study work routes, so any Europe/Asia-focused student who ticked
+// "PSW required" lost their whole pool.
+//
+// "all"     — bachelor's and master's graduates both qualify.
+// "pg_only" — the route starts at master's level, so a UG program must not
+//             be presented as PSW-eligible.
+//
+// Verified against official/operator sources (Jul 2026):
+//   Netherlands — zoekjaar "orientation year": 12 months, unrestricted work,
+//                 no employer sponsor or salary floor. Covers bachelor's. (ind.nl)
+//   Singapore   — LTVP for Institute of Higher Learning graduates: 1 year
+//                 (non-renewable) to seek employment. NOTE: the LTVP itself
+//                 carries no work rights — the graduate converts to an
+//                 employer-sponsored work pass (EP/S Pass) on hiring. Founder
+//                 decision 14 Jul 2026: counts as a post-study route. (ica.gov.sg)
+//   France      — APS: 12 months, but only for a *licence professionnelle*
+//                 (vocational) or master's-level degree; a general licence
+//                 does NOT qualify. Our data can't distinguish vocational
+//                 from general bachelor's, so France is pg_only — the
+//                 conservative read, consistent with NON_PSW_DEGREE_PATTERN
+//                 below ("definitely eligible", not "might be"). (campusfrance.org)
+const PSW_COUNTRIES: Record<string, "all" | "pg_only"> = {
+  "UK":          "all",
+  "Australia":   "all",
+  "Canada":      "all",
+  "USA":         "all",
+  "Germany":     "all",
+  "Ireland":     "all",
+  "New Zealand": "all",
+  "Netherlands": "all",
+  "Singapore":   "all",
+  "France":      "pg_only",
+};
+
+/**
+ * Per-stage rejection tally, filled by `recommendPrograms` when a caller
+ * passes a diagnostics object. Lets the results page explain an empty
+ * shortlist with real numbers instead of a guess. Stage keys:
+ * inactive · degree_level · field · field_prereq · bps · country · qs ·
+ * psw · region · academic · budget.
+ */
+export interface MatchDiagnostics {
+  rejects: Record<string, number>;
+  /** Programs considered after de-duplication. */
+  totalPrograms: number;
+  survivedHardFilters: number;
+  scored: number;
+  returned: number;
+}
 
 /**
  * Programs whose `program_name` mentions one of these sub-degree
@@ -668,7 +717,14 @@ function matchesRegion(programCity: string, countryCode: string, selectedRegionC
   return false;
 }
 
-export function recommendPrograms(profile: StudentProfile, programs: Program[], pages = 1): ScoredProgram[] {
+export function recommendPrograms(
+  profile: StudentProfile,
+  programs: Program[],
+  pages = 1,
+  /** Optional out-param: filled with per-stage rejection counts so an
+   *  empty shortlist can be explained from measured data. (14 Jul 2026) */
+  diag?: MatchDiagnostics,
+): ScoredProgram[] {
   // `pages` scales the canonical 20-program response into multiples of
   // the same per-tier ratio. pages=1 → 20 (6/10/4). pages=2 → 40 (12/20/8).
   // The /results page calls with pages=2 so the client can render a
@@ -767,8 +823,16 @@ export function recommendPrograms(profile: StudentProfile, programs: Program[], 
   }
 
   // ── Hard filters ──────────────────────────────────────────────────────────
+  // rej() tallies which filter rejected each program so an empty shortlist
+  // can be explained from MEASURED counts (see no-match-reason.ts). It always
+  // returns false — control flow is unchanged. (14 Jul 2026)
+  const rejects: Record<string, number> = {};
+  const rej = (stage: string): false => {
+    rejects[stage] = (rejects[stage] ?? 0) + 1;
+    return false;
+  };
   const filtered = dedupedPrograms.filter((p) => {
-    if (!p.is_active) return false;
+    if (!p.is_active) return rej("inactive");
 
     // Degree level filter
     const isCanadian = p.country === "Canada";
@@ -781,10 +845,10 @@ export function recommendPrograms(profile: StudentProfile, programs: Program[], 
     } else {
       degreeOk = p.degree_level === profile.degree_level;
     }
-    if (!degreeOk) return false;
+    if (!degreeOk) return rej("degree_level");
 
     if (isCustomField) {
-      if (!customQuery) return false;
+      if (!customQuery) return rej("field");
       // Haystack now includes field_aliases + specialization too —
       // a program tagged with primary field "Data Science" plus alias
       // "Business Analytics" should match a user's custom "business
@@ -799,7 +863,7 @@ export function recommendPrograms(profile: StudentProfile, programs: Program[], 
         p.specialization ?? "",
         ...(p.field_aliases ?? []),
       ].join(" ").toLowerCase();
-      if (!haystack.includes(customQuery)) return false;
+      if (!haystack.includes(customQuery)) return rej("field");
     } else {
       // Match against the program's primary field — or against an alias,
       // BUT only when the program_name itself carries evidence of the
@@ -818,7 +882,7 @@ export function recommendPrograms(profile: StudentProfile, programs: Program[], 
           }
         }
       }
-      if (!primaryMatch && !aliasMatch) return false;
+      if (!primaryMatch && !aliasMatch) return rej("field");
     }
 
     // Field-prerequisite gate (18 May 2026) — for PG applicants on
@@ -830,7 +894,7 @@ export function recommendPrograms(profile: StudentProfile, programs: Program[], 
     // user-typed free-text intent is matched as a substring against the
     // program — applying the strict prereq map to it would over-block.
     if (!isCustomField && !isAcademicallyEligibleForField(profile, p.field_of_study)) {
-      return false;
+      return rej("field_prereq");
     }
 
     // BPS GBC filter — when the user is pursuing Psychology at the
@@ -844,12 +908,12 @@ export function recommendPrograms(profile: StudentProfile, programs: Program[], 
       && profile.degree_level === "postgraduate"
       && profile.bps_accredited === false
       && p.requires_bps_accreditation === true
-    ) return false;
-    if (allowedCountries.size > 0 && !allowedCountries.has(p.country)) return false;
+    ) return rej("bps");
+    if (allowedCountries.size > 0 && !allowedCountries.has(p.country)) return rej("country");
 
     // Hard filter: QS ranking preference
     if (qsMax !== undefined) {
-      if (p.qs_ranking === null || p.qs_ranking > qsMax) return false;
+      if (p.qs_ranking === null || p.qs_ranking > qsMax) return rej("qs");
     }
 
     // Hard filter: Post-study work visa.
@@ -865,16 +929,20 @@ export function recommendPrograms(profile: StudentProfile, programs: Program[], 
     //      sub-degree exit options aren't PSW-eligible. Excluding is more
     //      honest than ranking the program under PSW.
     if (requirePSW) {
-      if (!PSW_COUNTRIES.has(p.country)) return false;
-      if (p.degree_level === "diploma" || p.degree_level === "pg_diploma") return false;
-      if (NON_PSW_DEGREE_PATTERN.test(p.program_name)) return false;
+      const pswScope = PSW_COUNTRIES[p.country];
+      if (!pswScope) return rej("psw");
+      // France's APS starts at licence-pro / master's level — never present
+      // a general bachelor's there as PSW-eligible.
+      if (pswScope === "pg_only" && p.degree_level !== "postgraduate") return rej("psw");
+      if (p.degree_level === "diploma" || p.degree_level === "pg_diploma") return rej("psw");
+      if (NON_PSW_DEGREE_PATTERN.test(p.program_name)) return rej("psw");
     }
 
     // Hard filter: region preference
     const countryCode = nameToCode[p.country];
     if (countryCode && profile.country_region_preferences) {
       const selectedRegions = profile.country_region_preferences[countryCode] ?? [];
-      if (!matchesRegion(p.city, countryCode, selectedRegions)) return false;
+      if (!matchesRegion(p.city, countryCode, selectedRegions)) return rej("region");
     }
 
     return true;
@@ -890,7 +958,12 @@ export function recommendPrograms(profile: StudentProfile, programs: Program[], 
   // QS rank. The downstream per-uni / null-fee caps keep list order,
   // so they keep the highest-scoring program per university.
   const scored = filtered
-    .filter((p) => !isHardDisqualified(profile, p))
+    .filter((p) => {
+      if (!isHardDisqualified(profile, p)) return true;
+      // Distinguish "too expensive" from "below the academic bar" — they
+      // need different advice in the empty-state.
+      return rej(isHardDisqualified(profile, p, { ignoreBudget: true }) ? "academic" : "budget");
+    })
     .map((p) => scoreProgram(profile, p))
     .filter((p) => p.match_score >= 10)
     .sort((a, b) => {
@@ -997,6 +1070,14 @@ export function recommendPrograms(profile: StudentProfile, programs: Program[], 
         .map((p) => ({ ...p, above_budget: true }));
       result.push(...picks);
     }
+  }
+
+  if (diag) {
+    diag.rejects = rejects;
+    diag.totalPrograms = dedupedPrograms.length;
+    diag.survivedHardFilters = filtered.length;
+    diag.scored = scored.length;
+    diag.returned = result.length;
   }
 
   return result;

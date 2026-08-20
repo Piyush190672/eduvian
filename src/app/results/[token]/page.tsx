@@ -51,6 +51,16 @@ interface ResultData {
   /** Full per-tier totals — present on locked responses so the UI can
    *  state the TRUE match count, not just the teaser size. */
   tier_counts?: { safe: number; reach: number; ambitious: number };
+  /** Present only when the shortlist is empty — measured explanation of
+   *  which filters emptied it + the single changes that would fix it. */
+  no_match?: {
+    causes: string[];
+    options: { key: string; label: string; tradeoff: string; matches: number }[];
+    structural: boolean;
+    fieldPoolSize: number;
+  } | null;
+  /** Set when the user is previewing a relaxed filter (read-only). */
+  relaxed?: string | null;
 }
 
 const TIER_CONFIG = [
@@ -109,9 +119,14 @@ export default function ResultsPage() {
   // ambitious — 30/50/20 by user spec, 18 May 2026). The Top-20 +
   // Next-Best-20 split was retired in favour of one continuous list.
 
+  // Read-only preview of a relaxed filter — the stored profile is never
+  // changed, so the student can try "what if I drop the ranking filter?"
+  // before committing to it on the form. (14 Jul 2026)
+  const [relax, setRelax] = useState<string | null>(null);
+
   const fetchResults = useCallback(async () => {
     try {
-      const res = await fetch(`/api/results/${token}`);
+      const res = await fetch(`/api/results/${token}${relax ? `?relax=${relax}` : ""}`);
       if (!res.ok) throw new Error("Results not found");
       const json = await res.json();
       setData(json);
@@ -121,7 +136,7 @@ export default function ResultsPage() {
     } finally {
       setLoading(false);
     }
-  }, [token]);
+  }, [token, relax]);
 
   useEffect(() => { fetchResults(); }, [fetchResults]);
 
@@ -363,7 +378,9 @@ export default function ResultsPage() {
             return (
               <>
                 <h1 className="text-3xl font-extrabold text-gray-900">
-                  {total === 1
+                  {total === 0
+                    ? "No matches yet"
+                    : total === 1
                     ? "1 match customised to your profile"
                     : `${total} matches customised to your profile`}
                 </h1>
@@ -372,7 +389,9 @@ export default function ResultsPage() {
                   <span className="text-amber-600 font-semibold">{tc?.reach ?? reachPrograms.length} Reach</span>{" · "}
                   <span className="text-rose-600 font-semibold">{tc?.ambitious ?? ambitiousPrograms.length} Ambitious</span>
                   {` — screened from ${DB_STATS.verifiedProgramsLabel} verified programs against your profile. `}
-                  {locked
+                  {total === 0
+                    ? "See below for exactly which filters ruled everything out — and what to change."
+                    : locked
                     ? `Showing ${shown} free — register to unlock the rest, plus PDF and email.`
                     : "Shortlist the ones you like, then email or download as PDF."}
                 </p>
@@ -488,7 +507,10 @@ export default function ResultsPage() {
             registered, so the API returned only a top-5 preview. The
             truncation is server-side; this banner explains it and routes
             to registration with the same email, which unlocks the rest. */}
-        {data.viewer === "locked" && (
+        {/* Suppressed when there is nothing to unlock — a zero-match
+            shortlist was rendering "previewing 0 of 0 matches" and
+            "unlock all 0 matches". (14 Jul 2026) */}
+        {data.viewer === "locked" && (data.total_matches ?? 0) > 0 && (
           <div className="mb-8 rounded-2xl border-2 border-blue-200 bg-blue-50 px-5 py-5">
             <div className="flex items-start gap-3">
               <Lock className="w-5 h-5 text-blue-800 flex-shrink-0 mt-0.5" />
@@ -508,6 +530,115 @@ export default function ResultsPage() {
                   Register free to unlock all {data.total_matches ?? ""} matches
                 </Link>
               </div>
+            </div>
+          </div>
+        )}
+
+        {/* ── Zero-match explainer (14 Jul 2026) ────────────────────────────
+            Runs when the WHOLE shortlist is empty. Every number here is
+            measured by a real matcher pass — see src/lib/no-match-reason.ts.
+            Each option re-queries with that ONE filter relaxed; the stored
+            profile is untouched until the student edits it on the form. */}
+        {allPrograms.length === 0 && data.no_match && (
+          <div className="mb-6 rounded-2xl border border-amber-200 bg-amber-50 p-5 sm:p-6">
+            <div className="flex items-start gap-3">
+              <Filter className="w-5 h-5 text-amber-700 flex-shrink-0 mt-0.5" />
+              <div className="min-w-0 flex-1">
+                <h2 className="text-base sm:text-lg font-bold text-amber-900">
+                  {relax ? "Still no matches with that change" : "No programs matched your filters"}
+                </h2>
+                <p className="text-sm text-amber-800 mt-1 leading-relaxed">
+                  Here is exactly what happened — no guesswork:
+                </p>
+                <ul className="mt-3 space-y-1.5">
+                  {data.no_match.causes.map((c, i) => (
+                    <li key={i} className="text-sm text-amber-900 flex items-start gap-2 leading-relaxed">
+                      <span className="flex-shrink-0 mt-0.5 font-bold">·</span>
+                      <span>{c}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {data.no_match.options.length > 0 ? (
+                  <div className="mt-5">
+                    <p className="text-[11px] font-bold uppercase tracking-wider text-amber-800 mb-2.5">
+                      Try one change — tap to preview
+                    </p>
+                    <div className="flex flex-col gap-2">
+                      {data.no_match.options.map((o) => (
+                        <button
+                          key={o.key}
+                          onClick={() => { setRelax(o.key); setLoading(true); }}
+                          className="group flex items-center justify-between gap-3 w-full text-left min-h-[44px] px-4 py-3 rounded-xl bg-white border border-amber-300 hover:border-amber-500 hover:shadow-sm transition-all"
+                        >
+                          <span className="min-w-0">
+                            <span className="block text-sm font-semibold text-gray-900">{o.label}</span>
+                            <span className="block text-xs text-gray-500 mt-0.5 leading-relaxed">{o.tradeoff}</span>
+                          </span>
+                          <span className="flex-shrink-0 text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-full px-2.5 py-1 whitespace-nowrap">
+                            {o.matches} {o.matches === 1 ? "match" : "matches"}
+                          </span>
+                        </button>
+                      ))}
+                    </div>
+                    <p className="text-[11px] text-amber-700 mt-2.5 leading-relaxed">
+                      Previewing does not change your saved profile — update it on the form to keep a change.
+                    </p>
+                  </div>
+                ) : (
+                  <div className="mt-5 rounded-xl bg-white border border-amber-200 px-4 py-3.5">
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      Loosening any single filter would not help here — we simply
+                      do not hold enough programs in this field at this study
+                      level yet. Widening your field of study is the most likely
+                      route to a shortlist, and we are actively expanding this
+                      part of the database.
+                    </p>
+                  </div>
+                )}
+
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {relax && (
+                    <button
+                      onClick={() => { setRelax(null); setLoading(true); }}
+                      className="inline-flex items-center min-h-[44px] px-4 py-2.5 rounded-xl border border-amber-300 bg-white text-sm font-semibold text-amber-900 hover:bg-amber-50 transition-colors"
+                    >
+                      Undo preview
+                    </button>
+                  )}
+                  <Link
+                    href="/profile"
+                    className="inline-flex items-center min-h-[44px] px-4 py-2.5 rounded-xl bg-blue-900 hover:bg-blue-800 text-white text-sm font-bold transition-colors"
+                  >
+                    Edit my profile
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* ── Relaxed-preview banner ─────────────────────────────────────── */}
+        {relax && allPrograms.length > 0 && (
+          <div className="mb-6 rounded-2xl border border-blue-200 bg-blue-50 px-5 py-4 flex flex-wrap items-center justify-between gap-3">
+            <p className="text-sm text-blue-900 leading-relaxed min-w-0">
+              <span className="font-bold">Preview only.</span>{" "}
+              Showing {allPrograms.length} {allPrograms.length === 1 ? "match" : "matches"} with one
+              filter relaxed. Your saved profile is unchanged.
+            </p>
+            <div className="flex gap-2 flex-shrink-0">
+              <button
+                onClick={() => { setRelax(null); setLoading(true); }}
+                className="inline-flex items-center min-h-[44px] px-4 py-2.5 rounded-xl border border-blue-300 bg-white text-sm font-semibold text-blue-900 hover:bg-blue-100 transition-colors"
+              >
+                Undo
+              </button>
+              <Link
+                href="/profile"
+                className="inline-flex items-center min-h-[44px] px-4 py-2.5 rounded-xl bg-blue-900 hover:bg-blue-800 text-white text-sm font-bold transition-colors"
+              >
+                Make it permanent
+              </Link>
             </div>
           </div>
         )}

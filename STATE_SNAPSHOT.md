@@ -3973,3 +3973,25 @@ Watch-list for future sessions: US Visa Integrity Fee implementation; Campus Fra
 6. **Provenance taxonomy**: DataBadge gains "third_party" (Third-party benchmark); ai_estimate relabelled "EduvianAI estimate". Sample report: Cost-breakdown header tagged official+third_party, ROI header tagged EduvianAI-estimate+user-provided, full 5-tag legend replaces the 2-badge row. Platform-wide rollout of the taxonomy = follow-up item.
 7. **Founder descriptor**: "Founder, eduvianAI · Former IDP Education Regional Director and Global Leadership Team member" — founder explicitly added GLT membership, superseding the earlier descriptor lock (letter untouched).
 8. **Numerical density**: hero tier chips (12/20/8) removed (score owns the hero); step-2 duplicate DB count dropped; SOP 7/6 dimension counts dropped (61→84 is that module's number); closing-CTA "40" dropped. Proof strip (database scale) + one number per tool module + 3 financial numbers in Parent Decision Room retained per hierarchy.
+
+### 42.7 Round 5: zero-match diagnosis (token 659b7c35) → PSW list correction + measured empty-state
+
+**Founder report:** `/results/659b7c35-…` returned no matches. Diagnosed with [diagnose-shortlist.ts](../scripts/debug/diagnose-shortlist.ts).
+
+**Profile:** UG · International Relations · IB 38/45 (=84.4%) · 7 countries (FR/DE/NL/MY/AE/SG/IE) · QS top_100 · $25–35k · Fall 2027 · PSW required.
+
+**Funnel:** 10,728 → 2,860 (UG) → **3 (field)** → 2 (countries) → 1 (QS≤100) → 0 (PSW).
+
+**Root cause = DATA GAP, not filters.** Only **3 UG International Relations programs** exist DB-wide (18 total, 14 PG). Verified unrecoverable: with PSW off, QS off, budget unbounded AND all 12 countries, this profile still returns 0. All three programs fail independently — NTU Singapore (realistic_min 90% > student 84.4%), Taylor's Malaysia (QS 251 + spring-only intake), Buckingham UK (country not selected). Cleared as NOT bugs: IB conversion is correct (38/45 → 84.4%), form sends valid country codes (`GB`, not `UK`).
+
+**Thinnest UG coverage** (candidates for the next gap-fill): Public Policy & Administration 1 · Renewable Energy 1 · International Relations 3 · Film & Animation 6. (MBA's 1 UG is correct — inherently PG.)
+
+**Fix 1 — PSW country list corrected (founder: "correct the PSW list including Singapore").** `PSW_COUNTRIES` was a 7-country Set silently zeroing Europe/Asia-focused students. Now `Record<string, "all" | "pg_only">`:
+- **+ Netherlands** ("all") — zoekjaar orientation year: 12 months, unrestricted work, no sponsor/salary floor, covers bachelor's.
+- **+ Singapore** ("all") — LTVP for IHL graduates, 1 year to seek work. NOTE recorded in-code: the LTVP itself carries **no work rights**; graduates convert to an employer-sponsored EP/S Pass. Founder decision to count it.
+- **+ France** (**"pg_only"**) — APS is 12 months but only for a *licence professionnelle* or master's; a general licence does NOT qualify (campusfrance.org). Our data can't distinguish vocational from general bachelor's, so UG France is excluded — consistent with the existing "definitely eligible, not might-be" stance.
+- Malaysia/UAE correctly remain excluded.
+
+**Fix 2 — measured zero-match empty state (founder approved suggestion "A").** `recommendPrograms` gained an optional `diag?: MatchDiagnostics` out-param; each hard-filter `return false` became `return rej("stage")` (control flow byte-identical, tallies only). New [no-match-reason.ts](../src/lib/no-match-reason.ts) turns tallies into plain-language causes and — by re-running the matcher with ONE filter relaxed at a time — offers only relaxations that **actually** produce matches, with the real count. `structural: true` when nothing helps, and the copy then owns the data gap instead of blaming the student's filters. `/api/results/[token]?relax=<key>` gives a **read-only** preview; the stored profile is never mutated. Also fixed two pre-existing zero-match copy bugs it exposed: "previewing 0 of 0 matches" / "unlock all 0 matches" banner now suppressed, hero reads "No matches yet".
+
+**Verified:** 117/117 vitest (+7 new), tsc, next build. Live API on the real token returns structural=true, fieldPoolSize=3. Playwright 375px: structural panel renders; recoverable panel shows 2 option buttons with correct "15 matches"/"1 match" pluralisation, 127px touch targets, no overflow, and tapping re-queries `?relax=countries`.
