@@ -381,6 +381,11 @@ async function main() {
     ],
   });
 
+  // Token usage on stderr so verify-batch.ts can tally real spend and stop at
+  // a --budget-usd ceiling. stdout carries the JSON payload, so this must not
+  // go there. Opus 4.7: $5/MTok in, $25/MTok out. (14 Jul 2026)
+  console.error(`[usage] ${response.usage.input_tokens} ${response.usage.output_tokens}`);
+
   const textBlock = response.content.find((b) => b.type === "text");
   if (!textBlock || textBlock.type !== "text") {
     throw new Error("No text response from model");

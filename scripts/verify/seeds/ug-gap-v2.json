@@ -1,0 +1,586 @@
+[
+ {
+  "university": "Université Toulouse III",
+  "country": "France",
+  "city": "Toulouse",
+  "qs_ranking": 491,
+  "field_of_study": "Public Health",
+  "program_url": "https://www.univ-tlse3.fr/decouvrir-nos-diplomes/lss"
+ },
+ {
+  "university": "Technical University of Darmstadt",
+  "country": "Germany",
+  "city": "Darmstadt",
+  "qs_ranking": 224,
+  "field_of_study": "Cybersecurity",
+  "program_url": "https://www.tu-darmstadt.de/studieren/studieninteressierte/studienangebot_studiengaenge/studiengang_341504.en.jsp"
+ },
+ {
+  "university": "Maastricht University",
+  "country": "Netherlands",
+  "city": "Maastricht",
+  "qs_ranking": 192,
+  "field_of_study": "Data Science",
+  "program_url": "https://www.maastrichtuniversity.nl/education/bachelor/programmes/data-science-and-artificial-intelligence"
+ },
+ {
+  "university": "INTI International University",
+  "country": "Malaysia",
+  "city": "Nilai",
+  "qs_ranking": 516,
+  "field_of_study": "Business Analytics",
+  "program_url": "https://newinti.edu.my/programme/bachelor-computer-science-hons-business-analytics/"
+ },
+ {
+  "university": "INTI International University",
+  "country": "Malaysia",
+  "city": "Nilai",
+  "qs_ranking": 516,
+  "field_of_study": "Data Science",
+  "program_url": "https://newinti.edu.my/programme/bachelor-of-technology-honours-data-science/"
+ },
+ {
+  "university": "Khalifa University",
+  "country": "UAE",
+  "city": "Abu Dhabi",
+  "qs_ranking": 181,
+  "field_of_study": "Data Science",
+  "program_url": "https://www.ku.ac.ae/academics/undergraduate-programs/bsc-in-applied-mathematics-and-statistics"
+ },
+ {
+  "university": "Sciences Po",
+  "country": "France",
+  "city": "Paris",
+  "qs_ranking": null,
+  "field_of_study": "Public Policy & Administration",
+  "program_url": "https://www.sciencespo.fr/college/en/academics/undergraduate-programme/"
+ },
+ {
+  "university": "University of Groningen",
+  "country": "Netherlands",
+  "city": "Groningen",
+  "qs_ranking": 139,
+  "field_of_study": "International Relations",
+  "program_url": "https://www.rug.nl/bachelors/international-relations-and-international-organization/?lang=en"
+ },
+ {
+  "university": "Victoria University of Wellington",
+  "country": "New Zealand",
+  "city": "Wellington",
+  "qs_ranking": 240,
+  "field_of_study": "Data Science",
+  "program_url": "https://www.wgtn.ac.nz/explore/degrees/science/requirements?major=data-science"
+ },
+ {
+  "university": "American University in Dubai",
+  "country": "UAE",
+  "city": "Dubai",
+  "qs_ranking": 621,
+  "field_of_study": "International Relations",
+  "program_url": "https://www.aud.edu/aud-school/school-of-arts-sciences/departments/department-of-international-and-middle-eastern-studies/department-programs/bachelor-of-arts-in-international-studies/"
+ },
+ {
+  "university": "American University in Dubai",
+  "country": "UAE",
+  "city": "Dubai",
+  "qs_ranking": 621,
+  "field_of_study": "Artificial Intelligence",
+  "program_url": "https://www.aud.edu/programs/bachelor-of-business-administration-major-in-artificial-intelligence-in-business/"
+ },
+ {
+  "university": "Friedrich-Alexander University Erlangen-Nürnberg",
+  "country": "Germany",
+  "city": "Erlangen",
+  "qs_ranking": 254,
+  "field_of_study": "Data Science",
+  "program_url": "https://www.fau.de/studiengang/data-science-b-sc/"
+ },
+ {
+  "university": "Friedrich-Alexander University Erlangen-Nürnberg",
+  "country": "Germany",
+  "city": "Erlangen",
+  "qs_ranking": 254,
+  "field_of_study": "Social Sciences & Humanities",
+  "program_url": "https://www.fau.de/studiengang/sozialoekonomik-b-a/"
+ },
+ {
+  "university": "University of Amsterdam",
+  "country": "Netherlands",
+  "city": "Amsterdam",
+  "qs_ranking": 55,
+  "field_of_study": "Biomedicine",
+  "program_url": "https://www.uva.nl/shared-content/programmas/en/bachelors/biomedical-sciences/biomedical-sciences.html"
+ },
+ {
+  "university": "University of Amsterdam",
+  "country": "Netherlands",
+  "city": "Amsterdam",
+  "qs_ranking": 55,
+  "field_of_study": "Business Analytics",
+  "program_url": "https://www.uva.nl/en/programmes/bachelors/business-analytics/business-analytics.html"
+ },
+ {
+  "university": "University College Dublin",
+  "country": "Ireland",
+  "city": "Dublin",
+  "qs_ranking": 171,
+  "field_of_study": "Business Analytics",
+  "program_url": "https://www.ucd.ie/courses/b154"
+ },
+ {
+  "university": "University College Dublin",
+  "country": "Ireland",
+  "city": "Dublin",
+  "qs_ranking": 171,
+  "field_of_study": "Data Science",
+  "program_url": "https://www.ucd.ie/courses/statistics-data-science"
+ },
+ {
+  "university": "University College Dublin",
+  "country": "Ireland",
+  "city": "Dublin",
+  "qs_ranking": 171,
+  "field_of_study": "Nursing & Allied Health",
+  "program_url": "https://www.ucd.ie/courses/bsc-nursing-general"
+ },
+ {
+  "university": "Université Paris Cité",
+  "country": "France",
+  "city": "Paris",
+  "qs_ranking": 261,
+  "field_of_study": "Public Health",
+  "program_url": "https://odf.u-paris.fr/fr/offre-de-formation/licence-XA/sciences-technologies-sante-STS/sciences-pour-la-sante-K2VO67R0/licence-sciences-pour-la-sante-l2-l3-parcours-sciences-interdisciplinaires-appliquees-a-la-sante-JR7M5824.html"
+ },
+ {
+  "university": "National University of Singapore",
+  "country": "Singapore",
+  "city": "Singapore",
+  "qs_ranking": 8,
+  "field_of_study": "Business Analytics",
+  "program_url": "https://www.comp.nus.edu.sg/programmes/ug/ba/"
+ },
+ {
+  "university": "National University of Singapore",
+  "country": "Singapore",
+  "city": "Singapore",
+  "qs_ranking": 8,
+  "field_of_study": "Cybersecurity",
+  "program_url": "https://www.comp.nus.edu.sg/programmes/ug/isc/curr/"
+ },
+ {
+  "university": "National University of Singapore",
+  "country": "Singapore",
+  "city": "Singapore",
+  "qs_ranking": 8,
+  "field_of_study": "Data Science",
+  "program_url": "https://www.stat.nus.edu.sg/education/undergraduate/prospective-student/major-in-data-science-analytics/"
+ },
+ {
+  "university": "Canadian University Dubai",
+  "country": "UAE",
+  "city": "Dubai",
+  "qs_ranking": 523,
+  "field_of_study": "Business Analytics",
+  "program_url": "https://www.cud.ac.ae/programs/undergraduate/management/bachelor-of-business-administration-in-business-analytics"
+ },
+ {
+  "university": "Canadian University Dubai",
+  "country": "UAE",
+  "city": "Dubai",
+  "qs_ranking": 523,
+  "field_of_study": "Artificial Intelligence",
+  "program_url": "https://www.cud.ac.ae/programs/undergraduate/engineering-applied-science-and-technology/bachelor-of-science-in-artificial-intelligence"
+ },
+ {
+  "university": "Curtin University Dubai",
+  "country": "UAE",
+  "city": "Dubai",
+  "qs_ranking": 174,
+  "field_of_study": "Cybersecurity",
+  "program_url": "https://www.curtin.edu.au/study/offering/course-ug-cyber-security-major-b-comp--mjru-cybse/"
+ },
+ {
+  "university": "Technical University of Munich",
+  "country": "Germany",
+  "city": "Munich",
+  "qs_ranking": 37,
+  "field_of_study": "Public Health",
+  "program_url": "https://www.tum.de/en/studies/degree-programs/detail/health-sciences-bachelor-of-science-bsc"
+ },
+ {
+  "university": "Massey University",
+  "country": "New Zealand",
+  "city": "Palmerston North",
+  "qs_ranking": 239,
+  "field_of_study": "Public Health",
+  "program_url": "https://www.massey.ac.nz/study/all-qualifications-and-degrees/bachelor-of-health-science-UBHLS/health-promotion-UBHLS2JHLPR1/"
+ },
+ {
+  "university": "Massey University",
+  "country": "New Zealand",
+  "city": "Palmerston North",
+  "qs_ranking": 239,
+  "field_of_study": "Business Analytics",
+  "program_url": "https://www.massey.ac.nz/study/all-qualifications-and-degrees/bachelor-of-business-UBBSS/business-analytics-UBBSS1JBSAN1/"
+ },
+ {
+  "university": "Massey University",
+  "country": "New Zealand",
+  "city": "Palmerston North",
+  "qs_ranking": 239,
+  "field_of_study": "Nursing & Allied Health",
+  "program_url": "https://www.massey.ac.nz/study/all-qualifications-and-degrees/bachelor-of-nursing-UBNRS/"
+ },
+ {
+  "university": "University of Sharjah",
+  "country": "UAE",
+  "city": "Sharjah",
+  "qs_ranking": 426,
+  "field_of_study": "Cybersecurity",
+  "program_url": "https://www.sharjah.ac.ae/academics/degree/undergraduate/cybersecurity-engineering"
+ },
+ {
+  "university": "University of Sharjah",
+  "country": "UAE",
+  "city": "Sharjah",
+  "qs_ranking": 426,
+  "field_of_study": "Nursing & Allied Health",
+  "program_url": "https://www.sharjah.ac.ae/academics/degree/undergraduate/nursing"
+ },
+ {
+  "university": "University of Bremen",
+  "country": "Germany",
+  "city": "Bremen",
+  "qs_ranking": 487,
+  "field_of_study": "Public Health",
+  "program_url": "https://www.uni-bremen.de/en/studies/orientation-application/offered-study-program/dbs/study/public-health-bachelor"
+ },
+ {
+  "university": "University of Bremen",
+  "country": "Germany",
+  "city": "Bremen",
+  "qs_ranking": 487,
+  "field_of_study": "Nursing & Allied Health",
+  "program_url": "https://www.uni-bremen.de/en/fb11/studies/nursing-science-dual-ba"
+ },
+ {
+  "university": "University of Auckland",
+  "country": "New Zealand",
+  "city": "Auckland",
+  "qs_ranking": 68,
+  "field_of_study": "Public Health",
+  "program_url": "https://www.auckland.ac.nz/en/study/study-options/find-a-study-option/bachelor-of-health-sciences-bhsc.html"
+ },
+ {
+  "university": "University of Auckland",
+  "country": "New Zealand",
+  "city": "Auckland",
+  "qs_ranking": 68,
+  "field_of_study": "Business Analytics",
+  "program_url": "https://www.auckland.ac.nz/en/study/study-options/find-a-study-option/business-analytics/undergaduate.html"
+ },
+ {
+  "university": "University of Auckland",
+  "country": "New Zealand",
+  "city": "Auckland",
+  "qs_ranking": 68,
+  "field_of_study": "Data Science",
+  "program_url": "https://www.auckland.ac.nz/en/study/study-options/find-a-study-option/data-science/undergraduate/bsc-data-science-from-2019.html"
+ },
+ {
+  "university": "University of Auckland",
+  "country": "New Zealand",
+  "city": "Auckland",
+  "qs_ranking": 68,
+  "field_of_study": "Nursing & Allied Health",
+  "program_url": "https://www.auckland.ac.nz/en/study/study-options/find-a-study-option/bachelor-of-nursing-bnurs.html"
+ },
+ {
+  "university": "Auckland University of Technology",
+  "country": "New Zealand",
+  "city": "Auckland",
+  "qs_ranking": 412,
+  "field_of_study": "Public Health",
+  "program_url": "https://www.aut.ac.nz/study/study-options/health-sciences/courses/bachelor-of-health-science/public-and-environmental-health-major"
+ },
+ {
+  "university": "Auckland University of Technology",
+  "country": "New Zealand",
+  "city": "Auckland",
+  "qs_ranking": 412,
+  "field_of_study": "Cybersecurity",
+  "program_url": "https://www.aut.ac.nz/study/study-options/engineering-computer-and-mathematical-sciences/courses/bachelor-of-computer-and-information-sciences/networks-and-cybersecurity-major-bachelor-of-computer-and-information-sciences"
+ },
+ {
+  "university": "Auckland University of Technology",
+  "country": "New Zealand",
+  "city": "Auckland",
+  "qs_ranking": 412,
+  "field_of_study": "Nursing & Allied Health",
+  "program_url": "https://www.aut.ac.nz/study/study-options/health-sciences/courses/bachelor-of-health-science-in-nursing"
+ },
+ {
+  "university": "Singapore Institute of Technology",
+  "country": "Singapore",
+  "city": "Singapore",
+  "qs_ranking": null,
+  "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+  "program_url": "https://www.singaporetech.edu.sg/undergraduate-programmes/civil-engineering"
+ },
+ {
+  "university": "Trinity College Dublin",
+  "country": "Ireland",
+  "city": "Dublin",
+  "qs_ranking": 81,
+  "field_of_study": "Nursing & Allied Health",
+  "program_url": "https://www.tcd.ie/nursing-midwifery/undergraduate/bachelor-in-science-nursing-general-nursing/"
+ },
+ {
+  "university": "BITS Pilani Dubai Campus",
+  "country": "UAE",
+  "city": "Dubai",
+  "qs_ranking": 801,
+  "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+  "program_url": "https://www.bits-dubai.ac.ae/admissions/be/"
+ },
+ {
+  "university": "SEGi University",
+  "country": "Malaysia",
+  "city": "Petaling Jaya",
+  "qs_ranking": null,
+  "field_of_study": "Computer Science & IT",
+  "program_url": "https://university.segi.edu.my/course/bachelor-of-computer-science-hons/"
+ },
+ {
+  "university": "Swinburne University of Technology Sarawak",
+  "country": "Malaysia",
+  "city": "Kuching",
+  "qs_ranking": 291,
+  "field_of_study": "Computer Science & IT",
+  "program_url": "https://www.swinburne.edu.my/courses/bachelor-of-computer-science/"
+ },
+ {
+  "university": "Universiti Tunku Abdul Rahman",
+  "country": "Malaysia",
+  "city": "Kampar",
+  "qs_ranking": 801,
+  "field_of_study": "Computer Science & IT",
+  "program_url": "https://study.utar.edu.my/computer-science.php"
+ },
+ {
+  "university": "École Normale Supérieure (ENS)",
+  "country": "France",
+  "city": "Paris",
+  "qs_ranking": 26,
+  "field_of_study": "Computer Science & IT",
+  "program_url": "https://diplome.di.ens.fr/index_en.html"
+ },
+ {
+  "university": "Johannes Gutenberg University Mainz",
+  "country": "Germany",
+  "city": "Mainz",
+  "qs_ranking": 410,
+  "field_of_study": "Business & Management",
+  "program_url": "https://www.studium.uni-mainz.de/en/choosing-your-degree-program/courses-offered/business-administration-bsc/"
+ },
+ {
+  "university": "Heriot-Watt University Dubai",
+  "country": "UAE",
+  "city": "Dubai",
+  "qs_ranking": 274,
+  "field_of_study": "Data Science",
+  "program_url": "https://www.hw.ac.uk/dubai/study/undergraduate/computer-science-data-science"
+ },
+ {
+  "university": "University of Galway",
+  "country": "Ireland",
+  "city": "Galway",
+  "qs_ranking": 273,
+  "field_of_study": "Nursing & Allied Health",
+  "program_url": "https://www.universityofgalway.ie/courses/undergraduate-courses/nursing-science-general.html"
+ },
+ {
+  "university": "University of Cologne",
+  "country": "Germany",
+  "city": "Cologne",
+  "qs_ranking": 308,
+  "field_of_study": "Public Health",
+  "program_url": "https://wiso.uni-koeln.de/en/studies/bachelor/health-economics"
+ },
+ {
+  "university": "University of Cologne",
+  "country": "Germany",
+  "city": "Cologne",
+  "qs_ranking": 308,
+  "field_of_study": "Social Sciences & Humanities",
+  "program_url": "https://studieninteressierte.uni-koeln.de/range_of_courses/index_eng.html?app=true&id=153"
+ },
+ {
+  "university": "Free University of Berlin",
+  "country": "Germany",
+  "city": "Berlin",
+  "qs_ranking": 97,
+  "field_of_study": "Social Sciences & Humanities",
+  "program_url": "https://www.polsoz.fu-berlin.de/en/soziologie/studium/bachelor/index.html"
+ },
+ {
+  "university": "University of Münster",
+  "country": "Germany",
+  "city": "Münster",
+  "qs_ranking": 314,
+  "field_of_study": "Computer Science & IT",
+  "program_url": "https://www.uni-muenster.de/FB10/en/Studium/studiengaenge/bsc_informatik.shtml"
+ },
+ {
+  "university": "Leiden University",
+  "country": "Netherlands",
+  "city": "Leiden",
+  "qs_ranking": 119,
+  "field_of_study": "Medicine",
+  "program_url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/medicine"
+ },
+ {
+  "university": "Atlantic Technological University",
+  "country": "Ireland",
+  "city": "Galway",
+  "qs_ranking": null,
+  "field_of_study": "Cybersecurity",
+  "program_url": "https://www.atu.ie/courses/bachelor-of-science-network-cybersecurity"
+ },
+ {
+  "university": "Atlantic Technological University",
+  "country": "Ireland",
+  "city": "Galway",
+  "qs_ranking": null,
+  "field_of_study": "Data Science",
+  "program_url": "https://www.atu.ie/courses/bachelor-of-science-honours-computing-in-data-science-and-artificial-intelligence"
+ },
+ {
+  "university": "Atlantic Technological University",
+  "country": "Ireland",
+  "city": "Galway",
+  "qs_ranking": null,
+  "field_of_study": "Artificial Intelligence",
+  "program_url": "https://www.atu.ie/courses/bachelor-of-science-honours-computing-and-artificial-intelligence"
+ },
+ {
+  "university": "University of Otago",
+  "country": "New Zealand",
+  "city": "Dunedin",
+  "qs_ranking": 184,
+  "field_of_study": "Public Health",
+  "program_url": "https://www.otago.ac.nz/study-public-health/qualifications/bhealsc"
+ },
+ {
+  "university": "University of Stuttgart",
+  "country": "Germany",
+  "city": "Stuttgart",
+  "qs_ranking": 312,
+  "field_of_study": "Social Sciences & Humanities",
+  "program_url": "https://www.uni-stuttgart.de/studium/bachelor/sozialwissenschaften-b.a./"
+ },
+ {
+  "university": "University of Stuttgart",
+  "country": "Germany",
+  "city": "Stuttgart",
+  "qs_ranking": 312,
+  "field_of_study": "Economics & Finance",
+  "program_url": "https://www.uni-stuttgart.de/studium/bachelor/betriebswirtschaftslehre-b.sc./"
+ },
+ {
+  "university": "University of Strasbourg",
+  "country": "France",
+  "city": "Strasbourg",
+  "qs_ranking": 408,
+  "field_of_study": "Social Sciences & Humanities",
+  "program_url": "https://sciences-sociales.unistra.fr/formation/licence/licence-sciences-sociales/"
+ },
+ {
+  "university": "University of Strasbourg",
+  "country": "France",
+  "city": "Strasbourg",
+  "qs_ranking": 408,
+  "field_of_study": "Public Health",
+  "program_url": "https://formations.unistra.fr/fr/formations/licence-LIG/licence-sciences-pour-la-sante-ME287.html"
+ },
+ {
+  "university": "University of Greifswald",
+  "country": "Germany",
+  "city": "Greifswald",
+  "qs_ranking": null,
+  "field_of_study": "Data Science",
+  "program_url": "https://www.uni-greifswald.de/en/study/prior-to-studies/study-opportunities/courses-and-degrees/d/data-science/"
+ },
+ {
+  "university": "University of Greifswald",
+  "country": "Germany",
+  "city": "Greifswald",
+  "qs_ranking": null,
+  "field_of_study": "Social Sciences & Humanities",
+  "program_url": "https://www.uni-greifswald.de/studium/vor-dem-studium/studienangebot/studienfaecher/p/politikwissenschaft-bachelor/"
+ },
+ {
+  "university": "University of Greifswald",
+  "country": "Germany",
+  "city": "Greifswald",
+  "qs_ranking": null,
+  "field_of_study": "Natural Sciences",
+  "program_url": "https://www.uni-greifswald.de/studium/vor-dem-studium/studienangebot/studienfaecher/b/biologie-bachelor/"
+ },
+ {
+  "university": "University of Waikato",
+  "country": "New Zealand",
+  "city": "Hamilton",
+  "qs_ranking": 261,
+  "field_of_study": "Public Health",
+  "program_url": "https://www.waikato.ac.nz/study/qualifications/bachelor-of-health/"
+ },
+ {
+  "university": "University of Waikato",
+  "country": "New Zealand",
+  "city": "Hamilton",
+  "qs_ranking": 261,
+  "field_of_study": "Cybersecurity",
+  "program_url": "https://www.waikato.ac.nz/study/qualifications/bachelor-of-applied-computing/"
+ },
+ {
+  "university": "University of Waikato",
+  "country": "New Zealand",
+  "city": "Hamilton",
+  "qs_ranking": 261,
+  "field_of_study": "Social Sciences & Humanities",
+  "program_url": "https://www.waikato.ac.nz/study/qualifications/bachelor-of-social-sciences/"
+ },
+ {
+  "university": "RWTH Aachen University",
+  "country": "Germany",
+  "city": "Aachen",
+  "qs_ranking": 99,
+  "field_of_study": "Social Sciences & Humanities",
+  "program_url": "https://www.rwth-aachen.de/cms/root/studium/Vor-dem-Studium/Studiengaenge/Liste-Aktuelle-Studiengaenge/Studiengangbeschreibung/~bhte/Gesellschaftswissenschaften-B-A-/?lidx=1"
+ },
+ {
+  "university": "RWTH Aachen University",
+  "country": "Germany",
+  "city": "Aachen",
+  "qs_ranking": 99,
+  "field_of_study": "Economics & Finance",
+  "program_url": "https://www.rwth-aachen.de/cms/root/studium/vor-dem-studium/studiengaenge/liste-aktuelle-studiengaenge/studiengangbeschreibung/~bpxl/betriebswirtschaftslehre-business-admini/?lidx=1"
+ },
+ {
+  "university": "James Cook University Singapore",
+  "country": "Singapore",
+  "city": "Singapore",
+  "qs_ranking": 445,
+  "field_of_study": "Computer Science & IT",
+  "program_url": "https://www.jcu.edu.sg/courses-and-study/courses/course/bachelor-of-information-technology"
+ },
+ {
+  "university": "S P Jain School of Global Management Singapore",
+  "country": "Singapore",
+  "city": "Singapore",
+  "qs_ranking": null,
+  "field_of_study": "Business & Management",
+  "program_url": "https://www.spjain.sg/programs/undergraduate/bba"
+ }
+]

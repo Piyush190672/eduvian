@@ -1,0 +1,114 @@
+[
+ {
+  "university": "Technical University of Munich",
+  "country": "Germany",
+  "city": "Munich",
+  "qs_ranking": 37,
+  "field_of_study": "Public Policy & Administration",
+  "program_url": "https://www.tum.de/en/studies/degree-programs/detail/political-science-bachelor-of-science-bsc"
+ },
+ {
+  "university": "University of Auckland",
+  "country": "New Zealand",
+  "city": "Auckland",
+  "qs_ranking": 68,
+  "field_of_study": "International Relations",
+  "program_url": "https://www.auckland.ac.nz/en/study/study-options/find-a-study-option/politics-and-international-relations/undergraduate.html"
+ },
+ {
+  "university": "University of Auckland",
+  "country": "New Zealand",
+  "city": "Auckland",
+  "qs_ranking": 68,
+  "field_of_study": "Public Health",
+  "program_url": "https://www.auckland.ac.nz/en/study/study-options/find-a-study-option/population-health/undergraduate.html"
+ },
+ {
+  "university": "University of Auckland",
+  "country": "New Zealand",
+  "city": "Auckland",
+  "qs_ranking": 68,
+  "field_of_study": "Biomedicine",
+  "program_url": "https://www.auckland.ac.nz/en/study/study-options/find-a-study-option/bachelor-of-biomedical-science.html"
+ },
+ {
+  "university": "University College Cork",
+  "country": "Ireland",
+  "city": "Cork",
+  "qs_ranking": 303,
+  "field_of_study": "Renewable Energy",
+  "program_url": "https://www.ucc.ie/en/ck600/energy/"
+ },
+ {
+  "university": "University College Cork",
+  "country": "Ireland",
+  "city": "Cork",
+  "qs_ranking": 303,
+  "field_of_study": "Public Health",
+  "program_url": "https://www.ucc.ie/en/ck706/"
+ },
+ {
+  "university": "University College Cork",
+  "country": "Ireland",
+  "city": "Cork",
+  "qs_ranking": 303,
+  "field_of_study": "Biomedicine",
+  "program_url": "https://www.ucc.ie/en/mt871/"
+ },
+ {
+  "university": "Khalifa University",
+  "country": "UAE",
+  "city": "Abu Dhabi",
+  "qs_ranking": 181,
+  "field_of_study": "Biomedicine",
+  "program_url": "https://www.ku.ac.ae/academics/undergraduate-programs/b-sc-in-biomedical-engineering"
+ },
+ {
+  "university": "University of Tübingen",
+  "country": "Germany",
+  "city": "Tübingen",
+  "qs_ranking": 206,
+  "field_of_study": "International Relations",
+  "program_url": "https://uni-tuebingen.de/studium/studienangebot/verzeichnis-der-studiengaenge/detail/course/politikwissenschaft-bachelor-hauptfach/"
+ },
+ {
+  "university": "University of Tübingen",
+  "country": "Germany",
+  "city": "Tübingen",
+  "qs_ranking": 206,
+  "field_of_study": "Biomedicine",
+  "program_url": "https://uni-tuebingen.de/studium/studienangebot/verzeichnis-der-studiengaenge/detail/course/molekulare-medizin-bachelor-mono/"
+ },
+ {
+  "university": "University of Amsterdam",
+  "country": "Netherlands",
+  "city": "Amsterdam",
+  "qs_ranking": 55,
+  "field_of_study": "Biomedicine",
+  "program_url": "https://www.uva.nl/shared-content/programmas/en/bachelors/biomedical-sciences/biomedical-sciences.html"
+ },
+ {
+  "university": "National University of Ireland Galway",
+  "country": "Ireland",
+  "city": "Galway",
+  "qs_ranking": 421,
+  "field_of_study": "Renewable Energy",
+  "program_url": "https://www.universityofgalway.ie/courses/undergraduate-courses/energy-systems-engineering.html"
+ },
+ {
+  "university": "National University of Ireland Galway",
+  "country": "Ireland",
+  "city": "Galway",
+  "qs_ranking": 421,
+  "field_of_study": "Public Policy & Administration",
+  "program_url": "https://www.universityofgalway.ie/business-public-policy-law/cairnes/courses/undergrad/arts-public-and-social-policy.html"
+ },
+ {
+  "university": "National University of Ireland Galway",
+  "country": "Ireland",
+  "city": "Galway",
+  "qs_ranking": 421,
+  "field_of_study": "Biomedicine",
+  "program_url": "https://www.universityofgalway.ie/courses/undergraduate-courses/biomedical-science.html"
+ }
+]

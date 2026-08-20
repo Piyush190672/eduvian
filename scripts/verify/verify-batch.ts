@@ -16,6 +16,13 @@
  *
  * --skip-existing: skips seeds whose (university, program_url) already
  *   produced an /output/ JSON in a prior run — useful for resuming after a kill.
+ *
+ * --budget-usd N: hard spend ceiling (added 14 Jul 2026). verify-program.ts
+ *   emits `[usage] <in> <out>` on stderr per call; we price it at the Opus 4.7
+ *   rate and stop dispatching once the ceiling is hit. In-flight workers finish,
+ *   so the real total can overshoot slightly — size the cap with that in mind.
+ *   Without this flag a batch runs to completion with no spend control, which
+ *   is how a capped campaign could silently overrun.
  */
 
 import { readFileSync, existsSync, readdirSync } from "node:fs";
@@ -37,12 +44,20 @@ interface SeedEntry {
 const argv = process.argv.slice(2);
 const seedPath = argv[0];
 if (!seedPath) {
-  console.error("Usage: verify-batch.ts <seed.json> [--concurrency N] [--skip-existing]");
+  console.error("Usage: verify-batch.ts <seed.json> [--concurrency N] [--skip-existing] [--budget-usd N]");
   process.exit(1);
 }
 const cIdx = argv.indexOf("--concurrency");
 const concurrency = cIdx >= 0 ? Math.max(1, parseInt(argv[cIdx + 1], 10) || 1) : 1;
 const skipExisting = argv.includes("--skip-existing");
+const bIdx = argv.indexOf("--budget-usd");
+const budgetUsd = bIdx >= 0 ? parseFloat(argv[bIdx + 1]) : Infinity;
+
+// Opus 4.7 pricing (verified against the Anthropic pricing table, Jul 2026).
+const PRICE_IN = 5 / 1_000_000;
+const PRICE_OUT = 25 / 1_000_000;
+let spentUsd = 0;
+let budgetStopped = false;
 
 let seeds: SeedEntry[] = JSON.parse(readFileSync(seedPath, "utf8"));
 console.log(`Loaded ${seeds.length} seed entries.`);
@@ -92,8 +107,14 @@ function runOne(seed: SeedEntry): Promise<number> {
         "--field", seed.field_of_study,
         "--url", seed.program_url,
       ],
-      { stdio: ["ignore", "ignore", "ignore"] }
+      // stderr piped so we can read the `[usage]` line; stdout stays ignored
+      // (it carries the full JSON payload we don't need here).
+      { stdio: ["ignore", "ignore", "pipe"] }
     );
+    child.stderr?.on("data", (buf: Buffer) => {
+      const m = String(buf).match(/\[usage\] (\d+) (\d+)/);
+      if (m) spentUsd += Number(m[1]) * PRICE_IN + Number(m[2]) * PRICE_OUT;
+    });
     let killed = false;
     const watchdog = setTimeout(() => {
       killed = true;
@@ -114,6 +135,14 @@ let nextIdx = 0;
 let done = 0;
 async function worker() {
   while (true) {
+    if (spentUsd >= budgetUsd) {
+      if (!budgetStopped) {
+        budgetStopped = true;
+        process.stdout.write(`\nBUDGET REACHED: $${spentUsd.toFixed(2)} >= $${budgetUsd}. Stopping dispatch.\n`);
+        process.stdout.write(`Re-run with --skip-existing to resume.\n`);
+      }
+      return;
+    }
     const i = nextIdx++;
     if (i >= seeds.length) return;
     const status = await runOne(seeds[i]);
@@ -123,7 +152,7 @@ async function worker() {
     else stats.error++;
     done++;
     if (done % 10 === 0 || done === seeds.length) {
-      process.stdout.write(`[${done}/${seeds.length}] ok=${stats.ok} rejected=${stats.rejected} err=${stats.error}\n`);
+      process.stdout.write(`[${done}/${seeds.length}] ok=${stats.ok} rejected=${stats.rejected} err=${stats.error} spent=$${spentUsd.toFixed(2)}\n`);
     }
   }
 }
@@ -131,6 +160,7 @@ async function worker() {
 async function main() {
   await Promise.all(Array.from({ length: concurrency }, () => worker()));
   console.log(`\n──────────────────────────────────`);
+  console.log(`Spend:    $${spentUsd.toFixed(2)}${isFinite(budgetUsd) ? ` of $${budgetUsd} cap` : ""}`);
   console.log(`OK:       ${stats.ok}`);
   console.log(`Rejected: ${stats.rejected}`);
   console.log(`Error:    ${stats.error}`);

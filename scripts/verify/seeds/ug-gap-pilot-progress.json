@@ -1,0 +1,21 @@
+{
+ "done": [
+  "INSEAD|France",
+  "HEC Paris|France",
+  "INSEAD Asia Campus|Singapore",
+  "Technical University of Munich|Germany",
+  "University of Auckland|New Zealand",
+  "EDHEC Business School|France",
+  "University College Cork|Ireland",
+  "Khalifa University|UAE",
+  "Frankfurt School of Finance & Management|Germany",
+  "University of Tübingen|Germany",
+  "École Polytechnique|France",
+  "University of Amsterdam|Netherlands",
+  "National University of Ireland Galway|Ireland"
+ ],
+ "spent_usd": 4.049669000000001,
+ "searches": 47,
+ "input_tokens": 1093068,
+ "output_tokens": 20031
+}

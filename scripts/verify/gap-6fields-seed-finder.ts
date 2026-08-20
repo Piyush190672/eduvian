@@ -20,7 +20,10 @@
  *   npx tsx scripts/verify/gap-6fields-seed-finder.ts \
  *     --queue scripts/verify/catalogs/gap-queue-6fields-2026-07.json \
  *     --out scripts/verify/seeds/gap-6fields-auto.json \
- *     --budget-usd 95 [--limit N]
+ *     --budget-usd 95 [--limit N] [--level ug|pg]
+ *
+ * Generalised 14 Jul 2026: the field allowlist now comes from the queue and
+ * --level ug switches the prompt to hunt Bachelor's pages only.
  */
 import Anthropic from "@anthropic-ai/sdk";
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
@@ -30,10 +33,13 @@ const PRICE_OUT = 15 / 1_000_000; // Sonnet 4.6 USD per output token
 const PRICE_SEARCH = 0.01;        // USD per web_search request
 const RUNAWAY_AVG_USD = 0.40;
 
-const SIX_FIELDS = [
-  "FinTech", "Marketing", "Psychology",
-  "Cybersecurity", "Business Analytics", "Data Science",
-];
+// Allowlist is derived from the queue's own missing_fields union so the
+// script serves any gap campaign (Batch A's six fields, the Jul 2026 UG
+// campaign, whatever comes next). Populated in main().
+let ALLOWED_FIELDS: Set<string> = new Set();
+
+/** Degree level this run is hunting for — set by --level. */
+let LEVEL: "ug" | "pg" = "pg";
 
 interface QueueEntry {
   university: string;
@@ -64,7 +70,7 @@ UNIVERSITY: ${u.university}
 COUNTRY: ${u.country}${u.city ? `\nCITY: ${u.city}` : ""}
 QS RANK: ${u.qs_ranking ?? "unranked"}
 
-For EACH of these fields of study, use web_search to find ONE canonical program-detail URL on the university's own domain (NOT third-party listings, NOT Wikipedia). Prefer pages that show the actual degree program — Master's / Bachelor's detail pages with admissions info.
+For EACH of these fields of study, use web_search to find ONE canonical ${LEVEL === "ug" ? "UNDERGRADUATE (Bachelor's)" : "program"}-detail URL on the university's own domain (NOT third-party listings, NOT Wikipedia). Prefer pages that show the actual degree program — ${LEVEL === "ug" ? "Bachelor's / undergraduate" : "Master's / Bachelor's"} detail pages with admissions info.
 
 FIELDS:
 ${u.missing_fields.map((f, i) => `${i + 1}. ${f}`).join("\n")}
@@ -73,7 +79,7 @@ Rules:
 - Be economical with searches: combine several fields into one query where sensible (e.g. "site:university-domain masters fintech OR business analytics OR cybersecurity"). You have fewer searches than fields.
 - Skip a field if the university doesn't have a clear flagship program in it (many won't have FinTech or Business Analytics — an empty result is far better than a wrong URL).
 - Skip if you can't find a confident URL.
-- One URL per field. Pick the most representative master's-level program (or bachelor's, if no master's).
+- One URL per field. ${LEVEL === "ug" ? "Pick an UNDERGRADUATE / Bachelor's program ONLY. Do NOT return a Master's, MSc, MA, MEng or postgraduate page — if the university has no bachelor's in that field, skip it." : "Pick the most representative master's-level program (or bachelor's, if no master's)."}
 - Only return URLs whose host belongs to the university.
 - The URL must point to a SPECIFIC program detail page, not a department landing or a generic catalog index.
 
@@ -123,7 +129,7 @@ async function findUrlsForUni(client: Anthropic, u: QueueEntry) {
       for (const item of arr) {
         if (!item.field_of_study || !item.program_url) continue;
         if (!u.missing_fields.includes(item.field_of_study)) continue;
-        if (!SIX_FIELDS.includes(item.field_of_study)) continue;
+        if (!ALLOWED_FIELDS.has(item.field_of_study)) continue;
         if (!item.program_url.startsWith("http")) continue;
         const key = `${item.field_of_study}|${item.program_url}`;
         if (seen.has(key)) continue;
@@ -152,9 +158,10 @@ async function main() {
   const queuePath = get("queue");
   const outPath = get("out");
   const budget = parseFloat(get("budget-usd") ?? "");
+  LEVEL = get("level") === "ug" ? "ug" : "pg";
   const limit = get("limit") ? parseInt(get("limit")!, 10) : Infinity;
   if (!queuePath || !outPath || !isFinite(budget) || budget <= 0) {
-    console.error("Need --queue <file> --out <file> --budget-usd <n> [--limit N]");
+    console.error("Need --queue <file> --out <file> --budget-usd <n> [--limit N] [--level ug|pg]");
     process.exit(1);
   }
   const progressPath = outPath.replace(/\.json$/, "-progress.json");
@@ -166,6 +173,8 @@ async function main() {
   const all: SeedOut[] = existsSync(outPath) ? JSON.parse(readFileSync(outPath, "utf8")) : [];
   const doneSet = new Set(progress.done);
   queue = queue.filter((u) => u.missing_fields.length > 0 && !doneSet.has(`${u.university}|${u.country}`)).slice(0, limit);
+  ALLOWED_FIELDS = new Set(queue.flatMap((u) => u.missing_fields));
+  console.log(`Level: ${LEVEL.toUpperCase()} · ${ALLOWED_FIELDS.size} fields in scope.`);
   console.log(`Gap seed-finding: ${queue.length} unis to process, $${progress.spent_usd.toFixed(2)} already spent, budget $${budget}.`);
 
   const client = new Anthropic();

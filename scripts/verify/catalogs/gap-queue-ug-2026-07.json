@@ -1,0 +1,1576 @@
+[
+  {
+    "university": "Sciences Po",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": null,
+    "missing_fields": [
+      "Public Policy & Administration"
+    ]
+  },
+  {
+    "university": "Université Toulouse III",
+    "country": "France",
+    "city": "Toulouse",
+    "qs_ranking": 491,
+    "missing_fields": [
+      "Public Health"
+    ]
+  },
+  {
+    "university": "Karlsruhe Institute of Technology",
+    "country": "Germany",
+    "city": "Karlsruhe",
+    "qs_ranking": 119,
+    "missing_fields": [
+      "Cybersecurity"
+    ]
+  },
+  {
+    "university": "Technical University of Darmstadt",
+    "country": "Germany",
+    "city": "Darmstadt",
+    "qs_ranking": 224,
+    "missing_fields": [
+      "Cybersecurity"
+    ]
+  },
+  {
+    "university": "University of Munich (LMU)",
+    "country": "Germany",
+    "city": "Munich",
+    "qs_ranking": 54,
+    "missing_fields": [
+      "Business Analytics"
+    ]
+  },
+  {
+    "university": "ESCP Business School",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": null,
+    "missing_fields": [
+      "Business Analytics"
+    ]
+  },
+  {
+    "university": "Université de Lyon",
+    "country": "France",
+    "city": "Lyon",
+    "qs_ranking": 410,
+    "missing_fields": [
+      "Public Health",
+      "Cybersecurity"
+    ]
+  },
+  {
+    "university": "University of Konstanz",
+    "country": "Germany",
+    "city": "Konstanz",
+    "qs_ranking": null,
+    "missing_fields": [
+      "Data Science"
+    ]
+  },
+  {
+    "university": "New York University Abu Dhabi",
+    "country": "UAE",
+    "city": "Abu Dhabi",
+    "qs_ranking": null,
+    "missing_fields": [
+      "Data Science"
+    ]
+  },
+  {
+    "university": "Maastricht University",
+    "country": "Netherlands",
+    "city": "Maastricht",
+    "qs_ranking": 192,
+    "missing_fields": [
+      "Cybersecurity",
+      "Data Science"
+    ]
+  },
+  {
+    "university": "INTI International University",
+    "country": "Malaysia",
+    "city": "Nilai",
+    "qs_ranking": 516,
+    "missing_fields": [
+      "Business Analytics",
+      "Data Science"
+    ]
+  },
+  {
+    "university": "Khalifa University",
+    "country": "UAE",
+    "city": "Abu Dhabi",
+    "qs_ranking": 181,
+    "missing_fields": [
+      "Public Health",
+      "Cybersecurity",
+      "Data Science"
+    ]
+  },
+  {
+    "university": "Victoria University of Wellington",
+    "country": "New Zealand",
+    "city": "Wellington",
+    "qs_ranking": 240,
+    "missing_fields": [
+      "Public Health",
+      "Data Science",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Groningen",
+    "country": "Netherlands",
+    "city": "Groningen",
+    "qs_ranking": 139,
+    "missing_fields": [
+      "International Relations",
+      "Public Health",
+      "Architecture"
+    ]
+  },
+  {
+    "university": "Friedrich-Alexander University Erlangen-Nürnberg",
+    "country": "Germany",
+    "city": "Erlangen",
+    "qs_ranking": 254,
+    "missing_fields": [
+      "Public Health",
+      "Data Science",
+      "Social Sciences & Humanities"
+    ]
+  },
+  {
+    "university": "American University in Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": 621,
+    "missing_fields": [
+      "International Relations",
+      "Artificial Intelligence"
+    ]
+  },
+  {
+    "university": "National University of Ireland Galway",
+    "country": "Ireland",
+    "city": "Galway",
+    "qs_ranking": 421,
+    "missing_fields": [
+      "Public Health",
+      "FinTech",
+      "Cybersecurity",
+      "Business Analytics",
+      "Data Science"
+    ]
+  },
+  {
+    "university": "University of Amsterdam",
+    "country": "Netherlands",
+    "city": "Amsterdam",
+    "qs_ranking": 55,
+    "missing_fields": [
+      "Biomedicine",
+      "Cybersecurity",
+      "Business Analytics",
+      "Data Science"
+    ]
+  },
+  {
+    "university": "University College Dublin",
+    "country": "Ireland",
+    "city": "Dublin",
+    "qs_ranking": 171,
+    "missing_fields": [
+      "Business Analytics",
+      "Data Science",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "National University of Singapore",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": 8,
+    "missing_fields": [
+      "Public Policy & Administration",
+      "Public Health",
+      "FinTech",
+      "Cybersecurity",
+      "Business Analytics",
+      "Data Science"
+    ]
+  },
+  {
+    "university": "Université Paris Cité",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 261,
+    "missing_fields": [
+      "Public Health",
+      "FinTech",
+      "Artificial Intelligence"
+    ]
+  },
+  {
+    "university": "Curtin University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": 174,
+    "missing_fields": [
+      "Cybersecurity",
+      "Artificial Intelligence"
+    ]
+  },
+  {
+    "university": "Canadian University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": 523,
+    "missing_fields": [
+      "FinTech",
+      "Business Analytics",
+      "Artificial Intelligence"
+    ]
+  },
+  {
+    "university": "University of Tübingen",
+    "country": "Germany",
+    "city": "Tübingen",
+    "qs_ranking": 206,
+    "missing_fields": [
+      "Public Policy & Administration",
+      "International Relations",
+      "Biomedicine",
+      "Business Analytics",
+      "Data Science",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "Technical University of Berlin",
+    "country": "Germany",
+    "city": "Berlin",
+    "qs_ranking": 174,
+    "missing_fields": [
+      "Data Science",
+      "Artificial Intelligence"
+    ]
+  },
+  {
+    "university": "Technical University of Munich",
+    "country": "Germany",
+    "city": "Munich",
+    "qs_ranking": 37,
+    "missing_fields": [
+      "Public Health",
+      "FinTech",
+      "Business Analytics",
+      "Artificial Intelligence"
+    ]
+  },
+  {
+    "university": "Massey University",
+    "country": "New Zealand",
+    "city": "Palmerston North",
+    "qs_ranking": 239,
+    "missing_fields": [
+      "Public Health",
+      "FinTech",
+      "Business Analytics",
+      "Nursing & Allied Health",
+      "Social Sciences & Humanities"
+    ]
+  },
+  {
+    "university": "University of Freiburg",
+    "country": "Germany",
+    "city": "Freiburg",
+    "qs_ranking": 213,
+    "missing_fields": [
+      "Public Health",
+      "Data Science",
+      "Artificial Intelligence"
+    ]
+  },
+  {
+    "university": "University of Auckland",
+    "country": "New Zealand",
+    "city": "Auckland",
+    "qs_ranking": 68,
+    "missing_fields": [
+      "Public Health",
+      "FinTech",
+      "Cybersecurity",
+      "Business Analytics",
+      "Data Science",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Galway",
+    "country": "Ireland",
+    "city": "Galway",
+    "qs_ranking": 273,
+    "missing_fields": [
+      "Public Health",
+      "FinTech",
+      "Cybersecurity",
+      "Business Analytics",
+      "Data Science",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Sharjah",
+    "country": "UAE",
+    "city": "Sharjah",
+    "qs_ranking": 426,
+    "missing_fields": [
+      "Public Health",
+      "FinTech",
+      "Cybersecurity",
+      "Business Analytics",
+      "Data Science",
+      "Nursing & Allied Health"
+    ]
+  },
+  {
+    "university": "University of Bremen",
+    "country": "Germany",
+    "city": "Bremen",
+    "qs_ranking": 487,
+    "missing_fields": [
+      "Public Health",
+      "Nursing & Allied Health",
+      "Artificial Intelligence"
+    ]
+  },
+  {
+    "university": "Royal College of Surgeons in Ireland",
+    "country": "Ireland",
+    "city": "Dublin",
+    "qs_ranking": 273,
+    "missing_fields": [
+      "Public Health",
+      "Nursing & Allied Health",
+      "Artificial Intelligence"
+    ]
+  },
+  {
+    "university": "HELP University",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": null,
+    "missing_fields": [
+      "Cybersecurity",
+      "Data Science",
+      "Artificial Intelligence"
+    ]
+  },
+  {
+    "university": "Auckland University of Technology",
+    "country": "New Zealand",
+    "city": "Auckland",
+    "qs_ranking": 412,
+    "missing_fields": [
+      "Public Health",
+      "Cybersecurity",
+      "Nursing & Allied Health",
+      "Artificial Intelligence"
+    ]
+  },
+  {
+    "university": "Singapore Institute of Technology",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "missing_fields": [
+      "Engineering (Mechanical/Civil/Electrical)"
+    ]
+  },
+  {
+    "university": "Goethe University Frankfurt",
+    "country": "Germany",
+    "city": "Frankfurt",
+    "qs_ranking": 360,
+    "missing_fields": [
+      "Medicine",
+      "Environmental & Sustainability Studies"
+    ]
+  },
+  {
+    "university": "Trinity College Dublin",
+    "country": "Ireland",
+    "city": "Dublin",
+    "qs_ranking": 81,
+    "missing_fields": [
+      "Public Health",
+      "Business Analytics",
+      "Data Science",
+      "Nursing & Allied Health",
+      "Architecture"
+    ]
+  },
+  {
+    "university": "BITS Pilani Dubai Campus",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": 801,
+    "missing_fields": [
+      "Business Analytics",
+      "Engineering (Mechanical/Civil/Electrical)"
+    ]
+  },
+  {
+    "university": "SEGi University",
+    "country": "Malaysia",
+    "city": "Petaling Jaya",
+    "qs_ranking": null,
+    "missing_fields": [
+      "Computer Science & IT"
+    ]
+  },
+  {
+    "university": "Swinburne University of Technology Sarawak",
+    "country": "Malaysia",
+    "city": "Kuching",
+    "qs_ranking": 291,
+    "missing_fields": [
+      "Computer Science & IT"
+    ]
+  },
+  {
+    "university": "Universiti Tunku Abdul Rahman",
+    "country": "Malaysia",
+    "city": "Kampar",
+    "qs_ranking": 801,
+    "missing_fields": [
+      "Computer Science & IT"
+    ]
+  },
+  {
+    "university": "École Normale Supérieure (ENS)",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 26,
+    "missing_fields": [
+      "Computer Science & IT"
+    ]
+  },
+  {
+    "university": "Free University of Berlin",
+    "country": "Germany",
+    "city": "Berlin",
+    "qs_ranking": 97,
+    "missing_fields": [
+      "Data Science",
+      "Social Sciences & Humanities",
+      "Environmental & Sustainability Studies"
+    ]
+  },
+  {
+    "university": "Johannes Gutenberg University Mainz",
+    "country": "Germany",
+    "city": "Mainz",
+    "qs_ranking": 410,
+    "missing_fields": [
+      "Public Policy & Administration",
+      "Business & Management"
+    ]
+  },
+  {
+    "university": "Heriot-Watt University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": 274,
+    "missing_fields": [
+      "FinTech",
+      "Cybersecurity",
+      "Business Analytics",
+      "Data Science",
+      "Environmental & Sustainability Studies"
+    ]
+  },
+  {
+    "university": "Sorbonne University",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 41,
+    "missing_fields": [
+      "Public Health",
+      "Cybersecurity",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "University of Strasbourg",
+    "country": "France",
+    "city": "Strasbourg",
+    "qs_ranking": 408,
+    "missing_fields": [
+      "Public Health",
+      "Cybersecurity",
+      "Business Analytics",
+      "Data Science",
+      "Social Sciences & Humanities",
+      "Artificial Intelligence"
+    ]
+  },
+  {
+    "university": "University of Cologne",
+    "country": "Germany",
+    "city": "Cologne",
+    "qs_ranking": 308,
+    "missing_fields": [
+      "Public Health",
+      "Business Analytics",
+      "Data Science",
+      "Social Sciences & Humanities",
+      "Environmental & Sustainability Studies"
+    ]
+  },
+  {
+    "university": "Leiden University",
+    "country": "Netherlands",
+    "city": "Leiden",
+    "qs_ranking": 119,
+    "missing_fields": [
+      "Medicine",
+      "Natural Sciences"
+    ]
+  },
+  {
+    "university": "University of Münster",
+    "country": "Germany",
+    "city": "Münster",
+    "qs_ranking": 314,
+    "missing_fields": [
+      "Data Science",
+      "Computer Science & IT"
+    ]
+  },
+  {
+    "university": "University of Mannheim",
+    "country": "Germany",
+    "city": "Mannheim",
+    "qs_ranking": 412,
+    "missing_fields": [
+      "Business Analytics",
+      "Data Science",
+      "Natural Sciences"
+    ]
+  },
+  {
+    "university": "Atlantic Technological University",
+    "country": "Ireland",
+    "city": "Galway",
+    "qs_ranking": null,
+    "missing_fields": [
+      "FinTech",
+      "Cybersecurity",
+      "Business Analytics",
+      "Data Science",
+      "Medicine",
+      "Artificial Intelligence"
+    ]
+  },
+  {
+    "university": "University of Otago",
+    "country": "New Zealand",
+    "city": "Dunedin",
+    "qs_ranking": 184,
+    "missing_fields": [
+      "Public Health",
+      "Business Analytics",
+      "Nursing & Allied Health",
+      "Architecture",
+      "Artificial Intelligence"
+    ]
+  },
+  {
+    "university": "University of Stuttgart",
+    "country": "Germany",
+    "city": "Stuttgart",
+    "qs_ranking": 312,
+    "missing_fields": [
+      "Social Sciences & Humanities",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "University of Waikato",
+    "country": "New Zealand",
+    "city": "Hamilton",
+    "qs_ranking": 261,
+    "missing_fields": [
+      "Public Health",
+      "Cybersecurity",
+      "Data Science",
+      "Nursing & Allied Health",
+      "Social Sciences & Humanities",
+      "Artificial Intelligence"
+    ]
+  },
+  {
+    "university": "University of Twente",
+    "country": "Netherlands",
+    "city": "Enschede",
+    "qs_ranking": 199,
+    "missing_fields": [
+      "Public Health",
+      "Cybersecurity",
+      "Business Analytics",
+      "Data Science",
+      "Social Sciences & Humanities",
+      "Environmental & Sustainability Studies"
+    ]
+  },
+  {
+    "university": "University of Greifswald",
+    "country": "Germany",
+    "city": "Greifswald",
+    "qs_ranking": null,
+    "missing_fields": [
+      "Data Science",
+      "Social Sciences & Humanities",
+      "Natural Sciences"
+    ]
+  },
+  {
+    "university": "University of Hamburg",
+    "country": "Germany",
+    "city": "Hamburg",
+    "qs_ranking": 191,
+    "missing_fields": [
+      "Public Health",
+      "Social Sciences & Humanities",
+      "Artificial Intelligence",
+      "Environmental & Sustainability Studies"
+    ]
+  },
+  {
+    "university": "University of Canterbury",
+    "country": "New Zealand",
+    "city": "Christchurch",
+    "qs_ranking": 261,
+    "missing_fields": [
+      "Public Health",
+      "Cybersecurity",
+      "Data Science",
+      "Nursing & Allied Health",
+      "Architecture",
+      "Artificial Intelligence"
+    ]
+  },
+  {
+    "university": "RWTH Aachen University",
+    "country": "Germany",
+    "city": "Aachen",
+    "qs_ranking": 99,
+    "missing_fields": [
+      "Data Science",
+      "Social Sciences & Humanities",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "HEC Paris",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 296,
+    "missing_fields": [
+      "Artificial Intelligence",
+      "Business & Management"
+    ]
+  },
+  {
+    "university": "James Cook University Singapore",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": 445,
+    "missing_fields": [
+      "Artificial Intelligence",
+      "Computer Science & IT"
+    ]
+  },
+  {
+    "university": "S P Jain School of Global Management Singapore",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": null,
+    "missing_fields": [
+      "Artificial Intelligence",
+      "Business & Management"
+    ]
+  },
+  {
+    "university": "Nanyang Technological University",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": 15,
+    "missing_fields": [
+      "FinTech",
+      "Cybersecurity",
+      "Business Analytics",
+      "Data Science",
+      "Artificial Intelligence",
+      "Environmental & Sustainability Studies"
+    ]
+  },
+  {
+    "university": "United Arab Emirates University",
+    "country": "UAE",
+    "city": "Al Ain",
+    "qs_ranking": 290,
+    "missing_fields": [
+      "Public Health",
+      "Cybersecurity",
+      "Business Analytics",
+      "Social Sciences & Humanities",
+      "Architecture",
+      "Environmental & Sustainability Studies"
+    ]
+  },
+  {
+    "university": "Lincoln University NZ",
+    "country": "New Zealand",
+    "city": "Christchurch",
+    "qs_ranking": 387,
+    "missing_fields": [
+      "FinTech",
+      "Artificial Intelligence",
+      "Computer Science & IT"
+    ]
+  },
+  {
+    "university": "Universiti Kebangsaan Malaysia",
+    "country": "Malaysia",
+    "city": "Bangi",
+    "qs_ranking": 138,
+    "missing_fields": [
+      "Cybersecurity",
+      "Data Science",
+      "Nursing & Allied Health",
+      "Social Sciences & Humanities",
+      "Medicine",
+      "Artificial Intelligence"
+    ]
+  },
+  {
+    "university": "Universiti Sains Malaysia",
+    "country": "Malaysia",
+    "city": "Penang",
+    "qs_ranking": 146,
+    "missing_fields": [
+      "Public Health",
+      "Cybersecurity",
+      "Business Analytics",
+      "Data Science",
+      "Nursing & Allied Health",
+      "Natural Sciences"
+    ]
+  },
+  {
+    "university": "Université Paris-Saclay",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 71,
+    "missing_fields": [
+      "Public Health",
+      "Cybersecurity",
+      "Data Science",
+      "Social Sciences & Humanities",
+      "Artificial Intelligence",
+      "Environmental & Sustainability Studies"
+    ]
+  },
+  {
+    "university": "PSL Research University",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 24,
+    "missing_fields": [
+      "Public Health",
+      "FinTech",
+      "Data Science",
+      "Social Sciences & Humanities",
+      "Medicine",
+      "Biotechnology & Life Sciences"
+    ]
+  },
+  {
+    "university": "Maynooth University",
+    "country": "Ireland",
+    "city": "Maynooth",
+    "qs_ranking": 851,
+    "missing_fields": [
+      "FinTech",
+      "Business Analytics",
+      "Data Science",
+      "Social Sciences & Humanities",
+      "Artificial Intelligence",
+      "Environmental & Sustainability Studies"
+    ]
+  },
+  {
+    "university": "Manipal Academy of Higher Education Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": null,
+    "missing_fields": [
+      "Cybersecurity",
+      "Data Science",
+      "Environmental & Sustainability Studies",
+      "Biotechnology & Life Sciences"
+    ]
+  },
+  {
+    "university": "Universiti Malaya",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": 65,
+    "missing_fields": [
+      "Public Health",
+      "Cybersecurity",
+      "Data Science",
+      "Nursing & Allied Health",
+      "Social Sciences & Humanities",
+      "Natural Sciences"
+    ]
+  },
+  {
+    "university": "RIT Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": 1001,
+    "missing_fields": [
+      "Cybersecurity",
+      "Data Science",
+      "Environmental & Sustainability Studies",
+      "Engineering (Mechanical/Civil/Electrical)"
+    ]
+  },
+  {
+    "university": "Leibniz University Hannover",
+    "country": "Germany",
+    "city": "Hannover",
+    "qs_ranking": 491,
+    "missing_fields": [
+      "Social Sciences & Humanities",
+      "Artificial Intelligence",
+      "Business & Management"
+    ]
+  },
+  {
+    "university": "Kiel University",
+    "country": "Germany",
+    "city": "Kiel",
+    "qs_ranking": 410,
+    "missing_fields": [
+      "Public Health",
+      "Medicine",
+      "Environmental & Sustainability Studies",
+      "Biotechnology & Life Sciences"
+    ]
+  },
+  {
+    "university": "University College Cork",
+    "country": "Ireland",
+    "city": "Cork",
+    "qs_ranking": 303,
+    "missing_fields": [
+      "Public Health",
+      "Cybersecurity",
+      "Business Analytics",
+      "Nursing & Allied Health",
+      "Artificial Intelligence",
+      "Biotechnology & Life Sciences"
+    ]
+  },
+  {
+    "university": "Curtin University Singapore",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": 174,
+    "missing_fields": [
+      "Cybersecurity",
+      "Data Science",
+      "Artificial Intelligence",
+      "Business & Management"
+    ]
+  },
+  {
+    "university": "Leipzig University",
+    "country": "Germany",
+    "city": "Leipzig",
+    "qs_ranking": 451,
+    "missing_fields": [
+      "Data Science",
+      "Social Sciences & Humanities",
+      "Environmental & Sustainability Studies",
+      "Biotechnology & Life Sciences"
+    ]
+  },
+  {
+    "university": "Munster Technological University",
+    "country": "Ireland",
+    "city": "Cork",
+    "qs_ranking": null,
+    "missing_fields": [
+      "FinTech",
+      "Cybersecurity",
+      "Data Science",
+      "Nursing & Allied Health",
+      "Artificial Intelligence",
+      "Engineering (Mechanical/Civil/Electrical)"
+    ]
+  },
+  {
+    "university": "University of Würzburg",
+    "country": "Germany",
+    "city": "Würzburg",
+    "qs_ranking": 412,
+    "missing_fields": [
+      "Business Analytics",
+      "Data Science",
+      "Environmental & Sustainability Studies",
+      "Business & Management"
+    ]
+  },
+  {
+    "university": "Asia Pacific University of Technology & Innovation",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": 611,
+    "missing_fields": [
+      "FinTech",
+      "Cybersecurity",
+      "Business Analytics",
+      "Data Science",
+      "Artificial Intelligence",
+      "Computer Science & IT"
+    ]
+  },
+  {
+    "university": "Sorbonne Université",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 59,
+    "missing_fields": [
+      "Cybersecurity",
+      "Social Sciences & Humanities",
+      "Environmental & Sustainability Studies",
+      "Business & Management"
+    ]
+  },
+  {
+    "university": "TU Dresden",
+    "country": "Germany",
+    "city": "Dresden",
+    "qs_ranking": 256,
+    "missing_fields": [
+      "International Relations",
+      "Public Health",
+      "Data Science",
+      "Social Sciences & Humanities",
+      "Artificial Intelligence",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "Ulm University",
+    "country": "Germany",
+    "city": "Ulm",
+    "qs_ranking": 339,
+    "missing_fields": [
+      "Business Analytics",
+      "Data Science",
+      "Nursing & Allied Health",
+      "Artificial Intelligence",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "Multimedia University",
+    "country": "Malaysia",
+    "city": "Cyberjaya",
+    "qs_ranking": 711,
+    "missing_fields": [
+      "Computer Science & IT",
+      "Business & Management"
+    ]
+  },
+  {
+    "university": "Singapore University of Technology and Design",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": 440,
+    "missing_fields": [
+      "Cybersecurity",
+      "Data Science",
+      "Social Sciences & Humanities",
+      "Architecture",
+      "Artificial Intelligence",
+      "Environmental & Sustainability Studies"
+    ]
+  },
+  {
+    "university": "University of Nottingham Malaysia",
+    "country": "Malaysia",
+    "city": "Semenyih",
+    "qs_ranking": 108,
+    "missing_fields": [
+      "Computer Science & IT",
+      "Business & Management"
+    ]
+  },
+  {
+    "university": "HAW Hamburg",
+    "country": "Germany",
+    "city": "Hamburg",
+    "qs_ranking": null,
+    "missing_fields": [
+      "Renewable Energy",
+      "Public Health",
+      "Computer Science & IT",
+      "Business & Management"
+    ]
+  },
+  {
+    "university": "Technological University Dublin",
+    "country": "Ireland",
+    "city": "Dublin",
+    "qs_ranking": 691,
+    "missing_fields": [
+      "Cybersecurity",
+      "Data Science",
+      "Medicine",
+      "Architecture",
+      "Artificial Intelligence",
+      "Environmental & Sustainability Studies"
+    ]
+  },
+  {
+    "university": "Abu Dhabi University",
+    "country": "UAE",
+    "city": "Abu Dhabi",
+    "qs_ranking": 801,
+    "missing_fields": [
+      "Public Health",
+      "FinTech",
+      "Cybersecurity",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Business & Management"
+    ]
+  },
+  {
+    "university": "Zayed University",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": 621,
+    "missing_fields": [
+      "Cybersecurity",
+      "Artificial Intelligence",
+      "Environmental & Sustainability Studies",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "Charité – Universitätsmedizin Berlin",
+    "country": "Germany",
+    "city": "Berlin",
+    "qs_ranking": null,
+    "missing_fields": [
+      "Public Health",
+      "Artificial Intelligence",
+      "Biotechnology & Life Sciences",
+      "Natural Sciences"
+    ]
+  },
+  {
+    "university": "École Polytechnique",
+    "country": "France",
+    "city": "Palaiseau",
+    "qs_ranking": 42,
+    "missing_fields": [
+      "Public Policy & Administration",
+      "Cybersecurity",
+      "Data Science",
+      "Artificial Intelligence",
+      "Environmental & Sustainability Studies",
+      "Engineering (Mechanical/Civil/Electrical)"
+    ]
+  },
+  {
+    "university": "IÉSEG School of Management",
+    "country": "France",
+    "city": "Lille",
+    "qs_ranking": null,
+    "missing_fields": [
+      "Cybersecurity",
+      "Business Analytics",
+      "Artificial Intelligence",
+      "Environmental & Sustainability Studies",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "University of Bonn",
+    "country": "Germany",
+    "city": "Bonn",
+    "qs_ranking": 232,
+    "missing_fields": [
+      "Public Health",
+      "Cybersecurity",
+      "Social Sciences & Humanities",
+      "Artificial Intelligence",
+      "Environmental & Sustainability Studies",
+      "Engineering (Mechanical/Civil/Electrical)"
+    ]
+  },
+  {
+    "university": "University of Bordeaux",
+    "country": "France",
+    "city": "Bordeaux",
+    "qs_ranking": 461,
+    "missing_fields": [
+      "Cybersecurity",
+      "Data Science",
+      "Social Sciences & Humanities",
+      "Architecture",
+      "Artificial Intelligence",
+      "Natural Sciences"
+    ]
+  },
+  {
+    "university": "Aix-Marseille University",
+    "country": "France",
+    "city": "Marseille",
+    "qs_ranking": 481,
+    "missing_fields": [
+      "Cybersecurity",
+      "Data Science",
+      "Social Sciences & Humanities",
+      "Artificial Intelligence",
+      "Environmental & Sustainability Studies",
+      "Biotechnology & Life Sciences"
+    ]
+  },
+  {
+    "university": "Martin Luther University Halle-Wittenberg",
+    "country": "Germany",
+    "city": "Halle",
+    "qs_ranking": 671,
+    "missing_fields": [
+      "Data Science",
+      "Nursing & Allied Health",
+      "Social Sciences & Humanities",
+      "Medicine",
+      "Environmental & Sustainability Studies",
+      "Natural Sciences"
+    ]
+  },
+  {
+    "university": "EPF Engineering School",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": null,
+    "missing_fields": [
+      "Public Health",
+      "Cybersecurity",
+      "Architecture",
+      "Artificial Intelligence",
+      "Environmental & Sustainability Studies",
+      "Engineering (Mechanical/Civil/Electrical)"
+    ]
+  },
+  {
+    "university": "Vrije Universiteit Amsterdam",
+    "country": "Netherlands",
+    "city": "Amsterdam",
+    "qs_ranking": 219,
+    "missing_fields": [
+      "Public Health",
+      "Social Sciences & Humanities",
+      "Environmental & Sustainability Studies",
+      "Biotechnology & Life Sciences",
+      "Natural Sciences"
+    ]
+  },
+  {
+    "university": "Heidelberg University",
+    "country": "Germany",
+    "city": "Heidelberg",
+    "qs_ranking": 84,
+    "missing_fields": [
+      "Data Science",
+      "Nursing & Allied Health",
+      "Social Sciences & Humanities",
+      "Artificial Intelligence",
+      "Environmental & Sustainability Studies",
+      "Engineering (Mechanical/Civil/Electrical)"
+    ]
+  },
+  {
+    "university": "TU Darmstadt",
+    "country": "Germany",
+    "city": "Darmstadt",
+    "qs_ranking": 273,
+    "missing_fields": [
+      "Cybersecurity",
+      "Social Sciences & Humanities",
+      "Artificial Intelligence",
+      "Biotechnology & Life Sciences",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "Delft University of Technology",
+    "country": "Netherlands",
+    "city": "Delft",
+    "qs_ranking": 56,
+    "missing_fields": [
+      "Renewable Energy",
+      "Cybersecurity",
+      "Medicine",
+      "Artificial Intelligence",
+      "Biotechnology & Life Sciences",
+      "Business & Management"
+    ]
+  },
+  {
+    "university": "Erasmus University Rotterdam",
+    "country": "Netherlands",
+    "city": "Rotterdam",
+    "qs_ranking": 199,
+    "missing_fields": [
+      "Public Health",
+      "Business Analytics",
+      "Social Sciences & Humanities",
+      "Environmental & Sustainability Studies",
+      "Natural Sciences",
+      "Computer Science & IT"
+    ]
+  },
+  {
+    "university": "Centrale Nantes",
+    "country": "France",
+    "city": "Nantes",
+    "qs_ranking": null,
+    "missing_fields": [
+      "Data Science",
+      "Architecture",
+      "Environmental & Sustainability Studies",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Natural Sciences"
+    ]
+  },
+  {
+    "university": "Hochschule Düsseldorf",
+    "country": "Germany",
+    "city": "Düsseldorf",
+    "qs_ranking": null,
+    "missing_fields": [
+      "Business Analytics",
+      "Architecture",
+      "Environmental & Sustainability Studies",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Computer Science & IT"
+    ]
+  },
+  {
+    "university": "Saarland University",
+    "country": "Germany",
+    "city": "Saarbrücken",
+    "qs_ranking": 521,
+    "missing_fields": [
+      "Cybersecurity",
+      "Social Sciences & Humanities",
+      "Artificial Intelligence",
+      "Environmental & Sustainability Studies",
+      "Biotechnology & Life Sciences",
+      "Engineering (Mechanical/Civil/Electrical)"
+    ]
+  },
+  {
+    "university": "Middlesex University Dubai",
+    "country": "UAE",
+    "city": "Dubai",
+    "qs_ranking": 721,
+    "missing_fields": [
+      "FinTech",
+      "Cybersecurity",
+      "Artificial Intelligence",
+      "Environmental & Sustainability Studies",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Business & Management"
+    ]
+  },
+  {
+    "university": "EM Lyon Business School",
+    "country": "France",
+    "city": "Lyon",
+    "qs_ranking": null,
+    "missing_fields": [
+      "FinTech",
+      "Artificial Intelligence",
+      "Environmental & Sustainability Studies",
+      "Business & Management",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "Frankfurt School of Finance & Management",
+    "country": "Germany",
+    "city": "Frankfurt am Main",
+    "qs_ranking": null,
+    "missing_fields": [
+      "FinTech",
+      "Data Science",
+      "Artificial Intelligence",
+      "Environmental & Sustainability Studies",
+      "Business & Management",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "University of Bayreuth",
+    "country": "Germany",
+    "city": "Bayreuth",
+    "qs_ranking": 527,
+    "missing_fields": [
+      "Public Health",
+      "Social Sciences & Humanities",
+      "Environmental & Sustainability Studies",
+      "Biotechnology & Life Sciences",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Natural Sciences"
+    ]
+  },
+  {
+    "university": "Philipps University of Marburg",
+    "country": "Germany",
+    "city": "Marburg",
+    "qs_ranking": 801,
+    "missing_fields": [
+      "International Relations",
+      "Data Science",
+      "Environmental & Sustainability Studies",
+      "Biotechnology & Life Sciences",
+      "Natural Sciences",
+      "Computer Science & IT"
+    ]
+  },
+  {
+    "university": "Ruhr University Bochum",
+    "country": "Germany",
+    "city": "Bochum",
+    "qs_ranking": 396,
+    "missing_fields": [
+      "Cybersecurity",
+      "Social Sciences & Humanities",
+      "Environmental & Sustainability Studies",
+      "Biotechnology & Life Sciences",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Natural Sciences"
+    ]
+  },
+  {
+    "university": "FH Aachen",
+    "country": "Germany",
+    "city": "Aachen",
+    "qs_ranking": null,
+    "missing_fields": [
+      "Renewable Energy",
+      "Architecture",
+      "Artificial Intelligence",
+      "Biotechnology & Life Sciences",
+      "Natural Sciences",
+      "Computer Science & IT"
+    ]
+  },
+  {
+    "university": "American University of Sharjah",
+    "country": "UAE",
+    "city": "Sharjah",
+    "qs_ranking": 347,
+    "missing_fields": [
+      "Data Science",
+      "Social Sciences & Humanities",
+      "Artificial Intelligence",
+      "Biotechnology & Life Sciences",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Computer Science & IT"
+    ]
+  },
+  {
+    "university": "Mines ParisTech (PSL)",
+    "country": "France",
+    "city": "Paris",
+    "qs_ranking": 56,
+    "missing_fields": [
+      "Social Sciences & Humanities",
+      "Artificial Intelligence",
+      "Natural Sciences",
+      "Computer Science & IT",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "Universiti Putra Malaysia",
+    "country": "Malaysia",
+    "city": "Serdang",
+    "qs_ranking": 148,
+    "missing_fields": [
+      "Public Health",
+      "Social Sciences & Humanities",
+      "Artificial Intelligence",
+      "Natural Sciences",
+      "Business & Management",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "UCSI University",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": 271,
+    "missing_fields": [
+      "Architecture",
+      "Environmental & Sustainability Studies",
+      "Biotechnology & Life Sciences",
+      "Natural Sciences",
+      "Computer Science & IT"
+    ]
+  },
+  {
+    "university": "International Islamic University Malaysia",
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "qs_ranking": 661,
+    "missing_fields": [
+      "Social Sciences & Humanities",
+      "Architecture",
+      "Artificial Intelligence",
+      "Environmental & Sustainability Studies",
+      "Computer Science & IT",
+      "Business & Management"
+    ]
+  },
+  {
+    "university": "University of Augsburg",
+    "country": "Germany",
+    "city": "Augsburg",
+    "qs_ranking": null,
+    "missing_fields": [
+      "Data Science",
+      "Social Sciences & Humanities",
+      "Environmental & Sustainability Studies",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Natural Sciences",
+      "Computer Science & IT"
+    ]
+  },
+  {
+    "university": "Friedrich Schiller University Jena",
+    "country": "Germany",
+    "city": "Jena",
+    "qs_ranking": 526,
+    "missing_fields": [
+      "Data Science",
+      "Biotechnology & Life Sciences",
+      "Natural Sciences",
+      "Computer Science & IT",
+      "Business & Management"
+    ]
+  },
+  {
+    "university": "University of Rostock",
+    "country": "Germany",
+    "city": "Rostock",
+    "qs_ranking": 801,
+    "missing_fields": [
+      "Social Sciences & Humanities",
+      "Artificial Intelligence",
+      "Environmental & Sustainability Studies",
+      "Biotechnology & Life Sciences",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Computer Science & IT"
+    ]
+  },
+  {
+    "university": "Singapore Management University",
+    "country": "Singapore",
+    "city": "Singapore",
+    "qs_ranking": 545,
+    "missing_fields": [
+      "FinTech",
+      "Artificial Intelligence",
+      "Environmental & Sustainability Studies",
+      "Computer Science & IT",
+      "Business & Management",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "HTW Berlin",
+    "country": "Germany",
+    "city": "Berlin",
+    "qs_ranking": null,
+    "missing_fields": [
+      "Data Science",
+      "Environmental & Sustainability Studies",
+      "Biotechnology & Life Sciences",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Computer Science & IT",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "Justus Liebig University Giessen",
+    "country": "Germany",
+    "city": "Giessen",
+    "qs_ranking": 691,
+    "missing_fields": [
+      "Data Science",
+      "Environmental & Sustainability Studies",
+      "Biotechnology & Life Sciences",
+      "Natural Sciences",
+      "Business & Management",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "Heinrich Heine University Düsseldorf",
+    "country": "Germany",
+    "city": "Düsseldorf",
+    "qs_ranking": 851,
+    "missing_fields": [
+      "Biomedicine",
+      "Artificial Intelligence",
+      "Natural Sciences",
+      "Computer Science & IT",
+      "Business & Management",
+      "Economics & Finance"
+    ]
+  },
+  {
+    "university": "Taylor's University",
+    "country": "Malaysia",
+    "city": "Subang Jaya",
+    "qs_ranking": 251,
+    "missing_fields": [
+      "Architecture",
+      "Artificial Intelligence",
+      "Engineering (Mechanical/Civil/Electrical)",
+      "Natural Sciences",
+      "Computer Science & IT",
+      "Business & Management"
+    ]
+  }
+]
