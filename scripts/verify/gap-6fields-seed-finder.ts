@@ -161,7 +161,7 @@ async function main() {
   LEVEL = get("level") === "ug" ? "ug" : "pg";
   const limit = get("limit") ? parseInt(get("limit")!, 10) : Infinity;
   if (!queuePath || !outPath || !isFinite(budget) || budget <= 0) {
-    console.error("Need --queue <file> --out <file> --budget-usd <n> [--limit N] [--level ug|pg]");
+    console.error("Need --queue <file> --out <file> --budget-usd <n> [--limit N] [--level ug|pg] [--timeout-min N]");
     process.exit(1);
   }
   const progressPath = outPath.replace(/\.json$/, "-progress.json");
@@ -177,7 +177,11 @@ async function main() {
   console.log(`Level: ${LEVEL.toUpperCase()} · ${ALLOWED_FIELDS.size} fields in scope.`);
   console.log(`Gap seed-finding: ${queue.length} unis to process, $${progress.spent_usd.toFixed(2)} already spent, budget $${budget}.`);
 
-  const client = new Anthropic();
+  // 22 unis timed out on the first UG pass — all field-heavy (5-6 missing
+  // fields → 4 searches + ~60k input tokens), exceeding the SDK's 10-min
+  // default. --timeout-min raises it for the retry pass. (14 Jul 2026)
+  const timeoutMin = parseFloat(get("timeout-min") ?? "10");
+  const client = new Anthropic({ timeout: timeoutMin * 60 * 1000 });
   let processed = progress.done.length;
   let stopped = false;
 

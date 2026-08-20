@@ -582,5 +582,1309 @@
   "qs_ranking": null,
   "field_of_study": "Business & Management",
   "program_url": "https://www.spjain.sg/programs/undergraduate/bba"
+ },
+ {
+  "university": "Nanyang Technological University",
+  "country": "Singapore",
+  "city": "Singapore",
+  "qs_ranking": 15,
+  "field_of_study": "FinTech",
+  "program_url": "https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-applied-computing-in-finance"
+ },
+ {
+  "university": "Nanyang Technological University",
+  "country": "Singapore",
+  "city": "Singapore",
+  "qs_ranking": 15,
+  "field_of_study": "Data Science",
+  "program_url": "https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-science-in-data-science-artificial-intelligence"
+ },
+ {
+  "university": "Nanyang Technological University",
+  "country": "Singapore",
+  "city": "Singapore",
+  "qs_ranking": 15,
+  "field_of_study": "Artificial Intelligence",
+  "program_url": "https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-computing-hons-in-artificial-intelligence-and-society"
+ },
+ {
+  "university": "Nanyang Technological University",
+  "country": "Singapore",
+  "city": "Singapore",
+  "qs_ranking": 15,
+  "field_of_study": "Environmental & Sustainability Studies",
+  "program_url": "https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-science-in-environmental-earth-systems-science"
+ },
+ {
+  "university": "University of Hamburg",
+  "country": "Germany",
+  "city": "Hamburg",
+  "qs_ranking": 191,
+  "field_of_study": "Social Sciences & Humanities",
+  "program_url": "https://www.wiso.uni-hamburg.de/studienbuero-sozialwissenschaften/studiengaenge/ba-soziologie-hauptfach.html"
+ },
+ {
+  "university": "University of Hamburg",
+  "country": "Germany",
+  "city": "Hamburg",
+  "qs_ranking": 191,
+  "field_of_study": "Environmental & Sustainability Studies",
+  "program_url": "https://www.geo.uni-hamburg.de/en/studiengang-geowiss/b-sc-geowissenschaften.html"
+ },
+ {
+  "university": "University of Canterbury",
+  "country": "New Zealand",
+  "city": "Christchurch",
+  "qs_ranking": 261,
+  "field_of_study": "Public Health",
+  "program_url": "https://www.canterbury.ac.nz/study/academic-study/health/bachelor-of-health"
+ },
+ {
+  "university": "University of Canterbury",
+  "country": "New Zealand",
+  "city": "Christchurch",
+  "qs_ranking": 261,
+  "field_of_study": "Data Science",
+  "program_url": "https://www.canterbury.ac.nz/study/academic-study/qualifications/bachelor-of-data-science"
+ },
+ {
+  "university": "Universiti Sains Malaysia",
+  "country": "Malaysia",
+  "city": "Penang",
+  "qs_ranking": 146,
+  "field_of_study": "Nursing & Allied Health",
+  "program_url": "https://admission.usm.my/index.php/course-ug/us6723001-sarjana-muda-kejururawatan-kepujian-upu"
+ },
+ {
+  "university": "Universiti Sains Malaysia",
+  "country": "Malaysia",
+  "city": "Penang",
+  "qs_ranking": 146,
+  "field_of_study": "Natural Sciences",
+  "program_url": "https://admission.usm.my/index.php/undergraduate/undergraduate-malaysian?view=article&id=643&catid=66"
+ },
+ {
+  "university": "Maynooth University",
+  "country": "Ireland",
+  "city": "Maynooth",
+  "qs_ranking": 851,
+  "field_of_study": "Data Science",
+  "program_url": "https://www.maynoothuniversity.ie/study-maynooth/undergraduate-studies/courses/bsc-bachelor-data-science"
+ },
+ {
+  "university": "Maynooth University",
+  "country": "Ireland",
+  "city": "Maynooth",
+  "qs_ranking": 851,
+  "field_of_study": "Social Sciences & Humanities",
+  "program_url": "https://www.maynoothuniversity.ie/study-maynooth/undergraduate-studies/courses/bachelor-social-science"
+ },
+ {
+  "university": "Maynooth University",
+  "country": "Ireland",
+  "city": "Maynooth",
+  "qs_ranking": 851,
+  "field_of_study": "Environmental & Sustainability Studies",
+  "program_url": "https://www.maynoothuniversity.ie/study-maynooth/undergraduate-studies/courses/bsc-biological-and-geographical-sciences"
+ },
+ {
+  "university": "RIT Dubai",
+  "country": "UAE",
+  "city": "Dubai",
+  "qs_ranking": 1001,
+  "field_of_study": "Cybersecurity",
+  "program_url": "https://www.rit.edu/dubai/bachelor-science-cybersecurity"
+ },
+ {
+  "university": "RIT Dubai",
+  "country": "UAE",
+  "city": "Dubai",
+  "qs_ranking": 1001,
+  "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+  "program_url": "https://www.rit.edu/dubai/bachelor-science-electrical-engineering"
+ },
+ {
+  "university": "Manipal Academy of Higher Education Dubai",
+  "country": "UAE",
+  "city": "Dubai",
+  "qs_ranking": null,
+  "field_of_study": "Data Science",
+  "program_url": "https://www.manipaldubai.com/programs/b-tech-data-science-engineering"
+ },
+ {
+  "university": "Manipal Academy of Higher Education Dubai",
+  "country": "UAE",
+  "city": "Dubai",
+  "qs_ranking": null,
+  "field_of_study": "Biotechnology & Life Sciences",
+  "program_url": "https://www.manipaldubai.com/programs/bachelor-of-science-b-sc-biotechnology"
+ },
+ {
+  "university": "Leibniz University Hannover",
+  "country": "Germany",
+  "city": "Hannover",
+  "qs_ranking": 491,
+  "field_of_study": "Social Sciences & Humanities",
+  "program_url": "https://www.uni-hannover.de/en/studium/studienangebot/info/studiengang/detail/social-sciences"
+ },
+ {
+  "university": "Leibniz University Hannover",
+  "country": "Germany",
+  "city": "Hannover",
+  "qs_ranking": 491,
+  "field_of_study": "Business & Management",
+  "program_url": "https://www.uni-hannover.de/en/studium/studienangebot/info/studiengang/detail/economics-and-management-1"
+ },
+ {
+  "university": "University College Cork",
+  "country": "Ireland",
+  "city": "Cork",
+  "qs_ranking": 303,
+  "field_of_study": "Public Health",
+  "program_url": "https://www.ucc.ie/en/ck706/"
+ },
+ {
+  "university": "University College Cork",
+  "country": "Ireland",
+  "city": "Cork",
+  "qs_ranking": 303,
+  "field_of_study": "Nursing & Allied Health",
+  "program_url": "https://www.ucc.ie/en/ck710/"
+ },
+ {
+  "university": "University College Cork",
+  "country": "Ireland",
+  "city": "Cork",
+  "qs_ranking": 303,
+  "field_of_study": "Artificial Intelligence",
+  "program_url": "https://www.ucc.ie/en/ck411/"
+ },
+ {
+  "university": "University College Cork",
+  "country": "Ireland",
+  "city": "Cork",
+  "qs_ranking": 303,
+  "field_of_study": "Biotechnology & Life Sciences",
+  "program_url": "https://www.ucc.ie/en/ck402/biotech/"
+ },
+ {
+  "university": "Curtin University Singapore",
+  "country": "Singapore",
+  "city": "Singapore",
+  "qs_ranking": 174,
+  "field_of_study": "Cybersecurity",
+  "program_url": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-computing-cyber-security/"
+ },
+ {
+  "university": "Curtin University Singapore",
+  "country": "Singapore",
+  "city": "Singapore",
+  "qs_ranking": 174,
+  "field_of_study": "Business & Management",
+  "program_url": "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/management/"
+ },
+ {
+  "university": "Munster Technological University",
+  "country": "Ireland",
+  "city": "Cork",
+  "qs_ranking": null,
+  "field_of_study": "Cybersecurity",
+  "program_url": "https://www.mtu.ie/courses/mt805/"
+ },
+ {
+  "university": "Munster Technological University",
+  "country": "Ireland",
+  "city": "Cork",
+  "qs_ranking": null,
+  "field_of_study": "Nursing & Allied Health",
+  "program_url": "https://www.mtu.ie/courses/mt926/"
+ },
+ {
+  "university": "Munster Technological University",
+  "country": "Ireland",
+  "city": "Cork",
+  "qs_ranking": null,
+  "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+  "program_url": "https://www.mtu.ie/courses/mt836/"
+ },
+ {
+  "university": "Kiel University",
+  "country": "Germany",
+  "city": "Kiel",
+  "qs_ranking": 410,
+  "field_of_study": "Medicine",
+  "program_url": "https://www.studium.uni-kiel.de/de/studienangebot/studienfaecher/medizin"
+ },
+ {
+  "university": "Kiel University",
+  "country": "Germany",
+  "city": "Kiel",
+  "qs_ranking": 410,
+  "field_of_study": "Biotechnology & Life Sciences",
+  "program_url": "https://www.studium.uni-kiel.de/de/studienangebot/studienfaecher/biochemie-molekularbiologie-ba"
+ },
+ {
+  "university": "Asia Pacific University of Technology & Innovation",
+  "country": "Malaysia",
+  "city": "Kuala Lumpur",
+  "qs_ranking": 611,
+  "field_of_study": "FinTech",
+  "program_url": "https://www.apu.edu.my/course/bachelor-of-financial-technology"
+ },
+ {
+  "university": "Asia Pacific University of Technology & Innovation",
+  "country": "Malaysia",
+  "city": "Kuala Lumpur",
+  "qs_ranking": 611,
+  "field_of_study": "Cybersecurity",
+  "program_url": "https://www.apu.edu.my/course/bsc-hons-in-computer-science-cyber-security"
+ },
+ {
+  "university": "Asia Pacific University of Technology & Innovation",
+  "country": "Malaysia",
+  "city": "Kuala Lumpur",
+  "qs_ranking": 611,
+  "field_of_study": "Business Analytics",
+  "program_url": "https://new.apu.edu.my/course/bachelor-of-arts-business-management-business-analytics"
+ },
+ {
+  "university": "Asia Pacific University of Technology & Innovation",
+  "country": "Malaysia",
+  "city": "Kuala Lumpur",
+  "qs_ranking": 611,
+  "field_of_study": "Data Science",
+  "program_url": "https://www.apu.edu.my/course/bsc-hons-in-computer-science-data-analytics"
+ },
+ {
+  "university": "Asia Pacific University of Technology & Innovation",
+  "country": "Malaysia",
+  "city": "Kuala Lumpur",
+  "qs_ranking": 611,
+  "field_of_study": "Artificial Intelligence",
+  "program_url": "https://www.apu.edu.my/course/bsc-hons-in-computer-science-ai"
+ },
+ {
+  "university": "Asia Pacific University of Technology & Innovation",
+  "country": "Malaysia",
+  "city": "Kuala Lumpur",
+  "qs_ranking": 611,
+  "field_of_study": "Computer Science & IT",
+  "program_url": "https://www.apu.edu.my/course/bachelor-information-technology-fintech"
+ },
+ {
+  "university": "Sorbonne Université",
+  "country": "France",
+  "city": "Paris",
+  "qs_ranking": 59,
+  "field_of_study": "Social Sciences & Humanities",
+  "program_url": "https://formations-lettres.sorbonne-universite.fr/fr/index/licence-XA/sciences-humaines-et-sociales-SHS/licence-sociologie-LSOCI1L_601.html"
+ },
+ {
+  "university": "Sorbonne Université",
+  "country": "France",
+  "city": "Paris",
+  "qs_ranking": 59,
+  "field_of_study": "Environmental & Sustainability Studies",
+  "program_url": "https://ite.sorbonne-universite.fr/la-formation-2/licence"
+ },
+ {
+  "university": "University of Würzburg",
+  "country": "Germany",
+  "city": "Würzburg",
+  "qs_ranking": 412,
+  "field_of_study": "Data Science",
+  "program_url": "https://www.informatik.uni-wuerzburg.de/en/studies/degree-programmes/bachelor-artificial-intelligence-and-data-science/"
+ },
+ {
+  "university": "University of Würzburg",
+  "country": "Germany",
+  "city": "Würzburg",
+  "qs_ranking": 412,
+  "field_of_study": "Business & Management",
+  "program_url": "https://wiwi.uni-wuerzburg.de/en/study/bachelor/business-management-and-economics"
+ },
+ {
+  "university": "Leipzig University",
+  "country": "Germany",
+  "city": "Leipzig",
+  "qs_ranking": 451,
+  "field_of_study": "Social Sciences & Humanities",
+  "program_url": "https://www.uni-leipzig.de/studium/vor-dem-studium/studienangebot/studiengang/course/show/soziologie-b-a"
+ },
+ {
+  "university": "Leipzig University",
+  "country": "Germany",
+  "city": "Leipzig",
+  "qs_ranking": 451,
+  "field_of_study": "Biotechnology & Life Sciences",
+  "program_url": "https://www.uni-leipzig.de/studium/vor-dem-studium/studienangebot/studiengang/course/show/biochemie-b-sc"
+ },
+ {
+  "university": "Multimedia University",
+  "country": "Malaysia",
+  "city": "Cyberjaya",
+  "qs_ranking": 711,
+  "field_of_study": "Computer Science & IT",
+  "program_url": "https://www.mmu.edu.my/programmes-by-faculty-all/programmes-by-faculty-fci/bachelor-of-computer-science-hons/"
+ },
+ {
+  "university": "Multimedia University",
+  "country": "Malaysia",
+  "city": "Cyberjaya",
+  "qs_ranking": 711,
+  "field_of_study": "Business & Management",
+  "program_url": "https://www.mmu.edu.my/programmes-by-faculty-all/programmes-by-faculty-fob/bachelor-of-business-administration-digital-business-managementkn/"
+ },
+ {
+  "university": "Ulm University",
+  "country": "Germany",
+  "city": "Ulm",
+  "qs_ranking": 339,
+  "field_of_study": "Economics & Finance",
+  "program_url": "https://www.uni-ulm.de/mawi/mathematik-und-wirtschaftswissenschaften/studium-und-lehre/studiengaenge-2/studiengang/course/wirtschaftswissenschaften-bachelor/"
+ },
+ {
+  "university": "University of Nottingham Malaysia",
+  "country": "Malaysia",
+  "city": "Semenyih",
+  "qs_ranking": 108,
+  "field_of_study": "Computer Science & IT",
+  "program_url": "https://www.nottingham.edu.my/ugstudy/course/computer-science-bsc-hons"
+ },
+ {
+  "university": "University of Nottingham Malaysia",
+  "country": "Malaysia",
+  "city": "Semenyih",
+  "qs_ranking": 108,
+  "field_of_study": "Business & Management",
+  "program_url": "https://www.nottingham.edu.my/ugstudy/course/international-business-management-bsc-hons"
+ },
+ {
+  "university": "HAW Hamburg",
+  "country": "Germany",
+  "city": "Hamburg",
+  "qs_ranking": null,
+  "field_of_study": "Renewable Energy",
+  "program_url": "https://www.haw-hamburg.de/en/bachelor-renewable-energy-systems/"
+ },
+ {
+  "university": "HAW Hamburg",
+  "country": "Germany",
+  "city": "Hamburg",
+  "qs_ranking": null,
+  "field_of_study": "Computer Science & IT",
+  "program_url": "https://www.haw-hamburg.de/en/bachelor-applied-computer-science/"
+ },
+ {
+  "university": "HAW Hamburg",
+  "country": "Germany",
+  "city": "Hamburg",
+  "qs_ranking": null,
+  "field_of_study": "Business & Management",
+  "program_url": "https://www.haw-hamburg.de/en/bachelor-international-business/"
+ },
+ {
+  "university": "Abu Dhabi University",
+  "country": "UAE",
+  "city": "Abu Dhabi",
+  "qs_ranking": 801,
+  "field_of_study": "Public Health",
+  "program_url": "https://www.adu.ac.ae/study/colleges/college-of-health-sciences/programs/ProgramDetail/bachelor-of-science-in-public-health"
+ },
+ {
+  "university": "Abu Dhabi University",
+  "country": "UAE",
+  "city": "Abu Dhabi",
+  "qs_ranking": 801,
+  "field_of_study": "FinTech",
+  "program_url": "https://www.adu.ac.ae/study/colleges/college-of-business/ProgramDetail/bachelor-of-business-administration-with-concentration-in-finance"
+ },
+ {
+  "university": "Abu Dhabi University",
+  "country": "UAE",
+  "city": "Abu Dhabi",
+  "qs_ranking": 801,
+  "field_of_study": "Cybersecurity",
+  "program_url": "https://www.adu.ac.ae/study/colleges/college-of-engineering/ProgramDetail/bachelor-of-science-in-cybersecurity-engineering"
+ },
+ {
+  "university": "Abu Dhabi University",
+  "country": "UAE",
+  "city": "Abu Dhabi",
+  "qs_ranking": 801,
+  "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+  "program_url": "https://www.adu.ac.ae/study/colleges/college-of-engineering/ProgramDetail/bachelor-of-science-in-mechanical-engineering"
+ },
+ {
+  "university": "Abu Dhabi University",
+  "country": "UAE",
+  "city": "Abu Dhabi",
+  "qs_ranking": 801,
+  "field_of_study": "Business & Management",
+  "program_url": "https://www.adu.ac.ae/study/colleges/college-of-business/ProgramDetail/bachelor-of-business-administration"
+ },
+ {
+  "university": "Charité – Universitätsmedizin Berlin",
+  "country": "Germany",
+  "city": "Berlin",
+  "qs_ranking": null,
+  "field_of_study": "Public Health",
+  "program_url": "https://bhs.charite.de/en/about_the_study_program/"
+ },
+ {
+  "university": "University of Bonn",
+  "country": "Germany",
+  "city": "Bonn",
+  "qs_ranking": 232,
+  "field_of_study": "Cybersecurity",
+  "program_url": "https://www.uni-bonn.de/en/studying/degree-programs/degree-programs-a-z/cyber-security-bsc"
+ },
+ {
+  "university": "University of Bonn",
+  "country": "Germany",
+  "city": "Bonn",
+  "qs_ranking": 232,
+  "field_of_study": "Social Sciences & Humanities",
+  "program_url": "https://www.uni-bonn.de/en/studying/degree-programs/degree-programs-a-z/social-sciences-blgg"
+ },
+ {
+  "university": "EPF Engineering School",
+  "country": "France",
+  "city": "Paris",
+  "qs_ranking": null,
+  "field_of_study": "Artificial Intelligence",
+  "program_url": "https://www.epf.fr/en/formations/major-intelligent-systems-and-digital-technologies"
+ },
+ {
+  "university": "EPF Engineering School",
+  "country": "France",
+  "city": "Paris",
+  "qs_ranking": null,
+  "field_of_study": "Environmental & Sustainability Studies",
+  "program_url": "https://www.epf.fr/en/formations/major-aeronautical-naval-industries"
+ },
+ {
+  "university": "EPF Engineering School",
+  "country": "France",
+  "city": "Paris",
+  "qs_ranking": null,
+  "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+  "program_url": "https://www.epf.fr/en/formations/general-engineering-degrees"
+ },
+ {
+  "university": "Heidelberg University",
+  "country": "Germany",
+  "city": "Heidelberg",
+  "qs_ranking": 84,
+  "field_of_study": "Nursing & Allied Health",
+  "program_url": "https://www.uni-heidelberg.de/en/study/all-subjects/interprofessional-health-care/interprofessional-health-care-bachelor-100"
+ },
+ {
+  "university": "Heidelberg University",
+  "country": "Germany",
+  "city": "Heidelberg",
+  "qs_ranking": 84,
+  "field_of_study": "Social Sciences & Humanities",
+  "program_url": "https://www.uni-heidelberg.de/en/study/all-subjects/political-science/political-science-bachelor-50"
+ },
+ {
+  "university": "Heidelberg University",
+  "country": "Germany",
+  "city": "Heidelberg",
+  "qs_ranking": 84,
+  "field_of_study": "Environmental & Sustainability Studies",
+  "program_url": "https://www.uni-heidelberg.de/en/study/all-subjects/earth-sciences/earth-sciences-bachelor-100"
+ },
+ {
+  "university": "Vrije Universiteit Amsterdam",
+  "country": "Netherlands",
+  "city": "Amsterdam",
+  "qs_ranking": 219,
+  "field_of_study": "Social Sciences & Humanities",
+  "program_url": "https://vu.nl/en/education/bachelor/political-science-global-politics"
+ },
+ {
+  "university": "Vrije Universiteit Amsterdam",
+  "country": "Netherlands",
+  "city": "Amsterdam",
+  "qs_ranking": 219,
+  "field_of_study": "Biotechnology & Life Sciences",
+  "program_url": "https://vu.nl/en/education/bachelor/biomedical-sciences"
+ },
+ {
+  "university": "Erasmus University Rotterdam",
+  "country": "Netherlands",
+  "city": "Rotterdam",
+  "qs_ranking": 199,
+  "field_of_study": "Public Health",
+  "program_url": "https://www.eur.nl/en/eshpm/education/bachelor"
+ },
+ {
+  "university": "Erasmus University Rotterdam",
+  "country": "Netherlands",
+  "city": "Rotterdam",
+  "qs_ranking": 199,
+  "field_of_study": "Social Sciences & Humanities",
+  "program_url": "https://www.eur.nl/en/bachelor/international-bachelor-communication-and-media"
+ },
+ {
+  "university": "TU Darmstadt",
+  "country": "Germany",
+  "city": "Darmstadt",
+  "qs_ranking": 273,
+  "field_of_study": "Social Sciences & Humanities",
+  "program_url": "https://www.tu-darmstadt.de/studieren/studieninteressierte/studienangebot_studiengaenge/studiengang_194304.en.jsp"
+ },
+ {
+  "university": "TU Darmstadt",
+  "country": "Germany",
+  "city": "Darmstadt",
+  "qs_ranking": 273,
+  "field_of_study": "Biotechnology & Life Sciences",
+  "program_url": "https://www.tu-darmstadt.de/studieren/studieninteressierte/studienangebot_studiengaenge/studiengang_179584.de.jsp"
+ },
+ {
+  "university": "TU Darmstadt",
+  "country": "Germany",
+  "city": "Darmstadt",
+  "qs_ranking": 273,
+  "field_of_study": "Economics & Finance",
+  "program_url": "https://www.tu-darmstadt.de/studieren/studieninteressierte/studienangebot_studiengaenge/studiengang_194496.en.jsp"
+ },
+ {
+  "university": "Hochschule Düsseldorf",
+  "country": "Germany",
+  "city": "Düsseldorf",
+  "qs_ranking": null,
+  "field_of_study": "Architecture",
+  "program_url": "https://www.hs-duesseldorf.de/studium/angebot/bachelor-architektur-innenarchitektur"
+ },
+ {
+  "university": "Hochschule Düsseldorf",
+  "country": "Germany",
+  "city": "Düsseldorf",
+  "qs_ranking": null,
+  "field_of_study": "Environmental & Sustainability Studies",
+  "program_url": "https://mv.hs-duesseldorf.de/study-programmes/environmental-engineering"
+ },
+ {
+  "university": "Hochschule Düsseldorf",
+  "country": "Germany",
+  "city": "Düsseldorf",
+  "qs_ranking": null,
+  "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+  "program_url": "https://www.hs-duesseldorf.de/studium/angebot/bachelor-maschinenbau-produktionstechnik"
+ },
+ {
+  "university": "Hochschule Düsseldorf",
+  "country": "Germany",
+  "city": "Düsseldorf",
+  "qs_ranking": null,
+  "field_of_study": "Computer Science & IT",
+  "program_url": "https://www.hs-duesseldorf.de/studium/angebot/bachelor-medieninformatik"
+ },
+ {
+  "university": "Saarland University",
+  "country": "Germany",
+  "city": "Saarbrücken",
+  "qs_ranking": 521,
+  "field_of_study": "Cybersecurity",
+  "program_url": "https://www.uni-saarland.de/en/study/programmes/bachelor/cybersecurity-english.html"
+ },
+ {
+  "university": "Saarland University",
+  "country": "Germany",
+  "city": "Saarbrücken",
+  "qs_ranking": 521,
+  "field_of_study": "Social Sciences & Humanities",
+  "program_url": "https://www.uni-saarland.de/en/study/programmes/bachelor/european-geographies.html"
+ },
+ {
+  "university": "Centrale Nantes",
+  "country": "France",
+  "city": "Nantes",
+  "qs_ranking": null,
+  "field_of_study": "Data Science",
+  "program_url": "https://www.ec-nantes.fr/study/undergraduate/bba-data-ai-management-1"
+ },
+ {
+  "university": "Centrale Nantes",
+  "country": "France",
+  "city": "Nantes",
+  "qs_ranking": null,
+  "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+  "program_url": "https://www.ec-nantes.fr/study/undergraduate/bachelor-of-science-in-engineering"
+ },
+ {
+  "university": "Frankfurt School of Finance & Management",
+  "country": "Germany",
+  "city": "Frankfurt am Main",
+  "qs_ranking": null,
+  "field_of_study": "Business & Management",
+  "program_url": "https://www.frankfurt-school.de/en/study/bachelor/bachelor-science/bachelor-in-business-administration"
+ },
+ {
+  "university": "Frankfurt School of Finance & Management",
+  "country": "Germany",
+  "city": "Frankfurt am Main",
+  "qs_ranking": null,
+  "field_of_study": "Data Science",
+  "program_url": "https://www.frankfurt-school.de/en/study/bachelor/bachelor-science/bachelor-computational-business-analytics"
+ },
+ {
+  "university": "Frankfurt School of Finance & Management",
+  "country": "Germany",
+  "city": "Frankfurt am Main",
+  "qs_ranking": null,
+  "field_of_study": "Economics & Finance",
+  "program_url": "https://www.frankfurt-school.de/home/programmes/bachelor/bachelor-science/bsc-managementphilosophyeconomics"
+ },
+ {
+  "university": "EM Lyon Business School",
+  "country": "France",
+  "city": "Lyon",
+  "qs_ranking": null,
+  "field_of_study": "Business & Management",
+  "program_url": "https://em-lyon.com/en/student/bachelor/global-bba"
+ },
+ {
+  "university": "EM Lyon Business School",
+  "country": "France",
+  "city": "Lyon",
+  "qs_ranking": null,
+  "field_of_study": "Artificial Intelligence",
+  "program_url": "https://em-lyon.com/en/student/bachelor/bsc-data-science"
+ },
+ {
+  "university": "Delft University of Technology",
+  "country": "Netherlands",
+  "city": "Delft",
+  "qs_ranking": 56,
+  "field_of_study": "Artificial Intelligence",
+  "program_url": "https://www.tudelft.nl/en/onderwijs/opleidingen/bachelors/computer-science-and-engineering/bachelor-of-computer-science-and-engineering/about-the-programme"
+ },
+ {
+  "university": "University of Bayreuth",
+  "country": "Germany",
+  "city": "Bayreuth",
+  "qs_ranking": 527,
+  "field_of_study": "Public Health",
+  "program_url": "https://www.uni-bayreuth.de/en/bachelor/food-and-health-sciences"
+ },
+ {
+  "university": "University of Bayreuth",
+  "country": "Germany",
+  "city": "Bayreuth",
+  "qs_ranking": 527,
+  "field_of_study": "Social Sciences & Humanities",
+  "program_url": "https://www.uni-bayreuth.de/en/bachelor/african-studies-language-arts-philosophy"
+ },
+ {
+  "university": "University of Bayreuth",
+  "country": "Germany",
+  "city": "Bayreuth",
+  "qs_ranking": 527,
+  "field_of_study": "Environmental & Sustainability Studies",
+  "program_url": "https://www.uni-bayreuth.de/en/bachelor/ecology-and-environmental-sciences"
+ },
+ {
+  "university": "University of Bayreuth",
+  "country": "Germany",
+  "city": "Bayreuth",
+  "qs_ranking": 527,
+  "field_of_study": "Biotechnology & Life Sciences",
+  "program_url": "https://www.uni-bayreuth.de/en/bachelor/biochemistry"
+ },
+ {
+  "university": "University of Bayreuth",
+  "country": "Germany",
+  "city": "Bayreuth",
+  "qs_ranking": 527,
+  "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+  "program_url": "https://www.uni-bayreuth.de/en/bachelor/electrical-engineering-and-information-system-technology"
+ },
+ {
+  "university": "University of Bayreuth",
+  "country": "Germany",
+  "city": "Bayreuth",
+  "qs_ranking": 527,
+  "field_of_study": "Natural Sciences",
+  "program_url": "https://www.uni-bayreuth.de/en/bachelor/biology"
+ },
+ {
+  "university": "Ruhr University Bochum",
+  "country": "Germany",
+  "city": "Bochum",
+  "qs_ranking": 396,
+  "field_of_study": "Cybersecurity",
+  "program_url": "https://studienangebot.ruhr-uni-bochum.de/en/it-security-information-engineering/bachelor-1-subject"
+ },
+ {
+  "university": "Ruhr University Bochum",
+  "country": "Germany",
+  "city": "Bochum",
+  "qs_ranking": 396,
+  "field_of_study": "Social Sciences & Humanities",
+  "program_url": "https://studienangebot.ruhr-uni-bochum.de/en/social-sciences/bachelor-1-subject"
+ },
+ {
+  "university": "Ruhr University Bochum",
+  "country": "Germany",
+  "city": "Bochum",
+  "qs_ranking": 396,
+  "field_of_study": "Biotechnology & Life Sciences",
+  "program_url": "https://studienangebot.ruhr-uni-bochum.de/en/biochemistry/bachelor-1-subject"
+ },
+ {
+  "university": "Ruhr University Bochum",
+  "country": "Germany",
+  "city": "Bochum",
+  "qs_ranking": 396,
+  "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+  "program_url": "https://studienangebot.ruhr-uni-bochum.de/en/civil-engineering/bachelor-1-subject"
+ },
+ {
+  "university": "American University of Sharjah",
+  "country": "UAE",
+  "city": "Sharjah",
+  "qs_ranking": 347,
+  "field_of_study": "Data Science",
+  "program_url": "https://www.aus.edu/cas/department-of-mathematics-and-statistics/bachelor-of-science-in-data-science"
+ },
+ {
+  "university": "American University of Sharjah",
+  "country": "UAE",
+  "city": "Sharjah",
+  "qs_ranking": 347,
+  "field_of_study": "Biotechnology & Life Sciences",
+  "program_url": "https://www.aus.edu/cas/undergraduate-degree/bachelor-of-science-in-biology"
+ },
+ {
+  "university": "American University of Sharjah",
+  "country": "UAE",
+  "city": "Sharjah",
+  "qs_ranking": 347,
+  "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+  "program_url": "https://www.aus.edu/cen/department-of-mechanical-engineering/bachelor-of-science-in-mechanical-engineering"
+ },
+ {
+  "university": "American University of Sharjah",
+  "country": "UAE",
+  "city": "Sharjah",
+  "qs_ranking": 347,
+  "field_of_study": "Computer Science & IT",
+  "program_url": "https://www.aus.edu/cen/department-of-computer-science-and-engineering/bachelor-of-science-in-computer-science"
+ },
+ {
+  "university": "FH Aachen",
+  "country": "Germany",
+  "city": "Aachen",
+  "qs_ranking": null,
+  "field_of_study": "Renewable Energy",
+  "program_url": "https://www.fh-aachen.de/studium/studiengaenge/elektrotechnik-nachhaltige-energiesysteme-beng"
+ },
+ {
+  "university": "FH Aachen",
+  "country": "Germany",
+  "city": "Aachen",
+  "qs_ranking": null,
+  "field_of_study": "Architecture",
+  "program_url": "https://www.fh-aachen.de/en/studies/degree-programmes/architecture-ba"
+ },
+ {
+  "university": "FH Aachen",
+  "country": "Germany",
+  "city": "Aachen",
+  "qs_ranking": null,
+  "field_of_study": "Biotechnology & Life Sciences",
+  "program_url": "https://www.fh-aachen.de/studium/studiengaenge/biotechnologie-bsc"
+ },
+ {
+  "university": "FH Aachen",
+  "country": "Germany",
+  "city": "Aachen",
+  "qs_ranking": null,
+  "field_of_study": "Computer Science & IT",
+  "program_url": "https://www.fh-aachen.de/studium/studiengaenge/informatik-bsc"
+ },
+ {
+  "university": "Philipps University of Marburg",
+  "country": "Germany",
+  "city": "Marburg",
+  "qs_ranking": 801,
+  "field_of_study": "Data Science",
+  "program_url": "https://www.uni-marburg.de/en/studying/before-studying/degree-programs/bachelor/datasciencebsc"
+ },
+ {
+  "university": "Philipps University of Marburg",
+  "country": "Germany",
+  "city": "Marburg",
+  "qs_ranking": 801,
+  "field_of_study": "Biotechnology & Life Sciences",
+  "program_url": "https://www.uni-marburg.de/en/studying/before-studying/degree-programs/bachelor/biologiebsc"
+ },
+ {
+  "university": "Philipps University of Marburg",
+  "country": "Germany",
+  "city": "Marburg",
+  "qs_ranking": 801,
+  "field_of_study": "Natural Sciences",
+  "program_url": "https://www.uni-marburg.de/en/studying/degree-programs/sciences/physicsbsc"
+ },
+ {
+  "university": "Philipps University of Marburg",
+  "country": "Germany",
+  "city": "Marburg",
+  "qs_ranking": 801,
+  "field_of_study": "Computer Science & IT",
+  "program_url": "https://www.uni-marburg.de/en/studying/before-studying/degree-programs/bachelor/informatikbsc"
+ },
+ {
+  "university": "UCSI University",
+  "country": "Malaysia",
+  "city": "Kuala Lumpur",
+  "qs_ranking": 271,
+  "field_of_study": "Architecture",
+  "program_url": "https://www.ucsiuniversity.edu.my/programmes/bachelor-science-hons-architecture"
+ },
+ {
+  "university": "UCSI University",
+  "country": "Malaysia",
+  "city": "Kuala Lumpur",
+  "qs_ranking": 271,
+  "field_of_study": "Biotechnology & Life Sciences",
+  "program_url": "https://www.ucsiuniversity.edu.my/programmes/bachelor-science-honours-biotechnology"
+ },
+ {
+  "university": "UCSI University",
+  "country": "Malaysia",
+  "city": "Kuala Lumpur",
+  "qs_ranking": 271,
+  "field_of_study": "Computer Science & IT",
+  "program_url": "https://www.ucsiuniversity.edu.my/programmes/bachelor-computer-science-honours"
+ },
+ {
+  "university": "University of Augsburg",
+  "country": "Germany",
+  "city": "Augsburg",
+  "qs_ranking": null,
+  "field_of_study": "Data Science",
+  "program_url": "https://www.uni-augsburg.de/de/fakultaet/mntf/math/studium/studiengaenge/data-science/"
+ },
+ {
+  "university": "University of Augsburg",
+  "country": "Germany",
+  "city": "Augsburg",
+  "qs_ranking": null,
+  "field_of_study": "Social Sciences & Humanities",
+  "program_url": "https://www.uni-augsburg.de/en/fakultaet/philsoz/studiengange-philsoz/social-sciences-ba/"
+ },
+ {
+  "university": "University of Augsburg",
+  "country": "Germany",
+  "city": "Augsburg",
+  "qs_ranking": null,
+  "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+  "program_url": "https://www.uni-augsburg.de/de/fakultaet/mntf/mrm/studium/Ingenieurwissenschaften/"
+ },
+ {
+  "university": "University of Augsburg",
+  "country": "Germany",
+  "city": "Augsburg",
+  "qs_ranking": null,
+  "field_of_study": "Natural Sciences",
+  "program_url": "https://www.uni-augsburg.de/de/fakultaet/mntf/physik/studies/bscphysics/"
+ },
+ {
+  "university": "University of Augsburg",
+  "country": "Germany",
+  "city": "Augsburg",
+  "qs_ranking": null,
+  "field_of_study": "Computer Science & IT",
+  "program_url": "https://www.uni-augsburg.de/en/studium/studienangebot/uebersicht/computer-science-bsc/"
+ },
+ {
+  "university": "Friedrich Schiller University Jena",
+  "country": "Germany",
+  "city": "Jena",
+  "qs_ranking": 526,
+  "field_of_study": "Biotechnology & Life Sciences",
+  "program_url": "https://www.uni-jena.de/en/7165/b-sc-biochemistry-molecular-biology"
+ },
+ {
+  "university": "Friedrich Schiller University Jena",
+  "country": "Germany",
+  "city": "Jena",
+  "qs_ranking": 526,
+  "field_of_study": "Natural Sciences",
+  "program_url": "https://www.uni-jena.de/en/7255/b-sc-physics"
+ },
+ {
+  "university": "Friedrich Schiller University Jena",
+  "country": "Germany",
+  "city": "Jena",
+  "qs_ranking": 526,
+  "field_of_study": "Computer Science & IT",
+  "program_url": "https://www.uni-jena.de/en/7240/b-sc-computer-science"
+ },
+ {
+  "university": "Friedrich Schiller University Jena",
+  "country": "Germany",
+  "city": "Jena",
+  "qs_ranking": 526,
+  "field_of_study": "Business & Management",
+  "program_url": "https://www.uni-jena.de/en/7315/b-sc-economics-and-business-administration-standard-focus"
+ },
+ {
+  "university": "University of Rostock",
+  "country": "Germany",
+  "city": "Rostock",
+  "qs_ranking": 801,
+  "field_of_study": "Social Sciences & Humanities",
+  "program_url": "https://www.wsf.uni-rostock.de/studium/studiengaenge/bachelor/sozialwissenschaften-/-sozial-und-bevoelkerungswissenschaften/"
+ },
+ {
+  "university": "University of Rostock",
+  "country": "Germany",
+  "city": "Rostock",
+  "qs_ranking": 801,
+  "field_of_study": "Biotechnology & Life Sciences",
+  "program_url": "https://www.uni-rostock.de/en/medizinische-biotechnologie/"
+ },
+ {
+  "university": "University of Rostock",
+  "country": "Germany",
+  "city": "Rostock",
+  "qs_ranking": 801,
+  "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+  "program_url": "https://www.uni-rostock.de/maschinenbau/"
+ },
+ {
+  "university": "University of Rostock",
+  "country": "Germany",
+  "city": "Rostock",
+  "qs_ranking": 801,
+  "field_of_study": "Computer Science & IT",
+  "program_url": "https://www.uni-rostock.de/en/informatik-bachelor/"
+ },
+ {
+  "university": "Mines ParisTech (PSL)",
+  "country": "France",
+  "city": "Paris",
+  "qs_ranking": 56,
+  "field_of_study": "Natural Sciences",
+  "program_url": "https://www.minesparis.psl.eu/en/education/i-be3/"
+ },
+ {
+  "university": "HTW Berlin",
+  "country": "Germany",
+  "city": "Berlin",
+  "qs_ranking": null,
+  "field_of_study": "Environmental & Sustainability Studies",
+  "program_url": "https://www.htw-berlin.de/en/international/intercultural-exchange/english-language-study-programmes/environmental-engineering-and-sustainability-bachelor/"
+ },
+ {
+  "university": "HTW Berlin",
+  "country": "Germany",
+  "city": "Berlin",
+  "qs_ranking": null,
+  "field_of_study": "Biotechnology & Life Sciences",
+  "program_url": "https://lse-bachelor.htw-berlin.de/"
+ },
+ {
+  "university": "HTW Berlin",
+  "country": "Germany",
+  "city": "Berlin",
+  "qs_ranking": null,
+  "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+  "program_url": "https://mb-bachelor.htw-berlin.de/"
+ },
+ {
+  "university": "HTW Berlin",
+  "country": "Germany",
+  "city": "Berlin",
+  "qs_ranking": null,
+  "field_of_study": "Computer Science & IT",
+  "program_url": "https://www.htw-berlin.de/en/international/pathways-to-htw-berlin/english-language-study-programmes/information-technology-bachelor"
+ },
+ {
+  "university": "HTW Berlin",
+  "country": "Germany",
+  "city": "Berlin",
+  "qs_ranking": null,
+  "field_of_study": "Economics & Finance",
+  "program_url": "https://bwp.htw-berlin.de/"
+ },
+ {
+  "university": "Justus Liebig University Giessen",
+  "country": "Germany",
+  "city": "Giessen",
+  "qs_ranking": 691,
+  "field_of_study": "Data Science",
+  "program_url": "https://www.uni-giessen.de/en/study/courses/ba/data-science"
+ },
+ {
+  "university": "Justus Liebig University Giessen",
+  "country": "Germany",
+  "city": "Giessen",
+  "qs_ranking": 691,
+  "field_of_study": "Environmental & Sustainability Studies",
+  "program_url": "https://www.uni-giessen.de/en/study/courses/ba/environmental-sciences"
+ },
+ {
+  "university": "Justus Liebig University Giessen",
+  "country": "Germany",
+  "city": "Giessen",
+  "qs_ranking": 691,
+  "field_of_study": "Business & Management",
+  "program_url": "https://www.uni-giessen.de/en/faculties/f02/studies/academic-programs/bachelor-bwl/bsc-bwl-1"
+ },
+ {
+  "university": "Justus Liebig University Giessen",
+  "country": "Germany",
+  "city": "Giessen",
+  "qs_ranking": 691,
+  "field_of_study": "Economics & Finance",
+  "program_url": "https://www.uni-giessen.de/en/study/courses/ba/ecobusi/index"
+ },
+ {
+  "university": "Taylor's University",
+  "country": "Malaysia",
+  "city": "Subang Jaya",
+  "qs_ranking": 251,
+  "field_of_study": "Architecture",
+  "program_url": "https://university.taylors.edu.my/en/study/explore-all-programmes/architecture-building-and-design/undergraduate/bachelor-of-science-in-architecture.html"
+ },
+ {
+  "university": "Taylor's University",
+  "country": "Malaysia",
+  "city": "Subang Jaya",
+  "qs_ranking": 251,
+  "field_of_study": "Engineering (Mechanical/Civil/Electrical)",
+  "program_url": "https://university.taylors.edu.my/en/study/explore-all-programmes/engineering/undergraduate/bachelor-of-electrical-and-electronic-engineering.html"
+ },
+ {
+  "university": "Taylor's University",
+  "country": "Malaysia",
+  "city": "Subang Jaya",
+  "qs_ranking": 251,
+  "field_of_study": "Computer Science & IT",
+  "program_url": "https://university.taylors.edu.my/en/study/explore-all-programmes/computer-science/undergraduate/bachelor-of-computer-science.html"
+ },
+ {
+  "university": "Taylor's University",
+  "country": "Malaysia",
+  "city": "Subang Jaya",
+  "qs_ranking": 251,
+  "field_of_study": "Business & Management",
+  "program_url": "https://university.taylors.edu.my/en/study/explore-all-programmes/business/undergraduate/bachelor-of-business.html"
+ },
+ {
+  "university": "University of Tübingen",
+  "country": "Germany",
+  "city": "Tübingen",
+  "qs_ranking": 206,
+  "field_of_study": "Biomedicine",
+  "program_url": "https://uni-tuebingen.de/studium/studienangebot/verzeichnis-der-studiengaenge/detail/course/molekulare-medizin-bachelor-mono/"
+ },
+ {
+  "university": "University of Tübingen",
+  "country": "Germany",
+  "city": "Tübingen",
+  "qs_ranking": 206,
+  "field_of_study": "Nursing & Allied Health",
+  "program_url": "https://www.medizin.uni-tuebingen.de/de/Pflegestudiengang"
+ },
+ {
+  "university": "University of Twente",
+  "country": "Netherlands",
+  "city": "Enschede",
+  "qs_ranking": 199,
+  "field_of_study": "Public Health",
+  "program_url": "https://www.utwente.nl/en/education/bachelor/programmes/health-sciences/"
+ },
+ {
+  "university": "University of Twente",
+  "country": "Netherlands",
+  "city": "Enschede",
+  "qs_ranking": 199,
+  "field_of_study": "Social Sciences & Humanities",
+  "program_url": "https://www.utwente.nl/en/education/bachelor/programmes/public-administration/"
+ },
+ {
+  "university": "TU Dresden",
+  "country": "Germany",
+  "city": "Dresden",
+  "qs_ranking": 256,
+  "field_of_study": "International Relations",
+  "program_url": "https://tu-dresden.de/studium/vor-dem-studium/studienangebot/sins/sins_studiengang?autoid=439&set_language=en"
+ },
+ {
+  "university": "TU Dresden",
+  "country": "Germany",
+  "city": "Dresden",
+  "qs_ranking": 256,
+  "field_of_study": "Social Sciences & Humanities",
+  "program_url": "https://tu-dresden.de/studium/vor-dem-studium/studienangebot/sins/sins_studiengang?autoid=33389"
+ },
+ {
+  "university": "TU Dresden",
+  "country": "Germany",
+  "city": "Dresden",
+  "qs_ranking": 256,
+  "field_of_study": "Economics & Finance",
+  "program_url": "https://tu-dresden.de/bu/wirtschaft/studium/studienangebot"
+ },
+ {
+  "university": "Singapore University of Technology and Design",
+  "country": "Singapore",
+  "city": "Singapore",
+  "qs_ranking": 440,
+  "field_of_study": "Architecture",
+  "program_url": "https://asd.sutd.edu.sg/programme/bachelor-of-science-architecture-and-sustainable-design/"
+ },
+ {
+  "university": "Singapore University of Technology and Design",
+  "country": "Singapore",
+  "city": "Singapore",
+  "qs_ranking": 440,
+  "field_of_study": "Artificial Intelligence",
+  "program_url": "https://www.sutd.edu.sg/dai/education/undergraduate/curriculum/"
+ },
+ {
+  "university": "Singapore University of Technology and Design",
+  "country": "Singapore",
+  "city": "Singapore",
+  "qs_ranking": 440,
+  "field_of_study": "Cybersecurity",
+  "program_url": "https://www.sutd.edu.sg/istd/education/undergraduate/specialisation-tracks/security/"
+ },
+ {
+  "university": "Technological University Dublin",
+  "country": "Ireland",
+  "city": "Dublin",
+  "qs_ranking": 691,
+  "field_of_study": "Cybersecurity",
+  "program_url": "https://www.tudublin.ie/study/undergraduate/courses/computing-dig-forensics-and-cyber-sec-tu863/"
+ },
+ {
+  "university": "Technological University Dublin",
+  "country": "Ireland",
+  "city": "Dublin",
+  "qs_ranking": 691,
+  "field_of_study": "Data Science",
+  "program_url": "https://www.tudublin.ie/study/undergraduate/courses/data-science-and-ai/"
+ },
+ {
+  "university": "Technological University Dublin",
+  "country": "Ireland",
+  "city": "Dublin",
+  "qs_ranking": 691,
+  "field_of_study": "Architecture",
+  "program_url": "https://www.tudublin.ie/study/undergraduate/courses/architecture-tu832/"
+ },
+ {
+  "university": "Technological University Dublin",
+  "country": "Ireland",
+  "city": "Dublin",
+  "qs_ranking": 691,
+  "field_of_study": "Artificial Intelligence",
+  "program_url": "https://www.tudublin.ie/study/undergraduate/courses/computing-with-machine-learning---ai-tu862/"
+ },
+ {
+  "university": "Technological University Dublin",
+  "country": "Ireland",
+  "city": "Dublin",
+  "qs_ranking": 691,
+  "field_of_study": "Environmental & Sustainability Studies",
+  "program_url": "https://www.tudublin.ie/study/undergraduate/courses/planning-and-environmental-management-tu835/"
+ },
+ {
+  "university": "Martin Luther University Halle-Wittenberg",
+  "country": "Germany",
+  "city": "Halle",
+  "qs_ranking": 671,
+  "field_of_study": "Nursing & Allied Health",
+  "program_url": "https://studienangebot.uni-halle.de/evidenzbasierte-pflege-bachelor-240"
+ },
+ {
+  "university": "Martin Luther University Halle-Wittenberg",
+  "country": "Germany",
+  "city": "Halle",
+  "qs_ranking": 671,
+  "field_of_study": "Social Sciences & Humanities",
+  "program_url": "https://studienangebot.uni-halle.de/soziologie-bachelor-120"
+ },
+ {
+  "university": "Martin Luther University Halle-Wittenberg",
+  "country": "Germany",
+  "city": "Halle",
+  "qs_ranking": 671,
+  "field_of_study": "Medicine",
+  "program_url": "https://studienangebot.uni-halle.de/medizin-staatsexamen-ausser-lehramt"
+ },
+ {
+  "university": "Martin Luther University Halle-Wittenberg",
+  "country": "Germany",
+  "city": "Halle",
+  "qs_ranking": 671,
+  "field_of_study": "Environmental & Sustainability Studies",
+  "program_url": "https://studienangebot.uni-halle.de/management-natuerlicher-ressourcen-bachelor-180"
+ },
+ {
+  "university": "Martin Luther University Halle-Wittenberg",
+  "country": "Germany",
+  "city": "Halle",
+  "qs_ranking": 671,
+  "field_of_study": "Natural Sciences",
+  "program_url": "https://studienangebot.uni-halle.de/bioinformatik-bachelor-180"
+ },
+ {
+  "university": "Singapore Management University",
+  "country": "Singapore",
+  "city": "Singapore",
+  "qs_ranking": 545,
+  "field_of_study": "Computer Science & IT",
+  "program_url": "https://computing.smu.edu.sg/bsc-computer-science"
+ },
+ {
+  "university": "Singapore Management University",
+  "country": "Singapore",
+  "city": "Singapore",
+  "qs_ranking": 545,
+  "field_of_study": "Business & Management",
+  "program_url": "https://admissions.smu.edu.sg/programmes/lee-kong-chian-school-business/bachelor-business-management"
+ },
+ {
+  "university": "Singapore Management University",
+  "country": "Singapore",
+  "city": "Singapore",
+  "qs_ranking": 545,
+  "field_of_study": "Economics & Finance",
+  "program_url": "https://economics.smu.edu.sg/bachelor-science-economics"
+ },
+ {
+  "university": "Heinrich Heine University Düsseldorf",
+  "country": "Germany",
+  "city": "Düsseldorf",
+  "qs_ranking": 851,
+  "field_of_study": "Computer Science & IT",
+  "program_url": "https://www.cs.hhu.de/en/bachelor21"
+ },
+ {
+  "university": "Heinrich Heine University Düsseldorf",
+  "country": "Germany",
+  "city": "Düsseldorf",
+  "qs_ranking": 851,
+  "field_of_study": "Business & Management",
+  "program_url": "https://www.hhu.de/en/studies/all-courses-of-study-at-heinrich-heine-university/course-information/business-administration-bachelor"
+ },
+ {
+  "university": "Heinrich Heine University Düsseldorf",
+  "country": "Germany",
+  "city": "Düsseldorf",
+  "qs_ranking": 851,
+  "field_of_study": "Economics & Finance",
+  "program_url": "https://www.wiwi.hhu.de/en/studium/informationen-fuer-studieninteressierte/unser-studienangebot/volkswirtschaftslehre/economics-bachelor-bsc-1"
  }
 ]

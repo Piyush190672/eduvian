@@ -3995,3 +3995,31 @@ Watch-list for future sessions: US Visa Integrity Fee implementation; Campus Fra
 **Fix 2 — measured zero-match empty state (founder approved suggestion "A").** `recommendPrograms` gained an optional `diag?: MatchDiagnostics` out-param; each hard-filter `return false` became `return rej("stage")` (control flow byte-identical, tallies only). New [no-match-reason.ts](../src/lib/no-match-reason.ts) turns tallies into plain-language causes and — by re-running the matcher with ONE filter relaxed at a time — offers only relaxations that **actually** produce matches, with the real count. `structural: true` when nothing helps, and the copy then owns the data gap instead of blaming the student's filters. `/api/results/[token]?relax=<key>` gives a **read-only** preview; the stored profile is never mutated. Also fixed two pre-existing zero-match copy bugs it exposed: "previewing 0 of 0 matches" / "unlock all 0 matches" banner now suppressed, hero reads "No matches yet".
 
 **Verified:** 117/117 vitest (+7 new), tsc, next build. Live API on the real token returns structural=true, fieldPoolSize=3. Playwright 375px: structural panel renders; recoverable panel shows 2 option buttons with correct "15 matches"/"1 match" pluralisation, 127px touch targets, no overflow, and tapping re-queries `?relax=countries`.
+
+### 42.8 Round 6: UG gap-fill campaign (founder-approved $70) + merge.ts idempotency fix
+
+**merge.ts idempotency (Batch-B blocker, open since #21) — FIXED.** `extractField` matched values with `"([^"]*)"`, which stops at the first ESCAPED quote. Eight rows carry `\"` in program_name (Sciences Po BASC, IMT Atlantique, Kiel, Halle-Wittenberg, Augsburg, Nantes), so their key was a truncated prefix and they re-inserted every run. Fix: escape-aware match + `JSON.parse` so both sides compare the same unescaped value, plus a key anchor so a shorter key can't match a longer one's tail. Logic extracted to [merge-keys.ts](../scripts/verify/merge-keys.ts) with 6 regression tests including an idempotency proof over the real DB. Simulated over all 10,570 outputs: **0 spurious re-inserts (was 7-8)**.
+
+**Campaign result: +183 programs (10,728 → 10,911).** UG in the 8 target countries **725 → 903 (+178)**; 5 PG rows the seed-finder returned despite the UG prompt were kept (verified + in scope).
+
+| Country | added | | Field | added |
+|---|---|---|---|---|
+| Germany | 78 | | Social Sciences & Humanities | 22 |
+| Malaysia | 24 | | Computer Science & IT | 19 |
+| UAE | 20 | | Public Health | 17 |
+| New Zealand | 16 | | Data Science | 16 |
+| Ireland | 14 | | Engineering / Cybersecurity / Biotech | 14 each |
+| Singapore | 12 | | Business & Management | 12 |
+| France 9 · Netherlands 8 | | | Nursing & Allied Health | 10 |
+
+**THE KEY LESSON — targeting beats budget.** Raw worst-gap-first sorted PG-ONLY institutions to the top (INSEAD, HEC Paris, EDHEC, Frankfurt School) precisely BECAUSE they lack every UG field: they have no undergraduates. A 9-uni pilot burned **$3.22 for ONE seed**. Rebuilt [build-ug-gap-queue.ts](../scripts/verify/build-ug-gap-queue.ts) to evidence-gate cells: uni must (1) already teach undergrads and (2) already have a PG program in that exact field — making a gap a hole in OUR data, not in the world. Result **$0.11/seed — a 29× improvement**, 1.96 seeds/uni, and a ~90% verify pass rate (vs the usual 75%). Founder's worst-gap-first ordering preserved *within* the gated set.
+
+**Honest caveat recorded:** evidence-gating shifts the field mix. Renewable Energy got only 3 cells and IR 5, because few of these unis teach them at PG either — those fields are scarce in our DB largely because they're scarce in reality at bachelor's level.
+
+**Spend: $43.72 of the $70 approved** — pilots $5.18 (incl. the $3.22 targeting lesson) · seed-finding $27.14 (107 unis + 9 of 22 timeouts rescued by `--timeout-min 25`) · verify-cap test $0.04 · verification $11.36. **~$26 deliberately unspent** — founder instruction: no additional tasks without prior consent. Not done: 13 still-timing-out unis, second targeting tier.
+
+**New tooling:** `verify-batch.ts --budget-usd` (verify-program emits `[usage] in out` on stderr; batch prices it at Opus 4.7 $5/$25 per MTok and stops dispatching at the ceiling — proven on a real batch with a $0.02 cap). `gap-6fields-seed-finder.ts` generalised: field allowlist derives from the queue, `--level ug`, `--timeout-min`.
+
+**Ops findings:** (1) `verify-batch`'s 5-min worker watchdog did NOT fire — one child ran 1h43m on a University of Auckland page and stalled the batch tail; needs investigation. (2) 10 duplicate identities exist in the DB, ALL pre-existing (Apr/May 2026, all PG) — the documented 3-key-fold trade-off, incl. Universiti Putra Malaysia's two same-named programs from different faculties (a real pair, must NOT be deduped) and a Sciences Po BASC row that is legacy fallout of the escaped-quote bug. (3) A vitest case pinned to live data (UG IR = structurally empty) broke the moment the campaign filled that field — rewritten against a synthetic dataset.
+
+**Impact on the reported bug:** token 659b7c35's profile still returns 0, but is no longer `structural` — field pool 3 → 5, and she now gets a working one-tap route ("Remove the ranking filter → 1 match") where before the page was a dead end.

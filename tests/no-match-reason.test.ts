@@ -41,18 +41,29 @@ describe("explainNoMatches — measured empty-shortlist explanation", () => {
   });
 
   it("flags a structurally empty field instead of promising a quick fix", () => {
-    // UG International Relations: only 3 programs exist DB-wide, so no
-    // single filter change can rescue this profile.
+    // Synthetic dataset, NOT the live DB: this test asserts the *behaviour*
+    // when a field is genuinely empty. Pinning it to a real field made it
+    // fail the moment the Jul-2026 UG campaign added programs to
+    // International Relations — a data change should never break a unit test.
+    const emptyField = [
+      {
+        university_name: "Test University", country: "UK", city: "London",
+        qs_ranking: 100, program_name: "BA Something Else",
+        degree_level: "undergraduate", field_of_study: "Economics & Finance",
+        is_active: true, intake_semesters: ["fall"], annual_tuition_usd: 20000,
+      },
+    ] as unknown as Parameters<typeof explainNoMatches>[1];
+
     const profile = { ...base, intended_field: "International Relations" } as StudentProfile;
     const diag = mkDiag();
-    expect(recommendPrograms(profile, INDEXED_PROGRAMS, 2, diag)).toHaveLength(0);
+    expect(recommendPrograms(profile, emptyField, 2)).toHaveLength(0);
 
-    const ex = explainNoMatches(profile, INDEXED_PROGRAMS, diag);
+    const ex = explainNoMatches(profile, emptyField, diag);
     expect(ex.structural).toBe(true);
     expect(ex.options).toHaveLength(0);
     // Owns the data gap rather than blaming the student's filters.
     expect(ex.causes[0]).toMatch(/coverage gap|don't yet carry/i);
-    expect(ex.fieldPoolSize).toBeLessThanOrEqual(10);
+    expect(ex.fieldPoolSize).toBe(0);
   });
 
   it("never mutates the caller's profile when relaxing", () => {
