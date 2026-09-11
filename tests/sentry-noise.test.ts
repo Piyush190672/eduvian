@@ -35,6 +35,13 @@ describe("Sentry noise filters — drop third-party extension errors", () => {
     expect(matchesIgnored("Error: MetaMask extension not found")).toBe(true);
     expect(matchesIgnored("i: Failed to connect to MetaMask")).toBe(true);
   });
+
+  it("matches BOTH ResizeObserver wordings — Chrome's and Firefox/Safari's", () => {
+    expect(matchesIgnored("ResizeObserver loop limit exceeded")).toBe(true);
+    expect(
+      matchesIgnored("ResizeObserver loop completed with undelivered notifications."),
+    ).toBe(true);
+  });
 });
 
 // The real risk of a noise filter is over-reach: silently swallowing our

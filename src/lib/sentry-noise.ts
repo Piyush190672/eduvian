@@ -42,7 +42,12 @@ export const EXTENSION_DENY_URLS: RegExp[] = [
  * Kept narrow and literal — a loose pattern here silently hides real bugs.
  */
 export const NOISE_IGNORE_ERRORS: (string | RegExp)[] = [
+  // Benign browser layout chatter, not an app fault: the observer simply
+  // could not deliver every notification within one animation frame.
+  // Chrome emits the first wording, Firefox/Safari the second — we had
+  // only ever filtered the first. (11 Sep 2026)
   "ResizeObserver loop limit exceeded",
+  "ResizeObserver loop completed with undelivered notifications",
   /MetaMask extension not found/i,
   /Failed to connect to MetaMask/i,
 ];
