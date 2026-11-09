@@ -6,6 +6,7 @@ import BetaBanner from "@/components/BetaBanner";
 import SecurityNoticeBanner from "@/components/SecurityNoticeBanner";
 import IdleLogout from "@/components/IdleLogout";
 import FloatingGetStartedButton from "@/components/FloatingGetStartedButton";
+import { INLINE_POLYFILLS } from "@/lib/polyfills";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -53,6 +54,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
+      <head>
+        {/* Must run BEFORE any bundle: framer-motion calls queueMicrotask
+            bare, and on browsers lacking it the chunk dies at module-eval
+            and takes MobileNav + ChatWidget with it. See src/lib/polyfills.ts
+            (Sentry 775dbd65, 9 Nov 2026). */}
+        <script dangerouslySetInnerHTML={{ __html: INLINE_POLYFILLS }} />
+      </head>
       <body className="antialiased min-h-screen bg-[#F8FAFC] overflow-x-hidden">
         <BetaBanner />
         <SecurityNoticeBanner />
